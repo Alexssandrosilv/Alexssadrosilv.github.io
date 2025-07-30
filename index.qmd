@@ -1,5 +1,8 @@
 ---
-title: "Alexssadrosilv.github.io"
+# title: "**Análise de um Portfólio**"
+author: "Alexssandro da Silva Oliveira"
+date: "`r format(Sys.Date())`"
+lang: pt
 ---
 
 This is a Quarto website.

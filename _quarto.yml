@@ -14,6 +14,13 @@ website:
     left:
       - href: index.qmd
         text: LabEst
+    left:
+      - href: index.qmd
+        text: Análise de um Portfólio
+    left:
+      - href: index.qmd
+        text: LabEst
+        
     right:
       - icon: github
         href: https://github.com/
@@ -50,7 +57,7 @@ format:
     #css: styles.css                                                   # --> Aponta para um arquivo personalizado de estilo (opcional, se existir)
     theme: 
       light: [flatly]                                                  # -----> Tema visual para o modo claro (Flatly: moderno e claro)
-      dark: [cyborg]                                                   # -----> Tema visual para o modo escuro (Cyborg: fundo escuro e letras claras)
+      # dark: [cyborg]                                                   # -----> Tema visual para o modo escuro (Cyborg: fundo escuro e letras claras)
 
 
 
