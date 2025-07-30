@@ -14,13 +14,8 @@ website:
     left:
       - href: index.qmd
         text: LabEst
-    left:
       - href: index.qmd
         text: Análise de um Portfólio
-    left:
-      - href: index.qmd
-        text: LabEst
-        
     right:
       - icon: github
         href: https://github.com/
