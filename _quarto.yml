@@ -3,7 +3,11 @@ project:
 
 website:
   title: "A.S"
+  page-navigation: true
+  description: Descrição do site
   navbar:
+    search: true
+    collapse: false
     left:
       - text: Resumo
         href: index.qmd
@@ -17,42 +21,17 @@ website:
             href: labest-bayes.qmd
           - text: ANOVA
             href: labest-anova.qmd
-            
-website:
-  title: "A.S"
-  page-navigation: true
-  #image: opengraph.png
-  description: Descrição do site
-  navbar:
-  search: TRUE
-  #background: "red"
-  #foreground: "blue"
-  collapse: FALSE
-  left:
-    - text: Resumo
-      href: index.qmd
-    - text: LabEst - Laboratório de Estatística
-      menu:
-        - text: Análise de um Portfólio
-          href: index.qmd
-        - text: Regressão Linear
-          href: index.qmd
-        - text: Análise Bayesiana
-          href: index.qmd
-        - text: ANOVA
-          href: index.qmd
     right:
       - icon: github
         href: https://github.com/
         aria-label: GitHub
-  sidebar:   # Barra lateral
+  sidebar:
     search: true
-  
   page-footer:
     center: 
       - text: "Alexssandro da Silva Oliveira"
         href: about.qmd
-        
+
 format: 
   html:                                                                # --> Formatação específica para saída em HTML
     toc: true                                                          # --> Ativa o sumário (índice)
