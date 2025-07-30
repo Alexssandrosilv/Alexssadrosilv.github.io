@@ -33,14 +33,14 @@ website:
       href: index.qmd
     - text: LabEst - Laboratório de Estatística
       menu:
-        - text: Introdução
-          href: index.qmd.qmd
+        - text: Análise de um Portfólio
+          href: index.qmd
         - text: Regressão Linear
-          href: index.qmd.qmd
+          href: index.qmd
         - text: Análise Bayesiana
-          href: index.qmd.qmd
+          href: index.qmd
         - text: ANOVA
-          href: index.qmd.qmd
+          href: index.qmd
     right:
       - icon: github
         href: https://github.com/
