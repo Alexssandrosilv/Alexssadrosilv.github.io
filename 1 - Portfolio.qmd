@@ -27,7 +27,16 @@ knitr::opts_chunk$set(
 ```{r}
 ## Parte 1: Carregando algoritimos auxiliares
 source("pacotes.R")
+
+if (!requireNamespace("mixOmics", quietly = TRUE)) {
+  if (!requireNamespace("BiocManager", quietly = TRUE)) {
+    install.packages("BiocManager")
+  }
+  BiocManager::install("mixOmics", ask = FALSE, version = "3.18")
+}
+
 source("funcoes.R")
+
 
 ################################################################################
 #| ANÁLISE - LEITURA DOS BANCO DE DADOS 
@@ -41,7 +50,6 @@ url <- "https://docs.google.com/spreadsheets/d/1W1n8lbdkidFlFZ-3H6Hh_rAOI6Rhwxbb
 
 # --- Leitura dos dados ---
 dados <- data.frame(gsheet::gsheet2tbl(url))
-
 ```
 
 ------------------------------------------------------------------------

@@ -34,6 +34,7 @@ pacotes <- c(
   "MCMCpack",      # Modelos Bayesianos via MCMC
   
   # Testes estatísticos e normalidade
+  # "BiocManager",   # Análise multivariada
   "MVN",           # Normalidade multivariada
   "RVAideMemoire", # Testes estatísticos diversos
   "nortest",       # Testes de normalidade univariada

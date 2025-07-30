@@ -3,21 +3,44 @@ project:
 
 website:
   title: "A.S"
+  navbar:
+    left:
+      - text: Resumo
+        href: index.qmd
+      - text: LabEst - Laboratório de Estatística
+        menu:
+          - text: Introdução
+            href: labest.qmd
+          - text: Regressão Linear
+            href: labest-regressao.qmd
+          - text: Análise Bayesiana
+            href: labest-bayes.qmd
+          - text: ANOVA
+            href: labest-anova.qmd
+            
+website:
+  title: "A.S"
   page-navigation: true
   #image: opengraph.png
   description: Descrição do site
   navbar:
-    search: TRUE
-    #background: "red"
-    #foreground: "blue"
-    collapse: FALSE
-    left:
-      - href: index.qmd
-        text: Resumo
-      - href: index.qmd
-        text: LabEst - Laboratório de Estatística
-      - href: 1 - Portfolio.qmd
-        text: Portfólio
+  search: TRUE
+  #background: "red"
+  #foreground: "blue"
+  collapse: FALSE
+  left:
+    - text: Resumo
+      href: index.qmd
+    - text: LabEst - Laboratório de Estatística
+      menu:
+        - text: Introdução
+          href: index.qmd.qmd
+        - text: Regressão Linear
+          href: index.qmd.qmd
+        - text: Análise Bayesiana
+          href: index.qmd.qmd
+        - text: ANOVA
+          href: index.qmd.qmd
     right:
       - icon: github
         href: https://github.com/
