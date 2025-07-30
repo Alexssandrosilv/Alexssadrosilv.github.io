@@ -2,7 +2,7 @@ project:
   type: website
 
 website:
-  title: "Alexssadrosilv.github.io"
+  title: "A.S"
   page-navigation: true
   #image: opengraph.png
   description: Descrição do site
@@ -13,9 +13,11 @@ website:
     collapse: FALSE
     left:
       - href: index.qmd
-        text: LabEst
+        text: Resumo
       - href: index.qmd
-        text: Análise de um Portfólio
+        text: LabEst - Laboratório de Estatística
+      - href: 1 - Portfolio.qmd
+        text: Portfólio
     right:
       - icon: github
         href: https://github.com/
@@ -25,7 +27,7 @@ website:
   
   page-footer:
     center: 
-      - text: "About"
+      - text: "Alexssandro da Silva Oliveira"
         href: about.qmd
         
 format: 
