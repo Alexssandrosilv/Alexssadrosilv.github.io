@@ -30,7 +30,7 @@ website:
   page-footer:
     center: 
       - text: "Alexssandro da Silva Oliveira"
-        href: about.qmd
+        href: mailto:alexssandrosg@gmail.com
 
 format: 
   html:                                                                # --> Formatação específica para saída em HTML
