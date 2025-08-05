@@ -27,7 +27,7 @@ website:
         href: index.qmd
       - text: LabEst - Laboratório de Estatística
         menu:
-          - text: "<i class='bi bi-chevron-double-right'></i> Introdução"
+          - text: Introdução
             href: labest.qmd
           - text: Regressão Linear
             href: labest-regressao.qmd
