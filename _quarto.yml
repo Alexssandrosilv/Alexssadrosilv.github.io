@@ -9,9 +9,19 @@ website:
     search: true
     collapse: false
     left:
-      - text: "<i class='bi bi-chevron-double-right'></i> Resumo"
+      - text: "<i class='bi bi-house'></i> Resumo"
         href: index.qmd
       - text: "<i class='bi bi-chevron-double-right'></i> LabEst - Laboratório de Estatística"
+        menu:
+          - text: Introdução
+            href: labest.qmd
+          - text: Regressão Linear
+            href: labest-regressao.qmd
+          - text: Análise Bayesiana
+            href: labest-bayes.qmd
+          - text: ANOVA
+            href: labest-anova.qmd
+      - text: "<i class='bi bi-chevron-double-right'></i> Graduação"
         menu:
           - text: Introdução
             href: labest.qmd
