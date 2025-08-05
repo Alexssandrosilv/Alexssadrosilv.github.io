@@ -31,16 +31,6 @@ website:
     center: 
       - text: "Alexssandro da Silva Oliveira"
         href: mailto:alexssandrosg@gmail.com
-    right:
-      - icon: github
-        href: https://github.com/
-        aria-label: GitHub
-  sidebar:
-    search: true
-  page-footer:
-    center: 
-      - text: "Alexssandro da Silva Oliveira"
-        href: mailto:alexssandrosg@gmail.com
 
 format: 
   html:                                                                # --> Formatação específica para saída em HTML
