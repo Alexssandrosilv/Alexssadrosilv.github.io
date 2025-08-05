@@ -9,23 +9,9 @@ website:
     search: true
     collapse: false
     left:
-      - text: Resumo
-        href: index.qmd
-      - text: LabEst - Laboratório de Estatística
-project:
-  type: website
-
-website:
-  title: "A.S"
-  page-navigation: true
-  description: Descrição do site
-  navbar:
-    search: true
-    collapse: false
-    left:
       - text: "<i class='bi bi-chevron-double-right'></i> Resumo"
         href: index.qmd
-      - text: LabEst - Laboratório de Estatística
+      - text: "<i class='bi bi-chevron-double-right'></i> LabEst - Laboratório de Estatística"
         menu:
           - text: Introdução
             href: labest.qmd
