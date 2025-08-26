@@ -32,7 +32,11 @@ knitr::opts_chunk$set(
 
 
 ::: {style="text-align: justify"}
-Oi, bom dia meu Anjo 😇! Está tudo bem contigo, de verdade, me importo muito? Dormiu bem?
+Oi, bom dia meu Anjo 😇! 
+
+Está tudo bem contigo, de verdade, me importo muito? 
+
+Dormiu bem?
 :::
 
 ::: {style="height:20px;"}
@@ -93,7 +97,7 @@ Aprecio demais a confiança que tens em mim, e cada detalhe teu é precioso. Sã
 
 :::
 
-```{r}
+```{r, include= FALSE, warning = FALSE, fig.width = 6, fig.height = 6}
 
 suppressMessages(suppressWarnings({
   if (!requireNamespace("ggplot2", quietly = TRUE)) install.packages("ggplot2")
