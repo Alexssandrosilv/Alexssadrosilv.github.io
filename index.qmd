@@ -1,6 +1,48 @@
 ---
-title: "Alexssadrosilv.github.io"
+title: ""
+author: "Alexssandro da Silva Oliveira"
+date: "`r format(Sys.Date())`"
+lang: pt
 ---
+
+
+
+
+<br>
+
+::: {style="border-top: 2px solid #003366;"}
+:::
+
+<br>
+
+
+```{r setup, include=FALSE}
+# Define opções padrão para todos os chunks de código no R Markdown
+knitr::opts_chunk$set(
+  echo = TRUE,         # Oculta o código nos resultados finais do documento
+  warning = FALSE,     # Suprime mensagens de aviso (warnings)
+  message = FALSE,     # Suprime mensagens informativas (como as de carregamento de pacotes)
+  fig.width = 10,      # Define a largura padrão das figuras (em polegadas)
+  fig.height = 6,      # Define a altura padrão das figuras (em polegadas)
+  fig.align = 'center'
+)
+
+```
+
+
+<br>
+
+::: {style="border-top: 2px solid #003366;"}
+:::
+
+<br>
+
+
+## Exercícios
+
+::: {style="text-align: justify"}
+Propõe-se a solução dos exercícios propostos e posteriormente, serão expostas e discutidas as conclusões acerca dos resultados obtidos. Para a elaboração deste estudo, empregaremos a linguagem de programação [**R**](http://www.R-project.org/), voltada para a manipulação, análise e visualização de dados, bem como o software livre de ambiente de desenvolvimento integrado [**RStudio**](https://posit.co/download/rstudio-desktop/).
+:::
 
 This is a Quarto website.
 
@@ -9,3 +51,15 @@ To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
 ```{r}
 1 + 1
 ```
+
+
+
+**Conclusão:** Ao comparar as distribuições a posteriori para os grupos $\alpha$: Vacina e $\delta$: Placebo, observou-se que os indivíduos que receberam a vacina apresentam uma probabilidade **inferior** de infecção pela COVID-19 em relação aos que receberam o placebo. Visualmente, percebe-se que essa probabilidade é cerca de 1% menor para o grupo vacinado. Ainda assim, essa diferença pode se mostrar relevante a depender do contexto, considerando o tamanho amostral relativamente grande do estudo, com aproximadamente 18 mil e 200 pessoas.
+:::
+
+<br>
+
+::: {style="border-top: 2px solid #003366;"}
+:::
+
+<br>
