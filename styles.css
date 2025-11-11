@@ -1,0 +1,15 @@
+/* style.css */
+
+body {
+  /* Estes comandos garantem que o fundo se comporte bem:
+    - A transição seja suave (1.2 segundos).
+    - A imagem de fundo fique "fixa" e não role com a página.
+    - A imagem se repita, caso seja um padrão (pattern).
+  */
+  background-attachment: fixed;
+  background-repeat: repeat;
+  background-size: auto; /* 'auto' é melhor para padrões */
+  
+  /* A mágica da transição suave */
+  transition: background-image 1.2s ease-in-out;
+}
