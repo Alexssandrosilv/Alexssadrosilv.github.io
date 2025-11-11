@@ -7,10 +7,10 @@
     "text": "About this site\n\n1 + 1\n\n[1] 2"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Alexssadrosilv.github.io",
-    "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2"
+    "objectID": "index.html#exercícios",
+    "href": "index.html#exercícios",
+    "title": "",
+    "section": "Exercícios",
+    "text": "Exercícios\n\nPropõe-se a solução dos exercícios propostos e posteriormente, serão expostas e discutidas as conclusões acerca dos resultados obtidos. Para a elaboração deste estudo, empregaremos a linguagem de programação R, voltada para a manipulação, análise e visualização de dados, bem como o software livre de ambiente de desenvolvimento integrado RStudio.\n\nThis is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2\n\n\nConclusão: Ao comparar as distribuições a posteriori para os grupos \\(\\alpha\\): Vacina e \\(\\delta\\): Placebo, observou-se que os indivíduos que receberam a vacina apresentam uma probabilidade inferior de infecção pela COVID-19 em relação aos que receberam o placebo. Visualmente, percebe-se que essa probabilidade é cerca de 1% menor para o grupo vacinado. Ainda assim, essa diferença pode se mostrar relevante a depender do contexto, considerando o tamanho amostral relativamente grande do estudo, com aproximadamente 18 mil e 200 pessoas. :::"
   }
 ]
