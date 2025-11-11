@@ -5,9 +5,6 @@ date: "`r format(Sys.Date())`"
 lang: pt
 ---
 
-
-
-
 <br>
 
 ::: {style="border-top: 2px solid #003366;"}
@@ -28,14 +25,6 @@ knitr::opts_chunk$set(
 )
 
 ```
-
-
-<br>
-
-::: {style="border-top: 2px solid #003366;"}
-:::
-
-<br>
 
 
 ## Exercícios

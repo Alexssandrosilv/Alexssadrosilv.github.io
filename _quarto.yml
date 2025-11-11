@@ -70,5 +70,5 @@ format:
       light: [flatly]                                                  # -----> Tema visual para o modo claro (Flatly: moderno e claro)
       # dark: [cyborg]                                                   # -----> Tema visual para o modo escuro (Cyborg: fundo escuro e letras claras)
     # --- ADICIONE ESTAS DUAS LINHAS ---
-    css: style.css
+    css: styles.css
     include-after-body: scripts.js
