@@ -66,8 +66,8 @@ format:
     #highlight: espresso                                                # --> Tema de cores para realce de código (sintaxe)
     #smooth_scroll: TRUE                                                # --> Ativa rolagem suave
     #css: styles.css                                                   # --> Aponta para um arquivo personalizado de estilo (opcional, se existir)
-    # theme: 
-    #   light: [flatly]                                                  # -----> Tema visual para o modo claro (Flatly: moderno e claro)
+    theme:
+      light: [flatly]                                                  # -----> Tema visual para o modo claro (Flatly: moderno e claro)
       # dark: [cyborg]                                                   # -----> Tema visual para o modo escuro (Cyborg: fundo escuro e letras claras)
     # --- ADICIONE ESTAS DUAS LINHAS ---
     css: styles.css
