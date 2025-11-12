@@ -1,21 +1,49 @@
 /* styles.css */
 
+/* PARTE 1: O FUNDO (O que você já tem) */
 body {
   /* Define a imagem de fundo */
   background-image: url("images/fundo.png"); 
 
   /* Ajusta como a imagem preenche o fundo */
-  /* cover: faz a imagem cobrir toda a área, cortando se necessário */
-  /* contain: mostra a imagem inteira, mas pode deixar espaço em branco */
-  /* auto: usa o tamanho original da imagem */
-  background-size: cover; /* Ou 'contain', 'auto', '100% 100%' */
+  background-size: cover;
 
   /* Opcional: faz a imagem ficar fixa e não rolar com o conteúdo */
   background-attachment: fixed;
 
   /* Opcional: se a imagem for pequena e você quiser que ela se repita */
-  background-repeat: no-repeat; /* Ou 'repeat', 'repeat-x', 'repeat-y' */
+  background-repeat: no-repeat;
 
   /* Define a posição inicial da imagem (centro, topo, etc.) */
-  background-position: center center; /* Centraliza a imagem */
+  background-position: center center;
+}
+
+
+/* PARTE 2: A "FOLHA" DE CONTEÚDO BRANCA (Adicione isto) */
+main#quarto-content {
+  
+  /* 1. Define o tema branco para o conteúdo */
+  background-color: white; 
+  
+  /* 2. Cria as "bordas laterais" (margens) */
+  /* Define uma largura máxima para o conteúdo não ir de ponta a ponta */
+  max-width: 900px;  /* Pode ajustar este valor */
+  
+  /* Isto centra o bloco de conteúdo na página */
+  margin-left: auto;
+  margin-right: auto;
+  
+  /* 3. As "vordas nao tao fortes" (sombra e cantos) */
+  /* Uma sombra muito suave para dar profundidade */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+  
+  /* Cantos arredondados para um look mais suave */
+  border-radius: 8px;
+  
+  /* 4. Espaçamento interno (para o texto não colar nas bordas) */
+  padding: 2.5em; /* Pode ajustar este valor */
+  
+  /* 5. Espaçamento externo (para "descolar" do topo e rodapé) */
+  margin-top: 3em;
+  margin-bottom: 3em;
 }
