@@ -3,7 +3,7 @@
 /* PARTE 1: O FUNDO (O que você já tem) */
 body {
   /* Define a imagem de fundo */
-  background-image: url("images/fundo.png"); 
+  background-image: url("images/2.png"); 
 
   /* Ajusta como a imagem preenche o fundo */
   background-size: cover;
@@ -23,7 +23,7 @@ body {
 main#quarto-content {
   
   /* 1. Define o tema branco para o conteúdo */
-  background-color: white; 
+  background-color: black; 
   
   /* 2. Cria as "bordas laterais" (margens) */
   /* Define uma largura máxima para o conteúdo não ir de ponta a ponta */
