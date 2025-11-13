@@ -3,7 +3,7 @@
 /* PARTE 1: O FUNDO (O que você já tem) */
 body {
   /* Define a imagem de fundo */
-  background-image: url("images/2.png"); 
+/*  background-image: url("images/2.png"); 
 
   /* Ajusta como a imagem preenche o fundo */
   background-size: cover;
