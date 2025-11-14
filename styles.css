@@ -1,114 +1,168 @@
-/* Importa as fontes definidas no _quarto.yml (backup) */
+/* Importa as fontes definidas no _quarto.yml */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Fira+Code&display=swap');
 
 /* ================================================
-PALETA DE CORES (Minimalista e Profissional)
+PALETA DE CORES (Inspirada na Imagem 1)
 ================================================
 */
 :root {
-  --cor-fundo: #f8f9fa;       /* Um cinza muito claro (quase branco) */
-  --cor-pagina: #ffffff;    /* Branco puro para a "folha" de conteúdo */
-  --cor-texto: #333333;      /* Cinza chumbo (muito mais suave que preto) */
-  --cor-destaque: #005f73;   /* Um azul-petróleo sóbrio e acadêmico */
-  --cor-borda: #dee2e6;      /* Cinza claro para bordas e linhas */
-  --cor-code-fundo: #f1f3f5; /* Fundo suave para blocos de código */
+  --cor-fundo-site: #e6e6e6;        /* Fundo geral do site (cinza claro) */
+  --cor-conteudo: #ffffff;         /* Fundo do bloco principal de conteúdo (branco) */
+  --cor-texto-principal: #333333;  /* Texto principal (cinza escuro) */
+  --cor-texto-secundario: #666666; /* Texto secundário ou detalhes */
+  --cor-destaque: #007bff;         /* Azul padrão para links e destaques (pode ajustar) */
+  --cor-bordas: #cccccc;          /* Bordas e linhas sutis */
+  --cor-code-fundo: #f0f0f0;       /* Fundo mais claro para blocos de código */
+  --cor-code-texto: #444444;       /* Cor de texto para código */
 }
 
 /* ================================================
-ESTRUTURA PRINCIPAL (O "Esboço")
+ESTRUTURA PRINCIPAL (O Layout da Imagem 1)
 ================================================
 */
 
-/* 1. O Fundo (Body) */
 body {
-  background-color: var(--cor-fundo);
-  font-family: 'Inter', sans-serif; /* Fonte limpa para texto */
-  color: var(--cor-texto);
-  line-height: 1.7; /* Espaçamento entre linhas confortável */
+  background-color: var(--cor-fundo-site);
+  font-family: 'Inter', sans-serif;
+  color: var(--cor-texto-principal);
+  line-height: 1.6;
+  margin: 0; /* Remove margens padrão do body */
+  padding: 0;
 }
 
-/* 2. O Conteúdo Principal (A "Folha de Papel") */
-/* Substitui o seu main#quarto-content com fundo preto */
+/* O Conteúdo Principal (A "folha" centralizada) */
 main#quarto-content {
-  background-color: var(--cor-pagina);
-  max-width: 900px;
-  
-  /* Centraliza a folha na tela */
-  margin-left: auto;
-  margin-right: auto;
-  
-  /* Descola do topo e do rodapé */
-  margin-top: 2em;
-  margin-bottom: 2em;
-  
-  /* Espaçamento interno (para o texto não colar nas bordas) */
-  padding: 2.5em 3em;
-  
-  /* Cantos arredondados e sombra suave (elegância) */
-  border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-  border: 1px solid var(--cor-borda);
+  background-color: var(--cor-conteudo);
+  max-width: 1000px; /* Mais largo, como na imagem */
+  width: 90%; /* Ocupa 90% da largura, deixando espaço nas laterais */
+  margin: 40px auto; /* Centraliza vertical e horizontalmente, com mais espaço no topo/base */
+  padding: 3em 4em; /* Mais espaçamento interno */
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); /* Sombra mais pronunciada */
+  border-radius: 10px; /* Cantos levemente mais arredondados */
 }
 
-/* 3. Barra de Navegação */
-/* Garante que a Navbar combine com o estilo */
+/* Barra de Navegação (Navbar) */
 .navbar {
-  background-color: var(--cor-pagina) !important;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-  border-bottom: 1px solid var(--cor-borda);
+  background-color: var(--cor-conteudo) !important; /* Branco para a navbar */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); /* Sombra suave */
+  border-bottom: 1px solid var(--cor-bordas);
+  padding: 1rem 0; /* Espaçamento interno */
+  position: sticky; /* Fica fixo no topo ao rolar */
+  top: 0;
+  z-index: 1000; /* Garante que fique acima de outros elementos */
+  display: flex; /* Para centralizar o conteúdo da navbar */
+  justify-content: center; /* Centraliza a própria barra de navegação */
 }
 
+/* Conteúdo da Navbar (links) */
+.navbar-nav {
+    width: 100%;
+    max-width: 1000px; /* Alinha com a largura do main#quarto-content */
+    display: flex;
+    justify-content: flex-start; /* Alinha os itens à esquerda, pode ser 'space-around' para espalhar */
+    margin: 0 auto; /* Centraliza o conteúdo dentro da navbar */
+}
+
+/* Links da Navbar */
+.navbar-nav .nav-link {
+  color: var(--cor-texto-principal) !important;
+  font-weight: 700;
+  margin-right: 1.5em; /* Mais espaço entre os links */
+  padding: 0.5em 0.8em;
+  border-radius: 5px;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  background-color: var(--cor-fundo-site); /* Fundo sutil ao passar o mouse ou ativo */
+  color: var(--cor-destaque) !important;
+}
+
+/* Título do Site na Navbar */
+.navbar-brand {
+    font-weight: 700;
+    color: var(--cor-destaque) !important;
+    font-size: 1.4em;
+    margin-right: 2em; /* Mais espaço entre o título e os links */
+}
 
 /* ================================================
-TIPOGRAFIA E SEPARAÇÕES (A "Organização")
+TIPOGRAFIA E SEPARAÇÕES
 ================================================
 */
 
-/* 4. Títulos (h1, h2, h3) */
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Inter', sans-serif;
-  font-weight: 700; /* Negrito */
-  color: var(--cor-destaque);
+  font-weight: 700;
+  color: var(--cor-texto-principal); /* Títulos em cinza escuro */
+  margin-top: 1.8em;
+  margin-bottom: 0.8em;
+  line-height: 1.2;
 }
 
-/* 5. Separação de Seções (O que você pediu) */
-/* Adiciona uma linha sutil abaixo de cada seção principal (h2) */
-h2 {
-  border-bottom: 2px solid var(--cor-borda);
-  padding-bottom: 8px; /* Espaçamento entre o texto e a linha */
-  margin-top: 2em; /* Mais espaço acima de uma nova seção */
-}
+h1 { font-size: 2.5em; }
+h2 { font-size: 2em; border-bottom: 1px solid var(--cor-bordas); padding-bottom: 0.5em; margin-top: 2.5em; }
+h3 { font-size: 1.5em; }
 
-/* 6. Links */
 a {
   color: var(--cor-destaque);
-  text-decoration: none; /* Remove o sublinhado padrão */
+  text-decoration: none;
   font-weight: 700;
 }
 a:hover {
-  text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+  text-decoration: underline;
+}
+
+p {
+  margin-bottom: 1em;
 }
 
 /* ================================================
-CÓDIGO E LATEX (O "Recheio" Estatístico)
+CÓDIGO E LATEX
 ================================================
 */
 
-/* 7. Blocos de Código (para R, Python, etc.) */
 pre {
-  font-family: 'Fira Code', monospace; /* Fonte profissional para código */
+  font-family: 'Fira Code', monospace;
   background-color: var(--cor-code-fundo);
-  border-radius: 5px;
-  padding: 1em;
-  overflow-x: auto; /* Garante a rolagem horizontal se o código for longo */
-  border: 1px solid #dbe1e5;
+  color: var(--cor-code-texto);
+  border-radius: 6px;
+  padding: 1.2em;
+  overflow-x: auto;
+  border: 1px solid var(--cor-bordas);
 }
 
-/* 8. Código "inline" (ex: `funcao()`) */
 code {
   font-family: 'Fira Code', monospace;
   background-color: var(--cor-code-fundo);
+  color: var(--cor-code-texto);
   padding: 0.2em 0.4em;
   border-radius: 4px;
   font-size: 0.9em;
+}
+
+/* Footer */
+.quarto-page-footer {
+  background-color: var(--cor-fundo-site); /* Fundo do rodapé */
+  color: var(--cor-texto-secundario);
+  padding: 2em 0;
+  text-align: center;
+  border-top: 1px solid var(--cor-bordas);
+}
+
+.quarto-page-footer .footer-text {
+  max-width: 1000px; /* Alinha com o conteúdo principal */
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between; /* Espalha o texto à esquerda e centro */
+  padding: 0 4em; /* Padding para alinhar com o conteúdo do main */
+}
+
+.quarto-page-footer a {
+  color: var(--cor-texto-secundario);
+  font-weight: normal;
+}
+.quarto-page-footer a:hover {
+  color: var(--cor-destaque);
+  text-decoration: none;
 }
