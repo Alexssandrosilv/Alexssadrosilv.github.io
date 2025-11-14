@@ -63,8 +63,8 @@ format:
 execute:
   freeze: auto # "Congela" os resultados dos R chunks
   
-website:
-  title: "Portfólio"
+# website:
+#   title: "Portfólio"
 
 # website:
 #   title: ""
