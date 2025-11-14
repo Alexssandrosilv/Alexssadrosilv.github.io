@@ -1,16 +1,64 @@
 project:
   type: website
+  # output-dir: docs # Pasta para o GitHub Pages
 
 website:
-  title: ""
-  page-navigation: true
-  description: Descrição do site
+  title: "Portfólio"
+  
+# 1. Barra de Navegação (Navbar)
   navbar:
     search: true
     collapse: false
     left:
-      - text: "<i class='bi bi-house'></i> Home"
-        href: index.qmd
+      - href: index.qmd
+        text: Início
+      - href: about.qmd
+        text: Sobre Nós
+  
+  # 2. Configuração para DOIS autores (Alexssandro e Leticia)
+  author:
+    - name: "Alexssandro da Silva Oliveira"
+      # url: "https://www.linkedin.com/in/seu-linkedin-aqui"
+      # affiliation: "Universidade Federal do Amazonas (UFAM)"
+    - name: "Leticia Haifa"
+      # url: "https://www.linkedin.com/in/linkedin-dela-aqui"
+      # affiliation: "Universidade Federal do Amazonas (UFAM)"
+
+  page-footer:
+    center: 
+      - text: "E pelas primeiras vezes, o que passou, passou... comece de novo."
+        href: mailto:alexssandrosg@gmail.com
+      # - text: "Alexssandro da Silva Oliveira"
+      #   href: mailto:alexssandrosg@gmail.com
+
+# Formato de saída (HTML)
+format:
+  html:
+    theme: none # Removemos o tema padrão para usar 100% o nosso CSS
+    css: styles.css
+    
+    # 3. Importa as fontes profissionais do Google
+    include-in-header:
+      - text: |
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+          <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Fira+Code&display=swap" rel="stylesheet">
+
+# Configuração do R
+execute:
+  freeze: auto # "Congela" os resultados dos R chunks para o site renderizar mais rápido
+
+
+# website:
+#   title: ""
+#   page-navigation: true
+#   description: Descrição do site
+#   navbar:
+#     search: true
+#     collapse: false
+#     left:
+#       - text: "<i class='bi bi-house'></i> Home"
+#         href: index.qmd
       # - text: "<i class='bi bi-chevron-double-right'></i> LabEst - Laboratório de Estatística"
       #   menu:
       #     - text: Introdução
@@ -36,16 +84,16 @@ website:
     #     href: https://github.com/
     #     aria-label: GitHub
   # sidebar:
-  #   search: true
-  page-footer:
-    center: 
-      - text: "E pelas primeiras vezes, o que passou, passou... comece de novo."
-        href: mailto:alexssandrosg@gmail.com
-      # - text: "Alexssandro da Silva Oliveira"
-      #   href: mailto:alexssandrosg@gmail.com
-
-format: 
-  html:                                                                # --> Formatação específica para saída em HTML
+#   #   search: true
+#   page-footer:
+#     center: 
+#       - text: "E pelas primeiras vezes, o que passou, passou... comece de novo."
+#         href: mailto:alexssandrosg@gmail.com
+#       # - text: "Alexssandro da Silva Oliveira"
+#       #   href: mailto:alexssandrosg@gmail.com
+# 
+# format: 
+#   html:                                                                # --> Formatação específica para saída em HTML
     # toc: true                                                          # --> Ativa o sumário (índice)
     #toc-expand: 3                                                      # --> Define quantos níveis do sumário aparecem abertos por padrão
     # toc-title: Sumário                                                 # --> Título exibido no topo do sumário
@@ -55,20 +103,20 @@ format:
     # toc-location: right                                                # --> Coloca o sumário à direita do conteúdo
     # number-sections: true                                              # --> Numera automaticamente as seções e subseções
     # code-fold: true                                                    # --> Código-fonte recolhido por padrão (com opção de expandir)
-    fontsize: 0.9em                                                    # --> Define o tamanho da fonte como 90% do padrão
-    #linestretch: 1.7                                                   # --> Controla o espaçamento entre linhas
-    #max-width: null                                                  # --> Define largura máxima MUITO ampla (pode ser ajustado para ~80em, se desejar)
-    margin-left: 0em                                                   # --> Margem esquerda do conteúdo (0 = sem margem)
-    margin-right: 0em                                                  # --> Margem direita do conteúdo (0 = sem margem)
-    margin-bottom: 0em                                                 # --> Margem inferior (sem espaço extra abaixo)
-    margin-top: -1em                                                   # --> Margem superior negativa (levemente "sobe" o conteúdo)
-    #df_print: paged                                                    # --> Impressão paginada de dataframes, se ativado
-    #highlight: espresso                                                # --> Tema de cores para realce de código (sintaxe)
-    #smooth_scroll: TRUE                                                # --> Ativa rolagem suave
-    #css: styles.css                                                   # --> Aponta para um arquivo personalizado de estilo (opcional, se existir)
-    theme:
-      light: [flatly]                                                  # -----> Tema visual para o modo claro (Flatly: moderno e claro)
-      # dark: [cyborg]                                                   # -----> Tema visual para o modo escuro (Cyborg: fundo escuro e letras claras)
-    # --- ADICIONE ESTAS DUAS LINHAS ---
-    css: styles.css
-    include-after-body: scripts.js
+    # fontsize: 0.9em                                                    # --> Define o tamanho da fonte como 90% do padrão
+    # #linestretch: 1.7                                                   # --> Controla o espaçamento entre linhas
+    # #max-width: null                                                  # --> Define largura máxima MUITO ampla (pode ser ajustado para ~80em, se desejar)
+    # margin-left: 0em                                                   # --> Margem esquerda do conteúdo (0 = sem margem)
+    # margin-right: 0em                                                  # --> Margem direita do conteúdo (0 = sem margem)
+    # margin-bottom: 0em                                                 # --> Margem inferior (sem espaço extra abaixo)
+    # margin-top: -1em                                                   # --> Margem superior negativa (levemente "sobe" o conteúdo)
+    # #df_print: paged                                                    # --> Impressão paginada de dataframes, se ativado
+    # #highlight: espresso                                                # --> Tema de cores para realce de código (sintaxe)
+    # #smooth_scroll: TRUE                                                # --> Ativa rolagem suave
+    # #css: styles.css                                                   # --> Aponta para um arquivo personalizado de estilo (opcional, se existir)
+    # theme:
+    #   light: [flatly]                                                  # -----> Tema visual para o modo claro (Flatly: moderno e claro)
+    #   # dark: [cyborg]                                                   # -----> Tema visual para o modo escuro (Cyborg: fundo escuro e letras claras)
+    # # --- ADICIONE ESTAS DUAS LINHAS ---
+    # css: styles.css
+    # include-after-body: scripts.js

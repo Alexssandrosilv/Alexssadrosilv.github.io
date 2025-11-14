@@ -30,6 +30,14 @@ knitr::opts_chunk$set(
 
 ## Exercícios
 
+## 📊 Bem-vindo(a) ao nosso Portfólio de Estatística
+
+::: {style="text-align: justify"}
+Olá! Nós somos **Alexssandro da Silva Oliveira** e **Leticia Haifa**, graduandos em Estatística. Este espaço é dedicado a apresentar nossos principais projetos, estudos de caso e análises.
+
+Navegue pelos nossos projetos para ver aplicações de Modelos Lineares Dinâmicos, Inferência Bayesiana, Séries Temporais e Métodos Não Paramétricos.
+:::
+
 ::: {style="text-align: justify"}
 Propõe-se a solução dos exercícios propostos e posteriormente, serão expostas e discutidas as conclusões acerca dos resultados obtidos. Para a elaboração deste estudo, empregaremos a linguagem de programação [**R**](http://www.R-project.org/), voltada para a manipulação, análise e visualização de dados, bem como o software livre de ambiente de desenvolvimento integrado [**RStudio**](https://posit.co/download/rstudio-desktop/).
 :::
@@ -40,7 +48,14 @@ To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
 
 ```{r}
 x = 1 + 1
+
+# Exemplo de chunk de código R
+# A fonte 'Fira Code' e o fundo suave vêm do styles.css
+x <- 1 + 1
+print(paste("O resultado é:", x))
+
 ```
+
 
 
 
