@@ -2,20 +2,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Fira+Code&display=swap');
 
 /* ================================================
-PALETA DE CORES (Opção 2)
+PALETA DE CORES (Baseada nas suas imagens)
 ================================================
 */
 :root {
-  --cor-fundo-site: #f0f0f0;       /* Fundo do site (cinza claro) */
+  /* Cores do Layout (Baseado na paleta "Earthy") */
+  --cor-fundo-site: #f4f3ef;       /* Bege muito claro (do "Earthy Forest Hues") */
   --cor-pagina: #ffffff;           /* Branco puro para a "folha" de conteúdo */
-  --cor-texto: #333333;             /* Cinza chumbo (texto principal) */
-  --cor-borda: #dee2e6;             /* Cinza claro para bordas e linhas */
-  --cor-code-fundo: #f1f3f5;      /* Fundo suave para blocos de código */
+  --cor-texto: #2f3d30;             /* Verde muito escuro (para texto principal) */
+  --cor-borda: #dcd9c6;             /* Bege/Cinza claro para bordas */
+  --cor-code-fundo: #f8f9fa;      /* Fundo de código (cinza bem claro) */
   
-  /* Cores da Navbar */
-  --cor-navbar-fundo: #1a1a1a;      /* Preto/Grafite */
-  --cor-navbar-destaque: #17a2b8;  /* Azul turquesa para borda e links ativos */
-  --cor-navbar-texto: #f8f8f8;      /* Branco suave para texto dos links */
+  /* Cores da Navbar (Como você pediu) */
+  --cor-navbar-fundo: #04151f;      /* O seu Azul-Noite/Preto */
+  --cor-navbar-destaque: #a4b08f;  /* Verde claro da paleta (para a borda) */
+  --cor-navbar-texto: #dcd9c6;      /* Bege da paleta (para texto dos links) */
 }
 
 /* ================================================
@@ -25,7 +26,7 @@ ESTRUTURA PRINCIPAL
 
 /* 1. O Fundo (Body) */
 body {
-  background-color: var(--cor-fundo-site); /* Fundo cinza claro */
+  background-color: var(--cor-fundo-site); /* Fundo Bege Claro */
   font-family: 'Inter', sans-serif;
   color: var(--cor-texto);
   line-height: 1.7;
@@ -35,21 +36,24 @@ body {
 
 /* 2. O Conteúdo Principal (A "Folha de Papel") */
 main#quarto-content {
-  background-color: var(--cor-pagina);
-  max-width: 1000px; /* Mais largo */
+  background-color: var(--cor-pagina); /* Conteúdo Branco */
+  max-width: 1000px;
   width: 90%;
-  margin: 40px auto; /* Centraliza */
+  margin: 40px auto; /* Centraliza com espaço */
   padding: 3em 4em;
   border-radius: 8px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
   border: 1px solid var(--cor-borda);
 }
 
-/* 3. Barra de Navegação (Navbar) - OPÇÃO 2 */
+/* ================================================
+BARRA DE NAVEGAÇÃO (Com seu novo estilo)
+================================================
+*/
 .navbar {
-  background-color: var(--cor-navbar-fundo) !important;
+  background-color: var(--cor-navbar-fundo) !important; /* Seu Azul-Noite */
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-  border-bottom: 3px solid var(--cor-navbar-destaque); /* Borda azul turquesa */
+  border-bottom: 3px solid var(--cor-navbar-destaque); /* Borda Verde Claro */
   padding: 1rem 0;
   position: sticky;
   top: 0;
@@ -69,24 +73,30 @@ main#quarto-content {
 
 /* Links da Navbar (texto claro) */
 .navbar-nav .nav-link {
-  color: var(--cor-navbar-texto) !important;
+  color: var(--cor-navbar-texto) !important; /* Texto Bege */
   font-weight: 700;
   margin-right: 1.5em;
   padding: 0.5em 0.8em;
   border-radius: 5px;
-  transition: all 0.3s ease; /* Transição suave */
+  transition: all 0.2s ease-in-out; /* Transição suave */
+  background-color: transparent !important; /* Garante que não haja fundo */
 }
 
+/* * A MUDANÇA DO HOVER (Como você pediu)
+ * Ao passar o mouse ou estar ativo:
+ * 1. O fundo continua transparente.
+ * 2. A cor do texto muda para o verde-destaque.
+ */
 .navbar-nav .nav-link:hover,
 .navbar-nav .nav-link.active {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: var(--cor-navbar-destaque) !important; /* Cor do link ativo/hover */
+  background-color: transparent !important; /* Sem "caixa" ao redor */
+  color: var(--cor-navbar-destaque) !important; /* Apenas o texto muda de cor */
 }
 
 /* Título do Site na Navbar */
 .navbar-brand {
     font-weight: 700;
-    color: var(--cor-navbar-destaque) !important; /* Título em azul turquesa */
+    color: var(--cor-navbar-destaque) !important; /* Título em Verde Claro */
     font-size: 1.4em;
     margin-right: 2em;
 }
@@ -100,7 +110,7 @@ TIPOGRAFIA E SEPARAÇÕES
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Inter', sans-serif;
   font-weight: 700;
-  color: var(--cor-texto);
+  color: var(--cor-texto); /* Títulos em verde escuro */
 }
 
 h2 {
@@ -109,8 +119,9 @@ h2 {
   margin-top: 2em;
 }
 
+/* Links no corpo do texto */
 a {
-  color: var(--cor-navbar-destaque); /* Links no texto principal com o mesmo azul */
+  color: var(--cor-navbar-destaque); /* Links no texto principal com o verde */
   text-decoration: none;
   font-weight: 700;
 }
@@ -129,7 +140,7 @@ pre {
   border-radius: 5px;
   padding: 1em;
   overflow-x: auto;
-  border: 1px solid #dbe1e5;
+  border: 1px solid var(--cor-borda);
 }
 
 code {
@@ -142,7 +153,7 @@ code {
 
 /* Footer (Rodapé) */
 .quarto-page-footer {
-  background-color: var(--cor-fundo-site);
+  background-color: var(--cor-fundo-site); /* Rodapé com a cor do fundo do site */
   color: #777; /* Texto do rodapé mais sutil */
   padding: 2em 0;
   text-align: center;
