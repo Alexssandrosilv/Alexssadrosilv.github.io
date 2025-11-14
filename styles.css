@@ -1,49 +1,114 @@
-/* styles.css */
+/* Importa as fontes definidas no _quarto.yml (backup) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Fira+Code&display=swap');
 
-/* PARTE 1: O FUNDO (O que você já tem) */
-body {
-  /* Define a imagem de fundo */
-/*  background-image: url("images/2.png"); 
-
-  /* Ajusta como a imagem preenche o fundo */
-  background-size: cover;
-
-  /* Opcional: faz a imagem ficar fixa e não rolar com o conteúdo */
-  background-attachment: fixed;
-
-  /* Opcional: se a imagem for pequena e você quiser que ela se repita */
-  background-repeat: no-repeat;
-
-  /* Define a posição inicial da imagem (centro, topo, etc.) */
-  background-position: center center;
+/* ================================================
+PALETA DE CORES (Minimalista e Profissional)
+================================================
+*/
+:root {
+  --cor-fundo: #f8f9fa;       /* Um cinza muito claro (quase branco) */
+  --cor-pagina: #ffffff;    /* Branco puro para a "folha" de conteúdo */
+  --cor-texto: #333333;      /* Cinza chumbo (muito mais suave que preto) */
+  --cor-destaque: #005f73;   /* Um azul-petróleo sóbrio e acadêmico */
+  --cor-borda: #dee2e6;      /* Cinza claro para bordas e linhas */
+  --cor-code-fundo: #f1f3f5; /* Fundo suave para blocos de código */
 }
 
+/* ================================================
+ESTRUTURA PRINCIPAL (O "Esboço")
+================================================
+*/
 
-/* PARTE 2: A "FOLHA" DE CONTEÚDO BRANCA (Adicione isto) */
+/* 1. O Fundo (Body) */
+body {
+  background-color: var(--cor-fundo);
+  font-family: 'Inter', sans-serif; /* Fonte limpa para texto */
+  color: var(--cor-texto);
+  line-height: 1.7; /* Espaçamento entre linhas confortável */
+}
+
+/* 2. O Conteúdo Principal (A "Folha de Papel") */
+/* Substitui o seu main#quarto-content com fundo preto */
 main#quarto-content {
+  background-color: var(--cor-pagina);
+  max-width: 900px;
   
-  /* 1. Define o tema branco para o conteúdo */
-  background-color: black; 
-  
-  /* 2. Cria as "bordas laterais" (margens) */
-  /* Define uma largura máxima para o conteúdo não ir de ponta a ponta */
-  max-width: 900px;  /* Pode ajustar este valor */
-  
-  /* Isto centra o bloco de conteúdo na página */
+  /* Centraliza a folha na tela */
   margin-left: auto;
   margin-right: auto;
   
-  /* 3. As "vordas nao tao fortes" (sombra e cantos) */
-  /* Uma sombra muito suave para dar profundidade */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+  /* Descola do topo e do rodapé */
+  margin-top: 2em;
+  margin-bottom: 2em;
   
-  /* Cantos arredondados para um look mais suave */
+  /* Espaçamento interno (para o texto não colar nas bordas) */
+  padding: 2.5em 3em;
+  
+  /* Cantos arredondados e sombra suave (elegância) */
   border-radius: 8px;
-  
-  /* 4. Espaçamento interno (para o texto não colar nas bordas) */
-  padding: 2.5em; /* Pode ajustar este valor */
-  
-  /* 5. Espaçamento externo (para "descolar" do topo e rodapé) */
-  margin-top: 3em;
-  margin-bottom: 3em;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--cor-borda);
+}
+
+/* 3. Barra de Navegação */
+/* Garante que a Navbar combine com o estilo */
+.navbar {
+  background-color: var(--cor-pagina) !important;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+
+/* ================================================
+TIPOGRAFIA E SEPARAÇÕES (A "Organização")
+================================================
+*/
+
+/* 4. Títulos (h1, h2, h3) */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700; /* Negrito */
+  color: var(--cor-destaque);
+}
+
+/* 5. Separação de Seções (O que você pediu) */
+/* Adiciona uma linha sutil abaixo de cada seção principal (h2) */
+h2 {
+  border-bottom: 2px solid var(--cor-borda);
+  padding-bottom: 8px; /* Espaçamento entre o texto e a linha */
+  margin-top: 2em; /* Mais espaço acima de uma nova seção */
+}
+
+/* 6. Links */
+a {
+  color: var(--cor-destaque);
+  text-decoration: none; /* Remove o sublinhado padrão */
+  font-weight: 700;
+}
+a:hover {
+  text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+}
+
+/* ================================================
+CÓDIGO E LATEX (O "Recheio" Estatístico)
+================================================
+*/
+
+/* 7. Blocos de Código (para R, Python, etc.) */
+pre {
+  font-family: 'Fira Code', monospace; /* Fonte profissional para código */
+  background-color: var(--cor-code-fundo);
+  border-radius: 5px;
+  padding: 1em;
+  overflow-x: auto; /* Garante a rolagem horizontal se o código for longo */
+  border: 1px solid #dbe1e5;
+}
+
+/* 8. Código "inline" (ex: `funcao()`) */
+code {
+  font-family: 'Fira Code', monospace;
+  background-color: var(--cor-code-fundo);
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
 }
