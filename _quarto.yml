@@ -34,7 +34,7 @@ website:
 # 3. Formato de Saída (HTML)
 format: 
   html: 
-    theme: flatly # IMPORTANTE: Remove o tema padrão para usar 100% o nosso CSS
+    theme: none # IMPORTANTE: Remove o tema padrão para usar 100% o nosso CSS
     css: styles.css
     
     # Importa as fontes profissionais do Google

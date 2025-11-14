@@ -185,3 +185,53 @@ code {
   color: var(--cor-navbar-hover); /* Links do rodapé em Branco no hover */
   text-decoration: none;
 }
+
+
+/* ================================================
+FERRAMENTA INTERATIVA DE MODELOS (NOVO)
+================================================
+*/
+
+.ferramenta-modelo {
+  background-color: var(--cor-code-fundo);
+  border: 1px solid var(--cor-borda);
+  border-radius: 8px;
+  padding: 1.5em 2em;
+  margin-top: 2em;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Sombra suave */
+}
+
+.ferramenta-modelo strong {
+  color: var(--cor-texto); /* Usa a cor de texto principal (verde escuro) */
+  font-size: 1.1em;
+}
+
+.ferramenta-modelo select {
+  width: 100%;
+  padding: 0.75em; /* Um pouco mais de altura */
+  font-family: 'Inter', sans-serif;
+  font-size: 1em;
+  font-weight: 700;
+  border-radius: 5px;
+  border: 1px solid var(--cor-borda-titulo);
+  margin-top: 1em; /* Mais espaço */
+  background-color: #fff; /* Fundo branco para o select */
+  color: var(--cor-texto);
+  appearance: none; /* Remove a seta padrão do navegador */
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%232f3d30%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.6-3.6%205.4-7.9%205.4-12.8%200-5-1.8-9.2-5.4-12.8z%22%2F%3E%3C%2Fsvg%3E');
+  background-repeat: no-repeat;
+  background-position: right 1em center;
+  background-size: 0.8em;
+  cursor: pointer;
+}
+
+#resultado-modelo {
+  margin-top: 1.5em;
+  padding-top: 1.5em;
+  border-top: 2px dashed var(--cor-borda);
+}
+
+#resultado-modelo h4 {
+  margin-top: 0;
+  color: var(--cor-navbar-destaque); /* Usa a cor de destaque do tema */
+}

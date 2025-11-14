@@ -60,7 +60,33 @@ print(paste("O resultado é:", x))
 
 
 **Conclusão:** Ao comparar as distribuições a posteriori para os grupos $\alpha$: Vacina e $\delta$: Placebo, observou-se que os indivíduos que receberam a vacina apresentam uma probabilidade **inferior** de infecção pela COVID-19 em relação aos que receberam o placebo. Visualmente, percebe-se que essa probabilidade é cerca de 1% menor para o grupo vacinado. Ainda assim, essa diferença pode se mostrar relevante a depender do contexto, considerando o tamanho amostral relativamente grande do estudo, com aproximadamente 18 mil e 200 pessoas.
+
+
 :::
+
+## 💡 Ferramenta Rápida: Qual Modelo Usar?
+
+::: {style="text-align: justify"}
+Esta ferramenta interativa ajuda a selecionar um modelo estatístico inicial com base no tipo da sua variável resposta (Y).
+:::
+
+<div class="ferramenta-modelo">
+  <strong>Selecione o tipo da sua variável Resposta (Y):</strong>
+  
+  <select id="seletor-variavel" class="form-select">
+    <option value="default" selected>-- Escolha uma opção --</option>
+    <option value="continua">Contínua (Normal, ex: altura, peso)</option>
+    <option value="contagem">Contagem (Inteiro >= 0, ex: n° de falhas)</option>
+    <option value="proporcao">Proporção (0 a 1, ex: % de sucesso)</option>
+    <option value="binaria">Binária (0 ou 1, ex: sim/não)</option>
+    <option value="tempo">Tempo até Evento (Positivo, ex: sobrevivência)</option>
+  </select>
+  
+  <div id="resultado-modelo">
+    <p style="color: #888;">Selecione um tipo de variável para ver os pressupostos e o modelo.</p>
+  </div>
+</div>
+
 
 <br>
 
