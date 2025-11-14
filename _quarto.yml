@@ -3,38 +3,26 @@ project:
   # output-dir: docs # Pasta para o GitHub Pages
 
 website:
-  title: "Portfólio" # Título principal do site
+  title: "Portfólio de Estatística" # Título principal do site
   page-navigation: true
   description: "Portfólio de projetos de Alexssandro Oliveira e Leticia Haifa"
   
-  # 1. Barra de Navegação (Navbar)
-  # navbar:
-  #   search: true
-  #   collapse: false
-  #   left:
-  #     - text: "<i class='bi bi-house'></i> Início"
-  #       href: index.qmd
-  #     - text: "<i class='bi bi-file-earmark-person'></i> Sobre Nós"
-  #       href: about.qmd
-  #     # Menu de Projetos (já com o link do MLD)
-  #     - text: "<i class='bi bi-journal-code'></i> Projetos"
-  #       menu:
-  #         - href: projeto-mld.qmd
-  #           text: "Projeto 1: Modelos Lineares Dinâmicos"
-            
   # 1. Barra de Navegação (Navbar)
   navbar:
     search: true
     collapse: false
     left:
-      - href: index.qmd
-        text: Início
-      - href: about.qmd
-        text: Sobre Nós
-
-
-  # 2. Rodapé (Footer)
-  # (Aqui é o local correto para os nomes, substituindo a seção 'author:')
+      - text: "<i class='bi bi-house'></i> Início"
+        href: index.qmd
+      - text: "<i class='bi bi-file-earmark-person'></i> Sobre Nós"
+        href: about.qmd
+      # Menu de Projetos (já com o link do MLD)
+      - text: "<i class='bi bi-journal-code'></i> Projetos"
+        menu:
+          - href: projeto-mld.qmd
+            text: "Projeto 1: Modelos Lineares Dinâmicos"
+            
+  # 2. Rodapé (Footer) - O local correto para os nomes
   page-footer:
     left: 
       - text: "Alexssandro da Silva Oliveira"
@@ -58,82 +46,14 @@ format:
     
     # Importa o arquivo JS (para interatividade futura)
     include-after-body: scripts.js
+    
+    # Suas outras configurações de HTML (mantidas do seu arquivo)
+    fontsize: 0.9em
+    margin-left: 0em
+    margin-right: 0em
+    margin-bottom: 0em
+    margin-top: -1em
 
 # 4. Configuração do R
 execute:
   freeze: auto # "Congela" os resultados dos R chunks
-  
-# website:
-#   title: "Portfólio"
-
-# website:
-#   title: ""
-#   page-navigation: true
-#   description: Descrição do site
-#   navbar:
-#     search: true
-#     collapse: false
-#     left:
-#       - text: "<i class='bi bi-house'></i> Home"
-#         href: index.qmd
-      # - text: "<i class='bi bi-chevron-double-right'></i> LabEst - Laboratório de Estatística"
-      #   menu:
-      #     - text: Introdução
-      #       href: labest.qmd
-      #     - text: Regressão Linear
-      #       href: labest-regressao.qmd
-      #     - text: Análise Bayesiana
-      #       href: labest-bayes.qmd
-      #     - text: ANOVA
-      #       href: labest-anova.qmd
-      # - text: "<i class='bi bi-chevron-double-right'></i> Graduação"
-      #   menu:
-      #     - text: Introdução
-      #       href: labest.qmd
-      #     - text: Regressão Linear
-      #       href: labest-regressao.qmd
-      #     - text: Análise Bayesiana
-      #       href: labest-bayes.qmd
-      #     - text: ANOVA
-      #       href: labest-anova.qmd
-    # right:
-    #   - icon: github
-    #     href: https://github.com/
-    #     aria-label: GitHub
-  # sidebar:
-#   #   search: true
-#   page-footer:
-#     center: 
-#       - text: "E pelas primeiras vezes, o que passou, passou... comece de novo."
-#         href: mailto:alexssandrosg@gmail.com
-#       # - text: "Alexssandro da Silva Oliveira"
-#       #   href: mailto:alexssandrosg@gmail.com
-# 
-# format: 
-#   html:                                                                # --> Formatação específica para saída em HTML
-    # toc: true                                                          # --> Ativa o sumário (índice)
-    #toc-expand: 3                                                      # --> Define quantos níveis do sumário aparecem abertos por padrão
-    # toc-title: Sumário                                                 # --> Título exibido no topo do sumário
-    #page-layout: custom 
-    #toc-depth: 3                                                       # --> Quantos níveis hierárquicos de seções aparecerão no sumário
-    # html-math-method: katex                                            # --> Método de renderização matemática (KaTeX é leve e rápido)
-    # toc-location: right                                                # --> Coloca o sumário à direita do conteúdo
-    # number-sections: true                                              # --> Numera automaticamente as seções e subseções
-    # code-fold: true                                                    # --> Código-fonte recolhido por padrão (com opção de expandir)
-    # fontsize: 0.9em                                                    # --> Define o tamanho da fonte como 90% do padrão
-    # #linestretch: 1.7                                                   # --> Controla o espaçamento entre linhas
-    # #max-width: null                                                  # --> Define largura máxima MUITO ampla (pode ser ajustado para ~80em, se desejar)
-    # margin-left: 0em                                                   # --> Margem esquerda do conteúdo (0 = sem margem)
-    # margin-right: 0em                                                  # --> Margem direita do conteúdo (0 = sem margem)
-    # margin-bottom: 0em                                                 # --> Margem inferior (sem espaço extra abaixo)
-    # margin-top: -1em                                                   # --> Margem superior negativa (levemente "sobe" o conteúdo)
-    # #df_print: paged                                                    # --> Impressão paginada de dataframes, se ativado
-    # #highlight: espresso                                                # --> Tema de cores para realce de código (sintaxe)
-    # #smooth_scroll: TRUE                                                # --> Ativa rolagem suave
-    # #css: styles.css                                                   # --> Aponta para um arquivo personalizado de estilo (opcional, se existir)
-    # theme:
-    #   light: [flatly]                                                  # -----> Tema visual para o modo claro (Flatly: moderno e claro)
-    #   # dark: [cyborg]                                                   # -----> Tema visual para o modo escuro (Cyborg: fundo escuro e letras claras)
-    # # --- ADICIONE ESTAS DUAS LINHAS ---
-    # css: styles.css
-    # include-after-body: scripts.js
