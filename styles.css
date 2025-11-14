@@ -2,89 +2,95 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Fira+Code&display=swap');
 
 /* ================================================
-PALETA DE CORES (Inspirada na Imagem 1)
+PALETA DE CORES (Opção 2)
 ================================================
 */
 :root {
-  --cor-fundo-site: #e6e6e6;        /* Fundo geral do site (cinza claro) */
-  --cor-conteudo: #ffffff;         /* Fundo do bloco principal de conteúdo (branco) */
-  --cor-texto-principal: #333333;  /* Texto principal (cinza escuro) */
-  --cor-texto-secundario: #666666; /* Texto secundário ou detalhes */
-  --cor-destaque: #007bff;         /* Azul padrão para links e destaques (pode ajustar) */
-  --cor-bordas: #cccccc;          /* Bordas e linhas sutis */
-  --cor-code-fundo: #f0f0f0;       /* Fundo mais claro para blocos de código */
-  --cor-code-texto: #444444;       /* Cor de texto para código */
+  --cor-fundo-site: #f0f0f0;       /* Fundo do site (cinza claro) */
+  --cor-pagina: #ffffff;           /* Branco puro para a "folha" de conteúdo */
+  --cor-texto: #333333;             /* Cinza chumbo (texto principal) */
+  --cor-borda: #dee2e6;             /* Cinza claro para bordas e linhas */
+  --cor-code-fundo: #f1f3f5;      /* Fundo suave para blocos de código */
+  
+  /* Cores da Navbar */
+  --cor-navbar-fundo: #1a1a1a;      /* Preto/Grafite */
+  --cor-navbar-destaque: #17a2b8;  /* Azul turquesa para borda e links ativos */
+  --cor-navbar-texto: #f8f8f8;      /* Branco suave para texto dos links */
 }
 
 /* ================================================
-ESTRUTURA PRINCIPAL (O Layout da Imagem 1)
+ESTRUTURA PRINCIPAL
 ================================================
 */
 
+/* 1. O Fundo (Body) */
 body {
-  background-color: var(--cor-fundo-site);
+  background-color: var(--cor-fundo-site); /* Fundo cinza claro */
   font-family: 'Inter', sans-serif;
-  color: var(--cor-texto-principal);
-  line-height: 1.6;
-  margin: 0; /* Remove margens padrão do body */
+  color: var(--cor-texto);
+  line-height: 1.7;
+  margin: 0;
   padding: 0;
 }
 
-/* O Conteúdo Principal (A "folha" centralizada) */
+/* 2. O Conteúdo Principal (A "Folha de Papel") */
 main#quarto-content {
-  background-color: var(--cor-conteudo);
-  max-width: 1000px; /* Mais largo, como na imagem */
-  width: 90%; /* Ocupa 90% da largura, deixando espaço nas laterais */
-  margin: 40px auto; /* Centraliza vertical e horizontalmente, com mais espaço no topo/base */
-  padding: 3em 4em; /* Mais espaçamento interno */
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); /* Sombra mais pronunciada */
-  border-radius: 10px; /* Cantos levemente mais arredondados */
+  background-color: var(--cor-pagina);
+  max-width: 1000px; /* Mais largo */
+  width: 90%;
+  margin: 40px auto; /* Centraliza */
+  padding: 3em 4em;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--cor-borda);
 }
 
-/* Barra de Navegação (Navbar) */
+/* 3. Barra de Navegação (Navbar) - OPÇÃO 2 */
 .navbar {
-  background-color: var(--cor-conteudo) !important; /* Branco para a navbar */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); /* Sombra suave */
-  border-bottom: 1px solid var(--cor-bordas);
-  padding: 1rem 0; /* Espaçamento interno */
-  position: sticky; /* Fica fixo no topo ao rolar */
+  background-color: var(--cor-navbar-fundo) !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  border-bottom: 3px solid var(--cor-navbar-destaque); /* Borda azul turquesa */
+  padding: 1rem 0;
+  position: sticky;
   top: 0;
-  z-index: 1000; /* Garante que fique acima de outros elementos */
-  display: flex; /* Para centralizar o conteúdo da navbar */
-  justify-content: center; /* Centraliza a própria barra de navegação */
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
 }
 
 /* Conteúdo da Navbar (links) */
 .navbar-nav {
     width: 100%;
-    max-width: 1000px; /* Alinha com a largura do main#quarto-content */
+    max-width: 1000px;
     display: flex;
-    justify-content: flex-start; /* Alinha os itens à esquerda, pode ser 'space-around' para espalhar */
-    margin: 0 auto; /* Centraliza o conteúdo dentro da navbar */
+    justify-content: flex-start;
+    margin: 0 auto;
 }
 
-/* Links da Navbar */
+/* Links da Navbar (texto claro) */
 .navbar-nav .nav-link {
-  color: var(--cor-texto-principal) !important;
+  color: var(--cor-navbar-texto) !important;
   font-weight: 700;
-  margin-right: 1.5em; /* Mais espaço entre os links */
+  margin-right: 1.5em;
   padding: 0.5em 0.8em;
   border-radius: 5px;
+  transition: all 0.3s ease; /* Transição suave */
 }
 
 .navbar-nav .nav-link:hover,
 .navbar-nav .nav-link.active {
-  background-color: var(--cor-fundo-site); /* Fundo sutil ao passar o mouse ou ativo */
-  color: var(--cor-destaque) !important;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--cor-navbar-destaque) !important; /* Cor do link ativo/hover */
 }
 
 /* Título do Site na Navbar */
 .navbar-brand {
     font-weight: 700;
-    color: var(--cor-destaque) !important;
+    color: var(--cor-navbar-destaque) !important; /* Título em azul turquesa */
     font-size: 1.4em;
-    margin-right: 2em; /* Mais espaço entre o título e os links */
+    margin-right: 2em;
 }
+
 
 /* ================================================
 TIPOGRAFIA E SEPARAÇÕES
@@ -94,18 +100,17 @@ TIPOGRAFIA E SEPARAÇÕES
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Inter', sans-serif;
   font-weight: 700;
-  color: var(--cor-texto-principal); /* Títulos em cinza escuro */
-  margin-top: 1.8em;
-  margin-bottom: 0.8em;
-  line-height: 1.2;
+  color: var(--cor-texto);
 }
 
-h1 { font-size: 2.5em; }
-h2 { font-size: 2em; border-bottom: 1px solid var(--cor-bordas); padding-bottom: 0.5em; margin-top: 2.5em; }
-h3 { font-size: 1.5em; }
+h2 {
+  border-bottom: 2px solid var(--cor-borda);
+  padding-bottom: 8px;
+  margin-top: 2em;
+}
 
 a {
-  color: var(--cor-destaque);
+  color: var(--cor-navbar-destaque); /* Links no texto principal com o mesmo azul */
   text-decoration: none;
   font-weight: 700;
 }
@@ -113,56 +118,50 @@ a:hover {
   text-decoration: underline;
 }
 
-p {
-  margin-bottom: 1em;
-}
-
 /* ================================================
-CÓDIGO E LATEX
+CÓDIGO E FOOTER
 ================================================
 */
 
 pre {
   font-family: 'Fira Code', monospace;
   background-color: var(--cor-code-fundo);
-  color: var(--cor-code-texto);
-  border-radius: 6px;
-  padding: 1.2em;
+  border-radius: 5px;
+  padding: 1em;
   overflow-x: auto;
-  border: 1px solid var(--cor-bordas);
+  border: 1px solid #dbe1e5;
 }
 
 code {
   font-family: 'Fira Code', monospace;
   background-color: var(--cor-code-fundo);
-  color: var(--cor-code-texto);
   padding: 0.2em 0.4em;
   border-radius: 4px;
   font-size: 0.9em;
 }
 
-/* Footer */
+/* Footer (Rodapé) */
 .quarto-page-footer {
-  background-color: var(--cor-fundo-site); /* Fundo do rodapé */
-  color: var(--cor-texto-secundario);
+  background-color: var(--cor-fundo-site);
+  color: #777; /* Texto do rodapé mais sutil */
   padding: 2em 0;
   text-align: center;
-  border-top: 1px solid var(--cor-bordas);
+  border-top: 1px solid var(--cor-borda);
 }
 
 .quarto-page-footer .footer-text {
-  max-width: 1000px; /* Alinha com o conteúdo principal */
+  max-width: 1000px;
   margin: 0 auto;
   display: flex;
-  justify-content: space-between; /* Espalha o texto à esquerda e centro */
-  padding: 0 4em; /* Padding para alinhar com o conteúdo do main */
+  justify-content: space-between;
+  padding: 0 4em;
 }
 
 .quarto-page-footer a {
-  color: var(--cor-texto-secundario);
+  color: #555; /* Links do rodapé */
   font-weight: normal;
 }
 .quarto-page-footer a:hover {
-  color: var(--cor-destaque);
+  color: var(--cor-navbar-destaque);
   text-decoration: none;
 }
