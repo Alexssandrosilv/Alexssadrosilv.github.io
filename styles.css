@@ -2,21 +2,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Fira+Code&display=swap');
 
 /* ================================================
-PALETA DE CORES (Baseada nas suas imagens)
+PALETA DE CORES (Refinada)
 ================================================
 */
 :root {
-  /* Cores do Layout (Baseado na paleta "Earthy") */
-  --cor-fundo-site: #f4f3ef;       /* Bege muito claro (do "Earthy Forest Hues") */
-  --cor-pagina: #ffffff;           /* Branco puro para a "folha" de conteúdo */
-  --cor-texto: #2f3d30;             /* Verde muito escuro (para texto principal) */
-  --cor-borda: #dcd9c6;             /* Bege/Cinza claro para bordas */
+  /* Cores do Layout (Branco Minimalista) */
+  --cor-fundo-site: #ffffff;       /* Fundo do site (BRANCO) */
+  --cor-pagina: #ffffff;           /* Conteúdo (BRANCO) */
+  --cor-texto: #2a2a2a;             /* Texto (Quase preto) */
+  --cor-borda-suave: #eeeeee;      /* Borda ultra-suave para o conteúdo */
+  --cor-borda-titulo: #dcdcdc;    /* Borda para títulos h2 */
   --cor-code-fundo: #f8f9fa;      /* Fundo de código (cinza bem claro) */
   
   /* Cores da Navbar (Como você pediu) */
   --cor-navbar-fundo: #04151f;      /* O seu Azul-Noite/Preto */
-  --cor-navbar-destaque: #a4b08f;  /* Verde claro da paleta (para a borda) */
-  --cor-navbar-texto: #dcd9c6;      /* Bege da paleta (para texto dos links) */
+  --cor-navbar-destaque: #5a7d5a;  /* Verde Escuro Destacado (da paleta "Earthy") */
+  --cor-navbar-texto: #e0e0e0;      /* Cinza claro para texto dos links */
+  --cor-navbar-hover: #FFFFFF;     /* Texto do link (Branco) ao passar o mouse */
 }
 
 /* ================================================
@@ -24,9 +26,9 @@ ESTRUTURA PRINCIPAL
 ================================================
 */
 
-/* 1. O Fundo (Body) */
+/* 1. O Fundo (Body) - AGORA BRANCO */
 body {
-  background-color: var(--cor-fundo-site); /* Fundo Bege Claro */
+  background-color: var(--cor-fundo-site); /* Fundo Branco */
   font-family: 'Inter', sans-serif;
   color: var(--cor-texto);
   line-height: 1.7;
@@ -34,7 +36,7 @@ body {
   padding: 0;
 }
 
-/* 2. O Conteúdo Principal (A "Folha de Papel") */
+/* 2. O Conteúdo Principal (A "Folha Flutuante") */
 main#quarto-content {
   background-color: var(--cor-pagina); /* Conteúdo Branco */
   max-width: 1000px;
@@ -42,8 +44,9 @@ main#quarto-content {
   margin: 40px auto; /* Centraliza com espaço */
   padding: 3em 4em;
   border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-  border: 1px solid var(--cor-borda);
+  /* Sombra e borda suave para "flutuar" no fundo branco */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07); 
+  border: 1px solid var(--cor-borda-suave);
 }
 
 /* ================================================
@@ -53,7 +56,7 @@ BARRA DE NAVEGAÇÃO (Com seu novo estilo)
 .navbar {
   background-color: var(--cor-navbar-fundo) !important; /* Seu Azul-Noite */
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-  border-bottom: 3px solid var(--cor-navbar-destaque); /* Borda Verde Claro */
+  border-bottom: 3px solid var(--cor-navbar-destaque); /* Borda Verde Destacado */
   padding: 1rem 0;
   position: sticky;
   top: 0;
@@ -73,30 +76,35 @@ BARRA DE NAVEGAÇÃO (Com seu novo estilo)
 
 /* Links da Navbar (texto claro) */
 .navbar-nav .nav-link {
-  color: var(--cor-navbar-texto) !important; /* Texto Bege */
+  color: var(--cor-navbar-texto) !important; /* Texto Cinza Claro */
   font-weight: 700;
   margin-right: 1.5em;
   padding: 0.5em 0.8em;
   border-radius: 5px;
   transition: all 0.2s ease-in-out; /* Transição suave */
   background-color: transparent !important; /* Garante que não haja fundo */
+  text-decoration: none !important; /* Garante que não haja sublinhado */
+  border-bottom: none !important; /* Garante que não haja borda/linha */
 }
 
 /* * A MUDANÇA DO HOVER (Como você pediu)
  * Ao passar o mouse ou estar ativo:
  * 1. O fundo continua transparente.
- * 2. A cor do texto muda para o verde-destaque.
+ * 2. A cor do texto muda para Branco.
+ * 3. Sem sublinhado, sem borda.
  */
 .navbar-nav .nav-link:hover,
 .navbar-nav .nav-link.active {
   background-color: transparent !important; /* Sem "caixa" ao redor */
-  color: var(--cor-navbar-destaque) !important; /* Apenas o texto muda de cor */
+  color: var(--cor-navbar-hover) !important; /* Apenas o texto muda para BRANCO */
+  text-decoration: none !important;
+  border-bottom: none !important;
 }
 
 /* Título do Site na Navbar */
 .navbar-brand {
     font-weight: 700;
-    color: var(--cor-navbar-destaque) !important; /* Título em Verde Claro */
+    color: var(--cor-navbar-hover) !important; /* Título em Branco */
     font-size: 1.4em;
     margin-right: 2em;
 }
@@ -110,18 +118,18 @@ TIPOGRAFIA E SEPARAÇÕES
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Inter', sans-serif;
   font-weight: 700;
-  color: var(--cor-texto); /* Títulos em verde escuro */
+  color: var(--cor-texto); /* Títulos em quase preto */
 }
 
 h2 {
-  border-bottom: 2px solid var(--cor-borda);
+  border-bottom: 2px solid var(--cor-borda-titulo);
   padding-bottom: 8px;
   margin-top: 2em;
 }
 
 /* Links no corpo do texto */
 a {
-  color: var(--cor-navbar-destaque); /* Links no texto principal com o verde */
+  color: var(--cor-navbar-destaque); /* Links no texto principal com o Verde Destacado */
   text-decoration: none;
   font-weight: 700;
 }
@@ -140,7 +148,7 @@ pre {
   border-radius: 5px;
   padding: 1em;
   overflow-x: auto;
-  border: 1px solid var(--cor-borda);
+  border: 1px solid var(--cor-borda-suave);
 }
 
 code {
@@ -151,13 +159,14 @@ code {
   font-size: 0.9em;
 }
 
-/* Footer (Rodapé) */
+/* Footer (Rodapé) - ATUALIZADO */
 .quarto-page-footer {
-  background-color: var(--cor-fundo-site); /* Rodapé com a cor do fundo do site */
-  color: #777; /* Texto do rodapé mais sutil */
+  background-color: var(--cor-navbar-fundo); /* Fundo Azul-Noite (igual navbar) */
+  color: var(--cor-navbar-texto); /* Texto Cinza Claro (igual navbar) */
   padding: 2em 0;
   text-align: center;
-  border-top: 1px solid var(--cor-borda);
+  border-top: 3px solid var(--cor-navbar-destaque); /* Borda Verde (igual navbar) */
+  margin-top: 4em; /* Espaço para "descolar" do conteúdo */
 }
 
 .quarto-page-footer .footer-text {
@@ -169,10 +178,10 @@ code {
 }
 
 .quarto-page-footer a {
-  color: #555; /* Links do rodapé */
+  color: var(--cor-navbar-texto); /* Links do rodapé em Cinza Claro */
   font-weight: normal;
 }
 .quarto-page-footer a:hover {
-  color: var(--cor-navbar-destaque);
+  color: var(--cor-navbar-hover); /* Links do rodapé em Branco no hover */
   text-decoration: none;
 }
