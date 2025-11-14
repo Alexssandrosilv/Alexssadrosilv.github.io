@@ -3,9 +3,26 @@ project:
   # output-dir: docs # Pasta para o GitHub Pages
 
 website:
-  title: "Portfólio"
+  title: "Portfólio" # Título principal do site
+  page-navigation: true
+  description: "Portfólio de projetos de Alexssandro Oliveira e Leticia Haifa"
   
-# 1. Barra de Navegação (Navbar)
+  # 1. Barra de Navegação (Navbar)
+  # navbar:
+  #   search: true
+  #   collapse: false
+  #   left:
+  #     - text: "<i class='bi bi-house'></i> Início"
+  #       href: index.qmd
+  #     - text: "<i class='bi bi-file-earmark-person'></i> Sobre Nós"
+  #       href: about.qmd
+  #     # Menu de Projetos (já com o link do MLD)
+  #     - text: "<i class='bi bi-journal-code'></i> Projetos"
+  #       menu:
+  #         - href: projeto-mld.qmd
+  #           text: "Projeto 1: Modelos Lineares Dinâmicos"
+            
+  # 1. Barra de Navegação (Navbar)
   navbar:
     search: true
     collapse: false
@@ -14,40 +31,40 @@ website:
         text: Início
       - href: about.qmd
         text: Sobre Nós
-  
-  # 2. Configuração para DOIS autores (Alexssandro e Leticia)
-  author:
-    - name: "Alexssandro da Silva Oliveira"
-      # url: "https://www.linkedin.com/in/seu-linkedin-aqui"
-      # affiliation: "Universidade Federal do Amazonas (UFAM)"
-    - name: "Leticia Haifa"
-      # url: "https://www.linkedin.com/in/linkedin-dela-aqui"
-      # affiliation: "Universidade Federal do Amazonas (UFAM)"
 
+
+  # 2. Rodapé (Footer)
+  # (Aqui é o local correto para os nomes, substituindo a seção 'author:')
   page-footer:
+    left: 
+      - text: "Alexssandro da Silva Oliveira"
+      - text: "Leticia Haifa"
     center: 
       - text: "E pelas primeiras vezes, o que passou, passou... comece de novo."
-        href: mailto:alexssandrosg@gmail.com
-      # - text: "Alexssandro da Silva Oliveira"
-      #   href: mailto:alexssandrosg@gmail.com
+        href: mailto:alexssandrosg@gmail.com # (Email opcional)
 
-# Formato de saída (HTML)
-format:
-  html:
-    theme: none # Removemos o tema padrão para usar 100% o nosso CSS
+# 3. Formato de Saída (HTML)
+format: 
+  html: 
+    theme: none # IMPORTANTE: Remove o tema padrão para usar 100% o nosso CSS
     css: styles.css
     
-    # 3. Importa as fontes profissionais do Google
+    # Importa as fontes profissionais do Google
     include-in-header:
       - text: |
           <link rel="preconnect" href="https://fonts.googleapis.com">
           <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
           <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Fira+Code&display=swap" rel="stylesheet">
+    
+    # Importa o arquivo JS (para interatividade futura)
+    include-after-body: scripts.js
 
-# Configuração do R
+# 4. Configuração do R
 execute:
-  freeze: auto # "Congela" os resultados dos R chunks para o site renderizar mais rápido
-
+  freeze: auto # "Congela" os resultados dos R chunks
+  
+website:
+  title: "Portfólio"
 
 # website:
 #   title: ""
