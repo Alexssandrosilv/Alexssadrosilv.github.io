@@ -29,7 +29,7 @@ website:
   page-footer:
     left: 
       - text: "<b>Colaboradores: </b>" # Uso de <b> garante o negrito
-      - text: "Alexssandro da S. Oliveira<sup>1</sup>"
+      - text: " Alexssandro da S. Oliveira<sup>1</sup>"
       - text: "Jakelinne Amazonas Gadelha<sup>2</sup>"
       - text: "Letícia Haifa do N. Mattos<sup>3</sup>"
 
