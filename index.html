@@ -8,7 +8,7 @@
 
 <meta name="author" content="Alexssandro da Silva Oliveira">
 
-<title>Portfólio de Estatística</title>
+<title>AS</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -149,7 +149,7 @@ window.Quarto = {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Portfólio de Estatística</span>
+    <span class="navbar-title">AS</span>
     </a>
   </div>
           <ul class="navbar-nav navbar-nav-scroll me-auto">
@@ -167,8 +167,12 @@ window.Quarto = {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-i-classbi-bi-journal-codei-projetos">    
         <li>
-    <a class="dropdown-item" href="./projeto-mld.qmd">
+    <a class="dropdown-item" href="./projeto-mld.html">
  <span class="dropdown-text">Projeto 1: Modelos Lineares Dinâmicos</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./projeto-adl.html">
+ <span class="dropdown-text">Projeto 2: Analise de dados longitudinais</span></a>
   </li>  
     </ul>
   </li>
@@ -205,7 +209,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Data de Publicação</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">14 de novembro de 2025</p>
+      <p class="date">19 de novembro de 2025</p>
     </div>
   </div>
   
@@ -272,79 +276,6 @@ window.Quarto = {
 </section>
 
 </main> <!-- /main -->
-// Espera a página carregar inteira
-window.addEventListener('DOMContentLoaded', (event) =&gt; {
-  
-  // Encontra os dois elementos que criamos: o <select> e a  de resultado
-  const seletor = document.getElementById('seletor-variavel');
-  const resultado = document.getElementById('resultado-modelo');
-
-  // Se o seletor existir na página, execute isso:
-  if (seletor) {
-    
-    // Escuta por uma "mudança" (alguém clicou no dropdown)
-    seletor.addEventListener('change', function() {
-      
-      let conteudoHTML = '';
-      
-      // Verifica qual foi o valor selecionado
-      switch(this.value) {
-        
-        case 'continua':
-          conteudoHTML = `
-            Modelo Sugerido: Regressão Linear (MLG)
-            Pressupostos: Linearidade, Normalidade dos resíduos ( $Y \\sim N(\\mu, \\sigma^2)$ ), Homocedasticidade. Ideal para dados simétricos.
-            Função de Ligação: Identidade ( $g(\\mu) = \\mu$ )
-          `;
-          break;
-          
-        case 'contagem':
-          conteudoHTML = `
-            Modelo Sugerido: Regressão de Poisson (MLG)
-            Pressupostos: Dados são contagens (0, 1, 2,...). Média deve ser igual à variância (equidispersão). A variância aumenta com a média.
-            Função de Ligação: Log ( $\\log(\\mu) = \\mathbf{X}\\beta$ )
-            Alternativa (se houver superdispersão): Binomial Negativa.
-          `;
-          break;
-          
-        case 'binaria':
-          conteudoHTML = `
-            Modelo Sugerido: Regressão Logística (MLG)
-            Pressupostos: Resposta é binária (0 ou 1, sucesso/falha, sim/não). Modela a probabilidade de "sucesso" ( $\\pi$ ).
-            Função de Ligação: Logit ( $\\log(\\frac{\\pi}{1-\\pi}) = \\mathbf{X}\\beta$ )
-          `;
-          break;
-          
-        case 'proporcao':
-          conteudoHTML = `
-            Modelo Sugerido: Regressão Beta
-            Pressupostos: Resposta é uma taxa ou proporção estritamente entre 0 e 1 (ex: 0.25, 0.87). Muito flexível para modelar formas diferentes.
-            Função de Ligação: Logit (comumente usada para a média $\\mu$)
-          `;
-          break;
-
-        case 'tempo':
-           conteudoHTML = `
-            Modelo Sugerido: Regressão de Sobrevivência (Cox) ou Gama (MLG)
-            Modelo Cox (Semiparamétrico): Não assume distribuição para o tempo. Modela a *taxa de risco* (hazard). O mais comum.
-            Modelo Gama (MLG): Assume $Y \\sim \\text{Gama}(\\mu, \\phi)$. Requer dados positivos e assimétricos (como tempo de espera).
-          `;
-          break;
-          
-        default:
-          conteudoHTML = 'Selecione um tipo de variável para ver os pressupostos e o modelo.';
-      }
-      
-      // Coloca o HTML que criamos dentro da  de resultado
-      resultado.innerHTML = conteudoHTML;
-      
-      // Pede ao Quarto para "renderizar" o LaTeX (matemática) que acabamos de adicionar
-      if (window.MathJax) {
-        window.MathJax.typesetPromise([resultado]);
-      }
-    });
-  }
-});
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -745,35 +676,35 @@ window.addEventListener('DOMContentLoaded', (event) =&gt; {
     }
   });
   </script>
- <!-- /content -->
-
-  
-    
-      
-    
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
  Alexssandro da Silva Oliveira
-    
-    
+  </li>  
+    <li class="nav-item">
  Leticia Haifa
-    
-
-       
-    
-      
-    
-    
- E pelas primeiras vezes, o que passou, passou... comece de novo.
-    
-    
-
-    
-    
+  </li>  
+</ul>
+    </div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="mailto:alexssandrosg@gmail.com">
+<p>E pelas primeiras vezes, o que passou, passou… comece de novo.</p>
+</a>
+  </li>  
+</ul>
+    </div>
+    <div class="nav-footer-right">
       &nbsp;
-    
-  
+    </div>
+  </div>
+</footer>
 
 
 
 
-
-</select></div></body></html>
+</body></html>

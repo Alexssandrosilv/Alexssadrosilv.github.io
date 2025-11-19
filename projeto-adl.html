@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt" xml:lang="pt"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.8.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Alexssandro da Silva Oliveira">
 
-<title>About – AS</title>
+<title>projeto-adl – AS</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -90,23 +91,52 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Nenhum resultado",
+    "search-matching-documents-text": "documentos correspondentes",
+    "search-copy-link-title": "Copiar link para a busca",
+    "search-hide-matches-text": "Esconder correspondências adicionais",
+    "search-more-match-text": "mais correspondência neste documento",
+    "search-more-matches-text": "mais correspondências neste documento",
+    "search-clear-button-title": "Limpar",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Procurar"
   }
 }</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;family=Fira+Code&amp;display=swap" rel="stylesheet">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -128,7 +158,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text"><i class="bi bi-house"></i> Início</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./about.html" aria-current="page"> 
+    <a class="nav-link" href="./about.html"> 
 <span class="menu-text"><i class="bi bi-file-earmark-person"></i> Sobre Nós</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -149,7 +179,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
           <div class="quarto-navbar-tools">
 </div>
-            <div id="quarto-search" class="" title="Search"></div>
+            <div id="quarto-search" class="" title="Procurar"></div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -163,14 +193,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">About</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Autor</div>
+    <div class="quarto-title-meta-contents">
+             <p>Alexssandro da Silva Oliveira </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Data de Publicação</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">19 de novembro de 2025</p>
+    </div>
+  </div>
   
     
   </div>
@@ -180,15 +221,59 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>About this site</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><br></p>
+<div style="border-top: 2px solid #003366;">
+
+</div>
+<p><br></p>
+<section id="exercícios" class="level2">
+<h2 class="anchored" data-anchor-id="exercícios">Exercícios</h2>
+</section>
+<section id="bem-vindoa-ao-nosso-portfólio-de-estatística" class="level2">
+<h2 class="anchored" data-anchor-id="bem-vindoa-ao-nosso-portfólio-de-estatística">📊 Bem-vindo(a) ao nosso Portfólio de Estatística</h2>
+<div style="text-align: justify">
+<p>Olá! Nós somos <strong>Alexssandro da Silva Oliveira</strong> e <strong>Leticia Haifa</strong>, graduandos em Estatística. Este espaço é dedicado a apresentar nossos principais projetos, estudos de caso e análises.</p>
+<p>Navegue pelos nossos projetos para ver aplicações de Modelos Lineares Dinâmicos, Inferência Bayesiana, Séries Temporais e Métodos Não Paramétricos.</p>
+</div>
+<div style="text-align: justify">
+<p>Propõe-se a solução dos exercícios propostos e posteriormente, serão expostas e discutidas as conclusões acerca dos resultados obtidos. Para a elaboração deste estudo, empregaremos a linguagem de programação <a href="http://www.R-project.org/"><strong>R</strong></a>, voltada para a manipulação, análise e visualização de dados, bem como o software livre de ambiente de desenvolvimento integrado <a href="https://posit.co/download/rstudio-desktop/"><strong>RStudio</strong></a>.</p>
+</div>
+<p>This is a Quarto website.</p>
+<p>To learn more about Quarto websites visit <a href="https://quarto.org/docs/websites" class="uri">https://quarto.org/docs/websites</a>.</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemplo de chunk de código R</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># A fonte 'Fira Code' e o fundo suave vêm do styles.css</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"O resultado é:"</span>, x))</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
+<pre><code>[1] "O resultado é: 2"</code></pre>
 </div>
 </div>
+<p><strong>Conclusão:</strong> Ao comparar as distribuições a posteriori para os grupos <span class="math inline">\(\alpha\)</span>: Vacina e <span class="math inline">\(\delta\)</span>: Placebo, observou-se que os indivíduos que receberam a vacina apresentam uma probabilidade <strong>inferior</strong> de infecção pela COVID-19 em relação aos que receberam o placebo. Visualmente, percebe-se que essa probabilidade é cerca de 1% menor para o grupo vacinado. Ainda assim, essa diferença pode se mostrar relevante a depender do contexto, considerando o tamanho amostral relativamente grande do estudo, com aproximadamente 18 mil e 200 pessoas.</p>
+<p>:::</p>
+</section>
+<section id="ferramenta-rápida-qual-modelo-usar" class="level2">
+<h2 class="anchored" data-anchor-id="ferramenta-rápida-qual-modelo-usar">💡 Ferramenta Rápida: Qual Modelo Usar?</h2>
+<div style="text-align: justify">
+<p>Esta ferramenta interativa ajuda a selecionar um modelo estatístico inicial com base no tipo da sua variável resposta (Y).</p>
+</div>
+<div class="ferramenta-modelo">
+<p><strong>Selecione o tipo da sua variável Resposta (Y):</strong></p>
+<p><select id="seletor-variavel" class="form-select"> <option value="default" selected="">– Escolha uma opção –</option> <option value="continua">Contínua (Normal, ex: altura, peso)</option> <option value="contagem">Contagem (Inteiro &gt;= 0, ex: n° de falhas)</option> <option value="proporcao">Proporção (0 a 1, ex: % de sucesso)</option> <option value="binaria">Binária (0 ou 1, ex: sim/não)</option> <option value="tempo">Tempo até Evento (Positivo, ex: sobrevivência)</option> </select></p>
+<div id="resultado-modelo">
+<pre><code>&lt;p style="color: #888;"&gt;Selecione um tipo de variável para ver os pressupostos e o modelo.&lt;/p&gt;</code></pre>
+</div>
+</div>
+<p><br></p>
+<div style="border-top: 2px solid #003366;">
+
+</div>
+<p><br></p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -216,12 +301,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copiada");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copiada");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",
