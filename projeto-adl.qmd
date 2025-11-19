@@ -101,34 +101,52 @@ Os pacientes foram divididos em três grupos experimentais:
 -   **Grupo B:** O programa existente de reabilitação de derrame.
 -   **Grupo C:** O regime de cuidados usuais para pacientes com derrame.
 
-:::
-
-### Importação, Manipulação e Tratamento dos Dados
-
-::: {style="text-align: justify"}
-Para a modelagem longitudinal, o conjunto de dados é submetido a três fases cruciais de processamento e estruturação:
-
--   **Leitura:** Importação da base de dados brutos para o ambiente R.
--   **Manipulação e Reestruturação:** A base de dados, lida inicialmente no **formato largo (Wide)**, deve ser transformada para o formato **longo** (onde cada linha representa uma única observação no tempo, ex: paciente na Semana 3). Esta reestruturação é **obrigatória** em análises de medidas repetidas para que o modelo possa identificar e ajustar a correlação intra-sujeito.
--   **Criação de Variável:** Se necessário, deve ser realizada a **Criação da variável de tempo recentralizada**, que é crucial para garantir que o intercepto do modelo estatístico ($\beta_0$) represente o valor basal (Semana 1 = Tempo 0).
-:::
-
-
 ```{r}
-#| label: Leitura dos dados Preparação dos dados para o formato longo
-#| code-summary: "Passo 1 - Preparação dos dados para o formato longo"
-
-# 1. IMPORTAÇÃO DOS DADOS
+#| label: Importação da base de dados
+#| code-summary: "Importação da base de dados"
 
 # URL pública da planilha contendo os dados do experimento
 url_stroke <- "https://docs.google.com/spreadsheets/d/1n394dzsNn1QITgigbHJ21uz6hi5TDCHs/edit?gid=712419062#gid=712419062"
 
-# Leitura dos dados brutos transformando diretamente em tibble (dataframe moderno)
+# Leitura dos dados brutos 
 bd_stroke <- gsheet::gsheet2tbl(url_stroke)
 
-# 2. MANIPULAÇÃO E LIMPEZA DE DADOS 
+# Tabela Interativa dos dados Brutos
+DT::datatable(
+  dados_stroke,
+  caption = htmltools::tags$caption(
+    style = "caption-side: top; text-align: center; color:#40916c;",
+    htmltools::strong("Tabela 1:  Dados de Recuperação de Pacientes Pós-AVC (Dados Brutos)")
+  ),
+  class = "hover",
+  options = list(
+    pageLength = 8, searching = FALSE, lengthChange = FALSE, 
+    info = FALSE, ordering = FALSE,
+    language = list(
+      paginate = list("previous" = "Anterior", "next" = "Próximo")
+    )
+  )
+)
 
-# A transformação para formato LONGO é obrigatória para funções como lme() ou gls().
+```
+
+:::
+
+### Reestruturação e Tratamento dos Dados
+
+::: {style="text-align: justify"}
+Para a modelagem longitudinal, o conjunto de dados é submetido a três fases cruciais de processamento e estruturação:
+
+-   **Passo 1 - Leitura:** Importação da base de dados brutos para o ambiente R (visto anteriormente).
+-   **Passo 2 - Reestruturação:** A base de dados, lida inicialmente no **formato largo (Wide)**, deve ser transformada para o formato **longo** (onde cada linha representa uma única observação no tempo, ex: paciente na Semana 3). Esta reestruturação é **obrigatória** em análises de medidas repetidas para que o modelo possa identificar e ajustar a correlação intra-sujeito.
+-   **Passo 3 - Criação de Variável:** Se necessário, deve ser realizada a **Criação da variável de tempo recentralizada**, que é crucial para garantir que o intercepto do modelo estatístico ($\beta_0$) represente o valor basal (Semana 1 = Tempo 0).
+
+
+```{r}
+#| label: Reestruturação e Tratamento dos Dados
+#| code-summary: "Reestruturação e Tratamento dos Dados"
+
+# Reestruturação e Tratamento dos Dados
 
 bd_stroke_long <- bd_stroke %>%
   
@@ -138,26 +156,23 @@ bd_stroke_long <- bd_stroke %>%
     Grupo   = Group     # Fator fixo de interesse (Tratamento A vs B)
   ) %>%
   
-  # Etapa B: Reestruturação de Dados (Wide -> Long)
-  # O R precisa que cada linha seja uma observação única no tempo.
+  # Passo 2: Reestruturação de Dados (Wide -> Long), o R precisa que cada linha seja uma observação única no tempo.
   tidyr::pivot_longer(
     cols = week_1:week_8,    # Vetor de colunas que contêm as medidas repetidas
     names_to = "Semana",     # Nova variável categórica indicando o tempo
     values_to = "Valor"      # Nova variável contínua com a resposta (outcome)
   ) %>%
   
-  # Etapa C: Engenharia de Variáveis (Feature Engineering)
+  # Passo 3: Engenharia de Variáveis (Feature Engineering)
   dplyr::mutate(
     # Necessário para tratar o tempo como covariável contínua (tendência linear/quadrática).
     Semana = as.numeric(stringr::str_remove(Semana, "week_")),
     
-    # Centralização do Tempo (Time Centering)
-    # CRUCIAL: Ao subtrair 1, transformamos a escala de [1, 8] para [0, 7].
-    # facilitando a interpretação clínica dos parâmetros do modelo.
+    # Centralização do Tempo, e crucial, Ao subtrair 1, transformamos a escala de [1, 8] para [0, 7], facilitando a interpretação clínica dos parâmetros do modelo.
     Semana_recentralizada = Semana - 1
   )
 
-# 3. TABELA INTERATIVA (DT)
+# Tabela Interativa dos dados reestruturados
 
 # Gerar a tabela com estilo minimalista
 DT::datatable(
