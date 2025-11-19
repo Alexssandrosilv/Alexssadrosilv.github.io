@@ -236,6 +236,117 @@ dplyr::glimpse(bd_stroke_long)
 
 :::
 
+<br>
+
+### Análise Exploratória (AED)
+
+
+::: {style="text-align: justify"}
+
+texto
+
+<br>
+
+```{r}
+#| label: Análise Exploratória (AED) - Stroke
+#| code-summary: "Análise Exploratória (AED) - Stroke"
+
+# Gráfico A: Trajetórias Individuais (Spaghetti Plot)
+
+ggplot2::ggplot(
+  data = bd_stroke_long,
+  mapping = ggplot2::aes(
+    x = Semana, 
+    y = Valor, 
+    group = Sujeito, # Mapeia a estrutura intra-sujeito
+    color = Grupo
+  )
+) +
+  # Adiciona as linhas dos indivíduos (alpha baixo para visualizar densidade)
+  # Nota: 'linewidth' substitui 'size' nas versões novas do ggplot2
+  ggplot2::geom_line(alpha = 0.6, linewidth = 0.5) +
+  
+  # Marca os pontos observados
+  ggplot2::geom_point(size = 1.2, alpha = 0.8) +
+  
+  # Adiciona a tendência média suavizada (LOESS) por Grupo
+  # Removemos 'group=Sujeito' aqui para o R calcular a média do grupo inteiro
+  ggplot2::geom_smooth(
+    mapping = ggplot2::aes(group = Grupo),
+    method = "loess",
+    se = FALSE,        # Remove intervalo de confiança para limpar o visual
+    color = "black",   # Destaque em preto
+    linetype = "dashed",
+    linewidth = 1
+  ) +
+  
+  # Separação por painéis para facilitar comparação
+  ggplot2::facet_wrap(~Grupo) +
+  
+  # Estética acadêmica (fundo branco)
+  ggplot2::theme_bw() +
+  ggplot2::labs(
+    title = "Trajetórias Individuais de Recuperação (Spaghetti Plot)",
+    subtitle = "Linhas coloridas: Pacientes | Linha tracejada: Tendência média",
+    x = "Semana de Tratamento",
+    y = "Medida de Recuperação",
+    color = "Grupo Experimental"
+  )
+
+# Gráfico B: Boxplots no Tempo
+
+ggplot2::ggplot(
+  data = bd_stroke_long,
+  mapping = ggplot2::aes(
+    x = factor(Semana), # Converte para fator para eixo discreto
+    y = Valor, 
+    fill = Grupo
+  )
+) +
+  ggplot2::geom_boxplot(alpha = 0.7, outlier.shape = NA) +
+  # Jitter adiciona os pontos reais deslocados para ver a dispersão
+  ggplot2::geom_jitter(
+    position = ggplot2::position_jitterdodge(jitter.width = 0.2),
+    alpha = 0.4, 
+    size = 1
+  ) +
+  ggplot2::theme_bw() +
+  ggplot2::labs(
+    title = "Distribuição e Variabilidade por Semana",
+    x = "Semana",
+    y = "Valor da Medida"
+  )
+
+# Diagnóstico C: Estrutura de Correlação (Correlograma)
+# Objetivo: Decidir a estrutura da matriz R (Independent, AR1, Unstructured).
+
+matriz_correlacao <- bd_stroke %>% 
+  dplyr::select(dplyr::starts_with("week")) %>%   # 1. Seleciona colunas originais (week_1...)
+  dplyr::rename_with(                             # 2. TRADUZ: Troca "week_" por "Semana "
+    ~ stringr::str_replace(., "week_", "Semana ") 
+  ) %>%
+  stats::cor(                                     # 3. Calcula a correlação
+    use = "complete.obs", 
+    method = "pearson"
+  )
+
+# Visualização da Matriz (Agora com rótulos em Português)
+corrplot::corrplot(
+  corr = matriz_correlacao,
+  method = "color",       # Cores indicam intensidade
+  type = "upper",         # Apenas triângulo superior (evita redundância)
+  addCoef.col = "black",  # Mostra o valor numérico da correlação
+  tl.col = "black",       # Texto preto
+  tl.srt = 90,            # Rotação do texto
+  diag = FALSE,           # Remove a diagonal principal (r=1)
+  title = "Matriz de Correlação Temporal (Decaimento sugere AR1)",
+  mar = c(0,0,2,0)
+)
+
+```
+
+
+:::
 
 <br>
 
