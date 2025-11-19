@@ -28,7 +28,7 @@ website:
   # 2. Rodapé (Footer) - O local correto para os nomes
   page-footer:
     left: 
-      - text: "<b>Colaboradores:</b>" # Uso de <b> garante o negrito
+      - text: "<b>Colaboradores: </b>" # Uso de <b> garante o negrito
       - text: "Alexssandro da S. Oliveira<sup>1</sup>"
       - text: "Jakelinne Amazonas Gadelha<sup>2</sup>"
       - text: "Letícia Haifa do N. Mattos<sup>3</sup>"
@@ -50,16 +50,19 @@ format:
           <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
           <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Fira+Code&display=swap" rel="stylesheet">
     
-    # Importa o arquivo JS (para interatividade futura)
-    # include-after-body: scripts.js
-    
-    # Suas outras configurações de HTML (mantidas do seu arquivo)
+    # Configurações de Layout
     fontsize: 0.9em
     margin-left: 0em
     margin-right: 0em
     margin-bottom: 0em
     margin-top: -1em
+    toc: true
+    number-sections: true
+    code-fold: true
+    code-summary: "Mostrar/Ocultar Código R"
 
 # 4. Configuração do R
 execute:
-  freeze: auto # "Congela" os resultados dos R chunks
+  freeze: auto    # "Congela" resultados
+  message: false  # Ocultar mensagens 
+  warning: false  # Ocultar warnings 

@@ -47,13 +47,24 @@ This is a Quarto website.
 To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
 
 ```{r}
-x = 1 + 1
+# 1. Carregamento de Pacotes e Dependências
+if(!require("gsheet")) install.packages("gsheet")
+if(!require("corrplot")) install.packages("corrplot")
+if(!require("tidyverse")) install.packages("tidyverse")
+if(!require("nlme")) install.packages("nlme")
 
-# Exemplo de chunk de código R
-# A fonte 'Fira Code' e o fundo suave vêm do styles.css
-x <- 1 + 1
-print(paste("O resultado é:", x))
+require("gsheet")    # Leitura direta do Google Sheets
+require("tidyverse") # Metapacote (inclui dplyr, tidyr, ggplot2, stringr)
+require("corrplot")  # Visualização da matriz de correlação
+require("nlme")      # Essencial para gls() e lme()
 
+
+# 2. Importação dos Dados
+# URL pública da planilha contendo os dados do experimento
+url_stroke <- "https://docs.google.com/spreadsheets/d/1n394dzsNn1QITgigbHJ21uz6hi5TDCHs/edit?gid=712419062#gid=712419062"
+
+# Leitura dos dados brutos transformando diretamente em tibble (dataframe moderno)
+bd_stroke <- gsheet::gsheet2tbl(url_stroke)
 ```
 
 
