@@ -37,7 +37,6 @@ Nesta seção, carregamos todas as bibliotecas utilizadas neste projeto. A verif
 
 Para a elaboração deste estudo, empregaremos a linguagem de programação [**R**](http://www.R-project.org/), voltada para a manipulação, análise e visualização de dados, bem como o software livre de ambiente de desenvolvimento integrado [**RStudio**](https://posit.co/download/rstudio-desktop/).
 
-<br>
 
 ```{r}
 #| label: setup-plots
@@ -105,6 +104,8 @@ Os pacientes foram divididos em três grupos experimentais:
 -   **Grupo A:** Uma nova intervenção de terapia ocupacional.
 -   **Grupo B:** O programa existente de reabilitação de derrame.
 -   **Grupo C:** O regime de cuidados usuais para pacientes com derrame.
+
+<br>
 
 ```{r}
 #| label: Importação da base de dados
