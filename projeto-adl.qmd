@@ -301,7 +301,6 @@ ggplot2::ggplot(
 #| label: Resumo Descritivo por Grupo e Semana - Stroke
 #| code-summary: "Resumo Descritivo por Grupo e Semana - Stroke"
 
-
 # Resumo Descritivo
 tabela_descritiva <- bd_stroke_long %>%
   dplyr::group_by(Grupo, Semana) %>%
@@ -313,12 +312,12 @@ tabela_descritiva <- bd_stroke_long %>%
     .groups = "drop"
   )
 
-# Tabela Descritiva Interativa
+# USANDO DT::datatable conforme solicitado
 DT::datatable(
   data.frame(tabela_descritiva),
   caption = htmltools::tags$caption(
     style = "caption-side: top; text-align: center; color:#06d6a0;",
-    htmltools::strong("Tabela 3: Resumo Descritivo por Grupo e Semana")
+    htmltools::strong("Tabela 2: Resumo Descritivo por Grupo e Semana (DT)")
   ),
   class = "hover",
   options = list(
