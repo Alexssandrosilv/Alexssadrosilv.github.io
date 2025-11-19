@@ -248,8 +248,8 @@ texto
 <br>
 
 ```{r}
-#| label: Gráfico A: Trajetórias Individuais - Stroke
-#| code-summary: "Gráfico A: Trajetórias Individuais - Stroke"
+#| label: Trajetórias Individuais - Stroke
+#| code-summary: "Trajetórias Individuais - Stroke"
 
 # Gráfico A: Trajetórias Individuais (Spaghetti Plot)
 
@@ -340,8 +340,8 @@ DT::datatable(
 <br>
 
 ```{r}
-#| label: Gráfico B: Boxplots no Tempo - Stroke
-#| code-summary: "Gráfico B: Boxplots no Tempo - Stroke"
+#| label: Boxplots no Tempo - Stroke
+#| code-summary: "Boxplots no Tempo - Stroke"
 
 
 ggplot2::ggplot(
@@ -373,8 +373,8 @@ ggplot2::ggplot(
 
 
 ```{r}
-#| label: Gráfico C: Matrix de Correlação - Stroke
-#| code-summary: "Gráfico C: Matrix de Correlação - Stroke"
+#| label: Matrix de Correlação - Stroke
+#| code-summary: "Matrix de Correlação - Stroke"
 
 # Diagnóstico C: Estrutura de Correlação (Correlograma)
 # Objetivo: Decidir a estrutura da matriz R (Independent, AR1, Unstructured).
