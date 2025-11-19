@@ -306,9 +306,9 @@ tabela_descritiva <- bd_stroke_long %>%
   dplyr::group_by(Grupo, Semana) %>%
   dplyr::summarise(
     Media = mean(Pontuacao, na.rm = TRUE),
-    Desvio_Padrao = sd(Pontuacao, na.rm = TRUE),
+    Desvio_Padrao = round(sd(Pontuacao, na.rm = TRUE),4),
     N_Pacientes = dplyr::n(),
-    Erro_Padrao = Desvio_Padrao / sqrt(N_Pacientes),
+    Erro_Padrao = round((Desvio_Padrao / sqrt(N_Pacientes)),4),
     .groups = "drop"
   )
 
@@ -316,8 +316,8 @@ tabela_descritiva <- bd_stroke_long %>%
 DT::datatable(
   data.frame(tabela_descritiva),
   caption = htmltools::tags$caption(
-    style = "caption-side: top; text-align: center; color:#06d6a0;",
-    htmltools::strong("Tabela 2: Resumo Descritivo por Grupo e Semana (DT)")
+    style = "caption-side: top; text-align: center; color:#40916c;",
+    htmltools::strong("Tabela 3: Resumo Descritivo por Grupo e Semana")
   ),
   class = "hover",
   options = list(
