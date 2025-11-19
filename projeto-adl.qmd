@@ -305,8 +305,8 @@ ggplot2::ggplot(
 tabela_descritiva <- bd_stroke_long %>%
   dplyr::group_by(Grupo, Semana) %>%
   dplyr::summarise(
-    Media = mean(Valor, na.rm = TRUE),
-    Desvio_Padrao = sd(Valor, na.rm = TRUE),
+    Media = mean(Pontuacao, na.rm = TRUE),
+    Desvio_Padrao = sd(Pontuacao, na.rm = TRUE),
     N_Pacientes = dplyr::n(),
     Erro_Padrao = Desvio_Padrao / sqrt(N_Pacientes),
     .groups = "drop"
