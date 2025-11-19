@@ -111,7 +111,7 @@ Os pacientes foram divididos em três grupos experimentais:
 url_stroke <- "https://docs.google.com/spreadsheets/d/1n394dzsNn1QITgigbHJ21uz6hi5TDCHs/edit?gid=712419062#gid=712419062"
 
 # Leitura dos dados brutos 
-bd_stroke <- gsheet::gsheet2tbl(url_stroke)
+bd_stroke <- gsheet::gsheet2tbl(url_stroke) 
 
 # Tabela Interativa dos dados Brutos
 DT::datatable(
@@ -407,6 +407,18 @@ corrplot::corrplot(
 :::
 
 <br>
+
+
+### Modelagem Estatística
+
+::: {style="text-align: justify"}
+
+texto
+
+```
+
+
+:::
 
 ::: {style="border-top: 2px solid #003366;"}
 :::
