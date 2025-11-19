@@ -89,11 +89,7 @@ require("reactable")  # Outra opção excelente para tabelas interativas
 
 ## Base Dados: Recuperação de Pacientes Pós-AVC (STROKE)
 
-<br>
-
 ### Sobre os dados
-
-<br>
 
 ::: {style="text-align: justify"}
 
@@ -143,8 +139,6 @@ dplyr::glimpse(bd_stroke)
 <br>
 
 ### Reestruturação e Tratamento dos Dados
-
-<br>
 
 ::: {style="text-align: justify"}
 Para a modelagem longitudinal, o conjunto de dados é submetido a três fases cruciais de processamento e estruturação:
