@@ -28,7 +28,26 @@ knitr::opts_chunk$set(
 ```
 
 
-## Exercícios
+
+```{r}
+#| label: setup-plots
+#| code-summary: "Carregando bibliotecas"
+# Carregar pacotes necessários
+
+# 1. Carregamento de Pacotes e Dependências
+if(!require("gsheet")) install.packages("gsheet")
+if(!require("corrplot")) install.packages("corrplot")
+if(!require("tidyverse")) install.packages("tidyverse")
+if(!require("nlme")) install.packages("nlme")
+
+require("gsheet")    # Leitura direta do Google Sheets
+require("tidyverse") # Metapacote (inclui dplyr, tidyr, ggplot2, stringr)
+require("corrplot")  # Visualização da matriz de correlação
+require("nlme")      # Essencial para gls() e lme()
+```
+
+## ANÁLISE DESCRITIVA LONGITUDINAL - DADOS DE AVC (STROKE)
+
 
 ## 📊 Bem-vindo(a) ao nosso Portfólio de Estatística
 
