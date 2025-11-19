@@ -55,7 +55,7 @@ format:
           details > summary {
             color: #132a13;
             font-weight: bold;
-            cursor: text;
+            cursor: pointer;
           }
           </style>
     

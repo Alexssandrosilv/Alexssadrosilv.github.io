@@ -29,22 +29,59 @@ knitr::opts_chunk$set(
 
 
 
+::: {style="text-align: justify"}
+
+## Análise de Dados - Dados de AVC (STROKE)
+
+## Sobre os dados
+
+O banco de dados abaixo contempla informações sobre o crescimento de bezerros entre a 12ª e a 26ª semana de vida, obtidas por meio de um estudo longitudinal com medidas repetidas.
+
+
 ```{r}
 #| label: setup-plots
 #| code-summary: "Carregando bibliotecas"
 # Carregar pacotes necessários
 
-# 1. Carregamento de Pacotes e Dependências
-if(!require("gsheet")) install.packages("gsheet")
-if(!require("corrplot")) install.packages("corrplot")
-if(!require("tidyverse")) install.packages("tidyverse")
-if(!require("nlme")) install.packages("nlme")
+# Este script verifica se os pacotes necessários estão instalados.
+# Se não estiverem (!require), ele instala e carrega automaticamente.
 
-require("gsheet")    # Leitura direta do Google Sheets
-require("tidyverse") # Metapacote (inclui dplyr, tidyr, ggplot2, stringr)
-require("corrplot")  # Visualização da matriz de correlação
-require("nlme")      # Essencial para gls() e lme()
+# ------------------------------------------------------------------------------
+# A. Importação de Dados
+# ------------------------------------------------------------------------------
+if(!require("gsheet")) install.packages("gsheet")
+require("gsheet")     # Permite ler planilhas do Google Sheets diretamente pela URL
+
+# ------------------------------------------------------------------------------
+# B. Manipulação e Visualização de Dados
+# ------------------------------------------------------------------------------
+if(!require("tidyverse")) install.packages("tidyverse")
+require("tidyverse")  # Metapacote essencial: carrega dplyr, ggplot2, tidyr, etc.
+
+if(!require("ggrepel")) install.packages("ggrepel")
+require("ggrepel")    # Evita que textos/rótulos se sobreponham nos gráficos
+
+if(!require("corrplot")) install.packages("corrplot")
+require("corrplot")   # Ferramenta visual para criar matrizes de correlação
+
+# ------------------------------------------------------------------------------
+# C. Modelagem Estatística
+# ------------------------------------------------------------------------------
+if(!require("nlme")) install.packages("nlme")
+require("nlme")       # Ajuste de Modelos Lineares de Efeitos Mistos e GLS
+                      # Fundamental para definir estruturas de correlação (AR1, CS)
+
+if(!require("broom")) install.packages("broom")
+require("broom")      # Transforma resultados de modelos (summary) em tabelas limpas
+
+# ------------------------------------------------------------------------------
+# D. Apresentação de Resultados
+# ------------------------------------------------------------------------------
+if(!require("DT")) install.packages("DT")
+require("DT")         # Cria tabelas interativas e paginadas para relatórios HTML
 ```
+
+:::
 
 ## ANÁLISE DESCRITIVA LONGITUDINAL - DADOS DE AVC (STROKE)
 
