@@ -53,10 +53,9 @@ format:
           <!-- Estilo CSS para detalhes/sumário -->
           <style>
           details > summary {
-            color: #03045e;
-            /* color: #40916c; */
+            color: #132a13;
             font-weight: bold;
-            cursor: pointer;
+            cursor: text;
           }
           </style>
     
