@@ -43,12 +43,22 @@ format:
     theme: flatly # IMPORTANTE: Remove o tema padrão para usar 100% o nosso CSS
     css: styles.css
     
-    # Importa as fontes profissionais do Google
+    # Importa as fontes profissionais do Google e o CSS extra
     include-in-header:
       - text: |
           <link rel="preconnect" href="https://fonts.googleapis.com">
           <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
           <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Fira+Code&display=swap" rel="stylesheet">
+          
+          <!-- Estilo CSS para detalhes/sumário -->
+          <style>
+          details > summary {
+            color: #03045e;
+            /* color: #40916c; */
+            font-weight: bold;
+            cursor: pointer;
+          }
+          </style>
     
     # Configurações de Layout
     fontsize: 0.9em
@@ -66,3 +76,4 @@ execute:
   freeze: auto    # "Congela" resultados
   message: false  # Ocultar mensagens 
   warning: false  # Ocultar warnings 
+
