@@ -29,7 +29,7 @@ knitr::opts_chunk$set(
 
 
 
-## Pacotes Necessarios
+## Pacotes Necessários
 
 ::: {style="text-align: justify"}
 
@@ -87,7 +87,7 @@ require("reactable")  # Outra opção excelente para tabelas interativas
 
 :::
 
-## Dados Longitudinais de Recuperação de Pacientes Pós-AVC (STROKE)
+## Preparação da base de dados: Recuperação de Pacientes Pós-AVC (STROKE)
 
 ### Sobre os dados
 
@@ -113,7 +113,7 @@ bd_stroke <- gsheet::gsheet2tbl(url_stroke)
 
 # Tabela Interativa dos dados Brutos
 DT::datatable(
-  dados_stroke,
+  bd_stroke,
   caption = htmltools::tags$caption(
     style = "caption-side: top; text-align: center; color:#40916c;",
     htmltools::strong("Tabela 1:  Dados de Recuperação de Pacientes Pós-AVC (Dados Brutos)")
