@@ -154,7 +154,7 @@ Para a modelagem longitudinal, o conjunto de dados é submetido a três fases cr
 
 -   **Passo 1 - Leitura:** Importação da base de dados brutos para o ambiente R (visto anteriormente).
 -   **Passo 2 - Reestruturação:** A base de dados, lida inicialmente no formato largo (Wide), deve ser transformada para o formato formato longo (long), onde cada linha representa uma única observação no tempo, ex: paciente na Semana 3. Esta reestruturação é obrigatória em análises de medidas repetidas para que o modelo possa identificar e ajustar a correlação intra-sujeito.
--   **Passo 3 - Criação de Variável:** Se necessário, deve ser realizada a criação da variável de tempo recentralizada, que é crucial para garantir que o intercepto do modelo estatístico ($\beta_0$) represente o valor basal (Semana 1 = Tempo 0).
+-   **Passo 3 - Criação de Variável:** Se necessário, deve ser realizada a criação da variável de tempo recentralizada, que é crucial para garantir que o intercepto do modelo estatístico ($\beta_0$) represente o Pontuacao basal (Semana 1 = Tempo 0).
 
 <br>
 
@@ -176,7 +176,7 @@ bd_stroke_long <- bd_stroke %>%
   tidyr::pivot_longer(
     cols = week_1:week_8,    # Vetor de colunas que contêm as medidas repetidas
     names_to = "Semana",     # Nova variável categórica indicando o tempo
-    values_to = "Valor"      # Nova variável contínua com a resposta (outcome)
+    values_to = "Pontuacao"  # Nova variável contínua com a resposta 
   ) %>%
   
   # Passo 3: Engenharia de Variáveis (Feature Engineering)
@@ -257,7 +257,7 @@ ggplot2::ggplot(
   data = bd_stroke_long,
   mapping = ggplot2::aes(
     x = Semana, 
-    y = Valor, 
+    y = Pontuacao, 
     group = Sujeito, # Mapeia a estrutura intra-sujeito
     color = Grupo
   )
@@ -290,7 +290,7 @@ ggplot2::ggplot(
     subtitle = "Linhas coloridas: Pacientes | Linha tracejada: Tendência média",
     x = "Semana de Tratamento",
     y = "Medida de Recuperação",
-    color = "Grupo Experimental"
+    color = "Grupos"
   )
 
 # Gráfico B: Boxplots no Tempo
@@ -299,7 +299,7 @@ ggplot2::ggplot(
   data = bd_stroke_long,
   mapping = ggplot2::aes(
     x = factor(Semana), # Converte para fator para eixo discreto
-    y = Valor, 
+    y = Pontuacao, 
     fill = Grupo
   )
 ) +
@@ -312,9 +312,9 @@ ggplot2::ggplot(
   ) +
   ggplot2::theme_bw() +
   ggplot2::labs(
-    title = "Distribuição e Variabilidade por Semana",
+    title = "Boxplots no Tempo: Distribuição e Variabilidade por Semana",
     x = "Semana",
-    y = "Valor da Medida"
+    y = "Pontuacao da Medida"
   )
 
 # Diagnóstico C: Estrutura de Correlação (Correlograma)
@@ -335,11 +335,11 @@ corrplot::corrplot(
   corr = matriz_correlacao,
   method = "color",       # Cores indicam intensidade
   type = "upper",         # Apenas triângulo superior (evita redundância)
-  addCoef.col = "black",  # Mostra o valor numérico da correlação
+  addCoef.col = "black",  # Mostra o Pontuacao numérico da correlação
   tl.col = "black",       # Texto preto
   tl.srt = 90,            # Rotação do texto
   diag = FALSE,           # Remove a diagonal principal (r=1)
-  title = "Matriz de Correlação Temporal (Decaimento sugere AR1)",
+  title = "Matriz de Correlação",
   mar = c(0,0,2,0)
 )
 
