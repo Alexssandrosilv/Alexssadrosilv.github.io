@@ -9,63 +9,63 @@
   {
     "objectID": "projeto-mld.html#exercícios",
     "href": "projeto-mld.html#exercícios",
-    "title": "AS",
+    "title": "ΛΣ",
     "section": "Exercícios",
     "text": "Exercícios"
   },
   {
     "objectID": "projeto-mld.html#bem-vindoa-ao-nosso-portfólio-de-estatística",
     "href": "projeto-mld.html#bem-vindoa-ao-nosso-portfólio-de-estatística",
-    "title": "AS",
+    "title": "ΛΣ",
     "section": "📊 Bem-vindo(a) ao nosso Portfólio de Estatística",
     "text": "📊 Bem-vindo(a) ao nosso Portfólio de Estatística\n\nOlá! Nós somos Alexssandro da Silva Oliveira e Leticia Haifa, graduandos em Estatística. Este espaço é dedicado a apresentar nossos principais projetos, estudos de caso e análises.\nNavegue pelos nossos projetos para ver aplicações de Modelos Lineares Dinâmicos, Inferência Bayesiana, Séries Temporais e Métodos Não Paramétricos.\n\n\nPropõe-se a solução dos exercícios propostos e posteriormente, serão expostas e discutidas as conclusões acerca dos resultados obtidos. Para a elaboração deste estudo, empregaremos a linguagem de programação R, voltada para a manipulação, análise e visualização de dados, bem como o software livre de ambiente de desenvolvimento integrado RStudio.\n\nThis is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\nx = 1 + 1\n\n# Exemplo de chunk de código R\n# A fonte 'Fira Code' e o fundo suave vêm do styles.css\nx &lt;- 1 + 1\nprint(paste(\"O resultado é:\", x))\n\n[1] \"O resultado é: 2\"\n\n\nConclusão: Ao comparar as distribuições a posteriori para os grupos \\(\\alpha\\): Vacina e \\(\\delta\\): Placebo, observou-se que os indivíduos que receberam a vacina apresentam uma probabilidade inferior de infecção pela COVID-19 em relação aos que receberam o placebo. Visualmente, percebe-se que essa probabilidade é cerca de 1% menor para o grupo vacinado. Ainda assim, essa diferença pode se mostrar relevante a depender do contexto, considerando o tamanho amostral relativamente grande do estudo, com aproximadamente 18 mil e 200 pessoas.\n:::"
   },
   {
     "objectID": "projeto-mld.html#ferramenta-rápida-qual-modelo-usar",
     "href": "projeto-mld.html#ferramenta-rápida-qual-modelo-usar",
-    "title": "AS",
+    "title": "ΛΣ",
     "section": "💡 Ferramenta Rápida: Qual Modelo Usar?",
     "text": "💡 Ferramenta Rápida: Qual Modelo Usar?\n\nEsta ferramenta interativa ajuda a selecionar um modelo estatístico inicial com base no tipo da sua variável resposta (Y).\n\n\nSelecione o tipo da sua variável Resposta (Y):\n – Escolha uma opção – Contínua (Normal, ex: altura, peso) Contagem (Inteiro &gt;= 0, ex: n° de falhas) Proporção (0 a 1, ex: % de sucesso) Binária (0 ou 1, ex: sim/não) Tempo até Evento (Positivo, ex: sobrevivência) \n\n&lt;p style=\"color: #888;\"&gt;Selecione um tipo de variável para ver os pressupostos e o modelo.&lt;/p&gt;"
   },
   {
     "objectID": "index.html#exercícios",
     "href": "index.html#exercícios",
-    "title": "AS",
+    "title": "ΛΣ",
     "section": "Exercícios",
     "text": "Exercícios"
   },
   {
     "objectID": "index.html#bem-vindoa-ao-nosso-portfólio-de-estatística",
     "href": "index.html#bem-vindoa-ao-nosso-portfólio-de-estatística",
-    "title": "AS",
+    "title": "ΛΣ",
     "section": "📊 Bem-vindo(a) ao nosso Portfólio de Estatística",
     "text": "📊 Bem-vindo(a) ao nosso Portfólio de Estatística\n\nOlá! Nós somos Alexssandro da Silva Oliveira e Leticia Haifa, graduandos em Estatística. Este espaço é dedicado a apresentar nossos principais projetos, estudos de caso e análises.\nNavegue pelos nossos projetos para ver aplicações de Modelos Lineares Dinâmicos, Inferência Bayesiana, Séries Temporais e Métodos Não Paramétricos.\n\n\nPropõe-se a solução dos exercícios propostos e posteriormente, serão expostas e discutidas as conclusões acerca dos resultados obtidos. Para a elaboração deste estudo, empregaremos a linguagem de programação R, voltada para a manipulação, análise e visualização de dados, bem como o software livre de ambiente de desenvolvimento integrado RStudio.\n\nThis is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\nx = 1 + 1\n\n# Exemplo de chunk de código R\n# A fonte 'Fira Code' e o fundo suave vêm do styles.css\nx &lt;- 1 + 1\nprint(paste(\"O resultado é:\", x))\n\n[1] \"O resultado é: 2\"\n\n\nConclusão: Ao comparar as distribuições a posteriori para os grupos \\(\\alpha\\): Vacina e \\(\\delta\\): Placebo, observou-se que os indivíduos que receberam a vacina apresentam uma probabilidade inferior de infecção pela COVID-19 em relação aos que receberam o placebo. Visualmente, percebe-se que essa probabilidade é cerca de 1% menor para o grupo vacinado. Ainda assim, essa diferença pode se mostrar relevante a depender do contexto, considerando o tamanho amostral relativamente grande do estudo, com aproximadamente 18 mil e 200 pessoas.\n:::"
   },
   {
     "objectID": "index.html#ferramenta-rápida-qual-modelo-usar",
     "href": "index.html#ferramenta-rápida-qual-modelo-usar",
-    "title": "AS",
+    "title": "ΛΣ",
     "section": "💡 Ferramenta Rápida: Qual Modelo Usar?",
     "text": "💡 Ferramenta Rápida: Qual Modelo Usar?\n\nEsta ferramenta interativa ajuda a selecionar um modelo estatístico inicial com base no tipo da sua variável resposta (Y).\n\n\nSelecione o tipo da sua variável Resposta (Y):\n – Escolha uma opção – Contínua (Normal, ex: altura, peso) Contagem (Inteiro &gt;= 0, ex: n° de falhas) Proporção (0 a 1, ex: % de sucesso) Binária (0 ou 1, ex: sim/não) Tempo até Evento (Positivo, ex: sobrevivência) \n\n&lt;p style=\"color: #888;\"&gt;Selecione um tipo de variável para ver os pressupostos e o modelo.&lt;/p&gt;"
   },
   {
     "objectID": "projeto-adl.html#exercícios",
     "href": "projeto-adl.html#exercícios",
-    "title": "AS",
+    "title": "ΛΣ",
     "section": "Exercícios",
     "text": "Exercícios"
   },
   {
     "objectID": "projeto-adl.html#bem-vindoa-ao-nosso-portfólio-de-estatística",
     "href": "projeto-adl.html#bem-vindoa-ao-nosso-portfólio-de-estatística",
-    "title": "AS",
+    "title": "ΛΣ",
     "section": "📊 Bem-vindo(a) ao nosso Portfólio de Estatística",
     "text": "📊 Bem-vindo(a) ao nosso Portfólio de Estatística\n\nOlá! Nós somos Alexssandro da Silva Oliveira e Leticia Haifa, graduandos em Estatística. Este espaço é dedicado a apresentar nossos principais projetos, estudos de caso e análises.\nNavegue pelos nossos projetos para ver aplicações de Modelos Lineares Dinâmicos, Inferência Bayesiana, Séries Temporais e Métodos Não Paramétricos.\n\n\nPropõe-se a solução dos exercícios propostos e posteriormente, serão expostas e discutidas as conclusões acerca dos resultados obtidos. Para a elaboração deste estudo, empregaremos a linguagem de programação R, voltada para a manipulação, análise e visualização de dados, bem como o software livre de ambiente de desenvolvimento integrado RStudio.\n\nThis is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\nx = 1 + 1\n\n# Exemplo de chunk de código R\n# A fonte 'Fira Code' e o fundo suave vêm do styles.css\nx &lt;- 1 + 1\nprint(paste(\"O resultado é:\", x))\n\n[1] \"O resultado é: 2\"\n\n\nConclusão: Ao comparar as distribuições a posteriori para os grupos \\(\\alpha\\): Vacina e \\(\\delta\\): Placebo, observou-se que os indivíduos que receberam a vacina apresentam uma probabilidade inferior de infecção pela COVID-19 em relação aos que receberam o placebo. Visualmente, percebe-se que essa probabilidade é cerca de 1% menor para o grupo vacinado. Ainda assim, essa diferença pode se mostrar relevante a depender do contexto, considerando o tamanho amostral relativamente grande do estudo, com aproximadamente 18 mil e 200 pessoas.\n:::"
   },
   {
     "objectID": "projeto-adl.html#ferramenta-rápida-qual-modelo-usar",
     "href": "projeto-adl.html#ferramenta-rápida-qual-modelo-usar",
-    "title": "AS",
+    "title": "ΛΣ",
     "section": "💡 Ferramenta Rápida: Qual Modelo Usar?",
     "text": "💡 Ferramenta Rápida: Qual Modelo Usar?\n\nEsta ferramenta interativa ajuda a selecionar um modelo estatístico inicial com base no tipo da sua variável resposta (Y).\n\n\nSelecione o tipo da sua variável Resposta (Y):\n – Escolha uma opção – Contínua (Normal, ex: altura, peso) Contagem (Inteiro &gt;= 0, ex: n° de falhas) Proporção (0 a 1, ex: % de sucesso) Binária (0 ou 1, ex: sim/não) Tempo até Evento (Positivo, ex: sobrevivência) \n\n&lt;p style=\"color: #888;\"&gt;Selecione um tipo de variável para ver os pressupostos e o modelo.&lt;/p&gt;"
   }
