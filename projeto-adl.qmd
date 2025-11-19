@@ -1,0 +1,96 @@
+---
+title: ""
+author: "Alexssandro da Silva Oliveira"
+date: "`r format(Sys.Date())`"
+lang: pt
+---
+
+<br>
+
+::: {style="border-top: 2px solid #003366;"}
+:::
+
+<br>
+
+
+
+```{r setup, include=FALSE}
+# Define opções padrão para todos os chunks de código no R Markdown
+knitr::opts_chunk$set(
+  echo = TRUE,         # Oculta o código nos resultados finais do documento
+  warning = FALSE,     # Suprime mensagens de aviso (warnings)
+  message = FALSE,     # Suprime mensagens informativas (como as de carregamento de pacotes)
+  fig.width = 10,      # Define a largura padrão das figuras (em polegadas)
+  fig.height = 6,      # Define a altura padrão das figuras (em polegadas)
+  fig.align = 'center'
+)
+
+```
+
+
+## Exercícios
+
+## 📊 Bem-vindo(a) ao nosso Portfólio de Estatística
+
+::: {style="text-align: justify"}
+Olá! Nós somos **Alexssandro da Silva Oliveira** e **Leticia Haifa**, graduandos em Estatística. Este espaço é dedicado a apresentar nossos principais projetos, estudos de caso e análises.
+
+Navegue pelos nossos projetos para ver aplicações de Modelos Lineares Dinâmicos, Inferência Bayesiana, Séries Temporais e Métodos Não Paramétricos.
+:::
+
+::: {style="text-align: justify"}
+Propõe-se a solução dos exercícios propostos e posteriormente, serão expostas e discutidas as conclusões acerca dos resultados obtidos. Para a elaboração deste estudo, empregaremos a linguagem de programação [**R**](http://www.R-project.org/), voltada para a manipulação, análise e visualização de dados, bem como o software livre de ambiente de desenvolvimento integrado [**RStudio**](https://posit.co/download/rstudio-desktop/).
+:::
+
+This is a Quarto website.
+
+To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+
+```{r}
+x = 1 + 1
+
+# Exemplo de chunk de código R
+# A fonte 'Fira Code' e o fundo suave vêm do styles.css
+x <- 1 + 1
+print(paste("O resultado é:", x))
+
+```
+
+
+
+
+**Conclusão:** Ao comparar as distribuições a posteriori para os grupos $\alpha$: Vacina e $\delta$: Placebo, observou-se que os indivíduos que receberam a vacina apresentam uma probabilidade **inferior** de infecção pela COVID-19 em relação aos que receberam o placebo. Visualmente, percebe-se que essa probabilidade é cerca de 1% menor para o grupo vacinado. Ainda assim, essa diferença pode se mostrar relevante a depender do contexto, considerando o tamanho amostral relativamente grande do estudo, com aproximadamente 18 mil e 200 pessoas.
+
+
+:::
+
+## 💡 Ferramenta Rápida: Qual Modelo Usar?
+
+::: {style="text-align: justify"}
+Esta ferramenta interativa ajuda a selecionar um modelo estatístico inicial com base no tipo da sua variável resposta (Y).
+:::
+
+<div class="ferramenta-modelo">
+  <strong>Selecione o tipo da sua variável Resposta (Y):</strong>
+  
+  <select id="seletor-variavel" class="form-select">
+    <option value="default" selected>-- Escolha uma opção --</option>
+    <option value="continua">Contínua (Normal, ex: altura, peso)</option>
+    <option value="contagem">Contagem (Inteiro >= 0, ex: n° de falhas)</option>
+    <option value="proporcao">Proporção (0 a 1, ex: % de sucesso)</option>
+    <option value="binaria">Binária (0 ou 1, ex: sim/não)</option>
+    <option value="tempo">Tempo até Evento (Positivo, ex: sobrevivência)</option>
+  </select>
+  
+  <div id="resultado-modelo">
+    <p style="color: #888;">Selecione um tipo de variável para ver os pressupostos e o modelo.</p>
+  </div>
+</div>
+
+
+<br>
+
+::: {style="border-top: 2px solid #003366;"}
+:::
+
+<br>
