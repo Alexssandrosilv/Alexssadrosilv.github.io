@@ -136,15 +136,11 @@ DT::datatable(
 
 ```{r}
 #| label: Variáveis base original (formato largo)
-#| code-summary: Variáveis base original (formato largo)
-
-# Descritiva 
-dplyr::glimpse(bd_stroke_long)
-
-```
+#| code-summary: "Variáveis base original (formato largo)"
 
 # Descritiva 
 dplyr::glimpse(bd_stroke)
+
 ```
 
 :::
