@@ -276,19 +276,16 @@ window.Quarto = {
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code># Downloading packages -------------------------------------------------------
-- Downloading ggrepel from CRAN ...             OK [282.9 Kb in 0.34s]
-- Downloading Rcpp from CRAN ...                OK [2.1 Mb in 0.13s]
-Successfully downloaded 2 packages in 0.9 seconds.
+- Downloading ggrepel from CRAN ...             OK [282.6 Kb in 0.35s]
+Successfully downloaded 1 package in 1.4 seconds.
 
 The following package(s) will be installed:
 - ggrepel [0.9.6]
-- Rcpp    [1.1.0]
-These packages will be installed into "~/work/Alexssadrosilv.github.io/Alexssadrosilv.github.io/renv/library/R-4.2/x86_64-pc-linux-gnu".
+These packages will be installed into "~/work/Alexssadrosilv.github.io/Alexssadrosilv.github.io/renv/library/R-4.3/x86_64-pc-linux-gnu".
 
 # Installing packages --------------------------------------------------------
-- Installing Rcpp ...                           OK [installed binary and cached in 0.38s]
-- Installing ggrepel ...                        OK [installed binary and cached in 0.92s]
-Successfully installed 2 packages in 1.4 seconds.</code></pre>
+- Installing ggrepel ...                        OK [installed binary and cached in 0.88s]
+Successfully installed 1 package in 0.92 seconds.</code></pre>
 </div>
 <details class="code-fold">
 <summary>Carregando bibliotecas</summary>
@@ -310,42 +307,8 @@ Successfully installed 2 packages in 1.4 seconds.</code></pre>
 <span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------------------------</span></span>
 <span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="co"># D. Apresentação de Resultados</span></span>
 <span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------------------------</span></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(<span class="st">"DT"</span>)) <span class="fu">install.packages</span>(<span class="st">"DT"</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code># Downloading packages -------------------------------------------------------
-- Downloading DT from CRAN ...                  OK [1.7 Mb in 0.28s]
-- Downloading crosstalk from CRAN ...           OK [397.4 Kb in 0.12s]
-- Downloading lazyeval from CRAN ...            OK [148.2 Kb in 0.17s]
-- Downloading htmlwidgets from CRAN ...         OK [794.6 Kb in 0.15s]
-- Downloading promises from CRAN ...            OK [1.6 Mb in 0.27s]
-- Downloading later from CRAN ...               OK [150.1 Kb in 0.21s]
-- Downloading otel from CRAN ...                OK [261.9 Kb in 0.12s]
-Successfully downloaded 7 packages in 2.3 seconds.
-
-The following package(s) will be installed:
-- crosstalk   [1.2.2]
-- DT          [0.34.0]
-- htmlwidgets [1.6.4]
-- later       [1.4.4]
-- lazyeval    [0.2.2]
-- otel        [0.2.0]
-- promises    [1.5.0]
-These packages will be installed into "~/work/Alexssadrosilv.github.io/Alexssadrosilv.github.io/renv/library/R-4.2/x86_64-pc-linux-gnu".
-
-# Installing packages --------------------------------------------------------
-- Installing lazyeval ...                       OK [installed binary and cached in 0.2s]
-- Installing crosstalk ...                      OK [installed binary and cached in 0.33s]
-- Installing htmlwidgets ...                    OK [installed binary and cached in 0.34s]
-- Installing later ...                          OK [installed binary and cached in 0.28s]
-- Installing otel ...                           OK [installed binary and cached in 0.2s]
-- Installing promises ...                       OK [installed binary and cached in 0.41s]
-- Installing DT ...                             OK [installed binary and cached in 0.43s]
-Successfully installed 7 packages in 2.4 seconds.</code></pre>
-</div>
-<details class="code-fold">
-<summary>Carregando bibliotecas</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(<span class="st">"DT"</span>)         <span class="co"># Cria tabelas interativas e paginadas para relatórios HTML</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(<span class="st">"DT"</span>)) <span class="fu">install.packages</span>(<span class="st">"DT"</span>)</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(<span class="st">"DT"</span>)         <span class="co"># Cria tabelas interativas e paginadas para relatórios HTML</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </section>
@@ -367,12 +330,12 @@ Successfully installed 7 packages in 2.4 seconds.</code></pre>
 <div class="cell" data-layout-align="center">
 <details class="code-fold">
 <summary>Mostrar/Ocultar Código R</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemplo de chunk de código R</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># A fonte 'Fira Code' e o fundo suave vêm do styles.css</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"O resultado é:"</span>, x))</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemplo de chunk de código R</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># A fonte 'Fira Code' e o fundo suave vêm do styles.css</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"O resultado é:"</span>, x))</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "O resultado é: 2"</code></pre>
