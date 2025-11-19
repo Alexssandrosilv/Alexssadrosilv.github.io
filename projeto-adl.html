@@ -113,7 +113,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 details > summary {
   color: #132a13;
   font-weight: bold;
-  cursor: text;
+  cursor: pointer;
 }
 </style>
 
@@ -201,9 +201,9 @@ window.Quarto = {
     <h2 id="toc-title">Nesta página</h2>
    
   <ul>
-  <li><a href="#análise-descritiva-longitudinal---dados-de-avc-stroke" id="toc-análise-descritiva-longitudinal---dados-de-avc-stroke" class="nav-link active" data-scroll-target="#análise-descritiva-longitudinal---dados-de-avc-stroke"><span class="header-section-number">1</span> ANÁLISE DESCRITIVA LONGITUDINAL - DADOS DE AVC (STROKE)</a></li>
-  <li><a href="#bem-vindoa-ao-nosso-portfólio-de-estatística" id="toc-bem-vindoa-ao-nosso-portfólio-de-estatística" class="nav-link" data-scroll-target="#bem-vindoa-ao-nosso-portfólio-de-estatística"><span class="header-section-number">2</span> 📊 Bem-vindo(a) ao nosso Portfólio de Estatística</a></li>
-  <li><a href="#ferramenta-rápida-qual-modelo-usar" id="toc-ferramenta-rápida-qual-modelo-usar" class="nav-link" data-scroll-target="#ferramenta-rápida-qual-modelo-usar"><span class="header-section-number">3</span> 💡 Ferramenta Rápida: Qual Modelo Usar?</a></li>
+  <li><a href="#análise-descritiva-longitudinal---dados-de-avc-stroke" id="toc-análise-descritiva-longitudinal---dados-de-avc-stroke" class="nav-link active" data-scroll-target="#análise-descritiva-longitudinal---dados-de-avc-stroke"><span class="header-section-number">3</span> ANÁLISE DESCRITIVA LONGITUDINAL - DADOS DE AVC (STROKE)</a></li>
+  <li><a href="#bem-vindoa-ao-nosso-portfólio-de-estatística" id="toc-bem-vindoa-ao-nosso-portfólio-de-estatística" class="nav-link" data-scroll-target="#bem-vindoa-ao-nosso-portfólio-de-estatística"><span class="header-section-number">4</span> 📊 Bem-vindo(a) ao nosso Portfólio de Estatística</a></li>
+  <li><a href="#ferramenta-rápida-qual-modelo-usar" id="toc-ferramenta-rápida-qual-modelo-usar" class="nav-link" data-scroll-target="#ferramenta-rápida-qual-modelo-usar"><span class="header-section-number">5</span> 💡 Ferramenta Rápida: Qual Modelo Usar?</a></li>
   </ul>
 </nav>
     </div>
@@ -245,28 +245,116 @@ window.Quarto = {
 
 </div>
 <p><br></p>
+<div style="text-align: justify">
+<section id="análise-de-dados---dados-de-avc-stroke" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="análise-de-dados---dados-de-avc-stroke"><span class="header-section-number">1</span> Análise de Dados - Dados de AVC (STROKE)</h2>
+</section>
+<section id="sobre-os-dados" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="sobre-os-dados"><span class="header-section-number">2</span> Sobre os dados</h2>
+<p>O banco de dados abaixo contempla informações sobre o crescimento de bezerros entre a 12ª e a 26ª semana de vida, obtidas por meio de um estudo longitudinal com medidas repetidas.</p>
 <div class="cell" data-layout-align="center">
 <details class="code-fold">
 <summary>Carregando bibliotecas</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Carregar pacotes necessários</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Carregamento de Pacotes e Dependências</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(<span class="st">"gsheet"</span>)) <span class="fu">install.packages</span>(<span class="st">"gsheet"</span>)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(<span class="st">"corrplot"</span>)) <span class="fu">install.packages</span>(<span class="st">"corrplot"</span>)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(<span class="st">"tidyverse"</span>)) <span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(<span class="st">"nlme"</span>)) <span class="fu">install.packages</span>(<span class="st">"nlme"</span>)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(<span class="st">"gsheet"</span>)    <span class="co"># Leitura direta do Google Sheets</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(<span class="st">"tidyverse"</span>) <span class="co"># Metapacote (inclui dplyr, tidyr, ggplot2, stringr)</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(<span class="st">"corrplot"</span>)  <span class="co"># Visualização da matriz de correlação</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(<span class="st">"nlme"</span>)      <span class="co"># Essencial para gls() e lme()</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Este script verifica se os pacotes necessários estão instalados.</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Se não estiverem (!require), ele instala e carrega automaticamente.</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------------------------</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># A. Importação de Dados</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------------------------</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(<span class="st">"gsheet"</span>)) <span class="fu">install.packages</span>(<span class="st">"gsheet"</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(<span class="st">"gsheet"</span>)     <span class="co"># Permite ler planilhas do Google Sheets diretamente pela URL</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------------------------</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># B. Manipulação e Visualização de Dados</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------------------------</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(<span class="st">"tidyverse"</span>)) <span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(<span class="st">"tidyverse"</span>)  <span class="co"># Metapacote essencial: carrega dplyr, ggplot2, tidyr, etc.</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(<span class="st">"ggrepel"</span>)) <span class="fu">install.packages</span>(<span class="st">"ggrepel"</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># Downloading packages -------------------------------------------------------
+- Downloading ggrepel from CRAN ...             OK [282.9 Kb in 0.34s]
+- Downloading Rcpp from CRAN ...                OK [2.1 Mb in 0.13s]
+Successfully downloaded 2 packages in 0.9 seconds.
+
+The following package(s) will be installed:
+- ggrepel [0.9.6]
+- Rcpp    [1.1.0]
+These packages will be installed into "~/work/Alexssadrosilv.github.io/Alexssadrosilv.github.io/renv/library/R-4.2/x86_64-pc-linux-gnu".
+
+# Installing packages --------------------------------------------------------
+- Installing Rcpp ...                           OK [installed binary and cached in 0.38s]
+- Installing ggrepel ...                        OK [installed binary and cached in 0.92s]
+Successfully installed 2 packages in 1.4 seconds.</code></pre>
+</div>
+<details class="code-fold">
+<summary>Carregando bibliotecas</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(<span class="st">"ggrepel"</span>)    <span class="co"># Evita que textos/rótulos se sobreponham nos gráficos</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(<span class="st">"corrplot"</span>)) <span class="fu">install.packages</span>(<span class="st">"corrplot"</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(<span class="st">"corrplot"</span>)   <span class="co"># Ferramenta visual para criar matrizes de correlação</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------------------------</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># C. Modelagem Estatística</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------------------------</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(<span class="st">"nlme"</span>)) <span class="fu">install.packages</span>(<span class="st">"nlme"</span>)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(<span class="st">"nlme"</span>)       <span class="co"># Ajuste de Modelos Lineares de Efeitos Mistos e GLS</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>                      <span class="co"># Fundamental para definir estruturas de correlação (AR1, CS)</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(<span class="st">"broom"</span>)) <span class="fu">install.packages</span>(<span class="st">"broom"</span>)</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(<span class="st">"broom"</span>)      <span class="co"># Transforma resultados de modelos (summary) em tabelas limpas</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------------------------</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="co"># D. Apresentação de Resultados</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------------------------</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(<span class="st">"DT"</span>)) <span class="fu">install.packages</span>(<span class="st">"DT"</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># Downloading packages -------------------------------------------------------
+- Downloading DT from CRAN ...                  OK [1.7 Mb in 0.28s]
+- Downloading crosstalk from CRAN ...           OK [397.4 Kb in 0.12s]
+- Downloading lazyeval from CRAN ...            OK [148.2 Kb in 0.17s]
+- Downloading htmlwidgets from CRAN ...         OK [794.6 Kb in 0.15s]
+- Downloading promises from CRAN ...            OK [1.6 Mb in 0.27s]
+- Downloading later from CRAN ...               OK [150.1 Kb in 0.21s]
+- Downloading otel from CRAN ...                OK [261.9 Kb in 0.12s]
+Successfully downloaded 7 packages in 2.3 seconds.
+
+The following package(s) will be installed:
+- crosstalk   [1.2.2]
+- DT          [0.34.0]
+- htmlwidgets [1.6.4]
+- later       [1.4.4]
+- lazyeval    [0.2.2]
+- otel        [0.2.0]
+- promises    [1.5.0]
+These packages will be installed into "~/work/Alexssadrosilv.github.io/Alexssadrosilv.github.io/renv/library/R-4.2/x86_64-pc-linux-gnu".
+
+# Installing packages --------------------------------------------------------
+- Installing lazyeval ...                       OK [installed binary and cached in 0.2s]
+- Installing crosstalk ...                      OK [installed binary and cached in 0.33s]
+- Installing htmlwidgets ...                    OK [installed binary and cached in 0.34s]
+- Installing later ...                          OK [installed binary and cached in 0.28s]
+- Installing otel ...                           OK [installed binary and cached in 0.2s]
+- Installing promises ...                       OK [installed binary and cached in 0.41s]
+- Installing DT ...                             OK [installed binary and cached in 0.43s]
+Successfully installed 7 packages in 2.4 seconds.</code></pre>
+</div>
+<details class="code-fold">
+<summary>Carregando bibliotecas</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(<span class="st">"DT"</span>)         <span class="co"># Cria tabelas interativas e paginadas para relatórios HTML</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<section id="análise-descritiva-longitudinal---dados-de-avc-stroke" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="análise-descritiva-longitudinal---dados-de-avc-stroke"><span class="header-section-number">1</span> ANÁLISE DESCRITIVA LONGITUDINAL - DADOS DE AVC (STROKE)</h2>
 </section>
-<section id="bem-vindoa-ao-nosso-portfólio-de-estatística" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="bem-vindoa-ao-nosso-portfólio-de-estatística"><span class="header-section-number">2</span> 📊 Bem-vindo(a) ao nosso Portfólio de Estatística</h2>
+</div>
+<section id="análise-descritiva-longitudinal---dados-de-avc-stroke" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="análise-descritiva-longitudinal---dados-de-avc-stroke"><span class="header-section-number">3</span> ANÁLISE DESCRITIVA LONGITUDINAL - DADOS DE AVC (STROKE)</h2>
+</section>
+<section id="bem-vindoa-ao-nosso-portfólio-de-estatística" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="bem-vindoa-ao-nosso-portfólio-de-estatística"><span class="header-section-number">4</span> 📊 Bem-vindo(a) ao nosso Portfólio de Estatística</h2>
 <div style="text-align: justify">
 <p>Olá! Nós somos <strong>Alexssandro da Silva Oliveira</strong> e <strong>Leticia Haifa</strong>, graduandos em Estatística. Este espaço é dedicado a apresentar nossos principais projetos, estudos de caso e análises.</p>
 <p>Navegue pelos nossos projetos para ver aplicações de Modelos Lineares Dinâmicos, Inferência Bayesiana, Séries Temporais e Métodos Não Paramétricos.</p>
@@ -279,12 +367,12 @@ window.Quarto = {
 <div class="cell" data-layout-align="center">
 <details class="code-fold">
 <summary>Mostrar/Ocultar Código R</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemplo de chunk de código R</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># A fonte 'Fira Code' e o fundo suave vêm do styles.css</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"O resultado é:"</span>, x))</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemplo de chunk de código R</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># A fonte 'Fira Code' e o fundo suave vêm do styles.css</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"O resultado é:"</span>, x))</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "O resultado é: 2"</code></pre>
@@ -293,8 +381,8 @@ window.Quarto = {
 <p><strong>Conclusão:</strong> Ao comparar as distribuições a posteriori para os grupos <span class="math inline">\(\alpha\)</span>: Vacina e <span class="math inline">\(\delta\)</span>: Placebo, observou-se que os indivíduos que receberam a vacina apresentam uma probabilidade <strong>inferior</strong> de infecção pela COVID-19 em relação aos que receberam o placebo. Visualmente, percebe-se que essa probabilidade é cerca de 1% menor para o grupo vacinado. Ainda assim, essa diferença pode se mostrar relevante a depender do contexto, considerando o tamanho amostral relativamente grande do estudo, com aproximadamente 18 mil e 200 pessoas.</p>
 <p>:::</p>
 </section>
-<section id="ferramenta-rápida-qual-modelo-usar" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="ferramenta-rápida-qual-modelo-usar"><span class="header-section-number">3</span> 💡 Ferramenta Rápida: Qual Modelo Usar?</h2>
+<section id="ferramenta-rápida-qual-modelo-usar" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="ferramenta-rápida-qual-modelo-usar"><span class="header-section-number">5</span> 💡 Ferramenta Rápida: Qual Modelo Usar?</h2>
 <div style="text-align: justify">
 <p>Esta ferramenta interativa ajuda a selecionar um modelo estatístico inicial com base no tipo da sua variável resposta (Y).</p>
 </div>
