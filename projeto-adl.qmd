@@ -33,7 +33,7 @@ knitr::opts_chunk$set(
 
 ::: {style="text-align: justify"}
 
-Nesta seção, carregamos todas as bibliotecas utilizadas no projeto. A verificação é feita automaticamente para instalar apenas o que estiver faltando. 
+Nesta seção, carregamos todas as bibliotecas utilizadas neste projeto. A verificação é realizada de forma automática e, posteriormente, as bibliotecas necessárias são carregadas para uso.
 
 Para a elaboração deste estudo, empregaremos a linguagem de programação [**R**](http://www.R-project.org/), voltada para a manipulação, análise e visualização de dados, bem como o software livre de ambiente de desenvolvimento integrado [**RStudio**](https://posit.co/download/rstudio-desktop/).
 
@@ -87,15 +87,31 @@ require("reactable")  # Outra opção excelente para tabelas interativas
 
 :::
 
-## Análise de Dados - Dados de AVC (STROKE)
+## Dados Longitudinais de Recuperação de Pacientes Pós-AVC (STROKE)
 
 ### Sobre os dados
 
 ::: {style="text-align: justify"}
 
-O banco de dados abaixo contempla informações sobre o crescimento de bezerros entre a 12ª e a 26ª semana de vida, obtidas por meio de um estudo longitudinal com medidas repetidas.
+O conjunto de dados abaixo contempla informações de um experimento para promover a recuperação de pacientes que sofreram derrame. O objetivo é avaliar a eficácia de diferentes regimes de terapia ao longo de 8 semanas.
 
-Inicialmente, vamos preparar os dados, transformando-os para o formato longo.
+Os pacientes foram divididos em três grupos experimentais:
+
+-   **Grupo A:** Uma nova intervenção de terapia ocupacional.
+-   **Grupo B:** O programa existente de reabilitação de derrame.
+-   **Grupo C:** O regime de cuidados usuais para pacientes com derrame.
+
+:::
+
+### Importação, Manipulação e Tratamento dos Dados
+
+::: {style="text-align: justify"}
+Para a modelagem longitudinal, o conjunto de dados é submetido a três fases cruciais de processamento e estruturação:
+
+-   **Leitura:** Importação da base de dados brutos para o ambiente R.
+-   **Manipulação e Reestruturação:** A base de dados, lida inicialmente no **formato largo (Wide)**, deve ser transformada para o formato **longo** (onde cada linha representa uma única observação no tempo, ex: paciente na Semana 3). Esta reestruturação é **obrigatória** em análises de medidas repetidas para que o modelo possa identificar e ajustar a correlação intra-sujeito.
+-   **Criação de Variável:** Se necessário, deve ser realizada a **Criação da variável de tempo recentralizada**, que é crucial para garantir que o intercepto do modelo estatístico ($\beta_0$) represente o valor basal (Semana 1 = Tempo 0).
+:::
 
 
 ```{r}
@@ -150,9 +166,8 @@ DT::datatable(
   # Configuração da Legenda (Caption)
   caption = htmltools::tags$caption(
     style = "caption-side: top; text-align: center; color:#06d6a0;",
-    htmltools::strong("Tabela 1:  Dados Longitudinais de Recuperação Pós-AVC")
+    htmltools::strong("Tabela 1:  Dados Longitudinais de Recuperação de Pacientes Pós-AVC (Formato Longo)")
   ),
-  
   # Estilo CSS da tabela (apenas hover, sem bordas pesadas)
   class = "hover", 
   
