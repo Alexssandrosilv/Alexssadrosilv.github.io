@@ -29,13 +29,13 @@ knitr::opts_chunk$set(
 
 
 
+## Pacotes Necessarios
+
 ::: {style="text-align: justify"}
 
-## Análise de Dados - Dados de AVC (STROKE)
+Nesta seção, carregamos todas as bibliotecas utilizadas no projeto. A verificação é feita automaticamente para instalar apenas o que estiver faltando. 
 
-## Sobre os dados
-
-O banco de dados abaixo contempla informações sobre o crescimento de bezerros entre a 12ª e a 26ª semana de vida, obtidas por meio de um estudo longitudinal com medidas repetidas.
+Para a elaboração deste estudo, empregaremos a linguagem de programação [**R**](http://www.R-project.org/), voltada para a manipulação, análise e visualização de dados, bem como o software livre de ambiente de desenvolvimento integrado [**RStudio**](https://posit.co/download/rstudio-desktop/).
 
 
 ```{r}
@@ -43,108 +43,142 @@ O banco de dados abaixo contempla informações sobre o crescimento de bezerros 
 #| code-summary: "Carregando bibliotecas"
 # Carregar pacotes necessários
 
-# Este script verifica se os pacotes necessários estão instalados.
-# Se não estiverem (!require), ele instala e carrega automaticamente.
+# Este script verifica se os pacotes estão instalados. Se não (!require), instala e carrega.
+# O argumento 'quiet = TRUE' remove as mensagens de download e instalação.
 
 # ------------------------------------------------------------------------------
 # A. Importação de Dados
 # ------------------------------------------------------------------------------
-if(!require("gsheet")) install.packages("gsheet")
+if(!require("gsheet")) install.packages("gsheet", quiet = TRUE)
 require("gsheet")     # Permite ler planilhas do Google Sheets diretamente pela URL
 
 # ------------------------------------------------------------------------------
 # B. Manipulação e Visualização de Dados
 # ------------------------------------------------------------------------------
-if(!require("tidyverse")) install.packages("tidyverse")
+if(!require("tidyverse")) install.packages("tidyverse", quiet = TRUE)
 require("tidyverse")  # Metapacote essencial: carrega dplyr, ggplot2, tidyr, etc.
 
-if(!require("ggrepel")) install.packages("ggrepel")
+if(!require("ggrepel")) install.packages("ggrepel", quiet = TRUE)
 require("ggrepel")    # Evita que textos/rótulos se sobreponham nos gráficos
 
-if(!require("corrplot")) install.packages("corrplot")
+if(!require("corrplot")) install.packages("corrplot", quiet = TRUE)
 require("corrplot")   # Ferramenta visual para criar matrizes de correlação
 
 # ------------------------------------------------------------------------------
 # C. Modelagem Estatística
 # ------------------------------------------------------------------------------
-if(!require("nlme")) install.packages("nlme")
+if(!require("nlme")) install.packages("nlme", quiet = TRUE)
 require("nlme")       # Ajuste de Modelos Lineares de Efeitos Mistos e GLS
                       # Fundamental para definir estruturas de correlação (AR1, CS)
 
-if(!require("broom")) install.packages("broom")
+if(!require("broom")) install.packages("broom", quiet = TRUE)
 require("broom")      # Transforma resultados de modelos (summary) em tabelas limpas
 
 # ------------------------------------------------------------------------------
 # D. Apresentação de Resultados
 # ------------------------------------------------------------------------------
-if(!require("DT")) install.packages("DT")
+if(!require("DT")) install.packages("DT", quiet = TRUE)
 require("DT")         # Cria tabelas interativas e paginadas para relatórios HTML
+
+if(!require("reactable")) install.packages("reactable", quiet = TRUE)
+require("reactable")  # Outra opção excelente para tabelas interativas
+
 ```
 
 :::
 
-## ANÁLISE DESCRITIVA LONGITUDINAL - DADOS DE AVC (STROKE)
+## Análise de Dados - Dados de AVC (STROKE)
 
-
-## 📊 Bem-vindo(a) ao nosso Portfólio de Estatística
-
-::: {style="text-align: justify"}
-Olá! Nós somos **Alexssandro da Silva Oliveira** e **Leticia Haifa**, graduandos em Estatística. Este espaço é dedicado a apresentar nossos principais projetos, estudos de caso e análises.
-
-Navegue pelos nossos projetos para ver aplicações de Modelos Lineares Dinâmicos, Inferência Bayesiana, Séries Temporais e Métodos Não Paramétricos.
-:::
+### Sobre os dados
 
 ::: {style="text-align: justify"}
-Propõe-se a solução dos exercícios propostos e posteriormente, serão expostas e discutidas as conclusões acerca dos resultados obtidos. Para a elaboração deste estudo, empregaremos a linguagem de programação [**R**](http://www.R-project.org/), voltada para a manipulação, análise e visualização de dados, bem como o software livre de ambiente de desenvolvimento integrado [**RStudio**](https://posit.co/download/rstudio-desktop/).
-:::
 
-This is a Quarto website.
+O banco de dados abaixo contempla informações sobre o crescimento de bezerros entre a 12ª e a 26ª semana de vida, obtidas por meio de um estudo longitudinal com medidas repetidas.
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+Inicialmente, vamos preparar os dados, transformando-os para o formato longo.
+
 
 ```{r}
-x = 1 + 1
+#| label: Leitura dos dados Preparação dos dados para o formato longo
+#| code-summary: "Passo 1 - Preparação dos dados para o formato longo"
 
-# Exemplo de chunk de código R
-# A fonte 'Fira Code' e o fundo suave vêm do styles.css
-x <- 1 + 1
-print(paste("O resultado é:", x))
+# 1. IMPORTAÇÃO DOS DADOS
 
+# URL pública da planilha contendo os dados do experimento
+url_stroke <- "https://docs.google.com/spreadsheets/d/1n394dzsNn1QITgigbHJ21uz6hi5TDCHs/edit?gid=712419062#gid=712419062"
+
+# Leitura dos dados brutos transformando diretamente em tibble (dataframe moderno)
+bd_stroke <- gsheet::gsheet2tbl(url_stroke)
+
+# 2. MANIPULAÇÃO E LIMPEZA DE DADOS 
+
+# A transformação para formato LONGO é obrigatória para funções como lme() ou gls().
+
+bd_stroke_long <- bd_stroke %>%
+  
+  # Renomeia as variáveis identificadoras para facilitar a interpretação no R.
+  dplyr::rename(
+    Sujeito = Subject,  # ID do paciente (define o nível de agrupamento/efeito aleatório)
+    Grupo   = Group     # Fator fixo de interesse (Tratamento A vs B)
+  ) %>%
+  
+  # Etapa B: Reestruturação de Dados (Wide -> Long)
+  # O R precisa que cada linha seja uma observação única no tempo.
+  tidyr::pivot_longer(
+    cols = week_1:week_8,    # Vetor de colunas que contêm as medidas repetidas
+    names_to = "Semana",     # Nova variável categórica indicando o tempo
+    values_to = "Valor"      # Nova variável contínua com a resposta (outcome)
+  ) %>%
+  
+  # Etapa C: Engenharia de Variáveis (Feature Engineering)
+  dplyr::mutate(
+    # Necessário para tratar o tempo como covariável contínua (tendência linear/quadrática).
+    Semana = as.numeric(stringr::str_remove(Semana, "week_")),
+    
+    # Centralização do Tempo (Time Centering)
+    # CRUCIAL: Ao subtrair 1, transformamos a escala de [1, 8] para [0, 7].
+    # facilitando a interpretação clínica dos parâmetros do modelo.
+    Semana_recentralizada = Semana - 1
+  )
+
+# 3. TABELA INTERATIVA (DT)
+
+# Gerar a tabela com estilo minimalista
+DT::datatable(
+  bd_stroke_long,  # <--- Objeto de dados do Stroke
+  
+  # Configuração da Legenda (Caption)
+  caption = htmltools::tags$caption(
+    style = "caption-side: top; text-align: center; color:#06d6a0;",
+    htmltools::strong("Tabela 1:  Dados Longitudinais de Recuperação Pós-AVC")
+  ),
+  
+  # Estilo CSS da tabela (apenas hover, sem bordas pesadas)
+  class = "hover", 
+  
+  # Opções de funcionalidade e visual
+  options = list(
+    pageLength = 8,       # Mostra 8 linhas por página
+    searching = FALSE,    # Remove a barra de busca
+    
+    # --- Visual Limpo ---
+    lengthChange = FALSE, # Remove o menu "Mostrar X entradas"
+    info = FALSE,         # Remove o rodapé "Mostrando 1 a X de Y"
+    ordering = FALSE,     # Remove as setas de ordenação nas colunas
+    
+    # Tradução dos botões
+    language = list(
+      paginate = list("previous" = "Anterior", "next" = "Próximo"),
+      emptyTable = "Não há dados disponíveis na tabela",
+      zeroRecords = "Nenhum registro correspondente encontrado"
+    )
+  )
+)
 ```
 
-
-
-
-**Conclusão:** Ao comparar as distribuições a posteriori para os grupos $\alpha$: Vacina e $\delta$: Placebo, observou-se que os indivíduos que receberam a vacina apresentam uma probabilidade **inferior** de infecção pela COVID-19 em relação aos que receberam o placebo. Visualmente, percebe-se que essa probabilidade é cerca de 1% menor para o grupo vacinado. Ainda assim, essa diferença pode se mostrar relevante a depender do contexto, considerando o tamanho amostral relativamente grande do estudo, com aproximadamente 18 mil e 200 pessoas.
-
-
 :::
 
-## 💡 Ferramenta Rápida: Qual Modelo Usar?
 
-::: {style="text-align: justify"}
-Esta ferramenta interativa ajuda a selecionar um modelo estatístico inicial com base no tipo da sua variável resposta (Y).
-:::
-
-<div class="ferramenta-modelo">
-  <strong>Selecione o tipo da sua variável Resposta (Y):</strong>
-  
-  <select id="seletor-variavel" class="form-select">
-    <option value="default" selected>-- Escolha uma opção --</option>
-    <option value="continua">Contínua (Normal, ex: altura, peso)</option>
-    <option value="contagem">Contagem (Inteiro >= 0, ex: n° de falhas)</option>
-    <option value="proporcao">Proporção (0 a 1, ex: % de sucesso)</option>
-    <option value="binaria">Binária (0 ou 1, ex: sim/não)</option>
-    <option value="tempo">Tempo até Evento (Positivo, ex: sobrevivência)</option>
-  </select>
-  
-  <div id="resultado-modelo">
-    <p style="color: #888;">Selecione um tipo de variável para ver os pressupostos e o modelo.</p>
-  </div>
-</div>
-
-
-<br>
 
 ::: {style="border-top: 2px solid #003366;"}
 :::
