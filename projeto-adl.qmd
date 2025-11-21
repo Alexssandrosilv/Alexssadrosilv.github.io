@@ -210,7 +210,7 @@ tabela_interativa(dados = bd_stroke_long,
 
 <br>
 
-Veja bem, cada $Y_{ij}$ (Resposta) está associada a um tempo $t_{ij}$, de modo que a resposta observada para o indivíduo $i$ pode ser organizada em um vetor coluna de dimensão $n_i \times 1$. Assim, o conjunto de respostas do indivíduo $i$ é representado por:
+Veja bem, cada $Y_{ij}$ (Resposta do indivíduo $i$ no tempo $j$) está associada a um tempo $t_{ij}$, de modo que a resposta observada para o indivíduo $i$ pode ser organizada em um vetor coluna de dimensão $n_i \times 1$. Assim, o conjunto de respostas do indivíduo $i$ é representado por:
 
 $$
 \mathbf{Y}_i =
