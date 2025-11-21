@@ -208,11 +208,47 @@ tabela_interativa(dados = bd_stroke_long,
 
 ```
 
+Veja bem, cada $Y_{ij}$ (Resposta) esta associada a um tempo $t_{ij}$, a resposta observada para o indivíduo $i$ será representada por um vetor coluna de dimensão $n_i \times 1$.
+
+$$
+Y_i =
+\begin{pmatrix}
+Y_{i1} \\
+Y_{i2} \\
+\vdots \\
+Y_{in_i}
+\end{pmatrix}_{n_i \times 1}
+=
+\begin{pmatrix}
+Y_{11} \\
+Y_{12} \\
+Y_{13} \\
+Y_{14} \\
+Y_{15} \\
+Y_{16} \\
+Y_{17} \\
+Y_{18}
+\end{pmatrix}_{8 \times 1}
+= 
+\begin{pmatrix}
+45 \\
+45 \\
+45 \\
+45 \\
+80 \\
+80 \\
+90 \\
+\end{pmatrix}_{8 \times 1}
+$$ 
+
+De forma análoga, podemos escrever o vetor de respostas $Y_{i}$ para o i-ésimo indivíduo.
+
+
 :::
 
 <br>
 
-### Análise exploratória de dados
+### Análise exploratória de dados (AED)
 
 ::: {style="text-align: justify"}
 
