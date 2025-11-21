@@ -153,11 +153,11 @@ Os pacientes foram divididos em três grupos experimentais:
 url_stroke <- "https://docs.google.com/spreadsheets/d/1n394dzsNn1QITgigbHJ21uz6hi5TDCHs/edit?gid=712419062#gid=712419062"
 
 # Nomes desejados para as variaveis
-nomes <- c("Sujeito", "Grupo", "Semana 1", "Semana 2", "Semana 3", 
+variaveis <- c("Sujeito", "Grupo", "Semana 1", "Semana 2", "Semana 3", 
            "Semana 4", "Semana 5", "Semana 6", "Semana 7", "Semana 8")
 
 # Passo 1: Leitura e Renomeação: bd_stroke (Wide)
-bd_stroke <- gsheet::gsheet2tbl(url_stroke) %>% stats::setNames(novos_nomes) 
+bd_stroke <- gsheet::gsheet2tbl(url_stroke) %>% stats::setNames(variaveis ) 
 
 tabela_interativa(dados = bd_stroke,
                   titulo_tabela = "Dados Brutos de Recuperação de Pacientes Pós-AVC (formato largo)")
