@@ -283,30 +283,51 @@ De forma análoga, podemos escrever o vetor de respostas $\mathbf{Y}_i$ para o i
 
 ::: {style="text-align: justify"}
 
+## Simetria Composta ($\text{CS}$)
+
+Pressuposto: Variância constante ($\sigma^2$) e Correlação constante ($\rho$).
+
 $$
 \begin{array}{c|c}
+
 \begin{aligned}
+
+\text{Matriz de Covariância (\mathbf{\Sigma}_i):} \\\\
+
 \mathbf{\Sigma}_i^{\text{CS}}
 & = \sigma^2 \left( \mathbf{I} (1-\rho) + \mathbf{J} \rho \right) \\
-& \text{Onde: } \left[\mathbf{\Sigma}_i^{\text{CS}}\right]_{jk} =
+
+& \text{Onde: } \\
+
+\left[\mathbf{\Sigma}_i^{\text{CS}}\right]_{jk} =
 \begin{cases}
 \sigma^2, & \text{se } j = k \\
 \sigma^2 \rho, & \text{se } j \neq k
 \end{cases}
+
 \end{aligned}
+
 \quad & \quad
+
 \begin{aligned}
+
+\text{Matriz de Correlação (\mathbf{R}_i):} \\\\
+
 \mathbf{R}_i^{\text{CS}}
 & = \mathbf{I} (1-\rho) + \mathbf{J} \rho \\
-& \text{Onde: } \left[\mathbf{R}_i^{\text{CS}}\right]_{jk} =
+
+& \text{Onde: } \\
+
+\left[\mathbf{R}_i^{\text{CS}}\right]_{jk} =
 \begin{cases}
 1, & \text{se } j = k \\
 \rho, & \text{se } j \neq k
 \end{cases}
+
 \end{aligned}
+
 \end{array}
 $$
-
 
 ```{r}
 #| label: Modelo com estrutura de correlação/covariância simetria composta (CS)
