@@ -260,7 +260,7 @@ Y_{18}
 45 \\
 80 \\
 80 \\
-90 \\
+80 \\
 90
 \end{pmatrix}_{8 \times 1}.
 $$
@@ -280,7 +280,47 @@ De forma análoga, podemos escrever o vetor de respostas $\mathbf{Y}_i$ para o i
 
 ### Modelo de Regressão Linear com Erros Correlacionados (GLS) para Dados Longitudinais
 
+::: {style="text-align: justify"}
+
+```{r}
+#| label: Modelos propostos - base stroke
+#| code-summary: "Modelos propostos - base stroke"
+
+# Modelo CS (Simetria Composta) - Correlação constante
+mod_cs <- nlme::gls(
+  model = Pontuacao ~ Grupo * Semana_recentralizada,
+  data = bd_stroke_long,
+  correlation = nlme::corCompSymm(form = ~ 1 | Sujeito),
+  method = "REML"
+)
+
+summary(mod_cs) 
+
+# Modelo AR1 (Autorregressivo) - Correlação decai com o tempo
+mod_ar1 <- nlme::gls(
+  model = Pontuacao ~ Grupo * Semana_recentralizada,
+  data = bd_stroke_long,
+  correlation = nlme::corAR1(form = ~ Semana_recentralizada | Sujeito),
+  method = "REML"
+)
+
+summary(mod_ar1) 
+
+# Modelo SYMM (Não Estruturado) - Muitos parâmetros
+mod_symm <- nlme::gls(
+  model = Pontuacao ~ Grupo * Semana_recentralizada,
+  data = bd_stroke_long,
+  correlation = nlme::corSymm(form = ~ 1 | Sujeito),
+  method = "REML"
+)
+
+summary(mod_symm) 
+```
+
+:::
+
 <br>
+
 
 
 ::: {style="border-top: 2px solid #003366;"}
