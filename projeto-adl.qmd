@@ -282,18 +282,19 @@ De forma análoga, podemos escrever o vetor de respostas $\mathbf{Y}_i$ para o i
 
 ::: {style="text-align: justify"}
 
-## Simetria Composta ($\text{CS}$):
+1. Estrutura Simetria Composta ($\text{CS}$)
 
-Pressuposto: variância constante ($\sigma^2$) e correlação constante ($\rho$).
+Pressuposto: Variância constante ($\sigma^2$) e Correlação constante ($\rho$) entre quaisquer dois pontos de tempo.
 
 $$\begin{array}{c|c}
 \begin{aligned}
-\text{Matriz de Covariância }: \mathbf{\Sigma}_i^{\text{CS}} = \sigma^2 \left( \mathbf{I} (1-\rho) + \mathbf{J} \rho \right) \\ \\
-\text{Forma Matricial:} \quad \mathbf{\Sigma}_i^{\text{CS}} =
+\text{Matriz de Covariância }: \mathbf{\Sigma}_i^{\text{CS}} = \sigma^2 \mathbf{R}_i^{\text{CS}}  \\ \\
+\text{Onde:} \quad \mathbf{\Sigma}_i^{\text{CS}} =
 \begin{pmatrix}
-\sigma^2 & \sigma^2 \rho & \dots \\
-\sigma^2 \rho & \sigma^2 & \dots \\
-\vdots & \vdots & \ddots
+\sigma^2 & \sigma^2 \rho & \dots & \sigma^2 \rho \\
+\sigma^2 \rho & \sigma^2 & \dots & \sigma^2 \rho \\
+\vdots & \vdots & \ddots & \vdots \\
+\sigma^2 \rho & \sigma^2 \rho & \dots & \sigma^2
 \end{pmatrix} \\ \\
 \text{Tal que} \quad \left[\mathbf{\Sigma}_i^{\text{CS}}\right]_{jk} =
 \begin{cases}
@@ -305,11 +306,12 @@ $$\begin{array}{c|c}
 \begin{aligned}
 \text{Matriz de Correlação }:
 \mathbf{R}_i^{\text{CS}} = \mathbf{I} (1-\rho) + \mathbf{J} \rho \\ \\
-\text{Forma Matricial:} \quad \mathbf{R}_i^{\text{CS}} =
+\text{Onde:} \quad \mathbf{R}_i^{\text{CS}} =
 \begin{pmatrix}
-1 & \rho & \dots \\
-\rho & 1 & \dots \\
-\vdots & \vdots & \ddots
+1 & \rho & \dots & \rho \\
+\rho & 1 & \dots & \rho \\
+\vdots & \vdots & \ddots & \vdots \\
+\rho & \rho & \dots & 1
 \end{pmatrix} \\ \\
 \text{Tal que} \quad \left[\mathbf{R}_i^{\text{CS}}\right]_{jk} =
 \begin{cases}
@@ -319,26 +321,67 @@ $$\begin{array}{c|c}
 \end{aligned}
 \end{array}$$
 
+Notação CS:
+
+- $\mathbf{\Sigma}_i$: Matriz de Covariância.
+- $\mathbf{R}_i$: Matriz de Correlação.
+- $\sigma^2$: Variância Residual (assumida constante).
+- $\mathbf{\rho}$: Parâmetro de Correlação (constante).
+- $\mathbf{I}$: Matriz Identidade (usada para a diagonal da matriz).
+- $\mathbf{J}$: Matriz de Uns (usada para os elementos fora da diagonal).
+
 Pressuposto: O modelo assume que a correlação decai exponencialmente ($\rho^{|t_{ij} - t_{ik}|}$) com a distância temporal.
 
 
-$$\begin{array}{c|c} 
-\begin{aligned} 
-\text{Matriz de Covariância }: \mathbf{\Sigma}_i^{\text{AR}(1)} = \sigma^2 \mathbf{R}_i(\rho) \\ \\ \text{Forma Matricial:} \quad \mathbf{\Sigma}_i^{\text{AR}(1)} = \begin{pmatrix} 
-\sigma^2 & \sigma^2 \rho^1 & \dots \\ \sigma^2 \rho^1 & \sigma^2 & \dots \\ \vdots & \vdots & \ddots \end{pmatrix} \\ \\ \text{Tal que} \quad \left[\mathbf{\Sigma}_i^{\text{AR}(1)}\right]_{jk} = \sigma^2 \rho^{|t_{ij} - t_{ik}|} \end{aligned} \quad \quad & \quad \quad \begin{aligned} \text{Matriz de Correlação }: \mathbf{R}_i^{\text{AR}(1)} = \mathbf{R}_i(\rho) \\ \\ 
-\text{Forma Matricial:} \quad \mathbf{R}_i^{\text{AR}(1)} = \begin{pmatrix} 1 & \rho^1 & \dots \\ \rho^1 & 1 & \dots \\ \vdots & \vdots & \ddots \end{pmatrix} 
-\\ \\ \text{Tal que} \quad \left[\mathbf{R}_i^{\text{AR}(1)}\right]_{jk} = \rho^{|t_{ij} - t_{ik}|} \end{cases} \end{aligned} \end{array}$$
+$$\begin{array}{c|c}
+\begin{aligned}
+\text{Matriz de Covariância }: \mathbf{\Sigma}_i^{\text{AR}(1)} = \sigma^2 \mathbf{R}_i^{\text{AR}(1)} \\ \\
+\text{Onde:} \quad \mathbf{\Sigma}_i^{\text{AR}(1)} =
+\begin{pmatrix}
+\sigma^2 & \sigma^2 \rho^1 & \dots & \sigma^2 \rho^{n-1} \\
+\sigma^2 \rho^1 & \sigma^2 & \dots & \sigma^2 \rho^{n-2} \\
+\vdots & \vdots & \ddots & \vdots \\
+\sigma^2 \rho^{n-1} & \sigma^2 \rho^{n-2} & \dots & \sigma^2
+\end{pmatrix} \\ \\
+\text{Tal que} \quad \left[\mathbf{\Sigma}_i^{\text{AR}(1)}\right]_{jk} = \sigma^2 \rho^{|t_{ij} - t_{ik}|}
+\end{aligned}
+\quad \quad & \quad \quad
+\begin{aligned}
+\text{Matriz de Correlação }: \mathbf{R}_i^{\text{AR}(1)} = \rho^{|t_{ij} - t_{ik}|} \\ \\
+\text{Onde:} \quad \mathbf{R}_i^{\text{AR}(1)} =
+\begin{pmatrix}
+1 & \rho^1 & \dots & \rho^{n-1} \\
+\rho^1 & 1 & \dots & \rho^{n-2} \\
+\vdots & \vdots & \ddots & \vdots \\
+\rho^{n-1} & \rho^{n-2} & \dots & 1
+\end{pmatrix} \\ \\
+\text{Tal que} \quad \left[\mathbf{R}_i^{\text{AR}(1)}\right]_{jk} =
+\begin{cases}
+1, & \text{se } j = k \\
+\rho^{|t_{ij} - t_{ik}|}, & \text{se } j \neq k
+\end{cases}
+\end{aligned}
+\end{array}$$
+
+Notação AR(1):
+
+- $\mathbf{\Sigma}_i$: Matriz de Covariância.
+- $\mathbf{R}_i$: Matriz de Correlação.
+- $\sigma^2$: Variância Residual.
+- $\mathbf{\rho}$: Parâmetro de Correlação ($\text{Phi}$, base de decaimento).
+- $\mathbf{t}_i$: Vetor de Tempos para o sujeito $i$ (enfatiza a dependência temporal da estrutura).
+- $|t_{ij} - t_{ik}|$: Distância Temporal (expoente).
 
 Pressuposto: O modelo estima livremente todas as variâncias ($\sigma_j^2$) e covariâncias ($\sigma_{jk}$).
 
 $$\begin{array}{c|c}
 \begin{aligned}
-\text{Matriz de Covariância }: \mathbf{\Sigma}_i^{\text{SYMM}} = \begin{pmatrix} \sigma_1^2 & \sigma_{12} & \dots \\ \sigma_{21} & \sigma_2^2 & \dots \\ \vdots & \vdots & \ddots \end{pmatrix} \\ \\
-\text{Forma Matricial:} \quad \mathbf{\Sigma}_i^{\text{SYMM}} =
+\text{Matriz de Covariância } (\mathbf{\Sigma}_i): \mathbf{\Sigma}_i^{\text{SYMM}} =
 \begin{pmatrix}
-\sigma_1^2 & \sigma_{12} & \dots \\
-\sigma_{21} & \sigma_2^2 & \dots \\
-\vdots & \vdots & \ddots
+\sigma_1^2 & \sigma_{12} & \dots & \sigma_{1n} \\
+\sigma_{21} & \sigma_2^2 & \dots & \sigma_{2n} \\
+\vdots & \vdots & \ddots & \vdots \\
+\sigma_{n1} & \sigma_{n2} & \dots & \sigma_n^2
 \end{pmatrix} \\ \\
 \text{Tal que} \quad \left[\mathbf{\Sigma}_i^{\text{SYMM}}\right]_{jk} =
 \begin{cases}
@@ -348,12 +391,12 @@ $$\begin{array}{c|c}
 \end{aligned}
 \quad \quad & \quad \quad
 \begin{aligned}
-\text{Matriz de Correlação }: \mathbf{R}_i^{\text{SYMM}} = \begin{pmatrix} 1 & \rho_{12} & \dots \\ \rho_{21} & 1 & \dots \\ \vdots & \vdots & \ddots \end{pmatrix} \\ \\
-\text{Forma Matricial:} \quad \mathbf{R}_i^{\text{SYMM}} =
+\text{Matriz de Correlação } (\mathbf{R}_i): \mathbf{R}_i^{\text{SYMM}} =
 \begin{pmatrix}
-1 & \rho_{12} & \dots \\
-\rho_{21} & 1 & \dots \\
-\vdots & \vdots & \ddots
+1 & \rho_{12} & \dots & \rho_{1n} \\
+\rho_{21} & 1 & \dots & \rho_{2n} \\
+\vdots & \vdots & \ddots & \vdots \\
+\rho_{n1} & \rho_{n2} & \dots & 1
 \end{pmatrix} \\ \\
 \text{Tal que} \quad \left[\mathbf{R}_i^{\text{SYMM}}\right]_{jk} =
 \begin{cases}
@@ -363,6 +406,14 @@ $$\begin{array}{c|c}
 \end{aligned}
 \end{array}$$
 
+Notação SYMM 
+
+- $\mathbf{\Sigma}_i$: Matriz de Covariância.
+- $\mathbf{R}_i$: Matriz de Correlação.
+- $\sigma_j^2$: Variância no Tempo $j$ (variância única para cada tempo).
+- $\sigma_{jk}$: Covariância (valor livre entre o tempo $j$ e $k$).
+- $\mathbf{\rho}_{jk}$: Correlação Específica (coeficiente único entre o tempo $j$ e $k$).
+- $n$: Número total de pontos de tempo (dimensão da matriz).
 
 
 ```{r}
