@@ -210,13 +210,31 @@ tabela_interativa(dados = bd_stroke_long,
 
 <br>
 
-Veja bem, cada $Y_{ij}$ (Resposta) esta associada a um tempo $t_{ij}$, a resposta observada para o indivíduo $i$ será representada por um vetor coluna de dimensão $n_i \times 1$.
+Veja bem, cada $Y_{ij}$ (Resposta) está associada a um tempo $t_{ij}$, de modo que a resposta observada para o indivíduo $i$ pode ser organizada em um vetor coluna de dimensão $n_i \times 1$. Assim, o conjunto de respostas do indivíduo $i$ é representado por:
 
+$$
+\mathbf{Y}_i =
+\begin{pmatrix}
+Y_{i1} \\
+Y_{i2} \\
+\vdots \\
+Y_{in_i}
+\end{pmatrix},
+\qquad
+\mathbf{t}_i =
+\begin{pmatrix}
+t_{i1} \\
+t_{i2} \\
+\vdots \\
+t_{in_i}
+\end{pmatrix}.
+$$
 
 Tomamos como exemplo o primeiro indivíduo ($i = 1$):
 
 $$
-Y_i =
+\mathbf{Y}_i
+=
 \begin{pmatrix}
 Y_{i1} \\
 Y_{i2} \\
@@ -234,7 +252,7 @@ Y_{16} \\
 Y_{17} \\
 Y_{18}
 \end{pmatrix}_{8 \times 1}
-= 
+=
 \begin{pmatrix}
 45 \\
 45 \\
@@ -243,11 +261,10 @@ Y_{18}
 80 \\
 80 \\
 90 \\
-\end{pmatrix}_{8 \times 1}
-$$ 
-
-De forma análoga, podemos escrever o vetor de respostas $Y_{i}$ para o i-ésimo indivíduo.
-
+90
+\end{pmatrix}_{8 \times 1}.
+$$
+De forma análoga, podemos escrever o vetor de respostas $\mathbf{Y}_i$ para o i-ésimo indivíduo da amostra.
 
 :::
 
