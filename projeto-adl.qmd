@@ -157,8 +157,6 @@ Para a modelagem longitudinal, o conjunto de dados é submetido a três fases cr
 
 -   **Passo 1 - Leitura:** Importação da base de dados brutos para o ambiente R (visto anteriormente).
 
-<br>
-
 ```{r}
 #| label: Importação da base de dados
 #| code-summary: "Importação da base de dados"
@@ -182,7 +180,6 @@ dplyr::glimpse(bd_stroke)
 
 -   **Passo 3 - Criação de Variável:** Se necessário, deve ser realizada a criação da variável de tempo recentralizada, que é crucial para garantir que o intercepto do modelo estatístico ($\beta_0$) represente o Pontuacao basal (Semana 1 = Tempo 0).
 
-<br>
 
 ```{r}
 #| label: Reestruturação e tratamento dos dados
