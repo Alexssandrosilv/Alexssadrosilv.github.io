@@ -282,11 +282,12 @@ De forma análoga, podemos escrever o vetor de respostas $\mathbf{Y}_i$ para o i
 
 ::: {style="text-align: justify"}
 
-```{r}
-#| label: Modelos propostos - base stroke
-#| code-summary: "Modelos propostos - base stroke"
 
-# Modelo CS (Simetria Composta) - Correlação constante
+```{r}
+#| label: Modelo com estrutura de correlação/covariância simetria composta (CS)
+#| code-summary: "Modelo com estrutura de correlação/covariância CS (Simetria Composta)"
+
+# Modelo CS (Compound Symmetry) - Correlação constante
 mod_cs <- nlme::gls(
   model = Pontuacao ~ Grupo * Semana_recentralizada,
   data = bd_stroke_long,
@@ -295,6 +296,11 @@ mod_cs <- nlme::gls(
 )
 
 summary(mod_cs) 
+```
+
+```{r}
+#| label: Modelo com estrutura de correlação/covariância autorregressiva (AR1) 
+#| code-summary: "Modelo com estrutura de correlação/covariância autorregressiva (AR1)"
 
 # Modelo AR1 (Autorregressivo) - Correlação decai com o tempo
 mod_ar1 <- nlme::gls(
@@ -303,8 +309,13 @@ mod_ar1 <- nlme::gls(
   correlation = nlme::corAR1(form = ~ Semana_recentralizada | Sujeito),
   method = "REML"
 )
-
 summary(mod_ar1) 
+```
+
+
+```{r}
+#| label: Modelo com estrutura de correlação/covariância não Estruturada (SYMM) 
+#| code-summary: "Modelo com estrutura de correlação/covariância não Estruturada (SYMM)"
 
 # Modelo SYMM (Não Estruturado) - Muitos parâmetros
 mod_symm <- nlme::gls(
@@ -313,7 +324,6 @@ mod_symm <- nlme::gls(
   correlation = nlme::corSymm(form = ~ 1 | Sujeito),
   method = "REML"
 )
-
 summary(mod_symm) 
 ```
 
