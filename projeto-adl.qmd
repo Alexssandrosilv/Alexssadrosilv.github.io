@@ -138,9 +138,7 @@ Definição dos índices:
 - $\mathbf{i}$: Representa o indivíduo (paciente), variando de $i=1, \dots, m$, onde $\mathbf{m = 24}$.
 - $\mathbf{j}$: Representa a medição repetida (instante no tempo), variando de $j=1, \dots, n_{i}$, onde $\mathbf{n_i = 8}$.
 
-Note que, para todos os indivíduos temos $n_{i} = 8$ (dados balanceados).
-
-Os pacientes foram divididos em três grupos experimentais.
+Os pacientes foram divididos em três grupos experimentais. Embora cada grupo tenha o mesmo número de participantes (8 indivíduos), o balanceamento estatístico relevante em estudos longitudinais está associado ao número igual de medições ao longo do tempo por indivíduo, e não necessariamente ao fato de os grupos possuírem tamanhos iguais.
 
 -   **Grupo A:** Uma nova intervenção de terapia ocupacional;
 -   **Grupo B:** O programa existente de reabilitação de derrame;
