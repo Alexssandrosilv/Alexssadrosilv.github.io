@@ -213,6 +213,73 @@ tabela_interativa(dados = bd_stroke_long,
 
 <br>
 
+### Análise exploratória de dados
+
+::: {style="text-align: justify"}
+Para a modelagem longitudinal, o conjunto de dados é submetido a três fases cruciais de processamento e estruturação:
+
+-   **Passo 1 - Leitura:** Importação da base de dados brutos para o ambiente R no formato largo (wide). Nesse formato, cada linha representa um paciente e cada coluna corresponde a uma semana de avaliação. O banco original contém 24 linhas $(m = 24)$ e 10 variáveis: Sujeito, Grupo e as oito colunas $(n_i = 8)$ referentes às semanas (Semana 1 a Semana 8). Embora adequado para armazenar os dados brutos, esse formato não é apropriado para ajustes de modelos longitudinais.
+
+```{r}
+#| label: Importação da base de dados
+#| code-summary: "Importação da base de dados"
+# URL pública da planilha contendo os dados do experimento
+url_stroke <- "https://docs.google.com/spreadsheets/d/1n394dzsNn1QITgigbHJ21uz6hi5TDCHs/edit?gid=712419062#gid=712419062"
+
+# Nomes desejados para as variaveis
+variaveis <- c("Sujeito", "Grupo", "Semana 1", "Semana 2", "Semana 3", 
+           "Semana 4", "Semana 5", "Semana 6", "Semana 7", "Semana 8")
+
+# Passo 1: Leitura e Renomeação: bd_stroke (Wide)
+bd_stroke <- gsheet::gsheet2tbl(url_stroke) %>% stats::setNames(variaveis ) 
+
+dplyr::glimpse(bd_stroke)
+
+```
+
+-   **Passo 2 - Reestruturação:** Para permitir a modelagem da correlação intra-sujeito ao longo do tempo, o banco é convertido para o formato longo (long), no qual cada linha representa uma única observação temporal (por exemplo, o registro de um paciente na Semana 3). As oito colunas das semanas são pivotadas para duas novas variáveis: Semana e Pontuação. Após essa reorganização, o conjunto de dados passa a conter 192 linhas e 4 variáveis: Sujeito, Grupo, Semana, Pontuação, totalizando: $m \times n_i = 24 \times 8 = 192$ observações.
+
+-   **Passo 3 - Criação de Variável:** Se necessário, deve ser realizada a criação da variável de tempo recentralizada, que é crucial para garantir que o intercepto do modelo estatístico ($\beta_0$) represente o Pontuacao basal (Semana 1 = Tempo 0).
+
+
+```{r}
+#| label: Reestruturação e tratamento dos dados
+#| code-summary: "Reestruturação e tratamento dos dados"
+
+bd_stroke_long <- bd_stroke %>%
+  # Passo 2: Reestruturação de Dados (Wide -> Long)
+  tidyr::pivot_longer(
+    cols = `Semana 1`:`Semana 8`,  
+    names_to = "Semana",           
+    values_to = "Pontuacao"        
+  ) %>%
+  # Passo 3: Engenharia de Variáveis 
+  dplyr::mutate(
+    Semana = as.numeric(stringr::str_remove(.data$Semana, "Semana ")),
+    Semana_recentralizada = .data$Semana - 1
+  )
+
+# Descritiva 
+dplyr::glimpse(bd_stroke_long)
+```
+
+
+```{r}
+#| label: Visualização dos dados reestruturados
+#| code-summary: "Visualização dos dados reestruturados"
+
+tabela_interativa(dados = bd_stroke_long,
+                  titulo_tabela = "Dados longitudinais de Recuperação de Pacientes Pós-AVC")
+
+```
+
+
+:::
+
+<br>
+
+### Modelo de Regressão Linear com Erros Correlacionados (GLS) para Dados Longitudinais
+
 
 ::: {style="border-top: 2px solid #003366;"}
 :::
