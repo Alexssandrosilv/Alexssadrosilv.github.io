@@ -153,7 +153,7 @@ Os pacientes foram divididos em três grupos experimentais. Embora cada grupo te
 ::: {style="text-align: justify"}
 Para a modelagem longitudinal, o conjunto de dados é submetido a três fases cruciais de processamento e estruturação:
 
--   **Passo 1 - Leitura:** Importação da base de dados brutos para o ambiente R no formato largo (wide). Nesse formato, cada linha representa um paciente e cada coluna corresponde a uma semana de avaliação. O banco original contém 24 linhas $(m = 24)$ e 10 variáveis: \texttt{Sujeito}, \texttt{Grupo} e as oito colunas $(n_i = 8)$ referentes às semanas (\texttt{Semana 1} a \texttt{Semana 8}). Embora adequado para armazenar os dados brutos, esse formato não é apropriado para ajustes de modelos longitudinais.
+-   **Passo 1 - Leitura:** Importação da base de dados brutos para o ambiente R no formato largo (wide). Nesse formato, cada linha representa um paciente e cada coluna corresponde a uma semana de avaliação. O banco original contém 24 linhas $(m = 24)$ e 10 variáveis: Sujeito, Grupo e as oito colunas $(n_i = 8)$ referentes às semanas (Semana 1 a Semana 8). Embora adequado para armazenar os dados brutos, esse formato não é apropriado para ajustes de modelos longitudinais.
 
 ```{r}
 #| label: Importação da base de dados
@@ -172,7 +172,7 @@ dplyr::glimpse(bd_stroke)
 
 ```
 
--   **Passo 2 - Reestruturação:** Para permitir a modelagem da correlação intra-sujeito ao longo do tempo, o banco é convertido para o formato longo (long), no qual cada linha representa uma única observação temporal (por exemplo, o registro de um paciente na Semana 3). As oito colunas das semanas são pivotadas para duas novas variáveis: \textit{Semana} e \texttt{Pontuação}. Após essa reorganização, o conjunto de dados passa a conter \textbf{192 linhas} e \textbf{4 variáveis} (\texttt{Sujeito}, \texttt{Grupo}, \texttt{Semana}, \texttt{Pontuação}), totalizando: $m \times n_i = 24 \times 8 = 192 \text{ observações.}$
+-   **Passo 2 - Reestruturação:** Para permitir a modelagem da correlação intra-sujeito ao longo do tempo, o banco é convertido para o formato longo (long), no qual cada linha representa uma única observação temporal (por exemplo, o registro de um paciente na Semana 3). As oito colunas das semanas são pivotadas para duas novas variáveis: Semana e Pontuação. Após essa reorganização, o conjunto de dados passa a conter 192 linhas e 4 variáveis: Sujeito, Grupo, Semana, Pontuação, totalizando: $m \times n_i = 24 \times 8 = 192$ observações.
 
 -   **Passo 3 - Criação de Variável:** Se necessário, deve ser realizada a criação da variável de tempo recentralizada, que é crucial para garantir que o intercepto do modelo estatístico ($\beta_0$) represente o Pontuacao basal (Semana 1 = Tempo 0).
 
