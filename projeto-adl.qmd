@@ -138,7 +138,7 @@ Definição dos índices:
 - $\mathbf{i}$: Representa o indivíduo (paciente), variando de $i=1, \dots, m$, onde $\mathbf{m = 24}$.
 - $\mathbf{j}$: Representa a medição repetida (instante no tempo), variando de $j=1, \dots, n_{i}$, onde $\mathbf{n_i = 8}$.
 
-Note que, para todos os indivíduos temos $n_{i} = 8$ (dados balanceados), ou seja, cada indivíduo possui 8 observações ao longo do tempo.
+Note que, para todos os indivíduos temos $n_{i} = 8$ (dados balanceados).
 
 Os pacientes foram divididos em três grupos experimentais.
 
