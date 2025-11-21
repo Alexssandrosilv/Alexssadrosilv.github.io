@@ -208,7 +208,12 @@ tabela_interativa(dados = bd_stroke_long,
 
 ```
 
+<br>
+
 Veja bem, cada $Y_{ij}$ (Resposta) esta associada a um tempo $t_{ij}$, a resposta observada para o indivíduo $i$ será representada por um vetor coluna de dimensão $n_i \times 1$.
+
+
+Tomamos como exemplo o primeiro indivíduo ($i = 1$):
 
 $$
 Y_i =
