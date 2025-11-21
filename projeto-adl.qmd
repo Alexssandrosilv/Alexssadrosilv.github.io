@@ -278,9 +278,34 @@ De forma análoga, podemos escrever o vetor de respostas $\mathbf{Y}_i$ para o i
 
 <br>
 
+### Modelo de Mínimos Quadrados Generalizados
 ### Modelo de Regressão Linear com Erros Correlacionados (GLS) para Dados Longitudinais
 
 ::: {style="text-align: justify"}
+
+$$
+\begin{array}{c|c}
+\begin{aligned}
+\mathbf{\Sigma}_i^{\text{CS}}
+& = \sigma^2 \left( \mathbf{I} (1-\rho) + \mathbf{J} \rho \right) \\
+& \text{Onde: } \left[\mathbf{\Sigma}_i^{\text{CS}}\right]_{jk} =
+\begin{cases}
+\sigma^2, & \text{se } j = k \\
+\sigma^2 \rho, & \text{se } j \neq k
+\end{cases}
+\end{aligned}
+\quad & \quad
+\begin{aligned}
+\mathbf{R}_i^{\text{CS}}
+& = \mathbf{I} (1-\rho) + \mathbf{J} \rho \\
+& \text{Onde: } \left[\mathbf{R}_i^{\text{CS}}\right]_{jk} =
+\begin{cases}
+1, & \text{se } j = k \\
+\rho, & \text{se } j \neq k
+\end{cases}
+\end{aligned}
+\end{array}
+$$
 
 
 ```{r}
@@ -299,8 +324,8 @@ summary(mod_cs)
 ```
 
 ```{r}
-#| label: Modelo com estrutura de correlação/covariância autorregressiva (AR1) 
-#| code-summary: "Modelo com estrutura de correlação/covariância autorregressiva (AR1)"
+#| label: Modelo com estrutura de correlação/covariância autorregressiva de ordem 1 (AR1) 
+#| code-summary: "Modelo com estrutura de correlação/covariância autorregressiva de ordem 1 (AR1)"
 
 # Modelo AR1 (Autorregressivo) - Correlação decai com o tempo
 mod_ar1 <- nlme::gls(
