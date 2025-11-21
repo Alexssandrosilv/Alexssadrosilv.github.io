@@ -193,8 +193,8 @@ Para a modelagem longitudinal, o conjunto de dados é submetido a três fases cr
 <br>
 
 ```{r}
-#| label: Reestruturação e Tratamento dos Dados
-#| code-summary: "Reestruturação e Tratamento dos Dados"
+#| label: Reestruturação e tratamento dos dados
+#| code-summary: "Reestruturação e tratamento dos dados"
 
 bd_stroke_long <- bd_stroke %>%
   # Passo 2: Reestruturação de Dados (Wide -> Long)
@@ -209,7 +209,7 @@ bd_stroke_long <- bd_stroke %>%
     Semana_recentralizada = .data$Semana - 1
   )
 
-tabela_interativa(dados = bd_stroke,
+tabela_interativa(dados = bd_stroke_long,
                   titulo_tabela = "Dados longitudinais de Recuperação de Pacientes Pós-AVC")
 
 ```
@@ -227,7 +227,7 @@ dplyr::glimpse(bd_stroke_long)
 
 :::
 
-c
+
 
 ::: {style="border-top: 2px solid #003366;"}
 :::
