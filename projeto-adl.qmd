@@ -155,7 +155,7 @@ Note que, para todos os indivíduos temos $n_{i} = 8$ (dados balanceados), ou se
 ::: {style="text-align: justify"}
 Para a modelagem longitudinal, o conjunto de dados é submetido a três fases cruciais de processamento e estruturação:
 
--   **Passo 1 - Leitura:** Importação da base de dados brutos para o ambiente R (visto anteriormente).
+-   **Passo 1 - Leitura:** Importação da base de dados brutos para o ambiente R.
 
 ```{r}
 #| label: Importação da base de dados
@@ -173,8 +173,6 @@ bd_stroke <- gsheet::gsheet2tbl(url_stroke) %>% stats::setNames(variaveis )
 dplyr::glimpse(bd_stroke)
 
 ```
-
-<br>
 
 -   **Passo 2 - Reestruturação:** A base de dados, lida inicialmente no formato largo (Wide), deve ser transformada para o formato formato longo (long), onde cada linha representa uma única observação no tempo, ex: paciente na Semana 3. Esta reestruturação é obrigatória em análises de medidas repetidas para que o modelo possa identificar e ajustar a correlação intra-sujeito.
 
@@ -202,7 +200,6 @@ bd_stroke_long <- bd_stroke %>%
 dplyr::glimpse(bd_stroke_long)
 ```
 
-<br>
 
 ```{r}
 #| label: Visualização dos dados reestruturados
