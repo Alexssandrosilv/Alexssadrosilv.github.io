@@ -38,7 +38,7 @@ Para a elaboração deste estudo, empregaremos a linguagem de programação [**R
 
 ```{r}
 #| label: setup-plots
-#| code-summary: "Algoritimos Auxiliares"
+#| code-summary: "Algoritimos auxiliares"
 
 # ------------------------------------------------------------------------------
 # A. Importação de Dados
@@ -133,16 +133,29 @@ tabela_interativa <- function(dados, titulo_tabela) {
 
 O conjunto de dados abaixo contempla informações de um experimento para promover a recuperação de 24 pacientes que sofreram derrame. O objetivo é avaliar a eficácia de diferentes regimes de terapia ao longo de 8 semanas.
 
-Definição dos índices no estudo:
+Definição dos índices:
 
 - $\mathbf{i}$: Representa o indivíduo (paciente), variando de $i=1, \dots, m$, onde $\mathbf{m = 24}$.
 - $\mathbf{j}$: Representa a medição repetida (instante no tempo), variando de $j=1, \dots, n_{i}$, onde $\mathbf{n_i = 8}$.
 
-Os pacientes foram divididos em três grupos experimentais:
+Os pacientes foram divididos em três grupos experimentais.
+
+Note que, para todos os indivíduos temos $n_{i} = 8$ (dados balanceados), ou seja, cada indivíduo possui 8 observações ao longo do tempo.
 
 -   **Grupo A:** Uma nova intervenção de terapia ocupacional;
 -   **Grupo B:** O programa existente de reabilitação de derrame;
 -   **Grupo C:** O regime de cuidados usuais para pacientes com derrame.
+
+:::
+
+<br>
+
+### Importação, Reestruturação e Tratamento dos Dados
+
+::: {style="text-align: justify"}
+Para a modelagem longitudinal, o conjunto de dados é submetido a três fases cruciais de processamento e estruturação:
+
+-   **Passo 1 - Leitura:** Importação da base de dados brutos para o ambiente R (visto anteriormente).
 
 <br>
 
@@ -159,35 +172,14 @@ variaveis <- c("Sujeito", "Grupo", "Semana 1", "Semana 2", "Semana 3",
 # Passo 1: Leitura e Renomeação: bd_stroke (Wide)
 bd_stroke <- gsheet::gsheet2tbl(url_stroke) %>% stats::setNames(variaveis ) 
 
-tabela_interativa(dados = bd_stroke,
-                  titulo_tabela = "Dados Brutos de Recuperação de Pacientes Pós-AVC")
-
-```
-
-<br>
-
-```{r}
-#| label: Descritiva dados brutos
-#| code-summary: "Descritiva dados brutos"
-
-# Descritiva 
 dplyr::glimpse(bd_stroke)
+
 ```
 
-
 <br>
 
-:::
-
-<br>
-
-### Reestruturação e Tratamento dos Dados
-
-::: {style="text-align: justify"}
-Para a modelagem longitudinal, o conjunto de dados é submetido a três fases cruciais de processamento e estruturação:
-
--   **Passo 1 - Leitura:** Importação da base de dados brutos para o ambiente R (visto anteriormente).
 -   **Passo 2 - Reestruturação:** A base de dados, lida inicialmente no formato largo (Wide), deve ser transformada para o formato formato longo (long), onde cada linha representa uma única observação no tempo, ex: paciente na Semana 3. Esta reestruturação é obrigatória em análises de medidas repetidas para que o modelo possa identificar e ajustar a correlação intra-sujeito.
+
 -   **Passo 3 - Criação de Variável:** Se necessário, deve ser realizada a criação da variável de tempo recentralizada, que é crucial para garantir que o intercepto do modelo estatístico ($\beta_0$) represente o Pontuacao basal (Semana 1 = Tempo 0).
 
 <br>
@@ -209,24 +201,25 @@ bd_stroke_long <- bd_stroke %>%
     Semana_recentralizada = .data$Semana - 1
   )
 
-tabela_interativa(dados = bd_stroke_long,
-                  titulo_tabela = "Dados longitudinais de Recuperação de Pacientes Pós-AVC")
-
+# Descritiva 
+dplyr::glimpse(bd_stroke_long)
 ```
 
 <br>
 
 ```{r}
-#| label: Descritiva dados reestruturados
-#| code-summary: "Descritiva dados reestruturados"
+#| label: Visualização dos dados reestruturados
+#| code-summary: "Visualização dos dados reestruturados"
 
-# Descritiva 
-dplyr::glimpse(bd_stroke_long)
+tabela_interativa(dados = bd_stroke_long,
+                  titulo_tabela = "Dados longitudinais de Recuperação de Pacientes Pós-AVC")
+
 ```
 
 
 :::
 
+<br>
 
 
 ::: {style="border-top: 2px solid #003366;"}
