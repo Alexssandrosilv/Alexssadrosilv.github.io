@@ -13,7 +13,6 @@ lang: pt
 <br>
 
 
-
 ```{r setup, include=FALSE}
 # Define opções padrão para todos os chunks de código no R Markdown
 knitr::opts_chunk$set(
@@ -28,61 +27,100 @@ knitr::opts_chunk$set(
 ```
 
 
-
-## Pacotes Necessários
+## Pacotes e Funções Necessárias
 
 ::: {style="text-align: justify"}
 
-Nesta seção, carregamos todas as bibliotecas utilizadas neste projeto. A verificação é realizada de forma automática e, posteriormente, as bibliotecas necessárias são carregadas para uso.
+Nesta seção, carregamos todas as bibliotecas e funções utilizadas neste projeto. A verificação é realizada de forma automática e, posteriormente, as bibliotecas necessárias são carregadas para uso.
 
 Para a elaboração deste estudo, empregaremos a linguagem de programação [**R**](http://www.R-project.org/), voltada para a manipulação, análise e visualização de dados, bem como o software livre de ambiente de desenvolvimento integrado [**RStudio**](https://posit.co/download/rstudio-desktop/).
 
 
 ```{r}
 #| label: setup-plots
-#| code-summary: "Carregando bibliotecas"
-# Carregar pacotes necessários
-
-# Este script verifica se os pacotes estão instalados. Se não (!require), instala e carrega.
-# O argumento 'quiet = TRUE' remove as mensagens de download e instalação.
+#| code-summary: "Algoritimos Auxiliares"
 
 # ------------------------------------------------------------------------------
 # A. Importação de Dados
 # ------------------------------------------------------------------------------
-if(!require("gsheet")) install.packages("gsheet", quiet = TRUE)
-require("gsheet")     # Permite ler planilhas do Google Sheets diretamente pela URL
+
+# Permite ler planilhas do Google Sheets diretamente pela URL
+if(!require("gsheet")) install.packages("gsheet", quiet = TRUE) ; require("gsheet")    
 
 # ------------------------------------------------------------------------------
 # B. Manipulação e Visualização de Dados
 # ------------------------------------------------------------------------------
-if(!require("tidyverse")) install.packages("tidyverse", quiet = TRUE)
-require("tidyverse")  # Metapacote essencial: carrega dplyr, ggplot2, tidyr, etc.
 
-if(!require("ggrepel")) install.packages("ggrepel", quiet = TRUE)
-require("ggrepel")    # Evita que textos/rótulos se sobreponham nos gráficos
+# Metapacote essencial: carrega dplyr, ggplot2, tidyr, etc.
+if(!require("tidyverse")) install.packages("tidyverse", quiet = TRUE) ; require("tidyverse")  
 
-if(!require("corrplot")) install.packages("corrplot", quiet = TRUE)
-require("corrplot")   # Ferramenta visual para criar matrizes de correlação
+ # Evita que textos/rótulos se sobreponham nos gráficos
+if(!require("ggrepel")) install.packages("ggrepel", quiet = TRUE) ; require("ggrepel")   
+
+# Ferramenta visual para criar matrizes de correlação
+if(!require("corrplot")) install.packages("corrplot", quiet = TRUE) ; require("corrplot")   
 
 # ------------------------------------------------------------------------------
 # C. Modelagem Estatística
 # ------------------------------------------------------------------------------
-if(!require("nlme")) install.packages("nlme", quiet = TRUE)
-require("nlme")       # Ajuste de Modelos Lineares de Efeitos Mistos e GLS
-                      # Fundamental para definir estruturas de correlação (AR1, CS)
 
-if(!require("broom")) install.packages("broom", quiet = TRUE)
-require("broom")      # Transforma resultados de modelos (summary) em tabelas limpas
+# Ajuste de Modelos Lineares de Efeitos Mistos e GLS, Fundamental para definir estruturas de correlação (AR1, CS)
+if(!require("nlme")) install.packages("nlme", quiet = TRUE) ; require("nlme")       
+
+# Transforma resultados de modelos (summary) em tabelas limpas
+if(!require("broom")) install.packages("broom", quiet = TRUE) ; require("broom")      
 
 # ------------------------------------------------------------------------------
 # D. Apresentação de Resultados
 # ------------------------------------------------------------------------------
-if(!require("DT")) install.packages("DT", quiet = TRUE)
-require("DT")         # Cria tabelas interativas e paginadas para relatórios HTML
 
-if(!require("reactable")) install.packages("reactable", quiet = TRUE)
-require("reactable")  # Outra opção excelente para tabelas interativas
+# Cria tabelas interativas e paginadas para relatórios HTML
+if(!require("DT")) install.packages("DT", quiet = TRUE) ; require("DT")         
 
+# Outra opção excelente para tabelas interativas
+if(!require("reactable")) install.packages("reactable", quiet = TRUE) ; require("reactable")  
+
+# ==============================================================================
+# Função 1: Cria uma tabela DT interativa com estilo limpo e minimalista.
+# ==============================================================================
+
+tabela_interativa <- function(dados, titulo_tabela) {
+  #' @param dados Dataframe ou tibble a ser exibido.
+  #' @param titulo_tabela String que será usada como título/caption da tabela.
+  
+  # A cor #06d6a0 foi mantida do seu código (verde/ciano).
+  cor_titulo <- "#40916c" 
+  
+  DT::datatable(
+    # Converter para data.frame é mais seguro para a função DT
+    base::data.frame(dados),
+    
+    # Configuração da Legenda (Caption)
+    caption = htmltools::tags$caption(
+      style = base::paste0("caption-side: top; text-align: center; color:", cor_titulo, ";"),
+      htmltools::strong(titulo_tabela) # Usa o título fornecido como argumento
+    ),
+    
+    # Estilo CSS da tabela
+    class = "hover", 
+    
+    # Opções de funcionalidade (Configurações Minimalistas)
+    options = list(
+      pageLength = 8,       # Mostra 8 linhas por página
+      searching = FALSE,    # Remove a barra de busca
+      lengthChange = FALSE, # Remove o menu "Mostrar X entradas"
+      info = FALSE,         # Remove o rodapé "Mostrando 1 a X de Y"
+      ordering = FALSE,     # Remove as setas de ordenação nas colunas
+      
+      # Tradução dos botões
+      language = list(
+        paginate = list("previous" = "Anterior", "next" = "Próximo"),
+        emptyTable = "Não há dados disponíveis na tabela",
+        zeroRecords = "Nenhum registro correspondente encontrado"
+      )
+    )
+  )
+}
 ```
 
 :::
@@ -95,10 +133,15 @@ require("reactable")  # Outra opção excelente para tabelas interativas
 
 O conjunto de dados abaixo contempla informações de um experimento para promover a recuperação de 24 pacientes que sofreram derrame. O objetivo é avaliar a eficácia de diferentes regimes de terapia ao longo de 8 semanas.
 
+Definição dos índices no estudo:
+
+- $\mathbf{i}$: Representa o indivíduo (paciente), variando de $i=1, \dots, m$, onde $\mathbf{m = 24}$.
+- $\mathbf{j}$: Representa a medição repetida (instante no tempo), variando de $j=1, \dots, n_{i}$, onde $\mathbf{n_i = 8}$.
+
 Os pacientes foram divididos em três grupos experimentais:
 
--   **Grupo A:** Uma nova intervenção de terapia ocupacional.
--   **Grupo B:** O programa existente de reabilitação de derrame.
+-   **Grupo A:** Uma nova intervenção de terapia ocupacional;
+-   **Grupo B:** O programa existente de reabilitação de derrame;
 -   **Grupo C:** O regime de cuidados usuais para pacientes com derrame.
 
 <br>
@@ -106,42 +149,24 @@ Os pacientes foram divididos em três grupos experimentais:
 ```{r}
 #| label: Importação da base de dados
 #| code-summary: "Importação da base de dados"
-
 # URL pública da planilha contendo os dados do experimento
 url_stroke <- "https://docs.google.com/spreadsheets/d/1n394dzsNn1QITgigbHJ21uz6hi5TDCHs/edit?gid=712419062#gid=712419062"
 
-# Leitura dos dados brutos 
-bd_stroke <- gsheet::gsheet2tbl(url_stroke) 
+# Nomes desejados para as variaveis
+nomes <- c("Sujeito", "Grupo", "Semana 1", "Semana 2", "Semana 3", 
+           "Semana 4", "Semana 5", "Semana 6", "Semana 7", "Semana 8")
 
-# Tabela Interativa dos dados Brutos
-DT::datatable(
-  bd_stroke,
-  caption = htmltools::tags$caption(
-    style = "caption-side: top; text-align: center; color:#40916c;",
-    htmltools::strong("Tabela 1:  Dados Brutos de Recuperação de Pacientes Pós-AVC (formato largo)")
-  ),
-  class = "hover",
-  options = list(
-    pageLength = 8, searching = FALSE, lengthChange = FALSE, 
-    info = FALSE, ordering = FALSE,
-    language = list(
-      paginate = list("previous" = "Anterior", "next" = "Próximo")
-    )
-  )
-)
+# Passo 1: Leitura e Renomeação: bd_stroke (Wide)
+bd_stroke <- gsheet::gsheet2tbl(url_stroke) %>% stats::setNames(novos_nomes) 
 
-```
-
-<br>
-
-```{r}
-#| label: Variáveis base original (formato largo)
-#| code-summary: "Variáveis base original (formato largo)"
+tabela_interativa(dados = bd_stroke,
+                  titulo_tabela = "Dados Brutos de Recuperação de Pacientes Pós-AVC (formato largo)")
 
 # Descritiva 
 dplyr::glimpse(bd_stroke)
-
 ```
+
+<br>
 
 :::
 
@@ -162,258 +187,21 @@ Para a modelagem longitudinal, o conjunto de dados é submetido a três fases cr
 #| label: Reestruturação e Tratamento dos Dados
 #| code-summary: "Reestruturação e Tratamento dos Dados"
 
-# Reestruturação e Tratamento dos Dados
-
 bd_stroke_long <- bd_stroke %>%
-  
-  # Renomeia as variáveis identificadoras para facilitar a interpretação no R.
-  dplyr::rename(
-    Sujeito = Subject,  # ID do paciente (define o nível de agrupamento/efeito aleatório)
-    Grupo   = Group     # Fator fixo de interesse (Tratamento A vs B)
-  ) %>%
-  
-  # Passo 2: Reestruturação de Dados (Wide -> Long), o R precisa que cada linha seja uma observação única no tempo.
+  # Passo 2: Reestruturação de Dados (Wide -> Long)
   tidyr::pivot_longer(
-    cols = week_1:week_8,    # Vetor de colunas que contêm as medidas repetidas
-    names_to = "Semana",     # Nova variável categórica indicando o tempo
-    values_to = "Pontuacao"  # Nova variável contínua com a resposta 
+    cols = `Semana 1`:`Semana 8`,  
+    names_to = "Semana",           
+    values_to = "Pontuacao"        
   ) %>%
-  
-  # Passo 3: Engenharia de Variáveis (Feature Engineering)
+  # Passo 3: Engenharia de Variáveis 
   dplyr::mutate(
-    # Necessário para tratar o tempo como covariável contínua (tendência linear/quadrática).
-    Semana = as.numeric(stringr::str_remove(Semana, "week_")),
-    
-    # Centralização do Tempo, e crucial, Ao subtrair 1, transformamos a escala de [1, 8] para [0, 7], facilitando a interpretação clínica dos parâmetros do modelo.
-    Semana_recentralizada = Semana - 1
+    Semana = as.numeric(stringr::str_remove(.data$Semana, "Semana ")),
+    Semana_recentralizada = .data$Semana - 1
   )
 
-# Tabela Interativa dos dados reestruturados
-
-# Gerar a tabela com estilo minimalista
-DT::datatable(
-  bd_stroke_long,  # <--- Objeto de dados do Stroke
-  
-  # Configuração da Legenda (Caption)
-  caption = htmltools::tags$caption(
-    style = "caption-side: top; text-align: center; color:#40916c;",
-    htmltools::strong("Tabela 2:  Dados Longitudinais de Recuperação de Pacientes Pós-AVC (formato longo)")
-  ),
-  # Estilo CSS da tabela (apenas hover, sem bordas pesadas)
-  class = "hover", 
-  
-  # Opções de funcionalidade e visual
-  options = list(
-    pageLength = 8,       # Mostra 8 linhas por página
-    searching = FALSE,    # Remove a barra de busca
-    
-    # --- Visual Limpo ---
-    lengthChange = FALSE, # Remove o menu "Mostrar X entradas"
-    info = FALSE,         # Remove o rodapé "Mostrando 1 a X de Y"
-    ordering = FALSE,     # Remove as setas de ordenação nas colunas
-    
-    # Tradução dos botões
-    language = list(
-      paginate = list("previous" = "Anterior", "next" = "Próximo"),
-      emptyTable = "Não há dados disponíveis na tabela",
-      zeroRecords = "Nenhum registro correspondente encontrado"
-    )
-  )
-)
-
-```
-
-<br>
-
-```{r}
-#| label: Variáveis base reestruturada (formato longo)
-#| code-summary: Variáveis base reestruturada (formato longo)
-
-# Descritiva 
-dplyr::glimpse(bd_stroke_long)
-
-```
-
-:::
-
-<br>
-
-### Análise Exploratória (AED)
-
-
-::: {style="text-align: justify"}
-
-texto
-
-<br>
-
-```{r}
-#| label: Trajetórias Individuais - Stroke
-#| code-summary: "Trajetórias Individuais - Stroke"
-
-# Gráfico A: Trajetórias Individuais (Spaghetti Plot)
-
-ggplot2::ggplot(
-  data = bd_stroke_long,
-  mapping = ggplot2::aes(
-    x = Semana, 
-    y = Pontuacao, 
-    group = Sujeito, # Mapeia a estrutura intra-sujeito
-    color = Grupo
-  )
-) +
-  # Adiciona as linhas dos indivíduos (alpha baixo para visualizar densidade)
-  # Nota: 'linewidth' substitui 'size' nas versões novas do ggplot2
-  ggplot2::geom_line(alpha = 0.6, linewidth = 0.5) +
-  
-  # Marca os pontos observados
-  ggplot2::geom_point(size = 1.2, alpha = 0.8) +
-  
-  # Adiciona a tendência média suavizada (LOESS) por Grupo
-  # Removemos 'group=Sujeito' aqui para o R calcular a média do grupo inteiro
-  ggplot2::geom_smooth(
-    mapping = ggplot2::aes(group = Grupo),
-    method = "loess",
-    se = FALSE,        # Remove intervalo de confiança para limpar o visual
-    color = "black",   # Destaque em preto
-    linetype = "dashed",
-    linewidth = 1
-  ) +
-  
-  # Separação por painéis para facilitar comparação
-  ggplot2::facet_wrap(~Grupo) +
-  
-  # Estética acadêmica (fundo branco)
-  ggplot2::theme_bw() +
-  ggplot2::labs(
-    title = "Trajetórias Individuais de Recuperação (Spaghetti Plot)",
-    subtitle = "Linhas coloridas: Pacientes | Linha tracejada: Tendência média",
-    x = "Semana de Tratamento",
-    y = "Medida de Recuperação",
-    color = "Grupos"
-  )
-
-```
-
-<br>
-
-```{r}
-#| label: Resumo Descritivo por Grupo e Semana - Stroke
-#| code-summary: "Resumo Descritivo por Grupo e Semana - Stroke"
-
-# Resumo Descritivo
-tabela_descritiva <- bd_stroke_long %>%
-  dplyr::group_by(Grupo, Semana) %>%
-  dplyr::summarise(
-    Media = mean(Pontuacao, na.rm = TRUE),
-    Desvio_Padrao = round(sd(Pontuacao, na.rm = TRUE),4),
-    N_Pacientes = dplyr::n(),
-    Erro_Padrao = round((Desvio_Padrao / sqrt(N_Pacientes)),4),
-    .groups = "drop"
-  )
-
-# USANDO DT::datatable conforme solicitado
-DT::datatable(
-  data.frame(tabela_descritiva),
-  caption = htmltools::tags$caption(
-    style = "caption-side: top; text-align: center; color:#40916c;",
-    htmltools::strong("Tabela 3: Resumo Descritivo por Grupo e Semana")
-  ),
-  class = "hover",
-  options = list(
-    pageLength = 8,
-    searching = FALSE,
-    lengthChange = FALSE,
-    info = FALSE,
-    ordering = FALSE,
-    language = list(
-      paginate = list("previous" = "Anterior", "next" = "Próximo"),
-      emptyTable = "Não há dados disponíveis",
-      zeroRecords = "Nenhum registro encontrado"
-    )
-  )
-)
-
-```
-
-<br>
-
-```{r}
-#| label: Boxplots no Tempo - Stroke
-#| code-summary: "Boxplots no Tempo - Stroke"
-
-
-ggplot2::ggplot(
-  data = bd_stroke_long,
-  mapping = ggplot2::aes(
-    x = factor(Semana), # Converte para fator para eixo discreto
-    y = Pontuacao, 
-    fill = Grupo
-  )
-) +
-  ggplot2::geom_boxplot(alpha = 0.7, outlier.shape = NA) +
-  # Jitter adiciona os pontos reais deslocados para ver a dispersão
-  ggplot2::geom_jitter(
-    position = ggplot2::position_jitterdodge(jitter.width = 0.2),
-    alpha = 0.4, 
-    size = 1
-  ) +
-  ggplot2::theme_bw() +
-  ggplot2::labs(
-    title = "Boxplots no Tempo: Distribuição e Variabilidade por Semana",
-    x = "Semana",
-    y = "Pontuacao da Medida"
-  )
-
-```
-
-
-<br>
-
-
-```{r}
-#| label: Matrix de Correlação - Stroke
-#| code-summary: "Matrix de Correlação - Stroke"
-
-# Diagnóstico C: Estrutura de Correlação (Correlograma)
-# Objetivo: Decidir a estrutura da matriz R (Independent, AR1, Unstructured).
-
-matriz_correlacao <- bd_stroke %>% 
-  dplyr::select(dplyr::starts_with("week")) %>%   # 1. Seleciona colunas originais (week_1...)
-  dplyr::rename_with(                             # 2. TRADUZ: Troca "week_" por "Semana "
-    ~ stringr::str_replace(., "week_", "Semana ") 
-  ) %>%
-  stats::cor(                                     # 3. Calcula a correlação
-    use = "complete.obs", 
-    method = "pearson"
-  )
-
-# Visualização da Matriz (Agora com rótulos em Português)
-corrplot::corrplot(
-  corr = matriz_correlacao,
-  method = "color",       # Cores indicam intensidade
-  type = "upper",         # Apenas triângulo superior (evita redundância)
-  addCoef.col = "black",  # Mostra o Pontuacao numérico da correlação
-  tl.col = "black",       # Texto preto
-  tl.srt = 90,            # Rotação do texto
-  diag = FALSE,           # Remove a diagonal principal (r=1)
-  title = "Matriz de Correlação",
-  mar = c(0,0,2,0)
-)
-
-```
-
-
-:::
-
-<br>
-
-
-### Modelagem Estatística
-
-::: {style="text-align: justify"}
-
-texto
+tabela_interativa(dados = bd_stroke,
+                  titulo_tabela = "Dados longitudinais de Recuperação de Pacientes Pós-AVC")
 
 ```
 
@@ -422,5 +210,3 @@ texto
 
 ::: {style="border-top: 2px solid #003366;"}
 :::
-
-<br>
