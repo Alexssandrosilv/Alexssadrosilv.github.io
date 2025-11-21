@@ -160,11 +160,20 @@ variaveis <- c("Sujeito", "Grupo", "Semana 1", "Semana 2", "Semana 3",
 bd_stroke <- gsheet::gsheet2tbl(url_stroke) %>% stats::setNames(variaveis ) 
 
 tabela_interativa(dados = bd_stroke,
-                  titulo_tabela = "Dados Brutos de Recuperação de Pacientes Pós-AVC (formato largo)")
+                  titulo_tabela = "Dados Brutos de Recuperação de Pacientes Pós-AVC")
+
+```
+
+<br>
+
+```{r}
+#| label: Descritiva dados brutos
+#| code-summary: "Descritiva dados brutos"
 
 # Descritiva 
 dplyr::glimpse(bd_stroke)
 ```
+
 
 <br>
 
@@ -205,8 +214,20 @@ tabela_interativa(dados = bd_stroke,
 
 ```
 
+<br>
+
+```{r}
+#| label: Descritiva dados reestruturados
+#| code-summary: "Descritiva dados reestruturados"
+
+# Descritiva 
+dplyr::glimpse(bd_stroke_long)
+```
+
 
 :::
+
+c
 
 ::: {style="border-top: 2px solid #003366;"}
 :::
