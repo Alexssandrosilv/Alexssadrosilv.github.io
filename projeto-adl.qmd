@@ -351,11 +351,115 @@ corrplot(
 
 ### Modelo de Regressão Linear com Erros Correlacionados (GLS) para Dados Longitudinais
 
+#### Modelo de Regressão Linear e Estrutura dos Erros
+
+O modelo de regressão linear clássico pode ser expresso da forma matricial:
+
+$$\mathbf{y} = \mathbf{X}\boldsymbol{\beta} + \boldsymbol{\varepsilon}$$
+
+Em que:
+- $\mathbf{y}:$ é o vetor de respostas; 
+- $\mathbf{X}:$ a matriz de preditores;
+- $\boldsymbol{\beta}$: Vetor de coeficientes desconhecidos;
+- $\boldsymbol{\varepsilon}:$ representa o vetor de erros.
+
+#### Distribuição dos Erros no Modelo Clássico
+
+No modelo linear tradicional, assume-se que os erros seguem $\boldsymbol{\varepsilon} \sim N(\mathbf{0},\sigma^2\mathbf{I})$, Ou seja, têm distribuição normal com média zero, variância constante (homocedasticidade) e são mutuamente independentes. Essas hipóteses garantem que o estimador de 
+mínimos quadrados ordinários (MQO) seja o melhor estimador linear não-viesado (BLUE).
+
+#### Generalized Least Squares (GLS)
+
+Quando as suposições clássicas não são atendidas, por exemplo, quando há heterocedasticidade ou correlação entre observações, a matriz de covariância dos erros deixa de ser proporcional à identidade. Nesse caso, escrevemos:
+$\boldsymbol{\varepsilon} \sim N(\mathbf{0}, \boldsymbol{\Sigma}),$ com $\boldsymbol{\Sigma}$ não diagonal.
+
+Nessas situações, o uso do estimador de mínimos quadrados generalizados (GLS) torna-se mais apropriado. O GLS é definido como:
+$\widehat{\boldsymbol{\beta}}_{\text{GLS}} = (\mathbf{X}^\top \boldsymbol{\Sigma}^{-1}\mathbf{X})^{-1}
+\mathbf{X}^\top \boldsymbol{\Sigma}^{-1}\mathbf{y},$ e é eficiente mesmo quando há dependência entre observações ou variâncias diferentes.
+
+Um aspecto importante é que, no GLS, podemos especificar diferentes estruturas para a matriz 
+de covariância $\boldsymbol{\Sigma}$ de acordo com o comportamento dos dados.
+
+\section{Estruturas de Covariância dos Erros}
+
+A seguir, apresentamos três estruturas bastante utilizadas em modelos longitudinais e 
+modelos com correlação dentro do indivíduo.
+
+\subsection{1. Estrutura Compound Symmetry (CS)}
+
+Nesta estrutura, as variâncias são iguais e todas as covariâncias são constantes:
+$
+\boldsymbol{\Sigma}_{CS} =
+\begin{pmatrix}
+\sigma^2      & \rho\sigma^2 & \cdots & \rho\sigma^2 \\
+\rho\sigma^2  & \sigma^2     & \cdots & \rho\sigma^2 \\
+\vdots        & \vdots       & \ddots & \vdots \\
+\rho\sigma^2  & \rho\sigma^2 & \cdots & \sigma^2
+\end{pmatrix}.
+$
+
+O modelo GLS com estrutura CS é:
+$
+\mathbf{y} = \mathbf{X}\boldsymbol{\beta} + \boldsymbol{\varepsilon}, \quad
+\boldsymbol{\varepsilon} \sim N(\mathbf{0}, \boldsymbol{\Sigma}_{CS}).
+$
+
+\subsection{2. Estrutura Autorregressiva de Ordem 1 (AR(1))}
+
+Aqui, a correlação decai exponencialmente com a distância temporal:
+$
+\text{Cov}(\varepsilon_i, \varepsilon_j) = \sigma^2 \rho^{|i-j|}.
+$
+
+A matriz de covariância é:
+$
+\boldsymbol{\Sigma}_{AR(1)} =
+\begin{pmatrix}
+\sigma^2 & \rho\sigma^2 & \rho^2\sigma^2 & \cdots & \rho^{n-1}\sigma^2 \\
+\rho\sigma^2 & \sigma^2 & \rho\sigma^2 & \cdots & \rho^{n-2}\sigma^2 \\
+\vdots & \vdots & \ddots & \vdots & \vdots \\
+\rho^{n-1}\sigma^2 & \rho^{n-2}\sigma^2 & \cdots & \rho\sigma^2 & \sigma^2
+\end{pmatrix}.
+$
+
+O modelo GLS correspondente é:
+$
+\mathbf{y} = \mathbf{X}\boldsymbol{\beta} + \boldsymbol{\varepsilon}, \quad
+\boldsymbol{\varepsilon} \sim N(\mathbf{0}, \boldsymbol{\Sigma}_{AR(1)}).
+$
+
+\subsection{3. Estrutura Não Estruturada (Symm)}
+
+A estrutura Symm (ou UN, \emph{unstructured}) permite variâncias e covariâncias totalmente livres:
+$
+\boldsymbol{\Sigma}_{Symm} =
+\begin{pmatrix}
+\sigma_{11} & \sigma_{12} & \cdots & \sigma_{1n} \\
+\sigma_{21} & \sigma_{22} & \cdots & \sigma_{2n} \\
+\vdots      & \vdots      & \ddots & \vdots \\
+\sigma_{n1} & \sigma_{n2} & \cdots & \sigma_{nn}
+\end{pmatrix}.
+$
+
+Esse modelo é o mais flexível e assume apenas simetria:
+$
+\sigma_{ij} = \sigma_{ji}.
+$
+
+Assim:
+$
+\mathbf{y} = \mathbf{X}\boldsymbol{\beta} + \boldsymbol{\varepsilon}, \quad
+\boldsymbol{\varepsilon} \sim N(\mathbf{0}, \boldsymbol{\Sigma}_{Symm}).
+$
+
+
+#### Estrutura de Covariancia  / Correlação para os $\$
+
 ::: {style="text-align: justify"}
 
-1. Estrutura Simetria Composta ($\text{CS}$)
+**Estrutura Simetria Composta ($\text{CS}$)**
 
-Pressuposto: Variância constante ($\sigma^2$) e Correlação constante ($\rho$) entre quaisquer dois pontos de tempo.
+**Pressuposto:** Variância constante ($\sigma^2$) e Correlação constante ($\rho$) entre quaisquer dois pontos de tempo.
 
 $$\begin{array}{c|c}
 \begin{aligned}
