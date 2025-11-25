@@ -60,6 +60,8 @@ if(!require("corrplot")) install.packages("corrplot", quiet = TRUE) ; require("c
 
 if(!require("stats")) install.packages("stats", quiet = TRUE) ; require("stats")   
 
+if(!require("viridis")) install.packages("viridis", quiet = TRUE) ; require("viridis")   
+
 # ------------------------------------------------------------------------------
 # C. Modelagem Estatística
 # ------------------------------------------------------------------------------
@@ -914,8 +916,6 @@ print(anova(mod_cs_bez, mod_ar1_bez))
 print(anova(mod_ar1_bez, mod_symm_bez))
 print(anova(mod_cs_bez, mod_symm_bez))
 
-
-summary(mod_cs_bez)
 ```
 
 O modelo GLS com correlação composta (CS) ajustado aos dados dos bezerros pode ser formulado como:
@@ -937,6 +937,10 @@ onde:
 - $\rho = 0.918$ é o valor estimado a partir dos dados.
 
 
+```{r}
+summary(mod_cs_bez)
+```
+
 :::
 
 <br>
@@ -947,18 +951,166 @@ onde:
 
 ::: {style="text-align: justify"}
 
-O conjunto de dados abaixo contempla informações de um experimento para promover a recuperação de 24 pacientes que sofreram derrame. O objetivo é avaliar a eficácia de diferentes regimes de terapia ao longo de 8 semanas.
+O conjunto de dados analisado contempla informações de um estudo longitudinal realizado com 100 pacientes, com o objetivo de avaliar a evolução da pressão arterial sistólica ($Y$) ao longo do tempo e investigar o efeito do nível de atividade física.
+
+Em cada visita, foram registrados:
+
+- tempo: número da consulta ($j = 1, \dots, 10$), com intervalos regulares;
+- min_atividade_fisica: tempo médio semanal de atividade física;
+- PA: pressão arterial sistólica.
 
 Definição dos índices:
 
-- $\mathbf{i}$: Representa o indivíduo (paciente), variando de $i=1, \dots, m$, onde $\mathbf{m = 24}$.
-- $\mathbf{j}$: Representa a medição repetida (instante no tempo), variando de $j=1, \dots, n_{i}$, onde $\mathbf{n_i = 8}$.
+- $i$: indivíduo (paciente), variando de $i = 1, \dots, m$, com $m = 100$;
+- $j$: medição repetida (instante no tempo), variando de $j = 1, \dots, n_i$, com $n_i = 10$
 
-Os pacientes foram divididos em três grupos experimentais. Embora cada grupo tenha o mesmo número de participantes (8 indivíduos), o balanceamento estatístico relevante em estudos longitudinais está associado ao número igual de medições ao longo do tempo por indivíduo $(n_i = 8)$, e não necessariamente ao fato de os grupos possuírem tamanhos iguais.
 
--   **Grupo A:** Uma nova intervenção de terapia ocupacional;
--   **Grupo B:** O programa existente de reabilitação de derrame;
--   **Grupo C:** O regime de cuidados usuais para pacientes com derrame.
+<br>
+
+
+```{r}
+bd_pa <- read_delim(
+  "pa.txt", 
+  delim = "\t", 
+  escape_double = FALSE, 
+  trim_ws = TRUE
+)
+
+# Remover coluna extra se existir
+if("...1" %in% names(bd_pa)) bd_pa <- bd_pa %>% select(-...1)
+
+# Garantir tipos corretos
+bd_pa <- bd_pa %>%
+  mutate(
+    id = factor(id),
+    tempo = as.numeric(tempo)
+  )
+
+glimpse(bd_pa)
+
+# ------------------------------------------------------------------------------
+# 2. CÁLCULO DAS MÉDIAS POR TEMPO
+# ------------------------------------------------------------------------------
+medias_pa <- bd_pa %>%
+  group_by(tempo) %>%
+  summarise(media = round(mean(PA),1), .groups = "drop")
+
+# ------------------------------------------------------------------------------
+# 3. GRÁFICO SPAGHETTI COM MÉDIAS
+# ------------------------------------------------------------------------------
+grafico_pa <- ggplot() +
+  # Trajetórias individuais
+  geom_line(data = bd_pa, aes(x = tempo, y = PA, group = id, color = id),
+            alpha = 0.5, linewidth = 0.7) +
+  geom_point(data = bd_pa, aes(x = tempo, y = PA, color = id), size = 1.8) +
+  # Média por tempo
+  geom_line(data = medias_pa, aes(x = tempo, y = media), color = "black", linewidth = 1.3) +
+  geom_point(data = medias_pa, aes(x = tempo, y = media), color = "black", size = 2.5) +
+  # Valores da média
+  geom_text_repel(
+    data = medias_pa,
+    aes(x = tempo, y = media, label = media),
+    size = 4,
+    fontface = "bold",
+    nudge_y = 2,
+    box.padding = 0.3
+  ) +
+  scale_color_viridis_d(option = "turbo") +
+  guides(color = guide_legend(title = "ID")) +
+  theme_bw() +
+  labs(
+    title = "Trajetórias Individuais de PA com Média por Tempo",
+    subtitle = "Cores representam indivíduos; linha preta é a média",
+    x = "Tempo",
+    y = "PA"
+  ) + guides(color = "none")  
+
+print(grafico_pa)
+
+# ------------------------------------------------------------------------------
+# 4. MATRIZ DE CORRELAÇÃO ENTRE TEMPOS
+# ------------------------------------------------------------------------------
+bd_wide <- bd_pa %>%
+  select(id, tempo, PA) %>%
+  pivot_wider(names_from = tempo, values_from = PA)
+
+mat_cor <- cor(bd_wide %>% select(-id), use = "pairwise.complete.obs")
+
+corrplot(
+  mat_cor,
+  method = "color",
+  type = "upper",
+  tl.col = "black",
+  tl.srt = 90,
+  addCoef.col = "black",
+  col = colorRampPalette(c("#F0F7FF","#D4E8FF","#A6CEFF","#6CA9FF","#2F6ECC"))(200),
+  number.cex = 0.8
+)
+
+# ------------------------------------------------------------------------------
+# 5. MODELAGEM LONGITUDINAL COM GLS
+# ------------------------------------------------------------------------------
+bd_pa <- bd_pa %>% mutate(tempo_c = tempo - min(tempo))
+
+# Modelo CS (correlação constante)
+mod_cs_pa <- gls(
+  PA ~ tempo_c * min_atividade_fisica,
+  data = bd_pa,
+  correlation = corCompSymm(form = ~ 1 | id),
+  method = "REML"
+)
+
+# Modelo AR1 (correlação decai com o tempo)
+mod_ar1_pa <- gls(
+  PA ~ tempo_c * min_atividade_fisica,
+  data = bd_pa,
+  correlation = corAR1(form = ~ tempo_c | id),
+  method = "REML"
+)
+
+# Modelo SYMM (correlação não estruturada)
+mod_symm_pa <- gls(
+  PA ~ tempo_c * min_atividade_fisica ,
+  data = bd_pa,
+  correlation = corSymm(form = ~ 1 | id),
+  method = "REML"
+)
+
+# ------------------------------------------------------------------------------
+# 6. COMPARAÇÃO DOS MODELOS
+# ------------------------------------------------------------------------------
+print(AIC(mod_cs_pa, mod_ar1_pa, mod_symm_pa))
+print(BIC(mod_cs_pa, mod_ar1_pa, mod_symm_pa))
+
+print(anova(mod_cs_pa, mod_ar1_pa))
+print(anova(mod_ar1_pa, mod_symm_pa))
+print(anova(mod_cs_pa, mod_symm_pa))
+```
+
+
+O modelo GLS com estrutura AR(1) considerando interação é definido por:
+
+$$
+Y_{ij} = \beta_0 + \beta_1 \, \text{Tempo Recentralizado}_{j} + \beta_2 \, \text{Min\_Atividade\_Fisica}_{i} + \beta_3 \, (\text{Tempo Recentralizado}_{j} \times \text{Min\_Atividade\_Fisica}_{i}) + \varepsilon_{ij}, 
+\quad 
+\boldsymbol{\varepsilon} \sim N(\mathbf{0}, \boldsymbol{\Sigma}_{AR1})
+$$
+
+onde:  
+
+- $i$ indica o indivíduo (paciente), variando de $i = 1, \dots, 100$;  
+- $j$ indica o tempo da medição, variando de $j = 1, \dots, 10$;  
+- $\boldsymbol{\Sigma}_{AR1}$ é a matriz de covariância com **correlação decrescente** entre observações consecutivas do mesmo indivíduo:  
+
+$$
+\text{Cor}(\varepsilon_{ij}, \varepsilon_{ik}) = \phi^{|j-k|}, \quad \forall \, j \neq k
+$$
+
+- $\phi = 0.710$ é a correlação entre observações consecutivas estimada a partir dos dados.
+
+```{r}
+summary(mod_ar1_pa)
+```
 
 :::
 

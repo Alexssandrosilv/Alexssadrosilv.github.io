@@ -124,6 +124,8 @@ jobs:
             any::DT
             any::htmltools
             any::geomtextpath
+            any::viridis
+            any::ggrepel
             # Adicione aqui outros pacotes que seu site usa
 
       - name: Render and Publish
