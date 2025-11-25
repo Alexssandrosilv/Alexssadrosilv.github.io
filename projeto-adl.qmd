@@ -44,40 +44,32 @@ Para a elaboração deste estudo, empregaremos a linguagem de programação [**R
 # A. Importação de Dados
 # ------------------------------------------------------------------------------
 
-# Permite ler planilhas do Google Sheets diretamente pela URL
 if(!require("gsheet")) install.packages("gsheet", quiet = TRUE) ; require("gsheet")    
 
 # ------------------------------------------------------------------------------
 # B. Manipulação e Visualização de Dados
 # ------------------------------------------------------------------------------
 
-# Metapacote essencial: carrega dplyr, ggplot2, tidyr, etc.
 if(!require("tidyverse")) install.packages("tidyverse", quiet = TRUE) ; require("tidyverse")  
 
- # Evita que textos/rótulos se sobreponham nos gráficos
 if(!require("ggrepel")) install.packages("ggrepel", quiet = TRUE) ; require("ggrepel")   
 
-# Ferramenta visual para criar matrizes de correlação
+if(!require("geomtextpath")) install.packages("broom", quiet = TRUE) ; require("geomtextpath") 
+
 if(!require("corrplot")) install.packages("corrplot", quiet = TRUE) ; require("corrplot")   
 
 # ------------------------------------------------------------------------------
 # C. Modelagem Estatística
 # ------------------------------------------------------------------------------
 
-# Ajuste de Modelos Lineares de Efeitos Mistos e GLS, Fundamental para definir estruturas de correlação (AR1, CS)
 if(!require("nlme")) install.packages("nlme", quiet = TRUE) ; require("nlme")       
-
-# Transforma resultados de modelos (summary) em tabelas limpas
 if(!require("broom")) install.packages("broom", quiet = TRUE) ; require("broom")      
-
 # ------------------------------------------------------------------------------
 # D. Apresentação de Resultados
 # ------------------------------------------------------------------------------
 
-# Cria tabelas interativas e paginadas para relatórios HTML
 if(!require("DT")) install.packages("DT", quiet = TRUE) ; require("DT")         
 
-# Outra opção excelente para tabelas interativas
 if(!require("reactable")) install.packages("reactable", quiet = TRUE) ; require("reactable")  
 
 # ==============================================================================
@@ -274,6 +266,69 @@ De forma análoga, podemos escrever o vetor de respostas $\mathbf{Y}_i$ para o i
 
 ::: {style="text-align: justify"}
 
+```{r}
+#| label: Análise exploratória
+#| code-summary: "Análise exploratória"
+
+# ------------------------------------------------------------------------------
+# FILTRAR APENAS B e C
+# ------------------------------------------------------------------------------
+
+medias_semana <- bd_stroke_long %>%
+  group_by(Grupo, Semana) %>%
+  summarise(media_semana = mean(Pontuacao), .groups = "drop") %>%
+  mutate(media_semana = round(media_semana, 1))
+
+# ------------------------------------------------------------------------------
+# GRÁFICO SPAGHETTI + MÉDIAS
+# ------------------------------------------------------------------------------
+ggplot() +
+  geom_line(
+    data = bd_stroke_long,
+    aes(x = Semana, y = Pontuacao, group = Sujeito, color = Grupo),
+    alpha = 0.5, linewidth = 0.6
+  ) +
+  geom_point(
+    data = bd_stroke_long,
+    aes(x = Semana, y = Pontuacao, color = Grupo),
+    alpha = 0.9, size = 2
+  ) +
+  
+  geom_line(
+    data = medias_semana,
+    aes(x = Semana, y = media_semana),
+    color = "black", linewidth = 1
+  ) +
+  geom_point(
+    data = medias_semana,
+    aes(x = Semana, y = media_semana),
+    color = "black", size = 2
+  ) +
+  
+  ggrepel::geom_text_repel(
+    data = medias_semana,
+    aes(x = Semana, y = media_semana, label = media_semana),
+    size = 4,
+    fontface = "bold",
+    color = "black",
+    nudge_y = 2,
+    box.padding = 0.4,
+    min.segment.length = 0
+  ) +
+  
+  facet_wrap(~Grupo) +
+  theme_bw() +
+  labs(
+    title = "Trajetórias Individuais e Média por Semana (Apenas B e C)",
+    subtitle = "Cada número representa a média da semana dentro do grupo",
+    x = "Semana",
+    y = "Pontuação",
+    color = "Grupo"
+  )
+
+```
+
+
 :::
 
 <br>
@@ -459,6 +514,48 @@ mod_symm <- nlme::gls(
 )
 summary(mod_symm) 
 ```
+
+:::
+
+## Base Dados: Recuperação de Pacientes Pós-AVC (STROKE)
+
+### Sobre os dados
+
+::: {style="text-align: justify"}
+
+O conjunto de dados abaixo contempla informações de um experimento para promover a recuperação de 24 pacientes que sofreram derrame. O objetivo é avaliar a eficácia de diferentes regimes de terapia ao longo de 8 semanas.
+
+Definição dos índices:
+
+- $\mathbf{i}$: Representa o indivíduo (paciente), variando de $i=1, \dots, m$, onde $\mathbf{m = 24}$.
+- $\mathbf{j}$: Representa a medição repetida (instante no tempo), variando de $j=1, \dots, n_{i}$, onde $\mathbf{n_i = 8}$.
+
+Os pacientes foram divididos em três grupos experimentais. Embora cada grupo tenha o mesmo número de participantes (8 indivíduos), o balanceamento estatístico relevante em estudos longitudinais está associado ao número igual de medições ao longo do tempo por indivíduo $(n_i = 8)$, e não necessariamente ao fato de os grupos possuírem tamanhos iguais.
+
+-   **Grupo A:** Uma nova intervenção de terapia ocupacional;
+-   **Grupo B:** O programa existente de reabilitação de derrame;
+-   **Grupo C:** O regime de cuidados usuais para pacientes com derrame.
+
+:::
+
+## Base Dados: Recuperação de Pacientes Pós-AVC (STROKE)
+
+### Sobre os dados
+
+::: {style="text-align: justify"}
+
+O conjunto de dados abaixo contempla informações de um experimento para promover a recuperação de 24 pacientes que sofreram derrame. O objetivo é avaliar a eficácia de diferentes regimes de terapia ao longo de 8 semanas.
+
+Definição dos índices:
+
+- $\mathbf{i}$: Representa o indivíduo (paciente), variando de $i=1, \dots, m$, onde $\mathbf{m = 24}$.
+- $\mathbf{j}$: Representa a medição repetida (instante no tempo), variando de $j=1, \dots, n_{i}$, onde $\mathbf{n_i = 8}$.
+
+Os pacientes foram divididos em três grupos experimentais. Embora cada grupo tenha o mesmo número de participantes (8 indivíduos), o balanceamento estatístico relevante em estudos longitudinais está associado ao número igual de medições ao longo do tempo por indivíduo $(n_i = 8)$, e não necessariamente ao fato de os grupos possuírem tamanhos iguais.
+
+-   **Grupo A:** Uma nova intervenção de terapia ocupacional;
+-   **Grupo B:** O programa existente de reabilitação de derrame;
+-   **Grupo C:** O regime de cuidados usuais para pacientes com derrame.
 
 :::
 
