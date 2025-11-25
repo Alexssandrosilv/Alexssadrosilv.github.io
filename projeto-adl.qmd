@@ -680,7 +680,11 @@ print(stats::anova(mod_cs, mod_symm))
 
 ### Modelo Proposto AR(1)
 
-### Forma Geral
+
+::: {style="text-align: justify"}
+
+Forma Geral
+
 
 $$
 \mathbf{y}_{it} = \beta_0 + \beta_1 X_{1i} + \beta_2 X_{2t} + \beta_3 (X_{1i} \times X_{2t}) + \varepsilon_{it}, 
@@ -702,6 +706,11 @@ $$
 
 Onde $\phi = 0.943$ estimado a partir dos dados.
 
+
+::: 
+
+<br>
+
 ### Estimativas do Modelo
 
 ```{r}
@@ -709,14 +718,15 @@ Onde $\phi = 0.943$ estimado a partir dos dados.
 #| code-summary: "Estimativas"
 
 summary(mod_ar1)
-
-# Extrair estimativas do modelo AR(1)
-tidy(mod_ar1)
 ```
 
 
+<br>
 
 ### Interpretação do Modelo AR(1)
+
+
+::: {style="text-align: justify"}
 
 O modelo AR(1) ajusta a pontuação dos indivíduos ao longo das semanas, considerando a correlação temporal entre medidas do mesmo sujeito.  
 
@@ -731,6 +741,10 @@ O modelo AR(1) ajusta a pontuação dos indivíduos ao longo das semanas, consid
 
 **Conclusão:**  
 O modelo sugere que, independentemente do grupo, a pontuação tende a aumentar ao longo do tempo. Não há evidência de diferença significativa entre os grupos na semana inicial, nem uma interação forte entre grupo e tempo, embora exista uma tendência do Grupo B apresentar aumento mais lento. A correlação temporal foi bem capturada pelo modelo AR(1).
+
+:::
+
+<br>
 
 
 ## Base Dados: Peso de Bezerros
