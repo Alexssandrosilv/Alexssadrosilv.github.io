@@ -353,6 +353,8 @@ corrplot(
 
 #### 1. Modelo de Regressão Linear e Estrutura dos Erros
 
+::: {style="text-align: justify"}
+
 O modelo de regressão linear clássico pode ser escrito na forma matricial:
 
 $$
@@ -366,11 +368,8 @@ $$
 em que:
 
 - $\mathbf{y}$: vetor de respostas;  
-
 - $\mathbf{X}$: matriz de preditores;  
-
 - $\boldsymbol{\beta}$: vetor de coeficientes desconhecidos;  
-
 - $\boldsymbol{\varepsilon}$: vetor de erros.
 
 No modelo clássico, assume-se que os erros seguem distribuição normal, com média zero e variância constante:
@@ -381,9 +380,11 @@ $$
 
 ou seja, **independentes** e **homocedásticos**. Essas condições garantem que o estimador de mínimos quadrados ordinários (MQO) seja o **melhor estimador linear não viesado (BLUE)**.
 
----
+:::
 
 #### 2. Mínimos Quadrados Generalizados (GLS)
+
+::: {style="text-align: justify"}
 
 Quando as suposições clássicas não são atendidas, por exemplo, quando há **heterocedasticidade** ou **correlação entre observações**, a matriz de covariância dos erros deixa de ser proporcional à identidade:
 
@@ -391,7 +392,7 @@ $$
 \boldsymbol{\varepsilon} \sim N(\mathbf{0}, \boldsymbol{\Sigma}),
 $$
 
-com \(\boldsymbol{\Sigma}\) **não diagonal**, ou seja, com covariâncias diferentes de zero entre algumas observações.  
+com $\boldsymbol{\Sigma}$ **não diagonal**, ou seja, com covariâncias diferentes de zero entre algumas observações.  
 
 Nessas situações, o uso do estimador de **Mínimos Quadrados Generalizados (GLS)** torna-se mais apropriado. O GLS é definido como:
 
@@ -401,23 +402,27 @@ $$
 
 e é eficiente mesmo quando há **dependência entre observações** ou **variâncias diferentes**.  
 
-Um aspecto importante é que, no GLS, podemos especificar diferentes **estruturas para a matriz de covariância \(\boldsymbol{\Sigma}\)** de acordo com o comportamento dos dados.
+Um aspecto importante é que, no GLS, podemos especificar diferentes **estruturas para a matriz de covariância $\boldsymbol{\Sigma}$ de acordo com o comportamento dos dados.
+
+:::
 
 #### Por que o GLS é útil em estudos longitudinais
 
-1. **Dependência entre observações:**  
-Em dados longitudinais, cada indivíduo é medido várias vezes ao longo do tempo. Isso cria correlação entre as observações de um mesmo indivíduo, violando a suposição de independência do modelo linear clássico.
+::: {style="text-align: justify"}
 
-2. **Variância não constante:**  
-As medidas repetidas podem apresentar variâncias diferentes ao longo do tempo ou entre indivíduos (**heterocedasticidade**).
+1. **Dependência entre observações:** Em dados longitudinais, cada indivíduo é medido várias vezes ao longo do tempo. Isso cria correlação entre as observações de um mesmo indivíduo, violando a suposição de independência do modelo linear clássico.
+
+2. **Variância não constante:** As medidas repetidas podem apresentar variâncias diferentes ao longo do tempo ou entre indivíduos (**heterocedasticidade**).
 
 A seguir, apresentamos três estruturas bastante utilizadas em modelos longitudinais e em modelos com correlação dentro do indivíduo.
 
----
+:::
 
-## 3. Estruturas de Covariância Comuns
+#### 3. Estruturas de Covariância Comuns
 
-### 3.1. Compound Symmetry (CS)
+##### 3.1. Compound Symmetry (CS)
+
+::: {style="text-align: justify"}
 
 **Pressupostos:** Todas as variâncias são iguais e todas as covariâncias entre observações do mesmo indivíduo são constantes.  
 
