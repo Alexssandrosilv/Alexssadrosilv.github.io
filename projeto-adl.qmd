@@ -543,7 +543,7 @@ $$
 
 ::: 
 
-## Modelos
+### Modelos
 
 ```{r}
 #| label: Modelagem
@@ -574,7 +574,7 @@ mod_symm <- nlme::gls(
 )
 ```
 
-### Critérios de Seleção de Modelo
+#### Critérios de Seleção de Modelo
 
 ::: {style="text-align: justify"}
 
@@ -584,7 +584,7 @@ O objetivo desta seção é apresentar critérios utilizados para comparar e sel
 
 <br>
 
-#### AIC (Critério de Informação de Akaike)
+##### AIC (Critério de Informação de Akaike)
 
 ::: {style="text-align: justify"}
 
@@ -607,7 +607,7 @@ $$
 
 <br>
 
-#### BIC (Critério de Informação Bayesiano)
+##### BIC (Critério de Informação Bayesiano)
 
 ::: {style="text-align: justify"}
 
@@ -631,7 +631,7 @@ $$
 
 <br>
 
-#### Teste da Razão de Verossimilhança (TRV)
+##### Teste da Razão de Verossimilhança (TRV)
 
 ::: {style="text-align: justify"}
 
@@ -678,7 +678,7 @@ print(stats::anova(mod_cs, mod_symm))
 
 <br>
 
-### Modelo Proposto AR(1)
+#### Modelo Proposto AR(1)
 
 
 ::: {style="text-align: justify"}
@@ -711,7 +711,7 @@ Onde $\phi = 0.943$ estimado a partir dos dados.
 
 <br>
 
-### Estimativas do Modelo
+##### Estimativas do Modelo
 
 ```{r}
 #| label: Estimativas
@@ -723,8 +723,7 @@ summary(mod_ar1)
 
 <br>
 
-### Interpretação do Modelo AR(1)
-
+##### Interpretação do Modelo AR(1)
 
 ::: {style="text-align: justify"}
 
