@@ -374,7 +374,9 @@ em que:
 
 :::
 
-#### Estrutura dos Erros - Mínimos quadrados ordinários (MQO)
+<br>
+
+#### Estrutura dos Erros - Estimação por  Mínimos quadrados ordinários (MQO)
 
 ::: {style="text-align: justify"}
 
@@ -394,7 +396,9 @@ seja o **melhor estimador linear não viesado (BLUE)**.
 
 :::
 
-#### Estrutura dos Erros - Mínimos Quadrados Generalizados (GLS)
+<br>
+
+#### Estrutura dos Erros - Estimação por Mínimos Quadrados Generalizados (GLS)
 
 ::: {style="text-align: justify"}
 
@@ -414,11 +418,13 @@ $$
 
 e é eficiente mesmo quando há **dependência entre observações** ou **variâncias diferentes**.  
 
-Um aspecto importante é que, no GLS, podemos especificar diferentes **estruturas para a matriz de covariância $\boldsymbol{\Sigma}$ de acordo com o comportamento dos dados.
+Um aspecto importante é que, no GLS, podemos especificar diferentes estruturas para a matriz de covariância $\boldsymbol{\Sigma}$ de acordo com o comportamento dos dados.
 
 :::
 
-#### Por que o GLS é útil em estudos longitudinais
+<br>
+
+#### Por que o GLS é útil em estudos longitudinais ?
 
 ::: {style="text-align: justify"}
 
@@ -426,11 +432,15 @@ Um aspecto importante é que, no GLS, podemos especificar diferentes **estrutura
 
 2. **Variância não constante:** As medidas repetidas podem apresentar variâncias diferentes ao longo do tempo ou entre indivíduos (**heterocedasticidade**).
 
-A seguir, apresentamos três estruturas bastante utilizadas em modelos longitudinais e em modelos com correlação dentro do indivíduo.
+A seguir, apresentamos três estruturas bastante utilizadas em modelos com correlação dentro do indivíduo.
 
 :::
 
+<br>
+
 #### Estruturas de Covariância Comuns
+
+<br>
 
 ##### Compound Symmetry (CS)
 
