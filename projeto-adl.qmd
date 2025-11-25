@@ -274,7 +274,7 @@ De forma análoga, podemos escrever o vetor de respostas $\mathbf{Y}_i$ para o i
 # FILTRAR APENAS B e C
 # ------------------------------------------------------------------------------
 bd_stroke_long <- bd_stroke_long %>%
-  filter(Grupo %in% c("B", "C"))
+  filter(Grupo %in% c("A", "B"))
 
 medias_semana <- bd_stroke_long %>%
   group_by(Grupo, Semana) %>%
@@ -321,7 +321,7 @@ ggplot() +
   facet_wrap(~Grupo) +
   theme_bw() +
   labs(
-    title = "Trajetórias Individuais e Média por Semana (Apenas B e C)",
+    title = "Trajetórias Individuais e Média por Semana (Grupos: A - Tratamento e B - Controle)",
     subtitle = "Cada número representa a média da semana dentro do grupo",
     x = "Semana",
     y = "Pontuação",
