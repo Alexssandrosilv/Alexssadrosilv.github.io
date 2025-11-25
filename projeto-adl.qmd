@@ -353,6 +353,7 @@ corrplot(
 
 ### Modelo de Regressão Linear com Erros Correlacionados (GLS) para Dados Longitudinais
 
+
 #### Modelo de Regressão Linear
 
 ::: {style="text-align: justify"}
@@ -442,6 +443,8 @@ A seguir, apresentamos três estruturas bastante utilizadas em modelos com corre
 
 #### Estruturas de Covariância Comuns
 
+<br>
+
 ##### Compound Symmetry (CS):
 
 ::: {style="text-align: justify"}
@@ -474,6 +477,8 @@ y_{ij} = \mathbf{x}_{ij}^\top \boldsymbol{\beta} + \varepsilon_{ij}, \quad
 \text{com } \text{Cov}(\varepsilon_{ij}, \varepsilon_{ik}) = \rho \sigma^2, \; j \neq k.
 $$
 
+<br>
+
 ##### Autorregressiva de Ordem 1 (AR(1)):
 
 **Pressupostos:** As observações de um mesmo indivíduo apresentam correlação que **decai exponencialmente** com a distância temporal.  
@@ -503,6 +508,8 @@ $$
 y_{ij} = \mathbf{x}_{ij}^\top \boldsymbol{\beta} + \varepsilon_{ij}, \quad
 \text{tal que Cov}(\varepsilon_{ij}, \varepsilon_{ik}) = \sigma^2 \rho^{|j-k|}.
 $$
+
+<br>
 
 ##### Não Estruturada (Symm):
 
@@ -575,6 +582,8 @@ O objetivo desta seção é apresentar critérios utilizados para comparar e sel
 
 ::: 
 
+<br>
+
 #### AIC (Critério de Informação de Akaike)
 
 ::: {style="text-align: justify"}
@@ -587,14 +596,16 @@ $$
 
 **Rótulos:**
 
-- \(L(\widehat{\boldsymbol{\theta}})\): função de verossimilhança avaliada nos parâmetros estimados;  
-- \(k\): número de parâmetros do modelo;  
-- \(-2 \log L(\cdot)\): medida de ajuste do modelo aos dados;  
-- \(2k\): penalização pelo número de parâmetros.
+- $L(\widehat{\boldsymbol{\theta}})$: função de verossimilhança avaliada nos parâmetros estimados;  
+- $k$: número de parâmetros do modelo;  
+- $-2 \log L(\cdot)$: medida de ajuste do modelo aos dados;  
+- $2k$: penalização pelo número de parâmetros.
 
 **Interpretação:** modelos com **AIC menor** são preferíveis.
 
 ::: 
+
+<br>
 
 #### BIC (Critério de Informação Bayesiano)
 
@@ -617,6 +628,8 @@ $$
 **Interpretação:** modelos com **BIC menor** são preferíveis.
 
 ::: 
+
+<br>
 
 #### Teste da Razão de Verossimilhança (TRV)
 
@@ -644,7 +657,7 @@ $$
 
 ```{r}
 #| label: Comparacao_modelos
-#| code-summary: "Comparação de Modelos (AIC, BIC e LRT)"
+#| code-summary: "Comparacao_modelos"
 
 # Comparação de modelos pelo Critério AIC
 aic_result <- stats::AIC(mod_cs, mod_ar1, mod_symm)
@@ -652,18 +665,11 @@ print("Resultados do AIC para os modelos:")
 print(aic_result)
 
 # Comparação de modelos pelo Critério BIC
-bic_result <- stats::BIC(mod_cs, mod_ar1, mod_symm)
-print("Resultados do BIC para os modelos:")
-print(bic_result)
+stats::BIC(mod_cs, mod_ar1, mod_symm)
 
 # Teste da Razão de Verossimilhança (LRT) entre modelos aninhados
-print("Teste de Razão de Verossimilhança (LRT) entre mod_cs e mod_ar1:")
 print(stats::anova(mod_cs, mod_ar1))
-
-print("Teste de Razão de Verossimilhança (LRT) entre mod_ar1 e mod_symm:")
 print(stats::anova(mod_ar1, mod_symm))
-
-print("Teste de Razão de Verossimilhança (LRT) entre mod_cs e mod_symm:")
 print(stats::anova(mod_cs, mod_symm))
 
 ```
