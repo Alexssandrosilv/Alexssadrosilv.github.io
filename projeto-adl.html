@@ -218,21 +218,15 @@ window.Quarto = {
   <li><a href="#importação-reestruturação-e-tratamento-dos-dados" id="toc-importação-reestruturação-e-tratamento-dos-dados" class="nav-link" data-scroll-target="#importação-reestruturação-e-tratamento-dos-dados"><span class="header-section-number">2.2</span> Importação, Reestruturação e Tratamento dos Dados</a></li>
   <li><a href="#análise-exploratória-de-dados-aed" id="toc-análise-exploratória-de-dados-aed" class="nav-link" data-scroll-target="#análise-exploratória-de-dados-aed"><span class="header-section-number">2.3</span> Análise exploratória de dados (AED)</a></li>
   <li><a href="#modelo-de-regressão-linear-com-erros-correlacionados-gls-para-dados-longitudinais" id="toc-modelo-de-regressão-linear-com-erros-correlacionados-gls-para-dados-longitudinais" class="nav-link" data-scroll-target="#modelo-de-regressão-linear-com-erros-correlacionados-gls-para-dados-longitudinais"><span class="header-section-number">2.4</span> Modelo de Regressão Linear com Erros Correlacionados (GLS) para Dados Longitudinais</a></li>
+  <li><a href="#modelos" id="toc-modelos" class="nav-link" data-scroll-target="#modelos"><span class="header-section-number">2.5</span> Modelos</a></li>
   </ul></li>
-  <li><a href="#modelos" id="toc-modelos" class="nav-link" data-scroll-target="#modelos"><span class="header-section-number">3</span> Modelos</a>
+  <li><a href="#base-dados-peso-de-bezerros" id="toc-base-dados-peso-de-bezerros" class="nav-link" data-scroll-target="#base-dados-peso-de-bezerros"><span class="header-section-number">3</span> Base Dados: Peso de Bezerros</a>
   <ul class="collapse">
-  <li><a href="#critérios-de-seleção-de-modelo" id="toc-critérios-de-seleção-de-modelo" class="nav-link" data-scroll-target="#critérios-de-seleção-de-modelo"><span class="header-section-number">3.1</span> Critérios de Seleção de Modelo</a></li>
-  <li><a href="#modelo-proposto-ar1" id="toc-modelo-proposto-ar1" class="nav-link" data-scroll-target="#modelo-proposto-ar1"><span class="header-section-number">3.2</span> Modelo Proposto AR(1)</a></li>
-  <li><a href="#estimativas-do-modelo" id="toc-estimativas-do-modelo" class="nav-link" data-scroll-target="#estimativas-do-modelo"><span class="header-section-number">3.3</span> Estimativas do Modelo</a></li>
-  <li><a href="#interpretação-do-modelo-ar1" id="toc-interpretação-do-modelo-ar1" class="nav-link" data-scroll-target="#interpretação-do-modelo-ar1"><span class="header-section-number">3.4</span> Interpretação do Modelo AR(1)</a></li>
+  <li><a href="#sobre-os-dados-1" id="toc-sobre-os-dados-1" class="nav-link" data-scroll-target="#sobre-os-dados-1"><span class="header-section-number">3.1</span> Sobre os dados</a></li>
   </ul></li>
-  <li><a href="#base-dados-peso-de-bezerros" id="toc-base-dados-peso-de-bezerros" class="nav-link" data-scroll-target="#base-dados-peso-de-bezerros"><span class="header-section-number">4</span> Base Dados: Peso de Bezerros</a>
+  <li><a href="#base-dados-pa" id="toc-base-dados-pa" class="nav-link" data-scroll-target="#base-dados-pa"><span class="header-section-number">4</span> Base Dados: PA</a>
   <ul class="collapse">
-  <li><a href="#sobre-os-dados-1" id="toc-sobre-os-dados-1" class="nav-link" data-scroll-target="#sobre-os-dados-1"><span class="header-section-number">4.1</span> Sobre os dados</a></li>
-  </ul></li>
-  <li><a href="#base-dados-pa" id="toc-base-dados-pa" class="nav-link" data-scroll-target="#base-dados-pa"><span class="header-section-number">5</span> Base Dados: PA</a>
-  <ul class="collapse">
-  <li><a href="#sobre-os-dados-2" id="toc-sobre-os-dados-2" class="nav-link" data-scroll-target="#sobre-os-dados-2"><span class="header-section-number">5.1</span> Sobre os dados</a></li>
+  <li><a href="#sobre-os-dados-2" id="toc-sobre-os-dados-2" class="nav-link" data-scroll-target="#sobre-os-dados-2"><span class="header-section-number">4.1</span> Sobre os dados</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -459,8 +453,8 @@ $ Semana_recentralizada &lt;dbl&gt; 0, 1, 2, 3, 4, 5, 6, 7, 0, 1, 2, 3, 4, 5, 6,
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">titulo_tabela =</span> <span class="st">"Dados longitudinais de Recuperação de Pacientes Pós-AVC"</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-d6d76dfc9f944df515f1" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-d6d76dfc9f944df515f1">{"x":{"filter":"none","vertical":false,"caption":"<caption style=\"caption-side: top; text-align: center; color:#40916c;\">\n  <strong>Dados longitudinais de Recuperação de Pacientes Pós-AVC<\/strong>\n<\/caption>","data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60","61","62","63","64","65","66","67","68","69","70","71","72","73","74","75","76","77","78","79","80","81","82","83","84","85","86","87","88","89","90","91","92","93","94","95","96","97","98","99","100","101","102","103","104","105","106","107","108","109","110","111","112","113","114","115","116","117","118","119","120","121","122","123","124","125","126","127","128","129","130","131","132","133","134","135","136","137","138","139","140","141","142","143","144","145","146","147","148","149","150","151","152","153","154","155","156","157","158","159","160","161","162","163","164","165","166","167","168","169","170","171","172","173","174","175","176","177","178","179","180","181","182","183","184","185","186","187","188","189","190","191","192"],[1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,5,5,5,5,5,5,5,5,6,6,6,6,6,6,6,6,7,7,7,7,7,7,7,7,8,8,8,8,8,8,8,8,9,9,9,9,9,9,9,9,10,10,10,10,10,10,10,10,11,11,11,11,11,11,11,11,12,12,12,12,12,12,12,12,13,13,13,13,13,13,13,13,14,14,14,14,14,14,14,14,15,15,15,15,15,15,15,15,16,16,16,16,16,16,16,16,17,17,17,17,17,17,17,17,18,18,18,18,18,18,18,18,19,19,19,19,19,19,19,19,20,20,20,20,20,20,20,20,21,21,21,21,21,21,21,21,22,22,22,22,22,22,22,22,23,23,23,23,23,23,23,23,24,24,24,24,24,24,24,24],["A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C"],[1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8],[45,45,45,45,80,80,80,90,20,25,25,25,30,35,30,50,50,50,55,70,70,75,90,90,25,25,35,40,60,60,70,80,100,100,100,100,100,100,100,100,20,20,30,50,50,60,85,95,30,35,35,40,50,60,75,85,30,35,45,50,55,65,65,70,40,55,60,70,80,85,90,90,65,65,70,70,80,80,80,80,30,30,40,45,65,85,85,85,25,35,35,35,40,45,45,45,45,45,80,80,80,80,80,80,15,15,10,10,10,20,20,20,35,35,35,45,45,45,50,50,40,40,40,55,55,55,60,65,20,20,30,30,30,30,30,30,35,35,35,40,40,40,40,40,35,35,35,40,40,40,45,45,45,65,65,65,80,85,95,100,45,65,70,90,90,95,95,100,25,30,30,35,40,40,40,40,25,25,30,30,30,30,35,40,15,35,35,35,40,50,65,65],[0,1,2,3,4,5,6,7,0,1,2,3,4,5,6,7,0,1,2,3,4,5,6,7,0,1,2,3,4,5,6,7,0,1,2,3,4,5,6,7,0,1,2,3,4,5,6,7,0,1,2,3,4,5,6,7,0,1,2,3,4,5,6,7,0,1,2,3,4,5,6,7,0,1,2,3,4,5,6,7,0,1,2,3,4,5,6,7,0,1,2,3,4,5,6,7,0,1,2,3,4,5,6,7,0,1,2,3,4,5,6,7,0,1,2,3,4,5,6,7,0,1,2,3,4,5,6,7,0,1,2,3,4,5,6,7,0,1,2,3,4,5,6,7,0,1,2,3,4,5,6,7,0,1,2,3,4,5,6,7,0,1,2,3,4,5,6,7,0,1,2,3,4,5,6,7,0,1,2,3,4,5,6,7,0,1,2,3,4,5,6,7]],"container":"<table class=\"hover\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Sujeito<\/th>\n      <th>Grupo<\/th>\n      <th>Semana<\/th>\n      <th>Pontuacao<\/th>\n      <th>Semana_recentralizada<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":8,"searching":false,"lengthChange":false,"info":false,"ordering":false,"language":{"paginate":{"previous":"Anterior","next":"Próximo"},"emptyTable":"Não há dados disponíveis na tabela","zeroRecords":"Nenhum registro correspondente encontrado"},"columnDefs":[{"className":"dt-right","targets":[1,3,4,5]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"Sujeito","targets":1},{"name":"Grupo","targets":2},{"name":"Semana","targets":3},{"name":"Pontuacao","targets":4},{"name":"Semana_recentralizada","targets":5}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-6af8a6ffd6e807cf5295" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-6af8a6ffd6e807cf5295">{"x":{"filter":"none","vertical":false,"caption":"<caption style=\"caption-side: top; text-align: center; color:#40916c;\">\n  <strong>Dados longitudinais de Recuperação de Pacientes Pós-AVC<\/strong>\n<\/caption>","data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60","61","62","63","64","65","66","67","68","69","70","71","72","73","74","75","76","77","78","79","80","81","82","83","84","85","86","87","88","89","90","91","92","93","94","95","96","97","98","99","100","101","102","103","104","105","106","107","108","109","110","111","112","113","114","115","116","117","118","119","120","121","122","123","124","125","126","127","128","129","130","131","132","133","134","135","136","137","138","139","140","141","142","143","144","145","146","147","148","149","150","151","152","153","154","155","156","157","158","159","160","161","162","163","164","165","166","167","168","169","170","171","172","173","174","175","176","177","178","179","180","181","182","183","184","185","186","187","188","189","190","191","192"],[1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,5,5,5,5,5,5,5,5,6,6,6,6,6,6,6,6,7,7,7,7,7,7,7,7,8,8,8,8,8,8,8,8,9,9,9,9,9,9,9,9,10,10,10,10,10,10,10,10,11,11,11,11,11,11,11,11,12,12,12,12,12,12,12,12,13,13,13,13,13,13,13,13,14,14,14,14,14,14,14,14,15,15,15,15,15,15,15,15,16,16,16,16,16,16,16,16,17,17,17,17,17,17,17,17,18,18,18,18,18,18,18,18,19,19,19,19,19,19,19,19,20,20,20,20,20,20,20,20,21,21,21,21,21,21,21,21,22,22,22,22,22,22,22,22,23,23,23,23,23,23,23,23,24,24,24,24,24,24,24,24],["A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","B","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C","C"],[1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8],[45,45,45,45,80,80,80,90,20,25,25,25,30,35,30,50,50,50,55,70,70,75,90,90,25,25,35,40,60,60,70,80,100,100,100,100,100,100,100,100,20,20,30,50,50,60,85,95,30,35,35,40,50,60,75,85,30,35,45,50,55,65,65,70,40,55,60,70,80,85,90,90,65,65,70,70,80,80,80,80,30,30,40,45,65,85,85,85,25,35,35,35,40,45,45,45,45,45,80,80,80,80,80,80,15,15,10,10,10,20,20,20,35,35,35,45,45,45,50,50,40,40,40,55,55,55,60,65,20,20,30,30,30,30,30,30,35,35,35,40,40,40,40,40,35,35,35,40,40,40,45,45,45,65,65,65,80,85,95,100,45,65,70,90,90,95,95,100,25,30,30,35,40,40,40,40,25,25,30,30,30,30,35,40,15,35,35,35,40,50,65,65],[0,1,2,3,4,5,6,7,0,1,2,3,4,5,6,7,0,1,2,3,4,5,6,7,0,1,2,3,4,5,6,7,0,1,2,3,4,5,6,7,0,1,2,3,4,5,6,7,0,1,2,3,4,5,6,7,0,1,2,3,4,5,6,7,0,1,2,3,4,5,6,7,0,1,2,3,4,5,6,7,0,1,2,3,4,5,6,7,0,1,2,3,4,5,6,7,0,1,2,3,4,5,6,7,0,1,2,3,4,5,6,7,0,1,2,3,4,5,6,7,0,1,2,3,4,5,6,7,0,1,2,3,4,5,6,7,0,1,2,3,4,5,6,7,0,1,2,3,4,5,6,7,0,1,2,3,4,5,6,7,0,1,2,3,4,5,6,7,0,1,2,3,4,5,6,7,0,1,2,3,4,5,6,7,0,1,2,3,4,5,6,7]],"container":"<table class=\"hover\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Sujeito<\/th>\n      <th>Grupo<\/th>\n      <th>Semana<\/th>\n      <th>Pontuacao<\/th>\n      <th>Semana_recentralizada<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":8,"searching":false,"lengthChange":false,"info":false,"ordering":false,"language":{"paginate":{"previous":"Anterior","next":"Próximo"},"emptyTable":"Não há dados disponíveis na tabela","zeroRecords":"Nenhum registro correspondente encontrado"},"columnDefs":[{"className":"dt-right","targets":[1,3,4,5]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"Sujeito","targets":1},{"name":"Grupo","targets":2},{"name":"Semana","targets":3},{"name":"Pontuacao","targets":4},{"name":"Semana_recentralizada","targets":5}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <p><br></p>
@@ -765,9 +759,8 @@ y_{ij} = \mathbf{x}_{ij}^\top \boldsymbol{\beta} + \varepsilon_{ij}, \quad
 </section>
 </section>
 </section>
-</section>
-<section id="modelos" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="modelos"><span class="header-section-number">3</span> Modelos</h2>
+<section id="modelos" class="level3" data-number="2.5">
+<h3 data-number="2.5" class="anchored" data-anchor-id="modelos"><span class="header-section-number">2.5</span> Modelos</h3>
 <div class="cell" data-layout-align="center">
 <details class="code-fold">
 <summary>Modelagem</summary>
@@ -796,14 +789,14 @@ y_{ij} = \mathbf{x}_{ij}^\top \boldsymbol{\beta} + \varepsilon_{ij}, \quad
 <span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<section id="critérios-de-seleção-de-modelo" class="level3" data-number="3.1">
-<h3 data-number="3.1" class="anchored" data-anchor-id="critérios-de-seleção-de-modelo"><span class="header-section-number">3.1</span> Critérios de Seleção de Modelo</h3>
+<section id="critérios-de-seleção-de-modelo" class="level4" data-number="2.5.1">
+<h4 data-number="2.5.1" class="anchored" data-anchor-id="critérios-de-seleção-de-modelo"><span class="header-section-number">2.5.1</span> Critérios de Seleção de Modelo</h4>
 <div style="text-align: justify">
 <p>O objetivo desta seção é apresentar critérios utilizados para comparar e selecionar modelos ajustados, considerando a <strong>qualidade do ajuste</strong> e a <strong>complexidade do modelo</strong>.</p>
 </div>
 <p><br></p>
-<section id="aic-critério-de-informação-de-akaike" class="level4" data-number="3.1.1">
-<h4 data-number="3.1.1" class="anchored" data-anchor-id="aic-critério-de-informação-de-akaike"><span class="header-section-number">3.1.1</span> AIC (Critério de Informação de Akaike)</h4>
+<section id="aic-critério-de-informação-de-akaike" class="level5" data-number="2.5.1.1">
+<h5 data-number="2.5.1.1" class="anchored" data-anchor-id="aic-critério-de-informação-de-akaike"><span class="header-section-number">2.5.1.1</span> AIC (Critério de Informação de Akaike)</h5>
 <div style="text-align: justify">
 <p>O <strong>AIC</strong> penaliza modelos complexos e ajuda a evitar sobreajuste:</p>
 <p><span class="math display">\[
@@ -823,8 +816,8 @@ y_{ij} = \mathbf{x}_{ij}^\top \boldsymbol{\beta} + \varepsilon_{ij}, \quad
 </div>
 <p><br></p>
 </section>
-<section id="bic-critério-de-informação-bayesiano" class="level4" data-number="3.1.2">
-<h4 data-number="3.1.2" class="anchored" data-anchor-id="bic-critério-de-informação-bayesiano"><span class="header-section-number">3.1.2</span> BIC (Critério de Informação Bayesiano)</h4>
+<section id="bic-critério-de-informação-bayesiano" class="level5" data-number="2.5.1.2">
+<h5 data-number="2.5.1.2" class="anchored" data-anchor-id="bic-critério-de-informação-bayesiano"><span class="header-section-number">2.5.1.2</span> BIC (Critério de Informação Bayesiano)</h5>
 <div style="text-align: justify">
 <p>O <strong>BIC</strong> penaliza modelos complexos de forma mais forte, especialmente em grandes amostras:</p>
 <p><span class="math display">\[
@@ -846,8 +839,8 @@ y_{ij} = \mathbf{x}_{ij}^\top \boldsymbol{\beta} + \varepsilon_{ij}, \quad
 </div>
 <p><br></p>
 </section>
-<section id="teste-da-razão-de-verossimilhança-trv" class="level4" data-number="3.1.3">
-<h4 data-number="3.1.3" class="anchored" data-anchor-id="teste-da-razão-de-verossimilhança-trv"><span class="header-section-number">3.1.3</span> Teste da Razão de Verossimilhança (TRV)</h4>
+<section id="teste-da-razão-de-verossimilhança-trv" class="level5" data-number="2.5.1.3">
+<h5 data-number="2.5.1.3" class="anchored" data-anchor-id="teste-da-razão-de-verossimilhança-trv"><span class="header-section-number">2.5.1.3</span> Teste da Razão de Verossimilhança (TRV)</h5>
 <div style="text-align: justify">
 <p>O <strong>Teste da Razão de Verossimilhança</strong> compara dois modelos <strong>aninhados</strong>:</p>
 <p><span class="math display">\[
@@ -932,8 +925,8 @@ mod_symm     2 33 911.9979 1005.0672 -422.9990 1 vs 2 122.2589  &lt;.0001</code>
 <p><br></p>
 </section>
 </section>
-<section id="modelo-proposto-ar1" class="level3" data-number="3.2">
-<h3 data-number="3.2" class="anchored" data-anchor-id="modelo-proposto-ar1"><span class="header-section-number">3.2</span> Modelo Proposto AR(1)</h3>
+<section id="modelo-proposto-ar1" class="level4" data-number="2.5.2">
+<h4 data-number="2.5.2" class="anchored" data-anchor-id="modelo-proposto-ar1"><span class="header-section-number">2.5.2</span> Modelo Proposto AR(1)</h4>
 <div style="text-align: justify">
 <p>Forma Geral</p>
 <p><span class="math display">\[
@@ -957,9 +950,8 @@ mod_symm     2 33 911.9979 1005.0672 -422.9990 1 vs 2 122.2589  &lt;.0001</code>
 <p>Onde <span class="math inline">\(\phi = 0.943\)</span> estimado a partir dos dados.</p>
 </div>
 <p><br></p>
-</section>
-<section id="estimativas-do-modelo" class="level3" data-number="3.3">
-<h3 data-number="3.3" class="anchored" data-anchor-id="estimativas-do-modelo"><span class="header-section-number">3.3</span> Estimativas do Modelo</h3>
+<section id="estimativas-do-modelo" class="level5" data-number="2.5.2.1">
+<h5 data-number="2.5.2.1" class="anchored" data-anchor-id="estimativas-do-modelo"><span class="header-section-number">2.5.2.1</span> Estimativas do Modelo</h5>
 <div class="cell" data-layout-align="center">
 <details class="code-fold">
 <summary>Estimativas</summary>
@@ -1001,8 +993,8 @@ Degrees of freedom: 128 total; 124 residual</code></pre>
 </div>
 <p><br></p>
 </section>
-<section id="interpretação-do-modelo-ar1" class="level3" data-number="3.4">
-<h3 data-number="3.4" class="anchored" data-anchor-id="interpretação-do-modelo-ar1"><span class="header-section-number">3.4</span> Interpretação do Modelo AR(1)</h3>
+<section id="interpretação-do-modelo-ar1" class="level5" data-number="2.5.2.2">
+<h5 data-number="2.5.2.2" class="anchored" data-anchor-id="interpretação-do-modelo-ar1"><span class="header-section-number">2.5.2.2</span> Interpretação do Modelo AR(1)</h5>
 <div style="text-align: justify">
 <p>O modelo AR(1) ajusta a pontuação dos indivíduos ao longo das semanas, considerando a correlação temporal entre medidas do mesmo sujeito.</p>
 <p><strong>Coeficientes estimados:</strong></p>
@@ -1022,10 +1014,12 @@ O modelo sugere que, independentemente do grupo, a pontuação tende a aumentar 
 <p><br></p>
 </section>
 </section>
-<section id="base-dados-peso-de-bezerros" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="base-dados-peso-de-bezerros"><span class="header-section-number">4</span> Base Dados: Peso de Bezerros</h2>
-<section id="sobre-os-dados-1" class="level3" data-number="4.1">
-<h3 data-number="4.1" class="anchored" data-anchor-id="sobre-os-dados-1"><span class="header-section-number">4.1</span> Sobre os dados</h3>
+</section>
+</section>
+<section id="base-dados-peso-de-bezerros" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="base-dados-peso-de-bezerros"><span class="header-section-number">3</span> Base Dados: Peso de Bezerros</h2>
+<section id="sobre-os-dados-1" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="sobre-os-dados-1"><span class="header-section-number">3.1</span> Sobre os dados</h3>
 <div style="text-align: justify">
 <p>O conjunto de dados abaixo contempla informações de um experimento para promover a recuperação de 24 pacientes que sofreram derrame. O objetivo é avaliar a eficácia de diferentes regimes de terapia ao longo de 8 semanas.</p>
 <p>Definição dos índices:</p>
@@ -1042,10 +1036,10 @@ O modelo sugere que, independentemente do grupo, a pontuação tende a aumentar 
 </div>
 </section>
 </section>
-<section id="base-dados-pa" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="base-dados-pa"><span class="header-section-number">5</span> Base Dados: PA</h2>
-<section id="sobre-os-dados-2" class="level3" data-number="5.1">
-<h3 data-number="5.1" class="anchored" data-anchor-id="sobre-os-dados-2"><span class="header-section-number">5.1</span> Sobre os dados</h3>
+<section id="base-dados-pa" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="base-dados-pa"><span class="header-section-number">4</span> Base Dados: PA</h2>
+<section id="sobre-os-dados-2" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="sobre-os-dados-2"><span class="header-section-number">4.1</span> Sobre os dados</h3>
 <div style="text-align: justify">
 <p>O conjunto de dados abaixo contempla informações de um experimento para promover a recuperação de 24 pacientes que sofreram derrame. O objetivo é avaliar a eficácia de diferentes regimes de terapia ao longo de 8 semanas.</p>
 <p>Definição dos índices:</p>
