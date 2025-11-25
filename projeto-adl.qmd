@@ -58,6 +58,8 @@ if(!require("geomtextpath")) install.packages("broom", quiet = TRUE) ; require("
 
 if(!require("corrplot")) install.packages("corrplot", quiet = TRUE) ; require("corrplot")   
 
+if(!require("stats")) install.packages("stats", quiet = TRUE) ; require("stats")   
+
 # ------------------------------------------------------------------------------
 # C. Modelagem Estatística
 # ------------------------------------------------------------------------------
@@ -472,7 +474,7 @@ y_{ij} = \mathbf{x}_{ij}^\top \boldsymbol{\beta} + \varepsilon_{ij}, \quad
 \text{com } \text{Cov}(\varepsilon_{ij}, \varepsilon_{ik}) = \rho \sigma^2, \; j \neq k.
 $$
 
-### Autorregressiva de Ordem 1 (AR(1)):
+##### Autorregressiva de Ordem 1 (AR(1)):
 
 **Pressupostos:** As observações de um mesmo indivíduo apresentam correlação que **decai exponencialmente** com a distância temporal.  
 
@@ -502,7 +504,7 @@ y_{ij} = \mathbf{x}_{ij}^\top \boldsymbol{\beta} + \varepsilon_{ij}, \quad
 \text{tal que Cov}(\varepsilon_{ij}, \varepsilon_{ik}) = \sigma^2 \rho^{|j-k|}.
 $$
 
-### Não Estruturada (Symm):
+##### Não Estruturada (Symm):
 
 **Pressupostos:** Todas as variâncias e covariâncias são livres, permitindo máxima flexibilidade, assumindo apenas simetria.  
 
@@ -606,11 +608,11 @@ $$
 
 **Rótulos:**
 
-- \(L(\widehat{\boldsymbol{\theta}})\): função de verossimilhança nos parâmetros estimados;  
-- \(k\): número de parâmetros do modelo;  
-- \(n\): tamanho da amostra;  
-- \(-2 \log L(\cdot)\): medida de ajuste;  
-- \(k \log(n)\): penalização pelo número de parâmetros.
+- $L(\widehat{\boldsymbol{\theta}})$: função de verossimilhança nos parâmetros estimados;  
+- $k$: número de parâmetros do modelo;  
+- $n$: tamanho da amostra;  
+- $-2 \log L(\cdot)$: medida de ajuste;  
+- $k \log(n)$: penalização pelo número de parâmetros.
 
 **Interpretação:** modelos com **BIC menor** são preferíveis.
 
@@ -628,16 +630,16 @@ $$
 
 **Rótulos:**
 
-- \(\log L(\text{Modelo restrito})\): log-verossimilhança do modelo mais simples;  
-- \(\log L(\text{Modelo completo})\): log-verossimilhança do modelo mais complexo;  
-- \(\Lambda\): estatística do teste, aproximadamente qui-quadrado com \(df = k_{\text{completo}} - k_{\text{restrito}}\).
+- $\log L(\text{Modelo restrito})$: log-verossimilhança do modelo mais simples;  
+- $\log L(\text{Modelo completo})$: log-verossimilhança do modelo mais complexo;  
+- $\Lambda$: estatística do teste, aproximadamente qui-quadrado com $df = k_{\text{completo}} - k_{\text{restrito}}$.
 
 **Hipóteses:**
 
-- \(H_0\): modelo restrito é suficiente;  
-- \(H_1\): modelo completo ajusta melhor os dados.
+- $H_0$: modelo restrito é suficiente;  
+- $H_1$: modelo completo ajusta melhor os dados.
 
-**Interpretação:** rejeitar \(H_0\) indica que o modelo completo ajusta melhor.
+**Interpretação:** rejeitar $H_0$ indica que o modelo completo ajusta melhor.
 
 
 ```{r}
@@ -663,6 +665,8 @@ print(stats::anova(mod_ar1, mod_symm))
 
 print("Teste de Razão de Verossimilhança (LRT) entre mod_cs e mod_symm:")
 print(stats::anova(mod_cs, mod_symm))
+
+```
 
 :::
 
