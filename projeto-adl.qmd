@@ -322,7 +322,7 @@ ggplot() +
     x = "Semana",
     y = "Pontuação",
     color = "Grupo"
-  )
+  ) + guides(color = "none")   # ← remove a legenda dos grupos
 
 # Matriz de correlação
 bd_cor <- bd_stroke %>% 
