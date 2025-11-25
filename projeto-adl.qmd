@@ -270,9 +270,7 @@ De forma análoga, podemos escrever o vetor de respostas $\mathbf{Y}_i$ para o i
 #| label: Análise exploratória
 #| code-summary: "Análise exploratória"
 
-# ------------------------------------------------------------------------------
-# FILTRAR APENAS B e C
-# ------------------------------------------------------------------------------
+# Filtrando A e B
 bd_stroke_long <- bd_stroke_long %>%
   filter(Grupo %in% c("A", "B"))
 
@@ -281,9 +279,7 @@ medias_semana <- bd_stroke_long %>%
   summarise(media_semana = mean(Pontuacao), .groups = "drop") %>%
   mutate(media_semana = round(media_semana, 1))
 
-# ------------------------------------------------------------------------------
-# GRÁFICO SPAGHETTI + MÉDIAS
-# ------------------------------------------------------------------------------
+# Grafico de Spaghetti + Medias
 ggplot() +
   geom_line(
     data = bd_stroke_long,
@@ -327,6 +323,24 @@ ggplot() +
     y = "Pontuação",
     color = "Grupo"
   )
+
+# Matriz de correlação
+bd_cor <- bd_stroke %>% 
+  filter(Grupo %in% c("A", "B")) %>%  # Filtrando A e B
+  select(`Semana 1`:`Semana 8`) 
+
+mat_cor <- cor(bd_cor, use = "pairwise.complete.obs")
+
+corrplot(
+  mat_cor,
+  method = "color",
+  type = "upper",
+  tl.col = "black",
+  tl.srt = 90,
+  addCoef.col = "black",
+  col = colorRampPalette(c("#F0F7FF", "#D4E8FF", "#A6CEFF", "#6CA9FF", "#2F6ECC"))(200),
+  number.cex = 0.8
+)
 
 ```
 
