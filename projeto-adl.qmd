@@ -440,7 +440,7 @@ A seguir, apresentamos três estruturas bastante utilizadas em modelos com corre
 
 #### Estruturas de Covariância Comuns
 
-##### Compound Symmetry (CS)
+##### Compound Symmetry (CS):
 
 ::: {style="text-align: justify"}
 
@@ -472,7 +472,7 @@ y_{ij} = \mathbf{x}_{ij}^\top \boldsymbol{\beta} + \varepsilon_{ij}, \quad
 \text{com } \text{Cov}(\varepsilon_{ij}, \varepsilon_{ik}) = \rho \sigma^2, \; j \neq k.
 $$
 
-### Autorregressiva de Ordem 1 (AR(1))
+### Autorregressiva de Ordem 1 (AR(1)):
 
 **Pressupostos:** As observações de um mesmo indivíduo apresentam correlação que **decai exponencialmente** com a distância temporal.  
 
@@ -502,7 +502,7 @@ y_{ij} = \mathbf{x}_{ij}^\top \boldsymbol{\beta} + \varepsilon_{ij}, \quad
 \text{tal que Cov}(\varepsilon_{ij}, \varepsilon_{ik}) = \sigma^2 \rho^{|j-k|}.
 $$
 
-### 3.3. Não Estruturada (Symm / UN)
+### Não Estruturada (Symm):
 
 **Pressupostos:** Todas as variâncias e covariâncias são livres, permitindo máxima flexibilidade, assumindo apenas simetria.  
 
@@ -529,7 +529,7 @@ $$
 
 $$
 y_{ij} = \mathbf{x}_{ij}^\top \boldsymbol{\beta} + \varepsilon_{ij}, \quad
-\text{com variâncias e covariâncias livres: } \text{Cov}(\varepsilon_{ij}, \varepsilon_{ik}) = \sigma_{jk}.
+\text{tal que Cov}(\varepsilon_{ij}, \varepsilon_{ik}) = \sigma_{jk}.
 $$
 
 
@@ -564,7 +564,7 @@ mod_symm <- nlme::gls(
 
 :::
 
-## Base Dados: Recuperação de Pacientes Pós-AVC (STROKE)
+## Base Dados: Peso de Bezerros
 
 ### Sobre os dados
 
@@ -585,7 +585,7 @@ Os pacientes foram divididos em três grupos experimentais. Embora cada grupo te
 
 :::
 
-## Base Dados: Recuperação de Pacientes Pós-AVC (STROKE)
+## Base Dados: PA
 
 ### Sobre os dados
 
@@ -607,7 +607,6 @@ Os pacientes foram divididos em três grupos experimentais. Embora cada grupo te
 :::
 
 <br>
-
 
 
 ::: {style="border-top: 2px solid #003366;"}
