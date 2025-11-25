@@ -488,23 +488,16 @@ Notação SYMM
 
 
 ```{r}
-#| label: Modelo com estrutura de correlação/covariância simetria composta (CS)
-#| code-summary: "Modelo com estrutura de correlação/covariância CS (Simetria Composta)"
+#| label: Formulação dos Modelos
+#| code-summary: "Modelos"
 
-# Modelo CS (Compound Symmetry) - Correlação constante
+# Modelo CS (Simetria Composta) - Correlação constante
 mod_cs <- nlme::gls(
   model = Pontuacao ~ Grupo * Semana_recentralizada,
   data = bd_stroke_long,
   correlation = nlme::corCompSymm(form = ~ 1 | Sujeito),
   method = "REML"
 )
-
-summary(mod_cs) 
-```
-
-```{r}
-#| label: Modelo com estrutura de correlação/covariância autorregressiva de ordem 1 (AR1) 
-#| code-summary: "Modelo com estrutura de correlação/covariância autorregressiva de ordem 1 (AR1)"
 
 # Modelo AR1 (Autorregressivo) - Correlação decai com o tempo
 mod_ar1 <- nlme::gls(
@@ -513,22 +506,14 @@ mod_ar1 <- nlme::gls(
   correlation = nlme::corAR1(form = ~ Semana_recentralizada | Sujeito),
   method = "REML"
 )
-summary(mod_ar1) 
-```
 
-
-```{r}
-#| label: Modelo com estrutura de correlação/covariância não Estruturada (SYMM) 
-#| code-summary: "Modelo com estrutura de correlação/covariância não Estruturada (SYMM)"
-
-# Modelo SYMM (Não Estruturado) - Muitos parâmetros
+# Modelo SYMM (Não Estruturado)
 mod_symm <- nlme::gls(
   model = Pontuacao ~ Grupo * Semana_recentralizada,
   data = bd_stroke_long,
   correlation = nlme::corSymm(form = ~ 1 | Sujeito),
   method = "REML"
 )
-summary(mod_symm) 
 ```
 
 :::
