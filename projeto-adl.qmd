@@ -671,7 +671,61 @@ print(stats::anova(mod_cs, mod_symm))
 :::
 
 <br>
-  
+
+### Modelo Proposto AR(1)
+
+### Forma Geral
+
+$$
+\mathbf{y}_{it} = \beta_0 + \beta_1 X_{1i} + \beta_2 X_{2t} + \beta_3 (X_{1i} \times X_{2t}) + \varepsilon_{it}, 
+\quad 
+\boldsymbol{\varepsilon} \sim N(\mathbf{0}, \boldsymbol{\Sigma}_{AR(1)})
+$$
+
+onde:
+
+- $i$ indica o indivíduo;  
+- $t$ indica o tempo;  
+- $\boldsymbol{\Sigma}_{AR(1)}$ é a matriz de covariância AR(1) com correlação $\text{Cor}(\varepsilon_{it}, \varepsilon_{is}) = \phi^{|t-s|}$.
+
+$$
+\text{Pontuacao}_{it} = \beta_0 + \beta_1 \;\text{Grupo}_{i} + \beta_2 \;\text{Semana Recentralizada}_{t} + \beta_3 \; (\text{Grupo}_i \times \text{Semana Recentralizada}_t) + \varepsilon_{it}, 
+\quad 
+\boldsymbol{\varepsilon} \sim N(\mathbf{0}, \boldsymbol{\Sigma}_{AR(1)})
+$$
+
+Onde $\phi = 0.943$ estimado a partir dos dados.
+
+### Estimativas do Modelo
+
+```{r}
+#| label: Estimativas
+#| code-summary: "Estimativas"
+
+summary(mod_ar1)
+
+# Extrair estimativas do modelo AR(1)
+tidy(mod_ar1)
+```
+
+
+
+### Interpretação do Modelo AR(1)
+
+O modelo AR(1) ajusta a pontuação dos indivíduos ao longo das semanas, considerando a correlação temporal entre medidas do mesmo sujeito.  
+
+**Coeficientes estimados:**
+
+- **Intercepto ($\beta_0 = 39.41$):** representa a pontuação média do **Grupo A** na **semana centralizada = 0**.  
+- **GrupoB ($\beta_1 = -2.16$, p = 0.8403):** diferença média entre o **Grupo B** e o Grupo A na semana centralizada = 0. Como o p-valor é alto, não há evidência de diferença significativa nesse ponto.  
+- **Semana_recentralizada ($\beta_2 = 6.08$, p < 0.0001):** efeito médio da semana sobre a pontuação no Grupo A. Indica que, a cada aumento de uma unidade na semana, a pontuação do Grupo A aumenta em média 6.08 pontos, sendo estatisticamente significativo.  
+- **Interação GrupoB:Semana_recentralizada ($\beta_3 = -2.14$, p = 0.0906):** diferença no efeito do tempo entre o Grupo B e o Grupo A. O p-valor sugere que não é estatisticamente significativo ao nível de 5%, mas indica uma tendência de menor aumento no Grupo B ao longo das semanas.  
+
+**Parâmetro de correlação ($\phi = 0.943$):** indica forte correlação positiva entre medidas consecutivas do mesmo indivíduo, confirmando que a estrutura AR(1) é adequada para modelar a dependência temporal.  
+
+**Conclusão:**  
+O modelo sugere que, independentemente do grupo, a pontuação tende a aumentar ao longo do tempo. Não há evidência de diferença significativa entre os grupos na semana inicial, nem uma interação forte entre grupo e tempo, embora exista uma tendência do Grupo B apresentar aumento mais lento. A correlação temporal foi bem capturada pelo modelo AR(1).
+
 
 ## Base Dados: Peso de Bezerros
 
