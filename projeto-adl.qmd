@@ -532,10 +532,13 @@ y_{ij} = \mathbf{x}_{ij}^\top \boldsymbol{\beta} + \varepsilon_{ij}, \quad
 \text{tal que Cov}(\varepsilon_{ij}, \varepsilon_{ik}) = \sigma_{jk}.
 $$
 
+::: 
+
+## Modelos
 
 ```{r}
-#| label: Formulação dos Modelos
-#| code-summary: "Modelos"
+#| label: Modelagem
+#| code-summary: "Modelagem"
 
 # Modelo CS (Simetria Composta) - Correlação constante
 mod_cs <- nlme::gls(
@@ -562,7 +565,109 @@ mod_symm <- nlme::gls(
 )
 ```
 
+### Critérios de Seleção de Modelo
+
+::: {style="text-align: justify"}
+
+O objetivo desta seção é apresentar critérios utilizados para comparar e selecionar modelos ajustados, considerando a **qualidade do ajuste** e a **complexidade do modelo**.
+
+::: 
+
+#### AIC (Critério de Informação de Akaike)
+
+::: {style="text-align: justify"}
+
+O **AIC** penaliza modelos complexos e ajuda a evitar sobreajuste:
+
+$$
+\text{AIC} = -2 \log L(\widehat{\boldsymbol{\theta}}) + 2k
+$$
+
+**Rótulos:**
+
+- \(L(\widehat{\boldsymbol{\theta}})\): função de verossimilhança avaliada nos parâmetros estimados;  
+- \(k\): número de parâmetros do modelo;  
+- \(-2 \log L(\cdot)\): medida de ajuste do modelo aos dados;  
+- \(2k\): penalização pelo número de parâmetros.
+
+**Interpretação:** modelos com **AIC menor** são preferíveis.
+
+::: 
+
+#### BIC (Critério de Informação Bayesiano)
+
+::: {style="text-align: justify"}
+
+O **BIC** penaliza modelos complexos de forma mais forte, especialmente em grandes amostras:
+
+$$
+\text{BIC} = -2 \log L(\widehat{\boldsymbol{\theta}}) + k \log(n)
+$$
+
+**Rótulos:**
+
+- \(L(\widehat{\boldsymbol{\theta}})\): função de verossimilhança nos parâmetros estimados;  
+- \(k\): número de parâmetros do modelo;  
+- \(n\): tamanho da amostra;  
+- \(-2 \log L(\cdot)\): medida de ajuste;  
+- \(k \log(n)\): penalização pelo número de parâmetros.
+
+**Interpretação:** modelos com **BIC menor** são preferíveis.
+
+::: 
+
+#### Teste da Razão de Verossimilhança (TRV)
+
+::: {style="text-align: justify"}
+
+O **Teste da Razão de Verossimilhança** compara dois modelos **aninhados**:
+
+$$
+\Lambda = -2 \big[ \log L(\text{Modelo restrito}) - \log L(\text{Modelo completo}) \big]
+$$
+
+**Rótulos:**
+
+- \(\log L(\text{Modelo restrito})\): log-verossimilhança do modelo mais simples;  
+- \(\log L(\text{Modelo completo})\): log-verossimilhança do modelo mais complexo;  
+- \(\Lambda\): estatística do teste, aproximadamente qui-quadrado com \(df = k_{\text{completo}} - k_{\text{restrito}}\).
+
+**Hipóteses:**
+
+- \(H_0\): modelo restrito é suficiente;  
+- \(H_1\): modelo completo ajusta melhor os dados.
+
+**Interpretação:** rejeitar \(H_0\) indica que o modelo completo ajusta melhor.
+
+
+```{r}
+#| label: Comparacao_modelos
+#| code-summary: "Comparação de Modelos (AIC, BIC e LRT)"
+
+# Comparação de modelos pelo Critério AIC
+aic_result <- stats::AIC(mod_cs, mod_ar1, mod_symm)
+print("Resultados do AIC para os modelos:")
+print(aic_result)
+
+# Comparação de modelos pelo Critério BIC
+bic_result <- stats::BIC(mod_cs, mod_ar1, mod_symm)
+print("Resultados do BIC para os modelos:")
+print(bic_result)
+
+# Teste da Razão de Verossimilhança (LRT) entre modelos aninhados
+print("Teste de Razão de Verossimilhança (LRT) entre mod_cs e mod_ar1:")
+print(stats::anova(mod_cs, mod_ar1))
+
+print("Teste de Razão de Verossimilhança (LRT) entre mod_ar1 e mod_symm:")
+print(stats::anova(mod_ar1, mod_symm))
+
+print("Teste de Razão de Verossimilhança (LRT) entre mod_cs e mod_symm:")
+print(stats::anova(mod_cs, mod_symm))
+
 :::
+
+<br>
+  
 
 ## Base Dados: Peso de Bezerros
 
