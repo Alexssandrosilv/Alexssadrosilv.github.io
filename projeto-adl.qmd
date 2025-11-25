@@ -661,7 +661,6 @@ $$
 
 # Comparação de modelos pelo Critério AIC
 aic_result <- stats::AIC(mod_cs, mod_ar1, mod_symm)
-print("Resultados do AIC para os modelos:")
 print(aic_result)
 
 # Comparação de modelos pelo Critério BIC
@@ -699,7 +698,7 @@ onde:
 - $\boldsymbol{\Sigma}_{AR(1)}$ é a matriz de covariância AR(1) com correlação $\text{Cor}(\varepsilon_{it}, \varepsilon_{is}) = \phi^{|t-s|}$.
 
 $$
-\text{Pontuacao}_{it} = \beta_0 + \beta_1 \;\text{Grupo}_{i} + \beta_2 \;\text{Semana Recentralizada}_{t} + \beta_3 \; (\text{Grupo}_i \times \text{Semana Recentralizada}_t) + \varepsilon_{it}, 
+Y_{it} = \beta_0 + \beta_1 \;\text{Grupo}_{i} + \beta_2 \;\text{Semana Recentralizada}_{t} + \beta_3 \; (\text{Grupo}_i \times \text{Semana Recentralizada}_t) + \varepsilon_{it}, 
 \quad 
 \boldsymbol{\varepsilon} \sim N(\mathbf{0}, \boldsymbol{\Sigma}_{AR(1)})
 $$
@@ -751,21 +750,196 @@ O modelo sugere que, independentemente do grupo, a pontuação tende a aumentar 
 ### Sobre os dados
 
 ::: {style="text-align: justify"}
-
-O conjunto de dados abaixo contempla informações de um experimento para promover a recuperação de 24 pacientes que sofreram derrame. O objetivo é avaliar a eficácia de diferentes regimes de terapia ao longo de 8 semanas.
+O objetivo deste estudo é explorar o crescimento de bezerros entre a 12ª e a 26ª semana de vida, utilizando dados longitudinais com medidas repetidas.
 
 Definição dos índices:
 
-- $\mathbf{i}$: Representa o indivíduo (paciente), variando de $i=1, \dots, m$, onde $\mathbf{m = 24}$.
-- $\mathbf{j}$: Representa a medição repetida (instante no tempo), variando de $j=1, \dots, n_{i}$, onde $\mathbf{n_i = 8}$.
+- $\mathbf{m = 15}$.
+- $\mathbf{n_i = 8}$.
 
-Os pacientes foram divididos em três grupos experimentais. Embora cada grupo tenha o mesmo número de participantes (8 indivíduos), o balanceamento estatístico relevante em estudos longitudinais está associado ao número igual de medições ao longo do tempo por indivíduo $(n_i = 8)$, e não necessariamente ao fato de os grupos possuírem tamanhos iguais.
-
--   **Grupo A:** Uma nova intervenção de terapia ocupacional;
--   **Grupo B:** O programa existente de reabilitação de derrame;
--   **Grupo C:** O regime de cuidados usuais para pacientes com derrame.
 
 :::
+
+<br>
+
+
+::: {style="text-align: justify"}
+
+
+```{r}
+# ------------------------------------------------------------------------------
+# PACOTES
+# ------------------------------------------------------------------------------
+library(geomtextpath)
+library(ggrepel)
+
+# ------------------------------------------------------------------------------
+# 1. IMPORTAÇÃO DOS DADOS
+# ------------------------------------------------------------------------------
+url_bezerros <- "https://docs.google.com/spreadsheets/d/1BGP2yokaV8uiQ1kJXP3BvfXbDoBgw9Jb/edit?gid=1419069632#gid=1419069632"
+
+bd_bezerros <- gsheet::gsheet2tbl(url_bezerros)
+
+glimpse(bd_bezerros)
+
+# ------------------------------------------------------------------------------
+# 2. TRANSFORMAÇÃO DOS DADOS (WIDE → LONG)
+# ------------------------------------------------------------------------------
+
+bd_bezerros_long <- bd_bezerros %>%
+  pivot_longer(
+    cols = t12:t26,
+    names_to = "tempo",
+    values_to = "valor"
+  ) %>%
+  mutate(
+    tempo_num = as.numeric(str_remove(tempo, "t")),
+    tempo_recentralizado = tempo_num - min(tempo_num)
+  )
+
+glimpse(bd_bezerros_long)
+
+# ------------------------------------------------------------------------------
+# 3. GRÁFICO SPAGHETTI + MÉDIA GERAL
+# ------------------------------------------------------------------------------
+
+medias_tempo <- bd_bezerros_long %>%
+  group_by(tempo_num) %>%
+  summarise(media = mean(valor), .groups = "drop") %>%
+  mutate(media = round(media, 1))
+
+grafico_bezerros <- ggplot() +
+  geom_line(
+    data = bd_bezerros_long,
+    aes(x = tempo_num, y = valor, group = ind, color = factor(ind)),
+    alpha = 0.7, linewidth = 1
+  ) +
+  geom_point(
+    data = bd_bezerros_long,
+    aes(x = tempo_num, y = valor, color = factor(ind)),
+    size = 2
+  ) +
+  
+  # Médias
+  geom_line(
+    data = medias_tempo,
+    aes(x = tempo_num, y = media),
+    color = "black", linewidth = 1.3
+  ) +
+  geom_point(
+    data = medias_tempo,
+    aes(x = tempo_num, y = media),
+    color = "black", size = 3
+  ) +
+  geom_text_repel(
+    data = medias_tempo,
+    aes(x = tempo_num, y = media, label = media),
+    size = 4,
+    fontface = "bold",
+    nudge_y = 3,
+    box.padding = 0.4
+  ) +
+  
+  scale_color_viridis_d(option = "turbo") +   # Paleta moderna, ótima para distinguir indivíduos
+  guides(color = guide_legend(title = "Indivíduo")) +
+  
+  theme_bw() +
+  labs(
+    title = "Trajetórias Individuais com Cores (Bezerros)",
+    subtitle = "Cada cor representa um animal (ind)",
+    x = "Tempo (dias/medidas)",
+    y = "Valor"
+  ) + guides(color = "none")  
+
+print(grafico_bezerros)
+
+# ------------------------------------------------------------------------------
+# 4. MATRIZ DE CORRELAÇÃO
+# ------------------------------------------------------------------------------
+bd_cor <- bd_bezerros %>% select(t12:t26)
+
+mat_cor <- cor(bd_cor, use = "pairwise.complete.obs")
+
+corrplot(
+  mat_cor,
+  method = "color",
+  type = "upper",
+  tl.col = "black",
+  tl.srt = 90,
+  addCoef.col = "black",
+  number.cex = 0.8,
+  col = colorRampPalette(c("#F0F7FF", "#D4E8FF",
+                           "#A6CEFF", "#6CA9FF", 
+                           "#2F6ECC"))(200)
+)
+
+# ------------------------------------------------------------------------------
+# 5. MODELOS GLS (apenas um grupo)
+# ------------------------------------------------------------------------------
+
+# Y = valor
+# X = tempo_recentralizado
+# ID = ind
+
+mod_cs_bez <- nlme::gls(
+  model = valor ~ tempo_recentralizado,
+  data = bd_bezerros_long,
+  correlation = nlme::corCompSymm(form = ~ 1 | ind),
+  method = "REML"
+)
+
+mod_ar1_bez <- nlme::gls(
+  model = valor ~ tempo_recentralizado,
+  data = bd_bezerros_long,
+  correlation = nlme::corAR1(form = ~ tempo_recentralizado | ind),
+  method = "REML"
+)
+
+mod_symm_bez <- nlme::gls(
+  model = valor ~ tempo_recentralizado,
+  data = bd_bezerros_long,
+  correlation = nlme::corSymm(form = ~ 1 | ind),
+  method = "REML"
+)
+
+# ------------------------------------------------------------------------------
+# 6. COMPARAÇÃO ENTRE MODELOS
+# ------------------------------------------------------------------------------
+
+print(AIC(mod_cs_bez, mod_ar1_bez, mod_symm_bez))
+print(BIC(mod_cs_bez, mod_ar1_bez, mod_symm_bez))
+
+# LRT – Razão de Verossimilhança
+print(anova(mod_cs_bez, mod_ar1_bez))
+print(anova(mod_ar1_bez, mod_symm_bez))
+print(anova(mod_cs_bez, mod_symm_bez))
+
+
+summary(mod_cs_bez)
+```
+
+O modelo GLS com correlação composta (CS) ajustado aos dados dos bezerros pode ser formulado como:
+
+$$
+Y_{it} = \beta_0 + \beta_1 \, \text{Tempo Recentralizado}_{t} + \varepsilon_{it}, 
+\quad 
+\boldsymbol{\varepsilon} \sim N(\mathbf{0}, \boldsymbol{\Sigma}_{CS})
+$$
+
+onde:  
+
+- $i$ indica o indivíduo;  
+- $t$ indica o tempo;  
+- $\boldsymbol{\Sigma}_{CS}$ é a matriz de covariância com **correlação constante** entre observações do mesmo indivíduo:  
+  $$
+  \text{Cor}(\varepsilon_{it}, \varepsilon_{is}) = \rho, \quad \forall \, t \neq s
+  $$  
+- $\rho = 0.918$ é o valor estimado a partir dos dados.
+
+
+:::
+
+<br>
 
 ## Base Dados: PA
 
@@ -793,3 +967,6 @@ Os pacientes foram divididos em três grupos experimentais. Embora cada grupo te
 
 ::: {style="border-top: 2px solid #003366;"}
 :::
+
+
+
