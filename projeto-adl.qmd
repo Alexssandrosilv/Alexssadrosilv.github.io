@@ -273,6 +273,8 @@ De forma análoga, podemos escrever o vetor de respostas $\mathbf{Y}_i$ para o i
 # ------------------------------------------------------------------------------
 # FILTRAR APENAS B e C
 # ------------------------------------------------------------------------------
+bd_stroke_long <- bd_stroke_long %>%
+  filter(Grupo %in% c("B", "C"))
 
 medias_semana <- bd_stroke_long %>%
   group_by(Grupo, Semana) %>%

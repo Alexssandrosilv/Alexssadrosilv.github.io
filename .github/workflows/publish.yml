@@ -123,6 +123,7 @@ jobs:
             any::reactable
             any::DT
             any::htmltools
+            any::geomtextpath
             # Adicione aqui outros pacotes que seu site usa
 
       - name: Render and Publish
