@@ -13,7 +13,6 @@ lang: pt
 <br>
 
 
-
 ```{r setup, include=FALSE}
 # Define opções padrão para todos os chunks de código no R Markdown
 knitr::opts_chunk$set(
@@ -28,75 +27,24 @@ knitr::opts_chunk$set(
 ```
 
 
-## Exercícios
-
-## 📊 Bem-vindo(a) ao nosso Portfólio de Estatística
+## Pacotes e Funções Necessárias
 
 ::: {style="text-align: justify"}
-Olá! Nós somos **Alexssandro da Silva Oliveira** e **Leticia Haifa**, graduandos em Estatística. Este espaço é dedicado a apresentar nossos principais projetos, estudos de caso e análises.
 
-Navegue pelos nossos projetos para ver aplicações de Modelos Lineares Dinâmicos, Inferência Bayesiana, Séries Temporais e Métodos Não Paramétricos.
+Nesta seção, carregamos todas as bibliotecas e funções utilizadas neste projeto. A verificação é realizada de forma automática e, posteriormente, as bibliotecas necessárias são carregadas para uso.
+
+Para a elaboração deste estudo, empregaremos a linguagem de programação [**R**](http://www.R-project.org/), voltada para a manipulação, análise e visualização de dados, bem como o software livre de ambiente de desenvolvimento integrado [**RStudio**](https://posit.co/download/rstudio-desktop/).
+
+
 :::
 
-::: {style="text-align: justify"}
-Propõe-se a solução dos exercícios propostos e posteriormente, serão expostas e discutidas as conclusões acerca dos resultados obtidos. Para a elaboração deste estudo, empregaremos a linguagem de programação [**R**](http://www.R-project.org/), voltada para a manipulação, análise e visualização de dados, bem como o software livre de ambiente de desenvolvimento integrado [**RStudio**](https://posit.co/download/rstudio-desktop/).
-:::
 
-This is a Quarto website.
-
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
-
-```{r}
-# 1. Carregamento de Pacotes e Dependências
-if(!require("gsheet")) install.packages("gsheet")
-if(!require("corrplot")) install.packages("corrplot")
-if(!require("tidyverse")) install.packages("tidyverse")
-if(!require("nlme")) install.packages("nlme")
-
-require("gsheet")    # Leitura direta do Google Sheets
-require("tidyverse") # Metapacote (inclui dplyr, tidyr, ggplot2, stringr)
-require("corrplot")  # Visualização da matriz de correlação
-require("nlme")      # Essencial para gls() e lme()
-
-
-# 2. Importação dos Dados
-# URL pública da planilha contendo os dados do experimento
-url_stroke <- "https://docs.google.com/spreadsheets/d/1n394dzsNn1QITgigbHJ21uz6hi5TDCHs/edit?gid=712419062#gid=712419062"
-
-# Leitura dos dados brutos transformando diretamente em tibble (dataframe moderno)
-bd_stroke <- gsheet::gsheet2tbl(url_stroke)
+```{python}
+a = 1
+b = 2
+c = a + b
+c
 ```
-
-
-
-
-**Conclusão:** Ao comparar as distribuições a posteriori para os grupos $\alpha$: Vacina e $\delta$: Placebo, observou-se que os indivíduos que receberam a vacina apresentam uma probabilidade **inferior** de infecção pela COVID-19 em relação aos que receberam o placebo. Visualmente, percebe-se que essa probabilidade é cerca de 1% menor para o grupo vacinado. Ainda assim, essa diferença pode se mostrar relevante a depender do contexto, considerando o tamanho amostral relativamente grande do estudo, com aproximadamente 18 mil e 200 pessoas.
-
-
-:::
-
-## 💡 Ferramenta Rápida: Qual Modelo Usar?
-
-::: {style="text-align: justify"}
-Esta ferramenta interativa ajuda a selecionar um modelo estatístico inicial com base no tipo da sua variável resposta (Y).
-:::
-
-<div class="ferramenta-modelo">
-  <strong>Selecione o tipo da sua variável Resposta (Y):</strong>
-  
-  <select id="seletor-variavel" class="form-select">
-    <option value="default" selected>-- Escolha uma opção --</option>
-    <option value="continua">Contínua (Normal, ex: altura, peso)</option>
-    <option value="contagem">Contagem (Inteiro >= 0, ex: n° de falhas)</option>
-    <option value="proporcao">Proporção (0 a 1, ex: % de sucesso)</option>
-    <option value="binaria">Binária (0 ou 1, ex: sim/não)</option>
-    <option value="tempo">Tempo até Evento (Positivo, ex: sobrevivência)</option>
-  </select>
-  
-  <div id="resultado-modelo">
-    <p style="color: #888;">Selecione um tipo de variável para ver os pressupostos e o modelo.</p>
-  </div>
-</div>
 
 
 <br>
