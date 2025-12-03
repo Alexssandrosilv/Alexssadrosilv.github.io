@@ -14,15 +14,14 @@ website:
     left:
       - text: "<i class='bi bi-house'></i> Início"
         href: index.qmd
-      - text: "<i class='bi bi-file-earmark-person'></i> Sobre Nós"
-        href: about.qmd
-      # Menu de Projetos (já com o link do MLD)
+#      - text: "<i class='bi bi-file-earmark-person'></i> Sobre Nós"
+#        href: about.qmd
       - text: "<i class='bi bi-journal-code'></i> Projetos"
         menu:
           - href: projeto-mld.qmd
             text: "Projeto 1: Modelos Lineares Dinâmicos"
           - href: projeto-adl.qmd
-            text: "Projeto 2: Analise de dados longitudinais"
+            text: "Projeto 2: Análise de dados longitudinais"
 
             
   # 2. Rodapé (Footer) - O local correto para os nomes
