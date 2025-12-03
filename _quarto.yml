@@ -28,10 +28,10 @@ website:
   # 2. Rodapé (Footer) - O local correto para os nomes
   page-footer:
     left: 
-      - text: "<b>Colaboradores:</b>" # Uso de <b> garante o negrito
+      - text: "<b>Colaboradores: </b>" # Uso de <b> garante o negrito
       - text: "Alexssandro da S. Oliveira<sup>1</sup>"
-      - text: "Jakelinne Amazonas Gadelha<sup>2</sup>"
-      - text: "Letícia Haifa do N. Mattos<sup>3</sup>"
+      #- text: "Jakelinne Amazonas Gadelha<sup>2</sup>"
+      #- text: "Letícia Haifa do N. Mattos<sup>3</sup>"
 
     center: 
       - text: "E pelas primeiras vezes, o que passou, passou... comece de novo."
