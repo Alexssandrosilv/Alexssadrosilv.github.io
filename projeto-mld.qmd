@@ -35,6 +35,101 @@ Nesta seção, carregamos todas as bibliotecas e funções utilizadas neste proj
 
 Para a elaboração deste estudo, empregaremos a linguagem de programação [**R**](http://www.R-project.org/), voltada para a manipulação, análise e visualização de dados, bem como o software livre de ambiente de desenvolvimento integrado [**RStudio**](https://posit.co/download/rstudio-desktop/).
 
+::: {.panel-tabset}
+
+## Software R
+
+```{r}
+#| label: setup-r-packages
+#| code-summary: "R"
+
+# ------------------------------------------------------------------------------
+# A. Importação e Manipulação
+# ------------------------------------------------------------------------------
+if(!require("gsheet")) install.packages("gsheet", quiet = TRUE); require("gsheet")
+if(!require("tidyverse")) install.packages("tidyverse", quiet = TRUE); require("tidyverse")
+
+# ------------------------------------------------------------------------------
+# B. Visualização
+# ------------------------------------------------------------------------------
+if(!require("ggrepel")) install.packages("ggrepel", quiet = TRUE); require("ggrepel")
+# Correção: instala geomtextpath, não broom
+if(!require("geomtextpath")) install.packages("geomtextpath", quiet = TRUE); require("geomtextpath")
+if(!require("corrplot")) install.packages("corrplot", quiet = TRUE); require("corrplot")
+if(!require("viridis")) install.packages("viridis", quiet = TRUE); require("viridis")
+
+# ------------------------------------------------------------------------------
+# C. Estatística
+# ------------------------------------------------------------------------------
+if(!require("stats")) install.packages("stats", quiet = TRUE); require("stats")
+if(!require("nlme")) install.packages("nlme", quiet = TRUE); require("nlme")
+if(!require("broom")) install.packages("broom", quiet = TRUE); require("broom")
+
+# ------------------------------------------------------------------------------
+# D. Apresentação (Tabelas)
+# ------------------------------------------------------------------------------
+if(!require("DT")) install.packages("DT", quiet = TRUE); require("DT")
+if(!require("reactable")) install.packages("reactable", quiet = TRUE); require("reactable")
+```
+
+
+## 🐍 Python
+
+```{python}
+#| label: setup-python-packages
+#| code-summary: "Python"
+
+# Instala o pacote de conexão R <-> Python
+if(!require("reticulate")) install.packages("reticulate", quiet = TRUE); require("reticulate")
+
+# Dica: Se precisar configurar um ambiente específico, use:
+# reticulate::use_python("/caminho/para/python")
+```
+
+
+## Funções R
+
+```{r}
+#| label: setup-functions-R
+#| code-summary: "Funções R"
+
+
+# ==============================================================================
+# Função: Tabela Interativa (Estilo Minimalista)
+# ==============================================================================
+
+tabela_interativa <- function(dados, titulo_tabela) {
+  #' @param dados Dataframe ou tibble.
+  #' @param titulo_tabela Título da tabela.
+  
+  cor_titulo <- "#40916c" 
+  
+  DT::datatable(
+    base::data.frame(dados),
+    caption = htmltools::tags$caption(
+      style = base::paste0("caption-side: top; text-align: center; color:", cor_titulo, ";"),
+      htmltools::strong(titulo_tabela)
+    ),
+    class = "hover", 
+    options = list(
+      pageLength   = 8,        
+      searching    = FALSE,    
+      lengthChange = FALSE, 
+      info         = FALSE,          
+      ordering     = FALSE,      
+      language = list(
+        paginate = list("previous" = "Anterior", "next" = "Próximo"),
+        emptyTable = "Não há dados disponíveis",
+        zeroRecords = "Nenhum registro encontrado"
+      )
+    )
+  )
+}
+
+```
+
+:::
+
 
 :::
 

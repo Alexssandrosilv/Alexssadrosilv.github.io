@@ -36,6 +36,7 @@ Nesta seção, carregamos todas as bibliotecas e funções utilizadas neste proj
 Para a elaboração deste estudo, empregaremos a linguagem de programação [**R**](http://www.R-project.org/), voltada para a manipulação, análise e visualização de dados, bem como o software livre de ambiente de desenvolvimento integrado [**RStudio**](https://posit.co/download/rstudio-desktop/).
 
 
+
 ```{r}
 #| label: setup-plots
 #| code-summary: "Algoritimos auxiliares"

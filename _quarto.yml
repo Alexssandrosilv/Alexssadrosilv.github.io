@@ -1,15 +1,90 @@
+# website:
+#   title: "ΛΣ"
+#   description: "Portfólio de projetos de Alexssandro Oliveira e Leticia Haifa"
+#   
+#   # As setas no final da página (Só funcionam se tiver sidebar definindo a ordem)
+#   page-navigation: true 
+# 
+#   # 1. Barra de Navegação (Topo) - Deixamos limpa, só com links externos ou Home
+#   navbar:
+#     background: primary
+#     search: false # Desliguei a busca aqui para ela ir para a esquerda (opcional)
+#     left:
+#       - text: "<i class='bi bi-house'></i> Início"
+#         href: index.qmd
+#       - text: "GitHub"
+#         href: https://github.com/Alexssadrosilv
+#         icon: github
+# 
+#   # 2. Barra Lateral (Esquerda) - O SEGREDO DO VISUAL DO PROFESSOR
+#   sidebar:
+#     style: "docked" # "docked" fixa na esquerda, "floating" flutua
+#     search: true    # A busca aparece aqui agora!
+#     collapse-level: 1
+#     contents:
+#       - section: "Sobre"
+#         contents:
+#           - index.qmd
+#       - section: "Meus Projetos"
+#         contents:
+#           - text: "Modelos Dinâmicos"
+#             href: projeto-mld.qmd
+#           - text: "Dados Longitudinais"
+#             href: projeto-adl.qmd
+# 
+#   # 3. Rodapé
+#   page-footer:
+#     left: 
+#       - text: "<b>Colaboradores: </b> Alexssandro da S. Oliveira<sup>1</sup>"
+#     center: 
+#       - text: "E pelas primeiras vezes, o que passou, passou... comece de novo."
+
+# format: 
+#   html: 
+#     theme: flatly
+#     css: styles.css
+#     toc: true # Table of Contents (Menu da Direita)
+#     toc-title: "Nesta página"
+#     
+#     # Importa as fontes
+#     include-in-header:
+#       - text: |
+#           <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Fira+Code&display=swap" rel="stylesheet">
+#           <style>
+#           details > summary { color: #132a13; font-weight: bold; cursor: pointer; }
+#           </style>
+#     
+#     fontsize: 0.9em
+#     number-sections: true
+#     code-fold: true
+#     code-summary: "Ver Código"
+# 
+# execute:
+#   freeze: auto    
+#   message: false  
+#   warning: false
+
 project:
   type: website
-  # output-dir: docs # Pasta para o GitHub Pages
+  output-dir: docs # Pasta para o GitHub Pages
+
 
 website:
-  title: "ΛΣ" # Título principal do site
-  page-navigation: true
-  description: "Portfólio de projetos de Alexssandro Oliveira e Leticia Haifa"
+  title: "ΛΣ"
+  description: "Portfólio de projetos de Alexssandro Oliveira"
+  
+  # As setas no final da página (Só funcionam se tiver sidebar definindo a ordem)
+  page-navigation: true 
+  
+# website:
+#   title: "ΛΣ" # Título principal do site
+#   page-navigation: true
+#   description: "Portfólio de projetos de Alexssandro Oliveira e Leticia Haifa"
   
   # 1. Barra de Navegação (Navbar)
   navbar:
-    search: true
+    # search: true
+    search: false # Desliguei a busca aqui para ela ir para a esquerda (opcional)
     collapse: false
     left:
       - text: "<i class='bi bi-house'></i> Início"
@@ -23,24 +98,43 @@ website:
           - href: projeto-adl.qmd
             text: "Projeto 2: Análise de dados longitudinais"
 
-            
-  # 2. Rodapé (Footer) - O local correto para os nomes
-  page-footer:
-    left: 
-      - text: "<b>Colaboradores: </b>" # Uso de <b> garante o negrito
-      - text: "Alexssandro da S. Oliveira<sup>1</sup>"
-      #- text: "Jakelinne Amazonas Gadelha<sup>2</sup>"
-      #- text: "Letícia Haifa do N. Mattos<sup>3</sup>"
 
-    center: 
+  # 2. Rodapé
+  page-footer:
+    left:
+      - text: "<b>Colaboradores: </b> Alexssandro da S. Oliveira<sup>1</sup>"
+    center:
       - text: "E pelas primeiras vezes, o que passou, passou... comece de novo."
-        # href: mailto:alexssandrosg@gmail.com # (Email opcional)
+
+  # # 2. Rodapé (Footer) - O local correto para os nomes
+  # page-footer:
+  #   left: 
+  #     - text: "<b>Colaboradores: </b>" # Uso de <b> garante o negrito
+  #     - text: "Alexssandro da S. Oliveira<sup>1</sup>"
+  #     - text: "Jakelinne Amazonas Gadelha<sup>2</sup>"
+  #     - text: "Letícia Haifa do N. Mattos<sup>3</sup>"
+  # 
+  #   center: 
+  #     - text: "E pelas primeiras vezes, o que passou, passou... comece de novo."
+  #       href: mailto:alexssandrosg@gmail.com # (Email opcional)
 
 # 3. Formato de Saída (HTML)
 format: 
   html: 
     theme: flatly # IMPORTANTE: Remove o tema padrão para usar 100% o nosso CSS
     css: styles.css
+    
+    # Configurações de Layout
+    toc: true # Table of Contents (Menu da Direita)
+    toc-title: "Nesta página"
+    fontsize: 0.9em
+    margin-left: 0em
+    margin-right: 0em
+    margin-bottom: 0em
+    margin-top: -1em
+    number-sections: true
+    code-fold: true
+    code-summary: "Mostrar/Ocultar Código R"
     
     # Importa as fontes profissionais do Google e o CSS extra
     include-in-header:
@@ -58,16 +152,7 @@ format:
           }
           </style>
     
-    # Configurações de Layout
-    fontsize: 0.9em
-    margin-left: 0em
-    margin-right: 0em
-    margin-bottom: 0em
-    margin-top: -1em
-    toc: true
-    number-sections: true
-    code-fold: true
-    code-summary: "Mostrar/Ocultar Código R"
+
 
 # 4. Configuração do R
 execute:
