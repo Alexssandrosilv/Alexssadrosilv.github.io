@@ -32,7 +32,7 @@ website:
     right:
       - text: "CV"
         icon: file-earmark-pdf
-        href: extra/pdf/Curriculum_Alexssandro_Silva_Oliveira.pdf  # Crie a pasta 'arquivos' e ponha o PDF lá
+        href: extras/pdf/CV_Alexssandro_Silva_Oliveira.pdf  # Crie a pasta 'arquivos' e ponha o PDF lá
         target: _blank
 
       - icon: github

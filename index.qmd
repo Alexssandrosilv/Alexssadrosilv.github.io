@@ -1,6 +1,9 @@
 ---
-title: "Alexssandro Oliveira"
-image: extra/imagens/Alexssandro.jpg  # <--- Coloque sua foto nessa pasta com esse nome
+title: "Alexssandro Oliveira | alexssandrosg@gmail.com"
+image: extras/imagens/Alexssandro.jpg  # <--- Coloque sua foto nessa pasta com esse nome
+date: "`r format(Sys.Date(), '%m/%d/%Y')`"
+lang: pt
+
 about:
   template: trestles            # O estilo centralizado (pode trocar por 'trestles')
   image-width: 15em
@@ -15,8 +18,7 @@ about:
     - icon: envelope
       text: Email
       href: mailto:alexssandrosg@gmail.com
-date: "`r format(Sys.Date(), '%m/%d/%Y')`"
-lang: pt
+      
 ---
 
 <br>
