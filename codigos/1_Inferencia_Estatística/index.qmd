@@ -1,6 +1,7 @@
 ---
 title: "Módulo 1: Inferência Estatística"
-description: "A detalhar"date: last-modified    # <--- USE ISSO! É automático e não dá erro de código R
+author: "Alexssandro Oliveira | alexssandrosg@gmail.com"
+description: "A detalhar"
 date: "`r format(Sys.Date(), '%d/%m/%Y')`"
 image: "imagens/Modulo_inferencia.jpg"
 
@@ -17,7 +18,7 @@ listing:
   fields: [image, date, title, description, reading-time] # Mostra tempo de leitura
 
 page-layout: full
-title-block-banner: true
+title-block-banner: false
 ---
 
 
@@ -33,11 +34,6 @@ knitr::opts_chunk$set(
 )
 
 ```
-
-
-## Conteúdo do Módulo
-
-Abaixo você encontra as listas de exercícios e análises teóricas desenvolvidas.
 
 
 ## Projetos deste Módulo
