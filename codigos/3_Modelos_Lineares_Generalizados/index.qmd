@@ -1,0 +1,10 @@
+---
+title: "Módulo: Modelos de Regressão"
+description: "Coleção de aplicações práticas: Simples, Múltipla e Diagnósticos."
+# image: "capa_reg.png"   # Se tiver imagem
+listing:
+  contents: "*.qmd"      # Lista tudo desta pasta
+  type: default          # Lista detalhada
+  sort: "date asc"
+---
+Selecione uma análise abaixo para ver os detalhes:

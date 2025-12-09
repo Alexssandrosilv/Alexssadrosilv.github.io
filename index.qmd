@@ -1,10 +1,20 @@
 ---
 title: "Alexssandro Oliveira"
-image: Alexssandro.jpg  # <--- Coloque sua foto nessa pasta com esse nome
+image: extra/imagens/Alexssandro.jpg  # <--- Coloque sua foto nessa pasta com esse nome
 about:
   template: trestles            # O estilo centralizado (pode trocar por 'trestles')
   image-width: 15em
   image-shape: round
+  links:
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/alexssandro-silva-3b63aa19b/
+    - icon: github
+      text: Github
+      href: https://github.com/Alexssadrosilv
+    - icon: envelope
+      text: Email
+      href: mailto:alexssandrosg@gmail.com
 date: "`r format(Sys.Date(), '%m/%d/%Y')`"
 lang: pt
 ---
@@ -16,20 +26,6 @@ lang: pt
 
 <br>
 
-
-
-```{r setup, include=FALSE}
-# Define opções padrão para todos os chunks de código no R Markdown
-knitr::opts_chunk$set(
-  echo = TRUE,         # Oculta o código nos resultados finais do documento
-  warning = FALSE,     # Suprime mensagens de aviso (warnings)
-  message = FALSE,     # Suprime mensagens informativas (como as de carregamento de pacotes)
-  fig.width = 10,      # Define a largura padrão das figuras (em polegadas)
-  fig.height = 6,      # Define a altura padrão das figuras (em polegadas)
-  fig.align = 'center'
-)
-
-```
 ## Carta de Apresentação
 
 ::: {style="text-align: justify"}

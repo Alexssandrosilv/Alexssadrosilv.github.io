@@ -1,0 +1,29 @@
+---
+title: "Meus Projetos"
+subtitle: "Portfólio"
+listing:
+  contents: 
+    - codigos/1_Inferencia_Estatística/index.qmd  # O "Hub" de Regressão (Subprojetos)
+    - codigos/2_Modelos_de_Regressao/index.qmd               # Seus outros projetos
+    - codigos/3_Modelos_Lineares_Generalizados/index.qmd
+    - codigos/4_Modelos_Lineares_Dinamicos/index.qmd
+    - codigos/5_Labest/index.qmd
+  type: grid           # Visual de Cards
+  sort: "date desc"
+  categories: true     # Filtro lateral
+  sort-ui: false
+  filter-ui: false
+  fields: [image, title, description, date]
+page-layout: full
+title-block-banner: true
+---
+
+Bem-vindo ao meu portfólio. Aqui reúno meus estudos de caso, consultorias e pesquisas acadêmicas desenvolvidas na **UFAM** e no **LabEst**.
+
+Utilize os filtros à direita para navegar por categorias como *Inferência*, *Séries Temporais* ou *Machine Learning*.
+
+
+::: {style="border-top: 2px solid #003366;"}
+:::
+
+<br>

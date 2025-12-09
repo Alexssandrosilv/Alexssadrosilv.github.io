@@ -1,69 +1,3 @@
-# website:
-#   title: "ΛΣ"
-#   description: "Portfólio de projetos de Alexssandro Oliveira e Leticia Haifa"
-#   
-#   # As setas no final da página (Só funcionam se tiver sidebar definindo a ordem)
-#   page-navigation: true 
-# 
-#   # 1. Barra de Navegação (Topo) - Deixamos limpa, só com links externos ou Home
-#   navbar:
-#     background: primary
-#     search: false # Desliguei a busca aqui para ela ir para a esquerda (opcional)
-#     left:
-#       - text: "<i class='bi bi-house'></i> Início"
-#         href: index.qmd
-#       - text: "GitHub"
-#         href: https://github.com/Alexssadrosilv
-#         icon: github
-# 
-#   # 2. Barra Lateral (Esquerda) - O SEGREDO DO VISUAL DO PROFESSOR
-#   sidebar:
-#     style: "docked" # "docked" fixa na esquerda, "floating" flutua
-#     search: true    # A busca aparece aqui agora!
-#     collapse-level: 1
-#     contents:
-#       - section: "Sobre"
-#         contents:
-#           - index.qmd
-#       - section: "Meus Projetos"
-#         contents:
-#           - text: "Modelos Dinâmicos"
-#             href: projeto-mld.qmd
-#           - text: "Dados Longitudinais"
-#             href: projeto-adl.qmd
-# 
-#   # 3. Rodapé
-#   page-footer:
-#     left: 
-#       - text: "<b>Colaboradores: </b> Alexssandro da S. Oliveira<sup>1</sup>"
-#     center: 
-#       - text: "E pelas primeiras vezes, o que passou, passou... comece de novo."
-
-# format: 
-#   html: 
-#     theme: flatly
-#     css: styles.css
-#     toc: true # Table of Contents (Menu da Direita)
-#     toc-title: "Nesta página"
-#     
-#     # Importa as fontes
-#     include-in-header:
-#       - text: |
-#           <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Fira+Code&display=swap" rel="stylesheet">
-#           <style>
-#           details > summary { color: #132a13; font-weight: bold; cursor: pointer; }
-#           </style>
-#     
-#     fontsize: 0.9em
-#     number-sections: true
-#     code-fold: true
-#     code-summary: "Ver Código"
-# 
-# execute:
-#   freeze: auto    
-#   message: false  
-#   warning: false
-
 project:
   type: website
   output-dir: docs # Pasta para o GitHub Pages
@@ -72,20 +6,13 @@ project:
 website:
   title: "ΛΣ"
   description: "Portfólio de projetos de Alexssandro Oliveira"
-  
   # As setas no final da página (Só funcionam se tiver sidebar definindo a ordem)
   page-navigation: true 
-  
-# website:
-#   title: "ΛΣ" # Título principal do site
-#   page-navigation: true
-#   description: "Portfólio de projetos de Alexssandro Oliveira e Leticia Haifa"
-  
+
   # 1. Barra de Navegação (Navbar)
   navbar:
     # background: primary
     search: true
-    
     # --- O QUE O COLLAPSE FAZ ---
     # true  = (Recomendado) Em telas pequenas (celular), esconde o menu 
     #         dentro de um botão "hambúrguer" (☰) para não quebrar o site.
@@ -99,20 +26,15 @@ website:
       
       - text: "Projetos"
         icon: journal-code
-        menu:
-          - text: "Inferência Estatística"
-            href: projeto-tcc.qmd
-          - text: "Modelos de Regressão"
-            href: projeto-reg.qmd
-          - text: "Modelos Lineares Generalizados (MLG)"
-            href: projeto-mlg.qmd
-          - text: "Modelos Lineares Dinâmicos"
-            href: projeto-mld.qmd
-          - text: "Consultoria Labest"
-            href: projeto-labest.qmd
-    
+        href: projetos.qmd # Link direto para a Galeria (Vitrine)
+
     # Lado Direito: Redes Sociais
     right:
+      - text: "CV"
+        icon: file-earmark-pdf
+        href: extra/pdf/Curriculum_Alexssandro_Silva_Oliveira.pdf  # Crie a pasta 'arquivos' e ponha o PDF lá
+        target: _blank
+
       - icon: github
         href: https://github.com/Alexssadrosilv
         aria-label: GitHub
@@ -120,49 +42,7 @@ website:
         href: https://www.linkedin.com/in/alexssandro-silva-3b63aa19b/
         aria-label: LinkedIn
 
-#   navbar:
-#     # search: true
-#     search: false # Desliguei a busca aqui para ela ir para a esquerda (opcional)
-#     collapse: true
-#     left:
-#       - text: "<i class='bi bi-house'></i> Início"
-#         href: index.qmd
-# #      - text: "<i class='bi bi-file-earmark-person'></i> Sobre Nós"
-# #        href: about.qmd
-#       - text: "<i class='bi bi-journal-code'></i> Projetos"
-#         menu:
-#           - href: projeto-tcc.qmd
-#             text: "Projeto 1: Inferência Estatística"
-#           - href: projeto-reg.qmd
-#             text: "Projeto 2: Modelos de Regressão"
-#           - href: projeto-mlg.qmd
-#             text: "Projeto 3: Modelos Lineares Generalizados (MLG)"
-#           - href: projeto-mld.qmd
-#             text: "Projeto 4: Modelos Lineares Dinâmicos"
-#           - href: projeto-labest.qmd
-#             text: "Projeto 5: Labest"
-  
 
-  # 2. Rodapé
-  # page-footer:
-  #   left:
-  #     - text: "<b>Colaboradores: </b> Alexssandro da S. Oliveira<sup>1</sup>"
-  #   center:
-  #     - text: "E pelas primeiras vezes, o que passou, passou... comece de novo."
-
-  # # 2. Rodapé (Footer) - O local correto para os nomes
-  # page-footer:
-  #   left: 
-  #     - text: "<b>Colaboradores: </b>" # Uso de <b> garante o negrito
-  #     - text: "Alexssandro da S. Oliveira<sup>1</sup>"
-  #     - text: "Jakelinne Amazonas Gadelha<sup>2</sup>"
-  #     - text: "Letícia Haifa do N. Mattos<sup>3</sup>"
-  # 
-  #   center: 
-  #     - text: "E pelas primeiras vezes, o que passou, passou... comece de novo."
-  #       href: mailto:alexssandrosg@gmail.com # (Email opcional)
-
-# 3. Formato de Saída (HTML)
 # 2. Rodapé (Com as Redes Sociais)
   page-footer:
     background: "black" #"light"
