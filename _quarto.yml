@@ -95,12 +95,12 @@ website:
         menu:
           - href: projeto-tcc.qmd
             text: "Projeto 1: Inferência Estatística"
-          - href: projeto-mld.qmd
-            text: "Projeto 2: Modelos de Regressão Linear"
           - href: projeto-reg.qmd
-            text: "Projeto 3: Modelos de regressão"
+            text: "Projeto 2: Modelos de Regressão"
           - href: projeto-mlg.qmd
-            text: "Projeto 4: Modelos Lineares Generalizados"
+            text: "Projeto 3: Modelos Lineares Generalizados (MLG)"
+          - href: projeto-mld.qmd
+            text: "Projeto 4: Modelos Lineares Dinâmicos"
           - href: projeto-labest.qmd
             text: "Projeto 5: Labest"
   
