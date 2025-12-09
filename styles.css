@@ -235,3 +235,88 @@ FERRAMENTA INTERATIVA DE MODELOS (A PARTE QUE FALTAVA)
   margin-top: 0;
   color: var(--cor-navbar-destaque); /* Usa a cor de destaque do tema */
 }
+
+
+/* ==========================================================================
+   ESTILO PREMIUM PARA OS CARDS DE PROJETOS (GRID)
+   ========================================================================== */
+
+/* 1. O QUADRADO (CARD) */
+.quarto-grid-item.card {
+    background-color: #ffffff;
+    border: none;                  /* Remove a borda cinza feia */
+    border-radius: 12px;           /* Arredonda os cantos */
+    /* Sombra suave para dar profundidade no fundo branco */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); 
+    transition: all 0.3s ease;     /* Animação suave para tudo */
+    overflow: hidden;              /* Garante que nada saia dos cantos */
+    height: 100%;                  /* Garante altura igual */
+}
+
+/* 2. EFEITO AO PASSAR O MOUSE (HOVER) */
+.quarto-grid-item.card:hover {
+    transform: translateY(-8px);   /* O cartão sobe/flutua */
+    /* A sombra cresce para parecer que o cartão levantou */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); 
+}
+
+/* 3. A IMAGEM DE CAPA */
+.quarto-grid-image {
+    height: 220px;                 /* Altura fixa para alinhar todas as fotos */
+    width: 100%;
+    object-fit: cover;             /* Corta a imagem para preencher sem esticar */
+    border-bottom: 1px solid var(--cor-borda-suave);
+}
+
+/* 4. ÁREA DE TEXTO DO CARTÃO */
+.card-body {
+    padding: 1.5rem;               /* Mais espaço interno (respiro) */
+}
+
+/* 5. TÍTULO DO PROJETO */
+.card-title {
+    color: var(--cor-texto);       /* Usa seu preto padrão (#2a2a2a) */
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+/* Quando passa o mouse no cartão, o título fica Verde (sua cor de destaque) */
+.quarto-grid-item.card:hover .card-title {
+    color: var(--cor-navbar-destaque);
+}
+
+/* 6. DESCRIÇÃO E DATA */
+.card-text {
+    color: #666666;                /* Cinza médio para leitura agradável */
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.listing-date {
+    color: #999999;                /* Data mais discreta */
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+/* 7. BOTÃO DE CATEGORIAS (TAGS) - Se aparecerem no card */
+.listing-categories .listing-category {
+    background-color: var(--cor-code-fundo);
+    color: var(--cor-texto);
+    border-radius: 15px;
+    padding: 2px 10px;
+    font-size: 0.75em;
+    border: 1px solid var(--cor-borda-titulo);
+    transition: all 0.2s;
+}
+
+.listing-categories .listing-category:hover {
+    background-color: var(--cor-navbar-destaque);
+    color: #fff;
+    border-color: var(--cor-navbar-destaque);
+}

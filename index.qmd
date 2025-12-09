@@ -6,7 +6,7 @@ image: extras/imagens/Alexssandro.jpg  # <--- Coloque sua foto nessa pasta com e
 lang: pt
 about:
   template: trestles            # O estilo centralizado (pode trocar por 'trestles')
-  image-width: 25em
+  image-width: 20em
   image-shape: round
   links:
     - icon: linkedin
@@ -18,7 +18,7 @@ about:
     - icon: envelope
       text: Email
       href: mailto:alexssandrosg@gmail.com
-      
+page-layout: full
 ---
 
 <br>
