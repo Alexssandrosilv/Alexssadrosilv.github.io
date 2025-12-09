@@ -43,20 +43,19 @@ website:
     #     aria-label: LinkedIn
 
 # Lado Direito: Apenas ÍCONES (para ficar uniforme)
-    right:
-      - icon: file-person  # Ícone de "Currículo" (bonequinho no arquivo)
-        href: extra/pdf/Curriculum_Alexssandro_Silva_Oliveira.pdf
-        target: _blank
-        aria-label: "Currículo" # Isso serve para leitores de tela saberem o que é
-        title: "Ver Currículo"  # Aparece quando passa o mouse
-
-      - icon: github
-        href: https://github.com/Alexssadrosilv
-        aria-label: GitHub
-        
-      - icon: linkedin
-        href: https://www.linkedin.com/in/alexssandro-silva-3b63aa19b/
-        aria-label: LinkedIn
+    # right:
+    #   - icon: file-person  # Ícone de "Currículo" (bonequinho no arquivo)
+    #     href: extra/pdf/Curriculum_Alexssandro_Silva_Oliveira.pdf
+    #     target: _blank
+    #     aria-label: "Currículo" # Isso serve para leitores de tela saberem o que é
+    # 
+    #   - icon: github
+    #     href: https://github.com/Alexssadrosilv
+    #     aria-label: GitHub
+    #     
+    #   - icon: linkedin
+    #     href: https://www.linkedin.com/in/alexssandro-silva-3b63aa19b/
+    #     aria-label: LinkedIn
         
 
 # 2. Rodapé (Com as Redes Sociais)
@@ -117,10 +116,15 @@ format:
           </style>
     
 
-
 # 4. Configuração do R
 execute:
   freeze: auto    # "Congela" resultados
   message: false  # Ocultar mensagens 
   warning: false  # Ocultar warnings 
 
+
+# 5. Configuração de Idioma e tradução
+lang: pt
+language:
+  listing-categories: "Filtrar por Assunto"  # <--- O nome personalizado da barra lateral
+  search-no-results-text: "Nenhum resultado"

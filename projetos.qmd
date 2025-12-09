@@ -1,6 +1,6 @@
 ---
-title: "Meus Projetos"
-subtitle: "Portfólio"
+# title: "Meus Projetos"
+# subtitle: "Portfólio"
 listing:
   contents: 
     - codigos/1_Inferencia_Estatística/index.qmd  # O "Hub" de Regressão (Subprojetos)

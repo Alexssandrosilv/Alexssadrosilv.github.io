@@ -1,6 +1,5 @@
 ---
-title: ""
-author: "Alexssandro da Silva Oliveira"
+author: "Alexssandro Oliveira | alexssandrosg@gmail.com"
 date: "`r format(Sys.Date())`"
 lang: pt
 ---
