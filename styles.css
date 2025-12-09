@@ -15,7 +15,8 @@ PALETA DE CORES (Refinada)
   --cor-code-fundo: #f8f9fa;      /* Fundo de código (cinza bem claro) */
   
   /* Cores da Navbar (Como você pediu) */
-  --cor-navbar-fundo: #04151f;      /* O seu Azul-Noite/Preto */
+/*  --cor-navbar-fundo: #04151f;      /* O seu Azul-Noite/Preto */
+  --cor-navbar-fundo: black;      /* O seu Azul-Noite/Preto */
   --cor-navbar-destaque: #5a7d5a;  /* Verde Escuro Destacado (da paleta "Earthy") */
   --cor-navbar-texto: #e0e0e0;      /* Cinza claro para texto dos links */
   --cor-navbar-hover: #FFFFFF;     /* Texto do link (Branco) ao passar o mouse */
