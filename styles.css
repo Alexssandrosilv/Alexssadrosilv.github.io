@@ -163,7 +163,8 @@ code {
 /* Footer (Rodapé) - ATUALIZADO */
 .quarto-page-footer {
   background-color: var(--cor-navbar-fundo); /* Fundo Azul-Noite (igual navbar) */
-  color: var(--cor-navbar-texto); /* Texto Cinza Claro (igual navbar) */
+  /*color: var(--cor-navbar-texto); /* Texto Cinza Claro (igual navbar) */
+  color: #FFFFFF; /* Texto Cinza Claro (igual navbar) */
   padding: 2em 0;
   text-align: center;
   border-top: 3px solid var(--cor-navbar-destaque); /* Borda Verde (igual navbar) */
