@@ -37,17 +37,20 @@ Para a elaboração deste estudo, empregaremos a linguagem de programação [**R
 
 ::: {.panel-tabset}
 
-## Software R
+## pAc 
 
 ```{r}
-#| label: setup-r-packages
-#| code-summary: "R"
+#| label: setup-plots
+#| code-summary: "Algoritimos auxiliares"
 
 # ------------------------------------------------------------------------------
 # A. Importação e Manipulação
 # ------------------------------------------------------------------------------
 if(!require("gsheet")) install.packages("gsheet", quiet = TRUE); require("gsheet")
 if(!require("tidyverse")) install.packages("tidyverse", quiet = TRUE); require("tidyverse")
+
+# Instala o pacote de conexão R <-> Python
+if(!require("reticulate")) install.packages("reticulate", quiet = TRUE); require("reticulate")
 
 # ------------------------------------------------------------------------------
 # B. Visualização
@@ -72,26 +75,11 @@ if(!require("DT")) install.packages("DT", quiet = TRUE); require("DT")
 if(!require("reactable")) install.packages("reactable", quiet = TRUE); require("reactable")
 ```
 
-
-## 🐍 Python
-
-```{python}
-#| label: setup-python-packages
-#| code-summary: "Python"
-
-# Instala o pacote de conexão R <-> Python
-if(!require("reticulate")) install.packages("reticulate", quiet = TRUE); require("reticulate")
-
-# Dica: Se precisar configurar um ambiente específico, use:
-# reticulate::use_python("/caminho/para/python")
-```
-
-
-## Funções R
+## Funções
 
 ```{r}
-#| label: setup-functions-R
-#| code-summary: "Funções R"
+#| label: setup-functions
+#| code-summary: "Funções"
 
 
 # ==============================================================================
