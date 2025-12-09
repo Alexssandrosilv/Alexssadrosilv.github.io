@@ -83,34 +83,63 @@ website:
   
   # 1. Barra de Navegação (Navbar)
   navbar:
-    # search: true
-    search: false # Desliguei a busca aqui para ela ir para a esquerda (opcional)
-    collapse: false
+    # background: primary
+    search: true
+    
+    # --- O QUE O COLLAPSE FAZ ---
+    # true  = (Recomendado) Em telas pequenas (celular), esconde o menu 
+    #         dentro de um botão "hambúrguer" (☰) para não quebrar o site.
+    # false = Tenta mostrar todos os botões espremidos, o que fica ruim no celular.
+    collapse: true 
+    
     left:
-      - text: "<i class='bi bi-house'></i> Início"
+      - text: "Início"
+        icon: house
         href: index.qmd
-#      - text: "<i class='bi bi-file-earmark-person'></i> Sobre Nós"
-#        href: about.qmd
-      - text: "<i class='bi bi-journal-code'></i> Projetos"
+      
+      - text: "Projetos"
+        icon: journal-code
         menu:
-          - href: projeto-tcc.qmd
-            text: "Projeto 1: Inferência Estatística"
-          - href: projeto-reg.qmd
-            text: "Projeto 2: Modelos de Regressão"
-          - href: projeto-mlg.qmd
-            text: "Projeto 3: Modelos Lineares Generalizados (MLG)"
-          - href: projeto-mld.qmd
-            text: "Projeto 4: Modelos Lineares Dinâmicos"
-          - href: projeto-labest.qmd
-            text: "Projeto 5: Labest"
+          - text: "Inferência Estatística"
+            href: projeto-tcc.qmd
+          - text: "Modelos de Regressão"
+            href: projeto-reg.qmd
+          - text: "Modelos Lineares Generalizados (MLG)"
+            href: projeto-mlg.qmd
+          - text: "Modelos Lineares Dinâmicos"
+            href: projeto-mld.qmd
+          - text: "Consultoria Labest"
+            href: projeto-labest.qmd
+
+#   navbar:
+#     # search: true
+#     search: false # Desliguei a busca aqui para ela ir para a esquerda (opcional)
+#     collapse: true
+#     left:
+#       - text: "<i class='bi bi-house'></i> Início"
+#         href: index.qmd
+# #      - text: "<i class='bi bi-file-earmark-person'></i> Sobre Nós"
+# #        href: about.qmd
+#       - text: "<i class='bi bi-journal-code'></i> Projetos"
+#         menu:
+#           - href: projeto-tcc.qmd
+#             text: "Projeto 1: Inferência Estatística"
+#           - href: projeto-reg.qmd
+#             text: "Projeto 2: Modelos de Regressão"
+#           - href: projeto-mlg.qmd
+#             text: "Projeto 3: Modelos Lineares Generalizados (MLG)"
+#           - href: projeto-mld.qmd
+#             text: "Projeto 4: Modelos Lineares Dinâmicos"
+#           - href: projeto-labest.qmd
+#             text: "Projeto 5: Labest"
   
 
   # 2. Rodapé
-  page-footer:
-    left:
-      - text: "<b>Colaboradores: </b> Alexssandro da S. Oliveira<sup>1</sup>"
-    center:
-      - text: "E pelas primeiras vezes, o que passou, passou... comece de novo."
+  # page-footer:
+  #   left:
+  #     - text: "<b>Colaboradores: </b> Alexssandro da S. Oliveira<sup>1</sup>"
+  #   center:
+  #     - text: "E pelas primeiras vezes, o que passou, passou... comece de novo."
 
   # # 2. Rodapé (Footer) - O local correto para os nomes
   # page-footer:
@@ -125,6 +154,30 @@ website:
   #       href: mailto:alexssandrosg@gmail.com # (Email opcional)
 
 # 3. Formato de Saída (HTML)
+# 2. Rodapé (Com as Redes Sociais)
+  page-footer:
+    background: "black" #"light"
+    border: true
+    
+    # Lado Esquerdo: Seu nome
+    left: 
+      - text: "<b>Colaborador:</b> Alexssandro da S. Oliveira<sup>1</sup>"
+      
+    # Centro: A frase
+    center: 
+      - text: "<i>E pelas primeiras vezes, o que passou, passou... comece de novo.</i>"
+      
+    # Lado Direito: Ícones das Redes Sociais
+    right:
+      - icon: github
+        href: https://github.com/Alexssadrosilv
+        aria-label: GitHub
+      - icon: linkedin
+        href: https://www.linkedin.com/in/alexssandro-silva-3b63aa19b/
+        aria-label: LinkedIn
+      - icon: envelope
+        href: mailto:alexssandrosg@gmail.com
+        aria-label: Email
 format: 
   html: 
     theme: flatly # IMPORTANTE: Remove o tema padrão para usar 100% o nosso CSS

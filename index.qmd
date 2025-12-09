@@ -1,20 +1,10 @@
 ---
 title: "Alexssandro Oliveira"
-image: alexssandro.jpg  # <--- Coloque sua foto nessa pasta com esse nome
+image: Alexssandro.jpg  # <--- Coloque sua foto nessa pasta com esse nome
 about:
-  template: jolla            # O estilo centralizado (pode trocar por 'trestles')
+  template: trestles            # O estilo centralizado (pode trocar por 'trestles')
   image-width: 15em
   image-shape: round
-  links:
-    - icon: linkedin
-      text: LinkedIn
-      href: https://www.linkedin.com/in/alexssandro-silva-3b63aa19b/
-    - icon: github
-      text: Github
-      href: https://github.com/Alexssandrosilv
-    - icon: envelope
-      text: Email
-      href: mailto:alexssandrosg@gmail.com
 date: "`r format(Sys.Date(), '%d/%m/%Y')`"
 lang: pt
 ---
