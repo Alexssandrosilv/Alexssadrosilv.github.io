@@ -96,11 +96,13 @@ website:
           - href: projeto-tcc.qmd
             text: "Projeto 1: Inferência Estatística"
           - href: projeto-mld.qmd
-            text: "Projeto 2: Modelos Lineares Dinâmicos"
-          - href: projeto-adl.qmd
-            text: "Projeto 3: Análise de dados longitudinais"
+            text: "Projeto 2: Modelos de Regressão Linear"
+          - href: projeto-reg.qmd
+            text: "Projeto 3: Modelos de regressão"
+          - href: projeto-mlg.qmd
+            text: "Projeto 4: Modelos Lineares Generalizados"
           - href: projeto-labest.qmd
-            text: "Projeto 4: Labest"
+            text: "Projeto 5: Labest"
   
 
   # 2. Rodapé

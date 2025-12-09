@@ -35,12 +35,14 @@ Todo o conteúdo foi estruturado utilizando **Quarto (`.qmd`)**, uma ferramenta 
 
 Navegue pela plataforma para explorar aplicações relacionadas a:
 
-- Inferência Estatística;
-- Inferência Bayesiana;
-- Modelos de Regressão;
-- Métodos Não Paramétricos;
-- Séries Temporais;
-- Modelos Lineares Dinâmicos.
+- [**Inferência Estatística**](https://alexssandrosilv.github.io/Alexssadrosilv.github.io/projeto-tcc.html);
+- **Inferência Bayesiana**;
+- [**Modelos de Regressão**](https://alexssandrosilv.github.io/Alexssadrosilv.github.io/projeto-mld.html);
+- **Métodos Não Paramétricos**;
+- **Modelos de Regressão**;
+- **Modelos Lineares Generalizados (MLG)**;
+- **Séries Temporais**;
+- [**Modelos Lineares Dinâmicos**](https://alexssandrosilv.github.io/Alexssadrosilv.github.io/projeto-mld.html).
 
 Para a elaboração dos estudos, utilizaremos as linguagens de programação [**R**](http://www.R-project.org/) e [**Python**](https://www.python.org/), ambas amplamente empregadas na análise, manipulação e visualização de dados. Além disso, empregaremos o ambiente de modelagem probabilística [**Stan**](https://mc-stan.org/), reconhecido pela eficiência na estimação de modelos Bayesianos complexos por meio do algoritmo Hamiltonian Monte Carlo (HMC). 
 
