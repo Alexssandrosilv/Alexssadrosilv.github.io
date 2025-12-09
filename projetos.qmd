@@ -43,8 +43,7 @@ page-layout: full
 title-block-banner: false
 ---
 
-Utilize os filtros à direita para navegar por categorias como **Inferência** e **Séries Temporais**.
-
+Abaixo estão os módulos disponíveis. Use os filtros à direita para acessar e navegar rapidamente por categorias como **Inferência** e **Séries Temporais**.
 
 ::: {style="border-top: 2px solid #003366;"}
 :::

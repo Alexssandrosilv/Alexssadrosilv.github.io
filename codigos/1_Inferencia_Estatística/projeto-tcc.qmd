@@ -1,6 +1,6 @@
 ---
 author: "Alexssandro Oliveira | alexssandrosg@gmail.com"
-date: "`r format(Sys.Date())`"
+date: last-modified
 lang: pt
 ---
 

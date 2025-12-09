@@ -1,6 +1,6 @@
 ---
 author: "Alexssandro Oliveira alexssandrosg@gmail.com"
-date: "today"
+date: last-modified
 # date: "`r format(Sys.Date(), '%m/%d/%Y')`"
 image: extras/imagens/Alexssandro.jpg  # <--- Coloque sua foto nessa pasta com esse nome
 lang: pt
