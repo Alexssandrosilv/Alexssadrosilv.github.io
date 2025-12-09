@@ -33,15 +33,15 @@ knitr::opts_chunk$set(
 
 Nesta seção, carregamos todas as bibliotecas e funções utilizadas neste projeto. A verificação é realizada de forma automática e, posteriormente, as bibliotecas necessárias são carregadas para uso.
 
-Para a elaboração deste estudo, empregaremos a linguagem de programação [**R**](http://www.R-project.org/), voltada para a manipulação, análise e visualização de dados, bem como o software livre de ambiente de desenvolvimento integrado [**RStudio**](https://posit.co/download/rstudio-desktop/).
+Para a elaboração deste trabalho, utilizaremos as linguagens de programação [R](http://www.R-project.org/) e [Python](https://www.python.org/), ambas amplamente empregadas na análise, manipulação e visualização de dados. O desenvolvimento das aplicações será realizado no ambiente de desenvolvimento integrado [RStudio](https://posit.co/download/rstudio-desktop/), que oferece ferramentas abrangentes para escrita, organização, execução e acompanhamento de códigos.
 
 ::: {.panel-tabset}
 
-## pAc 
+## Bibliotecas
 
 ```{r}
 #| label: setup-plots
-#| code-summary: "Algoritimos auxiliares"
+#| code-summary: "Bibliotecas"
 
 # ------------------------------------------------------------------------------
 # A. Importação e Manipulação
@@ -75,7 +75,7 @@ if(!require("DT")) install.packages("DT", quiet = TRUE); require("DT")
 if(!require("reactable")) install.packages("reactable", quiet = TRUE); require("reactable")
 ```
 
-## Funções
+## Funções Criadas
 
 ```{r}
 #| label: setup-functions
