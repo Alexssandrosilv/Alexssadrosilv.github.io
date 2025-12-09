@@ -110,6 +110,15 @@ website:
             href: projeto-mld.qmd
           - text: "Consultoria Labest"
             href: projeto-labest.qmd
+    
+    # Lado Direito: Redes Sociais
+    right:
+      - icon: github
+        href: https://github.com/Alexssadrosilv
+        aria-label: GitHub
+      - icon: linkedin
+        href: https://www.linkedin.com/in/alexssandro-silva-3b63aa19b/
+        aria-label: LinkedIn
 
 #   navbar:
 #     # search: true

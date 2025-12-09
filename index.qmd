@@ -5,7 +5,7 @@ about:
   template: trestles            # O estilo centralizado (pode trocar por 'trestles')
   image-width: 15em
   image-shape: round
-date: "`r format(Sys.Date(), '%d/%m/%Y')`"
+date: "`r format(Sys.Date(), '%m/%d/%Y')`"
 lang: pt
 ---
 
