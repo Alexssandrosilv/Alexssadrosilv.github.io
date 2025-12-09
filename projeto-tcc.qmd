@@ -1,0 +1,138 @@
+---
+title: ""
+author: "Alexssandro da Silva Oliveira"
+date: "`r format(Sys.Date())`"
+lang: pt
+---
+
+<br>
+
+::: {style="border-top: 2px solid #003366;"}
+:::
+
+<br>
+
+
+```{r setup, include=FALSE}
+# Define opções padrão para todos os chunks de código no R Markdown
+knitr::opts_chunk$set(
+  echo = TRUE,         # Oculta o código nos resultados finais do documento
+  warning = FALSE,     # Suprime mensagens de aviso (warnings)
+  message = FALSE,     # Suprime mensagens informativas (como as de carregamento de pacotes)
+  fig.width = 10,      # Define a largura padrão das figuras (em polegadas)
+  fig.height = 6,      # Define a altura padrão das figuras (em polegadas)
+  fig.align = 'center'
+)
+
+```
+
+
+## Pacotes e Funções Necessárias
+
+::: {style="text-align: justify"}
+
+Nesta seção, carregamos todas as bibliotecas e funções utilizadas neste projeto. A verificação é realizada de forma automática e, posteriormente, as bibliotecas necessárias são carregadas para uso.
+
+Para a elaboração deste trabalho, utilizaremos as linguagens de programação [R](http://www.R-project.org/) e [Python](https://www.python.org/), ambas amplamente empregadas na análise, manipulação e visualização de dados. O desenvolvimento das aplicações será realizado no ambiente de desenvolvimento integrado [RStudio](https://posit.co/download/rstudio-desktop/), que oferece ferramentas abrangentes para escrita, organização, execução e acompanhamento de códigos.
+
+::: {.panel-tabset}
+
+## Bibliotecas
+
+```{r}
+#| label: setup-plots
+#| code-summary: "Bibliotecas"
+
+# ------------------------------------------------------------------------------
+# A. Importação e Manipulação
+# ------------------------------------------------------------------------------
+if(!require("gsheet")) install.packages("gsheet", quiet = TRUE); require("gsheet")
+if(!require("tidyverse")) install.packages("tidyverse", quiet = TRUE); require("tidyverse")
+
+# Instala o pacote de conexão R <-> Python
+if(!require("reticulate")) install.packages("reticulate", quiet = TRUE); require("reticulate")
+
+# ------------------------------------------------------------------------------
+# B. Visualização
+# ------------------------------------------------------------------------------
+if(!require("ggrepel")) install.packages("ggrepel", quiet = TRUE); require("ggrepel")
+# Correção: instala geomtextpath, não broom
+if(!require("geomtextpath")) install.packages("geomtextpath", quiet = TRUE); require("geomtextpath")
+if(!require("corrplot")) install.packages("corrplot", quiet = TRUE); require("corrplot")
+if(!require("viridis")) install.packages("viridis", quiet = TRUE); require("viridis")
+
+# ------------------------------------------------------------------------------
+# C. Estatística
+# ------------------------------------------------------------------------------
+if(!require("stats")) install.packages("stats", quiet = TRUE); require("stats")
+if(!require("nlme")) install.packages("nlme", quiet = TRUE); require("nlme")
+if(!require("broom")) install.packages("broom", quiet = TRUE); require("broom")
+
+# ------------------------------------------------------------------------------
+# D. Apresentação (Tabelas)
+# ------------------------------------------------------------------------------
+if(!require("DT")) install.packages("DT", quiet = TRUE); require("DT")
+if(!require("reactable")) install.packages("reactable", quiet = TRUE); require("reactable")
+```
+
+## Funções Criadas
+
+```{r}
+#| label: setup-functions
+#| code-summary: "Funções"
+
+
+# ==============================================================================
+# Função: Tabela Interativa (Estilo Minimalista)
+# ==============================================================================
+
+tabela_interativa <- function(dados, titulo_tabela) {
+  #' @param dados Dataframe ou tibble.
+  #' @param titulo_tabela Título da tabela.
+  
+  cor_titulo <- "#40916c" 
+  
+  DT::datatable(
+    base::data.frame(dados),
+    caption = htmltools::tags$caption(
+      style = base::paste0("caption-side: top; text-align: center; color:", cor_titulo, ";"),
+      htmltools::strong(titulo_tabela)
+    ),
+    class = "hover", 
+    options = list(
+      pageLength   = 8,        
+      searching    = FALSE,    
+      lengthChange = FALSE, 
+      info         = FALSE,          
+      ordering     = FALSE,      
+      language = list(
+        paginate = list("previous" = "Anterior", "next" = "Próximo"),
+        emptyTable = "Não há dados disponíveis",
+        zeroRecords = "Nenhum registro encontrado"
+      )
+    )
+  )
+}
+
+```
+
+:::
+
+
+:::
+
+
+```{python}
+a = 1
+b = 2
+c = a + b
+c
+```
+
+
+<br>
+
+::: {style="border-top: 2px solid #003366;"}
+:::
+
+<br>

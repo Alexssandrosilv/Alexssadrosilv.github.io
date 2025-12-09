@@ -93,11 +93,15 @@ website:
 #        href: about.qmd
       - text: "<i class='bi bi-journal-code'></i> Projetos"
         menu:
+          - href: projeto-tcc.qmd
+            text: "Projeto 1: Inferência Estatística"
           - href: projeto-mld.qmd
-            text: "Projeto 1: Modelos Lineares Dinâmicos"
+            text: "Projeto 2: Modelos Lineares Dinâmicos"
           - href: projeto-adl.qmd
-            text: "Projeto 2: Análise de dados longitudinais"
-
+            text: "Projeto 3: Análise de dados longitudinais"
+          - href: projeto-labest.qmd
+            text: "Projeto 4: Labest"
+  
 
   # 2. Rodapé
   page-footer:
@@ -134,7 +138,7 @@ format:
     margin-top: -1em
     number-sections: true
     code-fold: true
-    code-summary: "Mostrar/Ocultar Código R"
+    code-summary: "Mostrar/Ocultar Código"
     
     # Importa as fontes profissionais do Google e o CSS extra
     include-in-header:
