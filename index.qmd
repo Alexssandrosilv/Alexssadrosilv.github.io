@@ -26,26 +26,31 @@ knitr::opts_chunk$set(
 )
 
 ```
-
 ## Carta de Apresentação
 
-## 📊 Bem-vindo(a)
-
 ::: {style="text-align: justify"}
-Olá, tudo bem 😁! Meu nome é **Alexssandro da Silva Oliveira**, graduando em Estatística. Este espaço é dedicado à apresentação dos principais projetos, estudos de caso e análises desenvolvidas ao longo da minha trajetória acadêmica e profissional.
+Olá, tudo bem 😁! Meu nome é **Alexssandro da Silva Oliveira**, graduando em Estatística. Este espaço é dedicado à apresentação dos principais projetos, estudos de caso e análises desenvolvidas ate então.
+
+Todo o conteúdo foi estruturado utilizando **Quarto (`.qmd`)**, uma ferramenta que integra texto, código e visualizações em relatórios totalmente reprodutíveis.
 
 Navegue pela plataforma para explorar aplicações relacionadas a:
 
-- Inferência;
+- Inferência Estatística;
 - Inferência Bayesiana;
 - Modelos de Regressão;
-- Métodos Não Paramétricos.
+- Métodos Não Paramétricos;
 - Séries Temporais;
-- Modelos Lineares Dinâmicos;
+- Modelos Lineares Dinâmicos.
 
-Para a elaboração dos estudos, utilizaremos as linguagens de programação [**R**](http://www.R-project.org/) e [**Python**](https://www.python.org/), ambas amplamente empregadas na análise, manipulação e visualização de dados. Além disso, faremos uso do ambiente de modelagem bayesiana [**Stan**](https://mc-stan.org/), acessado por meio da interface [**RStan**](https://mc-stan.org/users/interfaces/rstan), que permite a implementação, compilação e execução de modelos probabilísticos diretamente no R. O desenvolvimento das aplicações será realizado no ambiente de desenvolvimento integrado [**RStudio**](https://posit.co/download/rstudio-desktop/), que oferece recursos abrangentes para escrita, organização, execução e acompanhamento de códigos.
+Para a elaboração dos estudos, utilizaremos as linguagens de programação [**R**](http://www.R-project.org/) e [**Python**](https://www.python.org/), ambas amplamente empregadas na análise, manipulação e visualização de dados. Além disso, empregaremos o ambiente de modelagem probabilística [**Stan**](https://mc-stan.org/), reconhecido pela eficiência na estimação de modelos Bayesianos complexos por meio do algoritmo Hamiltonian Monte Carlo (HMC). 
 
-Para consulta adicional, disponibilizamos também o seguinte material de apoio: [**Manual de Stan**](https://drive.google.com/file/d/1ZAyo6dOvfV4OrVt9oHsZ7JOox3lAINt3/view?usp=drive_link).
+O Stan será acessado através da interface [**RStan**](https://mc-stan.org/users/interfaces/rstan), que integra o poder computacional do Stan ao ambiente do R, permitindo especificar, compilar e executar modelos diretamente no RStudio.
+
+O desenvolvimento das aplicações será conduzido no ambiente de desenvolvimento integrado [**RStudio**](https://posit.co/download/rstudio-desktop/), que oferece recursos abrangentes para escrita, organização, execução e acompanhamento de códigos.
+
+Para consulta adicional, disponibilizamos o seguinte material de apoio:
+
+- [**Manual de Stan**](https://drive.google.com/file/d/1ZAyo6dOvfV4OrVt9oHsZ7JOox3lAINt3/view?usp=drive_link): documento fundamental para compreender a estrutura da linguagem Stan, suas sintaxes, a lógica por trás da modelagem Bayesiana e os princípios do algoritmo HMC/NUTS, servindo como guia teórico e prático para a construção dos modelos utilizados neste estudo.
 :::
 
 ::: {style="border-top: 2px solid #003366;"}
