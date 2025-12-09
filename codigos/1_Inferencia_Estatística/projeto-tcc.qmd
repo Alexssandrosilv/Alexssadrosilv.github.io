@@ -1,8 +1,13 @@
 ---
-author: "Alexssandro Oliveira | alexssandrosg@gmail.com"
-date: last-modified
+title: "Título da Sua Análise (Ex: Teste T para Duas Amostras)"
+description: "Uma descrição curta e impactante (2 linhas) sobre o problema resolvido. Ex: Comparação de eficiência entre dois grupos."
+author: "Alexssandro Oliveira"
 lang: pt
+date: last-modified
+image: "imagem_capa.png"  # <--- IMPORTANTE: Salve um print do gráfico aqui com esse nome!
+categories: ["R", "Inferência", "Estudo de Caso"] # <--- Suas tags para o filtro
 ---
+
 
 <br>
 

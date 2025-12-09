@@ -37,4 +37,4 @@ knitr::opts_chunk$set(
 
 ## Projetos deste Módulo
 
-Abaixo você encontra as análises detalhadas e exercícios resolvidos referentes à disciplina de Inferência Estatística.
+Abaixo estão os módulos disponíveis. Use os filtros à direita para acessar e navegar rapidamente por categorias como **Inferência** e **Séries Temporais**.
