@@ -28,20 +28,36 @@ website:
         icon: journal-code
         href: projetos.qmd # Link direto para a Galeria (Vitrine)
 
-    # Lado Direito: Redes Sociais
+    # # Lado Direito: Redes Sociais
+    # right:
+    #   - text: "CV"
+    #     icon: file-earmark-pdf
+    #     href: extras/pdf/CV_Alexssandro_Silva_Oliveira.pdf  # Crie a pasta 'arquivos' e ponha o PDF lá
+    #     target: _blank
+    # 
+    #   - icon: github
+    #     href: https://github.com/Alexssadrosilv
+    #     aria-label: GitHub
+    #   - icon: linkedin
+    #     href: https://www.linkedin.com/in/alexssandro-silva-3b63aa19b/
+    #     aria-label: LinkedIn
+
+# Lado Direito: Apenas ÍCONES (para ficar uniforme)
     right:
-      - text: "CV"
-        icon: file-earmark-pdf
-        href: extras/pdf/CV_Alexssandro_Silva_Oliveira.pdf  # Crie a pasta 'arquivos' e ponha o PDF lá
+      - icon: file-person  # Ícone de "Currículo" (bonequinho no arquivo)
+        href: extra/pdf/Curriculum_Alexssandro_Silva_Oliveira.pdf
         target: _blank
+        aria-label: "Currículo" # Isso serve para leitores de tela saberem o que é
+        title: "Ver Currículo"  # Aparece quando passa o mouse
 
       - icon: github
         href: https://github.com/Alexssadrosilv
         aria-label: GitHub
+        
       - icon: linkedin
         href: https://www.linkedin.com/in/alexssandro-silva-3b63aa19b/
         aria-label: LinkedIn
-
+        
 
 # 2. Rodapé (Com as Redes Sociais)
   page-footer:

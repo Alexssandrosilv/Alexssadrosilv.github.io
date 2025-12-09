@@ -1,12 +1,12 @@
 ---
-title: "Alexssandro Oliveira | alexssandrosg@gmail.com"
+author: "Alexssandro Oliveira | alexssandrosg@gmail.com"
+date: "`r format(Sys.Date())`"
+# date: "`r format(Sys.Date(), '%m/%d/%Y')`"
 image: extras/imagens/Alexssandro.jpg  # <--- Coloque sua foto nessa pasta com esse nome
-date: "`r format(Sys.Date(), '%m/%d/%Y')`"
 lang: pt
-
 about:
   template: trestles            # O estilo centralizado (pode trocar por 'trestles')
-  image-width: 15em
+  image-width: 25em
   image-shape: round
   links:
     - icon: linkedin
