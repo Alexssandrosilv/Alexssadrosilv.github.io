@@ -2,7 +2,7 @@
 title: "Módulo 1: Inferência Estatística"
 author: "Alexssandro Oliveira | alexssandrosg@gmail.com"
 description: "A detalhar"
-date: "`r format(Sys.Date(), '%d/%m/%Y')`"
+date: last-modified
 image: "imagens/Modulo_inferencia.jpg"
 
 # Tags para ajudar no filtro da página principal
@@ -32,7 +32,6 @@ knitr::opts_chunk$set(
   fig.height = 6,      # Define a altura padrão das figuras (em polegadas)
   fig.align = 'center'
 )
-
 ```
 
 
