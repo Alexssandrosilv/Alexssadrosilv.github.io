@@ -1,6 +1,6 @@
 ---
-author: "Alexssandro Oliveira | alexssandrosg@gmail.com"
-date: "`r format(Sys.Date())`"
+author: "Alexssandro Oliveira alexssandrosg@gmail.com"
+date: "today"
 # date: "`r format(Sys.Date(), '%m/%d/%Y')`"
 image: extras/imagens/Alexssandro.jpg  # <--- Coloque sua foto nessa pasta com esse nome
 lang: pt
@@ -31,7 +31,7 @@ page-layout: full
 ## Carta de Apresentação
 
 ::: {style="text-align: justify"}
-Olá, tudo bem 😁! Meu nome é **Alexssandro da Silva Oliveira**, graduando em Estatística. Este espaço é dedicado à apresentação dos principais projetos, estudos de caso e análises desenvolvidas ate então.
+Olá, tudo bem 😁! Meu nome é **Alexssandro da Silva Oliveira**, graduando em Estatística. Este espaço é dedicado à apresentação de aguns projetos, estudos de caso e análises desenvolvidas.
 
 Todo o conteúdo foi estruturado utilizando **Quarto (`.qmd`)**, uma ferramenta que integra texto, código e visualizações em relatórios totalmente reprodutíveis.
 
@@ -46,7 +46,7 @@ Navegue pela plataforma para explorar aplicações relacionadas a:
 - **Séries Temporais**;
 - [**Modelos Lineares Dinâmicos**](https://alexssandrosilv.github.io/Alexssadrosilv.github.io/projeto-mld.html).
 
-Para a elaboração dos estudos, utilizaremos as linguagens de programação [**R**](http://www.R-project.org/) e [**Python**](https://www.python.org/), ambas amplamente empregadas na análise, manipulação e visualização de dados. Além disso, empregaremos o ambiente de modelagem probabilística [**Stan**](https://mc-stan.org/), reconhecido pela eficiência na estimação de modelos Bayesianos complexos por meio do algoritmo Hamiltonian Monte Carlo (HMC). 
+Para a elaboração dos estudos, utilizaremos as linguagens de programação [**R**](http://www.R-project.org/) e [**Python**](https://www.python.org/), ambas amplamente empregadas na análise, manipulação e visualização de dados. Além disso, empregaremos o ambiente de modelagem probabilística [**Stan**](https://mc-stan.org/) em algumas análises, reconhecido pela eficiência na estimação de modelos Bayesianos complexos por meio do algoritmo Hamiltonian Monte Carlo (HMC). 
 
 O Stan será acessado através da interface [**RStan**](https://mc-stan.org/users/interfaces/rstan), que integra o poder computacional do Stan ao ambiente do R, permitindo especificar, compilar e executar modelos diretamente no RStudio.
 

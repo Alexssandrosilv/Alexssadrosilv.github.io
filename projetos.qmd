@@ -1,26 +1,48 @@
 ---
-# title: "Meus Projetos"
-# subtitle: "Portfólio"
+# Configuração da Galeria (Vitrine)
 listing:
+  # 1. CONTEÚDO: Define quais arquivos vão aparecer na vitrine.
+  # Você está listando manualmente para garantir a ordem exata das pastas.
   contents: 
-    - codigos/1_Inferencia_Estatística/index.qmd  # O "Hub" de Regressão (Subprojetos)
-    - codigos/2_Modelos_de_Regressao/index.qmd               # Seus outros projetos
+    - codigos/1_Inferencia_Estatística/index.qmd      # Pega o Hub de Inferência
+    - codigos/2_Modelos_de_Regressao/index.qmd        # Pega o Hub de Regressão
     - codigos/3_Modelos_Lineares_Generalizados/index.qmd
     - codigos/4_Modelos_Lineares_Dinamicos/index.qmd
     - codigos/5_Labest/index.qmd
-  type: grid           # Visual de Cards
-  sort: "date desc"
-  categories: true     # Filtro lateral
+
+  # 2. VISUAL: Define o layout como "Grade" (Cards/Quadrados).
+  # Outras opções seriam 'default' (lista de blog) ou 'table' (tabela).
+  type: grid           
+
+  # 3. ORDENAÇÃO: Define como os cards são organizados.
+  # "date desc" = Data descendente (do mais novo para o mais antigo).
+  sort: "date desc"    
+
+  # 4. FILTROS LATERAIS: Cria a barra lateral para filtrar por tags.
+  # (Ex: clicar em "R" e mostrar só projetos de R).
+  categories: true     
+
+  # 5. CONTROLES DE USUÁRIO:
+  # sort-ui: false   -> Esconde o menu de "Ordenar por..." (deixa o visual mais limpo)
+  # filter-ui: false -> Esconde a barra de busca específica desta lista
   sort-ui: false
   filter-ui: false
+
+  # 6. CAMPOS DO CARTÃO: Define o que aparece escrito dentro do quadrado branco.
+  # image: A capa | title: O título | description: O resumo | date: A data
   fields: [image, title, description, date]
+
+# 7. LAYOUT DA PÁGINA:
+# "full" usa a largura total da tela (margens menores), ideal para grades de fotos.
 page-layout: full
+
+# 8. CABEÇALHO ESTILIZADO:
+# Cria uma faixa colorida (banner) atrás do título da página.
+# A cor segue o tema definido no _quarto.yml (no seu caso, 'flatly').
 title-block-banner: true
 ---
 
-Bem-vindo ao meu portfólio. Aqui reúno meus estudos de caso, consultorias e pesquisas acadêmicas desenvolvidas na **UFAM** e no **LabEst**.
-
-Utilize os filtros à direita para navegar por categorias como *Inferência*, *Séries Temporais* ou *Machine Learning*.
+Utilize os filtros à direita para navegar por categorias como **Inferência** e **Séries Temporais**.
 
 
 ::: {style="border-top: 2px solid #003366;"}

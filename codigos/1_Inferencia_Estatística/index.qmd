@@ -1,19 +1,44 @@
 ---
 title: "Módulo 1: Inferência Estatística"
-description: "Estudos sobre estimação pontual, intervalar e testes de hipóteses."
-date: "2025-12-01"
-image: "capa_inferencia.png"   # <--- Coloque uma imagem nessa pasta para ser a capa!
+description: "A detalhar"date: last-modified    # <--- USE ISSO! É automático e não dá erro de código R
+date: "`r format(Sys.Date(), '%d/%m/%Y')`"
+image: "imagens/Modulo_inferencia.jpg"
+
+# Tags para ajudar no filtro da página principal
 categories: ["Inferência", "R", "Teoria"]
+
+# Configuração da Lista de Projetos deste módulo
 listing:
   contents: 
-    - "*.qmd"           # Pega TODOS os arquivos .qmd desta pasta
-    - "!index.qmd"      # EXCLUI a si mesmo da lista para não dar loop
-  type: default         # Visual de lista detalhada (ideal para sub-tópicos)
-  sort: "date desc"     # Ordena do mais recente
-  fields: [image, date, title, description, reading-time]
+    - "*.qmd"           # Pega todos os arquivos desta pasta
+    - "!index.qmd"      # IMPORTANTE: Exclui a si mesmo para não criar um loop infinito
+  type: default         # 'default' cria uma lista detalhada (ótimo para ler resumos de aulas)
+  sort: "date desc"     # Do mais recente para o mais antigo
+  fields: [image, date, title, description, reading-time] # Mostra tempo de leitura
+
 page-layout: full
 title-block-banner: true
 ---
+
+
+```{r setup, include=FALSE}
+# Define opções padrão para todos os chunks de código no R Markdown
+knitr::opts_chunk$set(
+  echo = TRUE,         # Oculta o código nos resultados finais do documento
+  warning = FALSE,     # Suprime mensagens de aviso (warnings)
+  message = FALSE,     # Suprime mensagens informativas (como as de carregamento de pacotes)
+  fig.width = 10,      # Define a largura padrão das figuras (em polegadas)
+  fig.height = 6,      # Define a altura padrão das figuras (em polegadas)
+  fig.align = 'center'
+)
+
+```
+
+
+## Conteúdo do Módulo
+
+Abaixo você encontra as listas de exercícios e análises teóricas desenvolvidas.
+
 
 ## Projetos deste Módulo
 
