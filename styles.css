@@ -161,33 +161,60 @@ code {
 }
 
 /* Footer (Rodapé) - ATUALIZADO */
+
+/* ================================================
+   Footer (Rodapé) - AJUSTADO (Maior e Mais Visível)
+================================================ */
+
 .quarto-page-footer {
-  background-color: var(--cor-navbar-fundo); /* Fundo Azul-Noite (igual navbar) */
-  /*color: var(--cor-navbar-texto); /* Texto Cinza Claro (igual navbar) */
-  color: #FFFFFF; /* Texto Cinza Claro (igual navbar) */
-  padding: 2em 0;
+  background-color: var(--cor-navbar-fundo); /* Fundo Preto */
+  color: #FFFFFF;                            /* Texto Branco */
+  padding: 3em 0;                            /* Aumentei o espaço vertical (respiro) */
   text-align: center;
-  border-top: 3px solid var(--cor-navbar-destaque); /* Borda Verde (igual navbar) */
-  margin-top: 4em; /* Espaço para "descolar" do conteúdo */
+  border-top: 3px solid var(--cor-navbar-destaque);
+  margin-top: 4em;
+  
+  /* --- AQUI ESTÁ O TRUQUE DO TAMANHO --- */
+  font-size: 1.15em; /* Aumenta o texto geral do rodapé (estava muito pequeno) */
 }
 
 .quarto-page-footer .footer-text {
-  max-width: 1000px;
+  max-width: 1200px; /* Aumentei a largura para caber melhor */
   margin: 0 auto;
   display: flex;
-  justify-content: space-between;
-  padding: 0 4em;
+  justify-content: space-between; /* Espalha: Texto na esq, Ícones na dir */
+  align-items: center;            /* Alinha tudo no centro verticalmente */
+  padding: 0 2em;
+  flex-wrap: wrap;                /* Garante que não quebre em celular */
+  gap: 1em;                       /* Espaço se precisar quebrar linha */
 }
 
+/* Links de texto (Seu nome, email) */
 .quarto-page-footer a {
-  color: var(--cor-navbar-texto); /* Links do rodapé em Cinza Claro */
+  color: #cccccc;      /* Cinza claro para não ofuscar */
   font-weight: normal;
+  transition: color 0.2s;
 }
+
 .quarto-page-footer a:hover {
-  color: var(--cor-navbar-hover); /* Links do rodapé em Branco no hover */
+  color: #ffffff;      /* Branco ao passar o mouse */
   text-decoration: none;
 }
 
+/* --- ÍCONES DAS REDES SOCIAIS (Aumentando eles!) --- */
+.quarto-page-footer .bi {
+    font-size: 1.8em;        /* <--- AQUI AUMENTA O TAMANHO DO ÍCONE */
+    margin-left: 15px;       /* Espaço entre um ícone e outro */
+    color: #ffffff;          /* Garante que sejam brancos */
+    transition: all 0.2s ease;
+    vertical-align: middle;  /* Alinha com o texto */
+}
+
+/* Efeito ao passar o mouse no ícone */
+.quarto-page-footer .bi:hover {
+    color: var(--cor-navbar-destaque); /* Fica verde (sua cor destaque) */
+    transform: scale(1.2);             /* Cresce um pouquinho (efeito pop) */
+}
 /* ================================================
 FERRAMENTA INTERATIVA DE MODELOS (A PARTE QUE FALTAVA)
 ================================================
