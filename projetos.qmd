@@ -1,4 +1,5 @@
 ---
+date: last-modified
 # Configuração da Galeria (Vitrine)
 listing:
   # 1. CONTEÚDO: Define quais arquivos vão aparecer na vitrine.
@@ -30,7 +31,7 @@ listing:
 
   # 6. CAMPOS DO CARTÃO: Define o que aparece escrito dentro do quadrado branco.
   # image: A capa | title: O título | description: O resumo | date: A data
-  fields: [image, title, description, date]
+  fields: [image, title, description, date, categories]
 
 # 7. LAYOUT DA PÁGINA:
 # "full" usa a largura total da tela (margens menores), ideal para grades de fotos.
@@ -39,7 +40,7 @@ page-layout: full
 # 8. CABEÇALHO ESTILIZADO:
 # Cria uma faixa colorida (banner) atrás do título da página.
 # A cor segue o tema definido no _quarto.yml (no seu caso, 'flatly').
-title-block-banner: true
+title-block-banner: false
 ---
 
 Utilize os filtros à direita para navegar por categorias como **Inferência** e **Séries Temporais**.
