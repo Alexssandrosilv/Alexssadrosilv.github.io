@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="pt" xml:lang="pt"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.8.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="Coleção de aplicações práticas: Simples, Múltipla e Diagnósticos.">
 
-<title>Alexssandro Oliveira – ΛΣ</title>
+<title>Módulo: Modelos de Regressão – ΛΣ</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,23 +24,26 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-f6bd6a367f1fafa30612daa3578f6f74.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-listing/list.min.js"></script>
+<script src="../../site_libs/quarto-listing/quarto-listing.js"></script>
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-f6bd6a367f1fafa30612daa3578f6f74.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -54,19 +58,48 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "Nenhum resultado",
-    "search-matching-documents-text": "documentos correspondentes",
-    "search-copy-link-title": "Copiar link para a busca",
-    "search-hide-matches-text": "Esconder correspondências adicionais",
-    "search-more-match-text": "mais correspondência neste documento",
-    "search-more-matches-text": "mais correspondências neste documento",
-    "search-clear-button-title": "Limpar",
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancelar",
-    "search-submit-button-title": "Enviar",
-    "search-label": "Procurar"
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
+<script>
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;family=Fira+Code&amp;display=swap" rel="stylesheet">
@@ -80,8 +113,37 @@ details > summary {
 }
 </style>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="styles.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -91,30 +153,30 @@ details > summary {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">ΛΣ</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Procurar"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Alternar de navegação" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> <i class="bi bi-house" role="img">
+    <a class="nav-link" href="../../index.html"> <i class="bi bi-house" role="img">
 </i> 
 <span class="menu-text">Início</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./projetos.html"> <i class="bi bi-journal-code" role="img">
+    <a class="nav-link" href="../../projetos.html"> <i class="bi bi-journal-code" role="img">
 </i> 
 <span class="menu-text">Projetos</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./extra/pdf/Curriculum_Alexssandro_Silva_Oliveira.pdf" target="_blank"> <i class="bi bi-file-earmark-pdf" role="img">
+    <a class="nav-link" href="../../extra/pdf/Curriculum_Alexssandro_Silva_Oliveira.pdf" target="_blank"> <i class="bi bi-file-earmark-pdf" role="img">
 </i> 
 <span class="menu-text">CV</span></a>
   </li>  
@@ -139,88 +201,80 @@ details > summary {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Nesta página</h2>
-  <ul>
-  <li><a href="#carta-de-apresentação" id="toc-carta-de-apresentação" class="nav-link active" data-scroll-target="#carta-de-apresentação"><span class="header-section-number">1</span> Carta de Apresentação</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
-<div class="quarto-about-trestles">
-  <div class="about-entity">
-    <img src="extra/imagens/Alexssandro.jpg" class="about-image
-  round " style="height: 15em; width: 15em;">
+<main class="content" id="quarto-document-content">
+
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Alexssandro Oliveira</h1>
+<h1 class="title">Módulo: Modelos de Regressão</h1>
 </div>
+
+<div>
+  <div class="description">
+    Coleção de aplicações práticas: Simples, Múltipla e Diagnósticos.
+  </div>
+</div>
+
+
 <div class="quarto-title-meta">
-    <div>
-    <div class="quarto-title-meta-heading">Data de Publicação</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">Invalid Date</p>
-    </div>
+
+    
+  
+    
   </div>
-  </div>
+  
+
+
 </header>
-    <div class="about-links">
-  <a href="https://www.linkedin.com/in/alexssandro-silva-3b63aa19b/" class="about-link" rel="" target="">
-    <i class="bi bi-linkedin"></i>
-     <span class="about-link-text">LinkedIn</span>
-  </a>
-  <a href="https://github.com/Alexssadrosilv" class="about-link" rel="" target="">
-    <i class="bi bi-github"></i>
-     <span class="about-link-text">Github</span>
-  </a>
-  <a href="mailto:alexssandrosg@gmail.com" class="about-link" rel="" target="">
-    <i class="bi bi-envelope"></i>
-     <span class="about-link-text">Email</span>
-  </a>
-</div>
-  </div>
-  <div class="about-contents"><main class="content" id="quarto-document-content">
-
-<p><br></p>
-<div style="border-top: 2px solid #003366;">
-</div>
-<p><br></p>
-<section id="carta-de-apresentação" class="level2" data-number="1">
-<h2 data-number="1" data-anchor-id="carta-de-apresentação"><span class="header-section-number">1</span> Carta de Apresentação</h2>
-<div style="text-align: justify">
-<p>Olá, tudo bem 😁! Meu nome é <strong>Alexssandro da Silva Oliveira</strong>, graduando em Estatística. Este espaço é dedicado à apresentação dos principais projetos, estudos de caso e análises desenvolvidas ate então.</p>
-<p>Todo o conteúdo foi estruturado utilizando <strong>Quarto (<code>.qmd</code>)</strong>, uma ferramenta que integra texto, código e visualizações em relatórios totalmente reprodutíveis.</p>
-<p>Navegue pela plataforma para explorar aplicações relacionadas a:</p>
-<ul>
-<li><a href="https://alexssandrosilv.github.io/Alexssadrosilv.github.io/projeto-tcc.html"><strong>Inferência Estatística</strong></a>;</li>
-<li><strong>Inferência Bayesiana</strong>;</li>
-<li><a href="https://alexssandrosilv.github.io/Alexssadrosilv.github.io/projeto-mld.html"><strong>Modelos de Regressão</strong></a>;</li>
-<li><strong>Métodos Não Paramétricos</strong>;</li>
-<li><strong>Modelos de Regressão</strong>;</li>
-<li><strong>Modelos Lineares Generalizados (MLG)</strong>;</li>
-<li><strong>Séries Temporais</strong>;</li>
-<li><a href="https://alexssandrosilv.github.io/Alexssadrosilv.github.io/projeto-mld.html"><strong>Modelos Lineares Dinâmicos</strong></a>.</li>
-</ul>
-<p>Para a elaboração dos estudos, utilizaremos as linguagens de programação <a href="http://www.R-project.org/"><strong>R</strong></a> e <a href="https://www.python.org/"><strong>Python</strong></a>, ambas amplamente empregadas na análise, manipulação e visualização de dados. Além disso, empregaremos o ambiente de modelagem probabilística <a href="https://mc-stan.org/"><strong>Stan</strong></a>, reconhecido pela eficiência na estimação de modelos Bayesianos complexos por meio do algoritmo Hamiltonian Monte Carlo (HMC).</p>
-<p>O Stan será acessado através da interface <a href="https://mc-stan.org/users/interfaces/rstan"><strong>RStan</strong></a>, que integra o poder computacional do Stan ao ambiente do R, permitindo especificar, compilar e executar modelos diretamente no RStudio.</p>
-<p>O desenvolvimento das aplicações será conduzido no ambiente de desenvolvimento integrado <a href="https://posit.co/download/rstudio-desktop/"><strong>RStudio</strong></a>, que oferece recursos abrangentes para escrita, organização, execução e acompanhamento de códigos.</p>
-<p>Para consulta adicional, disponibilizamos o seguinte material de apoio:</p>
-<ul>
-<li><a href="https://drive.google.com/file/d/1ZAyo6dOvfV4OrVt9oHsZ7JOox3lAINt3/view?usp=drive_link"><strong>Manual de Stan</strong></a>: documento fundamental para compreender a estrutura da linguagem Stan, suas sintaxes, a lógica por trás da modelagem Bayesiana e os princípios do algoritmo HMC/NUTS, servindo como guia teórico e prático para a construção dos modelos utilizados neste estudo.</li>
-</ul>
-</div>
-<div style="border-top: 2px solid #003366;">
-</div>
-<p><br></p>
 
 
-</section>
-</main></div>
+<p>Selecione uma análise abaixo para ver os detalhes:</p>
+
+
+
+
+<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-listing-date-sort="NaN" data-listing-file-modified-sort="1765299753861" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="523">
+<div class="thumbnail"><a href="../../codigos/4_Modelos_Lineares_Dinamicos/projeto-mld.html" class="no-external">
+
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../codigos/4_Modelos_Lineares_Dinamicos/projeto-mld.html" class="no-external">Define opções padrão para todos os chunks de código no R Markdown</a>
+</h3>
+<div class="delink listing-description"><a href="../../codigos/4_Modelos_Lineares_Dinamicos/projeto-mld.html" class="no-external">
+<br>
+</a></div>
 </div>
- <!-- /main -->
+<div class="metadata">
+<a href="../../codigos/4_Modelos_Lineares_Dinamicos/projeto-mld.html" class="no-external">
+<div class="listing-date">
+Invalid Date
+</div>
+<div class="listing-author">
+Alexssandro da Silva Oliveira
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="listing-no-matching d-none">No matching items</div>
+</div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
         if (clz.startsWith('code-annotation-')) {                     
@@ -237,12 +291,12 @@ details > summary {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copiada");
+      button.setAttribute("title", "Copied!");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copiada");
+        button.setAttribute("data-bs-title", "Copied!");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",
