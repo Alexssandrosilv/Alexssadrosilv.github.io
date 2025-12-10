@@ -1,0 +1,220 @@
+/* ==========================================================================
+   MASTER STYLESHEET - PORTFÓLIO ALEXSSANDRO (PREMIUM)
+   ========================================================================== */
+
+/* 1. IMPORTAÇÃO DE FONTES */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Fira+Code:wght@400;500&display=swap');
+
+/* 2. VARIÁVEIS GLOBAIS (Paleta de Cores) */
+:root {
+    --bg-color: #ffffff;
+    --text-main: #2c3e50;
+    --text-muted: #636e72;
+    --accent-color: #18bc9c;      /* O Verde do tema Flatly */
+    --accent-dark: #128f76;       /* Verde mais escuro para Hover */
+    --navbar-bg: rgba(0, 0, 0, 0.90); /* Preto com transparência para vidro */
+    --code-bg: #f3f4f6;
+    --card-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);
+    --card-hover-shadow: 0 20px 40px -10px rgba(0,0,0,0.2);
+}
+
+/* ==========================================================================
+   ESTRUTURA GERAL E TIPOGRAFIA
+   ========================================================================== */
+body {
+    background-color: var(--bg-color);
+    font-family: 'Inter', sans-serif;
+    color: var(--text-main);
+    line-height: 1.8; /* Leitura mais confortável */
+    -webkit-font-smoothing: antialiased; /* Fontes mais nítidas */
+}
+
+/* Cor da seleção de texto (Detalhe Premium) */
+::selection {
+    background: var(--accent-color);
+    color: white;
+}
+
+/* Títulos */
+h1, h2, h3, h4 {
+    font-weight: 800; /* Extra bold */
+    letter-spacing: -0.03em; /* Letras mais juntinhas (moderno) */
+    color: #1a1a1a;
+}
+
+h2 {
+    margin-top: 3rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+/* Links no texto */
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+a:hover {
+    color: var(--accent-dark);
+}
+
+/* ==========================================================================
+   NAVBAR (EFEITO VIDRO / GLASSMORPHISM)
+   ========================================================================== */
+.navbar {
+    background-color: var(--navbar-bg) !important;
+    backdrop-filter: blur(12px);  /* O efeito de vidro fosco */
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding: 1rem 0;
+}
+
+.navbar-brand {
+    font-weight: 800;
+    letter-spacing: -1px;
+    font-size: 1.5rem;
+}
+
+.nav-link {
+    font-weight: 500;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+/* ==========================================================================
+   CARDS DE PROJETOS (GRID) - O ESTILO CINEMATOGRÁFICO
+   ========================================================================== */
+
+/* 1. O Cartão */
+.quarto-grid-item.card {
+    border: none;
+    border-radius: 16px; /* Cantos bem arredondados */
+    background: #fff;
+    box-shadow: var(--card-shadow);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Pulo elástico */
+    overflow: hidden; /* Importante para o zoom da imagem */
+    height: 100%;
+}
+
+/* 2. A Imagem (Com Zoom no Hover) */
+.quarto-grid-image {
+    height: 220px;
+    width: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease; /* Zoom suave */
+}
+
+/* 3. Hover no Cartão (Move pra cima + Zoom na imagem) */
+.quarto-grid-item.card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--card-hover-shadow);
+}
+
+.quarto-grid-item.card:hover .quarto-grid-image {
+    transform: scale(1.05); /* Zoom de 5% na imagem */
+}
+
+/* 4. Textos do Cartão */
+.card-body {
+    padding: 1.8rem;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+    line-height: 1.3;
+}
+
+.card-text {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    font-weight: 400;
+}
+
+.listing-categories .listing-category {
+    background: transparent;
+    color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 2px 10px;
+    transition: all 0.2s;
+}
+
+.listing-categories .listing-category:hover {
+    background: var(--accent-color);
+    color: white;
+}
+
+/* ==========================================================================
+   BLOCOS DE CÓDIGO (ESTILO MAC OS / TERMINAL)
+   Isso deixa seus scripts R muito mais bonitos
+   ========================================================================== */
+div.sourceCode {
+    background-color: #282c34; /* Fundo escuro estilo editor */
+    border-radius: 10px;
+    margin: 1.5em 0;
+    padding-top: 35px !important; /* Espaço para as bolinhas */
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+/* As 3 Bolinhas do Mac */
+div.sourceCode::before {
+    content: "";
+    position: absolute;
+    top: 12px;
+    left: 15px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #ff5f56; /* Vermelho */
+    box-shadow: 20px 0 0 #ffbd2e, 40px 0 0 #27c93f; /* Amarelo e Verde */
+}
+
+/* Texto do Código */
+pre.sourceCode {
+    background-color: transparent !important;
+    border: none !important;
+    color: #abb2bf; /* Texto claro */
+    font-family: 'Fira Code', monospace;
+    font-size: 0.9em;
+    padding: 0 1.5em 1.5em 1.5em;
+}
+
+/* ==========================================================================
+   RODAPÉ (CLEAN & BOLD)
+   ========================================================================== */
+.quarto-page-footer {
+    background-color: #000 !important;
+    color: #fff !important;
+    padding: 4rem 0 !important;
+    margin-top: 5rem !important;
+    border-top: 4px solid var(--accent-color) !important;
+}
+
+.footer-text {
+    font-size: 1.1em;
+    opacity: 0.9;
+}
+
+/* Ícones Sociais Gigantes e Interativos */
+.quarto-page-footer .bi {
+    font-size: 2rem !important;
+    margin-left: 1.5rem !important;
+    color: rgba(255,255,255,0.7) !important;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Efeito elástico */
+}
+
+.quarto-page-footer .bi:hover {
+    color: var(--accent-color) !important;
+    transform: scale(1.4) rotate(5deg); /* Cresce e gira levemente */
+    text-shadow: 0 0 15px var(--accent-color); /* Brilho neon */
+}
