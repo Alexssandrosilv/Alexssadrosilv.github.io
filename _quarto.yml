@@ -74,7 +74,7 @@ website:
     # Lado Direito: Ícones das Redes Sociais
     right:
       - icon: github
-        href: https://github.com/Alexssandrosilv 
+        href: https://github.com/Alexssandrosilv
         aria-label: GitHub
       - icon: linkedin
         href: https://www.linkedin.com/in/alexssandro-silva-3b63aa19b/

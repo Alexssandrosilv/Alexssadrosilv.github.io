@@ -1,7 +1,6 @@
 ---
 author: "Alexssandro Oliveira alexssandrosg@gmail.com"
 date: last-modified
-# date: "`r format(Sys.Date(), '%m/%d/%Y')`"
 image: extras/imagens/Alexssandro.jpg  # <--- Coloque sua foto nessa pasta com esse nome
 lang: pt
 about:
@@ -14,47 +13,42 @@ about:
       href: https://www.linkedin.com/in/alexssandro-silva-3b63aa19b/
     - icon: github
       text: Github
-      href: https://github.com/Alexssadrosilv
-    - icon: envelope
-      text: Email
-      href: mailto:alexssandrosg@gmail.com
+      href: https://github.com/Alexssandrosilv
+    # - icon: envelope
+    #   text: Email
+    #   href: mailto:alexssandrosg@gmail.com
 page-layout: full
 ---
 
-<br>
+<!-- <br> -->
 
 ::: {style="border-top: 2px solid #003366;"}
 :::
 
-<br>
+<!-- <br> -->
 
-## Carta de Apresentação
+## Apresentação
 
 ::: {style="text-align: justify"}
-Olá, tudo bem 😁! Meu nome é **Alexssandro da Silva Oliveira**, graduando em Estatística. Este espaço é dedicado à apresentação de aguns projetos, estudos de caso e análises desenvolvidas.
+Seja bem-vindo.
 
-Todo o conteúdo foi estruturado utilizando **Quarto (`.qmd`)**, uma ferramenta que integra texto, código e visualizações em relatórios totalmente reprodutíveis.
+Meu nome é **Alexssandro da Silva Oliveira**, graduando em Estatística pela Universidade Federal do Amazonas (UFAM). Este espaço é dedicado à apresentação de projetos, estudos de caso e análises estatísticas desenvolvidas ao longo da minha trajetória acadêmica.
 
-Navegue pela plataforma para explorar aplicações relacionadas a:
+Prezando pela reprodutibilidade, todo o conteúdo foi estruturado utilizando **Quarto (`.qmd`)**, ferramenta que integra texto, código e visualizações em relatórios dinâmicos.
 
-- [**Inferência Estatística**](https://alexssandrosilv.github.io/Alexssadrosilv.github.io/projeto-tcc.html);
-- **Inferência Bayesiana**;
-- [**Modelos de Regressão**](https://alexssandrosilv.github.io/Alexssadrosilv.github.io/projeto-mld.html);
-- **Métodos Não Paramétricos**;
-- **Modelos de Regressão**;
+Ao navegar pela plataforma, você explorará aplicações relacionadas a temas como:
+
+- **Inferência Estatística**
+- **Modelos de Regressão** e **Métodos Não Paramétricos**;
 - **Modelos Lineares Generalizados (MLG)**;
-- **Séries Temporais**;
-- [**Modelos Lineares Dinâmicos**](https://alexssandrosilv.github.io/Alexssadrosilv.github.io/projeto-mld.html).
+- **Séries Temporais** e **Modelos Lineares Dinâmicos**.
 
-Para a elaboração dos estudos, utilizaremos as linguagens de programação [**R**](http://www.R-project.org/) e [**Python**](https://www.python.org/), ambas amplamente empregadas na análise, manipulação e visualização de dados. Além disso, empregaremos o ambiente de modelagem probabilística [**Stan**](https://mc-stan.org/) em algumas análises, reconhecido pela eficiência na estimação de modelos Bayesianos complexos por meio do algoritmo Hamiltonian Monte Carlo (HMC). 
+Para a elaboração dos estudos, são utilizadas as linguagens [**R**](http://www.R-project.org/) e [**Python**](https://www.python.org/), referências em Ciência de Dados. Além disso, aplicamos o ambiente de modelagem probabilística [**Stan**](https://mc-stan.org/), acessado via interface [**RStan**](https://mc-stan.org/users/interfaces/rstan), para a estimação eficiente de modelos Bayesianos complexos através do algoritmo Hamiltonian Monte Carlo (HMC).
 
-O Stan será acessado através da interface [**RStan**](https://mc-stan.org/users/interfaces/rstan), que integra o poder computacional do Stan ao ambiente do R, permitindo especificar, compilar e executar modelos diretamente no RStudio.
+Todo o desenvolvimento é conduzido no ambiente [**RStudio**](https://posit.co/download/rstudio-desktop/), garantindo a organização e o versionamento adequado dos códigos.
 
-O desenvolvimento das aplicações será conduzido no ambiente de desenvolvimento integrado [**RStudio**](https://posit.co/download/rstudio-desktop/), que oferece recursos abrangentes para escrita, organização, execução e acompanhamento de códigos.
-
-Para consulta adicional, disponibilizamos o seguinte material de apoio:
-
-- [**Manual de Stan**](https://drive.google.com/file/d/1ZAyo6dOvfV4OrVt9oHsZ7JOox3lAINt3/view?usp=drive_link): documento fundamental para compreender a estrutura da linguagem Stan, suas sintaxes, a lógica por trás da modelagem Bayesiana e os princípios do algoritmo HMC/NUTS, servindo como guia teórico e prático para a construção dos modelos utilizados neste estudo.
+**Material de Apoio:**
+Para aprofundamento técnico, disponibilizo o [**Manual de Stan**](https://drive.google.com/file/d/1ZAyo6dOvfV4OrVt9oHsZ7JOox3lAINt3/view?usp=drive_link). Este documento serve como guia teórico e prático sobre a sintaxe da linguagem, a lógica da modelagem Bayesiana e os princípios do algoritmo HMC/NUTS utilizados nestes projetos.
 :::
 
 ::: {style="border-top: 2px solid #003366;"}
