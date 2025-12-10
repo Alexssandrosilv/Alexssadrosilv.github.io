@@ -1,5 +1,5 @@
 ---
-date: last-modified
+# date: last-modified
 # Configuração da Galeria (Vitrine)
 listing:
   # 1. CONTEÚDO: Define quais arquivos vão aparecer na vitrine.
@@ -44,8 +44,6 @@ title-block-banner: false
 ---
 
 ::: {style="text-align: justify"}
-
-Abaixo estão os módulos disponíveis. Use os filtros à direita para acessar e navegar rapidamente por categorias como **Inferência** e **Séries Temporais**.
 
 :::
 

@@ -34,7 +34,4 @@ knitr::opts_chunk$set(
 )
 ```
 
-
 ## Projetos deste Módulo
-
-Abaixo estão os módulos disponíveis. Use os filtros à direita para acessar e navegar rapidamente por categorias como **Inferência** e **Séries Temporais**.
