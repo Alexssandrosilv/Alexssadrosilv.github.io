@@ -1,5 +1,5 @@
 ---
-title: "Módulo 1: Inferência Estatística"
+title: "Módulo: Inferência Estatística"
 author: "Alexssandro Oliveira | alexssandrosg@gmail.com"
 description: "A detalhar"
 date: last-modified

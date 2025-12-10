@@ -1,10 +1,37 @@
 ---
-title: "Módulo: Modelos de Regressão"
-description: "Coleção de aplicações práticas: Simples, Múltipla e Diagnósticos."
-# image: "capa_reg.png"   # Se tiver imagem
+title: "Labest - Laboratório de Estatística"
+author: "Alexssandro Oliveira | alexssandrosg@gmail.com"
+description: "A detalhar"
+date: last-modified
+image: "imagens/Modulo_inferencia.jpg"
+
+# Tags para ajudar no filtro da página principal
+categories: ["Regressão", "R"]
+
+# Configuração da Lista de Projetos deste módulo
 listing:
-  contents: "*.qmd"      # Lista tudo desta pasta
-  type: default          # Lista detalhada
-  sort: "date asc"
+  contents: 
+    - "*.qmd"           # Pega todos os arquivos desta pasta
+    - "!index.qmd"      # IMPORTANTE: Exclui a si mesmo para não criar um loop infinito
+  type: default         # 'default' cria uma lista detalhada (ótimo para ler resumos de aulas)
+  sort: "date desc"     # Do mais recente para o mais antigo
+  fields: [image, date, title, description, reading-time] # Mostra tempo de leitura
+
+page-layout: full
+title-block-banner: false
 ---
-Selecione uma análise abaixo para ver os detalhes:
+
+
+```{r setup, include=FALSE}
+# Define opções padrão para todos os chunks de código no R Markdown
+knitr::opts_chunk$set(
+  echo = TRUE,         # Oculta o código nos resultados finais do documento
+  warning = FALSE,     # Suprime mensagens de aviso (warnings)
+  message = FALSE,     # Suprime mensagens informativas (como as de carregamento de pacotes)
+  fig.width = 10,      # Define a largura padrão das figuras (em polegadas)
+  fig.height = 6,      # Define a altura padrão das figuras (em polegadas)
+  fig.align = 'center'
+)
+```
+
+## Projetos deste Módulo
