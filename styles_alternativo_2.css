@@ -1,0 +1,294 @@
+/* Importa as fontes */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Fira+Code&display=swap');
+
+/* ================================================
+   1. PALETA DE CORES (Atualizada com o "Azul Verde")
+================================================ */
+:root {
+  /* Cores Base */
+  --cor-fundo-site: #ffffff;
+  --cor-pagina: #ffffff;
+  --cor-texto: #2a2a2a;
+  --cor-borda-suave: #eeeeee;
+  --cor-borda-titulo: #dcdcdc;
+  --cor-code-fundo: #f8f9fa;
+  
+  /* Navbar Escura */
+  --cor-navbar-fundo: black;
+  --cor-navbar-texto: #e0e0e0;
+  --cor-navbar-hover: #FFFFFF;
+  
+  /* --- A COR MÁGICA (Azul Verde Vibrante) --- */
+  /* Usada para links, botões e hover dos cards */
+  --cor-destaque-viva: #18bc9c; 
+  --cor-destaque-escuro: #128f76; /* Versão mais escura para efeitos */
+}
+
+/* ================================================
+   2. ESTRUTURA E ANIMAÇÕES GERAIS
+================================================ */
+
+body {
+  background-color: var(--cor-fundo-site);
+  font-family: 'Inter', sans-serif;
+  color: var(--cor-texto);
+  line-height: 1.7;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Evita rolagem lateral nas animações */
+}
+
+/* Links no texto (Agora com o Azul Verde) */
+a {
+  color: var(--cor-destaque-viva);
+  text-decoration: none;
+  font-weight: 700;
+  transition: all 0.2s ease;
+}
+
+a:hover {
+  color: var(--cor-destaque-escuro);
+  text-decoration: underline;
+}
+
+main#quarto-content {
+  background-color: var(--cor-pagina);
+  max-width: 1000px;
+  width: 90%;
+  margin: 40px auto;
+  padding: 3em 4em;
+  border-radius: 8px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07); 
+  border: 1px solid var(--cor-borda-suave);
+}
+
+/* ================================================
+   3. ANIMAÇÃO DE ENTRADA (HOME)
+   Isso faz sua foto e texto deslizarem ao carregar
+================================================ */
+
+/* A Foto desliza da esquerda */
+.about-image {
+    animation: slideInLeft 1s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+    opacity: 0; /* Começa invisível */
+}
+
+/* O Texto desliza da direita (com leve atraso) */
+.about-contents {
+    animation: slideInRight 1s cubic-bezier(0.23, 1, 0.32, 1) 0.2s forwards;
+    opacity: 0;
+}
+
+@keyframes slideInLeft {
+    from { transform: translateX(-50px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInRight {
+    from { transform: translateX(50px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+/* ================================================
+   4. BARRA DE NAVEGAÇÃO
+================================================ */
+.navbar {
+  background-color: var(--cor-navbar-fundo) !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  border-bottom: 3px solid var(--cor-destaque-viva); /* Linha Azul Verde */
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar-nav {
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    justify-content: flex-start;
+    margin: 0 auto;
+}
+
+.navbar-nav .nav-link {
+  color: var(--cor-navbar-texto) !important;
+  font-weight: 700;
+  margin-right: 1.5em;
+  padding: 0.5em 0.8em;
+  border-radius: 5px;
+  transition: all 0.2s ease-in-out;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  background-color: transparent !important;
+  color: var(--cor-destaque-viva) !important; /* Fica Azul Verde no Hover */
+  text-shadow: 0 0 10px rgba(24, 188, 156, 0.4); /* Brilho neon */
+}
+
+.navbar-brand {
+    font-weight: 700;
+    color: var(--cor-navbar-hover) !important;
+    font-size: 1.4em;
+    margin-right: 2em;
+}
+
+/* ================================================
+   5. CARDS DOS PROJETOS (GRID PREMIUM)
+   Aqui está o efeito criativo de clique!
+================================================ */
+
+/* O Card Base */
+.quarto-grid-item.card {
+    background-color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); 
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Transição elástica */
+    overflow: hidden;
+    height: 100%;
+    position: relative; /* Necessário para o efeito */
+}
+
+/* Hover: Flutuar + Borda Colorida */
+.quarto-grid-item.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); 
+    border: 1px solid var(--cor-destaque-viva); /* Borda acende */
+}
+
+/* Título muda de cor no Hover */
+.quarto-grid-item.card:hover .card-title {
+    color: var(--cor-destaque-viva);
+}
+
+/* --- O EFEITO DE CLIQUE CRIATIVO (ACTIVE) --- */
+/* Quando o usuário clica e segura */
+.quarto-grid-item.card:active {
+    transform: scale(0.96) translateY(0); /* O cartão encolhe (press) */
+    box-shadow: 0 2px 10px rgba(24, 188, 156, 0.3); /* Sombra colorida compacta */
+    filter: brightness(0.95); /* Leve escurecida para feedback tátil */
+    border-color: var(--cor-destaque-escuro);
+}
+
+/* Imagem do Card */
+.quarto-grid-image {
+    height: 220px;
+    width: 100%;
+    object-fit: cover;
+    border-bottom: 1px solid var(--cor-borda-suave);
+    transition: transform 0.5s ease;
+}
+
+/* Zoom na imagem ao passar o mouse */
+.quarto-grid-item.card:hover .quarto-grid-image {
+    transform: scale(1.05);
+}
+
+/* Textos do Card */
+.card-body { padding: 1.5rem; }
+.card-title {
+    color: var(--cor-texto);
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    transition: color 0.3s ease;
+}
+.card-text {
+    color: #666666;
+    font-size: 0.95rem;
+}
+.listing-date {
+    color: #999999;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* Tags (Categorias) */
+.listing-categories .listing-category {
+    background-color: var(--cor-code-fundo);
+    color: var(--cor-texto);
+    border-radius: 15px;
+    padding: 2px 10px;
+    font-size: 0.75em;
+    border: 1px solid var(--cor-borda-titulo);
+    transition: all 0.2s;
+}
+
+.listing-categories .listing-category:hover {
+    background-color: var(--cor-destaque-viva);
+    color: #fff;
+    border-color: var(--cor-destaque-viva);
+}
+
+/* ================================================
+   6. TIPOGRAFIA, CÓDIGO E RODAPÉ
+================================================ */
+
+h1, h2, h3, h4 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  color: var(--cor-texto);
+}
+h2 {
+  border-bottom: 2px solid var(--cor-borda-titulo);
+  padding-bottom: 8px;
+  margin-top: 2em;
+}
+
+/* Blocos de Código (Clean) */
+pre {
+  font-family: 'Fira Code', monospace;
+  background-color: var(--cor-code-fundo);
+  border-radius: 5px;
+  padding: 1em;
+  border: 1px solid var(--cor-borda-suave);
+}
+code {
+  font-family: 'Fira Code', monospace;
+  background-color: var(--cor-code-fundo);
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+/* Footer (Rodapé Gigante) */
+.quarto-page-footer {
+    background-color: black !important;
+    color: white !important;
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+    border-top: 3px solid var(--cor-destaque-viva);
+    margin-top: 4em !important;
+    font-size: 1.25em !important; 
+}
+
+.quarto-page-footer .footer-text {
+    max-width: 95% !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+}
+
+.quarto-page-footer a {
+    color: #eeeeee !important;
+    font-weight: bold !important;
+}
+
+.quarto-page-footer .bi {
+    font-size: 2.2em !important;
+    margin-left: 20px !important;
+    color: white !important;
+    vertical-align: middle !important;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Ícone Pula ao passar o mouse */
+.quarto-page-footer .bi:hover {
+    color: var(--cor-destaque-viva) !important;
+    transform: translateY(-5px) scale(1.2);
+}
