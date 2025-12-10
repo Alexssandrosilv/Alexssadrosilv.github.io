@@ -3,7 +3,7 @@ title: "Módulo: Inferência Estatística"
 author: "Alexssandro Oliveira | alexssandrosg@gmail.com"
 description: "A detalhar"
 date: last-modified
-image: "imagens/Modulo_inferencia.jpg"
+image: "imagens/modulo_inferencia.jpg"
 
 # Tags para ajudar no filtro da página principal
 categories: ["Inferência", "R", "Teoria"]
