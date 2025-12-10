@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Fira+Code&display=swap');
 
 /* ================================================
-   1. PALETA DE CORES (Atualizada com o "Azul Verde")
+   1. PALETA DE CORES
 ================================================ */
 :root {
   /* Cores Base */
@@ -19,9 +19,8 @@
   --cor-navbar-hover: #FFFFFF;
   
   /* --- A COR MÁGICA (Azul Verde Vibrante) --- */
-  /* Usada para links, botões e hover dos cards */
   --cor-destaque-viva: #18bc9c; 
-  --cor-destaque-escuro: #128f76; /* Versão mais escura para efeitos */
+  --cor-destaque-escuro: #128f76;
 }
 
 /* ================================================
@@ -29,16 +28,20 @@
 ================================================ */
 
 body {
-  background-color: var(--cor-fundo-site);
+  /* --- MUDANÇA AQUI PARA O VIDRO FUNCIONAR --- */
+  /* Troquei o fundo chapado por um gradiente muito sutil. 
+     Sem isso, o vidro branco sobre fundo branco não aparece. */
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  
   font-family: 'Inter', sans-serif;
   color: var(--cor-texto);
   line-height: 1.7;
   margin: 0;
   padding: 0;
-  overflow-x: hidden; /* Evita rolagem lateral nas animações */
+  overflow-x: hidden;
 }
 
-/* Links no texto (Agora com o Azul Verde) */
+/* Links no texto */
 a {
   color: var(--cor-destaque-viva);
   text-decoration: none;
@@ -52,38 +55,35 @@ a:hover {
 }
 
 main#quarto-content {
-  background-color: var(--cor-pagina);
+  /* O conteúdo principal também ganha um leve efeito de vidro */
+  background-color: rgba(255, 255, 255, 0.9); /* Branco 90% opaco */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  
   max-width: 1000px;
   width: 90%;
   margin: 40px auto;
   padding: 3em 4em;
-  border-radius: 8px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07); 
-  border: 1px solid var(--cor-borda-suave);
+  border-radius: 12px; /* Arredondei mais */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); 
+  border: 1px solid rgba(255, 255, 255, 0.5); /* Borda de vidro */
 }
 
 /* ================================================
    3. ANIMAÇÃO DE ENTRADA (HOME)
-   Isso faz sua foto e texto deslizarem ao carregar
 ================================================ */
-
-/* A Foto desliza da esquerda */
 .about-image {
     animation: slideInLeft 1s cubic-bezier(0.23, 1, 0.32, 1) forwards;
-    opacity: 0; /* Começa invisível */
+    opacity: 0;
 }
-
-/* O Texto desliza da direita (com leve atraso) */
 .about-contents {
     animation: slideInRight 1s cubic-bezier(0.23, 1, 0.32, 1) 0.2s forwards;
     opacity: 0;
 }
-
 @keyframes slideInLeft {
     from { transform: translateX(-50px); opacity: 0; }
     to { transform: translateX(0); opacity: 1; }
 }
-
 @keyframes slideInRight {
     from { transform: translateX(50px); opacity: 0; }
     to { transform: translateX(0); opacity: 1; }
@@ -95,7 +95,7 @@ main#quarto-content {
 .navbar {
   background-color: var(--cor-navbar-fundo) !important;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-  border-bottom: 3px solid var(--cor-destaque-viva); /* Linha Azul Verde */
+  border-bottom: 3px solid var(--cor-destaque-viva);
   padding: 1rem 0;
   position: sticky;
   top: 0;
@@ -124,8 +124,8 @@ main#quarto-content {
 .navbar-nav .nav-link:hover,
 .navbar-nav .nav-link.active {
   background-color: transparent !important;
-  color: var(--cor-destaque-viva) !important; /* Fica Azul Verde no Hover */
-  text-shadow: 0 0 10px rgba(24, 188, 156, 0.4); /* Brilho neon */
+  color: var(--cor-destaque-viva) !important;
+  text-shadow: 0 0 10px rgba(24, 188, 156, 0.4);
 }
 
 .navbar-brand {
@@ -136,27 +136,35 @@ main#quarto-content {
 }
 
 /* ================================================
-   5. CARDS DOS PROJETOS (GRID PREMIUM)
-   Aqui está o efeito criativo de clique!
+   5. CARDS DOS PROJETOS (GRID COM EFEITO VIDRO)
+   Aqui está a mágica do Glassmorphism!
 ================================================ */
 
-/* O Card Base */
+/* O Card Base - AGORA É VIDRO */
 .quarto-grid-item.card {
-    background-color: #ffffff;
-    border: none;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); 
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Transição elástica */
+    /* background-color: #ffffff;  <-- REMOVIDO O BRANCO SÓLIDO */
+    
+    /* --- EFEITO VIDRO --- */
+    background: rgba(255, 255, 255, 0.65); /* Branco 65% transparente */
+    backdrop-filter: blur(12px) saturate(120%); /* O desfoque que faz parecer vidro */
+    -webkit-backdrop-filter: blur(12px) saturate(120%); /* Para funcionar no Safari/Mac */
+    border: 1px solid rgba(255, 255, 255, 0.6); /* Borda fina e brilhante de vidro */
+    /* -------------------- */
+    
+    border-radius: 16px; /* Cantos mais arredondados */
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07); /* Sombra de vidro suave */
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     overflow: hidden;
     height: 100%;
-    position: relative; /* Necessário para o efeito */
+    position: relative;
 }
 
-/* Hover: Flutuar + Borda Colorida */
+/* Hover: Flutuar + Borda Colorida + Vidro mais nítido */
 .quarto-grid-item.card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); 
-    border: 1px solid var(--cor-destaque-viva); /* Borda acende */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12); 
+    border: 1px solid var(--cor-destaque-viva); /* A borda do vidro acende na sua cor */
+    background: rgba(255, 255, 255, 0.8); /* Fica um pouco mais opaco para facilitar leitura */
 }
 
 /* Título muda de cor no Hover */
@@ -164,13 +172,12 @@ main#quarto-content {
     color: var(--cor-destaque-viva);
 }
 
-/* --- O EFEITO DE CLIQUE CRIATIVO (ACTIVE) --- */
-/* Quando o usuário clica e segura */
+/* EFEITO DE CLIQUE (PRESS) */
 .quarto-grid-item.card:active {
-    transform: scale(0.96) translateY(0); /* O cartão encolhe (press) */
-    box-shadow: 0 2px 10px rgba(24, 188, 156, 0.3); /* Sombra colorida compacta */
-    filter: brightness(0.95); /* Leve escurecida para feedback tátil */
+    transform: scale(0.97) translateY(0);
+    box-shadow: 0 4px 15px rgba(24, 188, 156, 0.2);
     border-color: var(--cor-destaque-escuro);
+    backdrop-filter: blur(6px); /* O vidro "embaça" um pouco no clique */
 }
 
 /* Imagem do Card */
@@ -178,7 +185,7 @@ main#quarto-content {
     height: 220px;
     width: 100%;
     object-fit: cover;
-    border-bottom: 1px solid var(--cor-borda-suave);
+    /* border-bottom: 1px solid var(--cor-borda-suave); <-- REMOVIDO para não quebrar o vidro */
     transition: transform 0.5s ease;
 }
 
@@ -188,7 +195,7 @@ main#quarto-content {
 }
 
 /* Textos do Card */
-.card-body { padding: 1.5rem; }
+.card-body { padding: 1.8rem; }
 .card-title {
     color: var(--cor-texto);
     font-weight: 700;
@@ -207,14 +214,14 @@ main#quarto-content {
     text-transform: uppercase;
 }
 
-/* Tags (Categorias) */
+/* Tags (Categorias) com efeito vidro também */
 .listing-categories .listing-category {
-    background-color: var(--cor-code-fundo);
+    background-color: rgba(255, 255, 255, 0.5); /* Vidro nas tags */
     color: var(--cor-texto);
     border-radius: 15px;
     padding: 2px 10px;
     font-size: 0.75em;
-    border: 1px solid var(--cor-borda-titulo);
+    border: 1px solid rgba(0,0,0,0.1);
     transition: all 0.2s;
 }
 
@@ -239,7 +246,7 @@ h2 {
   margin-top: 2em;
 }
 
-/* Blocos de Código (Clean) */
+/* Blocos de Código */
 pre {
   font-family: 'Fira Code', monospace;
   background-color: var(--cor-code-fundo);
@@ -287,7 +294,6 @@ code {
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-/* Ícone Pula ao passar o mouse */
 .quarto-page-footer .bi:hover {
     color: var(--cor-destaque-viva) !important;
     transform: translateY(-5px) scale(1.2);
