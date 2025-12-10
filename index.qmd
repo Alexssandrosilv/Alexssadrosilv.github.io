@@ -25,7 +25,7 @@ page-layout: full
 ::: {style="border-top: 2px solid #003366;"}
 :::
 
-<!-- <br> -->
+<br>
 
 ## Apresentação
 
@@ -38,10 +38,12 @@ Prezando pela reprodutibilidade, todo o conteúdo foi estruturado utilizando **Q
 
 Ao navegar pela plataforma, você explorará aplicações relacionadas a temas como:
 
-- **Inferência Estatística**
-- **Modelos de Regressão** e **Métodos Não Paramétricos**;
+- **Inferência Estatística**;
+- **Modelos de Regressão**;
+- **Métodos Não Paramétricos**;
 - **Modelos Lineares Generalizados (MLG)**;
-- **Séries Temporais** e **Modelos Lineares Dinâmicos**.
+- **Séries Temporais**;
+- **Modelos Lineares Dinâmicos**.
 
 Para a elaboração dos estudos, são utilizadas as linguagens [**R**](http://www.R-project.org/) e [**Python**](https://www.python.org/), referências em Ciência de Dados. Além disso, aplicamos o ambiente de modelagem probabilística [**Stan**](https://mc-stan.org/), acessado via interface [**RStan**](https://mc-stan.org/users/interfaces/rstan), para a estimação eficiente de modelos Bayesianos complexos através do algoritmo Hamiltonian Monte Carlo (HMC).
 
