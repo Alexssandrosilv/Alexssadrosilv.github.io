@@ -1,0 +1,300 @@
+/* Importa as fontes */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Fira+Code&display=swap');
+
+/* ================================================
+   1. PALETA DE CORES
+================================================ */
+:root {
+  /* Cores Base */
+  --cor-fundo-site: #ffffff;
+  --cor-pagina: #ffffff;
+  --cor-texto: #2a2a2a;
+  --cor-borda-suave: #eeeeee;
+  --cor-borda-titulo: #dcdcdc;
+  --cor-code-fundo: #f8f9fa;
+  
+  /* Navbar Escura */
+  --cor-navbar-fundo: black;
+  --cor-navbar-texto: #e0e0e0;
+  --cor-navbar-hover: #FFFFFF;
+  
+  /* --- A COR MÁGICA (Azul Verde Vibrante) --- */
+  --cor-destaque-viva: #18bc9c; 
+  --cor-destaque-escuro: #128f76;
+}
+
+/* ================================================
+   2. ESTRUTURA E ANIMAÇÕES GERAIS
+================================================ */
+
+body {
+  /* --- MUDANÇA AQUI PARA O VIDRO FUNCIONAR --- */
+  /* Troquei o fundo chapado por um gradiente muito sutil. 
+     Sem isso, o vidro branco sobre fundo branco não aparece. */
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  
+  font-family: 'Inter', sans-serif;
+  color: var(--cor-texto);
+  line-height: 1.7;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Links no texto */
+a {
+  color: var(--cor-destaque-viva);
+  text-decoration: none;
+  font-weight: 700;
+  transition: all 0.2s ease;
+}
+
+a:hover {
+  color: var(--cor-destaque-escuro);
+  text-decoration: underline;
+}
+
+main#quarto-content {
+  /* O conteúdo principal também ganha um leve efeito de vidro */
+  background-color: rgba(255, 255, 255, 0.9); /* Branco 90% opaco */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  
+  max-width: 1000px;
+  width: 90%;
+  margin: 40px auto;
+  padding: 3em 4em;
+  border-radius: 12px; /* Arredondei mais */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); 
+  border: 1px solid rgba(255, 255, 255, 0.5); /* Borda de vidro */
+}
+
+/* ================================================
+   3. ANIMAÇÃO DE ENTRADA (HOME)
+================================================ */
+.about-image {
+    animation: slideInLeft 1s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+    opacity: 0;
+}
+.about-contents {
+    animation: slideInRight 1s cubic-bezier(0.23, 1, 0.32, 1) 0.2s forwards;
+    opacity: 0;
+}
+@keyframes slideInLeft {
+    from { transform: translateX(-50px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+@keyframes slideInRight {
+    from { transform: translateX(50px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+/* ================================================
+   4. BARRA DE NAVEGAÇÃO
+================================================ */
+.navbar {
+  background-color: var(--cor-navbar-fundo) !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  border-bottom: 3px solid var(--cor-destaque-viva);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar-nav {
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    justify-content: flex-start;
+    margin: 0 auto;
+}
+
+.navbar-nav .nav-link {
+  color: var(--cor-navbar-texto) !important;
+  font-weight: 700;
+  margin-right: 1.5em;
+  padding: 0.5em 0.8em;
+  border-radius: 5px;
+  transition: all 0.2s ease-in-out;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  background-color: transparent !important;
+  color: var(--cor-destaque-viva) !important;
+  text-shadow: 0 0 10px rgba(24, 188, 156, 0.4);
+}
+
+.navbar-brand {
+    font-weight: 700;
+    color: var(--cor-navbar-hover) !important;
+    font-size: 1.4em;
+    margin-right: 2em;
+}
+
+/* ================================================
+   5. CARDS DOS PROJETOS (GRID COM EFEITO VIDRO)
+   Aqui está a mágica do Glassmorphism!
+================================================ */
+
+/* O Card Base - AGORA É VIDRO */
+.quarto-grid-item.card {
+    /* background-color: #ffffff;  <-- REMOVIDO O BRANCO SÓLIDO */
+    
+    /* --- EFEITO VIDRO --- */
+    background: rgba(255, 255, 255, 0.65); /* Branco 65% transparente */
+    backdrop-filter: blur(12px) saturate(120%); /* O desfoque que faz parecer vidro */
+    -webkit-backdrop-filter: blur(12px) saturate(120%); /* Para funcionar no Safari/Mac */
+    border: 1px solid rgba(255, 255, 255, 0.6); /* Borda fina e brilhante de vidro */
+    /* -------------------- */
+    
+    border-radius: 16px; /* Cantos mais arredondados */
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07); /* Sombra de vidro suave */
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    overflow: hidden;
+    height: 100%;
+    position: relative;
+}
+
+/* Hover: Flutuar + Borda Colorida + Vidro mais nítido */
+.quarto-grid-item.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12); 
+    border: 1px solid var(--cor-destaque-viva); /* A borda do vidro acende na sua cor */
+    background: rgba(255, 255, 255, 0.8); /* Fica um pouco mais opaco para facilitar leitura */
+}
+
+/* Título muda de cor no Hover */
+.quarto-grid-item.card:hover .card-title {
+    color: var(--cor-destaque-viva);
+}
+
+/* EFEITO DE CLIQUE (PRESS) */
+.quarto-grid-item.card:active {
+    transform: scale(0.97) translateY(0);
+    box-shadow: 0 4px 15px rgba(24, 188, 156, 0.2);
+    border-color: var(--cor-destaque-escuro);
+    backdrop-filter: blur(6px); /* O vidro "embaça" um pouco no clique */
+}
+
+/* Imagem do Card */
+.quarto-grid-image {
+    height: 220px;
+    width: 100%;
+    object-fit: cover;
+    /* border-bottom: 1px solid var(--cor-borda-suave); <-- REMOVIDO para não quebrar o vidro */
+    transition: transform 0.5s ease;
+}
+
+/* Zoom na imagem ao passar o mouse */
+.quarto-grid-item.card:hover .quarto-grid-image {
+    transform: scale(1.05);
+}
+
+/* Textos do Card */
+.card-body { padding: 1.8rem; }
+.card-title {
+    color: var(--cor-texto);
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    transition: color 0.3s ease;
+}
+.card-text {
+    color: #666666;
+    font-size: 0.95rem;
+}
+.listing-date {
+    color: #999999;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* Tags (Categorias) com efeito vidro também */
+.listing-categories .listing-category {
+    background-color: rgba(255, 255, 255, 0.5); /* Vidro nas tags */
+    color: var(--cor-texto);
+    border-radius: 15px;
+    padding: 2px 10px;
+    font-size: 0.75em;
+    border: 1px solid rgba(0,0,0,0.1);
+    transition: all 0.2s;
+}
+
+.listing-categories .listing-category:hover {
+    background-color: var(--cor-destaque-viva);
+    color: #fff;
+    border-color: var(--cor-destaque-viva);
+}
+
+/* ================================================
+   6. TIPOGRAFIA, CÓDIGO E RODAPÉ
+================================================ */
+
+h1, h2, h3, h4 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  color: var(--cor-texto);
+}
+h2 {
+  border-bottom: 2px solid var(--cor-borda-titulo);
+  padding-bottom: 8px;
+  margin-top: 2em;
+}
+
+/* Blocos de Código */
+pre {
+  font-family: 'Fira Code', monospace;
+  background-color: var(--cor-code-fundo);
+  border-radius: 5px;
+  padding: 1em;
+  border: 1px solid var(--cor-borda-suave);
+}
+code {
+  font-family: 'Fira Code', monospace;
+  background-color: var(--cor-code-fundo);
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+/* Footer (Rodapé Gigante) */
+.quarto-page-footer {
+    background-color: black !important;
+    color: white !important;
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+    border-top: 3px solid var(--cor-destaque-viva);
+    margin-top: 4em !important;
+    font-size: 1.25em !important; 
+}
+
+.quarto-page-footer .footer-text {
+    max-width: 95% !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+}
+
+.quarto-page-footer a {
+    color: #eeeeee !important;
+    font-weight: bold !important;
+}
+
+.quarto-page-footer .bi {
+    font-size: 2.2em !important;
+    margin-left: 20px !important;
+    color: white !important;
+    vertical-align: middle !important;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.quarto-page-footer .bi:hover {
+    color: var(--cor-destaque-viva) !important;
+    transform: translateY(-5px) scale(1.2);
+}
