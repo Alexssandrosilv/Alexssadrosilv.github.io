@@ -27,9 +27,10 @@ page-layout: full
 
 <br>
 
-## Apresentação
+## Carta de Apresentação
 
 ::: {style="text-align: justify"}
+
 Seja bem-vindo.
 
 Meu nome é **Alexssandro da Silva Oliveira**, graduando em Estatística pela Universidade Federal do Amazonas (UFAM). Este espaço é dedicado à apresentação de projetos, estudos de caso e análises estatísticas desenvolvidas ao longo da minha trajetória acadêmica.
@@ -49,8 +50,7 @@ Para a elaboração dos estudos, são utilizadas as linguagens [**R**](http://ww
 
 Todo o desenvolvimento é conduzido no ambiente [**RStudio**](https://posit.co/download/rstudio-desktop/), garantindo a organização e o versionamento adequado dos códigos.
 
-**Material de Apoio:**
-Para aprofundamento técnico, disponibilizo o [**Manual de Stan**](https://drive.google.com/file/d/1ZAyo6dOvfV4OrVt9oHsZ7JOox3lAINt3/view?usp=drive_link). Este documento serve como guia teórico e prático sobre a sintaxe da linguagem, a lógica da modelagem Bayesiana e os princípios do algoritmo HMC/NUTS utilizados nestes projetos.
+**Material de Apoio:** Disponibilizo o [**Manual de Stan**](https://drive.google.com/file/d/1ZAyo6dOvfV4OrVt9oHsZ7JOox3lAINt3/view?usp=drive_link). Este documento serve como guia teórico e prático sobre a sintaxe da linguagem e lógica da modelagem Bayesiana.
 :::
 
 ::: {style="border-top: 2px solid #003366;"}
