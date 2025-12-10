@@ -1,5 +1,5 @@
 ---
-title: "Módulo: Modelos Lineares Generalizados"
+title: "Modelos Lineares Generalizados"
 author: "Alexssandro Oliveira | alexssandrosg@gmail.com"
 description: "A detalhar"
 date: last-modified

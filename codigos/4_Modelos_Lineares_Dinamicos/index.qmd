@@ -1,5 +1,5 @@
 ---
-title: "Módulo: Modelos Lineares Dinamicos"
+title: "Modelos Lineares Dinâmicos"
 author: "Alexssandro Oliveira | alexssandrosg@gmail.com"
 description: "A detalhar"
 date: last-modified
