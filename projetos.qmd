@@ -5,7 +5,7 @@ listing:
   # 1. CONTEÚDO: Define quais arquivos vão aparecer na vitrine.
   # Você está listando manualmente para garantir a ordem exata das pastas.
   contents: 
-    # - codigos/1_Inferencia_Estatística/index.qmd      # Pega o Hub de Inferência
+    - codigos/1_Inferencia_Estatística/index.qmd      # Pega o Hub de Inferência
     # - codigos/2_Modelos_de_Regressao/index.qmd        # Pega o Hub de Regressão
     # - codigos/3_Modelos_Lineares_Generalizados/index.qmd
     - codigos/4_Modelos_Lineares_Dinamicos/index.qmd
