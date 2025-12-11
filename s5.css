@@ -1,0 +1,403 @@
+/* ==========================================================================
+   SEÇÃO 0: IMPORTAÇÃO DE FONTES
+   Traz as fontes do servidor do Google para o seu site.
+   - Inter: Fonte moderna sem serifa (para títulos e textos).
+   - Fira Code: Fonte monoespaçada (para os blocos de código).
+========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Fira+Code&display=swap');
+
+/* ==========================================================================
+   SEÇÃO 1: VARIÁVEIS GLOBAIS (:root)
+   Aqui definimos os "apelidos" das cores. O navegador lê isso primeiro.
+   Se você mudar o código hexadecimal aqui, ele muda em todos os lugares do site.
+========================================================================== */
+:root {
+  /* -- Cores da Página -- */
+  --cor-fundo-site: #ffffff;   /* Branco puro */
+  --cor-pagina: #ffffff;       /* Branco */
+  --cor-texto: #2a2a2a;        /* Cinza muito escuro (Cansa menos a vista que preto 100%) */
+  --cor-borda-suave: #eeeeee;  /* Cinza quase branco (para linhas finas) */
+  --cor-borda-titulo: #dcdcdc; /* Cinza médio (para sublinhar títulos) */
+  --cor-code-fundo: #f8f9fa;   /* Cinza gelo (fundo dos códigos R/Python) */
+  
+  /* -- Cores da Barra de Navegação (Menu) -- */
+  --cor-navbar-fundo: black;     /* Fundo da barra superior */
+  --cor-navbar-texto: #e0e0e0;   /* Cor do texto dos botões (repouso) */
+  --cor-navbar-hover: #FFFFFF;   /* Cor do texto quando passa o mouse */
+  
+  /* -- A Cor da Identidade Visual (Destaque) -- */
+  --cor-destaque-viva: #18bc9c;   /* Verde Teal Vibrante (Cor principal) */
+  --cor-destaque-escuro: #128f76; /* Verde Teal Escuro (Para o momento do clique) */
+}
+
+/* ==========================================================================
+   SEÇÃO 2: CORPO DO SITE (BODY)
+   Configurações gerais da página inteira.
+========================================================================== */
+
+body {
+  /* Fundo com Gradiente: Essencial para o efeito de vidro funcionar. 
+     Vai do branco (#ffffff) no topo até um cinza gelo (#f8f9fa) embaixo. */
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  
+  /* Define a família da fonte principal (Inter) */
+  font-family: 'Inter', sans-serif;
+  
+  /* Define a cor padrão de todos os textos */
+  color: var(--cor-texto);
+  
+  /* Altura da linha: 1.7 deixa o texto mais "respirável" e fácil de ler */
+  line-height: 1.7;
+  
+  /* Zera as margens padrão que os navegadores colocam (remove bordas brancas indesejadas) */
+  margin: 0;
+  padding: 0;
+  
+  /* Impede a barra de rolagem horizontal (esquerda/direita) se algo vazar da tela */
+  overflow-x: hidden;
+}
+
+/* --- Links Gerais (no meio dos parágrafos) --- */
+a {
+  color: var(--cor-destaque-viva); /* Usa o verde da marca */
+  text-decoration: none;           /* Começa SEM sublinhado */
+  font-weight: 700;                /* Deixa em negrito */
+  transition: all 0.2s ease;       /* Anima a mudança de cor (suavidade de 0.2s) */
+}
+
+/* Comportamento quando o mouse passa por cima do link */
+a:hover {
+  color: var(--cor-destaque-escuro); /* Escurece o verde */
+  text-decoration: underline;        /* ADICIONA o sublinhado (Padrão para textos) */
+}
+
+/* ==========================================================================
+   SEÇÃO 3: O CONTEÚDO PRINCIPAL (MAIN)
+   É a "folha de papel" central onde fica o seu texto e gráficos.
+========================================================================== */
+main#quarto-content {
+  /* -- Efeito de Vidro (Glassmorphism) -- */
+  background-color: rgba(255, 255, 255, 0.9); /* Branco com 90% de opacidade (quase sólido) */
+  backdrop-filter: blur(10px);         /* Desfoca tudo que passar por trás dessa folha */
+  -webkit-backdrop-filter: blur(10px); /* Garante que o desfoque funcione no Safari/Mac */
+  
+  /* -- Dimensões -- */
+  max-width: 1000px;    /* Largura máxima: não deixa ficar muito largo em monitores gigantes */
+  width: 90%;           /* Largura responsiva: em celulares ocupa 90% da tela */
+  margin: 40px auto;    /* Margem: 40px em cima/baixo, 'auto' nas laterais (centraliza) */
+  padding: 3em 4em;     /* Preenchimento interno (afasta o texto da borda do papel) */
+  
+  /* -- Acabamento Visual -- */
+  border-radius: 12px;  /* Arredonda os cantos da folha */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Sombra suave para dar profundidade (efeito 3D) */
+  border: 1px solid rgba(255, 255, 255, 0.5);  /* Borda branca semi-transparente (brilho do vidro) */
+}
+
+/* ==========================================================================
+   SEÇÃO 4: ANIMAÇÕES DE ENTRADA (HOME)
+   Define o movimento da foto e do texto quando o site abre.
+========================================================================== */
+
+/* Classe para a Foto de Perfil */
+.about-image {
+    /* Executa a animação chamada 'slideInLeft' */
+    /* Duração: 1 segundo */
+    /* Curva: cubic-bezier (começa rápido, freia suave no fim) */
+    /* Forwards: Mantém o estado final (não desaparece depois de animar) */
+    animation: slideInLeft 1s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+    opacity: 0; /* Começa invisível */
+}
+
+/* Classe para o Texto de Apresentação */
+.about-contents {
+    /* Executa a animação 'slideInRight' */
+    /* 0.2s: É o atraso (delay). Começa 0.2s depois da foto. */
+    animation: slideInRight 1s cubic-bezier(0.23, 1, 0.32, 1) 0.2s forwards;
+    opacity: 0;
+}
+
+/* Definição da Animação Esquerda -> Centro */
+@keyframes slideInLeft {
+    from { transform: translateX(-50px); opacity: 0; } /* Começa 50px à esquerda e invisível */
+    to { transform: translateX(0); opacity: 1; }       /* Termina no centro e visível */
+}
+
+/* Definição da Animação Direita -> Centro */
+@keyframes slideInRight {
+    from { transform: translateX(50px); opacity: 0; }  /* Começa 50px à direita */
+    to { transform: translateX(0); opacity: 1; }
+}
+
+/* ==========================================================================
+   SEÇÃO 5: BARRA DE NAVEGAÇÃO (NAVBAR)
+   Configura o menu preto no topo.
+========================================================================== */
+
+.navbar {
+  background-color: var(--cor-navbar-fundo) !important; /* Força o fundo preto */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Sombra preta projetada para baixo */
+  border-bottom: 3px solid var(--cor-destaque-viva); /* Linha verde neon decorativa */
+  padding: 1rem 0;   /* Altura/Espessura da barra */
+  
+  /* Sticky: Faz a barra "grudar" no topo quando você rola a página para baixo */
+  position: sticky;
+  top: 0;
+  z-index: 1000;     /* Garante que a barra fique na frente de tudo (camada 1000) */
+  
+  display: flex;     /* Usa Flexbox para organizar os itens */
+  justify-content: center; /* Centraliza o conteúdo horizontalmente */
+}
+
+/* Container que segura os botões */
+.navbar-nav {
+    width: 100%;
+    max-width: 1000px; /* Alinha a largura do menu com a largura do texto principal */
+    display: flex;
+    justify-content: flex-start; /* Alinha os botões à esquerda desse bloco */
+    margin: 0 auto;    /* Centraliza o bloco na tela */
+}
+
+/* Estilo BÁSICO dos botões do menu */
+.navbar-nav .nav-link {
+  color: var(--cor-navbar-texto) !important; /* Cor cinza claro */
+  font-weight: 700;      /* Negrito */
+  margin-right: 1.5em;   /* Espaço à direita de cada botão */
+  padding: 0.5em 0.8em;  /* Espaço interno do botão (clicável) */
+  border-radius: 5px;    /* Cantos levemente arredondados */
+  transition: all 0.2s ease-in-out; /* Transição suave de cor */
+}
+
+/* --- ESTADOS INTERATIVOS (HOVER / ACTIVE) --- */
+/* Quando passa o mouse OU quando é a página atual */
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  background-color: transparent !important;   /* Remove fundo cinza padrão do Bootstrap */
+  color: var(--cor-destaque-viva) !important; /* Muda o texto para Verde Neon */
+  text-shadow: 0 0 10px rgba(24, 188, 156, 0.4); /* Adiciona um brilho verde (Glow) */
+  
+  /* !important aqui é crucial: cancela o sublinhado global definido lá em cima */
+  text-decoration: none !important; 
+}
+
+/* O Logo ou Nome do Site */
+.navbar-brand {
+    font-weight: 700;
+    color: var(--cor-navbar-hover) !important; /* Branco */
+    font-size: 1.4em;  /* Tamanho da fonte maior */
+    margin-right: 2em; /* Afasta o nome dos botões */
+}
+
+/* ==========================================================================
+   SEÇÃO 6: CARDS DOS PROJETOS (VITRINE)
+   Estiliza a grade de projetos na página "Projetos".
+========================================================================== */
+
+/* O "Cartão" individual do projeto */
+.quarto-grid-item.card {
+    /* -- Vidro Fosco -- */
+    background: rgba(255, 255, 255, 0.65); /* Fundo branco 65% opaco */
+    backdrop-filter: blur(12px) saturate(120%); /* Desfoque forte + Saturação de cor */
+    -webkit-backdrop-filter: blur(12px) saturate(120%);
+    
+    border: 1px solid rgba(255, 255, 255, 0.6); /* Borda fina de vidro */
+    border-radius: 16px; /* Cantos bem arredondados */
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07); /* Sombra azulada muito suave */
+    
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Animação "elástica" no movimento */
+    overflow: hidden; /* Garante que a imagem não saia das bordas arredondadas */
+    height: 100%;     /* Garante que todos os cards tenham a mesma altura */
+}
+
+/* Efeito ao passar o MOUSE no cartão (Hover) */
+.quarto-grid-item.card:hover {
+    transform: translateY(-8px); /* Levita o cartão 8 pixels para cima */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12); /* Aumenta a sombra (parece mais alto) */
+    border: 1px solid var(--cor-destaque-viva); /* A borda acende na cor verde */
+    background: rgba(255, 255, 255, 0.8); /* Fica um pouco mais opaco */
+}
+
+/* Muda a cor do título do projeto quando passa o mouse no cartão */
+.quarto-grid-item.card:hover .card-title {
+    color: var(--cor-destaque-viva);
+}
+
+/* Efeito ao CLICAR no cartão (Active) */
+.quarto-grid-item.card:active {
+    transform: scale(0.97) translateY(0); /* O cartão diminui levemente (feedback tátil) */
+}
+
+/* A Imagem do Projeto (Thumbnail) */
+.quarto-grid-image {
+    height: 220px;       /* Força altura fixa */
+    width: 100%;         /* Largura total */
+    object-fit: cover;   /* Corta a imagem para preencher o espaço sem distorcer */
+    transition: transform 0.5s ease; /* Prepara o zoom suave */
+}
+
+/* Zoom na imagem ao passar o mouse */
+.quarto-grid-item.card:hover .quarto-grid-image {
+    transform: scale(1.05); /* Aumenta a imagem em 5% */
+}
+
+/* Espaçamento interno do texto do cartão */
+.card-body { padding: 1.8rem; }
+
+/* Título do Projeto */
+.card-title {
+    color: var(--cor-texto);
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+/* Texto de descrição do projeto */
+.card-text { color: #666666; font-size: 0.95rem; }
+
+/* As Tags/Categorias (ex: "R", "Dados") */
+.listing-categories .listing-category {
+    background-color: rgba(255, 255, 255, 0.5); /* Fundo semi-transparente */
+    color: var(--cor-texto);
+    border-radius: 15px; /* Formato de pílula */
+    padding: 2px 10px;
+    font-size: 0.75em;
+    border: 1px solid rgba(0,0,0,0.1); /* Borda quase invisível */
+    transition: all 0.2s;
+}
+
+/* Tags ao passar o mouse */
+.listing-categories .listing-category:hover {
+    background-color: var(--cor-destaque-viva); /* Fundo fica verde */
+    color: white; /* Texto fica branco */
+    border-color: var(--cor-destaque-viva);
+}
+
+/* ==========================================================================
+   SEÇÃO 7: TIPOGRAFIA E ELEMENTOS FINAIS
+   H1-H6, Blocos de código e Rodapé.
+========================================================================== */
+
+h1, h2, h3, h4 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  color: var(--cor-texto);
+}
+
+/* Subtítulos H2 (geralmente os principais da página) */
+h2 {
+  border-bottom: 2px solid var(--cor-borda-titulo); /* Linha cinza embaixo */
+  padding-bottom: 8px; /* Espaço entre a letra e a linha */
+  margin-top: 2em;     /* Espaço acima do título */
+}
+
+/* Blocos de Código Inteiros (Chunks) */
+pre {
+  font-family: 'Fira Code', monospace;
+  background-color: var(--cor-code-fundo);
+  border-radius: 5px;
+  padding: 1em;
+  border: 1px solid var(--cor-borda-suave);
+}
+
+/* Código em linha (Inline Code) */
+code {
+  font-family: 'Fira Code', monospace;
+  background-color: var(--cor-code-fundo);
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+/* --- Rodapé Gigante (Footer) --- */
+.quarto-page-footer {
+    background-color: black !important;
+    color: white !important;
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+    border-top: 3px solid var(--cor-destaque-viva); /* Linha verde no topo do rodapé */
+    margin-top: 4em !important;    /* Afasta o rodapé do conteúdo principal */
+    font-size: 1.3em !important;   /* Texto maior */
+}
+
+/* Layout do texto dentro do rodapé */
+.quarto-page-footer .footer-text {
+    max-width: 95% !important;
+    display: flex !important;      /* Flexbox para alinhar esquerda/direita */
+    justify-content: space-between !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;    /* Permite quebrar linha em telas pequenas */
+}
+
+/* Links do rodapé */
+.quarto-page-footer a {
+    color: #eeeeee !important;
+    font-weight: bold !important;
+}
+
+/* Ícones Sociais (GitHub, LinkedIn) no rodapé */
+.quarto-page-footer .bi {
+    font-size: 2.2em !important; /* Ícones grandes */
+    margin-left: 20px !important;
+    color: white !important;
+    transition: all 0.3s;
+}
+
+/* Efeito Hover nos Ícones */
+.quarto-page-footer .bi:hover {
+    color: var(--cor-destaque-viva) !important; /* Fica verde */
+    transform: translateY(-5px) scale(1.2);     /* Sobe e cresce */
+}
+
+/* ==========================================================================
+   SEÇÃO 8: DESBLOQUEIO DE ANIMAÇÕES (HACK DO QUARTO)
+   Esta parte é crucial. O Windows tem uma configuração chamada "Reduzir Movimento".
+   Se ela estiver ativa, o site fica estático. Este código força as animações.
+========================================================================== */
+
+/* @media: Se o sistema pedir "redução de movimento"... */
+@media (prefers-reduced-motion: reduce) {
+  
+  /* Lista de todos os elementos animados do site */
+  .about-image, .about-contents, .quarto-grid-item.card,
+  .quarto-grid-image, .navbar-nav .nav-link, a {
+    
+    /* Força o navegador a rodar a animação (running) */
+    animation-play-state: running !important;
+    
+    /* Força a transição suave de 0.3s */
+    transition: all 0.3s ease !important;
+  }
+}
+
+/* Reforço extra para garantir que a animação da Home funcione */
+.about-image {
+    animation: slideInLeft 1s cubic-bezier(0.23, 1, 0.32, 1) forwards !important;
+}
+
+.about-contents {
+    animation: slideInRight 1s cubic-bezier(0.23, 1, 0.32, 1) 0.2s forwards !important;
+}
+
+/* ==========================================================================
+   SEÇÃO 9: CORREÇÃO DA BARRA DE PESQUISA (BUG DA PRIMEIRA LETRA)
+   Corrige o problema onde o cursor "foge" da caixa após digitar um caractere.
+========================================================================== */
+
+/* Força a janela de resultados a ficar acima de qualquer efeito de vidro */
+.quarto-search-autocomplete {
+    z-index: 9999 !important;
+}
+
+/* Força a caixa de digitação a ter prioridade máxima */
+#quarto-search-input {
+    z-index: 10000 !important;
+    position: relative !important;
+}
+
+/* Estilo extra: Deixa a caixa de pesquisa combinando com seu tema verde */
+.aa-Input {
+    border: 1px solid var(--cor-destaque-viva) !important; /* Borda Verde */
+    background-color: rgba(255, 255, 255, 0.95) !important; /* Fundo quase branco */
+    color: #000 !important; /* Texto preto */
+    border-radius: 5px !important; /* Cantos arredondados */
+}
