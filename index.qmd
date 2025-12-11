@@ -1,22 +1,36 @@
 ---
-title: ""
-page-layout: full
+author: "Alexssandro Oliveira alexssandrosg@gmail.com"
+date: last-modified
+image: extras/imagens/Alexssandro.jpg  # <--- Coloque sua foto nessa pasta com esse nome
 lang: pt
+about:
+  template: trestles            # O estilo centralizado (pode trocar por 'trestles')
+  image-width: 20em
+  image-shape: rectangle #round
+  links:
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/alexssandro-silva-3b63aa19b/
+    - icon: github
+      text: Github
+      href: https://github.com/Alexssandrosilv
+    # - icon: envelope
+    #   text: Email
+    #   href: mailto:alexssandrosg@gmail.com
+page-layout: full
 ---
 
-::: {.grid}
+<!-- <br> -->
 
-::: {.g-col-12 .g-col-md-4 .about-image style="text-align: center;"}
-
-![](extras/imagens/Alexssandro.jpg){width=80% style="border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.15); object-fit: cover;"}
-
+::: {style="border-top: 2px solid #003366;"}
 :::
 
-::: {.g-col-12 .g-col-md-8 .about-contents}
+<br>
 
 ## Carta de Apresentação
 
 ::: {style="text-align: justify"}
+
 Seja bem-vindo.
 
 Meu nome é **Alexssandro da Silva Oliveira**, graduando em Estatística pela Universidade Federal do Amazonas (UFAM). Este espaço é dedicado à apresentação de projetos, estudos de caso e análises estatísticas desenvolvidas ao longo da minha trajetória acadêmica.
@@ -39,16 +53,7 @@ Todo o desenvolvimento é conduzido no ambiente [**RStudio**](https://posit.co/d
 **Material de Apoio:** Disponibilizo o [**Manual de Stan**](https://drive.google.com/file/d/1ZAyo6dOvfV4OrVt9oHsZ7JOox3lAINt3/view?usp=drive_link). Este documento serve como guia teórico e prático sobre a sintaxe da linguagem e lógica da modelagem Bayesiana.
 :::
 
+::: {style="border-top: 2px solid #003366;"}
+:::
+
 <br>
-
-::: {style="display: flex; gap: 10px; flex-wrap: wrap;"}
-
-[<i class="bi bi-linkedin"></i> LinkedIn](https://www.linkedin.com/in/alexssandro-silva-3b63aa19b/){.btn .btn-outline-success role="button"}
-
-[<i class="bi bi-github"></i> Github](https://github.com/Alexssandrosilv){.btn .btn-outline-dark role="button"}
-
-:::
-
-::: 
-:::
-
