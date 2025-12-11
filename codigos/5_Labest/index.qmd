@@ -3,7 +3,7 @@ title: "Labest - Laboratório de Estatística"
 author: "Alexssandro Oliveira | alexssandrosg@gmail.com"
 description: "**Consultoria Estatística:** Suporte a docentes e discentes na validação de hipóteses para pesquisas acadêmicas (TCCs, dissertações e artigos)."
 date: last-modified
-image: "imagens/modulo_labest.jpg"
+image: "imagens/labest.jpg"
 
 # Tags para ajudar no filtro da página principal
 categories: ["Regressão", "R"]
@@ -33,5 +33,3 @@ knitr::opts_chunk$set(
   fig.align = 'center'
 )
 ```
-
-## Projetos deste Módulo

@@ -1,5 +1,5 @@
 ---
-title: "Módulo: Inferência Estatística"
+title: "Inferência Estatística"
 author: "Alexssandro Oliveira | alexssandrosg@gmail.com"
 description: "A detalhar"
 date: last-modified
@@ -34,4 +34,3 @@ knitr::opts_chunk$set(
 )
 ```
 
-## Projetos deste Módulo
