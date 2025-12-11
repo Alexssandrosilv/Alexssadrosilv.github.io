@@ -1,9 +1,9 @@
 ---
 title: "Labest - Laboratório de Estatística"
 author: "Alexssandro Oliveira | alexssandrosg@gmail.com"
-description: "A detalhar"
+description: "Consultoria Estatística: Suporte a docentes e discentes na validação de hipóteses para pesquisas acadêmicas (TCCs, dissertações e artigos)."
 date: last-modified
-image: "imagens/modulo_inferencia.jpg"
+image: "imagens/modulo_labest.jpg"
 
 # Tags para ajudar no filtro da página principal
 categories: ["Regressão", "R"]
