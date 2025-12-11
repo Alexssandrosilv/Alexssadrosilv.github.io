@@ -2,6 +2,7 @@
   {
     "listing": "/projetos.html",
     "items": [
+      "/codigos/1_Inferencia_Estatística/index.html",
       "/codigos/4_Modelos_Lineares_Dinamicos/index.html",
       "/codigos/5_Labest/index.html"
     ]
