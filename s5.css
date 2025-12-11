@@ -409,6 +409,7 @@ code {
 
 /* 1. Estilo da aba SELECIONADA (Ativa) */
 .panel-tabset .nav-link.active {
+    text-decoration: none;           /* Começa SEM sublinhado */
     font-weight: 700 !important;             /* Deixa em Negrito */
     color: var(--cor-destaque-viva) !important; /* Cor Verde do tema */
     background-color: rgba(255, 255, 255, 0.8) !important; /* Fundo mais claro */
@@ -419,6 +420,7 @@ code {
 
 /* 2. Estilo das abas NÃO selecionadas (Hover) */
 .panel-tabset .nav-link:hover {
+    text-decoration: none;           /* Começa SEM sublinhado */
     color: var(--cor-destaque-escuro) !important; /* Verde escuro ao passar o mouse */
     background-color: rgba(255, 255, 255, 0.4);   /* Fundo leve */
 }

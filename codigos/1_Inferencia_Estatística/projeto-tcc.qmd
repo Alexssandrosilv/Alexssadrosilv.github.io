@@ -1,10 +1,10 @@
 ---
-title: "Título da Sua Análise (Ex: Teste T para Duas Amostras)"
-description: "Uma descrição curta e impactante (2 linhas) sobre o problema resolvido. Ex: Comparação de eficiência entre dois grupos."
+title: "Título da Sua Análise 1"
+description: "Uma descrição curta e impactante."
 author: "Alexssandro Oliveira"
 lang: pt
 date: last-modified
-image: "imagens/labest.jpg"  # <--- IMPORTANTE: Salve um print do gráfico aqui com esse nome!
+image: "imagens/modulo_inferencia.jpg"  # <--- IMPORTANTE: Salve um print do gráfico aqui com esse nome!
 categories: ["R", "Inferência", "Estudo de Caso"] # <--- Suas tags para o filtro
 ---
 

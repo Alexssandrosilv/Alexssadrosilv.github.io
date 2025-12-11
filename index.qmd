@@ -6,7 +6,7 @@ lang: pt
 about:
   template: trestles            # O estilo centralizado (pode trocar por 'trestles')
   image-width: 20em
-  image-shape: rectangle #round
+  image-shape: round #rectangle 
   links:
     - icon: linkedin
       text: LinkedIn
