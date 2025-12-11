@@ -4,7 +4,7 @@
     "href": "projetos.html",
     "title": "ΛΣ",
     "section": "",
-    "text": "Abaixo estão os módulos disponíveis. Use os filtros à direita para acessar e navegar rapidamente por categorias.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nInferência Estatística\n\n\n\nInferência\n\nR\n\nTeoria\n\n\n\nA detalhar\n\n\n\n11 de dez. de 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nModelos Lineares Dinâmicos\n\n\n\nRegressão\n\nR\n\n\n\nA detalhar\n\n\n\n11 de dez. de 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nLabest - Laboratório de Estatística\n\n\n\nRegressão\n\nR\n\n\n\nConsultoria Estatística: Suporte a docentes e discentes na validação de hipóteses para pesquisas acadêmicas (TCCs, dissertações e artigos).\n\n\n\n11 de dez. de 2025\n\n\n\n\n\n\nNenhum item correspondente"
+    "text": "Abaixo estão os módulos disponíveis. Use os filtros à direita para acessar e navegar rapidamente por categorias.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nInferência Estatística\n\n\n\nInferência\n\nR\n\nTeoria\n\n\n\nA detalhar\n\n\n\n11 de dez. de 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nModelos Lineares Dinâmicos\n\n\n\nInferência Bayesiana\n\nSeries Temporais\n\nRegressão\n\nR\n\n\n\nA detalhar\n\n\n\n11 de dez. de 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nLabest - Laboratório de Estatística\n\n\n\nRegressão\n\nR\n\n\n\nConsultoria Estatística: Suporte a docentes e discentes na validação de hipóteses para pesquisas acadêmicas (TCCs, dissertações e artigos).\n\n\n\n11 de dez. de 2025\n\n\n\n\n\n\nNenhum item correspondente"
   },
   {
     "objectID": "codigos/5_Labest/projeto-labest.html#pacotes-e-funções-necessárias",
@@ -68,6 +68,13 @@
     "title": "Inferência Estatística",
     "section": "",
     "text": "Título da Sua Análise (Ex: Teste T para Duas Amostras)\n\n\nUma descrição curta e impactante (2 linhas) sobre o problema resolvido. Ex: Comparação de eficiência entre dois grupos.\n\n\n\n\n\n11 de dez. de 2025\n\n3 minutos\n\n\n\n\nNenhum item correspondente"
+  },
+  {
+    "objectID": "codigos/4_Modelos_Lineares_Dinamicos/index.html",
+    "href": "codigos/4_Modelos_Lineares_Dinamicos/index.html",
+    "title": "Modelos Lineares Dinâmicos",
+    "section": "",
+    "text": "Define opções padrão para todos os chunks de código no R Markdown\n\n\n\n\n\n\n\n\nInvalid Date\n\n3 minutos\n\n\n\n\nNenhum item correspondente"
   },
   {
     "objectID": "codigos/5_Labest/index.html",
