@@ -6,7 +6,7 @@ date: last-modified
 image: "imagens/modulo_mld.jpg"
 
 # Tags para ajudar no filtro da página principal
-categories: ["Regressão", "R"]
+categories: ["Inferência Bayesiana","Series Temporais","Regressão", "R"]
 
 # Configuração da Lista de Projetos deste módulo
 listing:
@@ -34,4 +34,3 @@ knitr::opts_chunk$set(
 )
 ```
 
-## Projetos deste Módulo

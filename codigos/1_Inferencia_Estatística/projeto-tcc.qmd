@@ -4,7 +4,7 @@ description: "Uma descrição curta e impactante (2 linhas) sobre o problema res
 author: "Alexssandro Oliveira"
 lang: pt
 date: last-modified
-image: "imagem_capa.png"  # <--- IMPORTANTE: Salve um print do gráfico aqui com esse nome!
+image: "imagens/modulo_inferencia.jpg"  # <--- IMPORTANTE: Salve um print do gráfico aqui com esse nome!
 categories: ["R", "Inferência", "Estudo de Caso"] # <--- Suas tags para o filtro
 ---
 
