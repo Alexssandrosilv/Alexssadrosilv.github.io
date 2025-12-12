@@ -18,7 +18,9 @@ website:
     #         dentro de um botão "hambúrguer" (☰) para não quebrar o site.
     # false = Tenta mostrar todos os botões espremidos, o que fica ruim no celular.
     collapse: true 
-    
+        
+
+
     left:
       - text: "Início"
         icon: house
@@ -27,20 +29,19 @@ website:
       - text: "Projetos"
         icon: journal-code
         href: projetos.qmd # Link direto para a Galeria (Vitrine)
-
-    # # Lado Direito: Redes Sociais
-    # right:
-    #   - text: "CV"
-    #     icon: file-earmark-pdf
-    #     href: extras/pdf/CV_Alexssandro_Silva_Oliveira.pdf  # Crie a pasta 'arquivos' e ponha o PDF lá
-    #     target: _blank
-    # 
-    #   - icon: github
-    #     href: https://github.com/Alexssadrosilv
-    #     aria-label: GitHub
-    #   - icon: linkedin
-    #     href: https://www.linkedin.com/in/alexssandro-silva-3b63aa19b/
-    #     aria-label: LinkedIn
+      - text: "Assessoria"
+        icon: briefcase # Mudei o ícone para diferenciar de projetos, mas pode manter journal-code
+        href: consultoria.qmd
+      - text: "Assessoria"
+        icon: clipboard-data
+        href: consultoria.qmd
+      - text: "Assessoria"
+        icon: graph-up-arrow
+        href: consultoria.qmd
+      - text: "Assessoria"
+        icon: lightbulb
+        href: consultoria.qmd
+        
 
 # Lado Direito: Apenas ÍCONES (para ficar uniforme)
     # right:
