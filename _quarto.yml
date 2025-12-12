@@ -43,13 +43,13 @@ website:
       #   target: _blank
       #   aria-label: "Currículo" # Isso serve para leitores de tela saberem o que é
       
-      - icon: github
-        href: https://github.com/Alexssandrosilv
-        aria-label: GitHub
-        
-      - icon: linkedin
-        href: https://www.linkedin.com/in/alexssandro-silva-3b63aa19b/
-        aria-label: LinkedIn
+      # - icon: github
+      #   href: https://github.com/Alexssandrosilv
+      #   aria-label: GitHub
+      #   
+      # - icon: linkedin
+      #   href: https://www.linkedin.com/in/alexssandro-silva-3b63aa19b/
+      #   aria-label: LinkedIn
 
 # 2. Rodapé (Com as Redes Sociais)
   page-footer:
@@ -58,7 +58,7 @@ website:
     
     # Lado Esquerdo: Seu nome
     left: 
-      - text: "<b>Colaborador:</b> Alexssandro da S. Oliveira<sup>1</sup>"
+      - text: "© 2025 Alexssandro Oliveira <b>| ΛΣ Consultoria Estatística</b>"
       
     # Centro: A frase
     center: 

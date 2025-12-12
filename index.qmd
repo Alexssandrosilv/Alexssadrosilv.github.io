@@ -84,6 +84,6 @@ Como parte do meu compromisso com a disseminação do conhecimento estatístico,
 
 ::: {style="border-top: 1px solid #ddd; padding-top: 20px; font-size: 0.85em; text-align: center; color: #666;"}
 
-© 2025 Alexssandro Oliveira | **ΛΣ Consultoria Estatística**
+<!-- © 2025 Alexssandro Oliveira | **ΛΣ Consultoria Estatística** -->
 
 :::

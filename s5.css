@@ -621,11 +621,14 @@ input[type="file"]::file-selector-button:hover {
     color: white !important;        /* Texto branco (forçado) */
     padding: 12px 30px;             /* Espaçamento interno (gordinho) */
     border-radius: 50px;            /* Bordas totalmente redondas (pílula) */
-    text-decoration: none;          /* Remove sublinhado padrão de link */
+    text-decoration: none !important; /* Remove sublinhado padrão de link */
     font-weight: 700;               /* Negrito */
     font-family: 'Inter', sans-serif; /* Fonte oficial do site */
     transition: all 0.3s ease;      /* Suaviza a mudança de cor (animação) */
     white-space: nowrap;            /* Impede que o texto quebre em duas linhas */
+    display: inline-flex;           /* Garante que o ícone fique alinhado com o texto */
+    align-items: center;
+    gap: 8px;                       /* Espaço entre ícone e texto */
 }
 
 /* Efeito Hover (Quando passa o mouse no Botão Principal) */
@@ -643,17 +646,25 @@ input[type="file"]::file-selector-button:hover {
     color: #333 !important;         /* Texto cinza escuro */
     padding: 12px 30px;             /* Mesmo tamanho do principal */
     border-radius: 50px;            /* Borda redonda */
-    text-decoration: none;
+    text-decoration: none !important;
     font-weight: 700;
     font-family: 'Inter', sans-serif;
     transition: all 0.3s ease;
     white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
 }
 
-/* Efeito Hover (Quando passa o mouse no Botão Secundário) */
-.btn-action-secondary:hover {
+/* Estados Hover, Focus e Active */
+.btn-action-secondary:hover,
+.btn-action-secondary:focus,
+.btn-action-secondary:active {
     background-color: #000000;      /* Fundo vira PRETO */
     border-color: #000000;          /* Borda vira PRETA */
     color: white !important;        /* Texto vira BRANCO para dar contraste */
     transform: translateY(-3px);    /* Sobe levemente */
+    
+    /* Garante que a linha não apareça nem no clique */
+    text-decoration: none !important;
 }
