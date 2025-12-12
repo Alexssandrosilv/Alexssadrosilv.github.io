@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="A detalhar">
 
-<title>consultoria – ΛΣ</title>
+<title>Inferência Estatística – ΛΣ</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +31,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -70,35 +69,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Procurar"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-image','listing-title','listing-description','listing-date','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;family=Fira+Code&amp;display=swap" rel="stylesheet">
@@ -112,35 +82,6 @@ details > summary {
 }
 </style>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="s5.css">
 </head>
@@ -172,6 +113,26 @@ window.Quarto = {
 </i> 
 <span class="menu-text">Projetos</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./consultoria.html" aria-current="page"> <i class="bi bi-briefcase" role="img">
+</i> 
+<span class="menu-text">Assessoria</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./consultoria.html"> <i class="bi bi-clipboard-data" role="img">
+</i> 
+<span class="menu-text">Assessoria</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./consultoria.html"> <i class="bi bi-graph-up-arrow" role="img">
+</i> 
+<span class="menu-text">Assessoria</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./consultoria.html"> <i class="bi bi-lightbulb" role="img">
+</i> 
+<span class="menu-text">Assessoria</span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -184,115 +145,48 @@ window.Quarto = {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categorias</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">Tudo <span class="quarto-category-count">(3)</span></div><div class="category" data-category="SW5mZXIlQzMlQUFuY2lh">Inferência <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SW5mZXIlQzMlQUFuY2lhJTIwQmF5ZXNpYW5h">Inferência Bayesiana <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Ug==">R <span class="quarto-category-count">(3)</span></div><div class="category" data-category="UmVncmVzcyVDMyVBM28=">Regressão <span class="quarto-category-count">(2)</span></div><div class="category" data-category="U2VyaWVzJTIwVGVtcG9yYWlz">Series Temporais <span class="quarto-category-count">(1)</span></div><div class="category" data-category="VGVvcmlh">Teoria <span class="quarto-category-count">(1)</span></div></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Nesta página</h2>
+   
+  <ul>
+  <li><a href="#projetos" id="toc-projetos" class="nav-link active" data-scroll-target="#projetos"><span class="header-section-number">1</span> Projetos</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content column-page-left" id="quarto-document-content">
 
-
-
-
-<div style="text-align: justify">
-<p>Abaixo estão os módulos disponíveis. Use os filtros à direita para acessar e navegar rapidamente por categorias.</p>
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Inferência Estatística</h1>
 </div>
-<div style="border-top: 2px solid #003366;">
 
+<div>
+  <div class="description">
+    A detalhar
+  </div>
 </div>
-<p><br></p>
 
 
+<div class="quarto-title-meta column-page-left">
+
+    
+  
+    
+  </div>
+  
 
 
-<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
-<div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="SW5mZXIlQzMlQUFuY2lhJTJDUiUyQ1Rlb3JpYQ==" data-listing-file-modified-sort="1765564522676" data-listing-reading-time-sort="1" data-listing-word-count-sort="98">
-<a href="./codigos/1_Inferencia_Estatística/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./codigos/1_Inferencia_Estatística/imagens/inferencia.jpg" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Inferência Estatística
-</h5>
-<div class="listing-categories">
+</header>
 
-<div class="listing-category" onclick="window.quartoListingCategory('SW5mZXIlQzMlQUFuY2lh'); return false;">Inferência</div>
 
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+<section id="projetos" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="projetos"><span class="header-section-number">1</span> Projetos</h2>
 
-<div class="listing-category" onclick="window.quartoListingCategory('VGVvcmlh'); return false;">Teoria</div>
 
-</div>
-<div class="card-text listing-description delink">
-<p>A detalhar</p>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="1" data-categories="SW5mZXIlQzMlQUFuY2lhJTIwQmF5ZXNpYW5hJTJDU2VyaWVzJTIwVGVtcG9yYWlzJTJDUmVncmVzcyVDMyVBM28lMkNS" data-listing-date-sort="1765564522000" data-listing-file-modified-sort="1765564522677" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="96">
-<a href="./codigos/4_Modelos_Lineares_Dinamicos/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./codigos/4_Modelos_Lineares_Dinamicos/imagens/modulo_mld.jpg" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Modelos Lineares Dinâmicos
-</h5>
-<div class="listing-categories">
+</section>
 
-<div class="listing-category" onclick="window.quartoListingCategory('SW5mZXIlQzMlQUFuY2lhJTIwQmF5ZXNpYW5h'); return false;">Inferência Bayesiana</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('U2VyaWVzJTIwVGVtcG9yYWlz'); return false;">Series Temporais</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UmVncmVzcyVDMyVBM28='); return false;">Regressão</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
-
-</div>
-<div class="card-text listing-description delink">
-<p>A detalhar</p>
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-12 de dez. de 2025
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="2" data-categories="UmVncmVzcyVDMyVBM28lMkNS" data-listing-date-sort="1765564522000" data-listing-file-modified-sort="1765564522678" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="96">
-<a href="./codigos/5_Labest/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./codigos/5_Labest/imagens/labest.jpg" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Labest - Laboratório de Estatística
-</h5>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('UmVncmVzcyVDMyVBM28='); return false;">Regressão</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
-
-</div>
-<div class="card-text listing-description delink">
-<p><strong>Consultoria Estatística:</strong> Suporte a docentes e discentes na validação de hipóteses para pesquisas acadêmicas (TCCs, dissertações e artigos).</p>
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-12 de dez. de 2025
-</div>
-</div>
-</div>
-</div></a>
-</div>
-</div>
-<div class="listing-no-matching d-none">Nenhum item correspondente</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
