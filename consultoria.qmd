@@ -1,21 +1,100 @@
 ---
-title: "Inferência Estatística"
-description: "A detalhar"
+title: "Consultoria & Soluções"
+subtitle: "Análises estatísticas rigorosas para academia e mercado"
 page-layout: full
 title-block-banner: false
+include-in-header:
+  - text: |
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+      <style>
+        /* Ajuste específico para o Select (Dropdown) ficar preto igual aos inputs */
+        select.input-field {
+          background-color: #171717;
+          color: #e0e0e0;
+          cursor: pointer;
+          border: none;
+        }
+        select.input-field option {
+          background-color: #171717;
+          color: white;
+        }
+      </style>
 ---
 
+## Como a ΛΣ pode ajudar?
 
-```{r setup, include=FALSE}
-# Define opções padrão para todos os chunks de código no R Markdown
-knitr::opts_chunk$set(
-  echo = TRUE,         # Oculta o código nos resultados finais do documento
-  warning = FALSE,     # Suprime mensagens de aviso (warnings)
-  message = FALSE,     # Suprime mensagens informativas (como as de carregamento de pacotes)
-  fig.width = 10,      # Define a largura padrão das figuras (em polegadas)
-  fig.height = 6,      # Define a altura padrão das figuras (em polegadas)
-  fig.align = 'center'
-)
-```
+::: {style="text-align: justify; margin-bottom: 40px;"} 
 
-## Projetos 
+A ΛΣ Consultoria oferece suporte técnico especializado para transformar dados complexos em resultados claros. Atuamos em duas frentes principais:
+
+- **Consultoria Acadêmica:** Apoio metodológico para TCCs, Dissertações e Teses, garantindo que a análise estatística esteja correta, reprodutível e bem fundamentada.
+
+- **Soluções Corporativas:** Modelagem preditiva, análise de séries temporais e inteligência de dados para tomada de decisão estratégica. 
+
+:::
+
+<div class="form-container">
+  
+  <form class="form" action="[https://formsubmit.co/alexssandrosg@gmail.com](https://formsubmit.co/alexssandrosg@gmail.com)" method="POST" enctype="multipart/form-data">
+    
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_subject" value="Novo Pedido de Consultoria (ΛΣ)">
+    <input type="hidden" name="_template" value="table">
+    
+    <input type="hidden" name="_next" value="http://localhost:quarto-session/sucesso.html"> 
+
+    <p id="heading">Solicitar Orçamento</p>
+    
+    <div class="field">
+      <i class="fa-solid fa-user input-icon"></i>
+      <input autocomplete="off" name="nome" placeholder="Seu Nome" class="input-field" type="text" required>
+    </div>
+
+    <div class="field">
+      <i class="fa-solid fa-envelope input-icon"></i>
+      <input autocomplete="off" name="email" placeholder="Seu E-mail" class="input-field" type="email" required>
+    </div>
+
+    <div class="field">
+      <i class="fa-solid fa-phone input-icon"></i>
+      <input autocomplete="off" name="telefone" placeholder="WhatsApp / Celular" class="input-field" type="tel" required>
+    </div>
+
+    <div class="field">
+      <i class="fa-solid fa-briefcase input-icon"></i>
+      <input autocomplete="off" name="servico" placeholder="Assunto (ex: Análise TCC, Dashboards)" class="input-field" type="text">
+    </div>
+
+    <div class="field">
+      <i class="fa-solid fa-hourglass-half input-icon"></i>
+      <select name="urgencia" class="input-field" required>
+        <option value="" disabled selected>Qual a urgência do prazo?</option>
+        <option value="Baixa">🟢 Baixa (Planejamento / Sem pressa)</option>
+        <option value="Media">🟡 Média (Preciso para as próximas semanas)</option>
+        <option value="Alta">🟠 Alta (Preciso para breve)</option>
+        <option value="Critica">🔴 CRÍTICA (Prazo estourando / < 48h)</option>
+      </select>
+    </div>
+
+    <div class="field" style="align-items: flex-start;">
+      <i class="fa-solid fa-comment input-icon" style="margin-top: 5px;"></i>
+      <textarea name="mensagem" placeholder="Descreva o problema, o objetivo da análise e detalhes do prazo..." class="input-field" required></textarea>
+    </div>
+
+    <div class="field">
+      <i class="fa-solid fa-paperclip input-icon"></i>
+      <input type="file" name="anexo" class="input-field" accept=".pdf,.doc,.docx,.xlsx,.csv,.txt">
+    </div>
+
+    <div class="btn-submit">
+      <button type="submit" class="button1">Enviar Solicitação</button>
+    </div>
+
+  </form>
+</div>
+
+::: {style="border-top: 1px solid #ddd; font-size: 0.8em; text-align: center; color: #666;"} 
+
+© 2025 Alexssandro Oliveira | ΛΣ Consultoria Estatística
+
+:::

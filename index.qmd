@@ -42,6 +42,7 @@ Prezando pela reprodutibilidade da ciência, todo o conteúdo foi estruturado ut
 ### Domínio Técnico & Áreas de Atuação
 
 ::: {style="text-align: justify"}
+
 Minha atuação conecta a modelagem matemática avançada às necessidades de mercado e pesquisa. Ao navegar pela plataforma, você explorará aplicações relacionadas a temas como:
 
 - **Inferência Estatística:** Abordagens Frequentista e Bayesiana para tomada de decisão sob incerteza.
@@ -63,11 +64,13 @@ Como parte do meu compromisso com o ensino e a comunidade acadêmica, disponibil
 
 > 📘 [**Manual Prático de Stan**](https://drive.google.com/file/d/1ZAyo6dOvfV4OrVt9oHsZ7JOox3lAINt3/view?usp=drive_link)
 > <br> *Um guia elaborado para auxiliar estudantes e pesquisadores na sintaxe e lógica da modelagem Bayesiana.*
+
 :::
 
 <br>
 
 ::: {style="text-align: center; margin-top: 40px; margin-bottom: 40px;"}
+
 <a href="consultoria.qmd" class="btn btn-primary" style="background-color: #003366; border-color: #003366; padding: 12px 25px; border-radius: 6px; text-decoration: none; color: white; font-weight: bold; transition: all 0.3s;">
   <i class="bi bi-briefcase-fill"></i> Solicitar Consultoria
 </a>
@@ -75,8 +78,11 @@ Como parte do meu compromisso com o ensino e a comunidade acadêmica, disponibil
 <a href="portfolio.qmd" class="btn btn-outline-primary" style="color: #003366; border-color: #003366; padding: 12px 25px; border-radius: 6px; text-decoration: none; font-weight: bold; transition: all 0.3s;">
   <i class="bi bi-code-slash"></i> Ver Portfólio
 </a>
+
 :::
 
 ::: {style="border-top: 1px solid #ddd; padding-top: 20px; font-size: 0.85em; text-align: center; color: #666;"}
+
 © 2025 Alexssandro Oliveira | **ΛΣ Consultoria Estatística**
+
 :::
