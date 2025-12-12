@@ -431,3 +431,158 @@ code {
     transition: all 0.3s ease;
 }
 
+
+/* ==========================================================================
+   SEÇÃO 11: FORMULÁRIO DE CONTATO (COMENTADO LINHA A LINHA)
+   Estilo Dark Card integrado com a cor da sua marca.
+========================================================================== */
+
+/* --- 1. O ENVOLTÓRIO (Container) --- 
+   Serve apenas para centralizar o formulário na página. 
+*/
+.form-container {
+  display: flex;             /* Ativa o sistema Flexbox para alinhar itens */
+  justify-content: center;   /* Centraliza o formulário horizontalmente (no meio da tela) */
+  margin-top: 3rem;          /* Adiciona espaço (margem) acima do formulário */
+  margin-bottom: 3rem;       /* Adiciona espaço (margem) abaixo do formulário */
+  padding: 0 1rem;           /* Adiciona um respiro nas laterais (para não colar na borda em celulares) */
+}
+
+/* --- 2. O CARTÃO DO FORMULÁRIO (A caixa preta) --- */
+.form {
+  display: flex;             /* Flexbox de novo */
+  flex-direction: column;    /* Organiza os filhos (inputs) em COLUNA (um embaixo do outro) */
+  gap: 15px;                 /* Espaço de 15px entre cada campo (nome, email, etc.) */
+  padding: 2em;              /* Espaço interno (para o conteúdo não colar na borda preta) */
+  background-color: #171717; /* Cor de fundo: Cinza quase preto (Original do design) */
+  border-radius: 25px;       /* Arredonda os cantos da caixa */
+  transition: .4s ease-in-out; /* Define que qualquer mudança (cor, tamanho) vai demorar 0.4s (suave) */
+  width: 100%;               /* Tenta ocupar 100% do espaço disponível... */
+  max-width: 450px;          /* ...mas para de crescer se chegar em 450px (não fica gigante em monitor) */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2); /* Sombra preta suave atrás da caixa para dar profundidade */
+  border: 1px solid transparent; /* Borda invisível inicial (para não pular quando a borda colorida aparecer) */
+}
+
+/* --- 3. EFEITO HOVER NO FORMULÁRIO (Quando passa o mouse na caixa) --- */
+.form:hover {
+  transform: scale(1.01);    /* Aumenta o tamanho da caixa em 1% (efeito de "pulsar") */
+  border-color: var(--cor-destaque-viva); /* A borda transparente vira VERDE TEAL */
+  box-shadow: 0 0 20px rgba(24, 188, 156, 0.2); /* Adiciona um brilho (glow) verde suave atrás */
+}
+
+/* --- 4. O TÍTULO ("Solicitar Consultoria") --- */
+#heading {
+  text-align: center;        /* Alinha o texto no centro */
+  margin: 0 0 1.5em 0;       /* Margem apenas embaixo (afasta dos campos de digitação) */
+  color: white;              /* Cor da fonte branca */
+  font-size: 1.5em;          /* Tamanho da fonte (1.5x o padrão) */
+  font-weight: 700;          /* Negrito forte */
+  font-family: 'Inter', sans-serif; /* Força a fonte Inter */
+  letter-spacing: -0.5px;    /* Junta um pouquinho as letras (estilo moderno) */
+}
+
+/* --- 5. OS CAMPOS DE DIGITAÇÃO (A "pílula" preta onde digita) --- */
+.field {
+  display: flex;             /* Flexbox para alinhar o Ícone ao lado do Input */
+  align-items: center;       /* Centraliza o ícone e o texto verticalmente */
+  justify-content: center;   /* Centraliza o conteúdo */
+  gap: 0.5em;                /* Espaço entre o ícone e o texto digitado */
+  border-radius: 15px;       /* Arredonda as pontas do campo */
+  padding: 0.8em;            /* Altura/Preenchimento interno do campo */
+  border: 1px solid transparent; /* Borda invisível inicial */
+  outline: none;             /* Remove a linha azul padrão do navegador (feia) */
+  color: white;              /* Cor do texto */
+  background-color: #171717; /* Fundo do campo (mesma cor do cartão) */
+  box-shadow: inset 2px 5px 10px rgb(5, 5, 5); /* Sombra INTERNA (inset): dá o efeito de "buraco" ou profundidade */
+  transition: all 0.3s;      /* Animação suave para o foco */
+}
+
+/* --- 6. FOCO NO CAMPO (Quando clica para digitar) --- 
+   O seletor :focus-within significa: "Se alguém clicar em qualquer coisa DENTRO da .field..."
+*/
+.field:focus-within {
+    border-color: var(--cor-destaque-viva); /* A borda da "pílula" acende em VERDE TEAL */
+    background-color: #000000; /* O fundo fica preto total (destaque visual) */
+}
+
+/* --- 7. ÍCONES (Bonequinho, Envelope, Clips) --- */
+.input-icon {
+  height: 1.2em;             /* Altura do ícone */
+  width: 1.2em;              /* Largura do ícone */
+  fill: #9ca3af;             /* Cor de preenchimento (Cinza claro) */
+  min-width: 20px;           /* Garante que o ícone não suma se a tela for muito pequena */
+}
+
+/* --- 8. O TEXTO DIGITADO (O <input> invisível) --- */
+.input-field {
+  background: none;          /* Remove fundo branco padrão do navegador */
+  border: none;              /* Remove borda padrão */
+  outline: none;             /* Remove contorno padrão */
+  width: 100%;               /* Ocupa todo o espaço sobrando na "pílula" */
+  color: #e0e0e0;            /* Cor do texto digitado (quase branco) */
+  font-family: 'Inter', sans-serif; /* Fonte Inter */
+  font-weight: 500;          /* Peso médio da fonte */
+}
+
+/* --- 9. AJUSTE PARA A CAIXA DE MENSAGEM (Textarea) --- */
+textarea.input-field {
+  resize: none;              /* Impede o usuário de puxar o cantinho e quebrar o layout */
+  height: 80px;              /* Define uma altura fixa maior para escrever textos longos */
+  padding-top: 5px;          /* Ajuste fino para o texto não colar no topo */
+}
+
+/* --- 10. BOTÃO DE ENVIAR (Container) --- */
+.btn-submit {
+  display: flex;
+  justify-content: center;   /* Centraliza o botão */
+  margin-top: 1em;           /* Afasta um pouco dos campos */
+}
+
+/* --- 11. ESTILO DO BOTÃO --- */
+.button1 {
+  padding: 0.8em 2em;        /* Tamanho do botão (gordinho) */
+  border-radius: 8px;        /* Cantos levemente arredondados */
+  border: none;              /* Sem borda */
+  outline: none;             /* Sem contorno */
+  transition: .4s ease-in-out; /* Animação suave */
+  background-color: #252525; /* Cor inicial: Cinza escuro */
+  color: white;              /* Texto branco */
+  font-weight: 700;          /* Negrito */
+  cursor: pointer;           /* Mouse vira "mãozinha" */
+  width: 100%;               /* Botão ocupa a largura total disponível */
+  font-family: 'Inter', sans-serif;
+  text-transform: uppercase; /* TRANSFORMA O TEXTO EM MAIÚSCULO */
+  letter-spacing: 1px;       /* Espaça as letras para ficar elegante */
+}
+
+/* --- 12. HOVER DO BOTÃO (Quando passa o mouse) --- */
+.button1:hover {
+  background-color: var(--cor-destaque-viva); /* Fundo vira VERDE TEAL */
+  color: white;              /* Mantém texto branco */
+  transform: translateY(-2px); /* O botão "sobe" 2 pixels (efeito de elevação) */
+}
+
+/* --- 13. BOTÃO DE ESCOLHER ARQUIVO (O botãozinho cinza "Browse") --- 
+   ::file-selector-button é um pseudo-elemento para estilizar aquele botão 
+   feio padrão do navegador que aparece no <input type="file">
+*/
+input[type="file"]::file-selector-button {
+  border-radius: 6px;        /* Arredonda */
+  padding: 5px 12px;         /* Espaçamento interno */
+  height: 30px;              /* Altura fixa */
+  cursor: pointer;           /* Mãozinha */
+  background-color: #333;    /* Fundo cinza escuro */
+  border: 1px solid #555;    /* Borda cinza médio */
+  color: #fff;               /* Texto branco */
+  margin-right: 15px;        /* Afasta do nome do arquivo (ex: "sem arquivo selecionado") */
+  transition: all 0.3s;      /* Animação */
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8em;          /* Fonte um pouco menor */
+}
+
+/* Hover no botão de arquivo */
+input[type="file"]::file-selector-button:hover {
+    background-color: var(--cor-destaque-viva); /* Fica VERDE TEAL */
+    border-color: var(--cor-destaque-viva);     /* Borda Verde */
+    color: white;
+}
