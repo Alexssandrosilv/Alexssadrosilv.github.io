@@ -13,11 +13,7 @@ listing:
 
   # 2. VISUAL: Define o layout como "Grade" (Cards/Quadrados).
   # Outras opções seriam 'default' (lista de blog) ou 'table' (tabela).
-  # <!-- type: grid            -->
-
-  # MUDANÇA PRINCIPAL AQUI:
-  type: custom         
-  template: cards.ejs  # Aponta para o arquivo HTML/Template
+  type: grid           
 
   # 3. ORDENAÇÃO: Define como os cards são organizados.
   # "date desc" = Data descendente (do mais novo para o mais antigo).

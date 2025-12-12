@@ -586,3 +586,252 @@ input[type="file"]::file-selector-button:hover {
     border-color: var(--cor-destaque-viva);     /* Borda Verde */
     color: white;
 }
+
+
+/* ==========================================================================
+   SEÇÃO 12: CUSTOM FLIP CARDS (Projetos Animados 3D)
+   Estilos específicos para o template .ejs.
+   Este código cria o efeito de cartão que gira ao passar o mouse.
+========================================================================== */
+
+/* --- 1. O GRID (A Prateleira) ---
+   Este container segura todos os cartões e os organiza na tela.
+*/
+.list.grid {
+  display: flex;           /* Ativa o Flexbox: organiza os itens em linha/coluna */
+  flex-wrap: wrap;         /* Permite quebra de linha: se encher, vai para baixo */
+  gap: 30px;               /* Espaço em branco (respiro) entre os cartões */
+  justify-content: center; /* Centraliza o bloco de cartões no meio da tela */
+  padding: 20px 0;         /* Espaçamento vertical (cima/baixo) para não colar no texto */
+}
+
+/* --- 2. O PALCO DO CARTÃO (A Moldura) ---
+   Define o tamanho fixo de cada cartão individual.
+*/
+.flip-card {
+  overflow: visible;             /* Permite que sombras ou brilhos vazem para fora da borda */
+  width: 190px;                  /* Largura fixa do cartão */
+  height: 254px;                 /* Altura fixa do cartão */
+  cursor: pointer;               /* Transforma o mouse em "mãozinha" (clicável) */
+  font-family: 'Inter', sans-serif; /* Garante que a fonte seja a mesma do resto do site */
+}
+
+/* --- 3. O CONTEÚDO 3D (O Ator que Gira) ---
+   É o elemento filho que realmente executa o giro.
+*/
+.content {
+  width: 100%;                   /* Ocupa toda a largura da moldura (.flip-card) */
+  height: 100%;                  /* Ocupa toda a altura da moldura */
+  
+  /* CRUCIAL: Habilita o ambiente 3D. Sem isso, o giro fica "achatado" (2D) */
+  transform-style: preserve-3d;
+  
+  transition: transform 300ms;   /* Define a velocidade do giro (300 milissegundos) */
+  box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.5); /* Sombra preta suave ao redor */
+  border-radius: 5px;            /* Arredonda os cantos levemente */
+}
+
+/* --- 4. AÇÃO DE GIRAR (O Gatilho) ---
+   Quando o mouse passa em cima (.flip-card:hover), o .content gira 180 graus.
+*/
+.flip-card:hover .content {
+  transform: rotateY(180deg);    /* Gira no eixo Y (horizontalmente) */
+}
+
+/* --- 5. CONFIGURAÇÃO DAS FACES (Frente e Verso) ---
+   Propriedades compartilhadas pelos dois lados do cartão.
+*/
+.front, .back {
+  background-color: #151515;     /* Cor de fundo: Cinza quase preto */
+  position: absolute;            /* Sobrepõe uma face exatamente em cima da outra */
+  width: 100%;
+  height: 100%;
+  
+  /* CRUCIAL: Esconde o "verso" de cada face. 
+     Se a face estiver de costas para você, ela fica invisível. */
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden; /* Compatibilidade com Safari/Chrome antigos */
+  
+  border-radius: 5px;            /* Mantém o arredondamento */
+  overflow: hidden;              /* Corta qualquer imagem que tente sair do cartão */
+}
+
+/* --- 6. O VERSO (Estado Inicial - Capa Preta) ---
+   É o lado que você vê primeiro, antes de passar o mouse.
+*/
+.back {
+  /* Centraliza o ícone e o texto no meio do cartão preto */
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
+/* --- 7. ANIMAÇÃO DE RADAR (O Brilho Giratório) ---
+   Cria aquele efeito de luz varrendo o cartão no verso.
+*/
+.back::before {
+  position: absolute;            /* Posicionamento livre */
+  content: ' ';                  /* Cria um elemento vazio para desenhar o brilho */
+  display: block;
+  width: 160px;                  /* Tamanho do facho de luz */
+  height: 160%;                  /* Altura exagerada para cobrir tudo ao girar */
+  
+  /* O degradê que cria o facho de luz (transparente -> laranja -> transparente) */
+  background: linear-gradient(90deg, transparent, #ff9966, #ff9966, #ff9966, #ff9966, transparent);
+  
+  /* Chama a animação 'rotation_481' definida mais abaixo */
+  animation: rotation_481 5000ms infinite linear;
+}
+
+/* Container interno do verso para garantir que o texto fique ACIMA do brilho */
+.back-content {
+  position: absolute;
+  width: 99%;                    /* Deixa uma borda fininha (1%) onde o brilho passa */
+  height: 99%;
+  background-color: #151515;     /* Fundo preto que cobre o centro do brilho */
+  border-radius: 5px;
+  color: white;                  /* Texto branco */
+  display: flex;
+  flex-direction: column;        /* Organiza Ícone em cima, Texto embaixo */
+  justify-content: center;
+  align-items: center;
+  gap: 30px;                     /* Distância entre o ícone e o texto */
+}
+
+/* Define a animação de rotação infinita do radar */
+@keyframes rotation_481 {
+  0% { transform: rotateZ(0deg); }     /* Começa em 0 graus */
+  100% { transform: rotateZ(360deg); } /* Termina em 360 graus (volta completa) */
+}
+
+/* --- 8. A FRENTE (O Projeto Revelado) ---
+   Este lado começa virado para trás (180 graus).
+   Quando o cartão gira, ele fica em 0 graus (visível).
+*/
+.front {
+  transform: rotateY(180deg);    /* Começa virado de costas */
+  color: white;
+}
+
+/* Container de conteúdo da frente (Título, Data, Categoria) */
+.front .front-content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 10px;                 /* Margem interna */
+  display: flex;
+  flex-direction: column;        /* Organiza itens verticalmente */
+  justify-content: space-between;/* Empurra Categoria p/ topo e Título p/ base */
+  z-index: 2;                    /* Garante que o texto fique EM CIMA da imagem */
+}
+
+/* A Etiqueta (Badge) da categoria */
+.front-content .badge {
+  background-color: rgba(0, 0, 0, 0.6); /* Fundo preto semi-transparente */
+  padding: 2px 10px;
+  border-radius: 10px;           /* Formato de pílula */
+  backdrop-filter: blur(2px);    /* Desfoque atrás da etiqueta */
+  width: fit-content;            /* Largura se adapta ao tamanho do texto */
+  font-size: 0.75rem;            /* Fonte pequena */
+  font-weight: 700;              /* Negrito */
+  border: 1px solid rgba(255,255,255,0.2); /* Borda fina quase invisível */
+}
+
+/* O Bloco Inferior (Título e Data) */
+.description {
+  box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.5); /* Sombra para destacar do fundo */
+  width: 100%;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.8); /* Fundo bem escuro para ler o texto */
+  backdrop-filter: blur(5px);    /* Efeito de vidro fosco */
+  border-radius: 5px;
+}
+
+.title {
+  font-size: 11px;
+  max-width: 100%;
+  display: flex;
+  justify-content: space-between; /* Texto na esquerda, ícone na direita */
+  align-items: center;
+}
+
+.title p {
+  width: 100%;
+  margin: 0;
+  color: #fff;                   /* Garante título branco */
+}
+
+.card-footer {
+  color: #cccccc;                /* Data em cinza claro */
+  margin-top: 5px;
+  font-size: 9px;                /* Fonte bem pequena */
+}
+
+/* --- 9. IMAGEM E FUNDO ANIMADO --- */
+
+/* Container da imagem */
+.front .img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 1;                    /* Fica atrás do texto, mas na frente do fundo */
+}
+
+/* A Imagem do seu projeto (Renderizada pelo Quarto) */
+.project-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;             /* Preenche tudo sem distorcer (corta excessos) */
+  opacity: 0.7;                  /* Levemente transparente para misturar com o fundo preto */
+  transition: opacity 0.3s ease;
+}
+
+/* As Bolhas Coloridas (Blobs) que flutuam atrás da imagem */
+.circle {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;            /* Cria um círculo perfeito */
+  background-color: #ffbb66;     /* Cor Laranja */
+  position: absolute;
+  filter: blur(15px);            /* Desfoque forte para parecer uma luz difusa */
+  animation: floating 2600ms infinite linear; /* Animação de flutuar */
+  z-index: 0;                    /* Fica no fundo de tudo */
+}
+
+/* Bolha 2 (Vermelha/Laranja) */
+#bottom {
+  background-color: #ff8866;
+  left: 50px;
+  top: 0px;
+  width: 150px;
+  height: 150px;
+  animation-delay: -800ms;       /* Começa a animação em tempo diferente */
+}
+
+/* Bolha 3 (Vermelha) */
+#right {
+  background-color: #ff2233;
+  left: 160px;
+  top: -80px;
+  width: 30px;
+  height: 30px;
+  animation-delay: -1800ms;
+}
+
+/* Animação de Flutuar (Sobe e Desce suavemente) */
+@keyframes floating {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(10px); } /* Move 10px para baixo */
+  100% { transform: translateY(0px); }
+}
+
+/* --- 10. LIMPEZA DE LINKS ---
+   Garante que o link do Quarto não estrague o visual do cartão.
+*/
+a.card-link {
+  text-decoration: none !important; /* Remove sublinhado */
+  color: inherit !important;        /* Remove cor azul padrão de link */
+  display: block;                   /* Faz o link ocupar o bloco inteiro */
+}
