@@ -1,12 +1,14 @@
 ---
-author: "Alexssandro Oliveira alexssandrosg@gmail.com"
-date: last-modified
-image: extras/imagens/Alexssandro.jpg  # <--- Coloque sua foto nessa pasta com esse nome
+# title: "Alexssandro Oliveira"
+subtitle: "Alexssandro Oliveira"
+author: "Estatístico Fundador da ΛΣ Consultoria alexssandrosg@gmail.com"
+# date: last-modified
+image: extras/imagens/Alexssandro.jpg  
 lang: pt
 about:
-  template: trestles            # O estilo centralizado (pode trocar por 'trestles')
+  template: trestles            # O estilo centralizado
   image-width: 20em
-  image-shape: round #rectangle 
+  image-shape: round
   links:
     - icon: linkedin
       text: LinkedIn
@@ -20,86 +22,61 @@ about:
 page-layout: full
 ---
 
-<!-- <br> -->
+::: {style="border-top: 3px solid #003366; margin-bottom: 20px;"}
+:::
 
-::: {style="border-top: 2px solid #003366;"}
+## Apresentação
+
+::: {style="text-align: justify"}
+Olá, seja bem-vindo(a).
+
+Sou **Alexssandro da Silva Oliveira**, graduando em Estatística pela Universidade Federal do Amazonas (UFAM) e fundador da **ΛΣ Consultoria Estatística**.
+
+Este portfólio foi construído com uma filosofia dupla: servir como vitrine de **soluções analíticas profissionais** e, simultaneamente, como um repositório de **divulgação científica** com rigor acadêmico. Aqui, a teoria estatística não é apenas estudada, mas aplicada para resolver problemas reais na prática.
+
+Prezando pela reprodutibilidade da ciência, todo o conteúdo foi estruturado utilizando **Quarto (`.qmd`)**, ferramenta que integra texto, código e visualizações em relatórios dinâmicos, permitindo que o código, a análise e as conclusões sejam auditáveis e acessíveis.
 :::
 
 <br>
 
-## Carta de Apresentação
+### Domínio Técnico & Áreas de Atuação
 
 ::: {style="text-align: justify"}
+Minha atuação conecta a modelagem matemática avançada às necessidades de mercado e pesquisa. Ao navegar pela plataforma, você explorará aplicações relacionadas a temas como:
 
-Seja bem-vindo.
+- **Inferência Estatística:** Abordagens Frequentista e Bayesiana para tomada de decisão sob incerteza.
+- **Modelagem Preditiva:** Modelos de Regressão, MLG e análise de tendências.
+- **Séries Temporais:** Estudo de dinâmicas temporais e previsões.
+- **Computação Estatística:** Desenvolvimento de rotinas otimizadas em **R** e **Python**.
+:::
 
-Meu nome é **Alexssandro da Silva Oliveira**, graduando em Estatística pela Universidade Federal do Amazonas (UFAM). Este espaço é dedicado à apresentação de projetos, estudos de caso e análises estatísticas desenvolvidas ao longo da minha trajetória acadêmica.
+<br>
 
-Prezando pela reprodutibilidade, todo o conteúdo foi estruturado utilizando **Quarto (`.qmd`)**, ferramenta que integra texto, código e visualizações em relatórios dinâmicos.
+### Ferramentas e Ensino
 
-Ao navegar pela plataforma, você explorará aplicações relacionadas a temas como:
-
-- **Inferência Estatística**;
-- **Modelos de Regressão**;
-- **Métodos Não Paramétricos**;
-- **Modelos Lineares Generalizados (MLG)**;
-- **Séries Temporais**;
-- **Modelos Lineares Dinâmicos**.
-
-Para a elaboração dos estudos, são utilizadas as linguagens [**R**](http://www.R-project.org/) e [**Python**](https://www.python.org/), referências em Ciência de Dados. Além disso, aplicamos o ambiente de modelagem probabilística [**Stan**](https://mc-stan.org/), acessado via interface [**RStan**](https://mc-stan.org/users/interfaces/rstan), para a estimação eficiente de modelos Bayesianos complexos através do algoritmo Hamiltonian Monte Carlo (HMC).
+::: {style="text-align: justify"}
+Para a elaboração dos estudos, utilizo **R** e **Python** como referências em Ciência de Dados. Além disso, aplico o ambiente de modelagem probabilística [**Stan**](https://mc-stan.org/) (via RStan) para a estimação eficiente de modelos Bayesianos complexos através do algoritmo Hamiltonian Monte Carlo (HMC).
 
 Todo o desenvolvimento é conduzido no ambiente [**RStudio**](https://posit.co/download/rstudio-desktop/), garantindo a organização e o versionamento adequado dos códigos.
 
-**Material de Apoio:** Disponibilizo o [**Manual de Stan**](https://drive.google.com/file/d/1ZAyo6dOvfV4OrVt9oHsZ7JOox3lAINt3/view?usp=drive_link). Este documento serve como guia teórico e prático sobre a sintaxe da linguagem e lógica da modelagem Bayesiana.
+Como parte do meu compromisso com o ensino e a comunidade acadêmica, disponibilizo abertamente o material de apoio:
+
+> 📘 [**Manual Prático de Stan**](https://drive.google.com/file/d/1ZAyo6dOvfV4OrVt9oHsZ7JOox3lAINt3/view?usp=drive_link)
+> <br> *Um guia elaborado para auxiliar estudantes e pesquisadores na sintaxe e lógica da modelagem Bayesiana.*
 :::
 
 <br>
 
-```{=html}
-<div class="form-container">
-  <form class="form" action="[https://formsubmit.co/alexssandrosg@gmail.com](https://formsubmit.co/alexssandrosg@gmail.com)" method="POST" enctype="multipart/form-data">
-    
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_subject" value="Novo Contato via Portfólio">
-    <input type="hidden" name="_template" value="table">
-
-    <p id="heading">Solicitar Consultoria</p>
-    
-    <div class="field">
-      <i class="fa-solid fa-user input-icon"></i>
-      <input autocomplete="off" name="nome" placeholder="Seu Nome" class="input-field" type="text" required>
-    </div>
-
-    <div class="field">
-      <i class="fa-solid fa-envelope input-icon"></i>
-      <input autocomplete="off" name="email" placeholder="Seu E-mail" class="input-field" type="email" required>
-    </div>
-
-    <div class="field">
-      <i class="fa-solid fa-chart-pie input-icon"></i>
-      <input autocomplete="off" name="servico" placeholder="Tipo (ex: TCC, Análise de Dados)" class="input-field" type="text">
-    </div>
-
-    <div class="field" style="align-items: flex-start;">
-      <i class="fa-solid fa-comment input-icon" style="margin-top: 5px;"></i>
-      <textarea name="mensagem" placeholder="Descreva o contexto do problema..." class="input-field" required></textarea>
-    </div>
-
-    <div class="field">
-      <i class="fa-solid fa-paperclip input-icon"></i>
-      <input type="file" name="anexo" class="input-field" accept=".pdf,.doc,.docx,.xlsx,.csv">
-    </div>
-
-    <div class="btn-submit">
-      <button type="submit" class="button1">Enviar Solicitação</button>
-    </div>
-
-  </form>
-</div>
-```
-
-::: {style="border-top: 2px solid #003366;"}
+::: {style="text-align: center; margin-top: 40px; margin-bottom: 40px;"}
+<a href="consultoria.qmd" class="btn btn-primary" style="background-color: #003366; border-color: #003366; padding: 12px 25px; border-radius: 6px; text-decoration: none; color: white; font-weight: bold; transition: all 0.3s;">
+  <i class="bi bi-briefcase-fill"></i> Solicitar Consultoria
+</a>
+&nbsp;&nbsp;&nbsp;
+<a href="portfolio.qmd" class="btn btn-outline-primary" style="color: #003366; border-color: #003366; padding: 12px 25px; border-radius: 6px; text-decoration: none; font-weight: bold; transition: all 0.3s;">
+  <i class="bi bi-code-slash"></i> Ver Portfólio
+</a>
 :::
 
-
-<br>
+::: {style="border-top: 1px solid #ddd; padding-top: 20px; font-size: 0.85em; text-align: center; color: #666;"}
+© 2025 Alexssandro Oliveira | **ΛΣ Consultoria Estatística**
+:::

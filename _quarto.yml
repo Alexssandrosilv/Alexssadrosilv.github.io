@@ -2,9 +2,8 @@ project:
   type: website
   output-dir: docs # Pasta para o GitHub Pages
 
-
 website:
-  title: "ΛΣ"
+  title: "ΛΣ.st"
   description: "Portfólio de projetos de Alexssandro Oliveira"
   # As setas no final da página (Só funcionam se tiver sidebar definindo a ordem)
   page-navigation: true 
@@ -18,46 +17,39 @@ website:
     #         dentro de um botão "hambúrguer" (☰) para não quebrar o site.
     # false = Tenta mostrar todos os botões espremidos, o que fica ruim no celular.
     collapse: true 
-        
-
-
+    
     left:
       - text: "Início"
         icon: house
         href: index.qmd
       
-      - text: "Projetos"
+      - text: "Portfólio"
         icon: journal-code
-        href: projetos.qmd # Link direto para a Galeria (Vitrine)
-      - text: "Assessoria"
-        icon: briefcase # Mudei o ícone para diferenciar de projetos, mas pode manter journal-code
-        href: consultoria.qmd
-      - text: "Assessoria"
+        href: portfolio.qmd # Link direto para a Galeria (Vitrine)
+      
+      - text: "Consultoria"
         icon: clipboard-data
         href: consultoria.qmd
-      - text: "Assessoria"
-        icon: graph-up-arrow
-        href: consultoria.qmd
-      - text: "Assessoria"
-        icon: lightbulb
-        href: consultoria.qmd
+      #   icon: briefcase 
+      #   icon: clipboard-data
+      #   icon: graph-up-arrow
+      #   href: consultoria.qmd
         
 
-# Lado Direito: Apenas ÍCONES (para ficar uniforme)
-    # right:
-    #   - icon: file-person  # Ícone de "Currículo" (bonequinho no arquivo)
-    #     href: extra/pdf/Curriculum_Alexssandro_Silva_Oliveira.pdf
-    #     target: _blank
-    #     aria-label: "Currículo" # Isso serve para leitores de tela saberem o que é
-    # 
-    #   - icon: github
-    #     href: https://github.com/Alexssadrosilv
-    #     aria-label: GitHub
-    #     
-    #   - icon: linkedin
-    #     href: https://www.linkedin.com/in/alexssandro-silva-3b63aa19b/
-    #     aria-label: LinkedIn
+# Lado Direito: Apenas ÍCONES (para ficar uniforme e profissional)
+    right:
+      # - icon: file-person  # Ícone de "Currículo" (bonequinho no arquivo)
+      #   href: extra/pdf/Curriculum_Alexssandro_Silva_Oliveira.pdf
+      #   target: _blank
+      #   aria-label: "Currículo" # Isso serve para leitores de tela saberem o que é
+      
+      - icon: github
+        href: https://github.com/Alexssandrosilv
+        aria-label: GitHub
         
+      - icon: linkedin
+        href: https://www.linkedin.com/in/alexssandro-silva-3b63aa19b/
+        aria-label: LinkedIn
 
 # 2. Rodapé (Com as Redes Sociais)
   page-footer:
