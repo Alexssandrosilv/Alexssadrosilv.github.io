@@ -3,7 +3,7 @@ project:
   output-dir: docs # Pasta para o GitHub Pages
 
 website:
-  title: "ΛΣ.st"
+  title: "ΛΣ"
   description: "Portfólio de projetos de Alexssandro Oliveira"
   # As setas no final da página (Só funcionam se tiver sidebar definindo a ordem)
   page-navigation: true 

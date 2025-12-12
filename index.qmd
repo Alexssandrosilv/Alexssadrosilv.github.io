@@ -1,12 +1,12 @@
 ---
 # title: "Alexssandro Oliveira"
 subtitle: "Alexssandro Oliveira"
-author: "Estatístico Fundador da ΛΣ Consultoria alexssandrosg@gmail.com"
+author: "Estatístico | Fundador da ΛΣ Consultoria <br> alexssandrosg@gmail.com"
 # date: last-modified
-image: extras/imagens/Alexssandro.jpg  
+image: extras/imagens/Alexssandro.jpg
 lang: pt
 about:
-  template: trestles            # O estilo centralizado
+  template: trestles
   image-width: 20em
   image-shape: round
   links:
@@ -16,9 +16,6 @@ about:
     - icon: github
       text: Github
       href: https://github.com/Alexssandrosilv
-    # - icon: envelope
-    #   text: Email
-    #   href: mailto:alexssandrosg@gmail.com
 page-layout: full
 ---
 
@@ -27,55 +24,60 @@ page-layout: full
 
 ## Apresentação
 
-::: {style="text-align: justify"}
-Olá, seja bem-vindo(a).
+::: {style="text-align: justify; margin-top: 15px;"}
 
-Sou **Alexssandro da Silva Oliveira**, graduando em Estatística pela Universidade Federal do Amazonas (UFAM) e fundador da **ΛΣ Consultoria Estatística**.
+Seja bem-vindo(a).
 
-Este portfólio foi construído com uma filosofia dupla: servir como vitrine de **soluções analíticas profissionais** e, simultaneamente, como um repositório de **divulgação científica** com rigor acadêmico. Aqui, a teoria estatística não é apenas estudada, mas aplicada para resolver problemas reais na prática.
+Sou **Alexssandro da Silva Oliveira**, graduando em Estatística pela Universidade Federal do Amazonas (UFAM) e fundador da **ΛΣ Consultoria**.
 
-Prezando pela reprodutibilidade da ciência, todo o conteúdo foi estruturado utilizando **Quarto (`.qmd`)**, ferramenta que integra texto, código e visualizações em relatórios dinâmicos, permitindo que o código, a análise e as conclusões sejam auditáveis e acessíveis.
+Este portfólio representa a **interseção entre o rigor acadêmico e a aplicabilidade de mercado**. O objetivo deste espaço é demonstrar como a teoria estatística, quando bem aplicada, deixa de ser apenas abstração matemática para se tornar uma ferramenta poderosa na resolução de problemas reais.
+
+Pautado pela ética da **Ciência Aberta**, todo o conteúdo aqui exposto prioriza a **reprodutibilidade**. Utilizo o ambiente **Quarto (`.qmd`)** para garantir que cada análise, código e inferência sejam transparentes, auditáveis e tecnicamente robustos.
+
 :::
 
-<br>
+### Áreas de Atuação
 
-### Domínio Técnico & Áreas de Atuação
+::: {style="text-align: justify; margin-top: 15px;"}
 
-::: {style="text-align: justify"}
+Minha abordagem combina métodos quantitativos avançados com inteligência de dados. Os principais eixos de desenvolvimento incluem:
 
-Minha atuação conecta a modelagem matemática avançada às necessidades de mercado e pesquisa. Ao navegar pela plataforma, você explorará aplicações relacionadas a temas como:
-
-- **Inferência Estatística:** Abordagens Frequentista e Bayesiana para tomada de decisão sob incerteza.
-- **Modelagem Preditiva:** Modelos de Regressão, MLG e análise de tendências.
-- **Séries Temporais:** Estudo de dinâmicas temporais e previsões.
-- **Computação Estatística:** Desenvolvimento de rotinas otimizadas em **R** e **Python**.
-:::
-
-<br>
-
-### Ferramentas e Ensino
-
-::: {style="text-align: justify"}
-Para a elaboração dos estudos, utilizo **R** e **Python** como referências em Ciência de Dados. Além disso, aplico o ambiente de modelagem probabilística [**Stan**](https://mc-stan.org/) (via RStan) para a estimação eficiente de modelos Bayesianos complexos através do algoritmo Hamiltonian Monte Carlo (HMC).
-
-Todo o desenvolvimento é conduzido no ambiente [**RStudio**](https://posit.co/download/rstudio-desktop/), garantindo a organização e o versionamento adequado dos códigos.
-
-Como parte do meu compromisso com o ensino e a comunidade acadêmica, disponibilizo abertamente o material de apoio:
-
-> 📘 [**Manual Prático de Stan**](https://drive.google.com/file/d/1ZAyo6dOvfV4OrVt9oHsZ7JOox3lAINt3/view?usp=drive_link)
-> <br> *Um guia elaborado para auxiliar estudantes e pesquisadores na sintaxe e lógica da modelagem Bayesiana.*
+- **Inferência Estatística:** Aplicação de métodos Frequentistas e Bayesianos para quantificar incertezas e dar suporte à tomada de decisão.
+- **Modelagem Preditiva:** Ajuste de Modelos de Regressão e GLMs para descrever fenômenos e identificar padrões complexos.
+- **Análise de Séries Temporais:** Estudo de dependências temporais para *forecasting* (previsões) e compreensão de dinâmicas estocásticas.
+- **Computação Estatística:** Implementação de algoritmos eficientes e rotinas automatizadas em **R** e **Python**.
 
 :::
 
 <br>
 
-::: {style="text-align: center; margin-top: 40px; margin-bottom: 40px;"}
+### Ferramentas
 
-<a href="consultoria.qmd" class="btn btn-primary" style="background-color: #003366; border-color: #003366; padding: 12px 25px; border-radius: 6px; text-decoration: none; color: white; font-weight: bold; transition: all 0.3s;">
+::: {style="text-align: justify; margin-top: 15px;"}
+
+A infraestrutura das análises é fundamentada nas linguagens **R** e **Python**, padrões da indústria de Data Science. Para modelagens de alta complexidade, utilizo a linguagem probabilística **Stan** (via interface RStan), explorando o algoritmo *Hamiltonian Monte Carlo* (HMC) para inferência Bayesiana eficiente.
+
+Todo o fluxo de trabalho é gerenciado no ambiente **RStudio**, assegurando organização e controle de versão.
+
+Como parte do meu compromisso com a disseminação do conhecimento estatístico, disponibilizo meu material autoral:
+
+::: {style="border-left: 5px solid #003366; background-color: #f8f9fa; padding: 15px; margin-top: 20px; border-radius: 0 5px 5px 0;"}
+📘 [**Manual Prático de Stan**](https://drive.google.com/file/d/1ZAyo6dOvfV4OrVt9oHsZ7JOox3lAINt3/view?usp=drive_link)
+<br>
+*Um guia técnico sobre a sintaxe e a lógica da modelagem Bayesiana, desenvolvido para auxiliar pesquisadores e estudantes.*
+:::
+
+:::
+
+<br>
+
+::: {style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-top: 40px; margin-bottom: 40px;"}
+
+<a href="consultoria.qmd" class="btn" style="background-color: #18bc9c; border: 2px solid #18bc9c; padding: 12px 30px; border-radius: 50px; text-decoration: none; color: white; font-weight: 700; font-family: 'Inter', sans-serif; transition: transform 0.2s; white-space: nowrap;">
   <i class="bi bi-briefcase-fill"></i> Solicitar Consultoria
 </a>
-&nbsp;&nbsp;&nbsp;
-<a href="portfolio.qmd" class="btn btn-outline-primary" style="color: #003366; border-color: #003366; padding: 12px 25px; border-radius: 6px; text-decoration: none; font-weight: bold; transition: all 0.3s;">
+
+<a href="portfolio.qmd" class="btn" style="background-color: transparent; border: 2px solid #333; padding: 12px 30px; border-radius: 50px; text-decoration: none; color: #333; font-weight: 700; font-family: 'Inter', sans-serif; transition: transform 0.2s; white-space: nowrap;">
   <i class="bi bi-code-slash"></i> Ver Portfólio
 </a>
 
