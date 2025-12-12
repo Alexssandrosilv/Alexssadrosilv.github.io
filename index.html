@@ -167,102 +167,6 @@ details > summary {
   </div>
   <div class="about-contents"><main class="content column-page-left" id="quarto-document-content">
 
-<style>
-  /* Container da barra */
-  .expandable-tabs {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.5rem;
-    border: 1px solid #e5e7eb;
-    background-color: #ffffff;
-    padding: 0.25rem;
-    border-radius: 1rem;
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-    width: fit-content;
-    margin: 0 auto 2rem auto;
-  }
-  /* Botão individual */
-  .tab-item {
-    position: relative;
-    display: flex;
-    align-items: center;
-    border-radius: 0.75rem;
-    padding: 0.5rem 0.75rem;
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: #6b7280;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  .tab-item:hover {
-    background-color: #f3f4f6;
-    color: #111827;
-  }
-  /* Estado Ativo */
-  .tab-item.active {
-    background-color: #f3f4f6;
-    color: #3b82f6;
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-  /* Ícones */
-  .tab-item i {
-    font-size: 1.25rem;
-  }
-  /* Texto (escondido por padrão) */
-  .tab-text {
-    max-width: 0;
-    opacity: 0;
-    overflow: hidden;
-    white-space: nowrap;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  }
-  .tab-item.active .tab-text {
-    max-width: 150px;
-    opacity: 1;
-    margin-left: 0.5rem;
-  }
-  /* Separador */
-  .tab-separator {
-    margin: 0 0.25rem;
-    height: 24px;
-    width: 1.2px;
-    background-color: #e5e7eb;
-  }
-</style>
-<div class="expandable-tabs">
-  <button class="tab-item active" onclick="selectTab(this, '#home')">
-    <i class="fa-solid fa-house"></i>
-    <span class="tab-text">Início</span>
-  </button>
-  <button class="tab-item" onclick="selectTab(this, '#projetos')">
-    <i class="fa-solid fa-chart-line"></i>
-    <span class="tab-text">Projetos</span>
-  </button>
-  <div class="tab-separator"></div>
-  <button class="tab-item" onclick="window.location.href='[https://github.com/Alexssandrosilv](https://github.com/Alexssandrosilv)'">
-    <i class="fa-brands fa-github"></i>
-    <span class="tab-text">GitHub</span>
-  </button>
-   <button class="tab-item" onclick="window.location.href='[https://www.linkedin.com/in/alexssandro-silva-3b63aa19b/](https://www.linkedin.com/in/alexssandro-silva-3b63aa19b/)'">
-    <i class="fa-brands fa-linkedin"></i>
-    <span class="tab-text">LinkedIn</span>
-  </button>
-</div>
-<script>
-  function selectTab(clickedButton, sectionId) {
-    const buttons = document.querySelectorAll('.tab-item');
-    buttons.forEach(btn => btn.classList.remove('active'));
-    clickedButton.classList.add('active');
-    // Se quiser rolar a página para uma seção específica:
-    // if (sectionId && sectionId.startsWith('#')) {
-    //   document.querySelector(sectionId)?.scrollIntoView({ behavior: 'smooth' });
-    // }
-  }
-</script>
 <!-- <br> -->
 <div style="border-top: 2px solid #003366;">
 </div>
@@ -285,6 +189,38 @@ details > summary {
 <p>Para a elaboração dos estudos, são utilizadas as linguagens <a href="http://www.R-project.org/"><strong>R</strong></a> e <a href="https://www.python.org/"><strong>Python</strong></a>, referências em Ciência de Dados. Além disso, aplicamos o ambiente de modelagem probabilística <a href="https://mc-stan.org/"><strong>Stan</strong></a>, acessado via interface <a href="https://mc-stan.org/users/interfaces/rstan"><strong>RStan</strong></a>, para a estimação eficiente de modelos Bayesianos complexos através do algoritmo Hamiltonian Monte Carlo (HMC).</p>
 <p>Todo o desenvolvimento é conduzido no ambiente <a href="https://posit.co/download/rstudio-desktop/"><strong>RStudio</strong></a>, garantindo a organização e o versionamento adequado dos códigos.</p>
 <p><strong>Material de Apoio:</strong> Disponibilizo o <a href="https://drive.google.com/file/d/1ZAyo6dOvfV4OrVt9oHsZ7JOox3lAINt3/view?usp=drive_link"><strong>Manual de Stan</strong></a>. Este documento serve como guia teórico e prático sobre a sintaxe da linguagem e lógica da modelagem Bayesiana.</p>
+</div>
+<p><br></p>
+<div class="form-container">
+  <form class="form" action="[https://formsubmit.co/alexssandrosg@gmail.com](https://formsubmit.co/alexssandrosg@gmail.com)" method="POST" enctype="multipart/form-data">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_subject" value="Novo Contato via Portfólio">
+    <input type="hidden" name="_template" value="table">
+    <p id="heading">Solicitar Consultoria</p>
+    <div class="field">
+      <i class="fa-solid fa-user input-icon"></i>
+      <input autocomplete="off" name="nome" placeholder="Seu Nome" class="input-field" type="text" required="">
+    </div>
+    <div class="field">
+      <i class="fa-solid fa-envelope input-icon"></i>
+      <input autocomplete="off" name="email" placeholder="Seu E-mail" class="input-field" type="email" required="">
+    </div>
+    <div class="field">
+      <i class="fa-solid fa-chart-pie input-icon"></i>
+      <input autocomplete="off" name="servico" placeholder="Tipo (ex: TCC, Análise de Dados)" class="input-field" type="text">
+    </div>
+    <div class="field" style="align-items: flex-start;">
+      <i class="fa-solid fa-comment input-icon" style="margin-top: 5px;"></i>
+      <textarea name="mensagem" placeholder="Descreva o contexto do problema..." class="input-field" required=""></textarea>
+    </div>
+    <div class="field">
+      <i class="fa-solid fa-paperclip input-icon"></i>
+      <input type="file" name="anexo" class="input-field" accept=".pdf,.doc,.docx,.xlsx,.csv">
+    </div>
+    <div class="btn-submit">
+      <button type="submit" class="button1">Enviar Solicitação</button>
+    </div>
+  </form>
 </div>
 <div style="border-top: 2px solid #003366;">
 </div>

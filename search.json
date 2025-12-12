@@ -77,17 +77,10 @@
     "text": "Analise 1\n\n\n\n\n\n\n\n\nInvalid Date\n\n3 minutos\n\n\n\n\nNenhum item correspondente"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "ΛΣ",
-    "section": "",
-    "text": "Início\n  \n  \n    \n    Projetos\n  \n  \n  \n    \n    GitHub\n  \n   \n    \n    LinkedIn"
-  },
-  {
     "objectID": "index.html#carta-de-apresentação",
     "href": "index.html#carta-de-apresentação",
     "title": "ΛΣ",
     "section": "1 Carta de Apresentação",
-    "text": "1 Carta de Apresentação\n\nSeja bem-vindo.\nMeu nome é Alexssandro da Silva Oliveira, graduando em Estatística pela Universidade Federal do Amazonas (UFAM). Este espaço é dedicado à apresentação de projetos, estudos de caso e análises estatísticas desenvolvidas ao longo da minha trajetória acadêmica.\nPrezando pela reprodutibilidade, todo o conteúdo foi estruturado utilizando Quarto (.qmd), ferramenta que integra texto, código e visualizações em relatórios dinâmicos.\nAo navegar pela plataforma, você explorará aplicações relacionadas a temas como:\n\nInferência Estatística;\nModelos de Regressão;\nMétodos Não Paramétricos;\nModelos Lineares Generalizados (MLG);\nSéries Temporais;\nModelos Lineares Dinâmicos.\n\nPara a elaboração dos estudos, são utilizadas as linguagens R e Python, referências em Ciência de Dados. Além disso, aplicamos o ambiente de modelagem probabilística Stan, acessado via interface RStan, para a estimação eficiente de modelos Bayesianos complexos através do algoritmo Hamiltonian Monte Carlo (HMC).\nTodo o desenvolvimento é conduzido no ambiente RStudio, garantindo a organização e o versionamento adequado dos códigos.\nMaterial de Apoio: Disponibilizo o Manual de Stan. Este documento serve como guia teórico e prático sobre a sintaxe da linguagem e lógica da modelagem Bayesiana."
+    "text": "1 Carta de Apresentação\n\nSeja bem-vindo.\nMeu nome é Alexssandro da Silva Oliveira, graduando em Estatística pela Universidade Federal do Amazonas (UFAM). Este espaço é dedicado à apresentação de projetos, estudos de caso e análises estatísticas desenvolvidas ao longo da minha trajetória acadêmica.\nPrezando pela reprodutibilidade, todo o conteúdo foi estruturado utilizando Quarto (.qmd), ferramenta que integra texto, código e visualizações em relatórios dinâmicos.\nAo navegar pela plataforma, você explorará aplicações relacionadas a temas como:\n\nInferência Estatística;\nModelos de Regressão;\nMétodos Não Paramétricos;\nModelos Lineares Generalizados (MLG);\nSéries Temporais;\nModelos Lineares Dinâmicos.\n\nPara a elaboração dos estudos, são utilizadas as linguagens R e Python, referências em Ciência de Dados. Além disso, aplicamos o ambiente de modelagem probabilística Stan, acessado via interface RStan, para a estimação eficiente de modelos Bayesianos complexos através do algoritmo Hamiltonian Monte Carlo (HMC).\nTodo o desenvolvimento é conduzido no ambiente RStudio, garantindo a organização e o versionamento adequado dos códigos.\nMaterial de Apoio: Disponibilizo o Manual de Stan. Este documento serve como guia teórico e prático sobre a sintaxe da linguagem e lógica da modelagem Bayesiana.\n\n\n\n  \n    \n    \n    \n    Solicitar Consultoria\n    \n      \n      \n    \n    \n      \n      \n    \n    \n      \n      \n    \n    \n      \n      \n    \n    \n      \n      \n    \n    \n      Enviar Solicitação"
   }
 ]
