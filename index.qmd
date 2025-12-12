@@ -2,7 +2,7 @@
 # title: "Alexssandro Oliveira"
 subtitle: "Alexssandro Oliveira"
 author: "Estatístico | Fundador da ΛΣ Consultoria <br> alexssandrosg@gmail.com"
-# date: last-modified
+date: last-modified
 image: extras/imagens/Alexssandro.jpg
 lang: pt
 about:
@@ -24,7 +24,7 @@ page-layout: full
 
 ## Apresentação
 
-::: {style="text-align: justify; margin-top: 15px;"}
+::: {style="text-align: justify; margin-top: 15px; margin-bottom: 20px; "}
 
 Seja bem-vindo(a).
 
@@ -38,9 +38,9 @@ Pautado pela ética da **Ciência Aberta**, todo o conteúdo aqui exposto priori
 
 ### Áreas de Atuação
 
-::: {style="text-align: justify; margin-top: 15px;"}
+::: {style="text-align: justify; margin-top: 15px; margin-bottom: 20px;"}
 
-Minha abordagem combina métodos quantitativos avançados com inteligência de dados. Os principais eixos de desenvolvimento incluem:
+Os principais eixos de desenvolvimento incluem:
 
 - **Inferência Estatística:** Aplicação de métodos Frequentistas e Bayesianos para quantificar incertezas e dar suporte à tomada de decisão.
 - **Modelagem Preditiva:** Ajuste de Modelos de Regressão e GLMs para descrever fenômenos e identificar padrões complexos.
@@ -49,19 +49,18 @@ Minha abordagem combina métodos quantitativos avançados com inteligência de d
 
 :::
 
-<br>
-
 ### Ferramentas
 
-::: {style="text-align: justify; margin-top: 15px;"}
+::: {style="text-align: justify; margin-top: 15px; margin-bottom: 20px;"}
 
-A infraestrutura das análises é fundamentada nas linguagens **R** e **Python**, padrões da indústria de Data Science. Para modelagens de alta complexidade, utilizo a linguagem probabilística **Stan** (via interface RStan), explorando o algoritmo *Hamiltonian Monte Carlo* (HMC) para inferência Bayesiana eficiente.
+A infraestrutura das análises é fundamentada nas linguagens [**R**](https://www.r-project.org/) e [**Python**](https://www.python.org/), padrões da indústria de Data Science. Para modelagens de alta complexidade, utilizo a linguagem probabilística **Stan** (via interface RStan), explorando o algoritmo *Hamiltonian Monte Carlo* (HMC) para inferência Bayesiana eficiente.
 
-Todo o fluxo de trabalho é gerenciado no ambiente **RStudio**, assegurando organização e controle de versão.
+Todo o fluxo de trabalho é gerenciado no ambiente [**RStudio**](https://posit.co/download/rstudio-desktop/), assegurando organização e controle de versão.
 
 Como parte do meu compromisso com a disseminação do conhecimento estatístico, disponibilizo meu material autoral:
 
-::: {style="border-left: 5px solid #003366; background-color: #f8f9fa; padding: 15px; margin-top: 20px; border-radius: 0 5px 5px 0;"}
+
+::: {style="border-left: 5px solid #000000; background-color: #f8f9fa; padding: 15px; margin-top: 20px; border-radius: 0 5px 5px 0;"}
 📘 [**Manual Prático de Stan**](https://drive.google.com/file/d/1ZAyo6dOvfV4OrVt9oHsZ7JOox3lAINt3/view?usp=drive_link)
 <br>
 *Um guia técnico sobre a sintaxe e a lógica da modelagem Bayesiana, desenvolvido para auxiliar pesquisadores e estudantes.*
@@ -73,11 +72,11 @@ Como parte do meu compromisso com a disseminação do conhecimento estatístico,
 
 ::: {style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-top: 40px; margin-bottom: 40px;"}
 
-<a href="consultoria.qmd" class="btn" style="background-color: #18bc9c; border: 2px solid #18bc9c; padding: 12px 30px; border-radius: 50px; text-decoration: none; color: white; font-weight: 700; font-family: 'Inter', sans-serif; transition: transform 0.2s; white-space: nowrap;">
+<a href="consultoria.qmd" class="btn-action-primary">
   <i class="bi bi-briefcase-fill"></i> Solicitar Consultoria
 </a>
 
-<a href="portfolio.qmd" class="btn" style="background-color: transparent; border: 2px solid #333; padding: 12px 30px; border-radius: 50px; text-decoration: none; color: #333; font-weight: 700; font-family: 'Inter', sans-serif; transition: transform 0.2s; white-space: nowrap;">
+<a href="portfolio.qmd" class="btn-action-secondary">
   <i class="bi bi-code-slash"></i> Ver Portfólio
 </a>
 
