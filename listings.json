@@ -1,5 +1,13 @@
 [
   {
+    "listing": "/portfolio.html",
+    "items": [
+      "/codigos/1_Inferencia_Estatística/index.html",
+      "/codigos/4_Modelos_Lineares_Dinamicos/index.html",
+      "/codigos/5_Labest/index.html"
+    ]
+  },
+  {
     "listing": "/codigos/5_Labest/index.html",
     "items": [
       "/codigos/5_Labest/projeto-labest.html"
@@ -27,14 +35,6 @@
     "listing": "/codigos/1_Inferencia_Estatística/index.html",
     "items": [
       "/codigos/1_Inferencia_Estatística/projeto-tcc.html"
-    ]
-  },
-  {
-    "listing": "/projetos.html",
-    "items": [
-      "/codigos/1_Inferencia_Estatística/index.html",
-      "/codigos/4_Modelos_Lineares_Dinamicos/index.html",
-      "/codigos/5_Labest/index.html"
     ]
   }
 ]

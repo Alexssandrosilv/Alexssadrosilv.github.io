@@ -589,205 +589,22 @@ input[type="file"]::file-selector-button:hover {
 
 
 /* ==========================================================================
-   SEÇÃO 12: CUSTOM FLIP CARDS (CORRIGIDO E SEGURO)
-   Tudo agora é prefixado com .flip-card para não quebrar o site.
+   SEÇÃO 12: CORREÇÃO DA LARGURA DA NAVBAR (O Fix dos 100%)
+   Força os itens do menu a irem para os extremos da tela.
 ========================================================================== */
 
-/* 1. O GRID (A Prateleira) */
-.list.grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
-  justify-content: center;
-  padding: 20px 0;
+/* Remove a limitação de largura do container da navbar */
+.navbar .container-fluid, 
+.navbar .container-xxl, 
+.navbar .container {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding-left: 30px !important;  /* Distância da borda esquerda */
+    padding-right: 30px !important; /* Distância da borda direita */
 }
 
-/* 2. O PALCO DO CARTÃO */
-.flip-card {
-  overflow: visible;
-  width: 220px;       /* Aumentei um pouco para ficar melhor */
-  height: 280px;      /* Aumentei um pouco */
-  cursor: pointer;
-  font-family: 'Inter', sans-serif;
-  perspective: 1000px; /* Importante para o 3D funcionar bem */
-}
-
-/* 3. O CONTEÚDO 3D */
-.flip-card .content {
-  width: 100%;
-  height: 100%;
-  transform-style: preserve-3d;
-  transition: transform 300ms;
-  box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.5);
-  border-radius: 8px;
-}
-
-/* 4. AÇÃO DE GIRAR */
-.flip-card:hover .content {
-  transform: rotateY(180deg);
-}
-
-/* 5. FACES (Frente e Verso) */
-.flip-card .front, 
-.flip-card .back {
-  background-color: #151515;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-/* 6. O VERSO (Capa Preta Inicial) */
-.flip-card .back {
-  justify-content: center;
-  display: flex;
-  align-items: center;
-  position: relative; /* Necessário para o efeito de radar */
-}
-
-.flip-card .back::before {
-  position: absolute;
-  content: ' ';
-  display: block;
-  width: 160px;
-  height: 160%;
-  background: linear-gradient(90deg, transparent, #ff9966, #ff9966, #ff9966, #ff9966, transparent);
-  animation: rotation_481 5000ms infinite linear;
-}
-
-.flip-card .back-content {
-  position: absolute;
-  width: 99%;
-  height: 99%;
-  background-color: #151515;
-  border-radius: 5px;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  z-index: 5;
-}
-
-@keyframes rotation_481 {
-  0% { transform: rotateZ(0deg); }
-  100% { transform: rotateZ(360deg); }
-}
-
-/* 7. A FRENTE (O Projeto) */
-.flip-card .front {
-  transform: rotateY(180deg);
-  color: white;
-}
-
-.flip-card .front-content {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  z-index: 2;
-}
-
-.flip-card .badge {
-  background-color: rgba(0, 0, 0, 0.6);
-  padding: 4px 10px;
-  border-radius: 10px;
-  backdrop-filter: blur(2px);
-  width: fit-content;
-  font-size: 0.75rem;
-  font-weight: 700;
-  border: 1px solid rgba(255,255,255,0.2);
-  color: white;
-}
-
-/* Corrigindo o problema do TITULO afetar o site todo */
-.flip-card .description {
-  box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.5);
-  width: 100%;
-  padding: 10px;
-  background-color: rgba(0, 0, 0, 0.85);
-  backdrop-filter: blur(5px);
-  border-radius: 5px;
-}
-
-.flip-card .card-title-box { /* Renomeei para evitar conflito com .title global */
-  font-size: 12px;
-  max-width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.flip-card .card-title-box p {
-  width: 100%;
-  margin: 0;
-  color: #fff;
-  font-weight: bold;
-}
-
-.flip-card .card-footer {
-  color: #cccccc;
-  margin-top: 5px;
-  font-size: 10px;
-}
-
-/* 8. IMAGEM E BOLHAS */
-.flip-card .project-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.6;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-}
-
-.flip-card .circle {
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  background-color: #ffbb66;
-  position: absolute;
-  filter: blur(15px);
-  animation: floating 2600ms infinite linear;
-  z-index: 0;
-}
-
-.flip-card #bottom {
-  background-color: #ff8866;
-  left: 50px;
-  top: 0px;
-  width: 150px;
-  height: 150px;
-  animation-delay: -800ms;
-}
-
-.flip-card #right {
-  background-color: #ff2233;
-  left: 160px;
-  top: -80px;
-  width: 30px;
-  height: 30px;
-  animation-delay: -1800ms;
-}
-
-@keyframes floating {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(10px); }
-  100% { transform: translateY(0px); }
-}
-
-/* Link clean */
-a.card-link {
-  text-decoration: none !important;
-  color: inherit !important;
-  display: block;
+/* Garante que o conteúdo se espalhe (Esquerda <-> Direita) */
+.navbar-collapse {
+    flex-grow: 1;
+    justify-content: space-between;
 }
