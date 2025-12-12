@@ -20,6 +20,122 @@ about:
 page-layout: full
 ---
 
+```{=html}
+<style>
+  /* Container da barra */
+  .expandable-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid #e5e7eb;
+    background-color: #ffffff;
+    padding: 0.25rem;
+    border-radius: 1rem;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    width: fit-content;
+    margin: 0 auto 2rem auto;
+  }
+
+  /* Botão individual */
+  .tab-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-radius: 0.75rem;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #6b7280;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .tab-item:hover {
+    background-color: #f3f4f6;
+    color: #111827;
+  }
+
+  /* Estado Ativo */
+  .tab-item.active {
+    background-color: #f3f4f6;
+    color: #3b82f6;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* Ícones */
+  .tab-item i {
+    font-size: 1.25rem;
+  }
+
+  /* Texto (escondido por padrão) */
+  .tab-text {
+    max-width: 0;
+    opacity: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  .tab-item.active .tab-text {
+    max-width: 150px;
+    opacity: 1;
+    margin-left: 0.5rem;
+  }
+
+  /* Separador */
+  .tab-separator {
+    margin: 0 0.25rem;
+    height: 24px;
+    width: 1.2px;
+    background-color: #e5e7eb;
+  }
+</style>
+
+<div class="expandable-tabs">
+  
+  <button class="tab-item active" onclick="selectTab(this, '#home')">
+    <i class="fa-solid fa-house"></i>
+    <span class="tab-text">Início</span>
+  </button>
+
+  <button class="tab-item" onclick="selectTab(this, '#projetos')">
+    <i class="fa-solid fa-chart-line"></i>
+    <span class="tab-text">Projetos</span>
+  </button>
+
+  <div class="tab-separator"></div>
+
+  <button class="tab-item" onclick="window.location.href='[https://github.com/Alexssandrosilv](https://github.com/Alexssandrosilv)'">
+    <i class="fa-brands fa-github"></i>
+    <span class="tab-text">GitHub</span>
+  </button>
+    
+   <button class="tab-item" onclick="window.location.href='[https://www.linkedin.com/in/alexssandro-silva-3b63aa19b/](https://www.linkedin.com/in/alexssandro-silva-3b63aa19b/)'">
+    <i class="fa-brands fa-linkedin"></i>
+    <span class="tab-text">LinkedIn</span>
+  </button>
+
+</div>
+
+<script>
+  function selectTab(clickedButton, sectionId) {
+    const buttons = document.querySelectorAll('.tab-item');
+    buttons.forEach(btn => btn.classList.remove('active'));
+    clickedButton.classList.add('active');
+    
+    // Se quiser rolar a página para uma seção específica:
+    // if (sectionId && sectionId.startsWith('#')) {
+    //   document.querySelector(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+    // }
+  }
+</script>
+
+```
+
 <!-- <br> -->
 
 ::: {style="border-top: 2px solid #003366;"}
