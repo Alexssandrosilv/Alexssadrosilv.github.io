@@ -1,57 +1,21 @@
 ---
-# date: last-modified
-# Configuração da Galeria (Vitrine)
-listing:
-  # 1. CONTEÚDO: Define quais arquivos vão aparecer na vitrine.
-  # Você está listando manualmente para garantir a ordem exata das pastas.
-  contents: 
-    - codigos/1_Inferencia_Estatística/index.qmd      # Pega o Hub de Inferência
-    # - codigos/2_Modelos_de_Regressao/index.qmd        # Pega o Hub de Regressão
-    # - codigos/3_Modelos_Lineares_Generalizados/index.qmd
-    - codigos/4_Modelos_Lineares_Dinamicos/index.qmd
-    - codigos/5_Labest/index.qmd
-
-  # 2. VISUAL: Define o layout como "Grade" (Cards/Quadrados).
-  # Outras opções seriam 'default' (lista de blog) ou 'table' (tabela).
-  type: grid           
-
-  # 3. ORDENAÇÃO: Define como os cards são organizados.
-  # "date desc" = Data descendente (do mais novo para o mais antigo).
-  sort: "date desc"    
-
-  # 4. FILTROS LATERAIS: Cria a barra lateral para filtrar por tags.
-  # (Ex: clicar em "R" e mostrar só projetos de R).
-  categories: true     
-
-  # 5. CONTROLES DE USUÁRIO:
-  # sort-ui: false   -> Esconde o menu de "Ordenar por..." (deixa o visual mais limpo)
-  # filter-ui: false -> Esconde a barra de busca específica desta lista
-  sort-ui: false
-  filter-ui: false
-
-  # 6. CAMPOS DO CARTÃO: Define o que aparece escrito dentro do quadrado branco.
-  # image: A capa | title: O título | description: O resumo | date: A data
-  fields: [image, title, description, date, categories]
-
-# 7. LAYOUT DA PÁGINA:
-# "full" usa a largura total da tela (margens menores), ideal para grades de fotos.
+title: "Inferência Estatística"
+description: "A detalhar"
 page-layout: full
-
-# 8. CABEÇALHO ESTILIZADO:
-# Cria uma faixa colorida (banner) atrás do título da página.
-# A cor segue o tema definido no _quarto.yml (no seu caso, 'flatly').
 title-block-banner: false
 ---
 
-::: {style="text-align: justify"}
 
-Abaixo estão os módulos disponíveis. Use os filtros à direita para acessar e navegar rapidamente por categorias.
-:::
+```{r setup, include=FALSE}
+# Define opções padrão para todos os chunks de código no R Markdown
+knitr::opts_chunk$set(
+  echo = TRUE,         # Oculta o código nos resultados finais do documento
+  warning = FALSE,     # Suprime mensagens de aviso (warnings)
+  message = FALSE,     # Suprime mensagens informativas (como as de carregamento de pacotes)
+  fig.width = 10,      # Define a largura padrão das figuras (em polegadas)
+  fig.height = 6,      # Define a altura padrão das figuras (em polegadas)
+  fig.align = 'center'
+)
+```
 
-
-::: {style="border-top: 2px solid #003366;"}
-:::
-
-<br>
-
-
+## Projetos 
