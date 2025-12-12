@@ -6,7 +6,7 @@ format:
 # author: "Alexssandro Oliveira | alexssandrosg@gmail.com"
 description: "A detalhar"
 # date: last-modified
-image: "imagens/modulo_inferencia.jpg"
+image: "imagens/inferencia.jpg"
 
 # Tags para ajudar no filtro da página principal
 categories: ["Inferência", "R", "Teoria"]
