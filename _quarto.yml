@@ -37,7 +37,7 @@ website:
         
 
 # Lado Direito: Apenas ÍCONES (para ficar uniforme e profissional)
-    right:
+    # right:
       # - icon: file-person  # Ícone de "Currículo" (bonequinho no arquivo)
       #   href: extra/pdf/Curriculum_Alexssandro_Silva_Oliveira.pdf
       #   target: _blank

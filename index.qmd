@@ -57,7 +57,7 @@ A infraestrutura das análises é fundamentada nas linguagens [**R**](https://ww
 
 Todo o fluxo de trabalho é gerenciado no ambiente [**RStudio**](https://posit.co/download/rstudio-desktop/), assegurando organização e controle de versão.
 
-Como parte do meu compromisso com a disseminação do conhecimento estatístico, disponibilizo meu material autoral:
+Como parte do meu compromisso com a disseminação do conhecimento estatístico, disponibilizo o material:
 
 
 ::: {style="border-left: 5px solid #000000; background-color: #f8f9fa; padding: 15px; margin-top: 20px; border-radius: 0 5px 5px 0;"}
@@ -84,6 +84,6 @@ Como parte do meu compromisso com a disseminação do conhecimento estatístico,
 
 ::: {style="border-top: 1px solid #ddd; padding-top: 20px; font-size: 0.85em; text-align: center; color: #666;"}
 
-<!-- © 2025 Alexssandro Oliveira | **ΛΣ Consultoria Estatística** -->
+© 2025 Alexssandro Oliveira | **ΛΣ Consultoria Estatística**
 
 :::
