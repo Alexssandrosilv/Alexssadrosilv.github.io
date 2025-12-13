@@ -1,7 +1,8 @@
 ---
 # title: "Alexssandro Oliveira"
 subtitle: "Alexssandro Silva"
-author: "Estatístico | Fundador da ΛΣ Consultoria <br> alexssandrosg@gmail.com"
+# author: "Estatístico | Fundador da ΛΣ Consultoria <br> alexssandrosg@gmail.com"
+author: "Estatístico<br>Fundador da ΛΣ Consultoria<br>alexssandrosg@gmail.com"
 date: last-modified
 image: extras/imagens/Alexssandro.jpg
 lang: pt

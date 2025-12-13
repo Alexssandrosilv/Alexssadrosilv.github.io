@@ -78,7 +78,7 @@ website:
 format: 
   html: 
     theme: flatly # IMPORTANTE: Remove o tema padrão para usar 100% o nosso CSS
-    css: s6.css
+    css: s7.css
     
     # Configurações de Layout
     toc: true # Table of Contents (Menu da Direita)
