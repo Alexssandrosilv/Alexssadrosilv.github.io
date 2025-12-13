@@ -28,26 +28,26 @@ A **ΛΣ Consultoria** oferece suporte técnico especializado para transformar d
 
 ```{mermaid}
 %%| fig-align: center
+%%| fig-height: 3
 flowchart LR
-    A[<i class='fa-solid fa-file-pen'></i> 1. Solicitação] -->|Análise de Viabilidade| B[<i class='fa-brands fa-whatsapp'></i> 2. Contato Rápido]
-    B -->|Diagnóstico| C[<i class='fa-solid fa-handshake'></i> 3. Reunião de Alinhamento]
-    C -->|Escopo Definido| D[<i class='fa-solid fa-file-invoice-dollar'></i> 4. Proposta Comercial]
-    D -->|Aprovação| E[<i class='fa-solid fa-laptop-code'></i> 5. Execução Técnica]
-    E -->|Finalização| F[<i class='fa-solid fa-rocket'></i> 6. Entrega dos Resultados]
+    %% Nós do Fluxo
+    A[<i class='fa-solid fa-file-pen'></i> 1. Solicitação] -->|Análise| B[<i class='fa-brands fa-whatsapp'></i> 2. Contato]
+    B -->|Diagnóstico| C[<i class='fa-solid fa-handshake'></i> 3. Reunião]
+    C -->|Escopo| D[<i class='fa-solid fa-file-invoice-dollar'></i> 4. Proposta]
+    D -->|Aprovação| E[<i class='fa-solid fa-laptop-code'></i> 5. Execução]
+    E -->|Entrega| F[<i class='fa-solid fa-rocket'></i> 6. Resultados]
 
-    %% ESTILIZAÇÃO PROFISSIONAL (Cores da Marca)
-    classDef start fill:#18bc9c,stroke:#18bc9c,color:#fff,stroke-width:0px,font-weight:bold;
-    classDef process fill:#fff,stroke:#e0e0e0,color:#333,stroke-width:1px;
-    classDef endNode fill:#2a2a2a,stroke:#2a2a2a,color:#fff,stroke-width:0px,font-weight:bold;
+    %% ESTILIZAÇÃO PROFISSIONAL
+    classDef start fill:#18bc9c,stroke:#18bc9c,color:#fff,stroke-width:0px,font-weight:bold,rx:10,ry:10,font-size:15px;
+    classDef process fill:#fff,stroke:#e0e0e0,color:#333,stroke-width:2px,rx:5,ry:5,font-size:15px;
+    classDef endNode fill:#2a2a2a,stroke:#2a2a2a,color:#fff,stroke-width:0px,font-weight:bold,rx:10,ry:10,font-size:15px;
 
     class A start;
     class B,C,D,E process;
     class F endNode;
     
-    linkStyle default stroke:#bbb,stroke-width:2px;
-
-```    
-
+    linkStyle default stroke:#bbb,stroke-width:2px;```    
+```
 
 
 ```{mermaid}
@@ -81,25 +81,15 @@ flowchart LR
 
 ```{=html}
 
-<div style="text-align: center; margin-top: 60px; margin-bottom: 20px;">
-  <span style="background-color: #18bc9c; color: white; padding: 5px 15px; border-radius: 50px; font-size: 0.8em; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">Contato</span>
-  <h2 style="margin-top: 15px; font-weight: 800; color: #2a2a2a; letter-spacing: -1px;">Vamos tirar seu projeto do papel?</h2>
-  <p style="color: #666; font-size: 1.1em; max-width: 600px; margin: 10px auto 0 auto;">
-    Preencha o formulário abaixo para uma análise preliminar. Respondemos rapidamente.
-  </p>
-</div>
-```
-
-
-```{=html}
-
 <div class="form-container">
 
   <div id="success-message" style="display:none; text-align: center; background: rgba(255,255,255,0.95); padding: 50px; border-radius: 20px; border: 1px solid #18bc9c; box-shadow: 0 10px 30px rgba(0,0,0,0.05); width: 100%;">
     <i class="fa-solid fa-circle-check" style="font-size: 5em; color: #18bc9c; margin-bottom: 20px;"></i>
-    <h2 style="color: #2a2a2a; margin-bottom: 10px; font-weight: 700;">Mensagem Recebida!</h2>
+    <h2 style="color: #2a2a2a; margin-bottom: 10px; font-weight: 700;">Recebido com Sucesso!</h2>
     <p style="color: #555; font-size: 1.1em; margin-bottom: 5px;">Obrigado, <strong><span id="user-name-display"></span></strong>.</p>
-    <p style="color: #666; line-height: 1.6;">Recebemos seus detalhes.<br>Nossa equipe técnica analisará a demanda e entrará em contato <strong>o mais breve possível</strong> para agendar a conversa.</p>
+    
+    <p style="color: #666; line-height: 1.6;">Recebemos seus arquivos e detalhes.<br>Entraremos em contato <strong>o mais breve possível</strong> para <strong>marcar uma reunião</strong> de alinhamento.</p>
+    
     <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; font-size: 0.9em; color: #888;">
       <i class="fa-brands fa-whatsapp"></i> Fique atento ao seu WhatsApp.
     </div>
@@ -116,21 +106,21 @@ flowchart LR
     
     <div class="field">
       <i class="fa-solid fa-user input-icon"></i>
-      <input autocomplete="off" name="Nome_Cliente" id="input-nome" placeholder="Seu Nome Completo *" class="input-field" type="text" required>
+      <input autocomplete="off" name="Nome" id="input-nome" placeholder="Seu Nome Completo *" class="input-field" type="text" required>
     </div>
 
     <div class="field">
       <i class="fa-solid fa-envelope input-icon"></i>
-      <input autocomplete="off" name="Email_Principal" placeholder="Seu Melhor E-mail *" class="input-field" type="email" required>
+      <input autocomplete="off" name="Email" placeholder="Seu Melhor E-mail *" class="input-field" type="email" required>
     </div>
 
     <div class="field" style="border-left: 4px solid #18bc9c;"> 
       <i class="fa-brands fa-whatsapp input-icon" style="color: #18bc9c;"></i>
-      <input autocomplete="off" name="WhatsApp_Contato" placeholder="WhatsApp (DDD + Número)" class="input-field" type="tel">
+      <input autocomplete="off" name="WhatsApp" placeholder="WhatsApp (DDD + Número)" class="input-field" type="tel">
     </div>
     
     <div style="display: flex; align-items: start; gap: 10px; margin-top: -8px; margin-bottom: 15px; padding-left: 5px;">
-      <input type="checkbox" name="Aceite_WhatsApp" id="zap-check" checked style="margin-top: 5px; accent-color: #18bc9c; cursor: pointer;">
+      <input type="checkbox" name="Permissao_WhatsApp" id="zap-check" checked style="margin-top: 5px; accent-color: #18bc9c; cursor: pointer;">
       <label for="zap-check" style="font-size: 0.8em; color: #666; cursor: pointer; line-height: 1.4;">
         Autorizo o contato via WhatsApp para agilizar o atendimento.
       </label>
@@ -138,17 +128,17 @@ flowchart LR
 
     <div class="field">
       <i class="fa-solid fa-bullseye input-icon"></i>
-      <input autocomplete="off" name="Tipo_Servico" placeholder="Assunto (ex: Análise TCC, Dashboards Corporativos)" class="input-field" type="text">
+      <input autocomplete="off" name="Assunto" placeholder="Assunto (ex: Análise TCC, Dashboards Corporativos)" class="input-field" type="text">
     </div>
 
     <div class="field" style="align-items: flex-start;">
       <i class="fa-solid fa-align-left input-icon" style="margin-top: 8px;"></i>
-      <textarea name="Descricao_Detalhada" placeholder="Descreva brevemente o objetivo do projeto..." class="input-field"></textarea>
+      <textarea name="Mensagem" placeholder="Descreva brevemente o objetivo do projeto..." class="input-field"></textarea>
     </div>
 
     <div class="field">
       <i class="fa-solid fa-folder-open input-icon"></i>
-      <input type="file" name="Anexos_Projeto[]" class="input-field" accept=".pdf,.doc,.docx,.xlsx,.csv,.txt,.R,.Rmd" multiple>
+      <input type="file" name="Arquivo" class="input-field" accept=".pdf,.doc,.docx,.xlsx,.csv,.txt,.R,.Rmd" multiple>
     </div>
     <div style="font-size: 0.75em; color: #999; margin-top: -10px; margin-bottom: 5px; padding-left: 10px; font-style: italic;">
       * Recomendamos enviar amostras dos dados ou resumo do projeto.
@@ -160,7 +150,7 @@ flowchart LR
       </button>
       
       <span style="font-size: 0.8em; color: #888; font-weight: 500;">
-        <i class="fa-solid fa-clock" style="color: #18bc9c;"></i> Atendimento Seg. a Dom.
+        <i class="fa-solid fa-clock" style="color: #18bc9c;"></i> Atendimento Seg. a Dom. | Resposta Rápida
       </span>
     </div>
 
@@ -174,8 +164,9 @@ flowchart LR
   const submitBtn = document.getElementById('submit-btn');
 
   form.addEventListener('submit', function(e) {
-    e.preventDefault();
+    e.preventDefault(); // Impede o envio padrão inicial
     
+    // Feedback visual
     const originalBtnText = submitBtn.innerHTML;
     submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Enviando...';
     submitBtn.style.opacity = "0.7";
@@ -185,11 +176,18 @@ flowchart LR
 
     fetch("[https://formsubmit.co/ajax/alexssandrosg@gmail.com](https://formsubmit.co/ajax/alexssandrosg@gmail.com)", {
       method: "POST",
+      headers: { 
+          'Accept': 'application/json' // Importante para evitar redirecionamento
+      },
       body: formData
     })
-    .then(response => response.json())
+    .then(response => {
+        if (!response.ok) { throw new Error('Falha no envio AJAX'); }
+        return response.json();
+    })
     .then(data => {
-      console.log("Envio realizado:", data);
+      console.log("Sucesso AJAX:", data);
+      
       const nomeDigitado = document.getElementById('input-nome').value.split(' ')[0];
       userNameDisplay.innerText = nomeDigitado;
 
@@ -202,11 +200,10 @@ flowchart LR
       }, 800);
     })
     .catch(error => {
-      console.error("Erro no envio:", error);
-      alert("Ocorreu um erro técnico. Por favor, tente novamente ou entre em contato pelo WhatsApp.");
-      submitBtn.innerHTML = originalBtnText;
-      submitBtn.style.opacity = "1";
-      submitBtn.disabled = false;
+      console.warn("AJAX falhou, tentando envio padrão:", error);
+      // Fallback de segurança para Localhost ou falha de rede
+      form.action = "[https://formsubmit.co/alexssandrosg@gmail.com](https://formsubmit.co/alexssandrosg@gmail.com)";
+      form.submit(); 
     });
   });
 </script>
