@@ -78,7 +78,6 @@ Preencha o formulário abaixo para uma análise preliminar. Respondemos rapidame
 :::
 
 ```{=html}
-
 <div class="form-container">
 
   <div id="success-message" style="display:none; text-align: center; background: rgba(255,255,255,0.95); padding: 50px; border-radius: 20px; border: 1px solid #18bc9c; box-shadow: 0 10px 30px rgba(0,0,0,0.05); width: 100%;">
@@ -92,10 +91,9 @@ Preencha o formulário abaixo para uma análise preliminar. Respondemos rapidame
     <button onclick="location.reload()" class="button1" style="margin-top: 30px; max-width: 250px; background-color: #333;">Voltar ao Início</button>
   </div>
 
-  <form id="contact-form" class="form" action="[https://formsubmit.co/ajax/alexssandrosg@gmail.com](https://formsubmit.co/ajax/alexssandrosg@gmail.com)" method="POST" enctype="multipart/form-data">
+  <form id="contact-form" class="form" action="https://formsubmit.co/ajax/alexssandrosg@gmail.com" method="POST" enctype="multipart/form-data">
     
     <input type="hidden" name="_subject" value="[Nome] - Nova Oportunidade (Consultoria)">
-    
     <input type="hidden" name="_template" value="table">
     <input type="hidden" name="_captcha" value="false">
     
@@ -210,7 +208,9 @@ Preencha o formulário abaixo para uma análise preliminar. Respondemos rapidame
         
         // Remove listener e define a ação para o modo tradicional (sem /ajax)
         form.removeEventListener('submit', arguments.callee);
-        form.action = "[https://formsubmit.co/alexssandrosg@gmail.com](https://formsubmit.co/alexssandrosg@gmail.com)";
+        
+        // AÇÃO PARA ENVIO DE ARQUIVO: APENAS A URL DO FORM SUBMIT, SEM FORMATAÇÃO
+        form.action = "https://formsubmit.co/alexssandrosg@gmail.com"; 
         
         // Força o envio nativo
         form.submit();
@@ -220,7 +220,8 @@ Preencha o formulário abaixo para uma análise preliminar. Respondemos rapidame
     // --- Se NÃO houver arquivos, continua com o AJAX (Envio Silencioso) ---
     const formData = new FormData(form);
 
-    fetch("[https://formsubmit.co/ajax/alexssandrosg@gmail.com](https://formsubmit.co/ajax/alexssandrosg@gmail.com)", {
+    // FETCH AJAX: APENAS A URL DO AJAX, SEM FORMATAÇÃO
+    fetch("https://formsubmit.co/ajax/alexssandrosg@gmail.com", {
       method: "POST",
       headers: { 'Accept': 'application/json' },
       body: formData
@@ -242,11 +243,10 @@ Preencha o formulário abaixo para uma análise preliminar. Respondemos rapidame
       console.warn("Erro AJAX, tentando fallback:", error);
       
       form.removeEventListener('submit', arguments.callee);
-      form.action = "[https://formsubmit.co/alexssandrosg@gmail.com](https://formsubmit.co/alexssandrosg@gmail.com)";
+      form.action = "https://formsubmit.co/alexssandrosg@gmail.com";
       form.submit();
     });
   });
 </script>
-
 ```
 
