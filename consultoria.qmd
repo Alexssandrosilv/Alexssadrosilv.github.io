@@ -5,14 +5,17 @@ page-layout: full
 title-block-banner: false
 include-in-header:
 - text: |
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-      <style>
-        .mermaid { margin: 0 auto; text-align: center; }
-        /* Garante que o diagrama não fique espremido no celular */
-        .mermaid svg { min-width: 800px; max-width: 100%; height: auto; }
-        .mermaid-scroll { overflow-x: auto; padding-bottom: 10px; }
-      </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+#- text: |
+#      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+#      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+#      <style>
+#        .mermaid { margin: 0 auto; text-align: center; }
+#        /* Garante que o diagrama não fique espremido no celular */
+#        .mermaid svg { min-width: 800px; max-width: 100%; height: auto; }
+#        .mermaid-scroll { overflow-x: auto; padding-bottom: 10px; }
+#      </style>
 ---
 
 ## Análise de Dados
@@ -41,24 +44,61 @@ A **ΛΣ Consultoria** oferece suporte técnico especializado para transformar d
 ```{mermaid}
 %%| fig-align: center
 %%| fig-height: 4
-flowchart LR
+%%|flowchart LR
     %% Nós com Ícones HTML (Protegidos por aspas para não dar erro)
-    A["<i class='fa-solid fa-file-pen'></i> 1. Solicitação"] --> B["<i class='fa-brands fa-whatsapp'></i> 2. Contato"]
-    B --> C["<i class='fa-solid fa-users-viewfinder'></i> 3. Diagnóstico"]
-    C --> D["<i class='fa-solid fa-file-contract'></i> 4. Proposta"]
-    D --> E["<i class='fa-solid fa-chart-pie'></i> 5. Execução"]
-    E --> F["<i class='fa-solid fa-flag-checkered'></i> 6. Entrega"]
+%%|    A["<i class='fa-solid fa-file-pen'></i> 1. Solicitação"] --> B["<i class='fa-brands fa-whatsapp'></i> 2. Contato"]
+%%|    B --> C["<i class='fa-solid fa-users-viewfinder'></i> 3. Diagnóstico"]
+%%|    C --> D["<i class='fa-solid fa-file-contract'></i> 4. Proposta"]
+%%|    D --> E["<i class='fa-solid fa-chart-pie'></i> 5. Execução"]
+%%|    E --> F["<i class='fa-solid fa-flag-checkered'></i> 6. Entrega"]
 
     %% Estilização
-    classDef start fill:#18bc9c,stroke:#18bc9c,color:#fff,stroke-width:0px,font-weight:bold,rx:10,ry:10,font-size:16px;
-    classDef process fill:#fff,stroke:#e0e0e0,color:#333,stroke-width:2px,rx:5,ry:5,font-size:16px;
-    classDef endNode fill:#2a2a2a,stroke:#2a2a2a,color:#fff,stroke-width:0px,font-weight:bold,rx:10,ry:10,font-size:16px;
+%%|    classDef start fill:#18bc9c,stroke:#18bc9c,color:#fff,stroke-width:0px,font-weight:bold,rx:10,ry:10,font-size:16px;
+%%|    classDef process fill:#fff,stroke:#e0e0e0,color:#333,stroke-width:2px,rx:5,ry:5,font-size:16px;
+%%|    classDef endNode fill:#2a2a2a,stroke:#2a2a2a,color:#fff,stroke-width:0px,font-weight:bold,rx:10,ry:10,font-size:16px;
+
+%%|    class A start;
+%%|    class B,C,D,E process;
+%%|    class F endNode;
+    
+%%|    linkStyle default stroke:#bbb,stroke-width:2px;
+    
+%%| fig-align: center
+flowchart TD
+    A[<i class='fa-solid fa-file-pen'></i> 1. Solicitação] --> B["<i class='fa-brands fa-whatsapp'></i> 2. Contato Rápido"]
+    B -->|Diagnóstico| C[<i class='fa-solid fa-handshake'></i> 3. Reunião de Alinhamento]
+    C -->|Escopo Definido| D[<i class='fa-solid fa-file-invoice-dollar'></i> 4. Proposta Comercial]
+    D -->|Aprovação| E[<i class='fa-solid fa-laptop-code'></i> 5. Desenvolvimento"]
+    E -->|Finalização| F[<i class='fa-solid fa-rocket'></i> 6. Entrega dos Resultados "Relatórios"]
+
+    classDef start fill:#18bc9c,stroke:#18bc9c,color:#fff,stroke-width:0px,font-weight:bold;
+    classDef process fill:#fff,stroke:#e0e0e0,color:#333,stroke-width:1px;
+    classDef endNode fill:#2a2a2a,stroke:#2a2a2a,color:#fff,stroke-width:0px,font-weight:bold;
 
     class A start;
     class B,C,D,E process;
     class F endNode;
     
-    linkStyle default stroke:#bbb,stroke-width:2px;
+    linkStyle default stroke:#bbb,stroke-width:2px;    
+
+%%| %%| fig-align: center -->
+%%| flowchart TD -->
+%%|     A[<i class='fa-solid fa-file-pen'></i> 1. Solicitação] -->|Análise de Viabilidade| B[<i class='fa-brands fa-whatsapp'></i> 2. Contato Rápido] -->
+%%|     B -->|Diagnóstico| C[<i class='fa-solid fa-handshake'></i> 3. Reunião de Alinhamento] -->
+%%|     C -->|Escopo Definido| D[<i class='fa-solid fa-file-invoice-dollar'></i> 4. Proposta Comercial] -->
+%%|     D -->|Aprovação| E[<i class='fa-solid fa-laptop-code'></i> 5. Execução Técnica] -->
+%%|     E -->|Finalização| F[<i class='fa-solid fa-rocket'></i> 6. Entrega dos Resultados] -->
+
+%%|     classDef start fill:#18bc9c,stroke:#18bc9c,color:#fff,stroke-width:0px,font-weight:bold; -->
+%%|     classDef process fill:#fff,stroke:#e0e0e0,color:#333,stroke-width:1px; -->
+%%|     classDef endNode fill:#2a2a2a,stroke:#2a2a2a,color:#fff,stroke-width:0px,font-weight:bold; -->
+
+%%|     class A start; -->
+%%|     class B,C,D,E process; -->
+%%|     class F endNode; -->
+
+%%|     linkStyle default stroke:#bbb,stroke-width:2px;     -->
+
 ```
 
 </div>
