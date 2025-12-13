@@ -83,7 +83,7 @@ details > summary {
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 
-<link rel="stylesheet" href="s5.css">
+<link rel="stylesheet" href="s6.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -155,64 +155,66 @@ details > summary {
 </ul>
 </div>
 <div class="form-container">
-<form class="form" action="https://formsubmit.co/alexssandrosg@gmail.com" method="POST" enctype="multipart/form-data">
-<p><input type="hidden" name="_captcha" value="false"> <input type="hidden" name="_subject" value="Novo Pedido de Consultoria (ΛΣ)"> <input type="hidden" name="_template" value="table"></p>
-<p><input type="hidden" name="_next" value="http://localhost:quarto-session/sucesso.html"></p>
-<p id="heading">
-Solicitar Orçamento
-</p>
-<div class="field">
-<pre><code>  &lt;i class="fa-solid fa-user input-icon"&gt;&lt;/i&gt;
-  &lt;input autocomplete="off" name="nome" placeholder="Seu Nome" class="input-field" type="text" required&gt;
-&lt;/div&gt;
+  
+  <form class="form" action="https://formsubmit.co/alexssandrosg@gmail.com" method="POST" enctype="multipart/form-data">
+    
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_subject" value="Novo Pedido de Consultoria (ΛΣ)">
+    <input type="hidden" name="_template" value="table">
+    
+    <input type="hidden" name="_next" value="http://localhost:quarto-session/sucesso.html"> 
 
-&lt;div class="field"&gt;
-  &lt;i class="fa-solid fa-envelope input-icon"&gt;&lt;/i&gt;
-  &lt;input autocomplete="off" name="email" placeholder="Seu E-mail" class="input-field" type="email" required&gt;
-&lt;/div&gt;
+    <p id="heading">Solicitar Orçamento</p>
+    
+    <div class="field">
+      <i class="fa-solid fa-user input-icon"></i>
+      <input autocomplete="off" name="nome" placeholder="Seu Nome" class="input-field" type="text" required="">
+    </div>
 
-&lt;div class="field"&gt;
-  &lt;i class="fa-solid fa-phone input-icon"&gt;&lt;/i&gt;
-  &lt;input autocomplete="off" name="telefone" placeholder="WhatsApp / Celular" class="input-field" type="tel" required&gt;
-&lt;/div&gt;
+    <div class="field">
+      <i class="fa-solid fa-envelope input-icon"></i>
+      <input autocomplete="off" name="email" placeholder="Seu E-mail" class="input-field" type="email" required="">
+    </div>
 
-&lt;div class="field"&gt;
-  &lt;i class="fa-solid fa-briefcase input-icon"&gt;&lt;/i&gt;
-  &lt;input autocomplete="off" name="servico" placeholder="Assunto (ex: Análise TCC, Dashboards)" class="input-field" type="text"&gt;
-&lt;/div&gt;
+    <div class="field">
+      <i class="fa-solid fa-phone input-icon"></i>
+      <input autocomplete="off" name="telefone" placeholder="WhatsApp / Celular" class="input-field" type="tel" required="">
+    </div>
 
-&lt;div class="field"&gt;
-  &lt;i class="fa-solid fa-hourglass-half input-icon"&gt;&lt;/i&gt;
-  &lt;select name="urgencia" class="input-field" required&gt;
-    &lt;option value="" disabled selected&gt;Qual a urgência do prazo?&lt;/option&gt;
-    &lt;option value="Baixa"&gt;🟢 Baixa (Planejamento / Sem pressa)&lt;/option&gt;
-    &lt;option value="Media"&gt;🟡 Média (Preciso para as próximas semanas)&lt;/option&gt;
-    &lt;option value="Alta"&gt;🟠 Alta (Preciso para breve)&lt;/option&gt;
-    &lt;option value="Critica"&gt;🔴 CRÍTICA (Prazo estourando / &lt; 48h)&lt;/option&gt;
-  &lt;/select&gt;
-&lt;/div&gt;
+    <div class="field">
+      <i class="fa-solid fa-briefcase input-icon"></i>
+      <input autocomplete="off" name="servico" placeholder="Assunto (ex: Análise TCC, Dashboards)" class="input-field" type="text">
+    </div>
 
-&lt;div class="field" style="align-items: flex-start;"&gt;
-  &lt;i class="fa-solid fa-comment input-icon" style="margin-top: 5px;"&gt;&lt;/i&gt;
-  &lt;textarea name="mensagem" placeholder="Descreva o problema, o objetivo da análise e detalhes do prazo..." class="input-field" required&gt;&lt;/textarea&gt;
-&lt;/div&gt;
+    <div class="field">
+      <i class="fa-solid fa-hourglass-half input-icon"></i>
+      <select name="urgencia" class="input-field" required="">
+        <option value="" disabled="" selected="">Qual a urgência do prazo?</option>
+        <option value="Baixa">🟢 Baixa (Planejamento / Sem pressa)</option>
+        <option value="Media">🟡 Média (Preciso para as próximas semanas)</option>
+        <option value="Alta">🟠 Alta (Preciso para breve)</option>
+        <option value="Critica">🔴 CRÍTICA (Prazo estourando / &lt; 48h)</option>
+      </select>
+    </div>
 
-&lt;div class="field"&gt;
-  &lt;i class="fa-solid fa-paperclip input-icon"&gt;&lt;/i&gt;
-  &lt;input type="file" name="anexo" class="input-field" accept=".pdf,.doc,.docx,.xlsx,.csv,.txt"&gt;
-&lt;/div&gt;
+    <div class="field" style="align-items: flex-start;">
+      <i class="fa-solid fa-comment input-icon" style="margin-top: 5px;"></i>
+      <textarea name="mensagem" placeholder="Descreva o problema, o objetivo da análise e detalhes do prazo..." class="input-field" required=""></textarea>
+    </div>
 
-&lt;div class="btn-submit"&gt;
-  &lt;button type="submit" class="button1"&gt;Enviar Solicitação&lt;/button&gt;
-&lt;/div&gt;</code></pre>
+    <div class="field">
+      <i class="fa-solid fa-paperclip input-icon"></i>
+      <input type="file" name="anexo" class="input-field" accept=".pdf,.doc,.docx,.xlsx,.csv,.txt">
+    </div>
 
-</div></form>
-<div style="border-top: 1px solid #ddd; padding-top: 20px; font-size: 0.8em; text-align: center; color: #666;">
-<p>© 2025 Alexssandro Oliveira | <strong>ΛΣ Consultoria Estatística</strong></p>
+    <div class="btn-submit">
+      <button type="submit" class="button1">Enviar Solicitação</button>
+    </div>
+
+  </form>
 </div>
 
 
-</div>
 </section>
 
 </main> <!-- /main -->
@@ -622,7 +624,7 @@ Solicitar Orçamento
     <div class="nav-footer-left">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
- © 2025 Alexssandro Oliveira <b>| ΛΣ Consultoria Estatística</b>
+ © 2025 Alexssandro Silva <b>| ΛΣ Consultoria Estatística</b>
   </li>  
 </ul>
     </div>   
