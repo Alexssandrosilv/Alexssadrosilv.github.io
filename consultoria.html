@@ -87,9 +87,7 @@ details > summary {
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <style>
   .mermaid { margin: 0 auto; text-align: center; }
-  /* Garante que o diagrama não fique espremido no celular */
-  .mermaid svg { min-width: 800px; max-width: 100%; height: auto; }
-  .mermaid-scroll { overflow-x: auto; padding-bottom: 10px; }
+  .mermaid svg { max-width: 100%; height: auto; }
 </style>
 
 
@@ -158,9 +156,9 @@ details > summary {
 <section id="análise-de-dados" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="análise-de-dados"><span class="header-section-number">1</span> Análise de Dados</h2>
 <div style="text-align: justify; margin-top: 15px; margin-bottom: 40px; font-size: 1.1em; line-height: 1.8;">
-<p>A <strong>ΛΣ Consultoria</strong> oferece suporte técnico especializado para transformar dados complexos em resultados claros, análises estatísticas rigorosas para academia e mercado, atuando na fronteira entre a teoria estatística avançada e a aplicação prática.</p>
+<p>A <strong>ΛΣ Consultoria</strong> oferece suporte técnico especializado para transformar dados complexos em resultados claros, análises estatísticas rigorosas para academia e mercado, atuando na fronteira entre a teoria estatística e a aplicação prática.</p>
 <ul>
-<li><p><strong>Academia:</strong> Suporte metodológico robusto para Pesquisadores, Mestrandos e Doutorandos (TCCs, Dissertações e Teses), com foco em reprodutibilidade e rigor científico.</p></li>
+<li><p><strong>Academia:</strong> Suporte metodológico para Pesquisas (TCCs, Dissertações e Teses), com foco em reprodutibilidade e rigor científico.</p></li>
 <li><p><strong>Corporativo:</strong> Inteligência de dados, modelagem preditiva e análise de cenários para embasar tomadas de decisão críticas.</p></li>
 </ul>
 </div>
@@ -172,29 +170,27 @@ details > summary {
   <p style="color: #666;">Transparência do início ao fim do projeto.</p>
 </div>
 <div class="mermaid-scroll">
-<div class="cell" data-fig-height="4" data-layout-align="center">
+<div class="cell" data-fig-height="6" data-layout-align="center">
 <div class="cell-output-display">
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
-<pre class="mermaid mermaid-js">flowchart LR
-    %% Nós com Ícones HTML (Protegidos por aspas para não dar erro)
-    A["&lt;i class='fa-solid fa-file-pen'&gt;&lt;/i&gt; 1. Solicitação"] --&gt; B["&lt;i class='fa-brands fa-whatsapp'&gt;&lt;/i&gt; 2. Contato"]
-    B --&gt; C["&lt;i class='fa-solid fa-users-viewfinder'&gt;&lt;/i&gt; 3. Diagnóstico"]
-    C --&gt; D["&lt;i class='fa-solid fa-file-contract'&gt;&lt;/i&gt; 4. Proposta"]
-    D --&gt; E["&lt;i class='fa-solid fa-chart-pie'&gt;&lt;/i&gt; 5. Execução"]
-    E --&gt; F["&lt;i class='fa-solid fa-flag-checkered'&gt;&lt;/i&gt; 6. Entrega"]
+<pre class="mermaid mermaid-js">flowchart TD
+    A[&lt;i class='fa-solid fa-file-pen'&gt;&lt;/i&gt; 1. Solicitação] --&gt; B["&lt;i class='fa-brands fa-whatsapp'&gt;&lt;/i&gt; 2. Contato Rápido"]
+    B --&gt;|Diagnóstico| C[&lt;i class='fa-solid fa-handshake'&gt;&lt;/i&gt; 3. Reunião de Alinhamento]
+    C --&gt;|Escopo Definido| D[&lt;i class='fa-solid fa-file-invoice-dollar'&gt;&lt;/i&gt; 4. Proposta Comercial]
+    D --&gt;|Aprovação| E[&lt;i class='fa-solid fa-laptop-code'&gt;&lt;/i&gt; 5. Desenvolvimento"]
+    E --&gt;|Finalização| F[&lt;i class='fa-solid fa-rocket'&gt;&lt;/i&gt; 6. Entrega dos Resultados "Relatórios"]
 
-    %% Estilização
-    classDef start fill:#18bc9c,stroke:#18bc9c,color:#fff,stroke-width:0px,font-weight:bold,rx:10,ry:10,font-size:16px;
-    classDef process fill:#fff,stroke:#e0e0e0,color:#333,stroke-width:2px,rx:5,ry:5,font-size:16px;
-    classDef endNode fill:#2a2a2a,stroke:#2a2a2a,color:#fff,stroke-width:0px,font-weight:bold,rx:10,ry:10,font-size:16px;
+    classDef start fill:#18bc9c,stroke:#18bc9c,color:#fff,stroke-width:0px,font-weight:bold;
+    classDef process fill:#fff,stroke:#e0e0e0,color:#333,stroke-width:1px;
+    classDef endNode fill:#2a2a2a,stroke:#2a2a2a,color:#fff,stroke-width:0px,font-weight:bold;
 
     class A start;
     class B,C,D,E process;
     class F endNode;
     
-    linkStyle default stroke:#bbb,stroke-width:2px;
+    linkStyle default stroke:#bbb,stroke-width:2px;    
 </pre>
 </div>
 <p></p></figure><p></p>
@@ -218,7 +214,7 @@ details > summary {
     <button onclick="location.reload()" class="button1" style="margin-top: 30px; max-width: 250px; background-color: #333;">Voltar ao Início</button>
   </div>
 
-  <form id="contact-form" class="form" action="[https://formsubmit.co/ajax/alexssandrosg@gmail.com](https://formsubmit.co/ajax/alexssandrosg@gmail.com)" method="POST" enctype="multipart/form-data">
+  <form id="contact-form" class="form" action="https://formsubmit.co/ajax/alexssandrosg@gmail.com" method="POST" enctype="multipart/form-data">
     
     <input type="hidden" name="_subject" value="Nova Oportunidade: Consultoria (Via Site)">
     <input type="hidden" name="_template" value="table">
@@ -293,10 +289,10 @@ details > summary {
   const fileFeedback = document.getElementById('file-feedback');
 
   // --- CONFIGURAÇÃO AUTOMÁTICA DE REDIRECIONAMENTO ---
-  // Isso define o "_next" para a página atual, seja localhost ou github.io
+  // Isso preenche o campo _next com o link atual (Localhost ou Online)
   document.getElementById('next-url').value = window.location.href;
 
-  // 1. Mostrar nomes dos arquivos
+  // 1. Mostrar nomes dos arquivos selecionados
   fileInput.addEventListener('change', function() {
     if (this.files && this.files.length > 0) {
       let fileNames = Array.from(this.files).map(f => f.name).join(', ');
@@ -310,21 +306,22 @@ details > summary {
   form.addEventListener('submit', function(e) {
     e.preventDefault();
     
-    // Validações
+    // Validação de E-mail
     const emailField = document.getElementById('input-email');
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailField.value)) {
         alert("Por favor, insira um e-mail válido.");
         emailField.focus(); return;
     }
 
+    // Validação de WhatsApp
     const whatsField = document.getElementById('input-whatsapp');
     const whatsValue = whatsField.value.replace(/\D/g, ''); 
     if (whatsValue.length > 0 && (whatsValue.length < 10 || whatsValue.length > 11)) {
-        alert("O número de WhatsApp parece incorreto. Digite DDD + Número.");
+        alert("O número de WhatsApp parece incompleto. Use DDD + Número.");
         whatsField.focus(); return;
     }
     
-    // Feedback de Envio
+    // Preparar Envio
     const originalBtnText = submitBtn.innerHTML;
     submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Enviando...';
     submitBtn.style.opacity = "0.7";
@@ -333,7 +330,7 @@ details > summary {
     const formData = new FormData(form);
 
     // Tenta envio via AJAX (Silencioso)
-    fetch("[https://formsubmit.co/ajax/alexssandrosg@gmail.com](https://formsubmit.co/ajax/alexssandrosg@gmail.com)", {
+    fetch("https://formsubmit.co/ajax/alexssandrosg@gmail.com", {
       method: "POST",
       headers: { 'Accept': 'application/json' },
       body: formData
@@ -343,7 +340,7 @@ details > summary {
         return response.json();
     })
     .then(data => {
-      // SUCESSO AJAX
+      // Sucesso AJAX
       console.log("Sucesso:", data);
       const nome = document.getElementById('input-nome').value.split(' ')[0];
       userNameDisplay.innerText = nome;
@@ -351,14 +348,14 @@ details > summary {
       $('html, body').animate({ scrollTop: $(".form-container").offset().top - 100 }, 800);
     })
     .catch(error => {
-      // FALHA AJAX (Provável Localhost ou Arquivo Grande)
+      // Falha AJAX (Plano B - Envio Padrão)
       console.warn("Erro AJAX detectado. Redirecionando para envio padrão...", error);
       
-      // Removemos o listener para permitir o envio nativo
+      // Remove o listener para permitir o envio nativo
       form.removeEventListener('submit', arguments.callee);
       
       // Remove o "/ajax" da URL para usar o modo de redirecionamento
-      form.action = "[https://formsubmit.co/alexssandrosg@gmail.com](https://formsubmit.co/alexssandrosg@gmail.com)";
+      form.action = "https://formsubmit.co/alexssandrosg@gmail.com";
       
       // Força o envio. Como configuramos o "_next" lá em cima, ele voltará para cá.
       form.submit();
