@@ -1,14 +1,14 @@
 /* ==========================================================================
-   ARQUIVO DE ESTILOS: S6.CSS
-   Portfólio ΛΣ Consultoria Estatística
-   Autor: Alexssandro Oliveira
-   Descrição: Estilos personalizados para Quarto (Tema Flatly + Glassmorphism)
-   Organização: Blocos Lógicos com Comentários Linha a Linha
+    ARQUIVO DE ESTILOS: S7.CSS
+    Portfólio ΛΣ Consultoria Estatística
+    Autor: Alexssandro Oliveira
+    Descrição: Estilos personalizados para Quarto (Tema Flatly + Glassmorphism)
+    Organização: Blocos Lógicos com Comentários Linha a Linha
 ========================================================================== */
 
 /* ==========================================================================
-   BLOCO 1: FUNDAMENTOS (Setup Inicial)
-   Fontes, Variáveis de Cor e Configurações Globais do HTML/Body.
+    BLOCO 1: FUNDAMENTOS (Setup Inicial)
+    Fontes, Variáveis de Cor e Configurações Globais do HTML/Body.
 ========================================================================== */
 
 /* 1.1 Importação de Fontes (Google Fonts) */
@@ -31,17 +31,17 @@
   --cor-navbar-hover: #FFFFFF;  /* Texto branco quando passa o mouse */
   
   /* -- Identidade Visual (Destaque) -- */
-  --cor-destaque-viva: #18bc9c;   /* Verde Teal Vibrante (Sua marca principal) */
+  --cor-destaque-viva: #18bc9c;      /* Verde Teal Vibrante (Sua marca principal) */
   --cor-destaque-escuro: #128f76; /* Verde Teal Escuro (Para interações/cliques) */
 }
 
 /* 1.3 Corpo do Site (Body) */
 body {
   /* Cria o gradiente de fundo necessário para o efeito de vidro funcionar */
-  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); 
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);  
   font-family: 'Inter', sans-serif; /* Define a fonte padrão de todo o site */
   color: var(--cor-texto);          /* Define a cor padrão do texto */
-  line-height: 1.7;                 /* Aumenta o espaço entre linhas para facilitar leitura */
+  line-height: 1.65;                /* AJUSTADO: Espaço entre linhas ideal */
   margin: 0;                        /* Remove as margens padrão do navegador */
   padding: 0;                       /* Remove o preenchimento padrão */
   overflow-x: hidden;               /* Bloqueia a rolagem horizontal indesejada */
@@ -50,14 +50,14 @@ body {
 /* 1.4 Links Gerais (No meio do texto) */
 a {
   color: var(--cor-destaque-viva); /* Usa o verde da marca nos links */
-  text-decoration: none;           /* Remove o sublinhado inicial */
-  font-weight: 700;                /* Deixa o link em negrito */
-  transition: all 0.2s ease;       /* Suaviza a animação de mudança de cor */
+  text-decoration: none;          /* Remove o sublinhado inicial */
+  font-weight: 700;               /* Deixa o link em negrito */
+  transition: all 0.2s ease;      /* Suaviza a animação de mudança de cor */
 }
 
 a:hover {
   color: var(--cor-destaque-escuro); /* Escurece o verde ao passar o mouse */
-  text-decoration: underline;        /* Adiciona sublinhado ao passar o mouse */
+  text-decoration: underline;      /* Adiciona sublinhado ao passar o mouse */
 }
 
 /* 1.5 Tipografia (Títulos H1 a H6) */
@@ -65,6 +65,13 @@ h1, h2, h3, h4 {
   font-family: 'Inter', sans-serif; /* Força a fonte Inter nos títulos */
   font-weight: 700;                 /* Define negrito forte */
   color: var(--cor-texto);          /* Usa a cor de texto padrão */
+}
+
+h3 {
+  font-size: 1.5em; /* NOVO: Tamanho robusto para subtítulos de seção (Metodologia) */
+  font-weight: 800; /* NOVO: Negrito extra forte */
+  margin-top: 1.5em; 
+  margin-bottom: 0.8em; 
 }
 
 h2 {
@@ -75,32 +82,32 @@ h2 {
 
 /* 1.6 Blocos de Código (Code Chunks) */
 pre {
-  font-family: 'Fira Code', monospace;     /* Usa a fonte de código monoespaçada */
-  background-color: var(--cor-code-fundo); /* Aplica o fundo cinza gelo */
-  border-radius: 5px;                      /* Arredonda levemente os cantos */
-  padding: 1em;                            /* Adiciona espaço interno */
-  border: 1px solid var(--cor-borda-suave);/* Adiciona uma borda fina */
+  font-family: 'Fira Code', monospace;      /* Usa a fonte de código monoespaçada */
+  background-color: var(--cor-code-fundo);  /* Aplica o fundo cinza gelo */
+  border-radius: 5px;                       /* Arredonda levemente os cantos */
+  padding: 1em;                             /* Adiciona espaço interno */
+  border: 1px solid var(--cor-borda-suave); /* Adiciona uma borda fina */
 }
 
 code {
-  font-family: 'Fira Code', monospace;     /* Fonte monoespaçada para código em linha */
-  background-color: var(--cor-code-fundo); /* Fundo cinza gelo */
-  padding: 0.2em 0.4em;                    /* Espaço ao redor da palavra */
-  border-radius: 4px;                      /* Arredonda os cantos */
-  font-size: 0.9em;                        /* Diminui levemente a fonte */
+  font-family: 'Fira Code', monospace;      /* Fonte monoespaçada para código em linha */
+  background-color: var(--cor-code-fundo);  /* Fundo cinza gelo */
+  padding: 0.2em 0.4em;                     /* Espaço ao redor da palavra */
+  border-radius: 4px;                       /* Arredonda os cantos */
+  font-size: 0.9em;                         /* Diminui levemente a fonte */
 }
 
 
 /* ==========================================================================
-   BLOCO 2: ESTRUTURA DO LAYOUT
-   O container principal (papel de vidro) e o rodapé.
+    BLOCO 2: ESTRUTURA DO LAYOUT
+    O container principal (papel de vidro) e o rodapé.
 ========================================================================== */
 
 /* 2.1 Conteúdo Principal (Efeito Glassmorphism) */
 main#quarto-content {
   background-color: rgba(255, 255, 255, 0.9); /* Define fundo branco com transparência */
-  backdrop-filter: blur(10px);         /* Aplica desfoque no que está atrás */
-  -webkit-backdrop-filter: blur(10px); /* Garante que funcione no Safari */
+  backdrop-filter: blur(10px);          /* Aplica desfoque no que está atrás */
+  -webkit-backdrop-filter: blur(10px);  /* Garante que funcione no Safari */
   
   max-width: 1000px;    /* Limita a largura em telas grandes */
   width: 90%;           /* Ocupa 90% da largura em telas menores */
@@ -145,13 +152,13 @@ main#quarto-content {
 
 .quarto-page-footer .bi:hover {
     color: var(--cor-destaque-viva) !important; /* Muda para verde ao passar o mouse */
-    transform: translateY(-5px) scale(1.2);     /* Faz o ícone pular e crescer */
+    transform: translateY(-5px) scale(1.2);      /* Faz o ícone pular e crescer */
 }
 
 
 /* ==========================================================================
-   BLOCO 3: NAVEGAÇÃO E PESQUISA
-   Menu superior, correções de largura e fixes da barra de busca.
+    BLOCO 3: NAVEGAÇÃO E PESQUISA
+    Menu superior, correções de largura e fixes da barra de busca.
 ========================================================================== */
 
 /* 3.1 Estilo Visual da Navbar */
@@ -159,29 +166,29 @@ main#quarto-content {
   background-color: var(--cor-navbar-fundo) !important; /* Força fundo preto */
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Adiciona sombra preta abaixo */
   border-bottom: 3px solid var(--cor-destaque-viva); /* Adiciona linha verde neon */
-  padding: 1rem 0;                        /* Define a altura da barra */
-  position: sticky;                       /* Faz o menu grudar ao rolar */
-  top: 0;                                 /* Posiciona no topo absoluto */
-  z-index: 1000;                          /* Coloca acima de todos os elementos */
-  display: flex;                          /* Usa layout flexível */
-  justify-content: center;                /* Centraliza o conteúdo */
+  padding: 1rem 0;                      /* Define a altura da barra */
+  position: sticky;                     /* Faz o menu grudar ao rolar */
+  top: 0;                               /* Posiciona no topo absoluto */
+  z-index: 1000;                        /* Coloca acima de todos os elementos */
+  display: flex;                        /* Usa layout flexível */
+  justify-content: center;              /* Centraliza o conteúdo */
 }
 
 .navbar-nav {
-    width: 100%;                          /* Ocupa toda a largura disponível */
-    max-width: 1000px;                    /* Limita a largura para alinhar com o texto */
-    display: flex;                        /* Usa layout flexível */
-    justify-content: flex-start;          /* Alinha os itens à esquerda */
-    margin: 0 auto;                       /* Centraliza o bloco na tela */
+    width: 100%;                        /* Ocupa toda a largura disponível */
+    max-width: 1000px;                  /* Limita a largura para alinhar com o texto */
+    display: flex;                      /* Usa layout flexível */
+    justify-content: flex-start;        /* Alinha os itens à esquerda */
+    margin: 0 auto;                     /* Centraliza o bloco na tela */
 }
 
 .navbar-nav .nav-link {
   color: var(--cor-navbar-texto) !important; /* Define cor cinza claro */
-  font-weight: 700;                       /* Define negrito */
-  margin-right: 1.5em;                    /* Adiciona espaço à direita */
-  padding: 0.5em 0.8em;                   /* Define área clicável */
-  border-radius: 5px;                     /* Arredonda os botões */
-  transition: all 0.2s ease-in-out;       /* Suaviza a animação */
+  font-weight: 700;                     /* Define negrito */
+  margin-right: 1.5em;                  /* Adiciona espaço à direita */
+  padding: 0.5em 0.8em;                 /* Define área clicável */
+  border-radius: 5px;                   /* Arredonda os botões */
+  transition: all 0.2s ease-in-out;     /* Suaviza a animação */
 }
 
 .navbar-nav .nav-link:hover,
@@ -257,8 +264,8 @@ main#quarto-content {
 
 
 /* ==========================================================================
-   BLOCO 4: PÁGINA INICIAL (HOME)
-   Elementos exclusivos da Index: Animações e Botões de Ação.
+    BLOCO 4: PÁGINA INICIAL (HOME)
+    Elementos exclusivos da Index: Animações e Botões de Ação.
 ========================================================================== */
 
 /* 4.1 Animações de Entrada (Foto e Texto) */
@@ -275,78 +282,78 @@ main#quarto-content {
 /* Keyframes: Define o movimento da esquerda para o centro */
 @keyframes slideInLeft {
     from { transform: translateX(-50px); opacity: 0; } /* Início: deslocado e invisível */
-    to { transform: translateX(0); opacity: 1; }       /* Fim: posição original e visível */
+    to { transform: translateX(0); opacity: 1; }        /* Fim: posição original e visível */
 }
 
 /* Keyframes: Define o movimento da direita para o centro */
 @keyframes slideInRight {
     from { transform: translateX(50px); opacity: 0; }  /* Início: deslocado e invisível */
-    to { transform: translateX(0); opacity: 1; }       /* Fim: posição original e visível */
+    to { transform: translateX(0); opacity: 1; }        /* Fim: posição original e visível */
 }
 
 /* 4.2 Botões de Ação Personalizados */
 
 /* Botão Principal (Verde Teal) */
 .btn-action-primary {
-    background-color: #18bc9c;              /* Fundo Verde */
-    border: 2px solid #18bc9c;              /* Borda Verde */
-    color: white !important;                /* Texto Branco */
-    padding: 12px 30px;                     /* Tamanho interno */
-    border-radius: 50px;                    /* Borda totalmente redonda */
-    text-decoration: none !important;       /* REMOVE SUBLINHADO FORCE */
-    font-weight: 700;                       /* Negrito */
-    font-family: 'Inter', sans-serif;       /* Fonte */
-    transition: all 0.3s ease;              /* Animação suave */
-    white-space: nowrap;                    /* Texto não quebra linha */
-    display: inline-flex;                   /* Permite alinhar ícones */
-    align-items: center;                    /* Centraliza ícone verticalmente */
-    gap: 8px;                               /* Espaço entre ícone e texto */
+    background-color: #18bc9c;           /* Fundo Verde */
+    border: 2px solid #18bc9c;           /* Borda Verde */
+    color: white !important;             /* Texto Branco */
+    padding: 12px 30px;                  /* Tamanho interno */
+    border-radius: 50px;                 /* Borda totalmente redonda */
+    text-decoration: none !important;    /* REMOVE SUBLINHADO FORCE */
+    font-weight: 700;                    /* Negrito */
+    font-family: 'Inter', sans-serif;    /* Fonte */
+    transition: all 0.3s ease;           /* Animação suave */
+    white-space: nowrap;                 /* Texto não quebra linha */
+    display: inline-flex;                /* Permite alinhar ícones */
+    align-items: center;                 /* Centraliza ícone verticalmente */
+    gap: 8px;                            /* Espaço entre ícone e texto */
 }
 
 /* Estados Hover, Focus e Active do Botão Principal */
 .btn-action-primary:hover,
 .btn-action-primary:focus,
 .btn-action-primary:active {
-    background-color: #000000;              /* Fundo vira Preto */
-    border-color: #000000;                  /* Borda vira Preta */
-    color: white !important;                /* Texto continua Branco */
-    transform: translateY(-3px);            /* Botão sobe levemente */
+    background-color: #000000;             /* Fundo vira Preto */
+    border-color: #000000;                 /* Borda vira Preta */
+    color: white !important;               /* Texto continua Branco */
+    transform: translateY(-3px);           /* Botão sobe levemente */
     box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* Sombra aparece embaixo */
-    text-decoration: none !important;       /* GARANTE SEM SUBLINHADO */
+    text-decoration: none !important;      /* GARANTE SEM SUBLINHADO */
 }
 
 /* Botão Secundário (Transparente) */
 .btn-action-secondary {
-    background-color: transparent;          /* Fundo transparente */
-    border: 2px solid #333;                 /* Borda cinza escura */
-    color: #333 !important;                 /* Texto cinza escuro */
-    padding: 12px 30px;                     /* Tamanho interno */
-    border-radius: 50px;                    /* Borda totalmente redonda */
-    text-decoration: none !important;       /* REMOVE SUBLINHADO FORCE */
-    font-weight: 700;                       /* Negrito */
-    font-family: 'Inter', sans-serif;       /* Fonte */
-    transition: all 0.3s ease;              /* Animação suave */
-    white-space: nowrap;                    /* Texto não quebra linha */
-    display: inline-flex;                   /* Permite alinhar ícones */
-    align-items: center;                    /* Centraliza ícone verticalmente */
-    gap: 8px;                               /* Espaço entre ícone e texto */
+    background-color: transparent;         /* Fundo transparente */
+    border: 2px solid #333;                /* Borda cinza escura */
+    color: #333 !important;                /* Texto cinza escuro */
+    padding: 12px 30px;                    /* Tamanho interno */
+    border-radius: 50px;                   /* Borda totalmente redonda */
+    text-decoration: none !important;      /* REMOVE SUBLINHADO FORCE */
+    font-weight: 700;                      /* Negrito */
+    font-family: 'Inter', sans-serif;      /* Fonte */
+    transition: all 0.3s ease;             /* Animação suave */
+    white-space: nowrap;                   /* Texto não quebra linha */
+    display: inline-flex;                  /* Permite alinhar ícones */
+    align-items: center;                   /* Centraliza ícone verticalmente */
+    gap: 8px;                              /* Espaço entre ícone e texto */
 }
 
 /* Estados Hover, Focus e Active do Botão Secundário */
 .btn-action-secondary:hover,
 .btn-action-secondary:focus,
 .btn-action-secondary:active {
-    background-color: #000000;              /* Fundo vira Preto */
-    border-color: #000000;                  /* Borda vira Preta */
-    color: white !important;                /* Texto vira Branco */
-    transform: translateY(-3px);            /* Botão sobe levemente */
-    text-decoration: none !important;       /* GARANTE SEM SUBLINHADO */
+    background-color: #000000;             /* Fundo vira Preto */
+    border-color: #000000;                 /* Borda vira Preta */
+    color: white !important;               /* Texto vira Branco */
+    transform: translateY(-3px);           /* Botão sobe levemente */
+    text-decoration: none !important;      /* GARANTE SEM SUBLINHADO */
 }
 
 
 /* ==========================================================================
-   BLOCO 5: PÁGINA DE PORTFÓLIO
-   Estilização dos Cards e Grid de Projetos.
+    BLOCO 5: PÁGINA DE PORTFÓLIO
+    Estilização dos Cards e Grid de Projetos.
 ========================================================================== */
 .quarto-grid-item.card {
     background: rgba(255, 255, 255, 0.65);  /* Fundo vidro fosco */
@@ -354,53 +361,53 @@ main#quarto-content {
     -webkit-backdrop-filter: blur(12px) saturate(120%); /* Compatibilidade Safari */
     
     border: 1px solid rgba(255, 255, 255, 0.6); /* Borda fina */
-    border-radius: 16px;                    /* Cantos arredondados */
+    border-radius: 16px;                     /* Cantos arredondados */
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07); /* Sombra azulada */
     
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Animação elástica */
-    overflow: hidden;                       /* Esconde conteúdo que vaza */
-    height: 100%;                           /* Altura ocupa tudo */
+    overflow: hidden;                        /* Esconde conteúdo que vaza */
+    height: 100%;                            /* Altura ocupa tudo */
 }
 
 /* Hover no Card */
 .quarto-grid-item.card:hover {
-    transform: translateY(-8px);            /* Card levita */
+    transform: translateY(-8px);             /* Card levita */
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12); /* Sombra aumenta */
     border: 1px solid var(--cor-destaque-viva);  /* Borda fica Verde */
-    background: rgba(255, 255, 255, 0.8);   /* Fundo fica mais opaco */
+    background: rgba(255, 255, 255, 0.8);    /* Fundo fica mais opaco */
 }
 
 /* Título muda de cor no hover do Card */
 .quarto-grid-item.card:hover .card-title {
-    color: var(--cor-destaque-viva);        /* Título fica Verde */
+    color: var(--cor-destaque-viva);         /* Título fica Verde */
 }
 
 /* Clique no Card */
 .quarto-grid-item.card:active {
-    transform: scale(0.97) translateY(0);   /* Efeito de clique (afunda) */
+    transform: scale(0.97) translateY(0);    /* Efeito de clique (afunda) */
 }
 
 /* Imagens dos Projetos */
 .quarto-grid-image {
-    height: 220px;                          /* Define altura fixa */
-    width: 100%;                            /* Largura total */
-    object-fit: cover;                      /* Corta imagem para caber */
-    transition: transform 0.5s ease;        /* Animação de zoom */
+    height: 220px;                           /* Define altura fixa */
+    width: 100%;                             /* Largura total */
+    object-fit: cover;                       /* Corta imagem para caber */
+    transition: transform 0.5s ease;         /* Animação de zoom */
 }
 
 /* Zoom na imagem ao passar o mouse */
 .quarto-grid-item.card:hover .quarto-grid-image {
-    transform: scale(1.05);                 /* Aumenta 5% */
+    transform: scale(1.05);                  /* Aumenta 5% */
 }
 
-.card-body { padding: 1.8rem; }             /* Define espaço interno do texto */
+.card-body { padding: 1.8rem; }              /* Define espaço interno do texto */
 
 .card-title {
-    color: var(--cor-texto);                /* Cor do título */
-    font-weight: 700;                       /* Negrito */
-    font-size: 1.2rem;                      /* Tamanho da fonte */
-    margin-bottom: 0.5rem;                  /* Espaço abaixo */
-    transition: color 0.3s ease;            /* Animação de cor */
+    color: var(--cor-texto);                 /* Cor do título */
+    font-weight: 700;                        /* Negrito */
+    font-size: 1.2rem;                       /* Tamanho da fonte */
+    margin-bottom: 0.5rem;                   /* Espaço abaixo */
+    transition: color 0.3s ease;             /* Animação de cor */
 }
 
 .card-text { color: #666666; font-size: 0.95rem; } /* Estilo da descrição */
@@ -408,113 +415,113 @@ main#quarto-content {
 /* Categorias (Tags) */
 .listing-categories .listing-category {
     background-color: rgba(255, 255, 255, 0.5); /* Fundo semi-transparente */
-    color: var(--cor-texto);                /* Cor do texto */
-    border-radius: 15px;                    /* Formato de pílula */
-    padding: 2px 10px;                      /* Espaçamento interno */
-    font-size: 0.75em;                      /* Fonte pequena */
-    border: 1px solid rgba(0,0,0,0.1);      /* Borda sutil */
-    transition: all 0.2s;                   /* Animação */
+    color: var(--cor-texto);                 /* Cor do texto */
+    border-radius: 15px;                     /* Formato de pílula */
+    padding: 2px 10px;                       /* Espaçamento interno */
+    font-size: 0.75em;                       /* Fonte pequena */
+    border: 1px solid rgba(0,0,0,0.1);       /* Borda sutil */
+    transition: all 0.2s;                    /* Animação */
 }
 
 /* Hover nas Categorias */
 .listing-categories .listing-category:hover {
     background-color: var(--cor-destaque-viva); /* Fundo Verde */
-    color: white;                               /* Texto Branco */
-    border-color: var(--cor-destaque-viva);     /* Borda Verde */
+    color: white;                            /* Texto Branco */
+    border-color: var(--cor-destaque-viva);  /* Borda Verde */
 }
 
 
 /* ==========================================================================
-   BLOCO 6: PÁGINA DE CONSULTORIA
-   Formulário de Contato Estilo Glass (Clean & Light).
+    BLOCO 6: PÁGINA DE CONSULTORIA
+    Formulário de Contato Estilo Glass (Clean & Light).
 ========================================================================== */
 
 /* 6.1 Container do Formulário */
 .form-container {
-  display: flex;                            /* Ativa Flexbox */
-  justify-content: center;                  /* Centraliza horizontalmente */
-  width: 100%;                              /* Ocupa largura total */
-  margin-top: 2rem;                         /* Margem superior */
-  margin-bottom: 3rem;                      /* Margem inferior */
+  display: flex;                        /* Ativa Flexbox */
+  justify-content: center;              /* Centraliza horizontalmente */
+  width: 100%;                          /* Ocupa largura total */
+  margin-top: 2rem;                     /* Margem superior */
+  margin-bottom: 3rem;                  /* Margem inferior */
 }
 
 /* 6.2 O Cartão do Formulário */
 .form {
-  display: flex;                            /* Ativa Flexbox */
-  flex-direction: column;                   /* Organiza em coluna */
-  gap: 15px;                                /* Espaço entre campos */
-  padding: 3em;                             /* Espaço interno */
+  display: flex;                        /* Ativa Flexbox */
+  flex-direction: column;               /* Organiza em coluna */
+  gap: 15px;                            /* Espaço entre campos */
+  padding: 3em;                         /* Espaço interno */
   
   background-color: rgba(255, 255, 255, 0.85); /* Fundo branco vidro */
-  backdrop-filter: blur(12px);              /* Desfoque do fundo */
-  -webkit-backdrop-filter: blur(12px);      /* Safari */
+  backdrop-filter: blur(12px);          /* Desfoque do fundo */
+  -webkit-backdrop-filter: blur(12px);  /* Safari */
   
-  width: 90%;                               /* Ocupa 90% da página */
-  max-width: 1000px;                        /* Limite de largura */
+  width: 90%;                           /* Ocupa 90% da página */
+  max-width: 1000px;                    /* Limite de largura */
   
-  border-radius: 20px;                      /* Cantos arredondados */
+  border-radius: 20px;                  /* Cantos arredondados */
   border: 1px solid rgba(255, 255, 255, 0.6); /* Borda fina branca */
   box-shadow: 0 15px 35px rgba(0,0,0,0.05); /* Sombra suave */
-  transition: all 0.3s ease-in-out;         /* Animação geral */
+  transition: all 0.3s ease-in-out;     /* Animação geral */
 }
 
 /* Hover no Formulário */
 .form:hover {
-  transform: translateY(-3px);              /* Levita */
-  border-color: rgba(24, 188, 156, 0.3);    /* Borda brilha verde */
-  box-shadow: 0 20px 50px rgba(0,0,0,0.1);  /* Sombra aumenta */
+  transform: translateY(-3px);            /* Levita */
+  border-color: rgba(24, 188, 156, 0.3);  /* Borda brilha verde */
+  box-shadow: 0 20px 50px rgba(0,0,0,0.1); /* Sombra aumenta */
 }
 
 /* 6.3 Título do Form */
 #heading {
-  text-align: left;                         /* Alinha à esquerda */
-  margin: 0 0 1em 0;                        /* Margem inferior */
-  color: #2a2a2a;                           /* Cor do texto */
-  font-size: 1.8em;                         /* Tamanho grande */
-  font-weight: 800;                         /* Negrito extra */
-  font-family: 'Inter', sans-serif;         /* Fonte */
-  letter-spacing: -0.5px;                   /* Letras juntas */
-  border-bottom: 2px solid #eee;            /* Linha decorativa */
-  padding-bottom: 15px;                     /* Espaço da linha */
+  text-align: left;                     /* Alinha à esquerda */
+  margin: 0 0 1em 0;                    /* Margem inferior */
+  color: #2a2a2a;                       /* Cor do texto */
+  font-size: 1.8em;                     /* Tamanho grande */
+  font-weight: 800;                     /* Negrito extra */
+  font-family: 'Inter', sans-serif;     /* Fonte */
+  letter-spacing: -0.5px;               /* Letras juntas */
+  border-bottom: 2px solid #eee;        /* Linha decorativa */
+  padding-bottom: 15px;                 /* Espaço da linha */
 }
 
 /* 6.4 Campos de Input (Container) */
 .field {
-  display: flex;                            /* Flexbox para ícone+input */
-  align-items: center;                      /* Alinha verticalmente */
-  gap: 1em;                                 /* Espaço entre eles */
-  border-radius: 8px;                       /* Cantos arredondados */
-  padding: 1em;                             /* Altura interna */
-  background-color: #f8f9fa;                /* Fundo cinza claro */
-  border: 1px solid #e1e4e8;                /* Borda cinza */
-  transition: all 0.3s;                     /* Animação */
+  display: flex;                        /* Flexbox para ícone+input */
+  align-items: center;                  /* Alinha verticalmente */
+  gap: 0.8em;                           /* AJUSTADO: Espaço entre ícone e campo */
+  border-radius: 8px;                   /* Cantos arredondados */
+  padding: 1.2em 1em;                   /* AJUSTADO: Mais alto para usabilidade móvel */
+  background-color: #f8f9fa;            /* Fundo cinza claro */
+  border: 1px solid #e1e4e8;            /* Borda cinza */
+  transition: all 0.3s;                 /* Animação */
 }
 
 /* Foco no Campo */
 .field:focus-within {
-  background-color: #ffffff;                /* Fica branco */
-  border-color: var(--cor-destaque-viva);   /* Borda Verde */
+  background-color: #ffffff;            /* Fica branco */
+  border-color: var(--cor-destaque-viva); /* Borda Verde */
   box-shadow: 0 0 0 4px rgba(24, 188, 156, 0.1); /* Anel Verde */
 }
 
 /* Ícones dos Campos */
 .input-icon {
-  height: 1.2em;                            /* Altura */
-  width: 1.2em;                             /* Largura */
-  fill: var(--cor-destaque-viva);           /* Cor Verde */
-  min-width: 24px;                          /* Tamanho mínimo */
+  height: 1.2em;                        /* Altura */
+  width: 1.2em;                         /* Largura */
+  fill: var(--cor-destaque-viva);       /* Cor Verde */
+  min-width: 24px;                      /* Tamanho mínimo */
 }
 
 /* Área de Texto Digitado */
 .input-field {
-  background: none;                         /* Sem fundo */
-  border: none;                             /* Sem borda */
-  outline: none;                            /* Sem contorno */
-  width: 100%;                              /* Largura total */
-  color: #333;                              /* Cor do texto */
-  font-family: 'Inter', sans-serif;         /* Fonte */
-  font-weight: 500;                         /* Peso médio */
-  font-size: 1em;                           /* Tamanho */
+  background: none;                     /* Sem fundo */
+  border: none;                         /* Sem borda */
+  outline: none;                        /* Sem contorno */
+  width: 100%;                          /* Largura total */
+  color: #333;                          /* Cor do texto */
+  font-family: 'Inter', sans-serif;     /* Fonte */
+  font-weight: 500;                     /* Peso médio */
+  font-size: 1.05em;                    /* AJUSTADO: Texto digitado levemente maior */
 }
 
 .input-field::placeholder { color: #999; }  /* Cor do placeholder */
@@ -527,61 +534,61 @@ select.input-field {
 }
 
 textarea.input-field {
-  resize: vertical;                         /* Redimensiona verticalmente */
-  min-height: 120px;                        /* Altura mínima */
-  padding-top: 5px;                         /* Espaço topo */
+  resize: vertical;                       /* Redimensiona verticalmente */
+  min-height: 120px;                      /* Altura mínima */
+  padding-top: 5px;                       /* Espaço topo */
 }
 
 /* 6.6 Botão de Enviar */
 .btn-submit {
-  display: flex;                            /* Flexbox */
-  justify-content: flex-start;              /* Alinha à esquerda */
-  margin-top: 1em;                          /* Margem superior */
+  display: flex;                        /* Flexbox */
+  justify-content: flex-start;          /* Alinha à esquerda */
+  margin-top: 1em;                      /* Margem superior */
 }
 
 .button1 {
-  padding: 1.2em 4em;                       /* Tamanho grande */
-  border-radius: 8px;                       /* Cantos */
-  border: none;                             /* Sem borda */
+  padding: 1.2em 4em;                     /* Tamanho grande */
+  border-radius: 8px;                     /* Cantos */
+  border: none;                           /* Sem borda */
   background-color: var(--cor-destaque-viva); /* Fundo Verde */
-  color: white;                             /* Texto Branco */
-  font-weight: 700;                         /* Negrito */
-  cursor: pointer;                          /* Mãozinha */
-  font-family: 'Inter', sans-serif;         /* Fonte */
-  text-transform: uppercase;                /* Maiúsculas */
-  letter-spacing: 1px;                      /* Espaçamento letras */
-  transition: .3s ease-in-out;              /* Animação */
+  color: white;                           /* Texto Branco */
+  font-weight: 700;                       /* Negrito */
+  cursor: pointer;                        /* Mãozinha */
+  font-family: 'Inter', sans-serif;       /* Fonte */
+  text-transform: uppercase;              /* Maiúsculas */
+  letter-spacing: 1px;                    /* Espaçamento letras */
+  transition: .3s ease-in-out;            /* Animação */
 }
 
 .button1:hover {
-  background-color: #000000;                /* Fica Preto */
-  transform: translateY(-2px);              /* Sobe */
+  background-color: #000000;              /* Fica Preto */
+  transform: translateY(-2px);            /* Sobe */
   box-shadow: 0 10px 20px rgba(0,0,0,0.15); /* Sombra */
 }
 
-/* 6.7 Botão de Arquivo (Input File) */
+/* 6.7 Botão de Arquivo (Input File) - MELHORIAS VISUAIS APLICADAS */
 input[type="file"]::file-selector-button {
-  border-radius: 6px;                       /* Cantos */
-  padding: 8px 16px;                        /* Tamanho interno */
-  height: 36px;                             /* Altura fixa */
-  cursor: pointer;                          /* Mãozinha */
-  background-color: #e1e4e8;                /* Fundo cinza */
-  border: none;                             /* Sem borda */
-  color: #333;                              /* Texto escuro */
-  margin-right: 15px;                       /* Margem direita */
-  transition: all 0.3s;                     /* Animação */
-  font-weight: bold;                        /* Negrito */
+  border-radius: 6px;                     /* Cantos */
+  padding: 8px 16px;                      /* Tamanho interno */
+  height: 36px;                           /* Altura fixa */
+  cursor: pointer;                        /* Mãozinha */
+  background-color: var(--cor-destaque-viva); /* FIX: Fundo Verde da marca */
+  border: none;                           /* Sem borda */
+  color: white;                           /* FIX: Texto Branco para contraste */
+  margin-right: 15px;                     /* Margem direita */
+  transition: all 0.3s;                   /* Animação */
+  font-weight: bold;                      /* Negrito */
 }
 
 input[type="file"]::file-selector-button:hover {
-  background-color: var(--cor-destaque-viva); /* Fundo Verde */
-  color: white;                               /* Texto Branco */
+  background-color: var(--cor-destaque-escuro); /* AJUSTADO: Escurece o verde no hover */
+  color: white;
 }
 
 
 /* ==========================================================================
-   BLOCO 7: COMPONENTES GERAIS
-   Abas (Tabs) e Hacks de Acessibilidade.
+    BLOCO 7: COMPONENTES GERAIS
+    Abas (Tabs) e Hacks de Acessibilidade.
 ========================================================================== */
 
 /* 7.1 Estilização das Abas (Tabs) */

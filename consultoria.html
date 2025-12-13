@@ -91,7 +91,7 @@ details > summary {
 </style>
 
 
-<link rel="stylesheet" href="s6.css">
+<link rel="stylesheet" href="s7.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -176,11 +176,11 @@ details > summary {
 <p></p><figure class="figure"><p></p>
 <div>
 <pre class="mermaid mermaid-js">flowchart TD
-    A[&lt;i class='fa-solid fa-file-pen'&gt;&lt;/i&gt; 1. Solicitação] --&gt; B["&lt;i class='fa-brands fa-whatsapp'&gt;&lt;/i&gt; 2. Contato Rápido"]
-    B --&gt;|Diagnóstico| C[&lt;i class='fa-solid fa-handshake'&gt;&lt;/i&gt; 3. Reunião de Alinhamento]
-    C --&gt;|Escopo Definido| D[&lt;i class='fa-solid fa-file-invoice-dollar'&gt;&lt;/i&gt; 4. Proposta Comercial]
-    D --&gt;|Aprovação| E[&lt;i class='fa-solid fa-laptop-code'&gt;&lt;/i&gt; 5. Desenvolvimento"]
-    E --&gt;|Finalização| F[&lt;i class='fa-solid fa-rocket'&gt;&lt;/i&gt; 6. Entrega dos Resultados "Relatórios"]
+    A["&lt;i class='fa-solid fa-file-pen'&gt;&lt;/i&gt; 1. Solicitação"] --&gt; B["&lt;i class='fa-brands fa-whatsapp'&gt;&lt;/i&gt; 2. Contato Ágil"]
+    B --&gt;|Diagnóstico| C["&lt;i class='fa-solid fa-handshake'&gt;&lt;/i&gt; 3. Reunião de Alinhamento"]
+    C --&gt;|Escopo Definido| D["&lt;i class='fa-solid fa-file-invoice-dollar'&gt;&lt;/i&gt; 4. Proposta Comercial"]
+    D --&gt;|Aprovação| E["&lt;i class='fa-solid fa-laptop-code'&gt;&lt;/i&gt; 5. Desenvolvimento"]
+    E --&gt;|Finalização| F["&lt;i class='fa-solid fa-rocket'&gt;&lt;/i&gt; 6. Entrega dos Resultados (Relatórios)"]
 
     classDef start fill:#18bc9c,stroke:#18bc9c,color:#fff,stroke-width:0px,font-weight:bold;
     classDef process fill:#fff,stroke:#e0e0e0,color:#333,stroke-width:1px;
@@ -190,7 +190,7 @@ details > summary {
     class B,C,D,E process;
     class F endNode;
     
-    linkStyle default stroke:#bbb,stroke-width:2px;    
+    linkStyle default stroke:#bbb,stroke-width:2px;  
 </pre>
 </div>
 <p></p></figure><p></p>
@@ -201,6 +201,7 @@ details > summary {
 <div style="text-align: justify; margin-top: 30px; margin-top: 30px; margin-bottom: 20px; font-size: 1.1em;">
 <p>Preencha o formulário abaixo para uma análise preliminar. Respondemos rapidamente.</p>
 </div>
+
 <div class="form-container">
 
   <div id="success-message" style="display:none; text-align: center; background: rgba(255,255,255,0.95); padding: 50px; border-radius: 20px; border: 1px solid #18bc9c; box-shadow: 0 10px 30px rgba(0,0,0,0.05); width: 100%;">
@@ -214,9 +215,10 @@ details > summary {
     <button onclick="location.reload()" class="button1" style="margin-top: 30px; max-width: 250px; background-color: #333;">Voltar ao Início</button>
   </div>
 
-  <form id="contact-form" class="form" action="https://formsubmit.co/ajax/alexssandrosg@gmail.com" method="POST" enctype="multipart/form-data">
+  <form id="contact-form" class="form" action="[https://formsubmit.co/ajax/alexssandrosg@gmail.com](https://formsubmit.co/ajax/alexssandrosg@gmail.com)" method="POST" enctype="multipart/form-data">
     
-    <input type="hidden" name="_subject" value="Nova Oportunidade: Consultoria (Via Site)">
+    <input type="hidden" name="_subject" value="[Nome] - Nova Oportunidade (Consultoria)">
+    
     <input type="hidden" name="_template" value="table">
     <input type="hidden" name="_captcha" value="false">
     
@@ -289,7 +291,6 @@ details > summary {
   const fileFeedback = document.getElementById('file-feedback');
 
   // --- CONFIGURAÇÃO AUTOMÁTICA DE REDIRECIONAMENTO ---
-  // Isso preenche o campo _next com o link atual (Localhost ou Online)
   document.getElementById('next-url').value = window.location.href;
 
   // 1. Mostrar nomes dos arquivos selecionados
@@ -306,14 +307,13 @@ details > summary {
   form.addEventListener('submit', function(e) {
     e.preventDefault();
     
-    // Validação de E-mail
+    // Validações
     const emailField = document.getElementById('input-email');
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailField.value)) {
         alert("Por favor, insira um e-mail válido.");
         emailField.focus(); return;
     }
 
-    // Validação de WhatsApp
     const whatsField = document.getElementById('input-whatsapp');
     const whatsValue = whatsField.value.replace(/\D/g, ''); 
     if (whatsValue.length > 0 && (whatsValue.length < 10 || whatsValue.length > 11)) {
@@ -327,10 +327,23 @@ details > summary {
     submitBtn.style.opacity = "0.7";
     submitBtn.disabled = true;
 
+    // 🔴 FIX: Se houver arquivos, pula o AJAX e usa o envio tradicional (Plano B)
+    if (fileInput.files && fileInput.files.length > 0) {
+        console.warn("Arquivos detectados. Forçando envio tradicional para garantir a anexação.");
+        
+        // Remove listener e define a ação para o modo tradicional (sem /ajax)
+        form.removeEventListener('submit', arguments.callee);
+        form.action = "[https://formsubmit.co/alexssandrosg@gmail.com](https://formsubmit.co/alexssandrosg@gmail.com)";
+        
+        // Força o envio nativo
+        form.submit();
+        return; 
+    }
+
+    // --- Se NÃO houver arquivos, continua com o AJAX (Envio Silencioso) ---
     const formData = new FormData(form);
 
-    // Tenta envio via AJAX (Silencioso)
-    fetch("https://formsubmit.co/ajax/alexssandrosg@gmail.com", {
+    fetch("[https://formsubmit.co/ajax/alexssandrosg@gmail.com](https://formsubmit.co/ajax/alexssandrosg@gmail.com)", {
       method: "POST",
       headers: { 'Accept': 'application/json' },
       body: formData
@@ -348,20 +361,16 @@ details > summary {
       $('html, body').animate({ scrollTop: $(".form-container").offset().top - 100 }, 800);
     })
     .catch(error => {
-      // Falha AJAX (Plano B - Envio Padrão)
-      console.warn("Erro AJAX detectado. Redirecionando para envio padrão...", error);
+      // Falha AJAX (Plano B Genérico, se falhar mesmo sem arquivo)
+      console.warn("Erro AJAX, tentando fallback:", error);
       
-      // Remove o listener para permitir o envio nativo
       form.removeEventListener('submit', arguments.callee);
-      
-      // Remove o "/ajax" da URL para usar o modo de redirecionamento
-      form.action = "https://formsubmit.co/alexssandrosg@gmail.com";
-      
-      // Força o envio. Como configuramos o "_next" lá em cima, ele voltará para cá.
+      form.action = "[https://formsubmit.co/alexssandrosg@gmail.com](https://formsubmit.co/alexssandrosg@gmail.com)";
       form.submit();
     });
   });
 </script>
+
 
 
 </section>
