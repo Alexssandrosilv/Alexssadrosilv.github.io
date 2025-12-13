@@ -5,8 +5,15 @@ page-layout: full
 title-block-banner: false
 include-in-header:
 - text: |
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <style>
+        .mermaid { margin: 0 auto; text-align: center; }
+        .mermaid svg { max-width: 100%; height: auto; }
+      </style>
+# - text: |
+#     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+#     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 #- text: |
 #      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 #      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -22,9 +29,9 @@ include-in-header:
 
 ::: {style="text-align: justify; margin-top: 15px; margin-bottom: 40px; font-size: 1.1em; line-height: 1.8;"}
 
-A **ΛΣ Consultoria** oferece suporte técnico especializado para transformar dados complexos em resultados claros, análises estatísticas rigorosas para academia e mercado, atuando na fronteira entre a teoria estatística avançada e a aplicação prática.
+A **ΛΣ Consultoria** oferece suporte técnico especializado para transformar dados complexos em resultados claros, análises estatísticas rigorosas para academia e mercado, atuando na fronteira entre a teoria estatística e a aplicação prática.
 
-- **Academia:** Suporte metodológico robusto para Pesquisadores, Mestrandos e Doutorandos (TCCs, Dissertações e Teses), com foco em reprodutibilidade e rigor científico.
+- **Academia:** Suporte metodológico para Pesquisas (TCCs, Dissertações e Teses), com foco em reprodutibilidade e rigor científico.
 
 - **Corporativo:** Inteligência de dados, modelagem preditiva e análise de cenários para embasar tomadas de decisão críticas.
 
@@ -43,27 +50,7 @@ A **ΛΣ Consultoria** oferece suporte técnico especializado para transformar d
 <div class="mermaid-scroll">
 ```{mermaid}
 %%| fig-align: center
-%%| fig-height: 4
-%%|flowchart LR
-    %% Nós com Ícones HTML (Protegidos por aspas para não dar erro)
-%%|    A["<i class='fa-solid fa-file-pen'></i> 1. Solicitação"] --> B["<i class='fa-brands fa-whatsapp'></i> 2. Contato"]
-%%|    B --> C["<i class='fa-solid fa-users-viewfinder'></i> 3. Diagnóstico"]
-%%|    C --> D["<i class='fa-solid fa-file-contract'></i> 4. Proposta"]
-%%|    D --> E["<i class='fa-solid fa-chart-pie'></i> 5. Execução"]
-%%|    E --> F["<i class='fa-solid fa-flag-checkered'></i> 6. Entrega"]
-
-    %% Estilização
-%%|    classDef start fill:#18bc9c,stroke:#18bc9c,color:#fff,stroke-width:0px,font-weight:bold,rx:10,ry:10,font-size:16px;
-%%|    classDef process fill:#fff,stroke:#e0e0e0,color:#333,stroke-width:2px,rx:5,ry:5,font-size:16px;
-%%|    classDef endNode fill:#2a2a2a,stroke:#2a2a2a,color:#fff,stroke-width:0px,font-weight:bold,rx:10,ry:10,font-size:16px;
-
-%%|    class A start;
-%%|    class B,C,D,E process;
-%%|    class F endNode;
-    
-%%|    linkStyle default stroke:#bbb,stroke-width:2px;
-    
-%%| fig-align: center
+%%| fig-height: 6
 flowchart TD
     A[<i class='fa-solid fa-file-pen'></i> 1. Solicitação] --> B["<i class='fa-brands fa-whatsapp'></i> 2. Contato Rápido"]
     B -->|Diagnóstico| C[<i class='fa-solid fa-handshake'></i> 3. Reunião de Alinhamento]
@@ -80,25 +67,6 @@ flowchart TD
     class F endNode;
     
     linkStyle default stroke:#bbb,stroke-width:2px;    
-
-%%| %%| fig-align: center -->
-%%| flowchart TD -->
-%%|     A[<i class='fa-solid fa-file-pen'></i> 1. Solicitação] -->|Análise de Viabilidade| B[<i class='fa-brands fa-whatsapp'></i> 2. Contato Rápido] -->
-%%|     B -->|Diagnóstico| C[<i class='fa-solid fa-handshake'></i> 3. Reunião de Alinhamento] -->
-%%|     C -->|Escopo Definido| D[<i class='fa-solid fa-file-invoice-dollar'></i> 4. Proposta Comercial] -->
-%%|     D -->|Aprovação| E[<i class='fa-solid fa-laptop-code'></i> 5. Execução Técnica] -->
-%%|     E -->|Finalização| F[<i class='fa-solid fa-rocket'></i> 6. Entrega dos Resultados] -->
-
-%%|     classDef start fill:#18bc9c,stroke:#18bc9c,color:#fff,stroke-width:0px,font-weight:bold; -->
-%%|     classDef process fill:#fff,stroke:#e0e0e0,color:#333,stroke-width:1px; -->
-%%|     classDef endNode fill:#2a2a2a,stroke:#2a2a2a,color:#fff,stroke-width:0px,font-weight:bold; -->
-
-%%|     class A start; -->
-%%|     class B,C,D,E process; -->
-%%|     class F endNode; -->
-
-%%|     linkStyle default stroke:#bbb,stroke-width:2px;     -->
-
 ```
 
 </div>
@@ -123,7 +91,7 @@ Preencha o formulário abaixo para uma análise preliminar. Respondemos rapidame
     <button onclick="location.reload()" class="button1" style="margin-top: 30px; max-width: 250px; background-color: #333;">Voltar ao Início</button>
   </div>
 
-  <form id="contact-form" class="form" action="[https://formsubmit.co/ajax/alexssandrosg@gmail.com](https://formsubmit.co/ajax/alexssandrosg@gmail.com)" method="POST" enctype="multipart/form-data">
+  <form id="contact-form" class="form" action="https://formsubmit.co/ajax/alexssandrosg@gmail.com" method="POST" enctype="multipart/form-data">
     
     <input type="hidden" name="_subject" value="Nova Oportunidade: Consultoria (Via Site)">
     <input type="hidden" name="_template" value="table">
@@ -198,10 +166,10 @@ Preencha o formulário abaixo para uma análise preliminar. Respondemos rapidame
   const fileFeedback = document.getElementById('file-feedback');
 
   // --- CONFIGURAÇÃO AUTOMÁTICA DE REDIRECIONAMENTO ---
-  // Isso define o "_next" para a página atual, seja localhost ou github.io
+  // Isso preenche o campo _next com o link atual (Localhost ou Online)
   document.getElementById('next-url').value = window.location.href;
 
-  // 1. Mostrar nomes dos arquivos
+  // 1. Mostrar nomes dos arquivos selecionados
   fileInput.addEventListener('change', function() {
     if (this.files && this.files.length > 0) {
       let fileNames = Array.from(this.files).map(f => f.name).join(', ');
@@ -215,21 +183,22 @@ Preencha o formulário abaixo para uma análise preliminar. Respondemos rapidame
   form.addEventListener('submit', function(e) {
     e.preventDefault();
     
-    // Validações
+    // Validação de E-mail
     const emailField = document.getElementById('input-email');
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailField.value)) {
         alert("Por favor, insira um e-mail válido.");
         emailField.focus(); return;
     }
 
+    // Validação de WhatsApp
     const whatsField = document.getElementById('input-whatsapp');
     const whatsValue = whatsField.value.replace(/\D/g, ''); 
     if (whatsValue.length > 0 && (whatsValue.length < 10 || whatsValue.length > 11)) {
-        alert("O número de WhatsApp parece incorreto. Digite DDD + Número.");
+        alert("O número de WhatsApp parece incompleto. Use DDD + Número.");
         whatsField.focus(); return;
     }
     
-    // Feedback de Envio
+    // Preparar Envio
     const originalBtnText = submitBtn.innerHTML;
     submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Enviando...';
     submitBtn.style.opacity = "0.7";
@@ -238,7 +207,7 @@ Preencha o formulário abaixo para uma análise preliminar. Respondemos rapidame
     const formData = new FormData(form);
 
     // Tenta envio via AJAX (Silencioso)
-    fetch("[https://formsubmit.co/ajax/alexssandrosg@gmail.com](https://formsubmit.co/ajax/alexssandrosg@gmail.com)", {
+    fetch("https://formsubmit.co/ajax/alexssandrosg@gmail.com", {
       method: "POST",
       headers: { 'Accept': 'application/json' },
       body: formData
@@ -248,7 +217,7 @@ Preencha o formulário abaixo para uma análise preliminar. Respondemos rapidame
         return response.json();
     })
     .then(data => {
-      // SUCESSO AJAX
+      // Sucesso AJAX
       console.log("Sucesso:", data);
       const nome = document.getElementById('input-nome').value.split(' ')[0];
       userNameDisplay.innerText = nome;
@@ -256,14 +225,14 @@ Preencha o formulário abaixo para uma análise preliminar. Respondemos rapidame
       $('html, body').animate({ scrollTop: $(".form-container").offset().top - 100 }, 800);
     })
     .catch(error => {
-      // FALHA AJAX (Provável Localhost ou Arquivo Grande)
+      // Falha AJAX (Plano B - Envio Padrão)
       console.warn("Erro AJAX detectado. Redirecionando para envio padrão...", error);
       
-      // Removemos o listener para permitir o envio nativo
+      // Remove o listener para permitir o envio nativo
       form.removeEventListener('submit', arguments.callee);
       
       // Remove o "/ajax" da URL para usar o modo de redirecionamento
-      form.action = "[https://formsubmit.co/alexssandrosg@gmail.com](https://formsubmit.co/alexssandrosg@gmail.com)";
+      form.action = "https://formsubmit.co/alexssandrosg@gmail.com";
       
       // Força o envio. Como configuramos o "_next" lá em cima, ele voltará para cá.
       form.submit();
