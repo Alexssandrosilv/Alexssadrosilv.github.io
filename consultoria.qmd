@@ -22,6 +22,7 @@ A **ΛΣ Consultoria** oferece suporte técnico especializado para transformar d
 
 :::
 
+```{=html}
 <div class="form-container">
   
   <form class="form" action="https://formsubmit.co/alexssandrosg@gmail.com" method="POST" enctype="multipart/form-data">
@@ -81,9 +82,6 @@ A **ΛΣ Consultoria** oferece suporte técnico especializado para transformar d
 
   </form>
 </div>
+```
 
-::: {style="border-top: 1px solid #ddd; padding-top: 20px; font-size: 0.8em; text-align: center; color: #666;"}
 
-© 2025 Alexssandro Oliveira | **ΛΣ Consultoria Estatística**
-
-:::

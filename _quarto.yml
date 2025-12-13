@@ -4,7 +4,7 @@ project:
 
 website:
   title: "ΛΣ"
-  description: "Portfólio de projetos de Alexssandro Oliveira"
+  description: "Portfólio de projetos de Alexssandro Silva"
   # As setas no final da página (Só funcionam se tiver sidebar definindo a ordem)
   page-navigation: true 
 
@@ -58,7 +58,7 @@ website:
     
     # Lado Esquerdo: Seu nome
     left: 
-      - text: "© 2025 Alexssandro Oliveira <b>| ΛΣ Consultoria Estatística</b>"
+      - text: "© 2025 Alexssandro Silva <b>| ΛΣ Consultoria Estatística</b>"
       
     # Centro: A frase
     center: 
@@ -78,7 +78,7 @@ website:
 format: 
   html: 
     theme: flatly # IMPORTANTE: Remove o tema padrão para usar 100% o nosso CSS
-    css: s5.css
+    css: s6.css
     
     # Configurações de Layout
     toc: true # Table of Contents (Menu da Direita)
