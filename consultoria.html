@@ -166,8 +166,8 @@ details > summary {
 <section id="vamos-tirar-seu-projeto-do-papel" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="vamos-tirar-seu-projeto-do-papel"><span class="header-section-number">2</span> Vamos tirar seu projeto do papel?</h2>
 <div style="text-align: center; margin-top: 30px; margin-bottom: 30px;">
-  <h3 style="font-weight: 900; letter-spacing: -0.5px; color: #2a2a2a;" class="anchored">Nossa Metodologia de Trabalho.</h3>
-  <p style="color: #666;">Transparência do início ao fim do projeto.</p>
+  <h3 style="font-weight: 900; color: #2a2a2a;" class="anchored">Nossa Metodologia de Trabalho</h3>
+  <p style="color: #666;">Transparência do início ao fim do projeto</p>
 </div>
 <div class="mermaid-scroll">
 <div class="cell" data-fig-height="6" data-layout-align="center">
@@ -182,15 +182,15 @@ details > summary {
     D --&gt;|Aprovação| E["&lt;i class='fa-solid fa-laptop-code'&gt;&lt;/i&gt; 5. Desenvolvimento"]
     E --&gt;|Finalização| F["&lt;i class='fa-solid fa-rocket'&gt;&lt;/i&gt; 6. Entrega dos Resultados (Relatórios)"]
 
-    classDef start fill:#18bc9c,stroke:#18bc9c,color:#fff,stroke-width:0px,font-weight:bold;
-    classDef process fill:#fff,stroke:#e0e0e0,color:#333,stroke-width:1px;
-    classDef endNode fill:#2a2a2a,stroke:#2a2a2a,color:#fff,stroke-width:0px,font-weight:bold;
+    %% FIX: Adicionado rx:10 e ry:10 para cantos arredondados
+    classDef start fill:#18bc9c,stroke:#18bc9c,color:#fff,stroke-width:0px,font-weight:bold,rx:10,ry:10; 
+    classDef process fill:#fff,stroke:#e0e0e0,color:#333,stroke-width:1px,rx:10,ry:10; 
+    classDef endNode fill:#2a2a2a,stroke:#2a2a2a,color:#fff,stroke-width:0px,font-weight:bold,rx:10,ry:10; 
 
     class A start;
     class B,C,D,E process;
     class F endNode;
-    
-    linkStyle default stroke:#bbb,stroke-width:2px;  
+    linkStyle default stroke:#bbb,stroke-width:2px;
 </pre>
 </div>
 <p></p></figure><p></p>
