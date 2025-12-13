@@ -68,6 +68,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Procurar"
   }
 }</script>
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;family=Fira+Code&amp;display=swap" rel="stylesheet">
@@ -81,6 +84,7 @@ details > summary {
 }
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 
 <link rel="stylesheet" href="s6.css">
@@ -134,7 +138,7 @@ details > summary {
     <h2 id="toc-title">Nesta página</h2>
    
   <ul>
-  <li><a href="#como-a-λσ-pode-ajudar" id="toc-como-a-λσ-pode-ajudar" class="nav-link active" data-scroll-target="#como-a-λσ-pode-ajudar"><span class="header-section-number">1</span> Como a ΛΣ pode ajudar?</a></li>
+  <li><a href="#análise-de-dados" id="toc-análise-de-dados" class="nav-link active" data-scroll-target="#análise-de-dados"><span class="header-section-number">1</span> Análise de Dados</a></li>
   </ul>
 </nav>
     </div>
@@ -144,75 +148,192 @@ details > summary {
 
 
 
-<section id="como-a-λσ-pode-ajudar" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="como-a-λσ-pode-ajudar"><span class="header-section-number">1</span> Como a ΛΣ pode ajudar?</h2>
-<div style="text-align: justify; margin-bottom: 40px;">
-<p>Análises estatísticas rigorosas para academia e mercado</p>
-<p>A <strong>ΛΣ Consultoria</strong> oferece suporte técnico especializado para transformar dados complexos em resultados claros.</p>
+<section id="análise-de-dados" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="análise-de-dados"><span class="header-section-number">1</span> Análise de Dados</h2>
+<div style="text-align: justify; margin-bottom: 40px; font-size: 1.1em; line-height: 1.8;">
+<p>A <strong>ΛΣ Consultoria</strong> oferece suporte técnico especializado para transformar dados complexos em resultados claros, análises estatísticas rigorosas para academia e mercado, atuando na fronteira entre a teoria estatística avançada e a aplicação prática.</p>
 <ul>
-<li><p><strong>Consultoria Acadêmica:</strong> Apoio metodológico para TCCs, Dissertações e Teses, garantindo que a análise estatística esteja correta, reprodutível e bem fundamentada.</p></li>
-<li><p><strong>Soluções Corporativas:</strong> Modelagem preditiva, análise de séries temporais e inteligência de dados para tomada de decisão estratégica.</p></li>
+<li><p><strong>Academia:</strong> Suporte metodológico robusto para Pesquisadores, Mestrandos e Doutorandos (TCCs, Dissertações e Teses), com foco em reprodutibilidade e rigor científico.</p></li>
+<li><p><strong>Corporativo:</strong> Inteligência de dados, modelagem preditiva e análise de cenários para embasar tomadas de decisão críticas.</p></li>
 </ul>
 </div>
-<div class="form-container">
-  
-  <form class="form" action="https://formsubmit.co/alexssandrosg@gmail.com" method="POST" enctype="multipart/form-data">
-    
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_subject" value="Novo Pedido de Consultoria (ΛΣ)">
-    <input type="hidden" name="_template" value="table">
-    
-    <input type="hidden" name="_next" value="http://localhost:quarto-session/sucesso.html"> 
+<div style="text-align: center; margin-top: 50px; margin-bottom: 30px;">
+<h3 style="font-weight: 800; letter-spacing: -0.5px; color: #2a2a2a;" class="anchored">
+Nossa Metodologia de Trabalho
+</h3>
+<p style="color: #666;">
+Transparência do início ao fim do projeto.
+</p>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+    A[&lt;i class='fa-solid fa-file-pen'&gt;&lt;/i&gt; 1. Solicitação] --&gt;|Análise de Viabilidade| B[&lt;i class='fa-brands fa-whatsapp'&gt;&lt;/i&gt; 2. Contato Rápido]
+    B --&gt;|Diagnóstico| C[&lt;i class='fa-solid fa-handshake'&gt;&lt;/i&gt; 3. Reunião de Alinhamento]
+    C --&gt;|Escopo Definido| D[&lt;i class='fa-solid fa-file-invoice-dollar'&gt;&lt;/i&gt; 4. Proposta Comercial]
+    D --&gt;|Aprovação| E[&lt;i class='fa-solid fa-laptop-code'&gt;&lt;/i&gt; 5. Execução Técnica]
+    E --&gt;|Finalização| F[&lt;i class='fa-solid fa-rocket'&gt;&lt;/i&gt; 6. Entrega dos Resultados]
 
-    <p id="heading">Solicitar Orçamento</p>
+    %% ESTILIZAÇÃO PROFISSIONAL (Cores da Marca)
+    classDef start fill:#18bc9c,stroke:#18bc9c,color:#fff,stroke-width:0px,font-weight:bold;
+    classDef process fill:#fff,stroke:#e0e0e0,color:#333,stroke-width:1px;
+    classDef endNode fill:#2a2a2a,stroke:#2a2a2a,color:#fff,stroke-width:0px,font-weight:bold;
+
+    class A start;
+    class B,C,D,E process;
+    class F endNode;
+    
+    linkStyle default stroke:#bbb,stroke-width:2px;
+
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+
+<div style="text-align: center; margin-top: 60px; margin-bottom: 20px;">
+  <span style="background-color: #18bc9c; color: white; padding: 5px 15px; border-radius: 50px; font-size: 0.8em; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">Contato</span>
+  <h2 style="margin-top: 15px; font-weight: 800; color: #2a2a2a; letter-spacing: -1px;" class="anchored">Vamos tirar seu projeto do papel?</h2>
+  <p style="color: #666; font-size: 1.1em; max-width: 600px; margin: 10px auto 0 auto;">
+    Preencha o formulário abaixo para uma análise preliminar. Respondemos rapidamente.
+  </p>
+</div>
+
+<div class="form-container">
+
+  <div id="success-message" style="display:none; text-align: center; background: rgba(255,255,255,0.95); padding: 50px; border-radius: 20px; border: 1px solid #18bc9c; box-shadow: 0 10px 30px rgba(0,0,0,0.05); width: 100%;">
+    <i class="fa-solid fa-circle-check" style="font-size: 5em; color: #18bc9c; margin-bottom: 20px;"></i>
+    <h2 style="color: #2a2a2a; margin-bottom: 10px; font-weight: 700;" class="anchored">Solicitação Enviada!</h2>
+    <p style="color: #555; font-size: 1.1em; margin-bottom: 5px;">Obrigado, <strong><span id="user-name-display"></span></strong>.</p>
+    <p style="color: #666; line-height: 1.6;">Recebemos seus arquivos e detalhes do projeto.<br>Nossa equipe técnica analisará a demanda e entrará em contato <strong>o mais breve possível</strong>.</p>
+    <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; font-size: 0.9em; color: #888;">
+      <i class="fa-brands fa-whatsapp"></i> Fique atento ao seu WhatsApp.
+    </div>
+    <button onclick="location.reload()" class="button1" style="margin-top: 30px; max-width: 250px; background-color: #333;">Voltar ao Início</button>
+  </div>
+
+  <form id="contact-form" class="form" action="[https://formsubmit.co/ajax/alexssandrosg@gmail.com](https://formsubmit.co/ajax/alexssandrosg@gmail.com)" method="POST" enctype="multipart/form-data">
+    
+    <input type="hidden" name="_subject" value="Nova Oportunidade: Consultoria (Via Site)">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_captcha" value="false">
+
+    <p id="heading">Inicie seu Projeto</p>
     
     <div class="field">
       <i class="fa-solid fa-user input-icon"></i>
-      <input autocomplete="off" name="nome" placeholder="Seu Nome" class="input-field" type="text" required="">
+      <input autocomplete="off" name="Nome_Cliente" id="input-nome" placeholder="Seu Nome Completo *" class="input-field" type="text" required="">
     </div>
 
     <div class="field">
       <i class="fa-solid fa-envelope input-icon"></i>
-      <input autocomplete="off" name="email" placeholder="Seu E-mail" class="input-field" type="email" required="">
+      <input autocomplete="off" name="Email_Principal" placeholder="Seu Melhor E-mail *" class="input-field" type="email" required="">
+    </div>
+
+    <div class="field" style="border-left: 4px solid #18bc9c;"> 
+      <i class="fa-brands fa-whatsapp input-icon" style="color: #18bc9c;"></i>
+      <input autocomplete="off" name="WhatsApp_Contato" placeholder="WhatsApp (DDD + Número)" class="input-field" type="tel">
+    </div>
+    
+    <div style="display: flex; align-items: start; gap: 10px; margin-top: -8px; margin-bottom: 15px; padding-left: 5px;">
+      <input type="checkbox" name="Aceite_WhatsApp" id="zap-check" checked="" style="margin-top: 5px; accent-color: #18bc9c; cursor: pointer;">
+      <label for="zap-check" style="font-size: 0.8em; color: #666; cursor: pointer; line-height: 1.4;">
+        Autorizo o contato via WhatsApp para agilizar o atendimento e envio da proposta.
+      </label>
     </div>
 
     <div class="field">
-      <i class="fa-solid fa-phone input-icon"></i>
-      <input autocomplete="off" name="telefone" placeholder="WhatsApp / Celular" class="input-field" type="tel" required="">
-    </div>
-
-    <div class="field">
-      <i class="fa-solid fa-briefcase input-icon"></i>
-      <input autocomplete="off" name="servico" placeholder="Assunto (ex: Análise TCC, Dashboards)" class="input-field" type="text">
-    </div>
-
-    <div class="field">
-      <i class="fa-solid fa-hourglass-half input-icon"></i>
-      <select name="urgencia" class="input-field" required="">
-        <option value="" disabled="" selected="">Qual a urgência do prazo?</option>
-        <option value="Baixa">🟢 Baixa (Planejamento / Sem pressa)</option>
-        <option value="Media">🟡 Média (Preciso para as próximas semanas)</option>
-        <option value="Alta">🟠 Alta (Preciso para breve)</option>
-        <option value="Critica">🔴 CRÍTICA (Prazo estourando / &lt; 48h)</option>
-      </select>
+      <i class="fa-solid fa-bullseye input-icon"></i>
+      <input autocomplete="off" name="Tipo_Servico" placeholder="Assunto (ex: Análise TCC, Dashboards Corporativos)" class="input-field" type="text">
     </div>
 
     <div class="field" style="align-items: flex-start;">
-      <i class="fa-solid fa-comment input-icon" style="margin-top: 5px;"></i>
-      <textarea name="mensagem" placeholder="Descreva o problema, o objetivo da análise e detalhes do prazo..." class="input-field" required=""></textarea>
+      <i class="fa-solid fa-align-left input-icon" style="margin-top: 8px;"></i>
+      <textarea name="Descricao_Detalhada" placeholder="Descreva brevemente o objetivo do projeto. Qual problema precisamos resolver?" class="input-field"></textarea>
     </div>
 
     <div class="field">
-      <i class="fa-solid fa-paperclip input-icon"></i>
-      <input type="file" name="anexo" class="input-field" accept=".pdf,.doc,.docx,.xlsx,.csv,.txt">
+      <i class="fa-solid fa-folder-open input-icon"></i>
+      <input type="file" name="Anexos_Projeto[]" class="input-field" accept=".pdf,.doc,.docx,.xlsx,.csv,.txt,.R,.Rmd" multiple="">
+    </div>
+    <div style="font-size: 0.75em; color: #999; margin-top: -10px; margin-bottom: 5px; padding-left: 10px; font-style: italic;">
+      * Recomendamos enviar amostras dos dados ou resumo do projeto.
     </div>
 
-    <div class="btn-submit">
-      <button type="submit" class="button1">Enviar Solicitação</button>
+    <div class="btn-submit" style="flex-direction: column; align-items: center; gap: 15px;">
+      <button type="submit" class="button1" id="submit-btn">
+        <i class="fa-solid fa-paper-plane" style="margin-right: 8px;"></i> Solicitar Orçamento
+      </button>
+      
+      <span style="font-size: 0.8em; color: #888; font-weight: 500;">
+        <i class="fa-solid fa-clock" style="color: #18bc9c;"></i> Atendimento Seg. a Dom. | Resposta Rápida
+      </span>
     </div>
 
   </form>
 </div>
+
+<script>
+  // Captura os elementos da página
+  const form = document.getElementById('contact-form');
+  const successMessage = document.getElementById('success-message');
+  const userNameDisplay = document.getElementById('user-name-display');
+  const submitBtn = document.getElementById('submit-btn');
+
+  // Ouve o evento de clique no botão enviar
+  form.addEventListener('submit', function(e) {
+    e.preventDefault(); // Impede o recarregamento padrão da página
+    
+    // Feedback visual imediato no botão
+    const originalBtnText = submitBtn.innerHTML;
+    submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Enviando...';
+    submitBtn.style.opacity = "0.7";
+    submitBtn.disabled = true;
+
+    // Prepara os dados para envio
+    const formData = new FormData(form);
+
+    // Envia para o FormSubmit via AJAX
+    fetch("[https://formsubmit.co/ajax/alexssandrosg@gmail.com](https://formsubmit.co/ajax/alexssandrosg@gmail.com)", {
+      method: "POST",
+      body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+      // SUCESSO:
+      console.log("Envio realizado:", data);
+      
+      // Personaliza a mensagem com o nome
+      const nomeDigitado = document.getElementById('input-nome').value.split(' ')[0]; // Pega só o primeiro nome
+      userNameDisplay.innerText = nomeDigitado;
+
+      // Troca o formulário pela mensagem de sucesso
+      $(form).fadeOut(500, function() {
+          $(successMessage).fadeIn(500);
+      });
+      
+      // Rola suavemente para o topo da mensagem
+      $('html, body').animate({
+          scrollTop: $(".form-container").offset().top - 100
+      }, 800);
+    })
+    .catch(error => {
+      // ERRO:
+      console.error("Erro no envio:", error);
+      alert("Ocorreu um erro técnico na conexão. Por favor, tente novamente ou entre em contato direto pelo WhatsApp.");
+      
+      // Restaura o botão
+      submitBtn.innerHTML = originalBtnText;
+      submitBtn.style.opacity = "1";
+      submitBtn.disabled = false;
+    });
+  });
+</script>
+
 
 
 </section>
