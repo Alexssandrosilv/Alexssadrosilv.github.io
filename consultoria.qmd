@@ -41,7 +41,7 @@ A **ΛΣ Consultoria** oferece suporte técnico especializado para transformar d
 
 ```{=html}
 <div style="text-align: center; margin-top: 30px; margin-bottom: 30px;">
-  <h3 style="font-weight: 900; letter-spacing: -0.5px; color: #2a2a2a;">Nossa Metodologia de Trabalho</h3>
+  <h3 style="font-weight: 900; color: #2a2a2a;">Nossa Metodologia de Trabalho</h3>
   <p style="color: #666;">Transparência do início ao fim do projeto</p>
 </div>
 ```
