@@ -58,11 +58,11 @@ website:
     
     # Lado Esquerdo: Seu nome
     left: 
-      - text: "© 2025 Alexssandro Silva <b>| ΛΣ Consultoria Estatística</b>"
+      - text: "<b> © 2025 Alexssandro Silva | ΛΣ Consultoria Estatística</b>"
       
     # Centro: A frase
     center: 
-      - text: "<i>E pelas primeiras vezes, o que passou, passou... comece de novo.</i>"
+      - text: "<b><i>E pelas primeiras vezes, o que passou, passou... comece de novo.</i></b>"
       
     # Lado Direito: Ícones das Redes Sociais
     right:

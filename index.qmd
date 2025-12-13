@@ -91,7 +91,3 @@ Como parte do meu compromisso com a disseminação do conhecimento estatístico,
 
 :::
 
-::: {style="border-top: 3px solid #003366; margin-top: 20px; margin-bottom: 20px;"}
-:::
-
-
