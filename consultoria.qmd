@@ -4,11 +4,14 @@
 page-layout: full
 title-block-banner: false
 include-in-header:
-  - text: |
+- text: |
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
       <style>
         .mermaid { margin: 0 auto; text-align: center; }
+        /* Garante que o diagrama não fique espremido no celular */
+        .mermaid svg { min-width: 800px; max-width: 100%; height: auto; }
+        .mermaid-scroll { overflow-x: auto; padding-bottom: 10px; }
       </style>
 ---
 
@@ -25,35 +28,41 @@ A **ΛΣ Consultoria** oferece suporte técnico especializado para transformar d
 :::
 
 ```{=html}
-<div style="text-align: center; margin-top: 50px; margin-bottom: 30px;">
-  <h3 style="font-weight: 800; letter-spacing: -0.5px; color: #2a2a2a;">Vamos tirar seu projeto do papel? Nossa Metodologia de Trabalho.</h3>
+<div style="text-align: center; margin-top: 30px; margin-bottom: 30px;">
+  <h3 style="font-weight: 900; letter-spacing: -0.5px; color: #2a2a2a;">Vamos tirar seu projeto do papel?</h3>
   <p style="color: #666;">Transparência do início ao fim do projeto.</p>
 </div>
 ```
 
 
+<div class="mermaid-scroll">
 ```{mermaid}
 %%| fig-align: center
-%%| fig-height: 3
+%%| fig-height: 4
 flowchart LR
-    A([1. Solicitação]) --> B[2. Contato]
-    B --> C[3. Reunião]
-    C --> D[4. Proposta]
-    D --> E[5. Execução]
-    E --> F([6. Entrega])
+    %% Nós com Ícones HTML (Protegidos por aspas para não dar erro)
+    A["<i class='fa-solid fa-file-pen'></i> 1. Solicitação"] --> B["<i class='fa-brands fa-whatsapp'></i> 2. Contato"]
+    B --> C["<i class='fa-solid fa-users-viewfinder'></i> 3. Diagnóstico"]
+    C --> D["<i class='fa-solid fa-file-contract'></i> 4. Proposta"]
+    D --> E["<i class='fa-solid fa-chart-pie'></i> 5. Execução"]
+    E --> F["<i class='fa-solid fa-flag-checkered'></i> 6. Entrega"]
 
-    style A fill:#18bc9c,stroke:#18bc9c,color:#fff,stroke-width:0px
-    style B fill:#fff,stroke:#e0e0e0,color:#333,stroke-width:2px
-    style C fill:#fff,stroke:#e0e0e0,color:#333,stroke-width:2px
-    style D fill:#fff,stroke:#e0e0e0,color:#333,stroke-width:2px
-    style E fill:#fff,stroke:#e0e0e0,color:#333,stroke-width:2px
-    style F fill:#2a2a2a,stroke:#2a2a2a,color:#fff,stroke-width:0px
+    %% Estilização
+    classDef start fill:#18bc9c,stroke:#18bc9c,color:#fff,stroke-width:0px,font-weight:bold,rx:10,ry:10,font-size:16px;
+    classDef process fill:#fff,stroke:#e0e0e0,color:#333,stroke-width:2px,rx:5,ry:5,font-size:16px;
+    classDef endNode fill:#2a2a2a,stroke:#2a2a2a,color:#fff,stroke-width:0px,font-weight:bold,rx:10,ry:10,font-size:16px;
 
-    linkStyle default stroke:#bbb,stroke-width:2px```
-
+    class A start;
+    class B,C,D,E process;
+    class F endNode;
+    
+    linkStyle default stroke:#bbb,stroke-width:2px;
 ```
 
-::: {style="text-align: justify; margin-top: 15px; margin-bottom: 40px; font-size: 1.1em;"}
+</div>
+
+
+::: {style="text-align: justify; margin-top: 30px; margin-top: 30px; margin-bottom: 20px; font-size: 1.1em;"}
 
 Preencha o formulário abaixo para uma análise preliminar. Respondemos rapidamente
 :::
