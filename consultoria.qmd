@@ -27,9 +27,11 @@ A **ΛΣ Consultoria** oferece suporte técnico especializado para transformar d
 
 :::
 
+## Vamos tirar seu projeto do papel?
+
 ```{=html}
 <div style="text-align: center; margin-top: 30px; margin-bottom: 30px;">
-  <h3 style="font-weight: 900; letter-spacing: -0.5px; color: #2a2a2a;">Vamos tirar seu projeto do papel?</h3>
+  <h3 style="font-weight: 900; letter-spacing: -0.5px; color: #2a2a2a;">Nossa Metodologia de Trabalho.</h3>
   <p style="color: #666;">Transparência do início ao fim do projeto.</p>
 </div>
 ```
@@ -64,7 +66,7 @@ flowchart LR
 
 ::: {style="text-align: justify; margin-top: 30px; margin-top: 30px; margin-bottom: 20px; font-size: 1.1em;"}
 
-Preencha o formulário abaixo para uma análise preliminar. Respondemos rapidamente
+Preencha o formulário abaixo para uma análise preliminar. Respondemos rapidamente.
 :::
 
 ```{=html}
@@ -74,19 +76,20 @@ Preencha o formulário abaixo para uma análise preliminar. Respondemos rapidame
     <i class="fa-solid fa-circle-check" style="font-size: 5em; color: #18bc9c; margin-bottom: 20px;"></i>
     <h2 style="color: #2a2a2a; margin-bottom: 10px; font-weight: 700;">Mensagem Recebida!</h2>
     <p style="color: #555; font-size: 1.1em; margin-bottom: 5px;">Obrigado, <strong><span id="user-name-display"></span></strong>.</p>
-    <p style="color: #666; line-height: 1.6;">Recebemos seus arquivos e detalhes.<br>Nossa equipe técnica analisará a demanda e entrará em contato <strong>o mais breve possível</strong> para agendar uma reunião.</p>
+    <p style="color: #666; line-height: 1.6;">Recebemos seus arquivos e detalhes.<br>Entraremos em contato <strong>o mais breve possível</strong> para agendar uma reunião.</p>
     <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; font-size: 0.9em; color: #888;">
       <i class="fa-brands fa-whatsapp"></i> Fique atento ao seu WhatsApp.
     </div>
     <button onclick="location.reload()" class="button1" style="margin-top: 30px; max-width: 250px; background-color: #333;">Voltar ao Início</button>
   </div>
 
-  <form id="contact-form" class="form" action="[https://formsubmit.co/alexssandrosg@gmail.com](https://formsubmit.co/alexssandrosg@gmail.com)" method="POST" enctype="multipart/form-data">
+  <form id="contact-form" class="form" action="[https://formsubmit.co/ajax/alexssandrosg@gmail.com](https://formsubmit.co/ajax/alexssandrosg@gmail.com)" method="POST" enctype="multipart/form-data">
     
     <input type="hidden" name="_subject" value="Nova Oportunidade: Consultoria (Via Site)">
     <input type="hidden" name="_template" value="table">
     <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_next" value="[https://alexssandrosilv.github.io/consultoria.html](https://alexssandrosilv.github.io/consultoria.html)">
+    
+    <input type="hidden" name="_next" id="next-url" value="">
 
     <p id="heading">Fale Conosco</p>
     
@@ -154,7 +157,11 @@ Preencha o formulário abaixo para uma análise preliminar. Respondemos rapidame
   const fileInput = document.getElementById('file-upload');
   const fileFeedback = document.getElementById('file-feedback');
 
-  // Script 1: Mostrar nomes dos arquivos
+  // --- CONFIGURAÇÃO AUTOMÁTICA DE REDIRECIONAMENTO ---
+  // Isso define o "_next" para a página atual, seja localhost ou github.io
+  document.getElementById('next-url').value = window.location.href;
+
+  // 1. Mostrar nomes dos arquivos
   fileInput.addEventListener('change', function() {
     if (this.files && this.files.length > 0) {
       let fileNames = Array.from(this.files).map(f => f.name).join(', ');
@@ -164,7 +171,7 @@ Preencha o formulário abaixo para uma análise preliminar. Respondemos rapidame
     }
   });
 
-  // Script 2: Validação e Envio
+  // 2. Validação e Envio
   form.addEventListener('submit', function(e) {
     e.preventDefault();
     
@@ -178,11 +185,11 @@ Preencha o formulário abaixo para uma análise preliminar. Respondemos rapidame
     const whatsField = document.getElementById('input-whatsapp');
     const whatsValue = whatsField.value.replace(/\D/g, ''); 
     if (whatsValue.length > 0 && (whatsValue.length < 10 || whatsValue.length > 11)) {
-        alert("O número de WhatsApp parece incompleto. Use DDD + Número.");
+        alert("O número de WhatsApp parece incorreto. Digite DDD + Número.");
         whatsField.focus(); return;
     }
     
-    // Preparar Envio
+    // Feedback de Envio
     const originalBtnText = submitBtn.innerHTML;
     submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Enviando...';
     submitBtn.style.opacity = "0.7";
@@ -201,7 +208,7 @@ Preencha o formulário abaixo para uma análise preliminar. Respondemos rapidame
         return response.json();
     })
     .then(data => {
-      // Sucesso AJAX
+      // SUCESSO AJAX
       console.log("Sucesso:", data);
       const nome = document.getElementById('input-nome').value.split(' ')[0];
       userNameDisplay.innerText = nome;
@@ -209,13 +216,16 @@ Preencha o formulário abaixo para uma análise preliminar. Respondemos rapidame
       $('html, body').animate({ scrollTop: $(".form-container").offset().top - 100 }, 800);
     })
     .catch(error => {
-      // Falha AJAX (Plano B)
-      console.warn("Erro AJAX, enviando normal:", error);
+      // FALHA AJAX (Provável Localhost ou Arquivo Grande)
+      console.warn("Erro AJAX detectado. Redirecionando para envio padrão...", error);
       
-      // Remove o listener para permitir o envio nativo na próxima linha
+      // Removemos o listener para permitir o envio nativo
       form.removeEventListener('submit', arguments.callee);
       
+      // Remove o "/ajax" da URL para usar o modo de redirecionamento
       form.action = "[https://formsubmit.co/alexssandrosg@gmail.com](https://formsubmit.co/alexssandrosg@gmail.com)";
+      
+      // Força o envio. Como configuramos o "_next" lá em cima, ele voltará para cá.
       form.submit();
     });
   });
