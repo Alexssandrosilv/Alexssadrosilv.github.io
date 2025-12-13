@@ -11,7 +11,7 @@ include-in-header:
 
 ## Análise de Dados
 
-::: {style="text-align: justify; margin-bottom: 40px; font-size: 1.1em; line-height: 1.8;"}
+::: {style="text-align: justify; margin-top: 15px; margin-bottom: 40px; font-size: 1.1em; line-height: 1.8;"}
 
 A **ΛΣ Consultoria** oferece suporte técnico especializado para transformar dados complexos em resultados claros, análises estatísticas rigorosas para academia e mercado, atuando na fronteira entre a teoria estatística avançada e a aplicação prática.
 
@@ -28,7 +28,7 @@ A **ΛΣ Consultoria** oferece suporte técnico especializado para transformar d
 
 ```{mermaid}
 %%| fig-align: center
-flowchart TD
+flowchart LR
     A[<i class='fa-solid fa-file-pen'></i> 1. Solicitação] -->|Análise de Viabilidade| B[<i class='fa-brands fa-whatsapp'></i> 2. Contato Rápido]
     B -->|Diagnóstico| C[<i class='fa-solid fa-handshake'></i> 3. Reunião de Alinhamento]
     C -->|Escopo Definido| D[<i class='fa-solid fa-file-invoice-dollar'></i> 4. Proposta Comercial]
@@ -48,6 +48,37 @@ flowchart TD
 
 ```    
 
+
+
+```{mermaid}
+%%| fig-align: center
+%%| fig-height: 2.5
+flowchart LR
+    %% Nós do Fluxo
+    Start([<i class='fa-solid fa-paper-plane'></i> 1. Envio]) 
+    --> Process1[<i class='fa-brands fa-whatsapp'></i> 2. Contato Ágil]
+    --> Process2[<i class='fa-solid fa-users-viewfinder'></i> 3. Diagnóstico]
+    --> Process3[<i class='fa-solid fa-file-contract'></i> 4. Proposta]
+    --> Process4[<i class='fa-solid fa-chart-pie'></i> 5. Execução]
+    --> End([<i class='fa-solid fa-flag-checkered'></i> 6. Entrega])
+
+    %% ESTILIZAÇÃO AVANÇADA
+    %% Classes de Estilo
+    classDef startNode fill:#18bc9c,stroke:#18bc9c,color:#fff,stroke-width:0px,font-weight:bold,rx:20,ry:20;
+    classDef processNode fill:#ffffff,stroke:#e0e0e0,color:#555,stroke-width:1px,rx:5,ry:5,font-size:14px;
+    classDef endNode fill:#2a2a2a,stroke:#2a2a2a,color:#fff,stroke-width:0px,font-weight:bold,rx:20,ry:20;
+
+    %% Aplicação dos Estilos
+    class Start startNode;
+    class Process1,Process2,Process3,Process4 processNode;
+    class End endNode;
+
+    %% Estilo das Conexões (Linhas)
+    linkStyle default stroke:#bbb,stroke-width:2px,fill:none;
+```    
+
+
+
 ```{=html}
 
 <div style="text-align: center; margin-top: 60px; margin-bottom: 20px;">
@@ -66,9 +97,9 @@ flowchart TD
 
   <div id="success-message" style="display:none; text-align: center; background: rgba(255,255,255,0.95); padding: 50px; border-radius: 20px; border: 1px solid #18bc9c; box-shadow: 0 10px 30px rgba(0,0,0,0.05); width: 100%;">
     <i class="fa-solid fa-circle-check" style="font-size: 5em; color: #18bc9c; margin-bottom: 20px;"></i>
-    <h2 style="color: #2a2a2a; margin-bottom: 10px; font-weight: 700;">Solicitação Enviada!</h2>
+    <h2 style="color: #2a2a2a; margin-bottom: 10px; font-weight: 700;">Mensagem Recebida!</h2>
     <p style="color: #555; font-size: 1.1em; margin-bottom: 5px;">Obrigado, <strong><span id="user-name-display"></span></strong>.</p>
-    <p style="color: #666; line-height: 1.6;">Recebemos seus arquivos e detalhes do projeto.<br>Nossa equipe técnica analisará a demanda e entrará em contato <strong>o mais breve possível</strong>.</p>
+    <p style="color: #666; line-height: 1.6;">Recebemos seus detalhes.<br>Nossa equipe técnica analisará a demanda e entrará em contato <strong>o mais breve possível</strong> para agendar a conversa.</p>
     <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; font-size: 0.9em; color: #888;">
       <i class="fa-brands fa-whatsapp"></i> Fique atento ao seu WhatsApp.
     </div>
@@ -81,7 +112,7 @@ flowchart TD
     <input type="hidden" name="_template" value="table">
     <input type="hidden" name="_captcha" value="false">
 
-    <p id="heading">Inicie seu Projeto</p>
+    <p id="heading">Fale Conosco</p>
     
     <div class="field">
       <i class="fa-solid fa-user input-icon"></i>
@@ -101,7 +132,7 @@ flowchart TD
     <div style="display: flex; align-items: start; gap: 10px; margin-top: -8px; margin-bottom: 15px; padding-left: 5px;">
       <input type="checkbox" name="Aceite_WhatsApp" id="zap-check" checked style="margin-top: 5px; accent-color: #18bc9c; cursor: pointer;">
       <label for="zap-check" style="font-size: 0.8em; color: #666; cursor: pointer; line-height: 1.4;">
-        Autorizo o contato via WhatsApp para agilizar o atendimento e envio da proposta.
+        Autorizo o contato via WhatsApp para agilizar o atendimento.
       </label>
     </div>
 
@@ -112,7 +143,7 @@ flowchart TD
 
     <div class="field" style="align-items: flex-start;">
       <i class="fa-solid fa-align-left input-icon" style="margin-top: 8px;"></i>
-      <textarea name="Descricao_Detalhada" placeholder="Descreva brevemente o objetivo do projeto. Qual problema precisamos resolver?" class="input-field"></textarea>
+      <textarea name="Descricao_Detalhada" placeholder="Descreva brevemente o objetivo do projeto..." class="input-field"></textarea>
     </div>
 
     <div class="field">
@@ -125,11 +156,11 @@ flowchart TD
 
     <div class="btn-submit" style="flex-direction: column; align-items: center; gap: 15px;">
       <button type="submit" class="button1" id="submit-btn">
-        <i class="fa-solid fa-paper-plane" style="margin-right: 8px;"></i> Solicitar Orçamento
+        <i class="fa-solid fa-paper-plane" style="margin-right: 8px;"></i> Solicitar Análise do Projeto
       </button>
       
       <span style="font-size: 0.8em; color: #888; font-weight: 500;">
-        <i class="fa-solid fa-clock" style="color: #18bc9c;"></i> Atendimento Seg. a Dom. | Resposta Rápida
+        <i class="fa-solid fa-clock" style="color: #18bc9c;"></i> Atendimento Seg. a Dom.
       </span>
     </div>
 
@@ -137,55 +168,42 @@ flowchart TD
 </div>
 
 <script>
-  // Captura os elementos da página
   const form = document.getElementById('contact-form');
   const successMessage = document.getElementById('success-message');
   const userNameDisplay = document.getElementById('user-name-display');
   const submitBtn = document.getElementById('submit-btn');
 
-  // Ouve o evento de clique no botão enviar
   form.addEventListener('submit', function(e) {
-    e.preventDefault(); // Impede o recarregamento padrão da página
+    e.preventDefault();
     
-    // Feedback visual imediato no botão
     const originalBtnText = submitBtn.innerHTML;
     submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Enviando...';
     submitBtn.style.opacity = "0.7";
     submitBtn.disabled = true;
 
-    // Prepara os dados para envio
     const formData = new FormData(form);
 
-    // Envia para o FormSubmit via AJAX
     fetch("[https://formsubmit.co/ajax/alexssandrosg@gmail.com](https://formsubmit.co/ajax/alexssandrosg@gmail.com)", {
       method: "POST",
       body: formData
     })
     .then(response => response.json())
     .then(data => {
-      // SUCESSO:
       console.log("Envio realizado:", data);
-      
-      // Personaliza a mensagem com o nome
-      const nomeDigitado = document.getElementById('input-nome').value.split(' ')[0]; // Pega só o primeiro nome
+      const nomeDigitado = document.getElementById('input-nome').value.split(' ')[0];
       userNameDisplay.innerText = nomeDigitado;
 
-      // Troca o formulário pela mensagem de sucesso
       $(form).fadeOut(500, function() {
           $(successMessage).fadeIn(500);
       });
       
-      // Rola suavemente para o topo da mensagem
       $('html, body').animate({
           scrollTop: $(".form-container").offset().top - 100
       }, 800);
     })
     .catch(error => {
-      // ERRO:
       console.error("Erro no envio:", error);
-      alert("Ocorreu um erro técnico na conexão. Por favor, tente novamente ou entre em contato direto pelo WhatsApp.");
-      
-      // Restaura o botão
+      alert("Ocorreu um erro técnico. Por favor, tente novamente ou entre em contato pelo WhatsApp.");
       submitBtn.innerHTML = originalBtnText;
       submitBtn.style.opacity = "1";
       submitBtn.disabled = false;
