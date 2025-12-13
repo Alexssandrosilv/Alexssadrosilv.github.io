@@ -51,8 +51,6 @@ A **ΛΣ Consultoria** oferece suporte técnico especializado para transformar d
 ```{mermaid}
 %%| fig-align: center
 %%| fig-height: 6
-%%| fig-align: center
-%%| fig-height: 6
 flowchart TD
     A["<i class='fa-solid fa-file-pen'></i> 1. Solicitação"] --> B["<i class='fa-brands fa-whatsapp'></i> 2. Contato Ágil"]
     B -->|Diagnóstico| C["<i class='fa-solid fa-handshake'></i> 3. Reunião de Alinhamento"]
