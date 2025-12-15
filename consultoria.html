@@ -68,9 +68,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Procurar"
   }
 }</script>
-<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;family=Fira+Code&amp;display=swap" rel="stylesheet">
@@ -169,37 +166,45 @@ details > summary {
   <h3 style="font-weight: 900; color: #2a2a2a;" class="anchored">Nossa Metodologia de Trabalho</h3>
   <p style="color: #666;">Transparência do início ao fim do projeto</p>
 </div>
-<div class="mermaid-scroll">
-<div class="cell" data-fig-height="6" data-layout-align="center">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">flowchart TD
-    A("&lt;i class='fa-solid fa-file-pen'&gt;&lt;/i&gt; 1. Solicitação") --&gt; B("&lt;i class='fa-brands fa-whatsapp'&gt;&lt;/i&gt; 2. Contato Ágil")
-    B --&gt; C("&lt;i class='fa-solid fa-handshake'&gt;&lt;/i&gt; 3. Reunião")
-    C --&gt; D("&lt;i class='fa-solid fa-file-invoice-dollar'&gt;&lt;/i&gt; 4. Proposta Comercial")
-    D --&gt; E("&lt;i class='fa-solid fa-laptop-code'&gt;&lt;/i&gt; 5. Desenvolvimento")
-    E --&gt; F("&lt;i class='fa-solid fa-rocket'&gt;&lt;/i&gt; 6. Entrega Final")
-
-
-    %% Estilo Premium: Fundos claros para o processo e cores ricas para início/fim
-    classDef start fill:#18bc9c,stroke:#0f7e69,color:#fff,stroke-width:5px,font-weight:900,rx:15,ry:15; 
-    classDef process fill:#f5f5f5,stroke:#e0e0e0,color:#34495e,stroke-width:2px,font-weight:600,rx:15,ry:15; 
-    classDef endNode fill:#34495e,stroke:#2c3e50,color:#fff,stroke-width:5px,font-weight:900,rx:15,ry:15; 
-
-    class A start;
-    class B,C,D,E process;
-    class F endNode;
-
-    %% Setas grossas e escuras
-    linkStyle default stroke:#555,stroke-width:3px;
-    linkStyle 0 stroke:#18bc9c; 
-    linkStyle 4 stroke:#34495e;
-</pre>
+<div class="quarto-layout-panel" style="text-align: center;" data-layout="[[1, 1, 1], [1, 1, 1]]">
+<div class="quarto-layout-row">
+<div class="fragment fade-in p-3 m-1 rounded-4 shadow-sm quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<section id="solicitação" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="solicitação"><span class="header-section-number">2.1</span> 📝 1. Solicitação</h3>
+<p>O cliente preenche o formulário para iniciar o contato.</p>
+</section>
 </div>
-<p></p></figure><p></p>
+<div class="fragment fade-in p-3 m-1 rounded-4 shadow-sm quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<section id="contato-ágil" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="contato-ágil"><span class="header-section-number">2.2</span> 📞 2. Contato Ágil</h3>
+<p>Respondo rapidamente via WhatsApp ou e-mail.</p>
+</section>
 </div>
+<div class="fragment fade-in p-3 m-1 rounded-4 shadow-sm quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<section id="reunião" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="reunião"><span class="header-section-number">2.3</span> 🤝 3. Reunião</h3>
+<p>Alinhamento de expectativas e escopo do projeto.</p>
+</section>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="fragment fade-in p-3 m-1 rounded-4 shadow-sm quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<section id="proposta-comercial" class="level3" data-number="2.4">
+<h3 data-number="2.4" class="anchored" data-anchor-id="proposta-comercial"><span class="header-section-number">2.4</span> 💰 4. Proposta Comercial</h3>
+<p>Documento formal com detalhes do serviço e orçamento.</p>
+</section>
+</div>
+<div class="fragment fade-in p-3 m-1 rounded-4 shadow-sm quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<section id="desenvolvimento" class="level3" data-number="2.5">
+<h3 data-number="2.5" class="anchored" data-anchor-id="desenvolvimento"><span class="header-section-number">2.5</span> 💻 5. Desenvolvimento</h3>
+<p>Análise técnica, modelagem e codificação em R/Stan.</p>
+</section>
+</div>
+<div class="fragment fade-in p-3 m-1 rounded-4 shadow-sm quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<section id="entrega-final" class="level3" data-number="2.6">
+<h3 data-number="2.6" class="anchored" data-anchor-id="entrega-final"><span class="header-section-number">2.6</span> 🚀 6. Entrega Final</h3>
+<p>Relatórios finais e código-fonte, garantindo a reprodutibilidade.</p>
+</section>
 </div>
 </div>
 </div>
