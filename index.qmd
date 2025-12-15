@@ -41,10 +41,6 @@ Pautado pela ética da **Ciência Aberta**, todo o conteúdo aqui exposto priori
 
 ::: {style="text-align: justify; margin-top: 15px; margin-bottom: 20px;"}
 
-### Áreas de Atuação
-
-::: {style="text-align: justify; margin-top: 15px; margin-bottom: 20px;"}
-
 Os principais eixos de desenvolvimento incluem:
 
 <!-- - **Inferência Estatística:** Aplicação de métodos Frequentistas e Bayesianos para quantificar incertezas e dar suporte à tomada de decisão. -->
@@ -52,17 +48,17 @@ Os principais eixos de desenvolvimento incluem:
 <!-- - **Análise de Séries Temporais:** Estudo de dependências temporais para *forecasting* (previsões) e compreensão de dinâmicas estocásticas. -->
 <!-- - **Computação Estatística:** Implementação de algoritmos eficientes e rotinas automatizadas em **R** e **Python**. -->
 
-**Tratamento e Estruturação de Dados (ETL):** Coleta, limpeza e organização de dados, transformando bases brutas em dados confiáveis e prontos para análise.
+- **Tratamento e Estruturação de Dados (ETL):** Coleta, limpeza e organização de dados, transformando bases brutas em dados confiáveis e prontos para análise.
 
-**Análise Exploratória de Dados (EDA):** Exploração inicial dos dados para compreender distribuições, relações entre variáveis, identificar padrões, outliers e possíveis inconsistências.
+- **Análise Exploratória de Dados (EDA):** Exploração inicial dos dados para compreender distribuições, relações entre variáveis, identificar padrões, outliers e possíveis inconsistências.
 
-**Inferência Estatística:** Aplicação de métodos Frequentistas e Bayesianos para quantificar incertezas e dar suporte à tomada de decisão com base em evidências.
+- **Inferência Estatística:** Aplicação de métodos Frequentistas e Bayesianos para quantificar incertezas e dar suporte à tomada de decisão com base em evidências.
 
-**Modelagem Preditiva:** Ajuste de modelos de regressão, GLMs e métodos não paramétricos para identificar padrões, explicar comportamentos e gerar previsões.
+- **Modelagem Preditiva:** Ajuste de modelos de regressão, GLMs e métodos não paramétricos para identificar padrões, explicar comportamentos e gerar previsões.
 
-**Análise de Séries Temporais:** Análise de dados ao longo do tempo e desenvolvimento de modelos de *forecasting* (previsão) para planejamento e acompanhamento de indicadores.
+- **Análise de Séries Temporais:** Análise de dados ao longo do tempo e desenvolvimento de modelos de *forecasting* (previsão) para planejamento e acompanhamento de indicadores.
 
-**Computação Estatística:** Implementação de algoritmos eficientes e rotinas automatizadas em **R**.
+<!-- - **Computação Estatística:** Implementação de algoritmos eficientes e rotinas automatizadas em **R**. -->
 :::
 
 ### Ferramentas
@@ -82,6 +78,7 @@ Todo o fluxo de trabalho é gerenciado no ambiente [**RStudio**](https://posit.c
 <!-- 📘 [**Manual Prático de Stan**](https://drive.google.com/file/d/1ZAyo6dOvfV4OrVt9oHsZ7JOox3lAINt3/view?usp=drive_link) -->
 <!-- <br> -->
 <!-- *Um guia técnico sobre a sintaxe e a lógica da modelagem Bayesiana, desenvolvido para auxiliar pesquisadores e estudantes.* -->
+
 :::
 
 
