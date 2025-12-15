@@ -158,7 +158,7 @@ details > summary {
 <div style="text-align: justify; margin-top: 15px; margin-bottom: 40px; font-size: 1.1em; line-height: 1.8;">
 <p>A <strong>ΛΣ Consultoria</strong> oferece suporte técnico especializado para transformar dados complexos em resultados claros, análises estatísticas rigorosas para academia e mercado, atuando na fronteira entre a teoria estatística e a aplicação prática.</p>
 <ul>
-<li><p><strong>Academia:</strong> Suporte metodológico para Pesquisas (TCCs, Dissertações e Teses), com foco em reprodutibilidade e rigor científico.</p></li>
+<li><p><strong>Acadêmico:</strong> Suporte metodológico em <strong>análises estatísticas</strong> para Pesquisas (TCCs, Dissertações e Teses), com foco em reprodutibilidade e rigor científico.</p></li>
 <li><p><strong>Corporativo:</strong> Inteligência de dados, modelagem preditiva e análise de cenários para embasar tomadas de decisão críticas.</p></li>
 </ul>
 </div>
@@ -180,17 +180,21 @@ details > summary {
     B --&gt; C["&lt;i class='fa-solid fa-handshake'&gt;&lt;/i&gt; 3. Reunião"]
     C --&gt; D["&lt;i class='fa-solid fa-file-invoice-dollar'&gt;&lt;/i&gt; 4. Proposta Comercial"]
     D --&gt; E["&lt;i class='fa-solid fa-laptop-code'&gt;&lt;/i&gt; 5. Desenvolvimento"]
-    E --&gt; F["&lt;i class='fa-solid fa-rocket'&gt;&lt;/i&gt; 6. Entrega dos Relatórios"]
+    E --&gt; F["&lt;i class='fa-solid fa-rocket'&gt;&lt;/i&gt; 6. Entrega Final"]
 
-    %% FIX: Adicionado rx:10 e ry:10 para cantos arredondados
-    classDef start fill:#18bc9c,stroke:#18bc9c,color:#fff,stroke-width:0px,font-weight:bold,rx:10,ry:10; 
-    classDef process fill:#fff,stroke:#e0e0e0,color:#333,stroke-width:1px,rx:10,ry:10; 
-    classDef endNode fill:#2a2a2a,stroke:#2a2a2a,color:#fff,stroke-width:0px,font-weight:bold,rx:10,ry:10; 
-
+    %% Estilo Premium: Fundos claros para o processo e cores ricas para início/fim
+    classDef start fill:#18bc9c,stroke:#2ecc71,color:#fff,stroke-width:5px,font-weight:900,rx:15,ry:15; 
+    classDef process fill:#f5f5f5,stroke:#e0e0e0,color:#34495e,stroke-width:2px,font-weight:600,rx:15,ry:15; 
+    classDef endNode fill:#34495e,stroke:#2c3e50,color:#fff,stroke-width:5px,font-weight:900,rx:15,ry:15; 
+    
     class A start;
     class B,C,D,E process;
     class F endNode;
-    linkStyle default stroke:#bbb,stroke-width:2px;
+
+    %% Setas grossas e escuras
+    linkStyle default stroke:#555,stroke-width:3px;
+    linkStyle 0 stroke:#18bc9c; /* Seta Inicial em verde */
+    linkStyle 4 stroke:#34495e; /* Seta Final em azul escuro */
 </pre>
 </div>
 <p></p></figure><p></p>
@@ -202,6 +206,84 @@ details > summary {
 <p>Preencha o formulário abaixo para uma análise preliminar. Respondemos rapidamente.</p>
 </div>
 <div class="form-container">
+
+  <div id="success-message" style="display:none; text-align: center; background: rgba(255,255,255,0.95); padding: 50px; border-radius: 20px; border: 1px solid #18bc9c; box-shadow: 0 10px 30px rgba(0,0,0,0.05); width: 100%;">
+    <i class="fa-solid fa-circle-check" style="font-size: 5em; color: #18bc9c; margin-bottom: 20px;"></i>
+    <h2 style="color: #2a2a2a; margin-bottom: 10px; font-weight: 700;" class="anchored">Mensagem Recebida!</h2>
+    <p style="color: #555; font-size: 1.1em; margin-bottom: 5px;">Obrigado, <strong><span id="user-name-display"></span></strong>.</p>
+    <p style="color: #666; line-height: 1.6;">Recebemos seus arquivos e detalhes.<br>Entraremos em contato <strong>o mais breve possível</strong> para agendar uma reunião.</p>
+    <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; font-size: 0.9em; color: #888;">
+      <i class="fa-brands fa-whatsapp"></i> Fique atento ao seu WhatsApp.
+    </div>
+    <button onclick="location.reload()" class="button1" style="margin-top: 30px; max-width: 250px; background-color: #333;">Voltar ao Início</button>
+  </div>
+
+  <form id="contact-form" class="form" action="https://formsubmit.co/ajax/alexssandrosg@gmail.com" method="POST" enctype="multipart/form-data">
+    
+    <input type="hidden" name="_subject" value="[Nome] - Nova Oportunidade (Consultoria)">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_captcha" value="false">
+    
+    <input type="hidden" name="_next" id="next-url" value="">
+
+    <p id="heading">Fale Conosco</p>
+    
+    <div class="field">
+      <i class="fa-solid fa-user input-icon"></i>
+      <input autocomplete="off" name="Nome" id="input-nome" placeholder="Seu Nome Completo *" class="input-field" type="text" required="">
+    </div>
+
+    <div class="field">
+      <i class="fa-solid fa-envelope input-icon"></i>
+      <input autocomplete="off" name="Email" id="input-email" placeholder="Seu Melhor E-mail *" class="input-field" type="email" required="">
+    </div>
+
+    <div class="field" style="border-left: 4px solid #18bc9c;"> 
+      <i class="fa-brands fa-whatsapp input-icon" style="color: #18bc9c;"></i>
+      <input autocomplete="off" name="WhatsApp" id="input-whatsapp" placeholder="WhatsApp (DDD + Número)" class="input-field" type="tel">
+    </div>
+    
+    <div style="display: flex; align-items: start; gap: 10px; margin-top: -8px; margin-bottom: 15px; padding-left: 5px;">
+      <input type="checkbox" name="Permissao_WhatsApp" id="zap-check" checked="" style="margin-top: 5px; accent-color: #18bc9c; cursor: pointer;">
+      <label for="zap-check" style="font-size: 0.8em; color: #666; cursor: pointer; line-height: 1.4;">
+        Autorizo o contato via WhatsApp para agilizar o atendimento.
+      </label>
+    </div>
+
+    <div class="field">
+      <i class="fa-solid fa-bullseye input-icon"></i>
+      <input autocomplete="off" name="Assunto" placeholder="Assunto (ex: Análise TCC, Dashboards Corporativos)" class="input-field" type="text">
+    </div>
+
+    <div class="field" style="align-items: flex-start;">
+      <i class="fa-solid fa-align-left input-icon" style="margin-top: 8px;"></i>
+      <textarea name="Mensagem" placeholder="Descreva brevemente o objetivo do projeto..." class="input-field"></textarea>
+    </div>
+
+    <div class="field" style="flex-direction: column; align-items: flex-start;">
+      <div style="display: flex; width: 100%; align-items: center; gap: 10px;">
+        <i class="fa-solid fa-folder-open input-icon"></i>
+        <input type="file" id="file-upload" name="Arquivo" class="input-field" accept=".pdf,.doc,.docx,.xlsx,.csv,.txt,.R,.Rmd" multiple="">
+      </div>
+      <div id="file-feedback" style="font-size: 0.85em; color: #2a2a2a; margin-top: 5px; padding-left: 30px; font-weight: 500;"></div>
+    </div>
+    
+    <div style="font-size: 0.75em; color: #999; margin-top: -10px; margin-bottom: 5px; padding-left: 10px; font-style: italic;">
+      * Recomendamos enviar amostras dos dados ou resumo do projeto.
+    </div>
+
+    <div class="btn-submit" style="flex-direction: column; align-items: center; gap: 15px;">
+      <button type="submit" class="button1" id="submit-btn">
+        <i class="fa-solid fa-paper-plane" style="margin-right: 8px;"></i> Solicitar Análise do Projeto
+      </button>
+      <span style="font-size: 0.8em; color: #888; font-weight: 500;">
+        <i class="fa-solid fa-clock" style="color: #18bc9c;"></i> Atendimento Seg. a Dom. | Resposta Rápida
+      </span>
+    </div>
+
+  </form>
+</div>
+
 <script>
   const form = document.getElementById('contact-form');
   const successMessage = document.getElementById('success-message');
@@ -250,7 +332,7 @@ details > summary {
     // Obtém o primeiro nome para a mensagem de sucesso
     const nome = document.getElementById('input-nome').value.split(' ')[0];
     
-    // 🔴 NOVO FIX: Trata envio com arquivos. Exibe a mensagem de sucesso E força o envio tradicional
+    // 🔴 FIX: Trata envio com arquivos. Exibe a mensagem de sucesso E força o envio tradicional
     if (fileInput.files && fileInput.files.length > 0) {
         
         // 1. Exibe a mensagem de sucesso (simulação) IMEDIATAMENTE antes do envio
@@ -304,7 +386,7 @@ details > summary {
 </script>
 
 
-</div></section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
