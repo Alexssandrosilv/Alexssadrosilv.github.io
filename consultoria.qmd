@@ -25,7 +25,7 @@ include-in-header:
 #      </style>
 ---
 
-## Análise de Dados
+## Serviços de Consultoria Estatística
 
 ::: {style="text-align: justify; margin-top: 15px; margin-bottom: 40px; font-size: 1.1em; line-height: 1.8;"}
 
@@ -78,6 +78,7 @@ Preencha o formulário abaixo para uma análise preliminar. Respondemos rapidame
 :::
 
 ```{=html}
+<div class="form-container">
 <script>
   const form = document.getElementById('contact-form');
   const successMessage = document.getElementById('success-message');
