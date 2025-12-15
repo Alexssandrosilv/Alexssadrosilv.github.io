@@ -47,40 +47,9 @@ A **ΛΣ Consultoria** oferece suporte técnico especializado para transformar d
 ```
 
 
-
-::: {layout="[[1, 1, 1], [1, 1, 1]]" style="text-align: center;"}
-
-### 📝 1. Solicitação
-::: {.fragment .fade-in .p-3 .m-1 .rounded-4 .shadow-sm style="background-color: #18bc9c; color: white; font-weight: bold;"}
-O cliente preenche o formulário para iniciar o contato.
-:::
-
-### 📞 2. Contato Ágil
-::: {.fragment .fade-in .p-3 .m-1 .rounded-4 .shadow-sm style="background-color: #f5f5f5; color: #34495e; border: 1px solid #e0e0e0; font-weight: bold;"}
-Respondo rapidamente via WhatsApp ou e-mail.
-:::
-
-### 🤝 3. Reunião
-::: {.fragment .fade-in .p-3 .m-1 .rounded-4 .shadow-sm style="background-color: #f5f5f5; color: #34495e; border: 1px solid #e0e0e0; font-weight: bold;"}
-Alinhamento de expectativas e escopo do projeto.
-:::
-
-### 💰 4. Proposta Comercial
-::: {.fragment .fade-in .p-3 .m-1 .rounded-4 .shadow-sm style="background-color: #f5f5f5; color: #34495e; border: 1px solid #e0e0e0; font-weight: bold;"}
-Documento formal com detalhes do serviço e orçamento.
-:::
-
-### 💻 5. Desenvolvimento
-::: {.fragment .fade-in .p-3 .m-1 .rounded-4 .shadow-sm style="background-color: #f5f5f5; color: #34495e; border: 1px solid #e0e0e0; font-weight: bold;"}
-Análise técnica, modelagem e codificação em R/Stan.
-:::
-
-### 🚀 6. Entrega Final
-::: {.fragment .fade-in .p-3 .m-1 .rounded-4 .shadow-sm style="background-color: #2c3e50; color: white; font-weight: bold;"}
-Relatórios finais e código-fonte, garantindo a reprodutibilidade.
-:::
-
-:::
+```{=html}
+<img src="extras/imagens/pipeline.jpg" style="width:100%; max-width:1000px;">
+```
 
 
 ::: {style="text-align: justify; margin-top: 30px; margin-top: 30px; margin-bottom: 20px; font-size: 1.1em;"}
