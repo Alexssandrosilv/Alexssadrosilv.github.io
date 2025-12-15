@@ -52,11 +52,6 @@ Os principais eixos de desenvolvimento incluem:
 
 ### Ferramentas
 
-
-
-
-### Ferramentas
-
 ::: {style="text-align: justify; margin-top: 15px; margin-bottom: 20px;"}
 
 A infraestrutura das análises é fundamentada nas linguagens [**R**](https://www.r-project.org/) e [**Python**](https://www.python.org/), padrões da indústria de Data Science.

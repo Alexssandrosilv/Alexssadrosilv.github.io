@@ -53,10 +53,10 @@ A **ΛΣ Consultoria** oferece suporte técnico especializado para transformar d
 %%| fig-height: 6
 flowchart TD
     A["<i class='fa-solid fa-file-pen'></i> 1. Solicitação"] --> B["<i class='fa-brands fa-whatsapp'></i> 2. Contato Ágil"]
-    B -->|Diagnóstico| C["<i class='fa-solid fa-handshake'></i> 3. Reunião de Alinhamento"]
-    C -->|Escopo Definido| D["<i class='fa-solid fa-file-invoice-dollar'></i> 4. Proposta Comercial"]
-    D -->|Aprovação| E["<i class='fa-solid fa-laptop-code'></i> 5. Desenvolvimento"]
-    E -->|Finalização| F["<i class='fa-solid fa-rocket'></i> 6. Entrega dos Resultados (Relatórios)"]
+    B --> C["<i class='fa-solid fa-handshake'></i> 3. Reunião"]
+    C --> D["<i class='fa-solid fa-file-invoice-dollar'></i> 4. Proposta Comercial"]
+    D --> E["<i class='fa-solid fa-laptop-code'></i> 5. Desenvolvimento"]
+    E --> F["<i class='fa-solid fa-rocket'></i> 6. Entrega dos Relatórios"]
 
     %% FIX: Adicionado rx:10 e ry:10 para cantos arredondados
     classDef start fill:#18bc9c,stroke:#18bc9c,color:#fff,stroke-width:0px,font-weight:bold,rx:10,ry:10; 
