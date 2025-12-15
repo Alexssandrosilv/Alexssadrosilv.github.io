@@ -52,25 +52,25 @@ A **ΛΣ Consultoria** oferece suporte técnico especializado para transformar d
 %%| fig-align: center
 %%| fig-height: 6
 flowchart TD
-    A["<i class='fa-solid fa-file-pen'></i> 1. Solicitação"] --> B["<i class='fa-brands fa-whatsapp'></i> 2. Contato Ágil"]
-    B --> C["<i class='fa-solid fa-handshake'></i> 3. Reunião"]
-    C --> D["<i class='fa-solid fa-file-invoice-dollar'></i> 4. Proposta Comercial"]
-    D --> E["<i class='fa-solid fa-laptop-code'></i> 5. Desenvolvimento"]
-    E --> F["<i class='fa-solid fa-rocket'></i> 6. Entrega Final"]
+    A['<i class="fa-solid fa-file-pen"></i> 1. Solicitação'] --> B['<i class="fa-brands fa-whatsapp"></i> 2. Contato Ágil']
+    B --> C['<i class="fa-solid fa-handshake"></i> 3. Reunião']
+    C --> D['<i class="fa-solid fa-file-invoice-dollar"></i> 4. Proposta Comercial']
+    D --> E['<i class="fa-solid fa-laptop-code"></i> 5. Desenvolvimento']
+    E --> F['<i class="fa-solid fa-rocket"></i> 6. Entrega Final']
 
-    %% Estilo Premium: Fundos claros para o processo e cores ricas para início/fim
-    classDef start fill:#18bc9c,stroke:#2ecc71,color:#fff,stroke-width:5px,font-weight:900,rx:15,ry:15; 
-    classDef process fill:#f5f5f5,stroke:#e0e0e0,color:#34495e,stroke-width:2px,font-weight:600,rx:15,ry:15; 
-    classDef endNode fill:#34495e,stroke:#2c3e50,color:#fff,stroke-width:5px,font-weight:900,rx:15,ry:15; 
-    
-    class A start;
-    class B,C,D,E process;
-    class F endNode;
+   %% Estilo Premium: Fundos claros para o processo e cores ricas para início/fim
+   classDef start fill:#18bc9c,stroke:#2ecc71,color:#fff,stroke-width:5px,font-weight:900,rx:15,ry:15;
+   classDef process fill:#f5f5f5,stroke:#e0e0e0,color:#34495e,stroke-width:2px,font-weight:600,rx:15,ry:15;
+   classDef endNode fill:#34495e,stroke:#2c3e50,color:#fff,stroke-width:5px,font-weight:900,rx:15,ry:15;
 
-    %% Setas grossas e escuras
-    linkStyle default stroke:#555,stroke-width:3px;
-    linkStyle 0 stroke:#18bc9c; /* Seta Inicial em verde */
-    linkStyle 4 stroke:#34495e; /* Seta Final em azul escuro */
+   class A start;
+   class B,C,D,E process;
+   class F endNode;
+
+   %% Setas grossas e escuras  
+   linkStyle default stroke:#555,stroke-width:3px;
+   linkStyle 0 stroke:#18bc9c; 
+   linkStyle 4 stroke:#34495e;
 ```
 
 </div>
