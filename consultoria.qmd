@@ -48,7 +48,7 @@ A **ΛΣ Consultoria** oferece suporte técnico especializado para transformar d
 
 
 ```{=html}
-<img src="extras/imagens/pipeline.jpg" style="width:100%; max-width:1000px;">
+<img src="extras/imagens/pipeline2.jpg" style="width:100%; max-width:1000px;">
 ```
 
 
