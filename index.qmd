@@ -52,22 +52,47 @@ Os principais eixos de desenvolvimento incluem:
 
 ### Ferramentas
 
+
+
+
+### Ferramentas
+
 ::: {style="text-align: justify; margin-top: 15px; margin-bottom: 20px;"}
 
-A infraestrutura das análises é fundamentada nas linguagens [**R**](https://www.r-project.org/) e [**Python**](https://www.python.org/), padrões da indústria de Data Science. Para modelagens de alta complexidade, utilizo a linguagem probabilística **Stan** (via interface RStan), explorando o algoritmo *Hamiltonian Monte Carlo* (HMC) para inferência Bayesiana eficiente.
+A infraestrutura das análises é fundamentada nas linguagens [**R**](https://www.r-project.org/) e [**Python**](https://www.python.org/), padrões da indústria de Data Science.
+
+<!-- Para modelagens avançadas e onde a incerteza precisa ser quantificada com precisão (Inferência Bayesiana), utilizo a linguagem probabilística **Stan**. Stan explora o algoritmo *Hamiltonian Monte Carlo* (HMC), um método de ponta que garante a robustez das inferências, diferenciando o nível da solução oferecida. -->
 
 Todo o fluxo de trabalho é gerenciado no ambiente [**RStudio**](https://posit.co/download/rstudio-desktop/), assegurando organização e controle de versão.
 
-Como parte do meu compromisso com a disseminação do conhecimento estatístico, disponibilizo o material:
+<!-- Como parte do meu compromisso com a disseminação do conhecimento estatístico, disponibilizo o material: -->
+<!-- :::  -->
 
-
-::: {style="border-left: 5px solid #000000; background-color: #f8f9fa; padding: 15px; margin-top: 20px; border-radius: 0 5px 5px 0;"}
-📘 [**Manual Prático de Stan**](https://drive.google.com/file/d/1ZAyo6dOvfV4OrVt9oHsZ7JOox3lAINt3/view?usp=drive_link)
-<br>
-*Um guia técnico sobre a sintaxe e a lógica da modelagem Bayesiana, desenvolvido para auxiliar pesquisadores e estudantes.*
+<!-- ::: {style="border-left: 5px solid #000000; background-color: #f8f9fa; padding: 15px; margin-top: 20px; border-radius: 0 5px 5px 0;"} -->
+<!-- 📘 [**Manual Prático de Stan**](https://drive.google.com/file/d/1ZAyo6dOvfV4OrVt9oHsZ7JOox3lAINt3/view?usp=drive_link) -->
+<!-- <br> -->
+<!-- *Um guia técnico sobre a sintaxe e a lógica da modelagem Bayesiana, desenvolvido para auxiliar pesquisadores e estudantes.* -->
 :::
 
-:::
+
+
+
+<!-- ::: {style="text-align: justify; margin-top: 15px; margin-bottom: 20px;"} -->
+
+<!-- A infraestrutura das análises é fundamentada nas linguagens [**R**](https://www.r-project.org/) e [**Python**](https://www.python.org/), padrões da indústria de Data Science. Para modelagens de alta complexidade, utilizo a linguagem probabilística **Stan** (via interface RStan), explorando o algoritmo *Hamiltonian Monte Carlo* (HMC) para inferência Bayesiana eficiente. -->
+
+<!-- Todo o fluxo de trabalho é gerenciado no ambiente [**RStudio**](https://posit.co/download/rstudio-desktop/), assegurando organização e controle de versão. -->
+
+<!-- Como parte do meu compromisso com a disseminação do conhecimento estatístico, disponibilizo o material: -->
+
+
+<!-- ::: {style="border-left: 5px solid #000000; background-color: #f8f9fa; padding: 15px; margin-top: 20px; border-radius: 0 5px 5px 0;"} -->
+<!-- 📘 [**Manual Prático de Stan**](https://drive.google.com/file/d/1ZAyo6dOvfV4OrVt9oHsZ7JOox3lAINt3/view?usp=drive_link) -->
+<!-- <br> -->
+<!-- *Um guia técnico sobre a sintaxe e a lógica da modelagem Bayesiana, desenvolvido para auxiliar pesquisadores e estudantes.* -->
+<!-- ::: -->
+
+<!-- ::: -->
 
 
 ```{=html}

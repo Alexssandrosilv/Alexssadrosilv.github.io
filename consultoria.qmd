@@ -78,85 +78,6 @@ Preencha o formulário abaixo para uma análise preliminar. Respondemos rapidame
 :::
 
 ```{=html}
-<div class="form-container">
-
-  <div id="success-message" style="display:none; text-align: center; background: rgba(255,255,255,0.95); padding: 50px; border-radius: 20px; border: 1px solid #18bc9c; box-shadow: 0 10px 30px rgba(0,0,0,0.05); width: 100%;">
-    <i class="fa-solid fa-circle-check" style="font-size: 5em; color: #18bc9c; margin-bottom: 20px;"></i>
-    <h2 style="color: #2a2a2a; margin-bottom: 10px; font-weight: 700;">Mensagem Recebida!</h2>
-    <p style="color: #555; font-size: 1.1em; margin-bottom: 5px;">Obrigado, <strong><span id="user-name-display"></span></strong>.</p>
-    <p style="color: #666; line-height: 1.6;">Recebemos seus arquivos e detalhes.<br>Entraremos em contato <strong>o mais breve possível</strong> para agendar uma reunião.</p>
-    <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; font-size: 0.9em; color: #888;">
-      <i class="fa-brands fa-whatsapp"></i> Fique atento ao seu WhatsApp.
-    </div>
-    <button onclick="location.reload()" class="button1" style="margin-top: 30px; max-width: 250px; background-color: #333;">Voltar ao Início</button>
-  </div>
-
-  <form id="contact-form" class="form" action="https://formsubmit.co/ajax/alexssandrosg@gmail.com" method="POST" enctype="multipart/form-data">
-    
-    <input type="hidden" name="_subject" value="[Nome] - Nova Oportunidade (Consultoria)">
-    <input type="hidden" name="_template" value="table">
-    <input type="hidden" name="_captcha" value="false">
-    
-    <input type="hidden" name="_next" id="next-url" value="">
-
-    <p id="heading">Fale Conosco</p>
-    
-    <div class="field">
-      <i class="fa-solid fa-user input-icon"></i>
-      <input autocomplete="off" name="Nome" id="input-nome" placeholder="Seu Nome Completo *" class="input-field" type="text" required>
-    </div>
-
-    <div class="field">
-      <i class="fa-solid fa-envelope input-icon"></i>
-      <input autocomplete="off" name="Email" id="input-email" placeholder="Seu Melhor E-mail *" class="input-field" type="email" required>
-    </div>
-
-    <div class="field" style="border-left: 4px solid #18bc9c;"> 
-      <i class="fa-brands fa-whatsapp input-icon" style="color: #18bc9c;"></i>
-      <input autocomplete="off" name="WhatsApp" id="input-whatsapp" placeholder="WhatsApp (DDD + Número)" class="input-field" type="tel">
-    </div>
-    
-    <div style="display: flex; align-items: start; gap: 10px; margin-top: -8px; margin-bottom: 15px; padding-left: 5px;">
-      <input type="checkbox" name="Permissao_WhatsApp" id="zap-check" checked style="margin-top: 5px; accent-color: #18bc9c; cursor: pointer;">
-      <label for="zap-check" style="font-size: 0.8em; color: #666; cursor: pointer; line-height: 1.4;">
-        Autorizo o contato via WhatsApp para agilizar o atendimento.
-      </label>
-    </div>
-
-    <div class="field">
-      <i class="fa-solid fa-bullseye input-icon"></i>
-      <input autocomplete="off" name="Assunto" placeholder="Assunto (ex: Análise TCC, Dashboards Corporativos)" class="input-field" type="text">
-    </div>
-
-    <div class="field" style="align-items: flex-start;">
-      <i class="fa-solid fa-align-left input-icon" style="margin-top: 8px;"></i>
-      <textarea name="Mensagem" placeholder="Descreva brevemente o objetivo do projeto..." class="input-field"></textarea>
-    </div>
-
-    <div class="field" style="flex-direction: column; align-items: flex-start;">
-      <div style="display: flex; width: 100%; align-items: center; gap: 10px;">
-        <i class="fa-solid fa-folder-open input-icon"></i>
-        <input type="file" id="file-upload" name="Arquivo" class="input-field" accept=".pdf,.doc,.docx,.xlsx,.csv,.txt,.R,.Rmd" multiple>
-      </div>
-      <div id="file-feedback" style="font-size: 0.85em; color: #2a2a2a; margin-top: 5px; padding-left: 30px; font-weight: 500;"></div>
-    </div>
-    
-    <div style="font-size: 0.75em; color: #999; margin-top: -10px; margin-bottom: 5px; padding-left: 10px; font-style: italic;">
-      * Recomendamos enviar amostras dos dados ou resumo do projeto.
-    </div>
-
-    <div class="btn-submit" style="flex-direction: column; align-items: center; gap: 15px;">
-      <button type="submit" class="button1" id="submit-btn">
-        <i class="fa-solid fa-paper-plane" style="margin-right: 8px;"></i> Solicitar Análise do Projeto
-      </button>
-      <span style="font-size: 0.8em; color: #888; font-weight: 500;">
-        <i class="fa-solid fa-clock" style="color: #18bc9c;"></i> Atendimento Seg. a Dom. | Resposta Rápida
-      </span>
-    </div>
-
-  </form>
-</div>
-
 <script>
   const form = document.getElementById('contact-form');
   const successMessage = document.getElementById('success-message');
@@ -202,25 +123,35 @@ Preencha o formulário abaixo para uma análise preliminar. Respondemos rapidame
     submitBtn.style.opacity = "0.7";
     submitBtn.disabled = true;
 
-    // 🔴 FIX: Se houver arquivos, pula o AJAX e usa o envio tradicional (Plano B)
+    // Obtém o primeiro nome para a mensagem de sucesso
+    const nome = document.getElementById('input-nome').value.split(' ')[0];
+    
+    // 🔴 NOVO FIX: Trata envio com arquivos. Exibe a mensagem de sucesso E força o envio tradicional
     if (fileInput.files && fileInput.files.length > 0) {
-        console.warn("Arquivos detectados. Forçando envio tradicional para garantir a anexação.");
+        
+        // 1. Exibe a mensagem de sucesso (simulação) IMEDIATAMENTE antes do envio
+        userNameDisplay.innerText = nome;
+        $(form).fadeOut(500, function() { $(successMessage).fadeIn(500); });
+        $('html, body').animate({ scrollTop: $(".form-container").offset().top - 100 }, 800);
+        
+        // 2. Garante o envio tradicional (Plano B)
+        console.warn("Arquivos detectados. Forçando exibição de sucesso e envio tradicional.");
         
         // Remove listener e define a ação para o modo tradicional (sem /ajax)
         form.removeEventListener('submit', arguments.callee);
-        
-        // AÇÃO PARA ENVIO DE ARQUIVO: APENAS A URL DO FORM SUBMIT, SEM FORMATAÇÃO
         form.action = "https://formsubmit.co/alexssandrosg@gmail.com"; 
         
-        // Força o envio nativo
-        form.submit();
+        // 3. Aguarda um momento para a animação de fadeOut e envia o formulário no modo tradicional
+        setTimeout(() => {
+            form.submit();
+        }, 1000); // Dá 1 segundo para o usuário ver a mensagem antes de recarregar
+        
         return; 
     }
 
     // --- Se NÃO houver arquivos, continua com o AJAX (Envio Silencioso) ---
     const formData = new FormData(form);
 
-    // FETCH AJAX: APENAS A URL DO AJAX, SEM FORMATAÇÃO
     fetch("https://formsubmit.co/ajax/alexssandrosg@gmail.com", {
       method: "POST",
       headers: { 'Accept': 'application/json' },
@@ -231,9 +162,8 @@ Preencha o formulário abaixo para uma análise preliminar. Respondemos rapidame
         return response.json();
     })
     .then(data => {
-      // Sucesso AJAX
+      // Sucesso AJAX (Aparece a mensagem verde sem recarregar)
       console.log("Sucesso:", data);
-      const nome = document.getElementById('input-nome').value.split(' ')[0];
       userNameDisplay.innerText = nome;
       $(form).fadeOut(500, function() { $(successMessage).fadeIn(500); });
       $('html, body').animate({ scrollTop: $(".form-container").offset().top - 100 }, 800);
