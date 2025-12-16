@@ -3,30 +3,30 @@ title: "IEE031 - ANÁLISE DE DADOS LONGITUDINAIS"
 author: "Alexssandro Oliveira | alexssandrosg@gmail.com"
 # description: "A detalhar"
 date: "`r format(Sys.Date())`"
-lang: pt
-format: 
-  html: 
-    theme: Journal # IMPORTANTE: Remove o tema padrão para usar 100% o nosso CSS
-    # css: s7.css
-    # Configurações de Layout
-    toc: true # Table of Contents (Menu da Direita)
-    toc-title: "Nesta página"
-    fontsize: 0.9em
-    margin-left: 0em
-    margin-right: 0em
-    margin-bottom: 0em
-    margin-top: -1em
-    number-sections: true
-    code-fold: true
-    code-summary: "Mostrar/Ocultar Código"
+#lang: pt
+# format: 
+#   html: 
+#     theme: Journal # IMPORTANTE: Remove o tema padrão para usar 100% o nosso CSS
+#     # css: s7.css
+#     # Configurações de Layout
+#     toc: true # Table of Contents (Menu da Direita)
+#     toc-title: "Nesta página"
+#     fontsize: 0.9em
+#     margin-left: 0em
+#     margin-right: 0em
+#     margin-bottom: 0em
+#     margin-top: -1em
+#     number-sections: true
+#     code-fold: true
+#     code-summary: "Mostrar/Ocultar Código"
 # 4. Configuração do R
-execute:
-  freeze: auto    # "Congela" resultados
-  message: false  # Ocultar mensagens 
-  warning: false  # Ocultar warnings 
-editor: visual
-page-layout: full
-title-block-banner: true
+#execute:
+#  freeze: auto    # "Congela" resultados
+#  message: false  # Ocultar mensagens 
+#  warning: false  # Ocultar warnings 
+#editor: visual
+#page-layout: full
+#title-block-banner: true
 ---
 
 <br>
