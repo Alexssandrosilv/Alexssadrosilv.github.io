@@ -1,0 +1,435 @@
+---
+title: "IEE031 - ANÁLISE DE DADOS LONGITUDINAIS"
+author: "Alexssandro Oliveira | alexssandrosg@gmail.com"
+# description: "A detalhar"
+date: "`r format(Sys.Date())`"
+lang: pt
+format: 
+  html: 
+    theme: Journal # IMPORTANTE: Remove o tema padrão para usar 100% o nosso CSS
+    # css: s7.css
+    # Configurações de Layout
+    toc: true # Table of Contents (Menu da Direita)
+    toc-title: "Nesta página"
+    fontsize: 0.9em
+    margin-left: 0em
+    margin-right: 0em
+    margin-bottom: 0em
+    margin-top: -1em
+    number-sections: true
+    code-fold: true
+    code-summary: "Mostrar/Ocultar Código"
+# 4. Configuração do R
+execute:
+  freeze: auto    # "Congela" resultados
+  message: false  # Ocultar mensagens 
+  warning: false  # Ocultar warnings 
+editor: visual
+page-layout: full
+title-block-banner: true
+---
+
+<br>
+
+::: {style="border-top: 2px solid #003366;"}
+:::
+
+<br>
+
+
+## Importação, Reestruturação e Tratamento dos Dados
+
+::: {style="text-align: justify"}
+Para a modelagem longitudinal, o conjunto de dados é submetido a três fases cruciais de processamento e estruturação:
+
+-   **Passo 1 - Leitura:** Importação da base de dados brutos para o ambiente R no formato largo (wide). Nesse formato, cada linha representa um paciente e cada coluna corresponde a uma semana de avaliação. Embora adequado para armazenar os dados brutos, esse formato não é apropriado para ajustes de modelos longitudinais.
+
+
+-   **Passo 2 - Reestruturação:** Para permitir a modelagem da correlação intra-sujeito ao longo do tempo, o banco é convertido para o formato longo (long), no qual cada linha representa uma única observação temporal. 
+
+-   **Passo 3 - Criação de Variável:** Se necessário, deve ser realizada a criação da variável de tempo recentralizada, que é crucial para garantir que o intercepto do modelo estatístico ($\beta_0$) represente a Pontuacao basal (Tempo 0).
+
+
+:::
+
+
+```{r setup, include=FALSE}
+# Define opções padrão para todos os chunks de código no R Markdown
+knitr::opts_chunk$set(
+  echo = TRUE,         # Oculta o código nos resultados finais do documento
+  warning = FALSE,     # Suprime mensagens de aviso (warnings)
+  message = FALSE,     # Suprime mensagens informativas (como as de carregamento de pacotes)
+  fig.width = 10,      # Define a largura padrão das figuras (em polegadas)
+  fig.height = 6,      # Define a altura padrão das figuras (em polegadas)
+  fig.align = 'center'
+)
+
+```
+
+## Base Dados: Recuperação de Pacientes Pós-AVC (STROKE)
+
+### Sobre os dados
+
+::: {style="text-align: justify"}
+
+O conjunto de dados abaixo contempla informações de um experimento para promover a recuperação de 24 pacientes que sofreram derrame. O objetivo é avaliar a eficácia de diferentes regimes de terapia ao longo de 8 semanas.
+
+Definição dos índices:
+
+- $\mathbf{i}$: Representa o indivíduo (paciente), variando de $i=1, \dots, m$, onde $\mathbf{m = 24}$.
+- $\mathbf{j}$: Representa a medição repetida (instante no tempo), variando de $j=1, \dots, n_{i}$, onde $\mathbf{n_i = 8}$.
+
+Os pacientes foram divididos em três grupos experimentais. Embora cada grupo tenha o mesmo número de participantes (8 indivíduos), o balanceamento estatístico relevante em estudos longitudinais está associado ao número igual de medições ao longo do tempo por indivíduo $(n_i = 8)$, e não necessariamente ao fato de os grupos possuírem tamanhos iguais.
+
+-   **Grupo A:** Uma nova intervenção de terapia ocupacional;
+-   **Grupo B:** O programa existente de reabilitação de derrame;
+-   **Grupo C:** O regime de cuidados usuais para pacientes com derrame.
+
+:::
+
+<br>
+
+### Ajuste do modelo
+
+
+::: {style="text-align: justify"}
+
+Análise de recuperação (stroke), comparação da eficácia de recuperação entre o grupo tratamento (a) e o grupo controle (b) ao longo de 8 semanas.modelo e resultadosajustamos um modelo com intercepto aleatório para capturar a variação inicial entre os pacientes.
+
+
+::: 
+
+```{r}
+# ------------------------------------------------------------------------------
+# 1. CARREGAMENTO DE PACOTES E IMPORTAÇÃO
+# ------------------------------------------------------------------------------
+if(!require("gsheet")) install.packages("gsheet")
+if(!require("tidyverse")) install.packages("tidyverse")
+if(!require("lme4")) install.packages("lme4")
+if(!require("car")) install.packages("car")
+
+library(gsheet)
+library(tidyverse)
+library(lme4)
+library(car)
+
+url_stroke <- "https://docs.google.com/spreadsheets/d/1n394dzsNn1QITgigbHJ21uz6hi5TDCHs/edit?gid=712419062#gid=712419062"
+variaveis <- c("Sujeito", "Grupo", "Semana 1", "Semana 2", "Semana 3", "Semana 4", "Semana 5", "Semana 6", "Semana 7", "Semana 8")
+
+# ------------------------------------------------------------------------------
+# 2. REESTRUTURAÇÃO (WIDE -> LONG)
+# ------------------------------------------------------------------------------
+bd_stroke_long <- gsheet::gsheet2tbl(url_stroke) %>% 
+  stats::setNames(variaveis) %>%
+  tidyr::pivot_longer(
+    cols = starts_with("Semana"), 
+    names_to = "Semana", 
+    values_to = "Pontuacao"
+  ) %>%
+  dplyr::mutate(
+    # Semana 1 vira Tempo 0 para o intercepto ser o valor inicial
+    Semana_num = as.numeric(stringr::str_remove(Semana, "Semana ")) - 1,
+    Sujeito = factor(Sujeito),
+    Grupo = factor(Grupo)
+  ) %>%
+  dplyr::filter(Grupo %in% c("A", "B")) # FILTRADO PARA GRUPOS A E B
+
+# ------------------------------------------------------------------------------
+# 3. AJUSTE DO MODELO MISTO (RANDOM INTERCEPT)
+# ------------------------------------------------------------------------------
+# Ajuste considerando Interação (Grupo * Tempo) e Intercepto Aleatório por Sujeito
+fit_stroke <- lme4::lmer(Pontuacao ~ Grupo * Semana_num + (1 | Sujeito), data = bd_stroke_long)
+
+summary(fit_stroke)
+```
+
+
+
+::: {style="text-align: justify"}
+
+$$Y_{ij} = (\beta_0 + b_{0i}) + \beta_1 \text{grupob}_i + \beta_2 \text{semana}_j + \beta_3 (\text{grupob}_i \times \text{semana}_j) + \varepsilon_{ij}$$
+
+**Efeitos fixos (médias dos grupos)**
+
+- **intercepto (36.15)**: representa a média inicial do grupo A. É altamente significativo ($t = 4.88$), indicando que os pacientes não começam com pontuação zero.
+
+- **grupo b (1.35)**: representa a diferença inicial entre o grupo B e o grupo A. Como o valor de $t$ é muito baixo (0.12), não é significativo. Isso significa que, estatisticamente, os dois grupos começam o estudo no mesmo nível.
+
+- **semana_num (6.32)**: representa a melhora semanal do grupo A. É altamente significativo ($t = 12.90$), confirmando que o grupo A apresenta uma evolução positiva clara ao longo do tempo.
+
+- **interação grupob**: semana_num (-1.99): este é o ponto crucial. O valor de $t$ é -2.87. Em modelos mistos, valores de $|t| > 2$ geralmente indicam significância estatística ao nível de 5%. É significativo.
+
+- **interpretação**: O grupo B recupera-se significativamente mais devagar (cerca de 2 pontos a menos por semana) do que o grupo A.
+
+
+**Efeitos aleatórios (variabilidade individual)**
+
+- **sujeito (404.18)**: a variância é muito alta. Isso indica que a diferença "de base" entre os pacientes é enorme. Ignorar esse efeito (usar regressão simples) invalidaria a análise, pois cada paciente é seu próprio controle.
+
+
+::: 
+
+```{r}
+# ------------------------------------------------------------------------------
+# 4. DIAGNÓSTICO E EXTRAÇÃO DE EFEITOS (MODELO DO PROFESSOR)
+# ------------------------------------------------------------------------------
+
+# Extração de efeitos aleatórios com variâncias posteriores
+ran_full <- ranef(fit_stroke, condVar = TRUE) 
+ran <- ran_full$Sujeito
+postVar <- attr(ran_full$Sujeito, "postVar")
+
+# Efeitos fixos estimados
+beta_fix <- fixef(fit_stroke)
+
+# Intercepto individual (Efeito fixo médio + Desvio b0i do sujeito)
+intercept_ind <- beta_fix["(Intercept)"] + ran[, "(Intercept)"]
+
+# Erro padrão (SD) posterior para cada indivíduo
+n_subjects <- nrow(ran)
+sd_intercept <- sqrt(sapply(1:n_subjects, function(i) postVar[1,1,i]))
+
+# Intervalos de confiança (95%) para o Intercepto Individual
+IC <- data.frame(
+  id = rownames(ran),
+  intercept = intercept_ind,
+  intercept_L = intercept_ind - 1.96 * sd_intercept,
+  intercept_U = intercept_ind + 1.96 * sd_intercept
+)
+
+# --- 4.1 HISTOGRAMA E QQ-PLOT DO INTERCEPTO ---
+par(mfrow=c(1,2))
+hist(ran$`(Intercept)`, main = "Efeitos Aleatórios (b0i)", 
+     xlab = "Resíduos do Intercepto", col = "lightblue", border = "white")
+car::qqPlot(ran$`(Intercept)`, main = "QQ-Plot: Interceptos")
+
+# --- 4.2 CATERPILLAR PLOT (ORDENADO PELO PESO INICIAL) ---
+par(mfrow=c(1,1))
+ord_int <- order(intercept_ind)
+
+plot(intercept_ind[ord_int], pch = 19, 
+     main = "Caterpillar Plot: Interceptos Individuais (Stroke A vs B)", 
+     xlab = "Pacientes (Ordenados pelo Intercepto)", ylab = "Pontuação Inicial Estimada")
+segments(1:n_subjects, IC$intercept_L[ord_int], 1:n_subjects, IC$intercept_U[ord_int], col = "gray60")
+abline(h = beta_fix["(Intercept)"], lty = 2, col = "red")
+
+```
+
+
+<br>
+
+## Base Dados: Peso de Bezerros
+
+### Sobre os dados
+
+
+::: {style="text-align: justify"}
+O objetivo deste estudo é explorar o crescimento de bezerros entre a 12ª e a 26ª semana de vida, utilizando dados longitudinais com medidas repetidas.
+
+Definição dos índices:
+
+- $\mathbf{m = 15}$.
+- $\mathbf{n_i = 8}$.
+
+:::
+
+### Ajuste do modelo
+
+
+```{r}
+# ------------------------------------------------------------------------------
+# 1. CARREGAMENTO DE PACOTES
+# ------------------------------------------------------------------------------
+if(!require("gsheet")) install.packages("gsheet")
+if(!require("tidyverse")) install.packages("tidyverse")
+if(!require("lme4")) install.packages("lme4")
+if(!require("car")) install.packages("car")
+if(!require("ggrepel")) install.packages("ggrepel")
+
+library(gsheet)
+library(tidyverse)
+library(lme4)
+library(car)
+library(ggrepel)
+
+# ------------------------------------------------------------------------------
+# 2. IMPORTAÇÃO E TRANSFORMAÇÃO (WIDE → LONG)
+# ------------------------------------------------------------------------------
+url_bezerros <- "https://docs.google.com/spreadsheets/d/1BGP2yokaV8uiQ1kJXP3BvfXbDoBgw9Jb/edit?gid=1419069632#gid=1419069632"
+bd_bezerros <- gsheet::gsheet2tbl(url_bezerros)
+
+bd_bezerros_long <- bd_bezerros %>%
+  pivot_longer(cols = t12:t26, names_to = "tempo", values_to = "valor") %>%
+  mutate(
+    tempo_num = as.numeric(str_remove(tempo, "t")),
+    tempo_rec = tempo_num - min(tempo_num), # Recentralizado: t12 vira Tempo 0
+    ind = factor(ind)
+  )
+
+# ------------------------------------------------------------------------------
+# 3. AJUSTE DO MODELO MISTO (RANDOM INTERCEPT & RANDOM SLOPE)
+# ------------------------------------------------------------------------------
+# Modelo: valor ~ tempo + (1 + tempo | animal)
+# Permite que o ponto de partida e a taxa de crescimento variem por animal
+fit_bez <- lme4::lmer(valor ~ tempo_rec + (1 + tempo_rec | ind), data = bd_bezerros_long)
+
+summary(fit_bez)
+
+# ------------------------------------------------------------------------------
+# 4. EXTRAÇÃO DE EFEITOS E DIAGNÓSTICOS (MODELO DO PROFESSOR)
+# ------------------------------------------------------------------------------
+
+# Extração de efeitos aleatórios com variâncias posteriores
+ran_full <- ranef(fit_bez, condVar = TRUE) 
+ran <- ran_full$ind
+postVar <- attr(ran_full$ind, "postVar")
+
+# Efeitos fixos estimados (Médias populacionais)
+beta_fix <- fixef(fit_bez)
+
+# Interceptos e Slopes individuais (Média + Desvio Individual)
+intercept_ind <- beta_fix["(Intercept)"] + ran[, "(Intercept)"]
+slope_ind     <- beta_fix["tempo_rec"] + ran[, "tempo_rec"]
+
+# SD posterior para os intervalos de confiança
+n_subjects <- nrow(ran)
+sd_intercept <- sqrt(sapply(1:n_subjects, function(i) postVar[1,1,i]))
+sd_slope     <- sqrt(sapply(1:n_subjects, function(i) postVar[2,2,i]))
+
+# Tabela de Intervalos de Confiança (IC)
+IC_bez <- data.frame(
+  id = rownames(ran),
+  intercept = intercept_ind,
+  intercept_L = intercept_ind - 1.96 * sd_intercept,
+  intercept_U = intercept_ind + 1.96 * sd_intercept,
+  slope = slope_ind,
+  slope_L = slope_ind - 1.96 * sd_slope,
+  slope_U = slope_ind + 1.96 * sd_slope
+)
+
+# --- 4.1 DIAGNÓSTICO: HISTOGRAMAS E QQ-PLOTS ---
+par(mfrow=c(2,2))
+
+# Para o Intercepto
+hist(ran$`(Intercept)`, main="Resíduos: Intercepto", col="lightblue", border="white")
+car::qqPlot(ran$`(Intercept)`, main="QQ-Plot: Intercepto")
+
+# Para a Inclinação (Tempo)
+hist(ran$tempo_rec, main="Resíduos: Slope (Tempo)", col="lightgreen", border="white")
+car::qqPlot(ran$tempo_rec, main="QQ-Plot: Slope")
+
+# --- 4.2 CATERPILLAR PLOTS (ORDENADOS) ---
+par(mfrow=c(1,2))
+
+# Caterpillar Interceptos
+ord_int <- order(intercept_ind)
+plot(intercept_ind[ord_int], pch=19, main="Caterpillar: Interceptos", xlab="Indivíduos", ylab="Peso Inicial")
+segments(1:n_subjects, IC_bez$intercept_L[ord_int], 1:n_subjects, IC_bez$intercept_U[ord_int], col="gray")
+abline(h=beta_fix["(Intercept)"], lty=2, col="red")
+
+# Caterpillar Slopes
+ord_slope <- order(slope_ind)
+plot(slope_ind[ord_slope], pch=19, main="Caterpillar: Slopes", xlab="Indivíduos", ylab="Taxa de Crescimento")
+segments(1:n_subjects, IC_bez$slope_L[ord_slope], 1:n_subjects, IC_bez$slope_U[ord_slope], col="gray")
+abline(h=beta_fix["tempo_rec"], lty=2, col="red")
+
+```
+
+<br>
+
+
+::: {style="text-align: justify"}
+
+Análise de crescimento (bezerros)
+
+Modelo e resultados:
+
+utilizamos um modelo de coeficientes aleatórios (intercepto e inclinação), pois cada animal cresce em seu próprio ritmo.
+
+$$Y_{ij} = (\beta_0 + b_{0i}) + (\beta_1 + b_{1i}) \text{tempo}_{ij} + \varepsilon_{ij}$$
+
+
+**Efeitos fixos (tendência populacional)**
+
+- **intercepto (69.27):** peso médio inicial. Altamente significativo ($t = 17.48$).
+
+- tempo_rec (4.65): ganho de peso médio por período. Altamente significativo ($t = 16.37$). Os bezerros estão ganhando peso de forma consistente.
+
+
+
+** Efeitos aleatórios (heterogeneidade biológica)**
+
+- **intercepto (231.99):** confirma que os bezerros começam o experimento com pesos iniciais muito distintos.
+
+- **tempo_rec (1.16):** este efeito é significativo para a estrutura do modelo. Ele prova que a "velocidade" de crescimento não é igual para todos. Alguns bezerros são "ganhadores de peso" natos, enquanto outros são mais lentos.
+
+- **correlação (0.45):** indica uma associação positiva moderada. Bezerros que nascem/começam maiores tendem a ter um metabolismo que favorece um crescimento mais rápido (o slope aumenta conforme o intercepto aumenta).
+
+:::
+
+```{r}
+# ------------------------------------------------------------------------------
+# 4. EXTRAÇÃO DE EFEITOS E DIAGNÓSTICOS (MODELO DO PROFESSOR)
+# ------------------------------------------------------------------------------
+
+# Extração de efeitos aleatórios com variâncias posteriores
+ran_full <- ranef(fit_bez, condVar = TRUE) 
+ran <- ran_full$ind
+postVar <- attr(ran_full$ind, "postVar")
+
+# Efeitos fixos estimados (Médias populacionais)
+beta_fix <- fixef(fit_bez)
+
+# Interceptos e Slopes individuais (Média + Desvio Individual)
+intercept_ind <- beta_fix["(Intercept)"] + ran[, "(Intercept)"]
+slope_ind     <- beta_fix["tempo_rec"] + ran[, "tempo_rec"]
+
+# SD posterior para os intervalos de confiança
+n_subjects <- nrow(ran)
+sd_intercept <- sqrt(sapply(1:n_subjects, function(i) postVar[1,1,i]))
+sd_slope     <- sqrt(sapply(1:n_subjects, function(i) postVar[2,2,i]))
+
+# Tabela de Intervalos de Confiança (IC)
+IC_bez <- data.frame(
+  id = rownames(ran),
+  intercept = intercept_ind,
+  intercept_L = intercept_ind - 1.96 * sd_intercept,
+  intercept_U = intercept_ind + 1.96 * sd_intercept,
+  slope = slope_ind,
+  slope_L = slope_ind - 1.96 * sd_slope,
+  slope_U = slope_ind + 1.96 * sd_slope
+)
+
+# --- 4.1 DIAGNÓSTICO: HISTOGRAMAS E QQ-PLOTS ---
+par(mfrow=c(2,2))
+
+# Para o Intercepto
+hist(ran$`(Intercept)`, main="Resíduos: Intercepto", col="lightblue", border="white")
+car::qqPlot(ran$`(Intercept)`, main="QQ-Plot: Intercepto")
+
+# Para a Inclinação (Tempo)
+hist(ran$tempo_rec, main="Resíduos: Slope (Tempo)", col="lightgreen", border="white")
+car::qqPlot(ran$tempo_rec, main="QQ-Plot: Slope")
+
+# --- 4.2 CATERPILLAR PLOTS (ORDENADOS) ---
+par(mfrow=c(1,2))
+
+# Caterpillar Interceptos
+ord_int <- order(intercept_ind)
+plot(intercept_ind[ord_int], pch=19, main="Caterpillar: Interceptos", xlab="Indivíduos", ylab="Peso Inicial")
+segments(1:n_subjects, IC_bez$intercept_L[ord_int], 1:n_subjects, IC_bez$intercept_U[ord_int], col="gray")
+abline(h=beta_fix["(Intercept)"], lty=2, col="red")
+
+# Caterpillar Slopes
+ord_slope <- order(slope_ind)
+plot(slope_ind[ord_slope], pch=19, main="Caterpillar: Slopes", xlab="Indivíduos", ylab="Taxa de Crescimento")
+segments(1:n_subjects, IC_bez$slope_L[ord_slope], 1:n_subjects, IC_bez$slope_U[ord_slope], col="gray")
+abline(h=beta_fix["tempo_rec"], lty=2, col="red")
+
+```
+
+::: {style="border-top: 2px solid #003366;"}
+:::
+
+
+
