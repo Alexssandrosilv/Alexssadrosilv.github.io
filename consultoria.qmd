@@ -31,9 +31,9 @@ include-in-header:
 
 A **ΛΣ Consultoria** oferece suporte técnico especializado para transformar dados complexos em resultados claros, análises estatísticas rigorosas para academia e mercado, atuando na fronteira entre a teoria estatística e a aplicação prática.
 
-- **Acadêmico:** Suporte metodológico em **análises estatísticas** para Pesquisas (TCCs, Dissertações e Teses), com foco em reprodutibilidade e rigor científico.
+<!-- - **Acadêmico:** Suporte metodológico em **análises estatísticas** para Pesquisas (TCCs, Dissertações e Teses), com foco em reprodutibilidade e rigor científico. -->
 
-- **Corporativo:** Inteligência de dados, modelagem preditiva e análise de cenários para embasar tomadas de decisão críticas.
+<!-- - **Corporativo:** Inteligência de dados, modelagem preditiva e análise de cenários para embasar tomadas de decisão críticas. -->
 
 :::
 
