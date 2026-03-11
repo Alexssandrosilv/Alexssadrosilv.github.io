@@ -63,26 +63,26 @@ website:
     # # Lado Esquerdo: Seu nome
     # left: 
     #   - text: "<b> © 2025 Alexssandro Silva | ΛΣ Consultoria Estatística</b>"
-      
-    # # Lado Esquerdo: Seu nome
-    # left:
-    #   - text: "<b> © 2025 Alexssandro Silva | ΛΣ</b>"
+
+    # Lado Esquerdo: Seu nome
+    left:
+      - text: "<b> © 2025 Alexssandro Silva | ΛΣ</b>"
 
     # Centro: A frase
     center: 
       - text: "<b><i>E pelas primeiras vezes, o que passou, passou... comece de novo.</i></b>"
-      
-    # # Lado Direito: Ícones das Redes Sociais
-    # right:
-    #   - icon: github
-    #     href: https://github.com/Alexssandrosilv
-    #     aria-label: GitHub
-    #   - icon: linkedin
-    #     href: https://www.linkedin.com/in/alexssandro-silva-3b63aa19b/
-    #     aria-label: LinkedIn
-    #   - icon: envelope
-    #     href: mailto:alexssandrosg@gmail.com
-    #     aria-label: Email
+
+    # Lado Direito: Ícones das Redes Sociais
+    right:
+      - icon: github
+        href: https://github.com/Alexssandrosilv
+        aria-label: GitHub
+      - icon: linkedin
+        href: https://www.linkedin.com/in/alexssandro-silva-3b63aa19b/
+        aria-label: LinkedIn
+      - icon: envelope
+        href: mailto:alexssandrosg@gmail.com
+        aria-label: Email
 format: 
   html: 
     theme: flatly # IMPORTANTE: Remove o tema padrão para usar 100% o nosso CSS
