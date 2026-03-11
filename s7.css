@@ -630,30 +630,30 @@ input[type="file"]::file-selector-button:hover {
 ========================================================================== */
 
 /* 8.1 Links Ativos e Hover na Lateral */
-.sidebar-item-text.active, 
-.sidebar-item-container.active,
-.sidebar-navigation .active,
-nav[role=doc-toc] ul li a.active {
+/*.sidebar-item-text.active, 
+/*.sidebar-item-container.active,
+/*.sidebar-navigation .active,
+/*nav[role=doc-toc] ul li a.active {
     color: var(--cor-destaque-viva) !important; /* Texto Verde */
-    font-weight: 700 !important;
-}
+/*    font-weight: 700 !important;
+/*}
 
 /* 8.2 A "Barrinha" lateral que fica azul */
-.sidebar-item-container {
-    border-left: 3px solid transparent; /* Reserva o espaço */
-    transition: all 0.3s;
+/*.sidebar-item-container {
+/*    border-left: 3px solid transparent; /* Reserva o espaço */
+/*    transition: all 0.3s;
 }
 
 .sidebar-item-container.active,
 .sidebar-item-container:hover {
     border-left: 3px solid var(--cor-destaque-viva) !important; /* Barrinha Verde */
-    background-color: rgba(24, 188, 156, 0.05) !important; /* Fundo sutil */
-}
+/*    background-color: rgba(24, 188, 156, 0.05) !important; /* Fundo sutil */
+/*}
 
 /* 8.3 Ajuste de Títulos e Botões da Sidebar */
-.sidebar-title, .quarto-sidebar-toggle {
-    color: var(--cor-texto) !important;
-}
+/*.sidebar-title, .quarto-sidebar-toggle {
+/*    color: var(--cor-texto) !important;
+/*}
 
 .quarto-sidebar-toggle:hover {
     color: var(--cor-destaque-viva) !important;
