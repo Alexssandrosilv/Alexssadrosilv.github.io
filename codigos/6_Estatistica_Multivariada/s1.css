@@ -1,348 +1,161 @@
 /* ==========================================================================
-    ARQUIVO DE ESTILOS: S7.CSS
+    ARQUIVO DE ESTILOS: S1.CSS
     Portfólio ΛΣ Consultoria Estatística
     Autor: Alexssandro Oliveira
-    Descrição: Estilos personalizados para Quarto (Tema Flatly + Glassmorphism)
-    Organização: Blocos Lógicos com Comentários Linha a Linha
 ========================================================================== */
 
-/* ==========================================================================
-    BLOCO 1: FUNDAMENTOS (Setup Inicial)
-    Fontes, Variáveis de Cor e Configurações Globais do HTML/Body.
-========================================================================== */
-
-/* 1.1 Importação de Fontes (Google Fonts) */
-/* Importa as fontes Inter (Texto) e Fira Code (Código) dos servidores do Google */
+/* 1. FUNDAMENTOS */
+/* Importa as fontes do Google: Inter para textos e Fira Code para códigos */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Fira+Code&display=swap');
 
-/* 1.2 Variáveis Globais (:root) - O "Painel de Controle" das cores */
+/* Painel de controle de cores do site */
 :root {
-  /* -- Cores da Página -- */
-  --cor-fundo-site: #ffffff;    /* Define branco puro para fundos */
-  --cor-pagina: #ffffff;        /* Define branco para a página */
-  --cor-texto: #2a2a2a;         /* Cinza muito escuro (melhor leitura que preto 100%) */
-  --cor-borda-suave: #eeeeee;   /* Cinza quase branco para detalhes sutis */
-  --cor-borda-titulo: #dcdcdc;  /* Cinza médio para sublinhar títulos */
-  --cor-code-fundo: #f8f9fa;    /* Cinza gelo para o fundo dos códigos R/Python */
-  
-  /* -- Cores da Barra de Navegação -- */
-  --cor-navbar-fundo: black;    /* Fundo preto para o menu superior */
-  --cor-navbar-texto: #e0e0e0;  /* Texto cinza claro para os links */
-  --cor-navbar-hover: #FFFFFF;  /* Texto branco quando passa o mouse */
-  
-  /* -- Identidade Visual (Destaque) -- */
-  --cor-destaque-viva: #18bc9c;      /* Verde Teal Vibrante (Sua marca principal) */
-  --cor-destaque-escuro: #128f76; /* Verde Teal Escuro (Para interações/cliques) */
+  --cor-fundo-site: #ffffff;      /* Branco para o fundo geral */
+  --cor-pagina: #ffffff;          /* Branco para a área da página */
+  --cor-texto: #2a2a2a;           /* Cinza escuro para melhor leitura */
+  --cor-borda-suave: #eeeeee;     /* Cinza clarinho para divisórias */
+  --cor-borda-titulo: #dcdcdc;    /* Cinza médio para linhas de títulos */
+  --cor-code-fundo: #f8f9fa;      /* Cinza "gelo" para blocos de código */
+  --cor-navbar-fundo: black;      /* Preto para o menu superior */
+  --cor-navbar-texto: #e0e0e0;    /* Cinza claro para links do menu */
+  --cor-navbar-hover: #FFFFFF;    /* Branco puro no hover do menu */
+  --cor-destaque-viva: #18bc9c;   /* Verde Teal (Sua marca principal) */
+  --cor-destaque-escuro: #128f76; /* Verde mais escuro para cliques */
 }
 
-/* 1.3 Corpo do Site (Body) */
+/* Configurações básicas do corpo da página */
 body {
-  /* Cria o gradiente de fundo necessário para o efeito de vidro funcionar */
-  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);  
-  font-family: 'Inter', sans-serif; /* Define a fonte padrão de todo o site */
-  color: var(--cor-texto);          /* Define a cor padrão do texto */
-  line-height: 1.65;                /* AJUSTADO: Espaço entre linhas ideal */
-  margin: 0;                        /* Remove as margens padrão do navegador */
-  padding: 0;                       /* Remove o preenchimento padrão */
-  overflow-x: hidden;               /* Bloqueia a rolagem horizontal indesejada */
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); /* Fundo em degradê suave */
+  font-family: 'Inter', sans-serif; /* Define a fonte principal */
+  color: var(--cor-texto);          /* Aplica a cor de texto padrão */
+  line-height: 1.65;                /* Define o espaçamento entre linhas */
+  margin: 0;                        /* Remove margens laterais do navegador */
+  overflow-x: hidden;               /* Evita barras de rolagem horizontais */
 }
 
-/* 1.4 Links Gerais (No meio do texto) */
+/* 2. LINKS E TÍTULOS */
 a {
-  color: var(--cor-destaque-viva); /* Usa o verde da marca nos links */
-  text-decoration: none;          /* Remove o sublinhado inicial */
-  font-weight: 700;               /* Deixa o link em negrito */
-  transition: all 0.2s ease;      /* Suaviza a animação de mudança de cor */
+  color: var(--cor-destaque-viva);  /* Cor verde nos links */
+  text-decoration: none;           /* Remove o sublinhado padrão */
+  font-weight: 700;                /* Deixa os links em negrito */
+  transition: all 0.2s ease;       /* Suaviza a troca de cor ao interagir */
 }
 
 a:hover {
   color: var(--cor-destaque-escuro); /* Escurece o verde ao passar o mouse */
-  text-decoration: underline;      /* Adiciona sublinhado ao passar o mouse */
+  text-decoration: underline;       /* Adiciona sublinhado no hover */
 }
 
-/* 1.5 Tipografia (Títulos H1 a H6) */
-h1, h2, h3, h4 {
-  font-family: 'Inter', sans-serif; /* Força a fonte Inter nos títulos */
-  font-weight: 700;                 /* Define negrito forte */
-  color: var(--cor-texto);          /* Usa a cor de texto padrão */
+/* Estilo comum para todos os títulos */
+h1, h2, h3, h4 { 
+  font-family: 'Inter', sans-serif; 
+  font-weight: 700; 
+  color: var(--cor-texto); 
 }
 
-h3 {
-  font-size: 1.5em; /* NOVO: Tamanho robusto para subtítulos de seção (Metodologia) */
-  font-weight: 800; /* NOVO: Negrito extra forte */
-  margin-top: 1.5em; 
-  margin-bottom: 0.8em; 
+/* Estilo específico para Títulos de Seção (H2) */
+h2 { 
+  border-bottom: 2px solid var(--cor-borda-titulo); /* Linha horizontal abaixo */
+  padding-bottom: 8px;                             /* Espaço entre texto e linha */
+  margin-top: 2em;                                 /* Espaço acima do título */
 }
 
-h2 {
-  border-bottom: 2px solid var(--cor-borda-titulo); /* Cria a linha cinza abaixo do título */
-  padding-bottom: 8px;              /* Dá um espaço entre o texto e a linha */
-  margin-top: 2em;                  /* Adiciona espaço acima do título */
-}
-
-/* 1.6 Blocos de Código (Code Chunks) */
-pre {
-  font-family: 'Fira Code', monospace;      /* Usa a fonte de código monoespaçada */
-  background-color: var(--cor-code-fundo);  /* Aplica o fundo cinza gelo */
-  border-radius: 5px;                       /* Arredonda levemente os cantos */
-  padding: 1em;                             /* Adiciona espaço interno */
-  border: 1px solid var(--cor-borda-suave); /* Adiciona uma borda fina */
-}
-
-code {
-  font-family: 'Fira Code', monospace;      /* Fonte monoespaçada para código em linha */
-  background-color: var(--cor-code-fundo);  /* Fundo cinza gelo */
-  padding: 0.2em 0.4em;                     /* Espaço ao redor da palavra */
-  border-radius: 4px;                       /* Arredonda os cantos */
-  font-size: 0.9em;                         /* Diminui levemente a fonte */
-}
-
-
-/* ==========================================================================
-    BLOCO 2: ESTRUTURA DO LAYOUT
-    O container principal (papel de vidro) e o rodapé.
-========================================================================== */
-
-/* 2.1 Conteúdo Principal (Efeito Glassmorphism) */
+/* 3. ESTRUTURA GLASSMORPHISM (Efeito de Vidro) */
 main#quarto-content {
-  background-color: rgba(255, 255, 255, 0.9); /* Define fundo branco com transparência */
-  backdrop-filter: blur(10px);          /* Aplica desfoque no que está atrás */
-  -webkit-backdrop-filter: blur(10px);  /* Garante que funcione no Safari */
-  
-  max-width: 1000px;    /* Limita a largura em telas grandes */
-  width: 90%;           /* Ocupa 90% da largura em telas menores */
-  margin: 40px auto;    /* Centraliza o bloco na tela */
-  padding: 3em 4em;     /* Adiciona bastante espaço interno */
-  
-  border-radius: 12px;  /* Arredonda os cantos da folha */
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Adiciona sombra suave 3D */
-  border: 1px solid rgba(255, 255, 255, 0.5);  /* Adiciona borda semi-transparente */
+  background-color: rgba(255, 255, 255, 0.9); /* Branco semi-transparente */
+  backdrop-filter: blur(10px);               /* Desfoca o fundo atrás da folha */
+  -webkit-backdrop-filter: blur(10px);       /* Suporte para navegadores Safari */
+  max-width: 1000px;                         /* Largura máxima da folha de conteúdo */
+  width: 90%;                                /* Largura em telas menores */
+  margin: 40px auto;                         /* Centraliza e afasta do topo */
+  padding: 3em 4em;                          /* Margens internas generosas */
+  border-radius: 12px;                       /* Arredonda os cantos da folha */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Sombra suave para profundidade */
+  border: 1px solid rgba(255, 255, 255, 0.5);  /* Borda sutil "brilho de vidro" */
 }
 
-/* 2.2 Rodapé (Footer) */
-.quarto-page-footer {
-    background-color: black !important;      /* Força o fundo preto */
-    color: white !important;                 /* Força o texto branco */
-    padding-top: 3rem !important;            /* Espaço interno superior */
-    padding-bottom: 3rem !important;         /* Espaço interno inferior */
-    border-top: 3px solid var(--cor-destaque-viva); /* Cria a linha verde no topo */
-    margin-top: 4em !important;              /* Afasta do conteúdo principal */
-    font-size: 1.3em !important;             /* Aumenta o tamanho da fonte */
-}
-
-.quarto-page-footer .footer-text {
-    max-width: 95% !important;               /* Limita a largura do texto */
-    display: flex !important;                /* Usa Flexbox para alinhar */
-    justify-content: space-between !important; /* Espalha itens para as pontas */
-    align-items: center !important;          /* Centraliza verticalmente */
-    flex-wrap: wrap !important;              /* Permite quebrar linha se necessário */
-}
-
-.quarto-page-footer a {
-    color: #eeeeee !important;               /* Define cor cinza claro para links */
-    font-weight: bold !important;            /* Deixa links em negrito */
-}
-
-.quarto-page-footer .bi {
-    font-size: 2.2em !important;             /* Aumenta o tamanho dos ícones */
-    margin-left: 20px !important;            /* Adiciona margem à esquerda */
-    color: white !important;                 /* Define cor branca inicial */
-    transition: all 0.3s;                    /* Suaviza a animação */
-}
-
-.quarto-page-footer .bi:hover {
-    color: var(--cor-destaque-viva) !important; /* Muda para verde ao passar o mouse */
-    transform: translateY(-5px) scale(1.2);      /* Faz o ícone pular e crescer */
-}
-
-
-/* ==========================================================================
-    BLOCO 3: NAVEGAÇÃO E PESQUISA
-    Menu superior, correções de largura e fixes da barra de busca.
-========================================================================== */
-
-/* 3.1 Estilo Visual da Navbar */
+/* 4. NAVBAR (MENU SUPERIOR) */
 .navbar {
-  background-color: var(--cor-navbar-fundo) !important; /* Força fundo preto */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Adiciona sombra preta abaixo */
-  border-bottom: 3px solid var(--cor-destaque-viva); /* Adiciona linha verde neon */
-  padding: 1rem 0;                      /* Define a altura da barra */
-  position: sticky;                     /* Faz o menu grudar ao rolar */
-  top: 0;                               /* Posiciona no topo absoluto */
-  z-index: 1000;                        /* Coloca acima de todos os elementos */
-  display: flex;                        /* Usa layout flexível */
-  justify-content: center;              /* Centraliza o conteúdo */
+  background-color: var(--cor-navbar-fundo) !important; /* Força o fundo preto */
+  border-bottom: 3px solid var(--cor-destaque-viva);   /* Linha verde na base do menu */
+  position: sticky;                                    /* Faz o menu grudar no topo */
+  top: 0;                                              /* Fixa no topo absoluto */
+  z-index: 1000;                                       /* Garante que fique acima de tudo */
 }
 
-.navbar-nav {
-    width: 100%;                        /* Ocupa toda a largura disponível */
-    max-width: 1000px;                  /* Limita a largura para alinhar com o texto */
-    display: flex;                      /* Usa layout flexível */
-    justify-content: flex-start;        /* Alinha os itens à esquerda */
-    margin: 0 auto;                     /* Centraliza o bloco na tela */
+/* Estilo dos links no menu */
+.navbar-nav .nav-link { 
+  color: var(--cor-navbar-texto) !important; 
+  font-weight: 700; 
 }
 
-.navbar-nav .nav-link {
-  color: var(--cor-navbar-texto) !important; /* Define cor cinza claro */
-  font-weight: 700;                     /* Define negrito */
-  margin-right: 1.5em;                  /* Adiciona espaço à direita */
-  padding: 0.5em 0.8em;                 /* Define área clicável */
-  border-radius: 5px;                   /* Arredonda os botões */
-  transition: all 0.2s ease-in-out;     /* Suaviza a animação */
+/* Efeito Neon no hover do menu superior */
+.navbar-nav .nav-link:hover, .navbar-nav .nav-link.active {
+  color: var(--cor-destaque-viva) !important;
+  text-shadow: 0 0 10px rgba(24, 188, 156, 0.4); /* Brilho verde suave */
 }
 
-.navbar-nav .nav-link:hover,
-.navbar-nav .nav-link.active {
-  background-color: transparent !important; /* Remove fundo cinza padrão */
-  color: var(--cor-destaque-viva) !important; /* Muda texto para Verde Neon */
-  text-shadow: 0 0 10px rgba(24, 188, 156, 0.4); /* Adiciona brilho neon */
-  text-decoration: none !important;         /* Garante que não tenha sublinhado */
-}
-
-.navbar-brand {
-    font-weight: 700;                       /* Define negrito */
-    color: var(--cor-navbar-hover) !important; /* Define cor branca */
-    font-size: 1.4em;                       /* Aumenta o tamanho da fonte */
-    margin-right: 2em;                      /* Adiciona espaço à direita */
-}
-
-/* 3.2 Correção de Largura (Navbar 100%) - Força o menu até os cantos */
-.navbar .container-fluid, 
-.navbar .container-xxl, 
-.navbar .container {
-    max-width: 100% !important;             /* Força largura máxima total */
-    width: 100% !important;                 /* Força largura total */
-    padding-left: 30px !important;          /* Adiciona margem interna esquerda */
-    padding-right: 30px !important;         /* Adiciona margem interna direita */
-}
-
-.navbar-collapse {
-    flex-grow: 1;                           /* Ocupa todo o espaço restante */
-    justify-content: space-between;         /* Espalha os itens */
-}
-
-/* 3.3 Correção da Barra de Pesquisa (Desktop) - Fix do Cursor Fugindo */
-.quarto-search-autocomplete {
-    z-index: 9999 !important;               /* Força resultados no topo da pilha */
-}
-
-#quarto-search-input {
-    z-index: 10000 !important;              /* Força input acima dos resultados */
-    position: relative !important;          /* Necessário para z-index funcionar */
-}
-
-.aa-Input {
-    border: 1px solid var(--cor-destaque-viva) !important; /* Adiciona borda verde */
-    background-color: rgba(255, 255, 255, 0.95) !important; /* Fundo quase branco */
-    color: #000 !important;                 /* Texto preto */
-    border-radius: 5px !important;          /* Arredonda cantos */
-}
-
-/* 3.4 Correção da Barra de Pesquisa (Mobile) - Fix do Teclado */
-@media (max-width: 992px) {
-    /* Garante que o menu mobile fique no topo */
-    .navbar-collapse { z-index: 10000 !important; }
-    
-    /* Garante que o input de busca fique visível e no topo */
-    #quarto-search-input {
-        z-index: 10001 !important;          /* Acima do menu */
-        opacity: 1 !important;              /* Força visibilidade */
-    }
-    
-    /* Fixa a janela de resultados na tela para não quebrar com teclado */
-    .quarto-search-autocomplete {
-        z-index: 10002 !important;          /* Acima de tudo */
-        position: fixed !important;         /* Fixa na tela (viewport) */
-        top: 70px !important;               /* Distância do topo */
-        left: 5% !important;                /* Margem esquerda */
-        width: 90% !important;              /* Largura responsiva */
-        max-height: 60vh !important;        /* Altura máxima da lista */
-        overflow-y: auto !important;        /* Permite rolar a lista */
-        box-shadow: 0 10px 30px rgba(0,0,0,0.5) !important; /* Sombra forte */
-    }
-}
-
-
-
-/*div.quarto-post {
-    border-bottom: 1px solid #e0e0e0;
-    padding-bottom: 2rem;
-    margin-bottom: 2rem;
-    position: relative; /* Necessário para o efeito abaixo */
-/*}
-
-/* Cria uma barrinha colorida pequena na esquerda */
-/*div.quarto-post::before {
-/*    content: "";
-/*    position: absolute;
-/*    left: -15px;
-/*    top: 10%;
-/*    bottom: 10%;
-/*    width: 4px;
-/*    background-color: #003366; /* Seu azul escuro */
-/*    opacity: 0; /* Começa invisível */
-/*    transition: opacity 0.3s;
-/*}
-
-/* A barra aparece quando passa o mouse */
-/*div.quarto-post:hover::before {
-/*    opacity: 1;
-/*}
-
-
-/* ==========================================================================
-    ESTILIZAÇÃO DOS CARDS DE POST (LISTAGEM)
-========================================================================== */
-
+/* 5. ESTILIZAÇÃO DOS POSTS (EFEITO PREMIUM ΛΣ) */
+/* Container principal de cada post na listagem */
 div.quarto-post {
-    border-bottom: 1px solid #f0f0f0;
-    padding: 2rem; /* Aumentei o respiro */
-    margin-bottom: 1rem;
-    position: relative;
-    border-radius: 12px; /* Cantos levemente arredondados */
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); /* Animação suave */
-    background-color: transparent;
+    border-bottom: 1px solid #f0f0f0;                /* Linha divisória fina */
+    padding: 2rem;                                   /* Espaço interno do card */
+    margin-bottom: 1rem;                             /* Espaço entre cards */
+    position: relative;                              /* Base para o posicionamento da barra */
+    border-radius: 12px;                             /* Arredonda o card no hover */
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); /* Animação suave e fluida */
 }
 
-/* A "Barrinha" de Destaque lateral */
+/* A barrinha lateral que fica invisível até o hover */
 div.quarto-post::before {
-    content: "";
-    position: absolute;
-    left: 0; /* Alinhado à borda esquerda interna */
-    top: 20%;
-    bottom: 20%;
-    width: 5px;
-    background: linear-gradient(to bottom, var(--cor-destaque-viva), var(--cor-destaque-escuro));
-    border-radius: 0 10px 10px 0;
-    opacity: 0;
-    transform: scaleY(0.5); /* Começa menor verticalmente */
-    transition: all 0.4s ease;
+    content: "";                                     /* Necessário para criar o elemento */
+    position: absolute;                              /* Posiciona em relação ao card */
+    left: 0;                                         /* Grudado no lado esquerdo */
+    top: 20%;                                        /* Começa um pouco abaixo do topo */
+    bottom: 20%;                                     /* Termina um pouco acima da base */
+    width: 5px;                                      /* Largura da barra */
+    background: linear-gradient(to bottom, var(--cor-destaque-viva), var(--cor-destaque-escuro)); /* Degradê verde */
+    border-radius: 0 10px 10px 0;                    /* Arredonda só o lado direito da barra */
+    opacity: 0;                                      /* Começa invisível */
+    transform: scaleY(0.5);                          /* Começa menor verticalmente */
+    transition: all 0.4s ease;                       /* Suaviza a aparição */
 }
 
-/* Efeito ao passar o mouse (Hover) */
+/* Efeito ao passar o mouse no card do post */
 div.quarto-post:hover {
-    background-color: rgba(24, 188, 156, 0.03); /* Fundo verde quase imperceptível */
-    transform: translateX(10px); /* O card inteiro desliza levemente para a direita */
-    box-shadow: -5px 5px 20px rgba(0,0,0,0.02);
+    background-color: rgba(24, 188, 156, 0.03);      /* Fundo verde claríssimo */
+    transform: translateX(10px);                     /* Desliza o card para a direita */
+    box-shadow: -5px 5px 20px rgba(0,0,0,0.02);      /* Sombra leve lateral */
 }
 
-div.quarto-post:hover::before {
-    opacity: 1;
-    transform: scaleY(1); /* A barra cresce e aparece */
+/* Ativa a barra lateral no hover */
+div.quarto-post:hover::before { 
+    opacity: 1;                                      /* Torna a barra visível */
+    transform: scaleY(1);                            /* Estica a barra para o tamanho total */
 }
 
-/* MATAR O AZUL: Remove o contorno azul chato do navegador ao clicar */
-div.quarto-post a, 
-div.quarto-post:focus, 
-div.quarto-post:active {
-    outline: none !important;
-    text-decoration: none !important;
-    box-shadow: none !important;
+/* MATAR O AZUL DOS CARDS E SIDEBAR (Limpeza de Foco) */
+/* Remove contornos azuis que o navegador coloca ao clicar em links/inputs */
+div.quarto-post a, div.quarto-post:focus, div.quarto-post:active,
+.sidebar-item-text.active, .sidebar-link.active, .quarto-listing-category.active {
+    outline: none !important;                        /* Remove contorno padrão */
+    text-decoration: none !important;               /* Remove sublinhado */
+    box-shadow: none !important;                     /* Remove sombras de clique */
+    color: var(--cor-destaque-viva) !important;      /* Força a cor verde no que está ativo */
 }
 
-/* Ajuste das Categorias dentro do card para não ficarem azuis */
-div.quarto-post .listing-categories .listing-category {
-    border: 1px solid var(--cor-destaque-viva);
-    color: var(--cor-destaque-viva);
-    background: transparent;
+/* Destaque para a categoria selecionada (filtro) */
+.quarto-listing-category.active {
+    background-color: var(--cor-destaque-viva) !important; /* Fundo verde sólido */
+    color: white !important;                               /* Texto branco para contraste */
+}
+
+/* 6. CÓDIGO (PRE/CODE) */
+/* Blocos de código R/Python */
+pre {
+  font-family: 'Fira Code', monospace;               /* Fonte de programação */
+  background-color: var(--cor-code-fundo);           /* Fundo cinza suave */
+  border-radius: 5px;                                /* Arredonda os cantos */
+  padding: 1em;                                      /* Espaço interno */
+  border: 1px solid var(--cor-borda-suave);          /* Borda fina cinza */
 }
