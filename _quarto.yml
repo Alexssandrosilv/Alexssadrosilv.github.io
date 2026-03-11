@@ -29,7 +29,7 @@ website:
       
       - text: "Conteúdos"
         icon: journal-code
-        href: portfolio.qmd # Link direto para a Galeria (Vitrine)
+        href: conteudos.qmd # Link direto para a Galeria (Vitrine)
 
       # - text: "Consultoria"
       #   icon: clipboard-data
