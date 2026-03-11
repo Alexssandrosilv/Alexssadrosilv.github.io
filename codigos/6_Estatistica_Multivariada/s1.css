@@ -1,161 +1,168 @@
 /* ==========================================================================
     ARQUIVO DE ESTILOS: S1.CSS
     Portfólio ΛΣ Consultoria Estatística
-    Autor: Alexssandro Oliveira
+    Design: Executivo Sóbrio (Preto) com Interação Orgânica (Verde Teal)
 ========================================================================== */
 
-/* 1. FUNDAMENTOS */
-/* Importa as fontes do Google: Inter para textos e Fira Code para códigos */
+/* 1. FUNDAMENTOS E VARIÁVEIS */
+/* Importação das fontes profissionais: Inter (texto) e Fira Code (código) */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Fira+Code&display=swap');
 
-/* Painel de controle de cores do site */
 :root {
-  --cor-fundo-site: #ffffff;      /* Branco para o fundo geral */
-  --cor-pagina: #ffffff;          /* Branco para a área da página */
-  --cor-texto: #2a2a2a;           /* Cinza escuro para melhor leitura */
-  --cor-borda-suave: #eeeeee;     /* Cinza clarinho para divisórias */
-  --cor-borda-titulo: #dcdcdc;    /* Cinza médio para linhas de títulos */
-  --cor-code-fundo: #f8f9fa;      /* Cinza "gelo" para blocos de código */
-  --cor-navbar-fundo: black;      /* Preto para o menu superior */
-  --cor-navbar-texto: #e0e0e0;    /* Cinza claro para links do menu */
-  --cor-navbar-hover: #FFFFFF;    /* Branco puro no hover do menu */
-  --cor-destaque-viva: #18bc9c;   /* Verde Teal (Sua marca principal) */
-  --cor-destaque-escuro: #128f76; /* Verde mais escuro para cliques */
+  --cor-fundo-site: #ffffff;      /* Cor de fundo base */
+  --cor-pagina: #ffffff;          /* Cor da folha de conteúdo */
+  --cor-texto: #2a2a2a;           /* Texto principal (cinza quase preto) */
+  --cor-borda-suave: #eeeeee;     /* Borda para detalhes sutis */
+  --cor-borda-titulo: #dcdcdc;    /* Linha decorativa de títulos */
+  --cor-code-fundo: #f8f9fa;      /* Fundo de blocos de código */
+  --cor-navbar-fundo: black;      /* Menu superior sempre preto */
+  --cor-navbar-texto: #e0e0e0;    /* Links do menu em cinza claro */
+  --cor-navbar-hover: #FFFFFF;    /* Links do menu em branco no hover */
+  --cor-destaque-viva: #18bc9c;   /* Verde Teal (Sua marca no hover) */
+  --cor-destaque-escuro: #128f76; /* Verde Teal Escuro para profundidade */
+  --cor-verde-fundo: rgba(24, 188, 156, 0.03); /* O VERDE FRAQUINHO (3% de opacidade) */
 }
 
-/* Configurações básicas do corpo da página */
+/* Configuração Geral do Body */
 body {
-  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); /* Fundo em degradê suave */
-  font-family: 'Inter', sans-serif; /* Define a fonte principal */
-  color: var(--cor-texto);          /* Aplica a cor de texto padrão */
-  line-height: 1.65;                /* Define o espaçamento entre linhas */
-  margin: 0;                        /* Remove margens laterais do navegador */
-  overflow-x: hidden;               /* Evita barras de rolagem horizontais */
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); /* Degradê de fundo */
+  font-family: 'Inter', sans-serif; /* Fonte padrão */
+  color: var(--cor-texto);          /* Cor do texto */
+  line-height: 1.65;                /* Espaçamento entre linhas */
+  margin: 0;                        /* Sem margens extras */
+  overflow-x: hidden;               /* Sem rolagem horizontal */
 }
 
-/* 2. LINKS E TÍTULOS */
+/* 2. LINKS E TÍTULOS (ESTILO SÓBRIO) */
 a {
-  color: var(--cor-destaque-viva);  /* Cor verde nos links */
-  text-decoration: none;           /* Remove o sublinhado padrão */
-  font-weight: 700;                /* Deixa os links em negrito */
-  transition: all 0.2s ease;       /* Suaviza a troca de cor ao interagir */
+  color: black;                    /* Links nascem pretos para seriedade */
+  text-decoration: none;           /* Sem sublinhado inicial */
+  font-weight: 700;                /* Negrito para destaque */
+  transition: all 0.2s ease;       /* Transição suave de cor */
 }
 
 a:hover {
-  color: var(--cor-destaque-escuro); /* Escurece o verde ao passar o mouse */
-  text-decoration: underline;       /* Adiciona sublinhado no hover */
+  color: var(--cor-destaque-viva);  /* Vira verde apenas ao interagir */
+  text-decoration: underline;       /* Aparece sublinhado no mouse */
 }
 
-/* Estilo comum para todos os títulos */
 h1, h2, h3, h4 { 
   font-family: 'Inter', sans-serif; 
   font-weight: 700; 
-  color: var(--cor-texto); 
+  color: black;                    /* Títulos sempre pretos e fortes */
 }
 
-/* Estilo específico para Títulos de Seção (H2) */
 h2 { 
-  border-bottom: 2px solid var(--cor-borda-titulo); /* Linha horizontal abaixo */
-  padding-bottom: 8px;                             /* Espaço entre texto e linha */
-  margin-top: 2em;                                 /* Espaço acima do título */
+  border-bottom: 2px solid var(--cor-borda-titulo); /* Linha abaixo dos H2 */
+  padding-bottom: 8px;                             /* Respiro até a linha */
+  margin-top: 2em;                                 /* Espaço acima */
 }
 
-/* 3. ESTRUTURA GLASSMORPHISM (Efeito de Vidro) */
+/* 3. ESTRUTURA GLASSMORPHISM (FOLHA CENTRAL) */
 main#quarto-content {
-  background-color: rgba(255, 255, 255, 0.9); /* Branco semi-transparente */
-  backdrop-filter: blur(10px);               /* Desfoca o fundo atrás da folha */
-  -webkit-backdrop-filter: blur(10px);       /* Suporte para navegadores Safari */
-  max-width: 1000px;                         /* Largura máxima da folha de conteúdo */
-  width: 90%;                                /* Largura em telas menores */
-  margin: 40px auto;                         /* Centraliza e afasta do topo */
-  padding: 3em 4em;                          /* Margens internas generosas */
-  border-radius: 12px;                       /* Arredonda os cantos da folha */
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Sombra suave para profundidade */
-  border: 1px solid rgba(255, 255, 255, 0.5);  /* Borda sutil "brilho de vidro" */
+  background-color: rgba(255, 255, 255, 0.9); /* Fundo branco "vidro" */
+  backdrop-filter: blur(10px);               /* Efeito de desfoque */
+  -webkit-backdrop-filter: blur(10px);       /* Compatibilidade Safari */
+  max-width: 1000px;                         /* Largura máxima da folha */
+  width: 90%;                                /* Largura responsiva */
+  margin: 40px auto;                         /* Centraliza na tela */
+  padding: 3em 4em;                          /* Respiro interno */
+  border-radius: 12px;                       /* Cantos arredondados */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Sombra elegante */
+  border: 1px solid rgba(255, 255, 255, 0.5);  /* Brilho na borda */
 }
 
 /* 4. NAVBAR (MENU SUPERIOR) */
 .navbar {
-  background-color: var(--cor-navbar-fundo) !important; /* Força o fundo preto */
-  border-bottom: 3px solid var(--cor-destaque-viva);   /* Linha verde na base do menu */
-  position: sticky;                                    /* Faz o menu grudar no topo */
-  top: 0;                                              /* Fixa no topo absoluto */
-  z-index: 1000;                                       /* Garante que fique acima de tudo */
+  background-color: var(--cor-navbar-fundo) !important; /* Fundo preto */
+  border-bottom: 3px solid black;                     /* Borda preta por padrão */
+  position: sticky;                                   /* Menu fixo no topo */
+  top: 0; 
+  z-index: 1000;
+  transition: border-color 0.3s ease;                 /* Suaviza a transição da borda */
 }
 
-/* Estilo dos links no menu */
-.navbar-nav .nav-link { 
-  color: var(--cor-navbar-texto) !important; 
-  font-weight: 700; 
+.navbar:hover {
+  border-bottom-color: var(--cor-destaque-viva);      /* Borda brilha verde no hover */
 }
 
-/* Efeito Neon no hover do menu superior */
+.navbar-nav .nav-link { color: var(--cor-navbar-texto) !important; font-weight: 700; }
+
 .navbar-nav .nav-link:hover, .navbar-nav .nav-link.active {
-  color: var(--cor-destaque-viva) !important;
-  text-shadow: 0 0 10px rgba(24, 188, 156, 0.4); /* Brilho verde suave */
+  color: var(--cor-destaque-viva) !important;         /* Texto verde no hover/ativo */
+  text-shadow: 0 0 10px rgba(24, 188, 156, 0.4);      /* Brilho neon sutil */
 }
 
-/* 5. ESTILIZAÇÃO DOS POSTS (EFEITO PREMIUM ΛΣ) */
-/* Container principal de cada post na listagem */
+/* 5. SIDEBAR / LISTA DE ARQUIVOS (O EFEITO DE DESLIZE) */
+.sidebar-item-container {
+    position: relative;             /* Base para a barrinha lateral */
+    border-left: 4px solid #f0f0f0; /* Começa com uma borda cinza quase invisível */
+    transition: all 0.4s ease;      /* Suaviza a animação */
+}
+
+/* Quando selecionado ou com o mouse em cima */
+.sidebar-item-container.active,
+.sidebar-item-container:hover {
+    border-left-color: var(--cor-destaque-viva) !important; /* Barrinha vira VERDE */
+    background-color: var(--cor-verde-fundo) !important;    /* FUNDO VERDE FRAQUINHO */
+    transform: translateX(8px);                             /* DESLIZE (O "pulinho") */
+}
+
+.sidebar-link, .sidebar-item-text, nav[role=doc-toc] ul li a {
+    color: black !important;        /* O texto continua preto para seriedade */
+    font-weight: 500;
+}
+
+/* 6. CARDS DE POST (O EFEITO PREMIUM ΛΣ) */
 div.quarto-post {
     border-bottom: 1px solid #f0f0f0;                /* Linha divisória fina */
-    padding: 2rem;                                   /* Espaço interno do card */
-    margin-bottom: 1rem;                             /* Espaço entre cards */
-    position: relative;                              /* Base para o posicionamento da barra */
-    border-radius: 12px;                             /* Arredonda o card no hover */
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); /* Animação suave e fluida */
+    padding: 2rem;                                   /* Espaço interno */
+    margin-bottom: 1rem;                             /* Distância entre posts */
+    position: relative;                              /* Base para a barrinha lateral */
+    border-radius: 12px;                             /* Arredondamento */
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); /* Animação fluida */
 }
 
-/* A barrinha lateral que fica invisível até o hover */
+/* A barrinha lateral do Card */
 div.quarto-post::before {
-    content: "";                                     /* Necessário para criar o elemento */
-    position: absolute;                              /* Posiciona em relação ao card */
-    left: 0;                                         /* Grudado no lado esquerdo */
-    top: 20%;                                        /* Começa um pouco abaixo do topo */
-    bottom: 20%;                                     /* Termina um pouco acima da base */
+    content: "";                                     /* Obrigatório para elementos virtuais */
+    position: absolute;                              /* Fixa dentro do card */
+    left: 0;                                         /* Lado esquerdo */
+    top: 25%;                                        /* Começa um pouco abaixo do topo */
+    bottom: 25%;                                     /* Termina um pouco acima da base */
     width: 5px;                                      /* Largura da barra */
-    background: linear-gradient(to bottom, var(--cor-destaque-viva), var(--cor-destaque-escuro)); /* Degradê verde */
-    border-radius: 0 10px 10px 0;                    /* Arredonda só o lado direito da barra */
-    opacity: 0;                                      /* Começa invisível */
-    transform: scaleY(0.5);                          /* Começa menor verticalmente */
-    transition: all 0.4s ease;                       /* Suaviza a aparição */
+    background: black;                               /* Começa preta */
+    border-radius: 0 10px 10px 0;                    /* Arredonda o lado direito */
+    opacity: 0.2;                                    /* Quase transparente no início */
+    transform: scaleY(0.5);                          /* COMEÇA ENCOLHIDA (Vertical) */
+    transition: all 0.4s ease;                       /* Suaviza o crescimento */
 }
 
-/* Efeito ao passar o mouse no card do post */
+/* Quando passa o mouse no Card do Post */
 div.quarto-post:hover {
-    background-color: rgba(24, 188, 156, 0.03);      /* Fundo verde claríssimo */
-    transform: translateX(10px);                     /* Desliza o card para a direita */
-    box-shadow: -5px 5px 20px rgba(0,0,0,0.02);      /* Sombra leve lateral */
+    background-color: var(--cor-verde-fundo);        /* FUNDO VERDE FRAQUINHO NO HOVER */
+    transform: translateX(12px);                     /* DESLIZA PARA A DIREITA */
+    box-shadow: -5px 5px 20px rgba(0,0,0,0.02);      /* Sombra lateral sutil */
 }
 
-/* Ativa a barra lateral no hover */
-div.quarto-post:hover::before { 
-    opacity: 1;                                      /* Torna a barra visível */
-    transform: scaleY(1);                            /* Estica a barra para o tamanho total */
+/* Ativa a barrinha do Card no Hover */
+div.quarto-post:hover::before {
+    opacity: 1;                                      /* Fica 100% visível */
+    background: var(--cor-destaque-viva);            /* VIRA VERDE NO HOVER */
+    transform: scaleY(1);                            /* CRESCE VERTICALMENTE (Efeito Scale) */
 }
 
-/* MATAR O AZUL DOS CARDS E SIDEBAR (Limpeza de Foco) */
-/* Remove contornos azuis que o navegador coloca ao clicar em links/inputs */
-div.quarto-post a, div.quarto-post:focus, div.quarto-post:active,
-.sidebar-item-text.active, .sidebar-link.active, .quarto-listing-category.active {
-    outline: none !important;                        /* Remove contorno padrão */
-    text-decoration: none !important;               /* Remove sublinhado */
-    box-shadow: none !important;                     /* Remove sombras de clique */
-    color: var(--cor-destaque-viva) !important;      /* Força a cor verde no que está ativo */
-}
-
-/* Destaque para a categoria selecionada (filtro) */
-.quarto-listing-category.active {
-    background-color: var(--cor-destaque-viva) !important; /* Fundo verde sólido */
-    color: white !important;                               /* Texto branco para contraste */
-}
-
-/* 6. CÓDIGO (PRE/CODE) */
-/* Blocos de código R/Python */
+/* 7. LIMPEZA FINAL */
 pre {
-  font-family: 'Fira Code', monospace;               /* Fonte de programação */
+  font-family: 'Fira Code', monospace;               /* Fonte de código */
   background-color: var(--cor-code-fundo);           /* Fundo cinza suave */
-  border-radius: 5px;                                /* Arredonda os cantos */
+  border-radius: 5px;                                /* Cantos arredondados */
   padding: 1em;                                      /* Espaço interno */
-  border: 1px solid var(--cor-borda-suave);          /* Borda fina cinza */
+  border: 1px solid var(--cor-borda-suave);          /* Borda fina */
+}
+
+/* Remove qualquer contorno azul residual de cliques em todo o site */
+:focus {
+    outline: none !important;
+    box-shadow: none !important;
 }
