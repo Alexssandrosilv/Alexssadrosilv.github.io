@@ -60,10 +60,14 @@ website:
     background: "black" #"light"
     border: true
     
-    # Lado Esquerdo: Seu nome
-    left: 
-      - text: "<b> © 2025 Alexssandro Silva | ΛΣ Consultoria Estatística</b>"
+    # # Lado Esquerdo: Seu nome
+    # left: 
+    #   - text: "<b> © 2025 Alexssandro Silva | ΛΣ Consultoria Estatística</b>"
       
+    # Lado Esquerdo: Seu nome
+    left:
+      - text: "<b> © 2025 Alexssandro Silva | ΛΣ</b>"
+
     # Centro: A frase
     center: 
       - text: "<b><i>E pelas primeiras vezes, o que passou, passou... comece de novo.</i></b>"
