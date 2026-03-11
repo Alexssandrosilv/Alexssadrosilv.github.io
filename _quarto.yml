@@ -19,17 +19,21 @@ website:
     collapse: true 
     
     left:
-      - text: "Início"
-        icon: house
-        href: index.qmd
+      # - text: "Início"
+      #   icon: house
+      #   href: index.qmd
       
-      - text: "Portfólio"
+      # - text: "Portfólio"
+      #   icon: journal-code
+      #   href: portfolio.qmd # Link direto para a Galeria (Vitrine)
+      
+      - text: "Conteúdos"
         icon: journal-code
         href: portfolio.qmd # Link direto para a Galeria (Vitrine)
-      
-      - text: "Consultoria"
-        icon: clipboard-data
-        href: consultoria.qmd
+
+      # - text: "Consultoria"
+      #   icon: clipboard-data
+      #   href: consultoria.qmd
       #   icon: briefcase 
       #   icon: clipboard-data
       #   icon: graph-up-arrow

@@ -1,0 +1,24 @@
+div.quarto-post {
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+    position: relative; /* Necessário para o efeito abaixo */
+}
+
+/* Cria uma barrinha colorida pequena na esquerda */
+div.quarto-post::before {
+    content: "";
+    position: absolute;
+    left: -15px;
+    top: 10%;
+    bottom: 10%;
+    width: 4px;
+    background-color: #003366; /* Seu azul escuro */
+    opacity: 0; /* Começa invisível */
+    transition: opacity 0.3s;
+}
+
+/* A barra aparece quando passa o mouse */
+div.quarto-post:hover::before {
+    opacity: 1;
+}
