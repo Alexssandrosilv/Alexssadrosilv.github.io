@@ -9,7 +9,7 @@ format:
 image: "imagens/Multivariada.jpg"
 
 # Tags para ajudar no filtro da página principal
-categories: ["Estatística Multivariada", "R", "R", "Teoria"]
+categories: ["Estatística Multivariada", "R", "Python", "Teoria"]
 
 # Configuração da Lista de Projetos deste módulo
 listing:

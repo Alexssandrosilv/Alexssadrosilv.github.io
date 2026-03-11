@@ -64,8 +64,8 @@ website:
     # left: 
     #   - text: "<b> © 2025 Alexssandro Silva | ΛΣ Consultoria Estatística</b>"
       
-    # Lado Esquerdo: Seu nome
-    left:
+    # # Lado Esquerdo: Seu nome
+    # left:
       - text: "<b> © 2025 Alexssandro Silva | ΛΣ</b>"
 
     # Centro: A frase
