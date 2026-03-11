@@ -13,7 +13,7 @@ div.quarto-post::before {
     top: 10%;
     bottom: 10%;
     width: 4px;
-    background-color: #003366; /* Seu azul escuro */
+    background-color: #18bc9c; /* Seu azul escuro */
     opacity: 0; /* Começa invisível */
     transition: opacity 0.3s;
 }
