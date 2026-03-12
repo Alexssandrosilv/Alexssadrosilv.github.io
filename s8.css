@@ -743,6 +743,7 @@ input[type="file"]::file-selector-button:hover {
 /*    background-color: rgba(255, 255, 255, 0.7) !important; /* Mais transparência para ver o efeito */
 /*}
 
+
 /* ==========================================================================
     BLOCO 10: EFEITO DE PARTÍCULAS (BACKGROUND ANIMADO)
     Configura a camada mais profunda do site onde as bolinhas flutuam.
@@ -759,7 +760,6 @@ input[type="file"]::file-selector-button:hover {
 }
 
 /* Ajuste do Conteúdo Principal (Glassmorphism) */
-/* Controla a transparência da "folha de papel" onde o texto fica escrito */
 main#quarto-content {
     /* Deixa o fundo branco levemente transparente para as partículas aparecerem no fundo */
     background-color: rgba(255, 255, 255, 0.8) !important; 
@@ -767,38 +767,38 @@ main#quarto-content {
     border-radius: 10px;        /* Arredonda as bordas do conteúdo principal */
 }
 
-
 /* ==========================================================================
-    BLOCO 11: CORREÇÃO DEFINITIVA DO RODAPÉ (FOOTER)
-    Objetivo: Garantir fundo preto sólido e visibilidade sobre as partículas.
+    BLOCO 11: CORREÇÃO DEFINITIVA DO RODAPÉ (FOOTER) - ESTILO ORIGINAL
+    Objetivo: Garantir fundo preto sólido e texto cinza sem bordas verdes.
 ========================================================================== */
 
-/* 11.1 Seletores de estrutura: Ataca todas as camadas possíveis do rodapé */
-footer.footer,         /* Alvo: O container principal gerado pelo Quarto */
-.quarto-page-footer,   /* Alvo: A classe padrão de rodapé do Quarto */
-.nav-footer {          /* Alvo: A estrutura de navegação interna do rodapé */
-    background-color: #000000 !important; /* Força a cor PRETA (sem transparência) */
-    position: relative !important;        /* Habilita o uso de z-index para camadas */
-    z-index: 999 !important;              /* Coloca o rodapé na frente das partículas (-1) e do Snoop (-2) */
-    opacity: 1 !important;                /* Garante que o fundo não herde transparência do corpo */
-    border-top: 3px solid #18bc9c !important; /* Adiciona sua linha VERDE TEAL de assinatura */
-    margin-top: 0px !important;           /* Remove espaços vazios acima que poderiam mostrar o fundo branco */
+/* 11.1 Estrutura: Força o fundo preto e remove as bordas extras */
+footer.footer, 
+.quarto-page-footer, 
+.nav-footer {
+    background-color: #000000 !important; /* Força o fundo PRETO sólido */
+    position: relative !important;         /* Necessário para controle de camadas */
+    z-index: 999 !important;               /* Fica à frente das partículas e do Snoop */
+    opacity: 1 !important;                 /* Garante que o fundo não seja transparente */
+    border-top: none !important;           /* REMOVIDO: Tira a borda verde para voltar ao original */
+    margin-top: 0px !important;            /* Remove qualquer margem que mostre o fundo branco */
 }
 
-/* 11.2 Elementos Internos: Texto, Links e Ícones das Redes Sociais */
-.nav-footer-left,      /* Alvo: Texto de copyright/nome à esquerda */
-.nav-footer-center,    /* Alvo: Sua frase (Taylor Swift) no centro */
-.nav-footer-right,     /* Alvo: Container dos ícones à direita */
-.quarto-page-footer a, /* Alvo: Links (LinkedIn, GitHub, Email) */
-.quarto-page-footer i { /* Alvo: Os ícones (FontAwesome/Bootstrap Icons) */
-    color: #ffffff !important;           /* Força a cor BRANCA para contraste no fundo preto */
-    opacity: 1 !important;               /* Garante nitidez máxima dos textos e ícones */
-    position: relative !important;       /* Necessário para manter a hierarquia de camadas */
-    z-index: 1000 !important;            /* Coloca o conteúdo 1 nível acima do fundo preto do rodapé */
+/* 11.2 Conteúdo: Texto e Ícones em CINZA conforme o design original */
+.nav-footer-left, 
+.nav-footer-center, 
+.nav-footer-right, 
+.quarto-page-footer a, 
+.quarto-page-footer i {
+    color: #888888 !important;            /* Volta para a cor CINZA original do seu site */
+    opacity: 1 !important;                 /* Garante nitidez total do texto cinza */
+    position: relative !important;         /* Mantém a hierarquia de camadas */
+    z-index: 1000 !important;              /* Coloca o texto sobre o fundo preto */
+    text-decoration: none !important;      /* Garante que os links não fiquem sublinhados */
 }
 
-/* 11.3 Limpeza de Estilo: Remove resíduos visuais do tema padrão (Flatly) */
+/* 11.3 Limpeza: Remove sombras e decorações do tema padrão */
 .quarto-page-footer {
-    box-shadow: none !important;         /* Remove sombras que poderiam brilhar sobre as partículas */
-    border-bottom: none !important;      /* Garante que não haja bordas brancas no fim da página */
+    box-shadow: none !important;          /* Remove sombras indesejadas */
+    border-bottom: none !important;       /* Garante que o fim da página seja limpo */
 }

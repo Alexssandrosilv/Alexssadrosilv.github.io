@@ -46,7 +46,9 @@ listing:
   sort: "date desc"     # Do mais recente para o mais antigo
   image-align: left        # <--- 1. ISSO JOGA A FOTO PARA A ESQUERDA (PRIMEIRO)
   # fields: [image, date, title, description, reading-time] # Mostra tempo de leitura
-  fields: [image, title, author, date, reading-time] # Mostra tempo de leitura
+  # fields: [image, title, author, date, reading-time] # Mostra tempo de leitura
+  fields: [title, author, date, reading-time] # Mostra tempo de leitura
+
 
 page-layout: full
 title-block-banner: false

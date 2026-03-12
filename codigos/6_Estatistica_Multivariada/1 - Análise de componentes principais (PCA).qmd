@@ -1,11 +1,11 @@
 ---
-title: "Análise de Componentes Principais (PCA)"
+title: "1. Análise de Componentes Principais (PCA)"
 # description: "Uma descrição curta e impactante."
 author: "Alexssandro Oliveira | alexssandrosg@gmail.com"
 lang: pt
 date: last-modified
-image: "imagens/modulo_inferencia.jpg"  # <--- IMPORTANTE: Salve um print do gráfico aqui com esse nome!
-categories: ["R", "Python", "PCA"] # <--- Suas tags para o filtro
+# image: "imagens/modulo_inferencia.jpg"  # <--- IMPORTANTE: Salve um print do gráfico aqui com esse nome!
+categories: ["R", "Python", "1 - PCA"] # <--- Suas tags para o filtro
 ---
 
 <br>
