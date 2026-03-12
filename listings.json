@@ -46,8 +46,12 @@
   {
     "listing": "/codigos/6_Estatistica_Multivariada/index.html",
     "items": [
-      "/codigos/6_Estatistica_Multivariada/projeto-long.html",
-      "/codigos/6_Estatistica_Multivariada/projeto-tcc.html"
+      "/codigos/6_Estatistica_Multivariada/1 - Análise de componentes principais (PCA).html",
+      "/codigos/6_Estatistica_Multivariada/2 - Análise fatorial.html",
+      "/codigos/6_Estatistica_Multivariada/3 - Análise de correlação canônica.html",
+      "/codigos/6_Estatistica_Multivariada/4 - Análise discriminante (AD).html",
+      "/codigos/6_Estatistica_Multivariada/5 - Análise de agrupamentos.html",
+      "/codigos/6_Estatistica_Multivariada/6 - Análise de Correspondência (AC).html"
     ]
   },
   {
