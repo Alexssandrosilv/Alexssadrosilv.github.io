@@ -12,10 +12,10 @@ listing:
     # - codigos/3_Modelos_Lineares_Generalizados/index.qmd
     # - codigos/4_Modelos_Lineares_Dinamicos/index.qmd
     # - codigos/5_Labest/index.qmd
-    - codigos/6_Estatistica_Multivariada/index.qmd        # Pega o Hub de Multivariada
-    # - path: codigos/6_Estatistica_Multivariada/index.qmd
-    #   title: "Estatística Multivariada II"
-    #   categories: [Estatística Multivariada, R, Python, Teoria]
+    # - codigos/6_Estatistica_Multivariada/index.qmd        # Pega o Hub de Multivariada
+    - path: codigos/6_Estatistica_Multivariada/index.qmd
+      title: "Estatística Multivariada II"
+      categories: [Estatística Multivariada, R, Python, Teoria]
       
   # 2. VISUAL: Define o layout como "Grade" (Cards/Quadrados).
   # Outras opções seriam 'default' (lista de blog) ou 'table' (tabela).
@@ -50,6 +50,33 @@ page-layout: full
 # A cor segue o tema definido no _quarto.yml (no seu caso, 'flatly').
 title-block-banner: false
 ---
+
+<div id="particles-js"></div>
+
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+<script>
+  particlesJS("particles-js", {
+    "particles": {
+      "number": { "value": 80 },
+      "color": { "value": ["#18bc9c", "#2b3e50"] }, /* Suas cores: Verde e Azul */
+      "shape": { "type": "circle" },
+      "opacity": { "value": 0.5 },
+      "size": { "value": 3 },
+      "line_linked": {
+        "enable": true,
+        "distance": 150,
+        "color": "#18bc9c",
+        "opacity": 0.4,
+        "width": 1
+      },
+      "move": { "enable": true, "speed": 2 }
+    },
+    "interactivity": {
+      "events": { "onhover": { "enable": true, "mode": "repulse" } }
+    }
+  });
+</script>
 
 ::: {style="text-align: justify"}
 
