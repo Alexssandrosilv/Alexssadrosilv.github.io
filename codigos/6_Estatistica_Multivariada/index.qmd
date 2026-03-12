@@ -8,8 +8,34 @@ format:
 # date: last-modified
 image: "imagens/Multivariada.jpg"
 
+
 # Tags para ajudar no filtro da página principal
-categories: ["R", "Python", "PCA", "AFE", "AFC", "AD",]
+# categories: [
+#   "R", 
+#   "Python", 
+#   "1 - PCA",      # Análise de Componentes Principais
+#   "2.1 - AFE",    # Análise Fatorial Exploratória
+#   "2.2 - AFC",    # Análise Fatorial Confirmatória
+#   "3 - ACC",      # Análise de Correlação Canônica
+#   "4 - AD",       # Análise Discriminante
+#   "5 - Cluster",  # Análise de Agrupamentos (Agrupamentos/Clusterização)
+#   "6.1 - ACS",    # Análise de Correspondência Simples
+#   "6.2 - ACM"     # Análise de Correspondência Múltipla
+# ]
+
+# Tags para ajudar no filtro da página principal
+categories: [
+  "R", 
+  "Python", 
+  "1 - PCA",
+  "2.1 - AFE",    
+  "2.2 - AFC",    
+  "3 - ACC",      
+  "4 - AD",       
+  "5 - Cluster",  
+  "6.1 - ACS",    
+  "6.2 - ACM"     
+]
 
 # Configuração da Lista de Projetos deste módulo
 listing:
@@ -24,6 +50,7 @@ listing:
 
 page-layout: full
 title-block-banner: false
+
 ---
 
 ```{r setup, include=FALSE}

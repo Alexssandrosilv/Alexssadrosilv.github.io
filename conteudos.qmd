@@ -51,7 +51,7 @@ page-layout: full
 title-block-banner: false
 ---
 
-<div id="particles-js"></div>
+<div id="particles-js" style="position: fixed; width: 100%; height: 100%; top: 0; left: 0; z-index: -1;"></div>
 
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
@@ -59,7 +59,7 @@ title-block-banner: false
   particlesJS("particles-js", {
     "particles": {
       "number": { "value": 80 },
-      "color": { "value": ["#18bc9c", "#2b3e50"] }, /* Suas cores: Verde e Azul */
+      "color": { "value": ["#18bc9c", "#2b3e50"] },
       "shape": { "type": "circle" },
       "opacity": { "value": 0.5 },
       "size": { "value": 3 },
