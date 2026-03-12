@@ -97,6 +97,7 @@ main#quarto-content {
 .sidebar-item-container {
     position: relative;             /* Base para a barrinha lateral */
     border-left: 4px solid #f0f0f0; /* Começa com uma borda cinza quase invisível */
+/*    border-left: 4px solid #00000000; /* Começa com uma borda cinza quase invisível */
     transition: all 0.4s ease;      /* Suaviza a animação */
 }
 
@@ -105,7 +106,7 @@ main#quarto-content {
 .sidebar-item-container:hover {
     border-left-color: var(--cor-destaque-viva) !important; /* Barrinha vira VERDE */
     background-color: var(--cor-verde-fundo) !important;    /* FUNDO VERDE FRAQUINHO */
-    transform: translateX(8px);                             /* DESLIZE (O "pulinho") */
+    transform: translateX(10px);                             /* DESLIZE (O "pulinho") */
 }
 
 .sidebar-link, .sidebar-item-text, nav[role=doc-toc] ul li a {
@@ -165,4 +166,13 @@ pre {
 :focus {
     outline: none !important;
     box-shadow: none !important;
+}
+
+
+/* Alvo: O título principal da página (h1.title) */
+h1.title {
+  font-size: 2rem !important; /* Diminui o tamanho (padrão costuma ser 2.5rem ou mais) */
+  font-weight: 700;             /* Mantém o negrito para destaque */
+  margin-top: 1rem;             /* Ajusta o espaço acima do título */
+  color: #2b3e50;               /* Cor azul escura do seu tema */
 }
