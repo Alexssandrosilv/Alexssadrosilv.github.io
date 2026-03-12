@@ -13,7 +13,7 @@ listing:
     # - codigos/3_Modelos_Lineares_Generalizados/index.qmd
     # - codigos/4_Modelos_Lineares_Dinamicos/index.qmd
     # - codigos/5_Labest/index.qmd
-    - codigos/6_Estatistica_Multivariada/index.qmd        # Pega o Hub de Multivariada
+    # - codigos/6_Estatistica_Multivariada/index.qmd        # Pega o Hub de Multivariada
     - path: codigos/6_Estatistica_Multivariada/index.qmd
       title: "Estatistica Multivariada II"
       categories: [Estatistica Multivariada, R, Python, Teoria]
