@@ -210,3 +210,75 @@ h1.title {
   margin-top: 1rem;             /* Ajusta o espaço acima do título */
   color: #2b3e50;               /* Cor azul escura do seu tema */
 }
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+    BLOCO 10: EFEITO DE PARTÍCULAS (BACKGROUND ANIMADO)
+    Configura a camada mais profunda do site onde as bolinhas flutuam.
+========================================================================== */
+
+#particles-js {
+    position: fixed;            /* Faz o fundo ficar parado enquanto você rola a página */
+    width: 100%;                /* Ocupa toda a largura da tela */
+    height: 100%;               /* Ocupa toda a altura da tela */
+    top: 0;                     /* Alinha no topo absoluto */
+    left: 0;                    /* Alinha na esquerda absoluta */
+    z-index: -3;                /* CAMADA MAIS FUNDA: Fica atrás do Snoopy (-2) e do conteúdo (0) */
+    background-color: var(--cor-fundo-site); /* Cor base do site definida nas variáveis */
+}
+
+/* Ajuste do Conteúdo Principal (Glassmorphism) */
+main#quarto-content {
+    /* Deixa o fundo branco levemente transparente para as partículas aparecerem no fundo */
+    background-color: rgba(255, 255, 255, 0.8) !important; 
+    backdrop-filter: blur(5px); /* Cria um leve desfoque (blur) no fundo para facilitar a leitura */
+    border-radius: 10px;        /* Arredonda as bordas do conteúdo principal */
+}
+
+/* ==========================================================================
+    BLOCO 11: CORREÇÃO DEFINITIVA DO RODAPÉ (FOOTER)
+    Objetivo: Rodapé preto sólido, sem barra verde e com texto cinza.
+========================================================================== */
+
+/* 11.1 REMOÇÃO DA BARRA VERDE E FUNDO PRETO:
+   Ataca todos os nomes que o Quarto usa para garantir que a linha verde suma */
+footer.footer, 
+.quarto-page-footer, 
+.nav-footer,
+.quarto-page-footer-container {
+    background-color: #000000 !important; /* Força o fundo PRETO sólido */
+    border-top: none !important;           /* REMOVE A BARRA VERDE TOTALMENTE */
+    border-top-width: 0px !important;      /* Garante que a espessura seja zero */
+    position: relative !important;         /* Para o z-index funcionar */
+    z-index: 999 !important;               /* Fica na frente das partículas e do Snoop */
+    opacity: 1 !important;                 /* Sem transparência */
+    margin-top: 0px !important;            /* Sem espaço sobrando no topo */
+}
+
+/* 11.2 CORES ORIGINAIS (CINZA):
+   Mantém o texto e os ícones com a cor cinza que você já usava */
+.nav-footer-left, 
+.nav-footer-center, 
+.nav-footer-right, 
+.quarto-page-footer a, 
+.quarto-page-footer i {
+    color: #888888 !important;            /* Cor CINZA original (estilo minimalista) */
+    opacity: 1 !important;                 /* Texto bem nítido */
+    position: relative !important;
+    z-index: 1000 !important;              /* Texto por cima do fundo preto */
+    text-decoration: none !important;      /* Sem sublinhado nos links */
+}
+
+/* 11.3 LIMPEZA FINAL:
+   Remove sombras e bordas de baixo para o design ficar limpo */
+.quarto-page-footer {
+    box-shadow: none !important;          /* Sem sombras estranhas */
+    border-bottom: none !important;       /* Sem bordas no final da página */
+}

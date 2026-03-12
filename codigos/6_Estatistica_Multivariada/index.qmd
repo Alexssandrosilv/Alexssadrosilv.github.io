@@ -12,6 +12,108 @@ format:
 # date: last-modified
 image: "imagens/Multivariada.jpg"
 
+<div id="fundo-animado-snoopy" style="position: fixed; width: 100%; height: 100%; top: 0; left: 0; z-index: -2;">
+  
+  <div id="particles-js" style="position: absolute; width: 100%; height: 100%; z-index: -3;"></div>
+  
+  <div class="snoop-dance-container"></div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+<script>
+  particlesJS("particles-js", {
+    "particles": {
+      "number": { 
+        "value": 110,           /* QUANTIDADE: Densidade das partículas na tela */
+        "density": { "enable": true, "value_area": 800 } 
+      },
+      "color": { 
+        "value": "#000000"      /* COR: Definida como preto sólido (Corrigido) */
+      },
+      "shape": { "type": "circle" }, /* FORMA: Partículas circulares */
+      "opacity": { 
+        "value": 0.6,           /* VISIBILIDADE: Transparência das bolinhas */
+        "random": false 
+      },
+      "size": { 
+        "value": 3,             /* TAMANHO: Diâmetro das bolinhas */
+        "random": true          /* Faz os tamanhos variarem um pouco */
+      },
+      "line_linked": { 
+        "enable": true,         /* CONEXÕES: Ativado para ligar as bolinhas */
+        "distance": 150,        /* Distância máxima entre pontos para criar linha */
+        "color": "#18bc9c",     /* COR DA LINHA: Seu Verde Teal característico */
+        "opacity": 0.3,         /* Linhas sutis para não poluir o visual */
+        "width": 0.8            /* Grossura fina das linhas */
+      },
+      "move": { 
+        "enable": true,         /* MOVIMENTO: Permite que as bolinhas flutuem */
+        "speed": 1.5,           /* VELOCIDADE: Ritmo constante do fundo */
+        "direction": "none",    /* Direção aleatória */
+        "random": true,         /* Movimento orgânico */
+        "out_mode": "out"       /* Partículas saem por um lado e entram pelo outro */
+      }
+    },
+    "interactivity": {
+      "events": { 
+        /* INTERAÇÃO: Desativado para o mouse não interferir no fundo minimalista */
+        "onhover": { "enable": false }, 
+        "onclick": { "enable": false }
+      }
+    }
+  });
+</script>
+
+<style>
+  /* CONFIGURAÇÃO DO SNOOPY (PC) */
+  .snoop-dance-container {
+    position: fixed;            /* Trava o personagem na tela durante a rolagem */
+    width: 90px;                /* Tamanho do container */
+    height: 90px;
+    background: url('snoopy-dance.gif') no-repeat; /* Chama seu GIF */
+    background-size: contain;   /* Ajusta o GIF sem cortar */
+    bottom: 50px;               /* Distância da base */
+    right: 20px;                /* Distância da lateral direita */
+    z-index: 1;                 /* Z-index positivo para não sumir atrás do fundo */
+    opacity: 0.9 !important;    /* Nitidez do Snoopy */
+    pointer-events: none;       /* Ignora cliques do mouse (não atrapalha o site) */
+  }
+
+  /* AJUSTE PARA MOBILE (Celulares e Tablets) */
+  /* Resolve o problema do Snoopy sumir no mobile */
+  @media (max-width: 768px) {
+    .snoop-dance-container {
+      display: block !important; /* Força a exibição mesmo em telas pequenas */
+      width: 70px;               /* Diminui um pouco para não cobrir o texto */
+      height: 70px;
+      bottom: 60px;              /* Ajusta altura para não bater no rodapé mobile */
+      right: 15px;               /* Colado no canto */
+      z-index: 100;              /* Prioridade máxima de camada no mobile */
+    }
+  }
+
+  /* RODAPÉ (FOOTER): Fundo preto sólido */
+  .quarto-page-footer {
+    background-color: #000000 !important; /* Força o preto absoluto */
+    position: relative !important;         /* Necessário para controle de camada */
+    z-index: 10 !important;                /* Fica à frente das partículas */
+    border-top: none !important;           /* Remove qualquer linha residual verde */
+  }
+
+  /* TEXTO E ÍCONES DO RODAPÉ: Cor Cinza Sóbrio */
+  .nav-footer-left, 
+  .nav-footer-center, 
+  .nav-footer-right, 
+  .quarto-page-footer a, 
+  .quarto-page-footer i {
+    color: #888888 !important;   /* Cor cinza original solicitada */
+    position: relative !important;
+    z-index: 11 !important;      /* Acima da base preta do footer */
+    text-decoration: none;       /* Remove sublinhados de links */
+  }
+</style>
 
 
 # /* 5. SIDEBAR / LISTA DE ARQUIVOS (O EFEITO DE DESLIZE) */
@@ -116,7 +218,8 @@ listing:
   image-align: left        # <--- 1. ISSO JOGA A FOTO PARA A ESQUERDA (PRIMEIRO)
   # fields: [image, date, title, description, reading-time] # Mostra tempo de leitura
   # fields: [image, title, author, date, reading-time] # Mostra tempo de leitura
-  fields: [title, author, date, reading-time] # Mostra tempo de leitura
+  # fields: [title, author, date, reading-time] # Mostra tempo de leitura
+  fields: [reading-time] # Mostra tempo de leitura
   categories: true   
 
 page-layout: full
