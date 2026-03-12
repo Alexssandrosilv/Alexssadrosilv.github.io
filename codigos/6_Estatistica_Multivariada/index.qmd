@@ -1,13 +1,79 @@
 ---
 title: "Estatística Multivariada II"
-format:                
-  html:                
-    css: s1.css        
+format:
+  html:
+    theme: flatly
+    css: s1.css
+    # ADICIONE ESTA LINHA ABAIXO:
+    include-in-header: <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+
 # author: "Alexssandro Oliveira | alexssandrosg@gmail.com"
 # description: "A detalhar"
 # date: last-modified
 image: "imagens/Multivariada.jpg"
 
+
+
+# /* 5. SIDEBAR / LISTA DE ARQUIVOS (O EFEITO DE DESLIZE) */
+# .sidebar-item-container {
+#     position: relative;             /* Base para a barrinha lateral */
+#     border-left: 4px solid #f0f0f0; /* Começa com uma borda cinza quase invisível */
+# /*    border-left: 4px solid #00000000; /* Começa com uma borda cinza quase invisível */
+#     transition: all 0.4s ease;      /* Suaviza a animação */
+# }
+# 
+# /* Quando selecionado ou com o mouse em cima */
+# .sidebar-item-container.active,
+# .sidebar-item-container:hover {
+#     border-left-color: var(--cor-destaque-viva) !important; /* Barrinha vira VERDE */
+#     background-color: var(--cor-verde-fundo) !important;    /* FUNDO VERDE FRAQUINHO */
+#     transform: translateX(10px);                             /* DESLIZE (O "pulinho") */
+# }
+# 
+# .sidebar-link, .sidebar-item-text, nav[role=doc-toc] ul li a {
+#     color: black !important;        /* O texto continua preto para seriedade */
+#     font-weight: 500;
+# }
+# 
+# /* 6. CARDS DE POST (O EFEITO PREMIUM ΛΣ) */
+# div.quarto-post {
+#     border-bottom: 1px solid #f0f0f0;                /* Linha divisória fina */
+#     padding: 2rem;                                   /* Espaço interno */
+#     margin-bottom: 1rem;                             /* Distância entre posts */
+#     position: relative;                              /* Base para a barrinha lateral */
+#     border-radius: 12px;                             /* Arredondamento */
+#     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); /* Animação fluida */
+# }
+# 
+# /* A barrinha lateral do Card */
+# div.quarto-post::before {
+#     content: "";                                     /* Obrigatório para elementos virtuais */
+#     position: absolute;                              /* Fixa dentro do card */
+#     left: 0;                                         /* Lado esquerdo */
+#     top: 25%;                                        /* Começa um pouco abaixo do topo */
+#     bottom: 25%;                                     /* Termina um pouco acima da base */
+#     width: 5px;                                      /* Largura da barra */
+#     background: black;                               /* Começa preta */
+#     border-radius: 0 10px 10px 0;                    /* Arredonda o lado direito */
+#     opacity: 0.2;                                    /* Quase transparente no início */
+#     transform: scaleY(0.5);                          /* COMEÇA ENCOLHIDA (Vertical) */
+#     transition: all 0.4s ease;                       /* Suaviza o crescimento */
+# }
+# 
+# /* Quando passa o mouse no Card do Post */
+# div.quarto-post:hover {
+#     background-color: var(--cor-verde-fundo);        /* FUNDO VERDE FRAQUINHO NO HOVER */
+#     transform: translateX(12px);                     /* DESLIZA PARA A DIREITA */
+#     box-shadow: -5px 5px 20px rgba(0,0,0,0.02);      /* Sombra lateral sutil */
+# }
+# 
+# /* Ativa a barrinha do Card no Hover */
+# div.quarto-post:hover::before {
+#     opacity: 1;                                      /* Fica 100% visível */
+#     background: var(--cor-destaque-viva);            /* VIRA VERDE NO HOVER */
+#     transform: scaleY(1);                            /* CRESCE VERTICALMENTE (Efeito Scale) */
+# }
+# 
 
 # Tags para ajudar no filtro da página principal
 # categories: [
