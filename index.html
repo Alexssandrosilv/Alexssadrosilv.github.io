@@ -194,33 +194,93 @@ window.Quarto = {
 <script>
   particlesJS("particles-js", {
     "particles": {
-      "number": { "value": 80 }, /* Quantidade de pontos na tela */
-      "color": { "value": ["#18bc9c", "#2b3e50"] }, /* Cores: Verde Teal e Azul do tema */
-      "shape": { "type": "circle" }, /* Formato das partículas como círculos */
-      "opacity": { "value": 0.5 }, /* Transparência para não atrapalhar a leitura */
-      "size": { "value": 3 }, /* Tamanho de cada bolinha */
+      "number": { 
+        "value": 40, /* Reduzi para metade: menos poluição visual */
+        "density": { "enable": true, "value_area": 800 } 
+      },
+      "color": { "value": ["#18bc9c", "#2b3e50"] }, /* Suas cores originais */
+      "shape": { "type": "circle" },
+      "opacity": { 
+        "value": 0.3, /* Mais transparente para ser bem sutil */
+        "random": true /* Algumas brilham mais que outras */
+      },
+      "size": { 
+        "value": 2, /* Partículas menores para parecerem pontos de luz */
+        "random": true 
+      },
       "line_linked": {
-        "enable": true, /* Habilita as linhas conectando os pontos */
-        "distance": 150, /* Distância máxima para criar uma linha */
-        "color": "#18bc9c", /* Cor das linhas de conexão (Seu verde) */
-        "opacity": 0.4, /* Transparência das linhas */
-        "width": 1 /* Grossura das linhas */
+        "enable": false /* DESATIVADO: Remove as linhas para ficar minimalista */
       },
       "move": { 
-        "enable": true, /* Faz as partículas se mexerem */
-        "speed": 2 /* Velocidade do movimento */
+        "enable": true, 
+        "speed": 1, /* Velocidade reduzida: movimento calmo e suave */
+        "direction": "none", 
+        "random": true, 
+        "out_mode": "out" 
       }
     },
     "interactivity": {
       "events": { 
         "onhover": { 
-          "enable": true, /* Reage quando o mouse passa por cima */
-          "mode": "repulse" /* Faz as partículas fugirem do mouse */
+          "enable": true, 
+          "mode": "bubble" /* Em vez de afastar, elas crescem levemente no mouse */
         } 
+      },
+      "modes": {
+        "bubble": { "size": 4, "distance": 200 }
       }
     }
   });
 </script>
+<style>
+  /* Garante que o rodapé seja uma barreira preta sólida sobre o fundo */
+  .quarto-page-footer {
+    position: relative !important; /* Habilita camadas */
+    z-index: 10 !important;        /* Fica na frente das partículas */
+    background-color: #000000 !important; /* PRETO original do seu tema */
+    opacity: 1 !important;         /* Sem transparência */
+    border-top: 3px solid #18bc9c !important; /* Sua linha verde teal */
+  }
+
+  /* Garante que texto e ícones fiquem brancos e visíveis */
+  .nav-footer-left, .nav-footer-center, .nav-footer-right, .quarto-page-footer i {
+    color: #ffffff !important; 
+    position: relative !important;
+    z-index: 11 !important;
+  }
+</style>
+<!-- <div id="particles-js" style="position: fixed; width: 100%; height: 100%; top: 0; left: 0; z-index: -1;"></div> -->
+<!-- <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> -->
+<!-- <script> -->
+<!--   particlesJS("particles-js", { -->
+<!--     "particles": { -->
+<!--       "number": { "value": 80 }, /* Quantidade de pontos na tela */ -->
+<!--       "color": { "value": ["#18bc9c", "#2b3e50"] }, /* Cores: Verde Teal e Azul do tema */ -->
+<!--       "shape": { "type": "circle" }, /* Formato das partículas como círculos */ -->
+<!--       "opacity": { "value": 0.5 }, /* Transparência para não atrapalhar a leitura */ -->
+<!--       "size": { "value": 3 }, /* Tamanho de cada bolinha */ -->
+<!--       "line_linked": { -->
+<!--         "enable": true, /* Habilita as linhas conectando os pontos */ -->
+<!--         "distance": 150, /* Distância máxima para criar uma linha */ -->
+<!--         "color": "#18bc9c", /* Cor das linhas de conexão (Seu verde) */ -->
+<!--         "opacity": 0.4, /* Transparência das linhas */ -->
+<!--         "width": 1 /* Grossura das linhas */ -->
+<!--       }, -->
+<!--       "move": {  -->
+<!--         "enable": true, /* Faz as partículas se mexerem */ -->
+<!--         "speed": 2 /* Velocidade do movimento */ -->
+<!--       } -->
+<!--     }, -->
+<!--     "interactivity": { -->
+<!--       "events": {  -->
+<!--         "onhover": {  -->
+<!--           "enable": true, /* Reage quando o mouse passa por cima */ -->
+<!--           "mode": "repulse" /* Faz as partículas fugirem do mouse */ -->
+<!--         }  -->
+<!--       } -->
+<!--     } -->
+<!--   }); -->
+<!-- </script> -->
 <div style="text-align: justify">
 <p>Abaixo estão os módulos disponíveis. Use os filtros à direita para acessar e navegar rapidamente por categorias.</p>
 </div>
@@ -234,7 +294,7 @@ window.Quarto = {
 
 <div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="RXN0YXQlQzMlQURzdGljYSUyME11bHRpdmFyaWFkYSUyQ1IlMkNQeXRob24=" data-listing-file-modified-sort="1773293055692" data-listing-reading-time-sort="1" data-listing-word-count-sort="99">
+<div class="g-col-1" data-index="0" data-categories="RXN0YXQlQzMlQURzdGljYSUyME11bHRpdmFyaWFkYSUyQ1IlMkNQeXRob24=" data-listing-file-modified-sort="1773293314661" data-listing-reading-time-sort="1" data-listing-word-count-sort="99">
 <a href="./codigos/6_Estatistica_Multivariada/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
