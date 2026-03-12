@@ -80,7 +80,7 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-reading-time',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-title','listing-reading-time',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
       searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
     };
@@ -225,7 +225,7 @@ window.Quarto = {
       },
       "shape": { "type": "circle" }, /* FORMA: Partículas circulares */
       "opacity": { 
-        "value": 0.6,           /* VISIBILIDADE: Transparência das bolinhas */
+        "value": 0.5,           /* VISIBILIDADE: Transparência das bolinhas */
         "random": false 
       },
       "size": { 
@@ -236,7 +236,7 @@ window.Quarto = {
         "enable": true,         /* CONEXÕES: Ativado para ligar as bolinhas */
         "distance": 150,        /* Distância máxima entre pontos para criar linha */
         "color": "#18bc9c",     /* COR DA LINHA: Seu Verde Teal característico */
-        "opacity": 0.3,         /* Linhas sutis para não poluir o visual */
+        "opacity": 0.2,         /* Linhas sutis para não poluir o visual */
         "width": 0.8            /* Grossura fina das linhas */
       },
       "move": { 
@@ -304,53 +304,6 @@ window.Quarto = {
     text-decoration: none;       /* Remove sublinhados de links */
   }
 </style>
-<!-- <div id="fundo-animado-snoopy" style="position: fixed; width: 100%; height: 100%; top: 0; left: 0; z-index: -2;"> -->
-<!--   <div id="particles-js" style="position: absolute; width: 100%; height: 100%; z-index: -3;"></div> -->
-<!--   <div class="snoop-dance-container"></div> -->
-<!-- </div> -->
-<!-- <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> -->
-<!-- <script> -->
-<!--   particlesJS("particles-js", { -->
-<!--     "particles": { -->
-<!--       "number": {  -->
-<!--         "value": 110, /* QUANTIDADE: Aumentada para preencher melhor o fundo */ -->
-<!--         "density": { "enable": true, "value_area": 800 }  -->
-<!--       }, -->
-<!--       <!-- "color": {  -->
-<p>–&gt; <!--       <!--   "value": ["#148c74", "#000000"] /* CORES: Verde e Azul escuros para contraste */ --> –&gt; <!--       <!-- }, --> –&gt; <!--       "color": {  --> <!--         "value": [#000000"] /* CORES: PRETO para contraste */ --> <!--       }, --> <!--       "shape": { "type": "circle" }, --> <!--       "opacity": {  --> <!--         "value": 0.6, /* VISIBILIDADE: Mais nítidas que o padrão */ --> <!--         "random": false  --> <!--       }, --> <!--       "size": {  --> <!--         "value": 2, /* TAMANHO: Bolinhas pequenas e minimalistas */ --> <!--         "random": true  --> <!--       }, --> <!--       "line_linked": {  --> <!--       <!-- "enable": false  /* SEM LINHAS: Para manter o visual limpo */ --> –&gt; <!--         "enable": true, /* Habilita as linhas conectando os pontos */ --> –&gt; <!--         "distance": 150, /* Distância máxima para criar uma linha */ --> <!--         "color": "#18bc9c", /* Cor das linhas de conexão (Seu verde) */ --> <!--         "opacity": 0.3, /* Transparência das linhas */ --> <!--         "width": 0.8 /* Grossura das linhas */ --> <!--       }, /* COM LINHAS: Para manter o visual limpo */ --> <!--       "move": {  --> <!--         "enable": true,  --> <!--         "speed": 1.5, /* VELOCIDADE: Movimento constante e perceptível */ --> <!--         "direction": "none",  --> <!--         "random": true,  --> <!--         "out_mode": "out"  --> <!--       } --> <!--     }, --> <!--     "interactivity": { --> <!--       "events": {  --> <!--         /* DESATIVADO: O mouse passa pelas partículas sem que elas expandam ou fujam */ --> <!--         "onhover": { "enable": false },  --> <!--         "onclick": { "enable": false } --> <!--       } --> <!--     } --> <!--   }); --> <!-- </script> --></p>
-<!-- <style> -->
-<!--   /* CONFIGURAÇÃO DO SNOOPY: Posicionamento do seu GIF */ -->
-<!--   .snoop-dance-container { -->
-<!--     position: fixed;            /* Mantém ele fixo na tela ao rolar */ -->
-<!--     width: 90px;               /* Largura do container do GIF */ -->
-<!--     height: 90px;              /* Altura do container do GIF */ -->
-<!--     background: url('snoopy-dance.gif') no-repeat; /* Chama o seu arquivo GIF */ -->
-<!--     background-size: contain;   /* Garante que o GIF não seja cortado */ -->
-<!--     bottom: 50px;               /* Posicionado logo acima do rodapé */ -->
-<!--     right: 20px;                /* No canto inferior direito da tela */ -->
-<!--     z-index: -2;                /* Fica entre as partículas e o conteúdo principal */ -->
-<!--     opacity: 0.9 !important;    /* Quase sem transparência para destacar o personagem */ -->
-<!--     pointer-events: none;       /* O mouse "atravessa" o Snoop (não atrapalha cliques) */ -->
-<!--   } -->
-<!--   /* RODAPÉ (FOOTER): Restaurando a estética original do Alex */ -->
-<!--   .quarto-page-footer { -->
-<!--     background-color: #000000 !important; /* Fundo PRETO sólido */ -->
-<!--     position: relative !important;         /* Necessário para camadas */ -->
-<!--     z-index: 10 !important;                /* Garante que o footer cubra as partículas */ -->
-<!--     border-top: none !important;           /* REMOVIDO: Sem a borda verde, conforme original */ -->
-<!--   } -->
-<!--   /* TEXTO E ÍCONES: Voltando para a cor cinza discreta */ -->
-<!--   .nav-footer-left,  -->
-<!--   .nav-footer-center,  -->
-<!--   .nav-footer-right,  -->
-<!--   .quarto-page-footer a,  -->
-<!--   .quarto-page-footer i { -->
-<!--     color: #888888 !important; /* Cor CINZA original para não brigar com o conteúdo */ -->
-<!--     position: relative !important; -->
-<!--     z-index: 11 !important;    /* Um nível acima do fundo preto do footer */ -->
-<!--     text-decoration: none;     /* Remove sublinhados de links */ -->
-<!--   } -->
-<!-- </style> -->
 <!-- ### Modulos -->
 
 
@@ -358,9 +311,11 @@ window.Quarto = {
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-left" data-index="0" data-categories="UiUyQ1B5dGhvbiUyQzElMjAtJTIwUENB" data-listing-date-sort="1773300484000" data-listing-file-modified-sort="1773300484936" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1736">
+<div class="quarto-post image-left" data-index="0" data-categories="UiUyQ1B5dGhvbiUyQzElMjAtJTIwUENB" data-listing-date-sort="1773301153000" data-listing-file-modified-sort="1773301153707" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1736">
 <div class="body">
-
+<h3 class="no-anchor listing-title">
+<a href="../../codigos/6_Estatistica_Multivariada/1 - Análise de componentes principais (PCA).html" class="no-external">1. Análise de Componentes Principais (PCA)</a>
+</h3>
 </div>
 <div class="metadata">
 <a href="../../codigos/6_Estatistica_Multivariada/1 - Análise de componentes principais (PCA).html" class="no-external">
@@ -368,9 +323,11 @@ window.Quarto = {
 </a>
 </div>
 </div>
-<div class="quarto-post image-left" data-index="1" data-categories="UiUyQ1B5dGhvbiUyQzIlMjAtJTIwQUYlMkMyLjElMjAtJTIwQUZFJTJDMi4yJTIwLSUyMEFGQw==" data-listing-date-sort="1773300484000" data-listing-file-modified-sort="1773300484937" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1736">
+<div class="quarto-post image-left" data-index="1" data-categories="UiUyQ1B5dGhvbiUyQzIlMjAtJTIwQUYlMkMyLjElMjAtJTIwQUZFJTJDMi4yJTIwLSUyMEFGQw==" data-listing-date-sort="1773301153000" data-listing-file-modified-sort="1773301153708" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1736">
 <div class="body">
-
+<h3 class="no-anchor listing-title">
+<a href="../../codigos/6_Estatistica_Multivariada/2 - Análise fatorial.html" class="no-external">2. Análise Fatorial (AF)</a>
+</h3>
 </div>
 <div class="metadata">
 <a href="../../codigos/6_Estatistica_Multivariada/2 - Análise fatorial.html" class="no-external">
@@ -378,9 +335,11 @@ window.Quarto = {
 </a>
 </div>
 </div>
-<div class="quarto-post image-left" data-index="2" data-categories="UiUyQ1B5dGhvbiUyQzMlMjAtJTIwQUND" data-listing-date-sort="1773300484000" data-listing-file-modified-sort="1773300484937" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1736">
+<div class="quarto-post image-left" data-index="2" data-categories="UiUyQ1B5dGhvbiUyQzMlMjAtJTIwQUND" data-listing-date-sort="1773301153000" data-listing-file-modified-sort="1773301153708" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1736">
 <div class="body">
-
+<h3 class="no-anchor listing-title">
+<a href="../../codigos/6_Estatistica_Multivariada/3 - Análise de correlação canônica.html" class="no-external">3. Análise de Correlação Canônica (ACC)</a>
+</h3>
 </div>
 <div class="metadata">
 <a href="../../codigos/6_Estatistica_Multivariada/3 - Análise de correlação canônica.html" class="no-external">
@@ -388,9 +347,11 @@ window.Quarto = {
 </a>
 </div>
 </div>
-<div class="quarto-post image-left" data-index="3" data-categories="UiUyQ1B5dGhvbiUyQzQlMjAtJTIwQUQ=" data-listing-date-sort="1773300484000" data-listing-file-modified-sort="1773300484937" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1736">
+<div class="quarto-post image-left" data-index="3" data-categories="UiUyQ1B5dGhvbiUyQzQlMjAtJTIwQUQ=" data-listing-date-sort="1773301153000" data-listing-file-modified-sort="1773301153708" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1736">
 <div class="body">
-
+<h3 class="no-anchor listing-title">
+<a href="../../codigos/6_Estatistica_Multivariada/4 - Análise discriminante (AD).html" class="no-external">4. Análise Discriminante (AD)</a>
+</h3>
 </div>
 <div class="metadata">
 <a href="../../codigos/6_Estatistica_Multivariada/4 - Análise discriminante (AD).html" class="no-external">
@@ -398,9 +359,11 @@ window.Quarto = {
 </a>
 </div>
 </div>
-<div class="quarto-post image-left" data-index="4" data-categories="UiUyQ1B5dGhvbiUyQzUlMjAtJTIwQ0xVU1RFUg==" data-listing-date-sort="1773300484000" data-listing-file-modified-sort="1773300484937" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1736">
+<div class="quarto-post image-left" data-index="4" data-categories="UiUyQ1B5dGhvbiUyQzUlMjAtJTIwQ0xVU1RFUg==" data-listing-date-sort="1773301153000" data-listing-file-modified-sort="1773301153708" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1736">
 <div class="body">
-
+<h3 class="no-anchor listing-title">
+<a href="../../codigos/6_Estatistica_Multivariada/5 - Análise de agrupamentos.html" class="no-external">5. Análise de Agrupamentos (Clusters)</a>
+</h3>
 </div>
 <div class="metadata">
 <a href="../../codigos/6_Estatistica_Multivariada/5 - Análise de agrupamentos.html" class="no-external">
@@ -408,9 +371,11 @@ window.Quarto = {
 </a>
 </div>
 </div>
-<div class="quarto-post image-left" data-index="5" data-categories="UiUyQ1B5dGhvbiUyQzYlMjAtJTIwQUMlMkM2LjElMjAtJTIwQUNTJTJDNi4yJTIwLSUyMEFDTQ==" data-listing-date-sort="1773300484000" data-listing-file-modified-sort="1773300484937" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1736">
+<div class="quarto-post image-left" data-index="5" data-categories="UiUyQ1B5dGhvbiUyQzYlMjAtJTIwQUMlMkM2LjElMjAtJTIwQUNTJTJDNi4yJTIwLSUyMEFDTQ==" data-listing-date-sort="1773301153000" data-listing-file-modified-sort="1773301153708" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1736">
 <div class="body">
-
+<h3 class="no-anchor listing-title">
+<a href="../../codigos/6_Estatistica_Multivariada/6 - Análise de Correspondência (AC).html" class="no-external">6. Análise de Correspondência (AC)</a>
+</h3>
 </div>
 <div class="metadata">
 <a href="../../codigos/6_Estatistica_Multivariada/6 - Análise de Correspondência (AC).html" class="no-external">
