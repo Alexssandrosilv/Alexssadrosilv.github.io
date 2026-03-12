@@ -1,0 +1,197 @@
+/* ==========================================================================
+    ARQUIVO DE ESTILOS: S1.CSS
+    Portfólio ΛΣ Consultoria Estatística
+    Design: Executivo Sóbrio (Preto) com Interação Orgânica (Verde Teal)
+========================================================================== */
+
+/* 1. FUNDAMENTOS E VARIÁVEIS */
+/* Importação das fontes profissionais: Inter (texto) e Fira Code (código) via Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Fira+Code&display=swap');
+
+/* Definição de variáveis globais para facilitar a manutenção das cores em todo o site */
+:root {
+  --cor-fundo-site: #ffffff;      /* Cor branca para o fundo geral do site */
+  --cor-pagina: #ffffff;          /* Cor branca para a folha ou container de conteúdo */
+  --cor-texto: #2a2a2a;           /* Cinza muito escuro para garantir leitura confortável */
+  --cor-borda-suave: #eeeeee;     /* Cinza claríssimo para divisórias e bordas discretas */
+  --cor-borda-titulo: #dcdcdc;    /* Cinza médio para as linhas decorativas abaixo dos títulos */
+  --cor-code-fundo: #f8f9fa;      /* Fundo cinza gelo para blocos de código (estilo GitHub) */
+  --cor-navbar-fundo: black;      /* Fundo da barra de navegação superior sempre em preto sólido */
+  --cor-navbar-texto: #e0e0e0;    /* Cor cinza clara para os links do menu superior */
+  --cor-navbar-hover: #FFFFFF;    /* Cor branca pura quando o mouse passa sobre os links do menu */
+  --cor-destaque-viva: #18bc9c;   /* Verde Teal: A cor da sua marca para interações e hover */
+  --cor-destaque-escuro: #128f76; /* Versão mais escura do Verde Teal para efeitos de profundidade */
+  --cor-verde-fundo: rgba(24, 188, 156, 0.03); /* Fundo verde quase invisível (3% de opacidade) */
+}
+
+/* Configurações básicas do corpo do site */
+body {
+  /* Aplica um leve degradê no fundo para profundidade visual */
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); 
+  font-family: 'Inter', sans-serif; /* Define a fonte Inter como padrão do sistema */
+  color: var(--cor-texto);          /* Aplica a cor de texto definida na variável */
+  line-height: 1.65;                /* Define o espaçamento entre linhas para melhor legibilidade */
+  margin: 0;                        /* Remove as margens padrão do navegador */
+  overflow-x: hidden;               /* Evita que apareça barra de rolagem horizontal indesejada */
+}
+
+/* 2. LINKS E TÍTULOS (ESTILO SÓBRIO) */
+/* Estilização padrão de todos os links do site */
+a {
+  color: black;                    /* Links começam pretos para passar seriedade executiva */
+  text-decoration: none;           /* Remove o sublinhado padrão dos links */
+  font-weight: 700;                /* Deixa os links em negrito para facilitar a identificação */
+  transition: all 0.2s ease;       /* Define uma transição suave de 0.2 segundos para mudanças de cor */
+}
+
+/* Comportamento dos links quando o mouse passa por cima (Hover) */
+a:hover {
+  color: var(--cor-destaque-viva);  /* Muda a cor para o Verde Teal da marca */
+  text-decoration: underline;      /* Faz o sublinhado aparecer durante a interação */
+}
+
+/* Estilização dos títulos (H1 a H4) */
+h1, h2, h3, h4 { 
+  font-family: 'Inter', sans-serif; /* Garante o uso da fonte padrão */
+  font-weight: 700;                 /* Define negrito máximo para os títulos */
+  color: black;                     /* Títulos são sempre pretos para autoridade visual */
+}
+
+/* Estilo específico para subtítulos de seção (H2) */
+h2 { 
+  border-bottom: 2px solid var(--cor-borda-titulo); /* Adiciona uma linha decorativa abaixo do H2 */
+  padding-bottom: 8px;              /* Espaço entre o texto do título e a linha decorativa */
+  margin-top: 2em;                  /* Espaçamento extra acima para separar as seções do site */
+}
+
+/* 3. ESTRUTURA GLASSMORPHISM (FOLHA CENTRAL) */
+/* Estilização da área principal onde o conteúdo do Quarto é renderizado */
+main#quarto-content {
+  background-color: rgba(255, 255, 255, 0.9); /* Branco com 90% de opacidade para efeito de vidro */
+  backdrop-filter: blur(10px);               /* Desfoca o que está atrás da folha (efeito Glassmorphism) */
+  -webkit-backdrop-filter: blur(10px);       /* Compatibilidade do efeito de desfoque para navegadores Safari */
+  max-width: 1000px;                         /* Define o limite de largura para não esticar demais em telas grandes */
+  width: 90%;                                /* Largura flexível para se adaptar a celulares e tablets */
+  margin: 40px auto;                         /* Centraliza a folha na tela e dá um respiro no topo e na base */
+  padding: 3em 4em;                          /* Espaçamento interno generoso para o conteúdo não tocar nas bordas */
+  border-radius: 12px;                       /* Curvatura suave nos cantos da folha de papel */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Sombra suave para dar a sensação de que a folha flutua */
+  border: 1px solid rgba(255, 255, 255, 0.5);  /* Borda interna branca para simular brilho no vidro */
+}
+
+/* 4. NAVBAR (MENU SUPERIOR) */
+/* Configuração da barra de navegação no topo */
+.navbar {
+  background-color: var(--cor-navbar-fundo) !important; /* Força o fundo preto definido na variável */
+  border-bottom: 3px solid black;                     /* Borda inferior preta por padrão */
+  position: sticky;                                   /* Faz o menu acompanhar a rolagem do usuário */
+  top: 0;                                             /* Alinha o menu no topo absoluto */
+  z-index: 1000;                                      /* Garante que o menu fique acima de todos os outros elementos */
+  transition: border-color 0.3s ease;                 /* Transição suave para a cor da borda no hover */
+}
+
+/* Quando o mouse passa por qualquer parte da Navbar */
+.navbar:hover {
+  border-bottom-color: var(--cor-destaque-viva);      /* A borda inferior brilha em verde na interação */
+}
+
+/* Cor dos links dentro do menu superior */
+.navbar-nav .nav-link { 
+  color: var(--cor-navbar-texto) !important; 
+  font-weight: 700; 
+}
+
+/* Estilo dos links do menu no Hover ou quando a página está Ativa */
+.navbar-nav .nav-link:hover, .navbar-nav .nav-link.active {
+  color: var(--cor-destaque-viva) !important;         /* Texto muda para verde */
+  text-shadow: 0 0 10px rgba(24, 188, 156, 0.4);      /* Adiciona um leve brilho neon sutil no texto */
+}
+
+/* 5. SIDEBAR / LISTA DE ARQUIVOS (O EFEITO DE DESLIZE) */
+/* Configuração da lista lateral de navegação interna */
+.sidebar-item-container {
+    position: relative;             /* Base para o posicionamento da barrinha lateral */
+    /* ALTERAÇÃO: Borda esquerda agora nasce PRETA para seriedade total */
+    border-left: 4px solid #000000; 
+    transition: all 0.4s ease;      /* Suaviza o movimento de deslize e troca de cor */
+}
+
+/* Comportamento da Sidebar quando o item está Ativo ou com Mouse em cima */
+.sidebar-item-container.active,
+.sidebar-item-container:hover {
+    /* ALTERAÇÃO: A barrinha lateral muda de PRETO para VERDE TEAL */
+    border-left-color: var(--cor-destaque-viva) !important; 
+    background-color: var(--cor-verde-fundo) !important;    /* Aplica o fundo verde fraquinho */
+    transform: translateX(10px);                            /* Cria o efeito de deslize (pulinho) para a direita */
+}
+
+/* Cor do texto dentro da Sidebar */
+.sidebar-link, .sidebar-item-text, nav[role=doc-toc] ul li a {
+    color: black !important;        /* Texto continua sempre preto para manter a sobriedade */
+    font-weight: 500;               /* Peso médio para diferenciar de títulos */
+}
+
+/* 6. CARDS DE POST (O EFEITO PREMIUM ΛΣ) */
+/* Estilização dos blocos de prévia de posts/projetos na listagem principal */
+div.quarto-post {
+    border-bottom: 1px solid #f0f0f0;                /* Linha divisória fina na base de cada card */
+    padding: 2rem;                                   /* Espaçamento interno para o conteúdo do card respirar */
+    margin-bottom: 1rem;                             /* Distância entre um card e outro */
+    position: relative;                              /* Necessário para posicionar a barrinha '::before' */
+    border-radius: 12px;                             /* Arredonda as bordas do bloco do post */
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); /* Animação fluida e profissional */
+}
+
+/* Criação da barrinha decorativa lateral esquerda de cada Card */
+div.quarto-post::before {
+    content: "";                                     /* Comando obrigatório para gerar elementos via CSS */
+    position: absolute;                              /* Fixa a barrinha em relação ao card */
+    left: 0;                                         /* Alinha no extremo esquerdo do card */
+    top: 25%;                                        /* Começa a 25% do topo do card */
+    bottom: 25%;                                     /* Termina a 25% da base do card */
+    width: 5px;                                      /* Largura fina da barrinha */
+    /* ALTERAÇÃO: Barrinha nasce PRETA nítida (100% opacidade) */
+    background: black; 
+    border-radius: 0 10px 10px 0;                    /* Arredonda apenas o lado direito da barrinha */
+    opacity: 1;                                      /* Garante que o preto esteja totalmente visível */
+    transform: scaleY(0.5);                          /* Começa encolhida verticalmente (50% do tamanho) */
+    transition: all 0.4s ease;                       /* Suaviza o crescimento vertical e a mudança de cor */
+}
+
+/* Efeito no Card do Post ao passar o mouse */
+div.quarto-post:hover {
+    background-color: var(--cor-verde-fundo);        /* Muda o fundo do card para o verde fraquinho */
+    transform: translateX(12px);                     /* Faz o card inteiro deslizar suavemente para a direita */
+    box-shadow: -5px 5px 20px rgba(0,0,0,0.02);      /* Adiciona uma sombra lateral quase imperceptível */
+}
+
+/* Ativação da barrinha decorativa no Hover do Card */
+div.quarto-post:hover::before {
+    /* ALTERAÇÃO: Barrinha muda de PRETO para VERDE TEAL */
+    background: var(--cor-destaque-viva); 
+    transform: scaleY(1);                            /* Faz a barrinha crescer para 100% da altura definida */
+}
+
+/* 7. LIMPEZA E AJUSTES FINAIS */
+/* Estilização dos blocos de código (saídas do R/Python) */
+pre {
+  font-family: 'Fira Code', monospace;               /* Aplica a fonte de largura fixa para códigos */
+  background-color: var(--cor-code-fundo);           /* Aplica o fundo cinza gelo */
+  border-radius: 5px;                                /* Pequeno arredondamento nos blocos de código */
+  padding: 1em;                                      /* Espaço interno para o código não tocar nas bordas */
+  border: 1px solid var(--cor-borda-suave);          /* Borda fina e clara para delimitar o bloco */
+}
+
+/* Remove contornos azuis automáticos de foco (acessibilidade visual limpa) */
+:focus {
+    outline: none !important;                        /* Remove a linha de contorno padrão do navegador */
+    box-shadow: none !important;                     /* Garante que não apareça sombra de foco */
+}
+
+/* Estilo específico para o título principal das páginas internas (Title no YAML) */
+h1.title {
+  font-size: 2rem !important;                        /* Reduz o tamanho do título para um visual mais elegante */
+  font-weight: 700;                                  /* Mantém o negrito para destaque hierárquico */
+  margin-top: 1rem;                                  /* Ajusta a distância do título para o topo da folha */
+  color: #2b3e50;                                    /* Cor azul marinho escuro para o título principal */
+}
