@@ -93,99 +93,67 @@ main#quarto-content {
   text-shadow: 0 0 10px rgba(24, 188, 156, 0.4);      /* Brilho neon sutil */
 }
 
-/* ==========================================================================
-    ARQUIVO DE ESTILOS: S1.CSS (ATUALIZAÇÃO PREMIUM)
-    Efeito: Ícone de 'Play' (Estilo Netflix) na Sidebar e nos Cards.
-========================================================================== */
 
-/* 5. SIDEBAR / LISTA DE ARQUIVOS (EFEITO PLAY-CIRCLE) */
-.sidebar-item-container {
-    position: relative;             /* Base para o posicionamento do ícone */
-    padding-left: 35px !important;  /* Abre espaço na esquerda para o ícone não bater no texto */
-    transition: all 0.4s ease;      /* Suaviza a animação de deslize e cor */
-}
-
-/* Criação do Ícone de Play na Sidebar usando Pseudo-elemento */
-.sidebar-item-container::before {
-    display: inline-block;          /* Permite estilizar como um bloco de texto/ícone */
-    font-family: 'bootstrap-icons'; /* Chama a fonte de ícones do Bootstrap */
-    content: "\F4F4";               /* Código Unicode do ícone 'play-circle-fill' */
-    position: absolute;              /* Fixa o ícone à esquerda do container */
-    left: 10px;                     /* Distância da borda esquerda */
-    top: 50%;                       /* Centraliza verticalmente */
-    transform: translateY(-50%) scale(0.8); /* Ajuste fino de centralização e começa menor */
-    font-size: 1.2rem;              /* Tamanho do ícone */
-    /* ESTADO INICIAL: Preto executivo */
-    color: black; 
-    opacity: 0.8;                   /* Leve transparência para sobriedade */
-    transition: all 0.3s ease;      /* Transição suave de cor e tamanho */
-}
-
-/* Comportamento da Sidebar quando o item está Ativo ou com Mouse em cima (Hover) */
-.sidebar-item-container.active,
-.sidebar-item-container:hover {
-    background-color: var(--cor-verde-fundo) !important; /* Fundo verde quase invisível */
-    transform: translateX(5px);                          /* Deslize suave para a direita */
-}
-
-/* Aplica o efeito Verde Teal e cresce o ícone no Hover/Ativo */
-.sidebar-item-container.active::before,
-.sidebar-item-container:hover::before {
-    /* ESTADO INTERAÇÃO: Muda de PRETO para VERDE TEAL */
-    color: var(--cor-destaque-viva) !important; 
-    opacity: 1;                                      /* Fica 100% nítido */
-    transform: translateY(-50%) scale(1.1);          /* Centralizado e cresce levemente (efeito 'pulso') */
-}
-
-/* Mantém o texto da Sidebar sóbrio em preto */
-.sidebar-link, .sidebar-item-text, nav[role=doc-toc] ul li a {
-    color: black !important;
-    font-weight: 500;
-}
-
-/* 6. CARDS DE POST (O EFEITO PREMIUM ΛΣ - NETFLIX STYLE) */
-/* Estilização dos blocos de prévia de posts/projetos */
-div.quarto-post {
-    border-bottom: 1px solid #f0f0f0;                /* Linha divisória fina na base */
-    padding: 2rem 2rem 2rem 4rem;                    /* Aumenta padding esquerdo (4rem) para o ícone */
-    margin-bottom: 1rem;                             /* Distância entre cards */
-    position: relative;                              /* Necessário para posicionar o ícone '::before' */
-    border-radius: 12px;                             /* Cantos arredondados */
-    border-left: 0px solid black;                    /* Remove a borda antiga */
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); /* Animação fluida */
-}
-
-/* Criação do Ícone de Play nos Cards usando Pseudo-elemento */
-div.quarto-post::before {
-    display: inline-block;          /* Permite estilizar como bloco */
-    font-family: 'bootstrap-icons'; /* Chama a fonte de ícones */
-    content: "\F4F4";               /* Código Unicode do ícone 'play-circle-fill' */
-    position: absolute;              /* Fixa o ícone dentro do card */
-    left: 1.5rem;                   /* Distância da borda esquerda do card */
-    top: 50%;                       /* Centraliza verticalmente */
-    transform: translateY(-50%) scale(1); /* Centralizado e tamanho normal */
-    font-size: 2rem;                /* Ícone maior no card para destaque (estilo capa de vídeo) */
-    /* ESTADO INICIAL: Preto executivo */
-    color: black; 
-    opacity: 0.5;                   /* Começa mais "apagado" (fundo) */
-    transition: all 0.4s ease;      /* Transição suave de cor e tamanho */
-}
-
-/* Efeito no Card do Post ao passar o mouse (Hover) */
-div.quarto-post:hover {
-    background-color: var(--cor-verde-fundo);        /* Muda o fundo do card para o verde fraquinho */
-    transform: translateX(10px);                     /* Card inteiro desliza para a direita */
-    box-shadow: -5px 5px 20px rgba(0,0,0,0.02);      /* Sombra lateral sutil */
-}
-
-/* Ativação e Mudança de Cor do Ícone no Hover do Card */
-div.quarto-post:hover::before {
-    /* ESTADO INTERAÇÃO: Muda de PRETO para VERDE TEAL */
-    color: var(--cor-destaque-viva); 
-    opacity: 1;                                      /* Fica 100% nítido */
-    transform: translateY(-50%) scale(1.2);          /* Centralizado e cresce (efeito 'dar o play') */
-    text-shadow: 0 0 15px rgba(24, 188, 156, 0.5);   /* Adiciona um brilho neon verde sutil no ícone */
-}
+# /* 5. SIDEBAR / LISTA DE ARQUIVOS (O EFEITO DE DESLIZE) */
+# .sidebar-item-container {
+#     position: relative;             /* Base para a barrinha lateral */
+#     border-left: 4px solid #f0f0f0; /* Começa com uma borda cinza quase invisível */
+# /*    border-left: 4px solid #00000000; /* Começa com uma borda cinza quase invisível */
+#     transition: all 0.4s ease;      /* Suaviza a animação */
+# }
+# 
+# /* Quando selecionado ou com o mouse em cima */
+# .sidebar-item-container.active,
+# .sidebar-item-container:hover {
+#     border-left-color: var(--cor-destaque-viva) !important; /* Barrinha vira VERDE */
+#     background-color: var(--cor-verde-fundo) !important;    /* FUNDO VERDE FRAQUINHO */
+#     transform: translateX(10px);                             /* DESLIZE (O "pulinho") */
+# }
+# 
+# .sidebar-link, .sidebar-item-text, nav[role=doc-toc] ul li a {
+#     color: black !important;        /* O texto continua preto para seriedade */
+#     font-weight: 500;
+# }
+# 
+# /* 6. CARDS DE POST (O EFEITO PREMIUM ΛΣ) */
+# div.quarto-post {
+#     border-bottom: 1px solid #f0f0f0;                /* Linha divisória fina */
+#     padding: 2rem;                                   /* Espaço interno */
+#     margin-bottom: 1rem;                             /* Distância entre posts */
+#     position: relative;                              /* Base para a barrinha lateral */
+#     border-radius: 12px;                             /* Arredondamento */
+#     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); /* Animação fluida */
+# }
+# 
+# /* A barrinha lateral do Card */
+# div.quarto-post::before {
+#     content: "";                                     /* Obrigatório para elementos virtuais */
+#     position: absolute;                              /* Fixa dentro do card */
+#     left: 0;                                         /* Lado esquerdo */
+#     top: 25%;                                        /* Começa um pouco abaixo do topo */
+#     bottom: 25%;                                     /* Termina um pouco acima da base */
+#     width: 5px;                                      /* Largura da barra */
+#     background: black;                               /* Começa preta */
+#     border-radius: 0 10px 10px 0;                    /* Arredonda o lado direito */
+#     opacity: 0.2;                                    /* Quase transparente no início */
+#     transform: scaleY(0.5);                          /* COMEÇA ENCOLHIDA (Vertical) */
+#     transition: all 0.4s ease;                       /* Suaviza o crescimento */
+# }
+# 
+# /* Quando passa o mouse no Card do Post */
+# div.quarto-post:hover {
+#     background-color: var(--cor-verde-fundo);        /* FUNDO VERDE FRAQUINHO NO HOVER */
+#     transform: translateX(12px);                     /* DESLIZA PARA A DIREITA */
+#     box-shadow: -5px 5px 20px rgba(0,0,0,0.02);      /* Sombra lateral sutil */
+# }
+# 
+# /* Ativa a barrinha do Card no Hover */
+# div.quarto-post:hover::before {
+#     opacity: 1;                                      /* Fica 100% visível */
+#     background: var(--cor-destaque-viva);            /* VIRA VERDE NO HOVER */
+#     transform: scaleY(1);                            /* CRESCE VERTICALMENTE (Efeito Scale) */
+# }
+# 
 
 /* 7. LIMPEZA FINAL */
 pre {
@@ -208,5 +176,77 @@ h1.title {
   font-size: 2rem !important; /* Diminui o tamanho (padrão costuma ser 2.5rem ou mais) */
   font-weight: 700;             /* Mantém o negrito para destaque */
   margin-top: 1rem;             /* Ajusta o espaço acima do título */
-  color: #2b3e50;               /* Cor azul escura do seu tema */
+  color: #000000;               /* Cor azul escura do seu tema */
+}
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+    BLOCO 10: EFEITO DE PARTÍCULAS (BACKGROUND ANIMADO)
+    Configura a camada mais profunda do site onde as bolinhas flutuam.
+========================================================================== */
+
+#particles-js {
+    position: fixed;            /* Faz o fundo ficar parado enquanto você rola a página */
+    width: 100%;                /* Ocupa toda a largura da tela */
+    height: 100%;               /* Ocupa toda a altura da tela */
+    top: 0;                     /* Alinha no topo absoluto */
+    left: 0;                    /* Alinha na esquerda absoluta */
+    z-index: -3;                /* CAMADA MAIS FUNDA: Fica atrás do Snoopy (-2) e do conteúdo (0) */
+    background-color: var(--cor-fundo-site); /* Cor base do site definida nas variáveis */
+}
+
+/* Ajuste do Conteúdo Principal (Glassmorphism) */
+main#quarto-content {
+    /* Deixa o fundo branco levemente transparente para as partículas aparecerem no fundo */
+    background-color: rgba(255, 255, 255, 0.8) !important; 
+    backdrop-filter: blur(5px); /* Cria um leve desfoque (blur) no fundo para facilitar a leitura */
+    border-radius: 10px;        /* Arredonda as bordas do conteúdo principal */
+}
+
+/* ==========================================================================
+    BLOCO 11: CORREÇÃO DEFINITIVA DO RODAPÉ (FOOTER)
+    Objetivo: Rodapé preto sólido, sem barra verde e com texto cinza.
+========================================================================== */
+
+/* 11.1 REMOÇÃO DA BARRA VERDE E FUNDO PRETO:
+   Ataca todos os nomes que o Quarto usa para garantir que a linha verde suma */
+footer.footer, 
+.quarto-page-footer, 
+.nav-footer,
+.quarto-page-footer-container {
+    background-color: #000000 !important; /* Força o fundo PRETO sólido */
+    border-top: none !important;           /* REMOVE A BARRA VERDE TOTALMENTE */
+    border-top-width: 0px !important;      /* Garante que a espessura seja zero */
+    position: relative !important;         /* Para o z-index funcionar */
+    z-index: 999 !important;               /* Fica na frente das partículas e do Snoop */
+    opacity: 1 !important;                 /* Sem transparência */
+    margin-top: 0px !important;            /* Sem espaço sobrando no topo */
+}
+
+/* 11.2 CORES ORIGINAIS (CINZA):
+   Mantém o texto e os ícones com a cor cinza que você já usava */
+.nav-footer-left, 
+.nav-footer-center, 
+.nav-footer-right, 
+.quarto-page-footer a, 
+.quarto-page-footer i {
+    color: #888888 !important;            /* Cor CINZA original (estilo minimalista) */
+    opacity: 1 !important;                 /* Texto bem nítido */
+    position: relative !important;
+    z-index: 1000 !important;              /* Texto por cima do fundo preto */
+    text-decoration: none !important;      /* Sem sublinhado nos links */
+}
+
+/* 11.3 LIMPEZA FINAL:
+   Remove sombras e bordas de baixo para o design ficar limpo */
+.quarto-page-footer {
+    box-shadow: none !important;          /* Sem sombras estranhas */
+    border-bottom: none !important;       /* Sem bordas no final da página */
 }

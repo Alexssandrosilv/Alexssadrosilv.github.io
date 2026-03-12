@@ -200,43 +200,39 @@ window.Quarto = {
   particlesJS("particles-js", {
     "particles": {
       "number": { 
-        "value": 110, /* QUANTIDADE: Aumentada para preencher melhor o fundo */
+        "value": 110,           /* QUANTIDADE: Densidade das partículas na tela */
         "density": { "enable": true, "value_area": 800 } 
       },
-      <!-- "color": {  -->
-      <!--   "value": ["#148c74", "#000000"] /* CORES: Verde e Azul escuros para contraste */ -->
-      <!-- }, -->
       "color": { 
-        "value": [#000000"] /* CORES: PRETO para contraste */
+        "value": "#000000"      /* COR: Definida como preto sólido (Corrigido) */
       },
-      "shape": { "type": "circle" },
+      "shape": { "type": "circle" }, /* FORMA: Partículas circulares */
       "opacity": { 
-        "value": 0.6, /* VISIBILIDADE: Mais nítidas que o padrão */
+        "value": 0.6,           /* VISIBILIDADE: Transparência das bolinhas */
         "random": false 
       },
       "size": { 
-        "value": 2, /* TAMANHO: Bolinhas pequenas e minimalistas */
-        "random": true 
+        "value": 3,             /* TAMANHO: Diâmetro das bolinhas */
+        "random": true          /* Faz os tamanhos variarem um pouco */
       },
       "line_linked": { 
-      <!-- "enable": false  /* SEM LINHAS: Para manter o visual limpo */ -->
-        "enable": true, /* Habilita as linhas conectando os pontos */ -->
-        "distance": 150, /* Distância máxima para criar uma linha */
-        "color": "#18bc9c", /* Cor das linhas de conexão (Seu verde) */
-        "opacity": 0.3, /* Transparência das linhas */
-        "width": 0.8 /* Grossura das linhas */
-      }, /* COM LINHAS: Para manter o visual limpo */
+        "enable": true,         /* CONEXÕES: Ativado para ligar as bolinhas */
+        "distance": 150,        /* Distância máxima entre pontos para criar linha */
+        "color": "#18bc9c",     /* COR DA LINHA: Seu Verde Teal característico */
+        "opacity": 0.3,         /* Linhas sutis para não poluir o visual */
+        "width": 0.8            /* Grossura fina das linhas */
+      },
       "move": { 
-        "enable": true, 
-        "speed": 1.5, /* VELOCIDADE: Movimento constante e perceptível */
-        "direction": "none", 
-        "random": true, 
-        "out_mode": "out" 
+        "enable": true,         /* MOVIMENTO: Permite que as bolinhas flutuem */
+        "speed": 1.5,           /* VELOCIDADE: Ritmo constante do fundo */
+        "direction": "none",    /* Direção aleatória */
+        "random": true,         /* Movimento orgânico */
+        "out_mode": "out"       /* Partículas saem por um lado e entram pelo outro */
       }
     },
     "interactivity": {
       "events": { 
-        /* DESATIVADO: O mouse passa pelas partículas sem que elas expandam ou fujam */
+        /* INTERAÇÃO: Desativado para o mouse não interferir no fundo minimalista */
         "onhover": { "enable": false }, 
         "onclick": { "enable": false }
       }
@@ -244,41 +240,100 @@ window.Quarto = {
   });
 </script>
 <style>
-  /* CONFIGURAÇÃO DO SNOOPY: Posicionamento do seu GIF */
+  /* CONFIGURAÇÃO DO SNOOPY (PC) */
   .snoop-dance-container {
-    position: fixed;            /* Mantém ele fixo na tela ao rolar */
-    width: 90px;               /* Largura do container do GIF */
-    height: 90px;              /* Altura do container do GIF */
-    background: url('snoopy-dance.gif') no-repeat; /* Chama o seu arquivo GIF */
-    background-size: contain;   /* Garante que o GIF não seja cortado */
-    bottom: 50px;               /* Posicionado logo acima do rodapé */
-    right: 20px;                /* No canto inferior direito da tela */
-    z-index: -2;                /* Fica entre as partículas e o conteúdo principal */
-    opacity: 0.9 !important;    /* Quase sem transparência para destacar o personagem */
-    pointer-events: none;       /* O mouse "atravessa" o Snoop (não atrapalha cliques) */
+    position: fixed;            /* Trava o personagem na tela durante a rolagem */
+    width: 90px;                /* Tamanho do container */
+    height: 90px;
+    background: url('snoopy-dance.gif') no-repeat; /* Chama seu GIF */
+    background-size: contain;   /* Ajusta o GIF sem cortar */
+    bottom: 50px;               /* Distância da base */
+    right: 20px;                /* Distância da lateral direita */
+    z-index: 1;                 /* Z-index positivo para não sumir atrás do fundo */
+    opacity: 0.9 !important;    /* Nitidez do Snoopy */
+    pointer-events: none;       /* Ignora cliques do mouse (não atrapalha o site) */
   }
 
+  /* AJUSTE PARA MOBILE (Celulares e Tablets) */
+  /* Resolve o problema do Snoopy sumir no mobile */
+  @media (max-width: 768px) {
+    .snoop-dance-container {
+      display: block !important; /* Força a exibição mesmo em telas pequenas */
+      width: 70px;               /* Diminui um pouco para não cobrir o texto */
+      height: 70px;
+      bottom: 60px;              /* Ajusta altura para não bater no rodapé mobile */
+      right: 15px;               /* Colado no canto */
+      z-index: 100;              /* Prioridade máxima de camada no mobile */
+    }
+  }
 
-  /* RODAPÉ (FOOTER): Restaurando a estética original do Alex */
+  /* RODAPÉ (FOOTER): Fundo preto sólido */
   .quarto-page-footer {
-    background-color: #000000 !important; /* Fundo PRETO sólido */
-    position: relative !important;         /* Necessário para camadas */
-    z-index: 10 !important;                /* Garante que o footer cubra as partículas */
-    border-top: none !important;           /* REMOVIDO: Sem a borda verde, conforme original */
+    background-color: #000000 !important; /* Força o preto absoluto */
+    position: relative !important;         /* Necessário para controle de camada */
+    z-index: 10 !important;                /* Fica à frente das partículas */
+    border-top: none !important;           /* Remove qualquer linha residual verde */
   }
 
-  /* TEXTO E ÍCONES: Voltando para a cor cinza discreta */
+  /* TEXTO E ÍCONES DO RODAPÉ: Cor Cinza Sóbrio */
   .nav-footer-left, 
   .nav-footer-center, 
   .nav-footer-right, 
   .quarto-page-footer a, 
   .quarto-page-footer i {
-    color: #888888 !important; /* Cor CINZA original para não brigar com o conteúdo */
+    color: #888888 !important;   /* Cor cinza original solicitada */
     position: relative !important;
-    z-index: 11 !important;    /* Um nível acima do fundo preto do footer */
-    text-decoration: none;     /* Remove sublinhados de links */
+    z-index: 11 !important;      /* Acima da base preta do footer */
+    text-decoration: none;       /* Remove sublinhados de links */
   }
 </style>
+<!-- <div id="fundo-animado-snoopy" style="position: fixed; width: 100%; height: 100%; top: 0; left: 0; z-index: -2;"> -->
+<!--   <div id="particles-js" style="position: absolute; width: 100%; height: 100%; z-index: -3;"></div> -->
+<!--   <div class="snoop-dance-container"></div> -->
+<!-- </div> -->
+<!-- <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> -->
+<!-- <script> -->
+<!--   particlesJS("particles-js", { -->
+<!--     "particles": { -->
+<!--       "number": {  -->
+<!--         "value": 110, /* QUANTIDADE: Aumentada para preencher melhor o fundo */ -->
+<!--         "density": { "enable": true, "value_area": 800 }  -->
+<!--       }, -->
+<!--       <!-- "color": {  -->
+<p>–&gt; <!--       <!--   "value": ["#148c74", "#000000"] /* CORES: Verde e Azul escuros para contraste */ --> –&gt; <!--       <!-- }, --> –&gt; <!--       "color": {  --> <!--         "value": [#000000"] /* CORES: PRETO para contraste */ --> <!--       }, --> <!--       "shape": { "type": "circle" }, --> <!--       "opacity": {  --> <!--         "value": 0.6, /* VISIBILIDADE: Mais nítidas que o padrão */ --> <!--         "random": false  --> <!--       }, --> <!--       "size": {  --> <!--         "value": 3, /* TAMANHO: Bolinhas pequenas e minimalistas */ --> <!--         "random": true  --> <!--       }, --> <!--       "line_linked": {  --> <!--       <!-- "enable": false  /* SEM LINHAS: Para manter o visual limpo */ --> –&gt; <!--         "enable": true, /* Habilita as linhas conectando os pontos */ --> –&gt; <!--         "distance": 150, /* Distância máxima para criar uma linha */ --> <!--         "color": "#18bc9c", /* Cor das linhas de conexão (Seu verde) */ --> <!--         "opacity": 0.3, /* Transparência das linhas */ --> <!--         "width": 0.8 /* Grossura das linhas */ --> <!--       }, /* COM LINHAS: Para manter o visual limpo */ --> <!--       "move": {  --> <!--         "enable": true,  --> <!--         "speed": 1.5, /* VELOCIDADE: Movimento constante e perceptível */ --> <!--         "direction": "none",  --> <!--         "random": true,  --> <!--         "out_mode": "out"  --> <!--       } --> <!--     }, --> <!--     "interactivity": { --> <!--       "events": {  --> <!--         /* DESATIVADO: O mouse passa pelas partículas sem que elas expandam ou fujam */ --> <!--         "onhover": { "enable": false },  --> <!--         "onclick": { "enable": false } --> <!--       } --> <!--     } --> <!--   }); --> <!-- </script> --></p>
+<!-- <style> -->
+<!--   /* CONFIGURAÇÃO DO SNOOPY: Posicionamento do seu GIF */ -->
+<!--   .snoop-dance-container { -->
+<!--     position: fixed;            /* Mantém ele fixo na tela ao rolar */ -->
+<!--     width: 90px;               /* Largura do container do GIF */ -->
+<!--     height: 90px;              /* Altura do container do GIF */ -->
+<!--     background: url('snoopy-dance.gif') no-repeat; /* Chama o seu arquivo GIF */ -->
+<!--     background-size: contain;   /* Garante que o GIF não seja cortado */ -->
+<!--     bottom: 50px;               /* Posicionado logo acima do rodapé */ -->
+<!--     right: 20px;                /* No canto inferior direito da tela */ -->
+<!--     z-index: -2;                /* Fica entre as partículas e o conteúdo principal */ -->
+<!--     opacity: 0.9 !important;    /* Quase sem transparência para destacar o personagem */ -->
+<!--     pointer-events: none;       /* O mouse "atravessa" o Snoop (não atrapalha cliques) */ -->
+<!--   } -->
+<!--   /* RODAPÉ (FOOTER): Restaurando a estética original do Alex */ -->
+<!--   .quarto-page-footer { -->
+<!--     background-color: #000000 !important; /* Fundo PRETO sólido */ -->
+<!--     position: relative !important;         /* Necessário para camadas */ -->
+<!--     z-index: 10 !important;                /* Garante que o footer cubra as partículas */ -->
+<!--     border-top: none !important;           /* REMOVIDO: Sem a borda verde, conforme original */ -->
+<!--   } -->
+<!--   /* TEXTO E ÍCONES: Voltando para a cor cinza discreta */ -->
+<!--   .nav-footer-left,  -->
+<!--   .nav-footer-center,  -->
+<!--   .nav-footer-right,  -->
+<!--   .quarto-page-footer a,  -->
+<!--   .quarto-page-footer i { -->
+<!--     color: #888888 !important; /* Cor CINZA original para não brigar com o conteúdo */ -->
+<!--     position: relative !important; -->
+<!--     z-index: 11 !important;    /* Um nível acima do fundo preto do footer */ -->
+<!--     text-decoration: none;     /* Remove sublinhados de links */ -->
+<!--   } -->
+<!-- </style> -->
 <!-- <div id="particles-js" style="position: fixed; width: 100%; height: 100%; top: 0; left: 0; z-index: -1;"></div> -->
 <!-- <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> -->
 <!-- <script> -->
@@ -324,7 +379,7 @@ window.Quarto = {
 
 <div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="RXN0YXQlQzMlQURzdGljYSUyME11bHRpdmFyaWFkYSUyQ1IlMkNQeXRob24=" data-listing-file-modified-sort="1773299331535" data-listing-reading-time-sort="6" data-listing-word-count-sort="1045">
+<div class="g-col-1" data-index="0" data-categories="RXN0YXQlQzMlQURzdGljYSUyME11bHRpdmFyaWFkYSUyQ1IlMkNQeXRob24=" data-listing-file-modified-sort="1773300484937" data-listing-reading-time-sort="12" data-listing-word-count-sort="2380">
 <a href="./codigos/6_Estatistica_Multivariada/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
