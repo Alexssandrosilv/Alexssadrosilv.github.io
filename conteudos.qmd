@@ -2,6 +2,8 @@
 # date: last-modified
 # Configuração da Galeria (Vitrine)
 listing:
+  
+  
   # 1. CONTEÚDO: Define quais arquivos vão aparecer na vitrine.
   
   # Você está listando manualmente para garantir a ordem exata das pastas.
@@ -31,6 +33,11 @@ listing:
   # filter-ui: false -> Esconde a barra de busca específica desta lista
   sort-ui: false
   filter-ui: false
+  
+  # --- CORREÇÃO DAS CATEGORIAS ---
+  # 'metadata' força o card a mostrar apenas as categorias definidas no YAML 
+  # do arquivo de destino, ignorando as tags dos scripts internos da pasta.
+  listing-categories: metadata
 
   # 6. CAMPOS DO CARTÃO: Define o que aparece escrito dentro do quadrado branco.
   # image: A capa | title: O título | description: O resumo | date: A data
