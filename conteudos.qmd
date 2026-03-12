@@ -3,6 +3,7 @@
 # Configuração da Galeria (Vitrine)
 listing:
   # 1. CONTEÚDO: Define quais arquivos vão aparecer na vitrine.
+  
   # Você está listando manualmente para garantir a ordem exata das pastas.
   contents: 
     # - codigos/1_Inferencia_Estatística/index.qmd        # Pega o Hub de Inferência
@@ -33,7 +34,9 @@ listing:
 
   # 6. CAMPOS DO CARTÃO: Define o que aparece escrito dentro do quadrado branco.
   # image: A capa | title: O título | description: O resumo | date: A data
-  fields: [image, title, description, date, categories]
+  # fields: [image, title, description, date, categories]
+  fields: [image, title, categories]
+
 
 # 7. LAYOUT DA PÁGINA:
 # "full" usa a largura total da tela (margens menores), ideal para grades de fotos.
