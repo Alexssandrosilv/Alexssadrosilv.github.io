@@ -82,13 +82,17 @@ title-block-banner: false
         "value": 3,             /* TAMANHO: Diâmetro das bolinhas */
         "random": true          /* Faz os tamanhos variarem um pouco */
       },
-      "line_linked": { 
-        "enable": true,         /* CONEXÕES: Ativado para ligar as bolinhas */
-        "distance": 150,        /* Distância máxima entre pontos para criar linha */
-        "color": "#18bc9c",     /* COR DA LINHA: Seu Verde Teal característico */
-        "opacity": 0.2,         /* Linhas sutis para não poluir o visual */
-        "width": 0.8            /* Grossura fina das linhas */
-      },
+      "line_linked": {
+        "enable": false
+      },         
+      <!-- /* CONEXÕES: Ativado para ligar as bolinhas */ -->
+      <!-- "line_linked": {  -->
+      <!--   "enable": true,         /* CONEXÕES: Ativado para ligar as bolinhas */ -->
+      <!--   "distance": 150,        /* Distância máxima entre pontos para criar linha */ -->
+      <!--   "color": "#18bc9c",     /* COR DA LINHA: Seu Verde Teal característico */ -->
+      <!--   "opacity": 0.2,         /* Linhas sutis para não poluir o visual */ -->
+      <!--   "width": 0.8            /* Grossura fina das linhas */ -->
+      <!-- }, -->
       "move": { 
         "enable": true,         /* MOVIMENTO: Permite que as bolinhas flutuem */
         "speed": 1.5,           /* VELOCIDADE: Ritmo constante do fundo */
