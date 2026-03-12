@@ -191,7 +191,7 @@ window.Quarto = {
 <div id="particles-js" style="position: absolute; width: 100%; height: 100%; z-index: -3;">
 
 </div>
-<div class="snoop-sleep-container">
+<div class="snoop-dance-container">
 
 </div>
 </div>
@@ -200,55 +200,72 @@ window.Quarto = {
   particlesJS("particles-js", {
     "particles": {
       "number": { 
-        "value": 100, /* AUMENTEI: De 40 para 100 para preencher mais o fundo */
+        "value": 110, /* QUANTIDADE: Aumentada para preencher melhor o fundo */
         "density": { "enable": true, "value_area": 800 } 
       },
       "color": { 
-        "value": ["#148c74", "#1a252f"] /* ESCURECI: Tons mais fechados do seu verde e azul */
+        "value": ["#148c74", "#1a252f"] /* CORES: Verde e Azul escuros para contraste */
       },
       "shape": { "type": "circle" },
       "opacity": { 
-        "value": 0.6, /* AUMENTEI: De 0.3 para 0.6 para elas ficarem mais nítidas */
+        "value": 0.6, /* VISIBILIDADE: Mais nítidas que o padrão */
         "random": false 
       },
       "size": { 
-        "value": 3, /* AUMENTEI: De 2 para 3 para os pontos ficarem maiores */
+        "value": 3, /* TAMANHO: Bolinhas pequenas e minimalistas */
         "random": true 
       },
-      "line_linked": { "enable": false }, /* Mantém sem linhas para não poluir */
+      "line_linked": { "enable": false }, /* SEM LINHAS: Para manter o visual limpo */
       "move": { 
         "enable": true, 
-        "speed": 1.5, /* UM POUCO MAIS RÁPIDO: Para notar o movimento melhor */
+        "speed": 1.5, /* VELOCIDADE: Movimento constante e perceptível */
         "direction": "none", 
         "random": true, 
         "out_mode": "out" 
       }
     },
     "interactivity": {
-      "events": { "onhover": { "enable": true, "mode": "bubble" } }
+      "events": { 
+        /* DESATIVADO: O mouse passa pelas partículas sem que elas expandam ou fujam */
+        "onhover": { "enable": false }, 
+        "onclick": { "enable": false }
+      }
     }
   });
 </script>
 <style>
-  /* Snoopy dormindo no canto inferior direito */
-  .snoop-sleep-container {
-    position: fixed;
-    width: 220px; 
-    height: 130px;
-    background: url('snoopy-sleep.png') no-repeat;
-    background-size: contain;
-    bottom: 35px; /* Ajustado para ficar logo acima do seu rodapé preto */
-    right: 30px; 
-    z-index: -2;
-    opacity: 0.9 !important; /* Quase totalmente nítido */
-    pointer-events: none; /* Não atrapalha os cliques no site */
+  /* CONFIGURAÇÃO DO SNOOPY: Posicionamento do seu GIF */
+  .snoop-dance-container {
+    position: fixed;            /* Mantém ele fixo na tela ao rolar */
+    width: 200px;               /* Largura do container do GIF */
+    height: 200px;              /* Altura do container do GIF */
+    background: url('snoopy-dance.gif') no-repeat; /* Chama o seu arquivo GIF */
+    background-size: contain;   /* Garante que o GIF não seja cortado */
+    bottom: 35px;               /* Posicionado logo acima do rodapé */
+    right: 30px;                /* No canto inferior direito da tela */
+    z-index: -2;                /* Fica entre as partículas e o conteúdo principal */
+    opacity: 0.9 !important;    /* Quase sem transparência para destacar o personagem */
+    pointer-events: none;       /* O mouse "atravessa" o Snoop (não atrapalha cliques) */
   }
 
-  /* REFORÇO DO RODAPÉ: Garante que o preto do footer cubra as partículas ao rolar */
+  /* RODAPÉ (FOOTER): Restaurando a estética original do Alex */
   .quarto-page-footer {
-    background-color: #000000 !important;
+    background-color: #000000 !important; /* Fundo PRETO sólido */
+    position: relative !important;         /* Necessário para camadas */
+    z-index: 10 !important;                /* Garante que o footer cubra as partículas */
+    border-top: none !important;           /* REMOVIDO: Sem a borda verde, conforme original */
+  }
+
+  /* TEXTO E ÍCONES: Voltando para a cor cinza discreta */
+  .nav-footer-left, 
+  .nav-footer-center, 
+  .nav-footer-right, 
+  .quarto-page-footer a, 
+  .quarto-page-footer i {
+    color: #888888 !important; /* Cor CINZA original para não brigar com o conteúdo */
     position: relative !important;
-    z-index: 10 !important; /* Sempre à frente das partículas e do Snoop */
+    z-index: 11 !important;    /* Um nível acima do fundo preto do footer */
+    text-decoration: none;     /* Remove sublinhados de links */
   }
 </style>
 <!-- <div id="particles-js" style="position: fixed; width: 100%; height: 100%; top: 0; left: 0; z-index: -1;"></div> -->
@@ -296,7 +313,7 @@ window.Quarto = {
 
 <div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="RXN0YXQlQzMlQURzdGljYSUyME11bHRpdmFyaWFkYSUyQ1IlMkNQeXRob24=" data-listing-file-modified-sort="1773294779629" data-listing-reading-time-sort="1" data-listing-word-count-sort="99">
+<div class="g-col-1" data-index="0" data-categories="RXN0YXQlQzMlQURzdGljYSUyME11bHRpdmFyaWFkYSUyQ1IlMkNQeXRob24=" data-listing-file-modified-sort="1773295913610" data-listing-reading-time-sort="1" data-listing-word-count-sort="99">
 <a href="./codigos/6_Estatistica_Multivariada/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
