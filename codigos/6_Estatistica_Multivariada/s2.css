@@ -190,8 +190,8 @@ pre {
 
 /* Estilo específico para o título principal das páginas internas (Title no YAML) */
 h1.title {
-  font-size: 2rem !important;                        /* Reduz o tamanho do título para um visual mais elegante */
+  font-size: 1.8rem !important;                        /* Reduz o tamanho do título para um visual mais elegante */
   font-weight: 700;                                  /* Mantém o negrito para destaque hierárquico */
   margin-top: 1rem;                                  /* Ajusta a distância do título para o topo da folha */
-  color: #2b3e50;                                    /* Cor azul marinho escuro para o título principal */
+  color: var(--cor-destaque-escuro);                 /* Cor azul marinho escuro para o título principal */
 }
