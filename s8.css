@@ -746,32 +746,32 @@ main#quarto-content {
 
 
 /* ==========================================================================
-    BLOCO 11: FIX DO RODAPÉ (FOOTER) VS PARTÍCULAS
-    Garante que o rodapé preto apareça na frente do fundo animado.
+    BLOCO 11: CORREÇÃO DO RODAPÉ (FOOTER)
+    Garante que o rodapé seja preto sólido e fique à frente das partículas.
 ========================================================================== */
 
-/* 11.1 Elevação da camada do Rodapé */
+/* 11.1 Base do Rodapé: Força o fundo preto e a posição */
 .quarto-page-footer {
-    position: relative !important;    /* Permite que o elemento aceite a ordem de camadas (z-index) */
-    z-index: 10 !important;           /* Define um nível alto para ficar na frente das partículas (-1) */
-    background-color: black !important; /* Garante que o fundo seja preto sólido e não transparente */
-    color: white !important;          /* Garante que o texto dentro dele permaneça branco */
-    border-top: 3px solid #18bc9c !important; /* Mantém a sua linha verde de assinatura no topo do footer */
+    background-color: #000000 !important; /* FORÇA O FUNDO PRETO SÓLIDO */
+    position: relative !important;    /* Habilita o controle de camadas (z-index) */
+    z-index: 10 !important;           /* Coloca o footer na frente das partículas (-1) */
+    opacity: 1 !important;            /* Garante que o fundo NÃO seja transparente */
+    border-top: 3px solid #18bc9c !important; /* Mantém a sua linha verde de assinatura no topo */
 }
 
-/* 11.2 Elevação dos elementos internos (Ícones e Frases) */
-/* Garante que o conteúdo à esquerda, centro e direita também suba de camada */
+/* 11.2 Conteúdo do Rodapé: Força o texto e ícones a aparecerem */
 .nav-footer-left, 
 .nav-footer-center, 
 .nav-footer-right {
-    position: relative !important;    /* Posicionamento relativo para controle de camada */
-    z-index: 11 !important;           /* Um nível acima da base do rodapé para evitar bugs visuais */
+    position: relative !important;    /* Posicionamento relativo para controle de camada interna */
+    z-index: 11 !important;           /* Um nível acima da base do footer */
 }
 
-/* 11.3 Ajuste dos links e ícones no rodapé */
+/* 11.3 Ícones e Links: Garante que sejam brancos e clicáveis */
 .quarto-page-footer a, 
 .quarto-page-footer i, 
 .quarto-page-footer .bi {
-    position: relative !important;    /* Garante que links e ícones do GitHub/LinkedIn fiquem clicáveis */
-    z-index: 12 !important;           /* Camada mais alta para priorizar o clique do usuário */
+    color: #ffffff !important;        /* FORÇA A COR BRANCA NOS ÍCONES E LINKS */
+    opacity: 1 !important;            /* Garante 100% de visibilidade */
+    z-index: 12 !important;           /* Camada mais alta para priorizar o clique */
 }
