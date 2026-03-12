@@ -49,7 +49,13 @@ page-layout: full
 title-block-banner: false
 ---
 
-<div id="particles-js" style="position: fixed; width: 100%; height: 100%; top: 0; left: 0; z-index: -1;"></div>
+<div id="fundo-animado-snoopy" style="position: fixed; width: 100%; height: 100%; top: 0; left: 0; z-index: -2;">
+  
+  <div id="particles-js" style="position: absolute; width: 100%; height: 100%; z-index: -3;"></div>
+  
+  <div class="snoop-sleep-container"></div>
+
+</div>
 
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
@@ -57,59 +63,56 @@ title-block-banner: false
   particlesJS("particles-js", {
     "particles": {
       "number": { 
-        "value": 40, /* Reduzi para metade: menos poluição visual */
+        "value": 100, /* AUMENTEI: De 40 para 100 para preencher mais o fundo */
         "density": { "enable": true, "value_area": 800 } 
       },
-      "color": { "value": ["#18bc9c", "#2b3e50"] }, /* Suas cores originais */
+      "color": { 
+        "value": ["#148c74", "#1a252f"] /* ESCURECI: Tons mais fechados do seu verde e azul */
+      },
       "shape": { "type": "circle" },
       "opacity": { 
-        "value": 0.3, /* Mais transparente para ser bem sutil */
-        "random": true /* Algumas brilham mais que outras */
+        "value": 0.6, /* AUMENTEI: De 0.3 para 0.6 para elas ficarem mais nítidas */
+        "random": false 
       },
       "size": { 
-        "value": 2, /* Partículas menores para parecerem pontos de luz */
+        "value": 3, /* AUMENTEI: De 2 para 3 para os pontos ficarem maiores */
         "random": true 
       },
-      "line_linked": {
-        "enable": false /* DESATIVADO: Remove as linhas para ficar minimalista */
-      },
+      "line_linked": { "enable": false }, /* Mantém sem linhas para não poluir */
       "move": { 
         "enable": true, 
-        "speed": 1, /* Velocidade reduzida: movimento calmo e suave */
+        "speed": 1.5, /* UM POUCO MAIS RÁPIDO: Para notar o movimento melhor */
         "direction": "none", 
         "random": true, 
         "out_mode": "out" 
       }
     },
     "interactivity": {
-      "events": { 
-        "onhover": { 
-          "enable": true, 
-          "mode": "bubble" /* Em vez de afastar, elas crescem levemente no mouse */
-        } 
-      },
-      "modes": {
-        "bubble": { "size": 4, "distance": 200 }
-      }
+      "events": { "onhover": { "enable": true, "mode": "bubble" } }
     }
   });
 </script>
 
 <style>
-  /* Garante que o rodapé seja uma barreira preta sólida sobre o fundo */
-  .quarto-page-footer {
-    position: relative !important; /* Habilita camadas */
-    z-index: 10 !important;        /* Fica na frente das partículas */
-    background-color: #000000 !important; /* PRETO original do seu tema */
-    opacity: 1 !important;         /* Sem transparência */
-    border-top: 3px solid #18bc9c !important; /* Sua linha verde teal */
+  /* Snoopy dormindo no canto inferior direito */
+  .snoop-sleep-container {
+    position: fixed;
+    width: 220px; 
+    height: 130px;
+    background: url('snoopy-sleep.png') no-repeat;
+    background-size: contain;
+    bottom: 35px; /* Ajustado para ficar logo acima do seu rodapé preto */
+    right: 30px; 
+    z-index: -2;
+    opacity: 0.9 !important; /* Quase totalmente nítido */
+    pointer-events: none; /* Não atrapalha os cliques no site */
   }
 
-  /* Garante que texto e ícones fiquem brancos e visíveis */
-  .nav-footer-left, .nav-footer-center, .nav-footer-right, .quarto-page-footer i {
-    color: #ffffff !important; 
+  /* REFORÇO DO RODAPÉ: Garante que o preto do footer cubra as partículas ao rolar */
+  .quarto-page-footer {
+    background-color: #000000 !important;
     position: relative !important;
-    z-index: 11 !important;
+    z-index: 10 !important; /* Sempre à frente das partículas e do Snoop */
   }
 </style>
 
