@@ -67,7 +67,7 @@ title-block-banner: false
         "density": { "enable": true, "value_area": 800 } 
       },
       "color": { 
-        "value": ["#148c74", "#1a252f"] /* CORES: Verde e Azul escuros para contraste */
+        "value": ["#148c74", "#000000"] /* CORES: Verde e Azul escuros para contraste */
       },
       "shape": { "type": "circle" },
       "opacity": { 
@@ -75,7 +75,7 @@ title-block-banner: false
         "random": false 
       },
       "size": { 
-        "value": 3, /* TAMANHO: Bolinhas pequenas e minimalistas */
+        "value": 2, /* TAMANHO: Bolinhas pequenas e minimalistas */
         "random": true 
       },
       "line_linked": { "enable": false }, /* SEM LINHAS: Para manter o visual limpo */

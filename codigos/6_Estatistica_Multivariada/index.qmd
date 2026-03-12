@@ -29,7 +29,7 @@ categories: [
   "Python", 
   "1 - PCA",  
   "2 - AF",
-  "2.1 - AFE",    
+  "2.1 - AFE",
   "2.2 - AFC",    
   "3 - ACC",      
   "4 - AD",       
