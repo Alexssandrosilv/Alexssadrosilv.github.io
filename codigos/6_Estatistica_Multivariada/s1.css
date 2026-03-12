@@ -93,64 +93,98 @@ main#quarto-content {
   text-shadow: 0 0 10px rgba(24, 188, 156, 0.4);      /* Brilho neon sutil */
 }
 
-/* 5. SIDEBAR / LISTA DE ARQUIVOS (O EFEITO DE DESLIZE) */
+/* ==========================================================================
+    ARQUIVO DE ESTILOS: S1.CSS (ATUALIZAÇÃO PREMIUM)
+    Efeito: Ícone de 'Play' (Estilo Netflix) na Sidebar e nos Cards.
+========================================================================== */
+
+/* 5. SIDEBAR / LISTA DE ARQUIVOS (EFEITO PLAY-CIRCLE) */
 .sidebar-item-container {
-    position: relative;             /* Base para a barrinha lateral */
-    border-left: 4px solid #f0f0f0; /* Começa com uma borda cinza quase invisível */
-/*    border-left: 4px solid #00000000; /* Começa com uma borda cinza quase invisível */
-    transition: all 0.4s ease;      /* Suaviza a animação */
+    position: relative;             /* Base para o posicionamento do ícone */
+    padding-left: 35px !important;  /* Abre espaço na esquerda para o ícone não bater no texto */
+    transition: all 0.4s ease;      /* Suaviza a animação de deslize e cor */
 }
 
-/* Quando selecionado ou com o mouse em cima */
+/* Criação do Ícone de Play na Sidebar usando Pseudo-elemento */
+.sidebar-item-container::before {
+    display: inline-block;          /* Permite estilizar como um bloco de texto/ícone */
+    font-family: 'bootstrap-icons'; /* Chama a fonte de ícones do Bootstrap */
+    content: "\F4F4";               /* Código Unicode do ícone 'play-circle-fill' */
+    position: absolute;              /* Fixa o ícone à esquerda do container */
+    left: 10px;                     /* Distância da borda esquerda */
+    top: 50%;                       /* Centraliza verticalmente */
+    transform: translateY(-50%) scale(0.8); /* Ajuste fino de centralização e começa menor */
+    font-size: 1.2rem;              /* Tamanho do ícone */
+    /* ESTADO INICIAL: Preto executivo */
+    color: black; 
+    opacity: 0.8;                   /* Leve transparência para sobriedade */
+    transition: all 0.3s ease;      /* Transição suave de cor e tamanho */
+}
+
+/* Comportamento da Sidebar quando o item está Ativo ou com Mouse em cima (Hover) */
 .sidebar-item-container.active,
 .sidebar-item-container:hover {
-    border-left-color: var(--cor-destaque-viva) !important; /* Barrinha vira VERDE */
-    background-color: var(--cor-verde-fundo) !important;    /* FUNDO VERDE FRAQUINHO */
-    transform: translateX(10px);                             /* DESLIZE (O "pulinho") */
+    background-color: var(--cor-verde-fundo) !important; /* Fundo verde quase invisível */
+    transform: translateX(5px);                          /* Deslize suave para a direita */
 }
 
+/* Aplica o efeito Verde Teal e cresce o ícone no Hover/Ativo */
+.sidebar-item-container.active::before,
+.sidebar-item-container:hover::before {
+    /* ESTADO INTERAÇÃO: Muda de PRETO para VERDE TEAL */
+    color: var(--cor-destaque-viva) !important; 
+    opacity: 1;                                      /* Fica 100% nítido */
+    transform: translateY(-50%) scale(1.1);          /* Centralizado e cresce levemente (efeito 'pulso') */
+}
+
+/* Mantém o texto da Sidebar sóbrio em preto */
 .sidebar-link, .sidebar-item-text, nav[role=doc-toc] ul li a {
-    color: black !important;        /* O texto continua preto para seriedade */
+    color: black !important;
     font-weight: 500;
 }
 
-/* 6. CARDS DE POST (O EFEITO PREMIUM ΛΣ) */
+/* 6. CARDS DE POST (O EFEITO PREMIUM ΛΣ - NETFLIX STYLE) */
+/* Estilização dos blocos de prévia de posts/projetos */
 div.quarto-post {
-    border-bottom: 1px solid #f0f0f0;                /* Linha divisória fina */
-    padding: 2rem;                                   /* Espaço interno */
-    margin-bottom: 1rem;                             /* Distância entre posts */
-    position: relative;                              /* Base para a barrinha lateral */
-    border-radius: 12px;                             /* Arredondamento */
+    border-bottom: 1px solid #f0f0f0;                /* Linha divisória fina na base */
+    padding: 2rem 2rem 2rem 4rem;                    /* Aumenta padding esquerdo (4rem) para o ícone */
+    margin-bottom: 1rem;                             /* Distância entre cards */
+    position: relative;                              /* Necessário para posicionar o ícone '::before' */
+    border-radius: 12px;                             /* Cantos arredondados */
+    border-left: 0px solid black;                    /* Remove a borda antiga */
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); /* Animação fluida */
 }
 
-/* A barrinha lateral do Card */
+/* Criação do Ícone de Play nos Cards usando Pseudo-elemento */
 div.quarto-post::before {
-    content: "";                                     /* Obrigatório para elementos virtuais */
-    position: absolute;                              /* Fixa dentro do card */
-    left: 0;                                         /* Lado esquerdo */
-    top: 25%;                                        /* Começa um pouco abaixo do topo */
-    bottom: 25%;                                     /* Termina um pouco acima da base */
-    width: 5px;                                      /* Largura da barra */
-    background: black;                               /* Começa preta */
-    border-radius: 0 10px 10px 0;                    /* Arredonda o lado direito */
-    opacity: 0.2;                                    /* Quase transparente no início */
-    transform: scaleY(0.5);                          /* COMEÇA ENCOLHIDA (Vertical) */
-    transition: all 0.4s ease;                       /* Suaviza o crescimento */
+    display: inline-block;          /* Permite estilizar como bloco */
+    font-family: 'bootstrap-icons'; /* Chama a fonte de ícones */
+    content: "\F4F4";               /* Código Unicode do ícone 'play-circle-fill' */
+    position: absolute;              /* Fixa o ícone dentro do card */
+    left: 1.5rem;                   /* Distância da borda esquerda do card */
+    top: 50%;                       /* Centraliza verticalmente */
+    transform: translateY(-50%) scale(1); /* Centralizado e tamanho normal */
+    font-size: 2rem;                /* Ícone maior no card para destaque (estilo capa de vídeo) */
+    /* ESTADO INICIAL: Preto executivo */
+    color: black; 
+    opacity: 0.5;                   /* Começa mais "apagado" (fundo) */
+    transition: all 0.4s ease;      /* Transição suave de cor e tamanho */
 }
 
-/* Quando passa o mouse no Card do Post */
+/* Efeito no Card do Post ao passar o mouse (Hover) */
 div.quarto-post:hover {
-    background-color: var(--cor-verde-fundo);        /* FUNDO VERDE FRAQUINHO NO HOVER */
-    transform: translateX(12px);                     /* DESLIZA PARA A DIREITA */
+    background-color: var(--cor-verde-fundo);        /* Muda o fundo do card para o verde fraquinho */
+    transform: translateX(10px);                     /* Card inteiro desliza para a direita */
     box-shadow: -5px 5px 20px rgba(0,0,0,0.02);      /* Sombra lateral sutil */
 }
 
-/* Ativa a barrinha do Card no Hover */
+/* Ativação e Mudança de Cor do Ícone no Hover do Card */
 div.quarto-post:hover::before {
-    opacity: 1;                                      /* Fica 100% visível */
-    background: var(--cor-destaque-viva);            /* VIRA VERDE NO HOVER */
-    transform: scaleY(1);                            /* CRESCE VERTICALMENTE (Efeito Scale) */
+    /* ESTADO INTERAÇÃO: Muda de PRETO para VERDE TEAL */
+    color: var(--cor-destaque-viva); 
+    opacity: 1;                                      /* Fica 100% nítido */
+    transform: translateY(-50%) scale(1.2);          /* Centralizado e cresce (efeito 'dar o play') */
+    text-shadow: 0 0 15px rgba(24, 188, 156, 0.5);   /* Adiciona um brilho neon verde sutil no ícone */
 }
 
 /* 7. LIMPEZA FINAL */
