@@ -51,6 +51,10 @@ page-layout: full
 title-block-banner: false
 ---
 
+
+
+
+
 <div id="fundo-animado-snoopy" style="position: fixed; width: 100%; height: 100%; top: 0; left: 0; z-index: -2;">
   
   <div id="particles-js" style="position: absolute; width: 100%; height: 100%; z-index: -3;"></div>
