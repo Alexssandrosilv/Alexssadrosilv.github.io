@@ -10,8 +10,10 @@ listing:
     # - codigos/3_Modelos_Lineares_Generalizados/index.qmd
     # - codigos/4_Modelos_Lineares_Dinamicos/index.qmd
     # - codigos/5_Labest/index.qmd
-    - codigos/6_Estatistica_Multivariada/index.qmd        # Pega o Hub de Multivariada
-
+    # - codigos/6_Estatistica_Multivariada/index.qmd        # Pega o Hub de Multivariada
+    - path: codigos/6_Estatistica_Multivariada/index.qmd
+      title: "Estatística Multivariada II"
+      categories: [Estatística Multivariada, R, Python, Teoria]
 
   # 2. VISUAL: Define o layout como "Grade" (Cards/Quadrados).
   # Outras opções seriam 'default' (lista de blog) ou 'table' (tabela).
@@ -33,7 +35,9 @@ listing:
 
   # 6. CAMPOS DO CARTÃO: Define o que aparece escrito dentro do quadrado branco.
   # image: A capa | title: O título | description: O resumo | date: A data
-  fields: [image, title, description, date, categories]
+  # fields: [image, title, description, date, categories]
+  fields: [image, title, categories]
+
 
 # 7. LAYOUT DA PÁGINA:
 # "full" usa a largura total da tela (margens menores), ideal para grades de fotos.
