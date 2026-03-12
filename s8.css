@@ -768,37 +768,42 @@ main#quarto-content {
 }
 
 /* ==========================================================================
-    BLOCO 11: CORREÇÃO DEFINITIVA DO RODAPÉ (FOOTER) - ESTILO ORIGINAL
-    Objetivo: Garantir fundo preto sólido e texto cinza sem bordas verdes.
+    BLOCO 11: CORREÇÃO DEFINITIVA DO RODAPÉ (FOOTER)
+    Objetivo: Rodapé preto sólido, sem barra verde e com texto cinza.
 ========================================================================== */
 
-/* 11.1 Estrutura: Força o fundo preto e remove as bordas extras */
+/* 11.1 REMOÇÃO DA BARRA VERDE E FUNDO PRETO:
+   Ataca todos os nomes que o Quarto usa para garantir que a linha verde suma */
 footer.footer, 
 .quarto-page-footer, 
-.nav-footer {
+.nav-footer,
+.quarto-page-footer-container {
     background-color: #000000 !important; /* Força o fundo PRETO sólido */
-    position: relative !important;         /* Necessário para controle de camadas */
-    z-index: 999 !important;               /* Fica à frente das partículas e do Snoop */
-    opacity: 1 !important;                 /* Garante que o fundo não seja transparente */
-    border-top: none !important;           /* REMOVIDO: Tira a borda verde para voltar ao original */
-    margin-top: 0px !important;            /* Remove qualquer margem que mostre o fundo branco */
+    border-top: none !important;           /* REMOVE A BARRA VERDE TOTALMENTE */
+    border-top-width: 0px !important;      /* Garante que a espessura seja zero */
+    position: relative !important;         /* Para o z-index funcionar */
+    z-index: 999 !important;               /* Fica na frente das partículas e do Snoop */
+    opacity: 1 !important;                 /* Sem transparência */
+    margin-top: 0px !important;            /* Sem espaço sobrando no topo */
 }
 
-/* 11.2 Conteúdo: Texto e Ícones em CINZA conforme o design original */
+/* 11.2 CORES ORIGINAIS (CINZA):
+   Mantém o texto e os ícones com a cor cinza que você já usava */
 .nav-footer-left, 
 .nav-footer-center, 
 .nav-footer-right, 
 .quarto-page-footer a, 
 .quarto-page-footer i {
-    color: #888888 !important;            /* Volta para a cor CINZA original do seu site */
-    opacity: 1 !important;                 /* Garante nitidez total do texto cinza */
-    position: relative !important;         /* Mantém a hierarquia de camadas */
-    z-index: 1000 !important;              /* Coloca o texto sobre o fundo preto */
-    text-decoration: none !important;      /* Garante que os links não fiquem sublinhados */
+    color: #888888 !important;            /* Cor CINZA original (estilo minimalista) */
+    opacity: 1 !important;                 /* Texto bem nítido */
+    position: relative !important;
+    z-index: 1000 !important;              /* Texto por cima do fundo preto */
+    text-decoration: none !important;      /* Sem sublinhado nos links */
 }
 
-/* 11.3 Limpeza: Remove sombras e decorações do tema padrão */
+/* 11.3 LIMPEZA FINAL:
+   Remove sombras e bordas de baixo para o design ficar limpo */
 .quarto-page-footer {
-    box-shadow: none !important;          /* Remove sombras indesejadas */
-    border-bottom: none !important;       /* Garante que o fim da página seja limpo */
+    box-shadow: none !important;          /* Sem sombras estranhas */
+    border-bottom: none !important;       /* Sem bordas no final da página */
 }

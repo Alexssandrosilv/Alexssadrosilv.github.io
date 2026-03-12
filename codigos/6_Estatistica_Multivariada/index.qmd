@@ -27,7 +27,8 @@ image: "imagens/Multivariada.jpg"
 categories: [
   "R", 
   "Python", 
-  "1 - PCA",
+  "1 - PCA",  
+  "2 - AF",
   "2.1 - AFE",    
   "2.2 - AFC",    
   "3 - ACC",      
