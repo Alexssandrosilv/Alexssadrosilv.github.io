@@ -5,7 +5,7 @@ author: "Alexssandro Oliveira | alexssandrosg@gmail.com"
 lang: pt
 date: last-modified
 # image: "imagens/modulo_inferencia.jpg"  # <--- IMPORTANTE: Salve um print do gráfico aqui com esse nome!
-categories: ["R", "Python", "2 - AF", "2.1 - AFE", , "2.2 - AFC"] # <--- Suas tags para o filtro
+categories: ["R", "Python", "2 - AF", "2.1 - AFE", "2.2 - AFC"] # <--- Suas tags para o filtro
 ---
 
 <br>

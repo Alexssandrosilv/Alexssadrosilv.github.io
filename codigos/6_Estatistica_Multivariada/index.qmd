@@ -1,5 +1,5 @@
 ---
-title: "Estatística Multivariada II"
+title: "ESTATÍSTICA MULTIVARIADA II"
 format:                
   html:                
     css: s1.css        
@@ -24,20 +24,21 @@ image: "imagens/Multivariada.jpg"
 # ]
 
 # Tags para ajudar no filtro da página principal
-categories: [
-  "R", 
-  "Python", 
-  "1 - PCA",  
-  "2 - AF",
-  "2.1 - AFE",
-  "2.2 - AFC",    
-  "3 - ACC",      
-  "4 - AD",       
-  "5 - Cluster",
-  "6 - AC",    
-  "6.1 - ACS",    
-  "6.2 - ACM"     
-]
+# categories: [
+#   "R", 
+#   "Python", 
+#   "1 - PCA",  
+#   "2 - AF",
+#   "2.1 - AFE",
+#   "2.2 - AFC",    
+#   "3 - ACC",      
+#   "4 - AD",       
+#   "5 - CLUSTER",
+#   "6 - AC",    
+#   "6.1 - ACS",    
+#   "6.2 - ACM"     
+# ]
+
 
 # Configuração da Lista de Projetos deste módulo
 listing:
@@ -50,7 +51,7 @@ listing:
   # fields: [image, date, title, description, reading-time] # Mostra tempo de leitura
   # fields: [image, title, author, date, reading-time] # Mostra tempo de leitura
   fields: [title, author, date, reading-time] # Mostra tempo de leitura
-
+  categories: true   
 
 page-layout: full
 title-block-banner: false
