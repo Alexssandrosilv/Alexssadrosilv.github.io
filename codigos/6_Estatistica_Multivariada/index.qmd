@@ -39,5 +39,5 @@ knitr::opts_chunk$set(
 )
 ```
 
-### Modulos
+<!-- ### Modulos -->
 
