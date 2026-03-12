@@ -239,14 +239,41 @@ main#quarto-content {
 }
 
 /* 3.4 Correção da Barra de Pesquisa (Mobile) - Fix do Teclado */
+/*@media (max-width: 992px) {
+/*    /* Garante que o menu mobile fique no topo */
+/*    .navbar-collapse { z-index: 10000 !important; }
+    
+/*    /* Garante que o input de busca fique visível e no topo */
+/*    #quarto-search-input {
+/*        z-index: 10001 !important;          /* Acima do menu */
+/*        opacity: 1 !important;              /* Força visibilidade */
+/*    }
+/*    
+/*    /* Fixa a janela de resultados na tela para não quebrar com teclado */
+/*    .quarto-search-autocomplete {
+/*        z-index: 10002 !important;          /* Acima de tudo */
+/*        position: fixed !important;         /* Fixa na tela (viewport) */
+/*        top: 70px !important;               /* Distância do topo */
+/*        left: 5% !important;                /* Margem esquerda */
+/*        width: 90% !important;              /* Largura responsiva */
+/*        max-height: 60vh !important;        /* Altura máxima da lista */
+/*        overflow-y: auto !important;        /* Permite rolar a lista */
+/*        box-shadow: 0 10px 30px rgba(0,0,0,0.5) !important; /* Sombra forte */
+/*    }
+/*}
+
+/* 3.4 Correção da Barra de Pesquisa (Mobile) - Fix do Teclado e Texto Sumindo */
 @media (max-width: 992px) {
     /* Garante que o menu mobile fique no topo */
     .navbar-collapse { z-index: 10000 !important; }
     
-    /* Garante que o input de busca fique visível e no topo */
+    /* FIX DA LUPA: Garante que o input fique visível e o texto não suma na esquerda */
     #quarto-search-input {
         z-index: 10001 !important;          /* Acima do menu */
         opacity: 1 !important;              /* Força visibilidade */
+        padding-left: 35px !important;      /* AJUSTE: Dá espaço para as primeiras letras aparecerem */
+        height: 40px !important;            /* AJUSTE: Altura confortável para o toque no celular */
+        width: 100% !important;             /* Garante largura total */
     }
     
     /* Fixa a janela de resultados na tela para não quebrar com teclado */
@@ -259,6 +286,12 @@ main#quarto-content {
         max-height: 60vh !important;        /* Altura máxima da lista */
         overflow-y: auto !important;        /* Permite rolar a lista */
         box-shadow: 0 10px 30px rgba(0,0,0,0.5) !important; /* Sombra forte */
+    }
+
+    /* AJUSTE EXTRA: Garante que o texto digitado tenha cor preta e seja legível */
+    .aa-Input {
+        padding-left: 35px !important;
+        color: #000 !important;
     }
 }
 
@@ -657,4 +690,35 @@ input[type="file"]::file-selector-button:hover {
 
 .quarto-sidebar-toggle:hover {
     color: var(--cor-destaque-viva) !important;
+}
+
+
+/* ==========================================================================
+    BLOCO 9: CORREÇÕES ESPECÍFICAS DA GALERIA (VITRINE)
+    Remove listagens automáticas de arquivos e limpa o visual dos cards.
+========================================================================== */
+
+/* 9.1 Remoção de Ruído Visual */
+/* Esconde a lista de arquivos (scripts/gráficos) que o Quarto tenta puxar para o card */
+.quarto-grid-item .listing-file-list, 
+.quarto-grid-item .metadata,
+.quarto-grid-item .listing-reading-time {
+    display: none !important; /* Força o desaparecimento da lista indesejada */
+}
+
+/* 9.2 Ajuste de Espaçamento Interno */
+/* Garante que o corpo do card foque apenas no Título e Descrição que você definiu */
+.card-body .card-text {
+    margin-top: 10px;          /* Espaço entre o título e a descrição */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;     /* Limita a descrição a 3 linhas para manter o alinhamento */
+    -webkit-box-orient: vertical;
+    overflow: hidden;          /* Esconde o excesso de texto se houver */
+}
+
+/* 9.3 Correção de Alinhamento das Categorias */
+/* Ajusta a margem superior das tags para não colarem no texto */
+.quarto-grid-item .listing-categories {
+    margin-top: auto;          /* Empurra as tags para o fundo do card */
+    padding-top: 15px;         /* Espaço acima das pílulas de categoria */
 }
