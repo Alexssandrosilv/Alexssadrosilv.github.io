@@ -203,8 +203,11 @@ window.Quarto = {
         "value": 110, /* QUANTIDADE: Aumentada para preencher melhor o fundo */
         "density": { "enable": true, "value_area": 800 } 
       },
+      <!-- "color": {  -->
+      <!--   "value": ["#148c74", "#000000"] /* CORES: Verde e Azul escuros para contraste */ -->
+      <!-- }, -->
       "color": { 
-        "value": ["#148c74", "#000000"] /* CORES: Verde e Azul escuros para contraste */
+        "value": [#000000"] /* CORES: PRETO para contraste */
       },
       "shape": { "type": "circle" },
       "opacity": { 
@@ -215,7 +218,14 @@ window.Quarto = {
         "value": 2, /* TAMANHO: Bolinhas pequenas e minimalistas */
         "random": true 
       },
-      "line_linked": { "enable": false }, /* SEM LINHAS: Para manter o visual limpo */
+      "line_linked": { 
+      <!-- "enable": false  /* SEM LINHAS: Para manter o visual limpo */ -->
+        "enable": true, /* Habilita as linhas conectando os pontos */ -->
+        "distance": 150, /* Distância máxima para criar uma linha */
+        "color": "#18bc9c", /* Cor das linhas de conexão (Seu verde) */
+        "opacity": 0.3, /* Transparência das linhas */
+        "width": 0.8 /* Grossura das linhas */
+      }, /* COM LINHAS: Para manter o visual limpo */
       "move": { 
         "enable": true, 
         "speed": 1.5, /* VELOCIDADE: Movimento constante e perceptível */
@@ -237,8 +247,8 @@ window.Quarto = {
   /* CONFIGURAÇÃO DO SNOOPY: Posicionamento do seu GIF */
   .snoop-dance-container {
     position: fixed;            /* Mantém ele fixo na tela ao rolar */
-    width: 70px;               /* Largura do container do GIF */
-    height: 70px;              /* Altura do container do GIF */
+    width: 90px;               /* Largura do container do GIF */
+    height: 90px;              /* Altura do container do GIF */
     background: url('snoopy-dance.gif') no-repeat; /* Chama o seu arquivo GIF */
     background-size: contain;   /* Garante que o GIF não seja cortado */
     bottom: 50px;               /* Posicionado logo acima do rodapé */
@@ -314,7 +324,7 @@ window.Quarto = {
 
 <div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="RXN0YXQlQzMlQURzdGljYSUyME11bHRpdmFyaWFkYSUyQ1IlMkNQeXRob24=" data-listing-file-modified-sort="1773297676270" data-listing-reading-time-sort="1" data-listing-word-count-sort="99">
+<div class="g-col-1" data-index="0" data-categories="RXN0YXQlQzMlQURzdGljYSUyME11bHRpdmFyaWFkYSUyQ1IlMkNQeXRob24=" data-listing-file-modified-sort="1773298863872" data-listing-reading-time-sort="6" data-listing-word-count-sort="1045">
 <a href="./codigos/6_Estatistica_Multivariada/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
