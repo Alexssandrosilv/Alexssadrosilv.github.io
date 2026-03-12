@@ -728,50 +728,77 @@ input[type="file"]::file-selector-button:hover {
     BLOCO 10: EFEITO DE PARTÍCULAS (BACKGROUND ANIMADO)
 ========================================================================== */
 
-#particles-js {
-    position: fixed;    /* Fixa na tela inteira */
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: -1;        /* Coloca ATRÁS de todo o conteúdo */
-    background-color: var(--cor-fundo-site); /* Usa o fundo que você já definiu */
-}
+/*#particles-js {
+/*    position: fixed;    /* Fixa na tela inteira */
+/*    width: 100%;
+/*    height: 100%;
+/*    top: 0;
+/*    left: 0;
+/*    z-index: -1;        /* Coloca ATRÁS de todo o conteúdo */
+/*    background-color: var(--cor-fundo-site); /* Usa o fundo que você já definiu */
+/*}
 
 /* Ajuste para o conteúdo Glassmorphism não esconder as partículas totalmente */
-main#quarto-content {
-    background-color: rgba(255, 255, 255, 0.7) !important; /* Mais transparência para ver o efeito */
+/*main#quarto-content {
+/*    background-color: rgba(255, 255, 255, 0.7) !important; /* Mais transparência para ver o efeito */
+/*}
+
+/* ==========================================================================
+    BLOCO 10: EFEITO DE PARTÍCULAS (BACKGROUND ANIMADO)
+    Configura a camada mais profunda do site onde as bolinhas flutuam.
+========================================================================== */
+
+#particles-js {
+    position: fixed;            /* Faz o fundo ficar parado enquanto você rola a página */
+    width: 100%;                /* Ocupa toda a largura da tela */
+    height: 100%;               /* Ocupa toda a altura da tela */
+    top: 0;                     /* Alinha no topo absoluto */
+    left: 0;                    /* Alinha na esquerda absoluta */
+    z-index: -3;                /* CAMADA MAIS FUNDA: Fica atrás do Snoopy (-2) e do conteúdo (0) */
+    background-color: var(--cor-fundo-site); /* Cor base do site definida nas variáveis */
 }
 
+/* Ajuste do Conteúdo Principal (Glassmorphism) */
+/* Controla a transparência da "folha de papel" onde o texto fica escrito */
+main#quarto-content {
+    /* Deixa o fundo branco levemente transparente para as partículas aparecerem no fundo */
+    background-color: rgba(255, 255, 255, 0.8) !important; 
+    backdrop-filter: blur(5px); /* Cria um leve desfoque (blur) no fundo para facilitar a leitura */
+    border-radius: 10px;        /* Arredonda as bordas do conteúdo principal */
+}
 
 
 /* ==========================================================================
-    BLOCO 11: CORREÇÃO DO RODAPÉ (FOOTER)
-    Garante que o rodapé seja preto sólido e fique à frente das partículas.
+    BLOCO 11: CORREÇÃO DEFINITIVA DO RODAPÉ (FOOTER)
+    Objetivo: Garantir fundo preto sólido e visibilidade sobre as partículas.
 ========================================================================== */
 
-/* 11.1 Base do Rodapé: Força o fundo preto e a posição */
+/* 11.1 Seletores de estrutura: Ataca todas as camadas possíveis do rodapé */
+footer.footer,         /* Alvo: O container principal gerado pelo Quarto */
+.quarto-page-footer,   /* Alvo: A classe padrão de rodapé do Quarto */
+.nav-footer {          /* Alvo: A estrutura de navegação interna do rodapé */
+    background-color: #000000 !important; /* Força a cor PRETA (sem transparência) */
+    position: relative !important;        /* Habilita o uso de z-index para camadas */
+    z-index: 999 !important;              /* Coloca o rodapé na frente das partículas (-1) e do Snoop (-2) */
+    opacity: 1 !important;                /* Garante que o fundo não herde transparência do corpo */
+    border-top: 3px solid #18bc9c !important; /* Adiciona sua linha VERDE TEAL de assinatura */
+    margin-top: 0px !important;           /* Remove espaços vazios acima que poderiam mostrar o fundo branco */
+}
+
+/* 11.2 Elementos Internos: Texto, Links e Ícones das Redes Sociais */
+.nav-footer-left,      /* Alvo: Texto de copyright/nome à esquerda */
+.nav-footer-center,    /* Alvo: Sua frase (Taylor Swift) no centro */
+.nav-footer-right,     /* Alvo: Container dos ícones à direita */
+.quarto-page-footer a, /* Alvo: Links (LinkedIn, GitHub, Email) */
+.quarto-page-footer i { /* Alvo: Os ícones (FontAwesome/Bootstrap Icons) */
+    color: #ffffff !important;           /* Força a cor BRANCA para contraste no fundo preto */
+    opacity: 1 !important;               /* Garante nitidez máxima dos textos e ícones */
+    position: relative !important;       /* Necessário para manter a hierarquia de camadas */
+    z-index: 1000 !important;            /* Coloca o conteúdo 1 nível acima do fundo preto do rodapé */
+}
+
+/* 11.3 Limpeza de Estilo: Remove resíduos visuais do tema padrão (Flatly) */
 .quarto-page-footer {
-    background-color: #000000 !important; /* FORÇA O FUNDO PRETO SÓLIDO */
-    position: relative !important;    /* Habilita o controle de camadas (z-index) */
-    z-index: 10 !important;           /* Coloca o footer na frente das partículas (-1) */
-    opacity: 1 !important;            /* Garante que o fundo NÃO seja transparente */
-    border-top: 3px solid #18bc9c !important; /* Mantém a sua linha verde de assinatura no topo */
-}
-
-/* 11.2 Conteúdo do Rodapé: Força o texto e ícones a aparecerem */
-.nav-footer-left, 
-.nav-footer-center, 
-.nav-footer-right {
-    position: relative !important;    /* Posicionamento relativo para controle de camada interna */
-    z-index: 11 !important;           /* Um nível acima da base do footer */
-}
-
-/* 11.3 Ícones e Links: Garante que sejam brancos e clicáveis */
-.quarto-page-footer a, 
-.quarto-page-footer i, 
-.quarto-page-footer .bi {
-    color: #ffffff !important;        /* FORÇA A COR BRANCA NOS ÍCONES E LINKS */
-    opacity: 1 !important;            /* Garante 100% de visibilidade */
-    z-index: 12 !important;           /* Camada mais alta para priorizar o clique */
+    box-shadow: none !important;         /* Remove sombras que poderiam brilhar sobre as partículas */
+    border-bottom: none !important;      /* Garante que não haja bordas brancas no fim da página */
 }
