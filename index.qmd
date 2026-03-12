@@ -13,7 +13,7 @@ listing:
     # - codigos/6_Estatistica_Multivariada/index.qmd        # Pega o Hub de Multivariada
     - path: codigos/6_Estatistica_Multivariada/index.qmd
       title: "Estatística Multivariada II"
-      categories: [Estatística Multivariada, R, Python, Teoria]
+      categories: [Estatística Multivariada, R, Python]
 
   # 2. VISUAL: Define o layout como "Grade" (Cards/Quadrados).
   # Outras opções seriam 'default' (lista de blog) ou 'table' (tabela).
@@ -56,22 +56,30 @@ title-block-banner: false
 <script>
   particlesJS("particles-js", {
     "particles": {
-      "number": { "value": 80 },
-      "color": { "value": ["#18bc9c", "#2b3e50"] },
-      "shape": { "type": "circle" },
-      "opacity": { "value": 0.5 },
-      "size": { "value": 3 },
+      "number": { "value": 80 }, /* Quantidade de pontos na tela */
+      "color": { "value": ["#18bc9c", "#2b3e50"] }, /* Cores: Verde Teal e Azul do tema */
+      "shape": { "type": "circle" }, /* Formato das partículas como círculos */
+      "opacity": { "value": 0.5 }, /* Transparência para não atrapalhar a leitura */
+      "size": { "value": 3 }, /* Tamanho de cada bolinha */
       "line_linked": {
-        "enable": true,
-        "distance": 150,
-        "color": "#18bc9c",
-        "opacity": 0.4,
-        "width": 1
+        "enable": true, /* Habilita as linhas conectando os pontos */
+        "distance": 150, /* Distância máxima para criar uma linha */
+        "color": "#18bc9c", /* Cor das linhas de conexão (Seu verde) */
+        "opacity": 0.4, /* Transparência das linhas */
+        "width": 1 /* Grossura das linhas */
       },
-      "move": { "enable": true, "speed": 2 }
+      "move": { 
+        "enable": true, /* Faz as partículas se mexerem */
+        "speed": 2 /* Velocidade do movimento */
+      }
     },
     "interactivity": {
-      "events": { "onhover": { "enable": true, "mode": "repulse" } }
+      "events": { 
+        "onhover": { 
+          "enable": true, /* Reage quando o mouse passa por cima */
+          "mode": "repulse" /* Faz as partículas fugirem do mouse */
+        } 
+      }
     }
   });
 </script>
