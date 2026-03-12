@@ -742,3 +742,36 @@ input[type="file"]::file-selector-button:hover {
 main#quarto-content {
     background-color: rgba(255, 255, 255, 0.7) !important; /* Mais transparência para ver o efeito */
 }
+
+
+
+/* ==========================================================================
+    BLOCO 11: FIX DO RODAPÉ (FOOTER) VS PARTÍCULAS
+    Garante que o rodapé preto apareça na frente do fundo animado.
+========================================================================== */
+
+/* 11.1 Elevação da camada do Rodapé */
+.quarto-page-footer {
+    position: relative !important;    /* Permite que o elemento aceite a ordem de camadas (z-index) */
+    z-index: 10 !important;           /* Define um nível alto para ficar na frente das partículas (-1) */
+    background-color: black !important; /* Garante que o fundo seja preto sólido e não transparente */
+    color: white !important;          /* Garante que o texto dentro dele permaneça branco */
+    border-top: 3px solid #18bc9c !important; /* Mantém a sua linha verde de assinatura no topo do footer */
+}
+
+/* 11.2 Elevação dos elementos internos (Ícones e Frases) */
+/* Garante que o conteúdo à esquerda, centro e direita também suba de camada */
+.nav-footer-left, 
+.nav-footer-center, 
+.nav-footer-right {
+    position: relative !important;    /* Posicionamento relativo para controle de camada */
+    z-index: 11 !important;           /* Um nível acima da base do rodapé para evitar bugs visuais */
+}
+
+/* 11.3 Ajuste dos links e ícones no rodapé */
+.quarto-page-footer a, 
+.quarto-page-footer i, 
+.quarto-page-footer .bi {
+    position: relative !important;    /* Garante que links e ícones do GitHub/LinkedIn fiquem clicáveis */
+    z-index: 12 !important;           /* Camada mais alta para priorizar o clique do usuário */
+}

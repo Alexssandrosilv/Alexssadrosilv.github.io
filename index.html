@@ -180,36 +180,44 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categorias</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">Tudo <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RXN0YXQlQzMlQURzdGljYSUyME11bHRpdmFyaWFkYQ==">Estatística Multivariada <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UHl0aG9u">Python <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Ug==">R <span class="quarto-category-count">(1)</span></div><div class="category" data-category="VGVvcmlh">Teoria <span class="quarto-category-count">(1)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categorias</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">Tudo <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RXN0YXQlQzMlQURzdGljYSUyME11bHRpdmFyaWFkYQ==">Estatística Multivariada <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UHl0aG9u">Python <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Ug==">R <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content column-page-left" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
 
-<div id="particles-js">
+<div id="particles-js" style="position: fixed; width: 100%; height: 100%; top: 0; left: 0; z-index: -1;">
 
 </div>
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 <script>
   particlesJS("particles-js", {
     "particles": {
-      "number": { "value": 80 },
-      "color": { "value": ["#18bc9c", "#2b3e50"] }, /* Suas cores: Verde e Azul */
-      "shape": { "type": "circle" },
-      "opacity": { "value": 0.5 },
-      "size": { "value": 3 },
+      "number": { "value": 80 }, /* Quantidade de pontos na tela */
+      "color": { "value": ["#18bc9c", "#2b3e50"] }, /* Cores: Verde Teal e Azul do tema */
+      "shape": { "type": "circle" }, /* Formato das partículas como círculos */
+      "opacity": { "value": 0.5 }, /* Transparência para não atrapalhar a leitura */
+      "size": { "value": 3 }, /* Tamanho de cada bolinha */
       "line_linked": {
-        "enable": true,
-        "distance": 150,
-        "color": "#18bc9c",
-        "opacity": 0.4,
-        "width": 1
+        "enable": true, /* Habilita as linhas conectando os pontos */
+        "distance": 150, /* Distância máxima para criar uma linha */
+        "color": "#18bc9c", /* Cor das linhas de conexão (Seu verde) */
+        "opacity": 0.4, /* Transparência das linhas */
+        "width": 1 /* Grossura das linhas */
       },
-      "move": { "enable": true, "speed": 2 }
+      "move": { 
+        "enable": true, /* Faz as partículas se mexerem */
+        "speed": 2 /* Velocidade do movimento */
+      }
     },
     "interactivity": {
-      "events": { "onhover": { "enable": true, "mode": "repulse" } }
+      "events": { 
+        "onhover": { 
+          "enable": true, /* Reage quando o mouse passa por cima */
+          "mode": "repulse" /* Faz as partículas fugirem do mouse */
+        } 
+      }
     }
   });
 </script>
@@ -226,7 +234,7 @@ window.Quarto = {
 
 <div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="RXN0YXQlQzMlQURzdGljYSUyME11bHRpdmFyaWFkYSUyQ1IlMkNQeXRob24lMkNUZW9yaWE=" data-listing-file-modified-sort="1773291476149" data-listing-reading-time-sort="1" data-listing-word-count-sort="99">
+<div class="g-col-1" data-index="0" data-categories="RXN0YXQlQzMlQURzdGljYSUyME11bHRpdmFyaWFkYSUyQ1IlMkNQeXRob24=" data-listing-file-modified-sort="1773292386178" data-listing-reading-time-sort="1" data-listing-word-count-sort="99">
 <a href="./codigos/6_Estatistica_Multivariada/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -243,8 +251,6 @@ Estatística Multivariada II
 <div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
 
 <div class="listing-category" onclick="window.quartoListingCategory('UHl0aG9u'); return false;">Python</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('VGVvcmlh'); return false;">Teoria</div>
 
 </div>
 </div>
