@@ -237,7 +237,7 @@ title-block-banner: false
   particlesJS("particles-js", {
     "particles": {
       "number": { 
-        "value": 110,           /* QUANTIDADE: Densidade das partículas na tela */
+        "value": 70,           /* QUANTIDADE: Densidade das partículas na tela */
         "density": { "enable": true, "value_area": 800 } 
       },
       "color": { 
