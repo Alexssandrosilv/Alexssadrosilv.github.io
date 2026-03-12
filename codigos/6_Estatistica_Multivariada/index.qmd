@@ -245,7 +245,7 @@ title-block-banner: false
       },
       "shape": { "type": "circle" }, /* FORMA: Partículas circulares */
       "opacity": { 
-        "value": 0.5,           /* VISIBILIDADE: Transparência das bolinhas */
+        "value": 0.3,           /* VISIBILIDADE: Transparência das bolinhas */
         "random": false 
       },
       "size": { 
