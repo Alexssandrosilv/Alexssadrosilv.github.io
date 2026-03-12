@@ -26,6 +26,33 @@ page-layout: full
 title-block-banner: false
 ---
 
+<div id="particles-js"></div>
+
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+<script>
+  particlesJS("particles-js", {
+    "particles": {
+      "number": { "value": 80 },
+      "color": { "value": ["#18bc9c", "#2b3e50"] }, /* Suas cores: Verde e Azul */
+      "shape": { "type": "circle" },
+      "opacity": { "value": 0.5 },
+      "size": { "value": 3 },
+      "line_linked": {
+        "enable": true,
+        "distance": 150,
+        "color": "#18bc9c",
+        "opacity": 0.4,
+        "width": 1
+      },
+      "move": { "enable": true, "speed": 2 }
+    },
+    "interactivity": {
+      "events": { "onhover": { "enable": true, "mode": "repulse" } }
+    }
+  });
+</script>
+
 
 ```{r setup, include=FALSE}
 # Define opções padrão para todos os chunks de código no R Markdown
