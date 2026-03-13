@@ -16,18 +16,21 @@ categories: ["R", "Python", "1 - PCA"] # <--- Suas tags para o filtro
 <br>
 
 
-## Importação, Reestruturação e Tratamento dos Dados
+## Introdução
 
 ::: {style="text-align: justify"}
-Para a modelagem longitudinal, o conjunto de dados é submetido a três fases cruciais de processamento e estruturação:
 
--   **Passo 1 - Leitura:** Importação da base de dados brutos para o ambiente R no formato largo (wide). Nesse formato, cada linha representa um paciente e cada coluna corresponde a uma semana de avaliação. Embora adequado para armazenar os dados brutos, esse formato não é apropriado para ajustes de modelos longitudinais.
+A Análise de Componentes Principais - PCA é uma técnica estatística que visa explicar a estrutura de variância e covariância de um vetor aleatório $\bm{X}$. Esse método se baseia na criação de combinações lineares a partir das variáveis originais, denominadas componentes principais, de modo que são não correlacionadas. O objetivo prático dessa abordagem é simplificar o conjunto de dados, reduzindo o número de variáveis. Essa simplificação é alcançada ao identificar novas componentes que expliquem a maior parte da variabilidade nos dados.
 
 
--   **Passo 2 - Reestruturação:** Para permitir a modelagem da correlação intra-sujeito ao longo do tempo, o banco é convertido para o formato longo (long), no qual cada linha representa uma única observação temporal. 
+A priori, devemos entender como aplicar o método, que pode ser feito de duas formas:
 
--   **Passo 3 - Criação de Variável:** Se necessário, deve ser realizada a criação da variável de tempo recentralizada, que é crucial para garantir que o intercepto do modelo estatístico ($\beta_0$) represente a Pontuacao basal (Tempo 0).
+-   **1 Método (Matriz de Correlação):** Devemos obter a matriz de correlação $R_{m \times n}$ dos dados originais, que é quivalente a obter a matriz de covariância $S_{m \times n}$ a partir dos dados transformados "padronizados".
 
+
+-   **2 Método (Matriz de Covariância::):** Devemos obter a matriz de covariância $S_{m \times n}$ a partir dos dados originais.
+
+Uma vez obtida a matriz de interesse, primeiramente extraímos os autovalores e autovetores associados a ela. A interpretação dos resultados é simples: as combinações lineares (componentes) geradas são interpretadas como sendo a transposta da matriz de autovetores,  iremos denotadar por $P_{m \times n}$, onde cada componente captura uma parte da variabilidade total dos dados. Os autovalores, denominados por $\lambda_{1}, \lambda_{2},..., \lambda_{n}$, representam a variância individual de cada componente e indicam a importância relativa da mesma na explicação da variabilidade total dos dados. 
 
 :::
 
