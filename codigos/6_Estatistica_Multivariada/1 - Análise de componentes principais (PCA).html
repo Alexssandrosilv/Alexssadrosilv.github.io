@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pt" xml:lang="pt"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.27">
+<meta name="generator" content="quarto-1.9.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -10,6 +10,9 @@
 
 <title>1. Análise de Componentes Principais (PCA) – ΛΣ</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -68,15 +71,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="../../">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-f2546442dc5bbf8cf8ddbdc358289d72.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-a814471388013597217750d613ede327.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -118,7 +120,7 @@ details > summary {
 </style>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -188,7 +190,7 @@ window.Quarto = {
     <h2 id="toc-title">Nesta página</h2>
    
   <ul>
-  <li><a href="#importação-reestruturação-e-tratamento-dos-dados" id="toc-importação-reestruturação-e-tratamento-dos-dados" class="nav-link active" data-scroll-target="#importação-reestruturação-e-tratamento-dos-dados"><span class="header-section-number">1</span> Importação, Reestruturação e Tratamento dos Dados</a></li>
+  <li><a href="#explicação-do-método" id="toc-explicação-do-método" class="nav-link active" data-scroll-target="#explicação-do-método"><span class="header-section-number">1</span> Explicação do Método</a></li>
   <li><a href="#base-dados-recuperação-de-pacientes-pós-avc-stroke" id="toc-base-dados-recuperação-de-pacientes-pós-avc-stroke" class="nav-link" data-scroll-target="#base-dados-recuperação-de-pacientes-pós-avc-stroke"><span class="header-section-number">2</span> Base Dados: Recuperação de Pacientes Pós-AVC (STROKE)</a>
   <ul class="collapse">
   <li><a href="#sobre-os-dados" id="toc-sobre-os-dados" class="nav-link" data-scroll-target="#sobre-os-dados"><span class="header-section-number">2.1</span> Sobre os dados</a></li>
@@ -229,7 +231,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Data de Publicação</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">12 de março de 2026</p>
+      <p class="date">21 de março de 2026</p>
     </div>
   </div>
   
@@ -246,15 +248,16 @@ window.Quarto = {
 
 </div>
 <p><br></p>
-<section id="importação-reestruturação-e-tratamento-dos-dados" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="importação-reestruturação-e-tratamento-dos-dados"><span class="header-section-number">1</span> Importação, Reestruturação e Tratamento dos Dados</h2>
+<section id="explicação-do-método" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="explicação-do-método"><span class="header-section-number">1</span> Explicação do Método</h2>
 <div style="text-align: justify">
-<p>Para a modelagem longitudinal, o conjunto de dados é submetido a três fases cruciais de processamento e estruturação:</p>
+<p>A Análise de Componentes Principais - PCA é uma técnica estatística que visa explicar a estrutura de variância e covariância de um vetor aleatório <span class="math inline">\(\bm{X}\)</span>. Esse método se baseia na criação de combinações lineares a partir das variáveis originais, denominadas componentes principais, de modo que são não correlacionadas. O objetivo prático dessa abordagem é simplificar o conjunto de dados, reduzindo o número de variáveis. Essa simplificação é alcançada ao identificar novas componentes que expliquem a maior parte da variabilidade nos dados.</p>
+<p>A priori, devemos entender como aplicar o método, que pode ser feito de duas formas:</p>
 <ul>
-<li><p><strong>Passo 1 - Leitura:</strong> Importação da base de dados brutos para o ambiente R no formato largo (wide). Nesse formato, cada linha representa um paciente e cada coluna corresponde a uma semana de avaliação. Embora adequado para armazenar os dados brutos, esse formato não é apropriado para ajustes de modelos longitudinais.</p></li>
-<li><p><strong>Passo 2 - Reestruturação:</strong> Para permitir a modelagem da correlação intra-sujeito ao longo do tempo, o banco é convertido para o formato longo (long), no qual cada linha representa uma única observação temporal.</p></li>
-<li><p><strong>Passo 3 - Criação de Variável:</strong> Se necessário, deve ser realizada a criação da variável de tempo recentralizada, que é crucial para garantir que o intercepto do modelo estatístico (<span class="math inline">\(\beta_0\)</span>) represente a Pontuacao basal (Tempo 0).</p></li>
+<li><p><strong>1 Método (Matriz de Correlação):</strong> Devemos obter a matriz de correlação <span class="math inline">\(R_{m \times n}\)</span> dos dados originais, que é quivalente a obter a matriz de covariância <span class="math inline">\(S_{m \times n}\)</span> a partir dos dados transformados “padronizados”.</p></li>
+<li><p><strong>2 Método (Matriz de Covariância::):</strong> Devemos obter a matriz de covariância <span class="math inline">\(S_{m \times n}\)</span> a partir dos dados originais.</p></li>
 </ul>
+<p>Uma vez obtida a matriz de interesse, primeiramente extraímos os autovalores e autovetores associados a ela. A interpretação dos resultados é simples: as combinações lineares (componentes) geradas são interpretadas como sendo a transposta da matriz de autovetores, iremos denotadar por <span class="math inline">\(P_{m \times n}\)</span>, onde cada componente captura uma parte da variabilidade total dos dados. Os autovalores, denominados por <span class="math inline">\(\lambda_{1}, \lambda_{2},..., \lambda_{n}\)</span>, representam a variância individual de cada componente e indicam a importância relativa da mesma na explicação da variabilidade total dos dados.</p>
 </div>
 </section>
 <section id="base-dados-recuperação-de-pacientes-pós-avc-stroke" class="level2" data-number="2">
