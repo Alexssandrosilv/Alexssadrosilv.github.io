@@ -16,7 +16,7 @@ categories: ["R", "Python", "1 - PCA"] # <--- Suas tags para o filtro
 <br>
 
 
-## Introdução
+## Explicação do Método
 
 ::: {style="text-align: justify"}
 
