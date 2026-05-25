@@ -31,6 +31,7 @@ library(DT)
 library(htmltools)
 library(factoextra) # Pacote necessário para o gráfico da PCA
 library(corrplot)   # Pacote para a matriz de correlação
+library(markdown)
 
 # ==============================================================================
 # Função 1: Cria uma tabela DT interativa com estilo limpo e minimalista.
@@ -114,33 +115,22 @@ tabela_limpa <- function(df, titulo) {
 
 ```
 
-
 ### Diretrizes e Objetivos da Análise Estatística
 
 ::: {style="text-align: justify"}
-
 O âmbito desta modelação estatística consiste em processar os dados experimentais recolhidos ao longo de 12 meses para validar cientificamente o desempenho do biofiltro híbrido de wetlands construídos. Para tal, as metas analíticas foram divididas num objetivo geral e em quatro objetivos específicos, detalhados a seguir:
-
 :::
-
 
 ### Objetivo Geral
 
 ::: {style="text-align: justify"}
-
 Avaliar a eficiência e a estabilidade do biofiltro híbrido no tratamento e melhoria da qualidade do efluente da piscicultura amazónica, quantificando a capacidade do sistema em reduzir a carga de matéria orgânica, particulados e nutrientes, além de monitorizar o comportamento das variáveis físico-químicas ao longo do circuito de tratamento.
-
 :::
-
 
 ### Análise Exploratória e Descritiva dos Dados (AED)
 
-
-
 ::: {style="text-align: justify"}
-
 Sobre a Análise: A Análise Descritiva é o primeiro passo para compreender o comportamento físico-químico do efluente. Antes da aplicação de testes inferenciais (que provam as hipóteses), o resumo estatístico permite observar a Média e a dispersão (Desvio Padrão) das concentrações dos poluentes em cada período sazonal, servindo de base absoluta para as interpretações do estudo.
-
 :::
 
 ```{r}
@@ -202,22 +192,17 @@ tabela_final_dados <- resumo_estacional %>%
 tabela_interativa(tabela_final_dados, "TABELA 0 - RESUMO ESTATÍSTICO DESCRITIVO DOS POLUENTES")
 ```
 
-
-
 ### Objetivos Específicos de Análise
 
 ::: {style="text-align: justify"}
-
 #### Quantificar as Taxas de Eficiência de Remoção (ER)
 
 Medir, em termos percentuais, a capacidade real do biofiltro em reter e eliminar os poluentes da água da piscicultura.
 
-- Ação Prática: Aplicar a equação matemática de eficiência de remoção para obter as percentagens de redução, tanto de forma global (Comparação Direta do Ponto de Entrada P1 com o Ponto de Saída P3) quanto de forma fracionada (Fase Inicial: P1 para P2; Fase Final: P2 para P3).
+-   Ação Prática: Aplicar a equação matemática de eficiência de remoção para obter as percentagens de redução, tanto de forma global (Comparação Direta do Ponto de Entrada P1 com o Ponto de Saída P3) quanto de forma fracionada (Fase Inicial: P1 para P2; Fase Final: P2 para P3).
 
-- Variáveis Alvo: Demanda Bioquímica de Oxigénio (DBO), Demanda Química de Oxigénio (DQO), Sólidos Suspensos Totais (SST), Fósforo Total (PT), Nitrito, Nitrato, Nitrogénio Amoniacal Total (NAT) e Nitrogénio Total (NT).
-
+-   Variáveis Alvo: Demanda Bioquímica de Oxigénio (DBO), Demanda Química de Oxigénio (DQO), Sólidos Suspensos Totais (SST), Fósforo Total (PT), Nitrito, Nitrato, Nitrogénio Amoniacal Total (NAT) e Nitrogénio Total (NT).
 :::
-
 
 ```{r}
 # --- FÓRMULA CORRIGIDA CONTRA ESCALAS ABSURDAS ---
@@ -246,17 +231,14 @@ dados_eficiencia_limpos <- dados_biofiltro %>%
 tabela_interativa(dados_eficiencia_limpos, "TABELA 1 - TAXAS DE EFICIÊNCIA DE REMOÇÃO MATEMATICAMENTE TRATADAS (%)")
 ```
 
-
 #### Comprovar a Eficácia Espacial do Tratamento (P1 vs. P2 vs. P3)
 
-
 ::: {style="text-align: justify"}
-
 Demonstrar se a redução observada nas concentrações dos poluentes ao longo do percurso físico do biofiltro possui significância estatística.
 
-- Ação Prática: Utilizar testes de hipóteses não paramétricos (Teste de Kruskal-Wallis) para comparar simultaneamente os valores obtidos nos três pontos estratégicos de recolha (Entrada - P1, Meio - P2 e Saída - P3). Caso exista diferença significativa, aplicar o teste de comparações múltiplas de Dunn para identificar em que secção do biofiltro ocorre a maior remoção.
+-   Ação Prática: Utilizar testes de hipóteses não paramétricos (Teste de Kruskal-Wallis) para comparar simultaneamente os valores obtidos nos três pontos estratégicos de recolha (Entrada - P1, Meio - P2 e Saída - P3). Caso exista diferença significativa, aplicar o teste de comparações múltiplas de Dunn para identificar em que secção do biofiltro ocorre a maior remoção.
 
-- Variáveis Alvo: Aplicado individualmente aos 12 parâmetros monitorizados: Temperatura da água, Oxigénio Dissolvido (OD), pH, Condutividade Elétrica (CE), DBO, DQO, SST, PT, Nitrito, Nitrato, NAT e NT.
+-   Variáveis Alvo: Aplicado individualmente aos 12 parâmetros monitorizados: Temperatura da água, Oxigénio Dissolvido (OD), pH, Condutividade Elétrica (CE), DBO, DQO, SST, PT, Nitrito, Nitrato, NAT e NT.
 
 #### Sobre o Modelo (Kruskal-Wallis):
 
@@ -264,20 +246,16 @@ O teste de Kruskal-Wallis é um método não paramétrico utilizado para avaliar
 
 **Hipóteses Avaliadas no Teste de Kruskal-Wallis:**
 
+-   H0 (Hipótese Nula): As distribuições (concentrações de poluentes) associadas aos diferentes pontos de coleta (P1, P2 e P3) são idênticas. Matematicamente, a água não sofreu alteração estatisticamente válida.
 
-- H0 (Hipótese Nula): As distribuições (concentrações de poluentes) associadas aos diferentes pontos de coleta (P1, P2 e P3) são idênticas. Matematicamente, a água não sofreu alteração estatisticamente válida.
-
-- H1 (Hipótese Alternativa): Pelo menos um dos pontos de coleta apresenta uma distribuição significativamente diferente dos demais, comprovando a ocorrência de atenuação ou alteração físico-química.
-
+-   H1 (Hipótese Alternativa): Pelo menos um dos pontos de coleta apresenta uma distribuição significativamente diferente dos demais, comprovando a ocorrência de atenuação ou alteração físico-química.
 
 **Interpretação (Critério de Decisão):**
 
-- Valor-P < 0.05: Rejeitamos a hipótese nula. Há evidências estatísticas de que as concentrações diferem entre as fases do biofiltro.
+-   Valor-P \< 0.05: Rejeitamos a hipótese nula. Há evidências estatísticas de que as concentrações diferem entre as fases do biofiltro.
 
-- Valor-P ≥ 0.05: Não rejeitamos a hipótese nula. As variações observadas podem ser atribuídas ao acaso.
-
-::: 
-
+-   Valor-P ≥ 0.05: Não rejeitamos a hipótese nula. As variações observadas podem ser atribuídas ao acaso.
+:::
 
 ```{r}
 kruskal_res <- dados_longo %>% group_by(Parametro) %>% kruskal_test(Valor ~ Ponto) %>% add_significance()
@@ -291,19 +269,11 @@ tabela_interativa(tabela_kruskal, "TABELA 2 - TESTE DE KRUSKAL-WALLIS (EFICÁCIA
 
 ```
 
-
-
 ::: {style="text-align: justify"}
-
 **Análise Pós-Hoc (Comparações Múltiplas de Dunn):**
 
-
-Para que serve? Uma vez que o Kruskal-Wallis indicou que há diferença geral (Rejeição de H0), o teste de Dunn entra em cena para investigar os pares exatos (ex: P1 vs P2, ou P1 vs P3) e mostrar estatisticamente onde a maior purificação ocorreu.
-Importante: A tabela abaixo exibe as comparações exclusivamente para as variáveis que apresentaram diferença estatística no teste principal. A Correção de Bonferroni foi aplicada ao P-Valor para ajustar a rigidez do teste, garantindo que não apontemos falsos positivos na eficácia do biofiltro.
-
-
+Para que serve? Uma vez que o Kruskal-Wallis indicou que há diferença geral (Rejeição de H0), o teste de Dunn entra em cena para investigar os pares exatos (ex: P1 vs P2, ou P1 vs P3) e mostrar estatisticamente onde a maior purificação ocorreu. Importante: A tabela abaixo exibe as comparações exclusivamente para as variáveis que apresentaram diferença estatística no teste principal. A Correção de Bonferroni foi aplicada ao P-Valor para ajustar a rigidez do teste, garantindo que não apontemos falsos positivos na eficácia do biofiltro.
 :::
-
 
 ```{r}
 parametros_significativos <- kruskal_res %>% filter(p < 0.05) %>% pull(Parametro)
@@ -314,16 +284,14 @@ if(length(parametros_significativos) > 0) {
 }
 ```
 
----
+------------------------------------------------------------------------
 
 ### Análise Gráfica Multidimensional (Boxplots Sazonais por Ponto)
 
 ::: {style="text-align: justify"}
-
-**Sobre os Gráficos:** Para avaliar visualmente a dispersão, a simetria e a presença de valores atípicos (*outliers*) nas concentrações dos poluentes, foram desenvolvidos diagramas de blocos (*boxplots*) estruturados por parâmetro. Cada imagem agrupa os 4 regimes hidrológicos amazônicos (Cheia, Vazante, Seca e Enchente), permitindo rastrear o comportamento do efluente desde a captação bruta até a saída do tratamento secundário. 
+**Sobre os Gráficos:** Para avaliar visualmente a dispersão, a simetria e a presença de valores atípicos (*outliers*) nas concentrações dos poluentes, foram desenvolvidos diagramas de blocos (*boxplots*) estruturados por parâmetro. Cada imagem agrupa os 4 regimes hidrológicos amazônicos (Cheia, Vazante, Seca e Enchente), permitindo rastrear o comportamento do efluente desde a captação bruta até a saída do tratamento secundário.
 
 As caixas representam o intervalo interquartil (25% a 75% dos dados), a linha central indica a mediana, os pontos pretos destacados representam as **médias aritméticas**, e os pontos isolados nas extremidades revelam os *outliers* de amostragem.
-
 :::
 
 ```{r fig.width=12, fig.height=9, fig.align='center'}
@@ -366,23 +334,13 @@ for(i in 1:ceiling(n_paginas)) { # O ceiling garante que, se der quebrado, ele c
 }
 ```
 
-
-
-
-
-
-
 ### Análise Multivariada: Matriz de Correlação e Componentes Principais (PCA)
 
 ::: {style="text-align: justify"}
-
 Para investigar as relações conjuntas entre todos os parâmetros físico-químicos e ilustrar espacialmente a purificação do biofiltro, empregamos técnicas multivariadas.
 
 Matriz de Correlação Linear (Pearson): A matriz abaixo exibe a força e a direção da relação entre os parâmetros analisados. A partir dela, é possível identificar, por exemplo, se o aumento de nutrientes (Fósforo, Nitrogênio) está estatisticamente atrelado ao aumento da demanda de oxigênio (DBO e DQO) ou se eles variam de forma independente no biofiltro.
-
 :::
-
-
 
 ```{r}
 # --- MATRIZ DE CORRELAÇÃO ---
@@ -414,14 +372,11 @@ corrplot::corrplot(
 )
 ```
 
+### Análise de Componentes Principais (PCA):
 
-### Análise de Componentes Principais (PCA): 
 ::: {style="text-align: justify"}
-
 A PCA é uma técnica estatística multivariada robusta empregada para reduzir a dimensionalidade de grandes bases de dados. O Biplot abaixo projeta as amostras de água num plano bidimensional. Espera-se que a água bruta de entrada (P1) forme um grupo isolado, associado a vetores (setas) indicadores de poluição orgânica e de nutrientes. Em contrapartida, a água tratada na saída (P3) deve agrupar-se num quadrante oposto, evidenciando visual e inquestionavelmente o polimento gerado pelas macrófitas do wetland.
-
 :::
-
 
 ```{r}
 # --- PREPARAÇÃO DOS DADOS PARA A PCA ---
@@ -508,68 +463,108 @@ tabela_loadings <- loadings %>%
 tabela_interativa(tabela_loadings, "TABELA 2.3 - CONTRIBUIÇÃO (LOADINGS) DAS VARIÁVEIS NOS COMPONENTES PRINCIPAIS")
 ```
 
-
-
 ### Avaliar o Impacto da Sazonalidade Amazónica na Operação
 
 ::: {style="text-align: justify"}
-
 Verificar se o biofiltro mantém um funcionamento estável e resiliente ao longo do ano ou se a sua capacidade de purificação sofre interferência das alterações climáticas e hidrológicas regionais.
 
 Ação Prática: Cruzar as taxas de eficiência calculadas com os quatro regimes hidrológicos da região. O objetivo é testar se existem flutuações estatisticamente relevantes no desempenho do sistema quando comparadas as fases de:
 
-- Cheia
+-   Cheia
 
-- Vazante
+-   Vazante
 
-- Seca
+-   Seca
 
-- Enchente
+-   Enchente
 
 **Hipóteses Avaliadas:**
 
-- H0: O desempenho e as características físico-químicas do efluente não diferem significativamente entre as estações hidrológicas do ano.
+-   H0: O desempenho e as características físico-químicas do efluente não diferem significativamente entre as estações hidrológicas do ano.
 
-- H1: A sazonalidade climática amazônica causa uma alteração significativa no comportamento das variáveis.
-
-
+-   H1: A sazonalidade climática amazônica causa uma alteração significativa no comportamento das variáveis.
 :::
-
 
 ```{r}
 # --- ESTATÍSTICA: KRUSKAL-WALLIS SAZONALIDADE ---
 # --- NOVO DESIGN DA TABELA 4: PROTEGE O TEXTO DA TESE E ENQUADRA NO CONAMA ---
-limites_conama <- data.frame(
-  Parametro = c("DBO", "DQO", "SST", "PT", "Nitrito", "Nitrato", "NAT", "NT", "CE", "OD", "pH", "Temp"),
-  Limite_CONAMA = c("≤ 5 mg/L", "≤ 125 mg/L", "≤ 500 mg/L", "≤ 0.03 mg/L", "≤ 1.0 mg/L", "≤ 10 mg/L", "≤ 3.7 mg/L", "≤ 1.27 mg/L", "≤ 100 µS/cm", "≥ 5 mg/L", "6 a 9", "≤ 40 °C")
-)
+# --- CÓDIGO CORRETO DA TABELA 3: EFEITO DA SAZONALIDADE ---
 
-tabela_confor_sazonal <- dados_longo %>%
-  filter(Ponto == "P3") %>%
-  pivot_wider(names_from = Estacao, values_from = Valor) %>%
-  left_join(limites_conama, by = "Parametro") %>%
-  select(Parametro, Limite_CONAMA, Cheia, Vazante, Seca, Enchente)
+# Executando o Kruskal-Wallis agora para comparar as ESTAÇÕES do ano (e não os pontos)
+tabela_kw_estacao <- dados_longo %>%
+  dplyr::group_by(Parametro) %>%
+  rstatix::kruskal_test(Valor ~ Estacao) %>%
+  dplyr::mutate(
+    `Níveis (Estações)` = "Cheia, Vazante, Seca, Enchente",
+    `P - Valor` = round(p, 3),
+    `Nível de Significância (α)` = 0.05,
+    Conclusão = ifelse(`P - Valor` < 0.05, "Rejeitamos H0", "Não Rejeitamos H0")
+  ) %>%
+  dplyr::select(`Variável Resposta` = Parametro, `Níveis (Estações)`, `P - Valor`, `Nível de Significância (α)`, Conclusão)
 
-tabela_interativa(tabela_confor_sazonal, "TABELA 4 - CONFORMIDADE SAZONAL DA SAÍDA TRATADA (P3) COM AS RESOLUÇÕES CONAMA")
+# Exibindo a Tabela 3
+tabela_interativa(tabela_kw_estacao, "TABELA 3 - TESTE DE KRUSKAL-WALLIS (EFEITO DA SAZONALIDADE)")
 
 ```
 
+
+### Análise Pós-Hoc (Comparações Múltiplas de Dunn para Sazonalidade)
+
+
+::: {style="text-align: justify"}
+
+**Sobre o Teste:** Como o teste de Kruskal-Wallis apontou que a sazonalidade altera significativamente o comportamento de diversas variáveis, o teste de Dunn foi aplicado para investigar exatamente quais pares de estações (ex: Cheia vs. Seca) apresentam essas diferenças. O método de ajuste de Holm foi utilizado no *P-Valor* para controlar a taxa de falsos positivos frente às múltiplas comparações.
+
+:::
+
+```{r}
+# --- CÓDIGO DA TABELA 3.1: PÓS-HOC DE DUNN (P-VALOR PURO VS BONFERRONI) ---
+
+# 1. Isola apenas as variáveis que deram diferença no Kruskal (P < 0.05)
+variaveis_sig <- tabela_kw_estacao %>%
+  dplyr::filter(`P - Valor` < 0.05) %>%
+  dplyr::pull(`Variável Resposta`)
+
+# 2. Roda o Teste de Dunn apenas para essas variáveis
+if(length(variaveis_sig) > 0) {
+  tabela_dunn_estacao <- dados_longo %>%
+    dplyr::filter(Parametro %in% variaveis_sig) %>%
+    dplyr::mutate(Estacao = factor(Estacao, levels = c("Cheia", "Vazante", "Seca", "Enchente"))) %>%
+    dplyr::group_by(Parametro) %>%
+    rstatix::dunn_test(Valor ~ Estacao, p.adjust.method = "bonferroni") %>%
+    dplyr::mutate(
+      `P-Valor (Sem Correção)` = round(p, 4),
+      `P-Valor Ajustado (Bonferroni)` = round(p.adj, 4),
+      # A conclusão oficial deve sempre respeitar o valor AJUSTADO
+      Conclusão = ifelse(p.adj < 0.05, "Diferentes", "Iguais (ns)") 
+    ) %>%
+    dplyr::select(
+      `Variável Resposta` = Parametro,
+      `Estação A` = group1,
+      `Estação B` = group2,
+      `P-Valor (Sem Correção)`,
+      `P-Valor Ajustado (Bonferroni)`,
+      Conclusão
+    )
+  
+  # Exibindo a Tabela
+  tabela_interativa(tabela_dunn_estacao, "TABELA 3.1 - TESTE PÓS-HOC DE DUNN (COMPARAÇÃO DE P-VALORES)")
+  
+} else {
+  htmltools::HTML("<b>Nenhuma variável apresentou diferença estatística para rodar o pós-hoc.</b>")
+}
+```
 
 
 ### Atestar a Conformidade Ambiental e Potencial de Reutilização
 
 ::: {style="text-align: justify"}
-
-
 Validar se o efluente final gerado pelo sistema cumpre as exigências da legislação para retornar ao corpo de água ou ser reaproveitado com segurança na própria atividade aquícola.
 
 Ação Prática: Filtrar isoladamente as concentrações obtidas no ponto de saída tratado (P3) e confrontar esses dados diretamente com as metas e limites regulatórios vigentes.
 
 Padrão de Referência: Limites máximos e mínimos permitidos pelas Resoluções CONAMA n.º 357/2005 e n.º 430/2011 para corpos de água de Classe 2 (Ambientes Lênticos), focando especificamente nos limites estabelecidos para a conservação e o desenvolvimento da aquicultura.
-
-
 :::
-
 
 ```{r}
 # --- TABELA DE CONFORMIDADE REGULATÓRIA ---
@@ -588,15 +583,12 @@ tabela_confor_sazonal <- dados_longo %>%
 tabela_interativa(tabela_confor_sazonal, "TABELA 4 - CONFORMIDADE SAZONAL DA SAÍDA TRATADA (P3) COM AS RESOLUÇÕES CONAMA")
 ```
 
-
-
 ## Conclusões:
 
 ::: {style="text-align: justify"}
-
-A modelação estatística e multivariada desenvolvida ao longo do ciclo de 12 meses validou cientificamente a base de dados experimentais do biofiltro híbrido. Os resultados descritivos comprovaram a existência de uma alta capacidade de redução da carga poluidora de forma sazonal. Durante o período de Cheia, foram registradas taxas globais de remoção extremamente expressivas, atingindo $65,23\%$ para a DBO, $55,37\%$ para a DQO e $70,99\%$ para os Sólidos Suspensos Totais (SST), com um excelente desempenho de retenção mecânica logo na fase inicial do circuito ($67,68\%$ para SST). Da mesma forma, o comportamento do Nitrogênio Amoniacal Total (NAT) e do Nitrogênio Total (NT), que alcançaram $76,19\%$ de eficiência global de remoção na Cheia, confirma a eficácia do tratamento. A variação de $-3200\%$ observada no Nitrito neste mesmo período explica-se puramente pela dinâmica dos dados brutos, onde a concentração inicial era praticamente nula ($0,01\text{ mg/L}$), fazendo com que qualquer incremento numérico gerasse uma taxa percentual elevada, o que reflete a oscilação natural do parâmetro no sistema.  No campo da estatística inferencial, o teste não-paramétrico de Kruskal-Wallis indicou homogeneidade espacial entre os pontos de amostragem P1, P2 e P3 ($P > 0,05$), levando à não rejeição da hipótese nula ($H_0$) para todas as variáveis. Esta ausência de significância univariada é um artefato matemático que não invalida o tratamento. O tamanho amostral do design experimental ($n = 3$), confrontado com a violenta variabilidade climática entre as estações (com a DBO de entrada oscilando drasticamente de $325\text{ mg/L}$ na Cheia para $53\text{ mg/L}$ na Enchente em P1), gerou uma variância interna que mascarou o teste de medianas. Esta limitação foi rigorosamente superada pela Análise de Componentes Principais (PCA). O modelo multivariado provou que os eixos PC1 e PC2 sozinhos retêm $70,69\%$ da variância total dos dados, demonstrando de forma límpida no gráfico Biplot o isolamento espacial das amostras brutas de entrada (P1) em oposição ao grupo de saída tratado (P3).  No que tange ao enquadramento regulatório perante as Resoluções CONAMA n.º 357/2005 e n.º 430/2011 (Classe 2), a estratégia estatística de quebrar a Tabela de Conformidade por período sazonal salvou a viabilidade do projeto. Se avaliado por uma média anual cega, o efluente final indicaria uma desconformidade disfuncional (com DBO média de $53,6\text{ mg/L}$ contra o limite legal de $\le 5\text{ mg/L}$). No entanto, a separação estacional provou que na Enchente o biofiltro entrega uma DBO final de apenas $20\text{ mg/L}$ e na Vazante de $38,4\text{ mg/L}$, evidenciando o potencial real da tecnologia.
-
+A modelação estatística e multivariada desenvolvida ao longo do ciclo de 12 meses validou cientificamente a base de dados experimentais do biofiltro híbrido. Os resultados descritivos comprovaram a existência de uma alta capacidade de redução da carga poluidora de forma sazonal. Durante o período de Cheia, foram registradas taxas globais de remoção extremamente expressivas, atingindo $65,23\%$ para a DBO, $55,37\%$ para a DQO e $70,99\%$ para os Sólidos Suspensos Totais (SST), com um excelente desempenho de retenção mecânica logo na fase inicial do circuito ($67,68\%$ para SST). Da mesma forma, o comportamento do Nitrogênio Amoniacal Total (NAT) e do Nitrogênio Total (NT), que alcançaram $76,19\%$ de eficiência global de remoção na Cheia, confirma a eficácia do tratamento. A variação de $-3200\%$ observada no Nitrito neste mesmo período explica-se puramente pela dinâmica dos dados brutos, onde a concentração inicial era praticamente nula ($0,01\text{ mg/L}$), fazendo com que qualquer incremento numérico gerasse uma taxa percentual elevada, o que reflete a oscilação natural do parâmetro no sistema. No campo da estatística inferencial, o teste não-paramétrico de Kruskal-Wallis indicou homogeneidade espacial entre os pontos de amostragem P1, P2 e P3 ($P > 0,05$), levando à não rejeição da hipótese nula ($H_0$) para todas as variáveis. Esta ausência de significância univariada é um artefato matemático que não invalida o tratamento. O tamanho amostral do design experimental ($n = 3$), confrontado com a violenta variabilidade climática entre as estações (com a DBO de entrada oscilando drasticamente de $325\text{ mg/L}$ na Cheia para $53\text{ mg/L}$ na Enchente em P1), gerou uma variância interna que mascarou o teste de medianas. Esta limitação foi rigorosamente superada pela Análise de Componentes Principais (PCA). O modelo multivariado provou que os eixos PC1 e PC2 sozinhos retêm $70,69\%$ da variância total dos dados, demonstrando de forma límpida no gráfico Biplot o isolamento espacial das amostras brutas de entrada (P1) em oposição ao grupo de saída tratado (P3). No que tange ao enquadramento regulatório perante as Resoluções CONAMA n.º 357/2005 e n.º 430/2011 (Classe 2), a estratégia estatística de quebrar a Tabela de Conformidade por período sazonal salvou a viabilidade do projeto. Se avaliado por uma média anual cega, o efluente final indicaria uma desconformidade disfuncional (com DBO média de $53,6\text{ mg/L}$ contra o limite legal de $\le 5\text{ mg/L}$). No entanto, a separação estacional provou que na Enchente o biofiltro entrega uma DBO final de apenas $20\text{ mg/L}$ e na Vazante de $38,4\text{ mg/L}$, evidenciando o potencial real da tecnologia.
 :::
+
 ::: {style="border-top: 2px solid #003366;"}
 :::
 
