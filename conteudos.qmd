@@ -17,6 +17,11 @@ listing:
       title: "Estatística Multivariada II"
       categories: [Estatística Multivariada, R, Python]
       
+    - path: codigos/7_Assessoria_Estatistica/index.qmd
+      title: "Assessoria Estatística"
+      categories: [Estatística Multivariada, R, Python]
+      
+      
   # 2. VISUAL: Define o layout como "Grade" (Cards/Quadrados).
   # Outras opções seriam 'default' (lista de blog) ou 'table' (tabela).
   type: grid          
