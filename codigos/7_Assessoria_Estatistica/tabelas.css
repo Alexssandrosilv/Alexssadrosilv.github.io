@@ -82,3 +82,25 @@ table.dt-minimal tbody tr:last-child td {
   border: none !important;
   border-radius: 6px;
 }
+
+
+/* ---------- CELULAR ---------- */
+@media (max-width: 576px) {
+  .dataTables_wrapper { font-size: 0.7rem; }
+
+  table.dt-minimal thead th,
+  table.dt-minimal tbody td {
+    padding: 6px 4px !important;
+  }
+
+  /* Pesquisa alinhada à esquerda */
+  .dataTables_filter { text-align: left !important; }
+
+  /* Rodapé em coluna, sem apertar os botões */
+  .dt-rodape,
+  .dt-direita {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
