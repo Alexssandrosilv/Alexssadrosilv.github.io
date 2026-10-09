@@ -59,9 +59,9 @@ source("3_tratamento_dados.R")
 
 Os dados analisados são registros de desembarque pesqueiro das colônias de pescadores dos municípios de Borba e Manicoré, no período de 2002 a 2025. Eles foram organizados para comparar a pesca antes e depois da entrada em operação das hidrelétricas (UHEs) Jirau e Santo Antônio, no Rio Madeira. O trabalho tem os seguintes objetivos:
 
-1. Correlacionar a produção pesqueira com variáveis hidrológicas influenciadas pela ação antropomórfica das UHEs;
-2. Detectar mudanças nas séries temporais de produção pesqueira;
-3. Quantificar as mudanças a produção, composição e diversidade de capturas pesqueiras registradas no banco de dados das colônias de pescadores, comparando os períodos “Antes” e “Depois” da operação das UHEs;
+1. **Correlacionar a produção pesqueira com variáveis hidrológicas influenciadas pela ação antropomórfica das UHEs;**
+2. **Detectar mudanças nas séries temporais de produção pesqueira;**
+3. **Quantificar as mudanças a produção, composição e diversidade de capturas pesqueiras registradas no banco de dados das colônias de pescadores, comparando os períodos “Antes” e “Depois” da operação das UHEs.**
 
 ### Preparação dos Dados
 
@@ -69,15 +69,14 @@ Antes das análises, os dados de desembarque pesqueiro dos municípios de Borba 
 
 1. **Reunião das bases (Excel).** Os registros de Borba e Manicoré foram reunidos em uma única planilha, chamada `dados_tratados.xlsx`. Nela, cada registro recebeu informações sobre o local de desembarque, a espécie capturada, o ambiente em que ela vive e as características da pescaria, representadas pelas variáveis `localidade`, `nome_comum`, `ordem`, `familia`, `especie`, `habitat`, `migration`, `nivel_tropico`, `status_mercado`, `periodo`, `periodo_2` e `dias`.
 
-2. **Limpeza dos textos (R).** Os espaços desnecessários no início e no fim dos textos foram retirados com a função `str_trim`. Esse cuidado evita que um mesmo nome seja entendido como dois nomes diferentes, como "Borba" e "Borba ". Em seguida, cada variável foi definida no tipo correto: categoria, texto ou número.
 
-3. **Mudança do formato da tabela.** Na planilha original, cada ano, de 2000 a 2025, ocupava uma coluna, formato conhecido como "largo". Com a função `pivot_longer`, a tabela passou para o formato "longo", em que cada linha corresponde a um registro de um único ano. Assim, os anos foram reunidos na coluna `ano`, e as quantidades pescadas, na coluna `captura_total`. Esse formato é o mais adequado para as análises e os gráficos feitos no R.
+2. **Mudança do formato da tabela.** Na planilha original, cada ano, de 2000 a 2025, ocupava uma coluna, formato conhecido como "largo". Com a função `pivot_longer`, a tabela passou para o formato "longo", em que cada linha corresponde a um registro de um único ano. Assim, os anos foram reunidos na coluna `ano`, e as quantidades pescadas, na coluna `captura_total`. Esse formato é o mais adequado para as análises e os gráficos feitos no R.
 
-4. **Ajuste dos valores de captura.** Na variável `captura_total`, a vírgula decimal foi substituída por ponto, que é o padrão reconhecido pelo R, e os valores foram convertidos para número. Com isso, tornou-se possível realizar cálculos e construir gráficos com essa variável.
+3. **Ajuste dos valores de captura.** Na variável `captura_total`, a vírgula decimal foi substituída por ponto, que é o padrão reconhecido pelo R, e os valores foram convertidos para número. Com isso, tornou-se possível realizar cálculos e construir gráficos com essa variável.
 
-5. **Criação da variável `periodo_barragem`.** A partir do ano de cada registro, foram definidos três grupos que indicam o momento em relação às hidrelétricas: antes (2002 a 2010), período anterior à entrada em operação das usinas; transição (2011), ano em que as comportas foram fechadas; e depois (2012 a 2025), período com as usinas em funcionamento.
+4. **Criação da variável `periodo_barragem`.** A partir do ano de cada registro, foram definidos três grupos que indicam o momento em relação às hidrelétricas: antes (2002 a 2010), período anterior à entrada em operação das usinas; transição (2011), ano em que as comportas foram fechadas; e depois (2012 a 2025), período com as usinas em funcionamento.
 
-6. **Remoção de registros sem informação.** Foram excluídas as linhas sem dado de captura (`NA`) e os anos de 2000 e 2001. Dessa forma, a base final cobre, de maneira contínua, o período de 2002 a 2025.
+5. **Remoção de registros sem informação.** Foram excluídas as linhas sem dado de captura (`NA`) e os anos de 2000 e 2001. Dessa forma, a base final cobre, de maneira contínua, o período de 2002 a 2025.
 
 A base final reúne 15 variáveis. Doze vêm da planilha `dados_tratados.xlsx`, duas surgiram na mudança de formato da tabela e uma foi criada a partir do ano. Cada variável foi classificada quanto à natureza (qualitativa ou quantitativa) e à classe em que está guardada no R, conforme a @tbl-variaveis.
 
@@ -93,7 +92,7 @@ A base final reúne 15 variáveis. Doze vêm da planilha `dados_tratados.xlsx`, 
 | `nivel_tropico` | Posição da espécie na cadeia alimentar | Qualitativa nominal | Fator | Planilha |
 | `status_mercado` | Situação do pescado no mercado | Qualitativa nominal | Fator | Planilha |
 | `periodo` | Classificação da pescaria por período | Qualitativa nominal | Caractere | Planilha |
-| `periodo_2` | Segunda classificação da pescaria por período | Qualitativa nominal | Fator | Planilha |
+| `periodo_2` | Segunda classificação da pescaria por período | Qualitativa nominal | Fator | Criada |
 | `dias` | Número de dias de pesca informados (esforço) | Quantitativa discreta | Numérica | Planilha |
 | `ano` | Ano do registro (de 2002 a 2025) | Quantitativa discreta | Inteira | Criada |
 | `captura_total` | Quantidade desembarcada, em quilos | Quantitativa contínua | Numérica | Criada |
@@ -104,6 +103,7 @@ A base final reúne 15 variáveis. Doze vêm da planilha `dados_tratados.xlsx`, 
 As variáveis criadas no processamento foram:
 
 - **`ano` e `captura_total`:** na planilha original, cada ano era uma coluna (2000, 2001, ..., 2025) com as quantidades pescadas. Com a mudança de formato, os nomes dessas colunas passaram a ser os valores de `ano`, e as quantidades, os valores de `captura_total`.
+- **`periodo_2`:** criada a partir de `periodo`, apenas para padronização do periodo.
 - **`periodo_barragem`:** criada a partir de `ano`, reúne os registros em antes, transição e depois da entrada em operação das hidrelétricas.
 
 ## Visualização dos Dados Brutos
