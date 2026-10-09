@@ -1,0 +1,84 @@
+/* ---------- TABELAS ESTÁTICAS ---------- */
+#quarto-document-content table {
+  width: 100%;
+  font-size: 0.8rem;
+  border-collapse: collapse;
+  --bs-table-bg: #ffffff;
+  --bs-table-striped-bg: #ffffff;
+  --bs-table-hover-bg: #ffffff;
+}
+#quarto-document-content table thead th {
+  font-weight: 700;
+  background-color: #ffffff !important;
+  border-top: 2px solid #000000;
+  border-bottom: 1.5px solid #000000;
+  text-align: center;
+}
+#quarto-document-content table tbody td {
+  background-color: #ffffff !important;
+  border: none;
+  text-align: center;
+}
+#quarto-document-content table tbody tr:last-child td {
+  border-bottom: 2px solid #000000;
+}
+
+/* ---------- LEGENDA ---------- */
+#quarto-document-content figcaption,
+#quarto-document-content table caption {
+  font-weight: 700;
+  color: #2b2b2b;
+  text-align: left;
+  margin-bottom: 0.5rem;
+}
+#quarto-document-content .quarto-float-title,
+#quarto-document-content .caption-prefix {
+  color: #003366;
+}
+
+/* ---------- TABELA INTERATIVA (DT) ---------- */
+.dataTables_wrapper { font-size: 0.8rem; }
+
+table.dt-minimal thead th {
+  border-top: none;
+  border-bottom: 2px solid #000000;
+}
+table.dt-minimal tbody td {
+  border-bottom: 1px solid #eeeeee;
+}
+table.dt-minimal tbody tr:last-child td {
+  border-bottom: 1px solid #eeeeee;
+}
+
+.dataTables_filter input {
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+  padding: 2px 8px;
+}
+
+.dt-rodape {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+.dt-direita {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.dt-rodape .dataTables_info,
+.dt-rodape .dataTables_length,
+.dt-rodape .dataTables_paginate {
+  float: none !important;
+  padding: 0;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+  background: #000000 !important;
+  color: #ffffff !important;
+  border: none !important;
+  border-radius: 6px;
+}
