@@ -1,333 +1,68 @@
 ---
-title: "Assessoria Estatística"
-format:
-  html:
-    theme: flatly
-    css: s2.css
-    # ADICIONE ESTA LINHA ABAIXO:
-    include-in-header: <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
-
-# author: "Alexssandro Oliveira | alexssandrosg@gmail.com"
-# description: "A detalhar"
-# date: last-modified
+title: "AVALIAÇÃO DO ESTOQUE PESQUEIRO NO RIO MADEIRA À JUSANTE DAS HIDRELÉTRICAS JIRAU E SANTO ANTÔNIO NO ESTADO DO AMAZONAS"
+description: "Projeto: Tese de Doutorado | Lucas Lara"
+author: "Alexssandro Oliveira | alexssandrosg@gmail.com"
+lang: pt
+date: last-modified
 image: "imagens/Serie_temporal.jpg"
-
-# /* ==========================================================================
-#     ARQUIVO DE ESTILOS: S1.CSS (ATUALIZAÇÃO PREMIUM)
-#     Efeito: Ícone de 'Play' (Estilo Netflix) na Sidebar e nos Cards.
-# ========================================================================== */
-# 
-# /* 5. SIDEBAR / LISTA DE ARQUIVOS (EFEITO PLAY-CIRCLE) */
-# .sidebar-item-container {
-#     position: relative;             /* Base para o posicionamento do ícone */
-#     padding-left: 35px !important;  /* Abre espaço na esquerda para o ícone não bater no texto */
-#     transition: all 0.4s ease;      /* Suaviza a animação de deslize e cor */
-# }
-# 
-# /* Criação do Ícone de Play na Sidebar usando Pseudo-elemento */
-# .sidebar-item-container::before {
-#     display: inline-block;          /* Permite estilizar como um bloco de texto/ícone */
-#     font-family: 'bootstrap-icons'; /* Chama a fonte de ícones do Bootstrap */
-#     content: "\F4F4";               /* Código Unicode do ícone 'play-circle-fill' */
-#     position: absolute;              /* Fixa o ícone à esquerda do container */
-#     left: 10px;                     /* Distância da borda esquerda */
-#     top: 50%;                       /* Centraliza verticalmente */
-#     transform: translateY(-50%) scale(0.8); /* Ajuste fino de centralização e começa menor */
-#     font-size: 1.2rem;              /* Tamanho do ícone */
-#     /* ESTADO INICIAL: Preto executivo */
-#     color: black; 
-#     opacity: 0.8;                   /* Leve transparência para sobriedade */
-#     transition: all 0.3s ease;      /* Transição suave de cor e tamanho */
-# }
-# 
-# /* Comportamento da Sidebar quando o item está Ativo ou com Mouse em cima (Hover) */
-# .sidebar-item-container.active,
-# .sidebar-item-container:hover {
-#     background-color: var(--cor-verde-fundo) !important; /* Fundo verde quase invisível */
-#     transform: translateX(5px);                          /* Deslize suave para a direita */
-# }
-# 
-# /* Aplica o efeito Verde Teal e cresce o ícone no Hover/Ativo */
-# .sidebar-item-container.active::before,
-# .sidebar-item-container:hover::before {
-#     /* ESTADO INTERAÇÃO: Muda de PRETO para VERDE TEAL */
-#     color: var(--cor-destaque-viva) !important; 
-#     opacity: 1;                                      /* Fica 100% nítido */
-#     transform: translateY(-50%) scale(1.1);          /* Centralizado e cresce levemente (efeito 'pulso') */
-# }
-# 
-# /* Mantém o texto da Sidebar sóbrio em preto */
-# .sidebar-link, .sidebar-item-text, nav[role=doc-toc] ul li a {
-#     color: black !important;
-#     font-weight: 500;
-# }
-# 
-# /* 6. CARDS DE POST (O EFEITO PREMIUM ΛΣ - NETFLIX STYLE) */
-# /* Estilização dos blocos de prévia de posts/projetos */
-# div.quarto-post {
-#     border-bottom: 1px solid #f0f0f0;                /* Linha divisória fina na base */
-#     padding: 2rem 2rem 2rem 4rem;                    /* Aumenta padding esquerdo (4rem) para o ícone */
-#     margin-bottom: 1rem;                             /* Distância entre cards */
-#     position: relative;                              /* Necessário para posicionar o ícone '::before' */
-#     border-radius: 12px;                             /* Cantos arredondados */
-#     border-left: 0px solid black;                    /* Remove a borda antiga */
-#     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); /* Animação fluida */
-# }
-# 
-# /* Criação do Ícone de Play nos Cards usando Pseudo-elemento */
-# div.quarto-post::before {
-#     display: inline-block;          /* Permite estilizar como bloco */
-#     font-family: 'bootstrap-icons'; /* Chama a fonte de ícones */
-#     content: "\F4F4";               /* Código Unicode do ícone 'play-circle-fill' */
-#     position: absolute;              /* Fixa o ícone dentro do card */
-#     left: 1.5rem;                   /* Distância da borda esquerda do card */
-#     top: 50%;                       /* Centraliza verticalmente */
-#     transform: translateY(-50%) scale(1); /* Centralizado e tamanho normal */
-#     font-size: 2rem;                /* Ícone maior no card para destaque (estilo capa de vídeo) */
-#     /* ESTADO INICIAL: Preto executivo */
-#     color: black; 
-#     opacity: 0.5;                   /* Começa mais "apagado" (fundo) */
-#     transition: all 0.4s ease;      /* Transição suave de cor e tamanho */
-# }
-# 
-# /* Efeito no Card do Post ao passar o mouse (Hover) */
-# div.quarto-post:hover {
-#     background-color: var(--cor-verde-fundo);        /* Muda o fundo do card para o verde fraquinho */
-#     transform: translateX(10px);                     /* Card inteiro desliza para a direita */
-#     box-shadow: -5px 5px 20px rgba(0,0,0,0.02);      /* Sombra lateral sutil */
-# }
-# 
-# /* Ativação e Mudança de Cor do Ícone no Hover do Card */
-# div.quarto-post:hover::before {
-#     /* ESTADO INTERAÇÃO: Muda de PRETO para VERDE TEAL */
-#     color: var(--cor-destaque-viva); 
-#     opacity: 1;                                      /* Fica 100% nítido */
-#     transform: translateY(-50%) scale(1.2);          /* Centralizado e cresce (efeito 'dar o play') */
-#     text-shadow: 0 0 15px rgba(24, 188, 156, 0.5);   /* Adiciona um brilho neon verde sutil no ícone */
-# }
-# 
-# 
-
-# /* 5. SIDEBAR / LISTA DE ARQUIVOS (O EFEITO DE DESLIZE) */
-# .sidebar-item-container {
-#     position: relative;             /* Base para a barrinha lateral */
-#     border-left: 4px solid #f0f0f0; /* Começa com uma borda cinza quase invisível */
-# /*    border-left: 4px solid #00000000; /* Começa com uma borda cinza quase invisível */
-#     transition: all 0.4s ease;      /* Suaviza a animação */
-# }
-# 
-# /* Quando selecionado ou com o mouse em cima */
-# .sidebar-item-container.active,
-# .sidebar-item-container:hover {
-#     border-left-color: var(--cor-destaque-viva) !important; /* Barrinha vira VERDE */
-#     background-color: var(--cor-verde-fundo) !important;    /* FUNDO VERDE FRAQUINHO */
-#     transform: translateX(10px);                             /* DESLIZE (O "pulinho") */
-# }
-# 
-# .sidebar-link, .sidebar-item-text, nav[role=doc-toc] ul li a {
-#     color: black !important;        /* O texto continua preto para seriedade */
-#     font-weight: 500;
-# }
-# 
-# /* 6. CARDS DE POST (O EFEITO PREMIUM ΛΣ) */
-# div.quarto-post {
-#     border-bottom: 1px solid #f0f0f0;                /* Linha divisória fina */
-#     padding: 2rem;                                   /* Espaço interno */
-#     margin-bottom: 1rem;                             /* Distância entre posts */
-#     position: relative;                              /* Base para a barrinha lateral */
-#     border-radius: 12px;                             /* Arredondamento */
-#     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); /* Animação fluida */
-# }
-# 
-# /* A barrinha lateral do Card */
-# div.quarto-post::before {
-#     content: "";                                     /* Obrigatório para elementos virtuais */
-#     position: absolute;                              /* Fixa dentro do card */
-#     left: 0;                                         /* Lado esquerdo */
-#     top: 25%;                                        /* Começa um pouco abaixo do topo */
-#     bottom: 25%;                                     /* Termina um pouco acima da base */
-#     width: 5px;                                      /* Largura da barra */
-#     background: black;                               /* Começa preta */
-#     border-radius: 0 10px 10px 0;                    /* Arredonda o lado direito */
-#     opacity: 0.2;                                    /* Quase transparente no início */
-#     transform: scaleY(0.5);                          /* COMEÇA ENCOLHIDA (Vertical) */
-#     transition: all 0.4s ease;                       /* Suaviza o crescimento */
-# }
-# 
-# /* Quando passa o mouse no Card do Post */
-# div.quarto-post:hover {
-#     background-color: var(--cor-verde-fundo);        /* FUNDO VERDE FRAQUINHO NO HOVER */
-#     transform: translateX(12px);                     /* DESLIZA PARA A DIREITA */
-#     box-shadow: -5px 5px 20px rgba(0,0,0,0.02);      /* Sombra lateral sutil */
-# }
-# 
-# /* Ativa a barrinha do Card no Hover */
-# div.quarto-post:hover::before {
-#     opacity: 1;                                      /* Fica 100% visível */
-#     background: var(--cor-destaque-viva);            /* VIRA VERDE NO HOVER */
-#     transform: scaleY(1);                            /* CRESCE VERTICALMENTE (Efeito Scale) */
-# }
-# 
-
-# Tags para ajudar no filtro da página principal
-# categories: [
-#   "R", 
-#   "Python", 
-#   "1 - PCA",      # Análise de Componentes Principais
-#   "2.1 - AFE",    # Análise Fatorial Exploratória
-#   "2.2 - AFC",    # Análise Fatorial Confirmatória
-#   "3 - ACC",      # Análise de Correlação Canônica
-#   "4 - AD",       # Análise Discriminante
-#   "5 - Cluster",  # Análise de Agrupamentos (Agrupamentos/Clusterização)
-#   "6.1 - ACS",    # Análise de Correspondência Simples
-#   "6.2 - ACM"     # Análise de Correspondência Múltipla
-# ]
-
-# Tags para ajudar no filtro da página principal
-# categories: [
-#   "R", 
-#   "Python", 
-#   "1 - PCA",  
-#   "2 - AF",
-#   "2.1 - AFE",
-#   "2.2 - AFC",    
-#   "3 - ACC",      
-#   "4 - AD",       
-#   "5 - CLUSTER",
-#   "6 - AC",    
-#   "6.1 - ACS",    
-#   "6.2 - ACM"     
-# ]
-
-
-# Configuração da Lista de Projetos deste módulo
-listing:
-  contents: 
-    - "*.qmd"           # Pega todos os arquivos desta pasta
-    - "!index.qmd"      # IMPORTANTE: Exclui a si mesmo para não criar um loop infinito
-  type: default         # 'default' cria uma lista detalhada (ótimo para ler resumos de aulas)
-  sort: "date desc"     # Do mais recente para o mais antigo
-  image-align: left        # <--- 1. ISSO JOGA A FOTO PARA A ESQUERDA (PRIMEIRO)
-  # fields: [image, date, title, description, reading-time] # Mostra tempo de leitura
-  # fields: [image, title, author, date, reading-time] # Mostra tempo de leitura
-  # fields: [title, author, date, reading-time] # Mostra tempo de leitura
-  fields: [title, reading-time] # Mostra tempo de leitura
-  categories: true   
-
-page-layout: full
-title-block-banner: false
+categories: ["R"]
 ---
 
-
-
-
-
-<!-- <div id="fundo-animado-snoopy" style="position: fixed; width: 100%; height: 100%; top: 0; left: 0; z-index: -2;"> -->
-
-<!--   <div id="particles-js" style="position: absolute; width: 100%; height: 100%; z-index: -3;"></div> -->
-
-<!--   <div class="snoop-dance-container"></div> -->
-
-<!-- </div> -->
-
-<!-- <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> -->
-
-<!-- <script> -->
-<!--   particlesJS("particles-js", { -->
-<!--     "particles": { -->
-<!--       "number": {  -->
-<!--         "value": 70,           /* QUANTIDADE: Densidade das partículas na tela */ -->
-<!--         "density": { "enable": true, "value_area": 800 }  -->
-<!--       }, -->
-<!--       "color": {  -->
-<!--         "value": "#000000"      /* COR: Definida como preto sólido (Corrigido) */ -->
-<!--       }, -->
-<!--       "shape": { "type": "circle" }, /* FORMA: Partículas circulares */ -->
-<!--       "opacity": {  -->
-<!--         "value": 0.3,           /* VISIBILIDADE: Transparência das bolinhas */ -->
-<!--         "random": false  -->
-<!--       }, -->
-<!--       "size": {  -->
-<!--         "value": 3,             /* TAMANHO: Diâmetro das bolinhas */ -->
-<!--         "random": true          /* Faz os tamanhos variarem um pouco */ -->
-<!--       }, -->
-<!--       "line_linked": { -->
-<!--         "enable": false -->
-<!--       },          -->
-      <!-- /* CONEXÕES: Ativado para ligar as bolinhas */ -->
-      <!-- "line_linked": {  -->
-      <!--   "enable": true,         /* CONEXÕES: Ativado para ligar as bolinhas */ -->
-      <!--   "distance": 150,        /* Distância máxima entre pontos para criar linha */ -->
-      <!--   "color": "#18bc9c",     /* COR DA LINHA: Seu Verde Teal característico */ -->
-      <!--   "opacity": 0.2,         /* Linhas sutis para não poluir o visual */ -->
-      <!--   "width": 0.8            /* Grossura fina das linhas */ -->
-      <!-- }, -->
-<!--       "move": {  -->
-<!--         "enable": true,         /* MOVIMENTO: Permite que as bolinhas flutuem */ -->
-<!--         "speed": 1.5,           /* VELOCIDADE: Ritmo constante do fundo */ -->
-<!--         "direction": "none",    /* Direção aleatória */ -->
-<!--         "random": true,         /* Movimento orgânico */ -->
-<!--         "out_mode": "out"       /* Partículas saem por um lado e entram pelo outro */ -->
-<!--       } -->
-<!--     }, -->
-<!--     "interactivity": { -->
-<!--       "events": {  -->
-<!--         /* INTERAÇÃO: Desativado para o mouse não interferir no fundo minimalista */ -->
-<!--         "onhover": { "enable": false },  -->
-<!--         "onclick": { "enable": false } -->
-<!--       } -->
-<!--     } -->
-<!--   }); -->
-<!-- </script> -->
-
 <style>
-  <!-- /* CONFIGURAÇÃO DO SNOOPY (PC) */ -->
-  <!-- .snoop-dance-container { -->
-  <!--   position: fixed;            /* Trava o personagem na tela durante a rolagem */ -->
-  <!--   width: 90px;                /* Tamanho do container */ -->
-  <!--   height: 90px; -->
-  <!--   background: url('snoopy-dance.gif') no-repeat; /* Chama seu GIF */ -->
-  <!--   background-size: contain;   /* Ajusta o GIF sem cortar */ -->
-  <!--   bottom: 50px;               /* Distância da base */ -->
-  <!--   right: 20px;                /* Distância da lateral direita */ -->
-  <!--   z-index: 1;                 /* Z-index positivo para não sumir atrás do fundo */ -->
-  <!--   opacity: 0.9 !important;    /* Nitidez do Snoopy */ -->
-  <!--   pointer-events: none;       /* Ignora cliques do mouse (não atrapalha o site) */ -->
-  <!-- } -->
-
-  <!-- /* AJUSTE PARA MOBILE (Celulares e Tablets) */ -->
-  <!-- /* Resolve o problema do Snoopy sumir no mobile */ -->
-  <!-- @media (max-width: 768px) { -->
-  <!--   .snoop-dance-container { -->
-  <!--     display: block !important; /* Força a exibição mesmo em telas pequenas */ -->
-  <!--     width: 70px;               /* Diminui um pouco para não cobrir o texto */ -->
-  <!--     height: 70px; -->
-  <!--     bottom: 60px;              /* Ajusta altura para não bater no rodapé mobile */ -->
-  <!--     right: 15px;               /* Colado no canto */ -->
-  <!--     z-index: 100;              /* Prioridade máxima de camada no mobile */ -->
-  <!--   } -->
-  <!-- } -->
-
-  /* RODAPÉ (FOOTER): Fundo preto sólido */
-  .quarto-page-footer {
-    background-color: #000000 !important; /* Força o preto absoluto */
-    position: relative !important;         /* Necessário para controle de camada */
-    z-index: 10 !important;                /* Fica à frente das partículas */
-    border-top: none !important;           /* Remove qualquer linha residual verde */
+  /* Texto do corpo justificado */
+  #quarto-document-content p,
+  #quarto-document-content li {
+    text-align: justify;
+    text-justify: inter-word;
   }
 
-  /* TEXTO E ÍCONES DO RODAPÉ: Cor Cinza Sóbrio */
-  .nav-footer-left, 
-  .nav-footer-center, 
-  .nav-footer-right, 
-  .quarto-page-footer a, 
-  .quarto-page-footer i {
-    color: #888888 !important;   /* Cor cinza original solicitada */
-    position: relative !important;
-    z-index: 11 !important;      /* Acima da base preta do footer */
-    text-decoration: none;       /* Remove sublinhados de links */
+  /* Título e descrição justificados */
+  .quarto-title h1.title,
+  .quarto-title .description {
+    text-align: justify;
+    text-justify: inter-word;
   }
 </style>
+
+
+```{r setup, include=FALSE}
+# Opções padrão para todos os chunks de código
+knitr::opts_chunk$set(
+  echo = TRUE,         # Mostra o código no documento final
+  warning = FALSE,     # Suprime mensagens de aviso (warnings)
+  message = FALSE,     # Suprime mensagens informativas
+  fig.width = 10,      # Largura padrão das figuras (polegadas)
+  fig.height = 6,      # Altura padrão das figuras (polegadas)
+  fig.align = 'center'
+)
+```
+
+
+<br>
+
+::: {style="border-top: 2px solid #003366;"}
+:::
+
+<br>
+
+
+## Explicação do Método
+
+::: {style="text-align: justify"}
+
+A Análise de Componentes Principais - PCA é uma técnica estatística que visa explicar a estrutura de variância e covariância de um vetor aleatório $\bm{X}$. Esse método se baseia na criação de combinações lineares a partir das variáveis originais, denominadas componentes principais, de modo que são não correlacionadas. O objetivo prático dessa abordagem é simplificar o conjunto de dados, reduzindo o número de variáveis. Essa simplificação é alcançada ao identificar novas componentes que expliquem a maior parte da variabilidade nos dados.
+
+
+A priori, devemos entender como aplicar o método, que pode ser feito de duas formas:
+
+-   **1 Método (Matriz de Correlação):** Devemos obter a matriz de correlação $R_{m \times n}$ dos dados originais, que é quivalente a obter a matriz de covariância $S_{m \times n}$ a partir dos dados transformados "padronizados".
+
+
+-   **2 Método (Matriz de Covariância::):** Devemos obter a matriz de covariância $S_{m \times n}$ a partir dos dados originais.
+
+Uma vez obtida a matriz de interesse, primeiramente extraímos os autovalores e autovetores associados a ela. A interpretação dos resultados é simples: as combinações lineares (componentes) geradas são interpretadas como sendo a transposta da matriz de autovetores,  iremos denotadar por $P_{m \times n}$, onde cada componente captura uma parte da variabilidade total dos dados. Os autovalores, denominados por $\lambda_{1}, \lambda_{2},..., \lambda_{n}$, representam a variância individual de cada componente e indicam a importância relativa da mesma na explicação da variabilidade total dos dados. 
+
+:::
 
 
 ```{r setup, include=FALSE}
@@ -340,7 +75,373 @@ knitr::opts_chunk$set(
   fig.height = 6,      # Define a altura padrão das figuras (em polegadas)
   fig.align = 'center'
 )
+
 ```
 
-<!-- ### Modulos -->
+## Base Dados: Recuperação de Pacientes Pós-AVC (STROKE)
+
+### Sobre os dados
+
+::: {style="text-align: justify"}
+
+O conjunto de dados abaixo contempla informações de um experimento para promover a recuperação de 24 pacientes que sofreram derrame. O objetivo é avaliar a eficácia de diferentes regimes de terapia ao longo de 8 semanas.
+
+Definição dos índices:
+
+- $\mathbf{i}$: Representa o indivíduo (paciente), variando de $i=1, \dots, m$, onde $\mathbf{m = 24}$.
+- $\mathbf{j}$: Representa a medição repetida (instante no tempo), variando de $j=1, \dots, n_{i}$, onde $\mathbf{n_i = 8}$.
+
+Os pacientes foram divididos em três grupos experimentais. Embora cada grupo tenha o mesmo número de participantes (8 indivíduos), o balanceamento estatístico relevante em estudos longitudinais está associado ao número igual de medições ao longo do tempo por indivíduo $(n_i = 8)$, e não necessariamente ao fato de os grupos possuírem tamanhos iguais.
+
+-   **Grupo A:** Uma nova intervenção de terapia ocupacional;
+-   **Grupo B:** O programa existente de reabilitação de derrame;
+-   **Grupo C:** O regime de cuidados usuais para pacientes com derrame.
+
+:::
+
+<br>
+
+### Ajuste do modelo
+
+
+::: {style="text-align: justify"}
+
+Análise de recuperação (stroke), comparação da eficácia de recuperação entre o grupo tratamento (a) e o grupo controle (b) ao longo de 8 semanas.modelo e resultadosajustamos um modelo com intercepto aleatório para capturar a variação inicial entre os pacientes.
+
+
+::: 
+
+```{r}
+# ------------------------------------------------------------------------------
+# 1. CARREGAMENTO DE PACOTES E IMPORTAÇÃO
+# ------------------------------------------------------------------------------
+if(!require("gsheet")) install.packages("gsheet")
+if(!require("tidyverse")) install.packages("tidyverse")
+if(!require("lme4")) install.packages("lme4")
+if(!require("car")) install.packages("car")
+
+library(gsheet)
+library(tidyverse)
+library(lme4)
+library(car)
+
+url_stroke <- "https://docs.google.com/spreadsheets/d/1n394dzsNn1QITgigbHJ21uz6hi5TDCHs/edit?gid=712419062#gid=712419062"
+variaveis <- c("Sujeito", "Grupo", "Semana 1", "Semana 2", "Semana 3", "Semana 4", "Semana 5", "Semana 6", "Semana 7", "Semana 8")
+
+# ------------------------------------------------------------------------------
+# 2. REESTRUTURAÇÃO (WIDE -> LONG)
+# ------------------------------------------------------------------------------
+bd_stroke_long <- gsheet::gsheet2tbl(url_stroke) %>% 
+  stats::setNames(variaveis) %>%
+  tidyr::pivot_longer(
+    cols = starts_with("Semana"), 
+    names_to = "Semana", 
+    values_to = "Pontuacao"
+  ) %>%
+  dplyr::mutate(
+    # Semana 1 vira Tempo 0 para o intercepto ser o valor inicial
+    Semana_num = as.numeric(stringr::str_remove(Semana, "Semana ")) - 1,
+    Sujeito = factor(Sujeito),
+    Grupo = factor(Grupo)
+  ) %>%
+  dplyr::filter(Grupo %in% c("A", "B")) # FILTRADO PARA GRUPOS A E B
+
+# ------------------------------------------------------------------------------
+# 3. AJUSTE DO MODELO MISTO (RANDOM INTERCEPT)
+# ------------------------------------------------------------------------------
+# Ajuste considerando Interação (Grupo * Tempo) e Intercepto Aleatório por Sujeito
+fit_stroke <- lme4::lmer(Pontuacao ~ Grupo * Semana_num + (1 | Sujeito), data = bd_stroke_long)
+
+summary(fit_stroke)
+```
+
+
+
+::: {style="text-align: justify"}
+
+$$Y_{ij} = (\beta_0 + b_{0i}) + \beta_1 \text{grupob}_i + \beta_2 \text{semana}_j + \beta_3 (\text{grupob}_i \times \text{semana}_j) + \varepsilon_{ij}$$
+
+**Efeitos fixos (médias dos grupos)**
+
+- **intercepto (36.15)**: representa a média inicial do grupo A. É altamente significativo ($t = 4.88$), indicando que os pacientes não começam com pontuação zero.
+
+- **grupo b (1.35)**: representa a diferença inicial entre o grupo B e o grupo A. Como o valor de $t$ é muito baixo (0.12), não é significativo. Isso significa que, estatisticamente, os dois grupos começam o estudo no mesmo nível.
+
+- **semana_num (6.32)**: representa a melhora semanal do grupo A. É altamente significativo ($t = 12.90$), confirmando que o grupo A apresenta uma evolução positiva clara ao longo do tempo.
+
+- **interação grupob**: semana_num (-1.99): este é o ponto crucial. O valor de $t$ é -2.87. Em modelos mistos, valores de $|t| > 2$ geralmente indicam significância estatística ao nível de 5%. É significativo.
+
+- **interpretação**: O grupo B recupera-se significativamente mais devagar (cerca de 2 pontos a menos por semana) do que o grupo A.
+
+
+**Efeitos aleatórios (variabilidade individual)**
+
+- **sujeito (404.18)**: a variância é muito alta. Isso indica que a diferença "de base" entre os pacientes é enorme. Ignorar esse efeito (usar regressão simples) invalidaria a análise, pois cada paciente é seu próprio controle.
+
+
+::: 
+
+```{r}
+# ------------------------------------------------------------------------------
+# 4. DIAGNÓSTICO E EXTRAÇÃO DE EFEITOS (MODELO DO PROFESSOR)
+# ------------------------------------------------------------------------------
+
+# Extração de efeitos aleatórios com variâncias posteriores
+ran_full <- ranef(fit_stroke, condVar = TRUE) 
+ran <- ran_full$Sujeito
+postVar <- attr(ran_full$Sujeito, "postVar")
+
+# Efeitos fixos estimados
+beta_fix <- fixef(fit_stroke)
+
+# Intercepto individual (Efeito fixo médio + Desvio b0i do sujeito)
+intercept_ind <- beta_fix["(Intercept)"] + ran[, "(Intercept)"]
+
+# Erro padrão (SD) posterior para cada indivíduo
+n_subjects <- nrow(ran)
+sd_intercept <- sqrt(sapply(1:n_subjects, function(i) postVar[1,1,i]))
+
+# Intervalos de confiança (95%) para o Intercepto Individual
+IC <- data.frame(
+  id = rownames(ran),
+  intercept = intercept_ind,
+  intercept_L = intercept_ind - 1.96 * sd_intercept,
+  intercept_U = intercept_ind + 1.96 * sd_intercept
+)
+
+# --- 4.1 HISTOGRAMA E QQ-PLOT DO INTERCEPTO ---
+par(mfrow=c(1,2))
+hist(ran$`(Intercept)`, main = "Efeitos Aleatórios (b0i)", 
+     xlab = "Resíduos do Intercepto", col = "lightblue", border = "white")
+car::qqPlot(ran$`(Intercept)`, main = "QQ-Plot: Interceptos")
+
+# --- 4.2 CATERPILLAR PLOT (ORDENADO PELO PESO INICIAL) ---
+par(mfrow=c(1,1))
+ord_int <- order(intercept_ind)
+
+plot(intercept_ind[ord_int], pch = 19, 
+     main = "Caterpillar Plot: Interceptos Individuais (Stroke A vs B)", 
+     xlab = "Pacientes (Ordenados pelo Intercepto)", ylab = "Pontuação Inicial Estimada")
+segments(1:n_subjects, IC$intercept_L[ord_int], 1:n_subjects, IC$intercept_U[ord_int], col = "gray60")
+abline(h = beta_fix["(Intercept)"], lty = 2, col = "red")
+
+```
+
+
+<br>
+
+## Base Dados: Peso de Bezerros
+
+### Sobre os dados
+
+
+::: {style="text-align: justify"}
+O objetivo deste estudo é explorar o crescimento de bezerros entre a 12ª e a 26ª semana de vida, utilizando dados longitudinais com medidas repetidas.
+
+Definição dos índices:
+
+- $\mathbf{m = 15}$.
+- $\mathbf{n_i = 8}$.
+
+:::
+
+### Ajuste do modelo
+
+
+```{r}
+# ------------------------------------------------------------------------------
+# 1. CARREGAMENTO DE PACOTES
+# ------------------------------------------------------------------------------
+if(!require("gsheet")) install.packages("gsheet")
+if(!require("tidyverse")) install.packages("tidyverse")
+if(!require("lme4")) install.packages("lme4")
+if(!require("car")) install.packages("car")
+if(!require("ggrepel")) install.packages("ggrepel")
+
+library(gsheet)
+library(tidyverse)
+library(lme4)
+library(car)
+library(ggrepel)
+
+# ------------------------------------------------------------------------------
+# 2. IMPORTAÇÃO E TRANSFORMAÇÃO (WIDE → LONG)
+# ------------------------------------------------------------------------------
+url_bezerros <- "https://docs.google.com/spreadsheets/d/1BGP2yokaV8uiQ1kJXP3BvfXbDoBgw9Jb/edit?gid=1419069632#gid=1419069632"
+bd_bezerros <- gsheet::gsheet2tbl(url_bezerros)
+
+bd_bezerros_long <- bd_bezerros %>%
+  pivot_longer(cols = t12:t26, names_to = "tempo", values_to = "valor") %>%
+  mutate(
+    tempo_num = as.numeric(str_remove(tempo, "t")),
+    tempo_rec = tempo_num - min(tempo_num), # Recentralizado: t12 vira Tempo 0
+    ind = factor(ind)
+  )
+
+# ------------------------------------------------------------------------------
+# 3. AJUSTE DO MODELO MISTO (RANDOM INTERCEPT & RANDOM SLOPE)
+# ------------------------------------------------------------------------------
+# Modelo: valor ~ tempo + (1 + tempo | animal)
+# Permite que o ponto de partida e a taxa de crescimento variem por animal
+fit_bez <- lme4::lmer(valor ~ tempo_rec + (1 + tempo_rec | ind), data = bd_bezerros_long)
+
+summary(fit_bez)
+
+# ------------------------------------------------------------------------------
+# 4. EXTRAÇÃO DE EFEITOS E DIAGNÓSTICOS (MODELO DO PROFESSOR)
+# ------------------------------------------------------------------------------
+
+# Extração de efeitos aleatórios com variâncias posteriores
+ran_full <- ranef(fit_bez, condVar = TRUE) 
+ran <- ran_full$ind
+postVar <- attr(ran_full$ind, "postVar")
+
+# Efeitos fixos estimados (Médias populacionais)
+beta_fix <- fixef(fit_bez)
+
+# Interceptos e Slopes individuais (Média + Desvio Individual)
+intercept_ind <- beta_fix["(Intercept)"] + ran[, "(Intercept)"]
+slope_ind     <- beta_fix["tempo_rec"] + ran[, "tempo_rec"]
+
+# SD posterior para os intervalos de confiança
+n_subjects <- nrow(ran)
+sd_intercept <- sqrt(sapply(1:n_subjects, function(i) postVar[1,1,i]))
+sd_slope     <- sqrt(sapply(1:n_subjects, function(i) postVar[2,2,i]))
+
+# Tabela de Intervalos de Confiança (IC)
+IC_bez <- data.frame(
+  id = rownames(ran),
+  intercept = intercept_ind,
+  intercept_L = intercept_ind - 1.96 * sd_intercept,
+  intercept_U = intercept_ind + 1.96 * sd_intercept,
+  slope = slope_ind,
+  slope_L = slope_ind - 1.96 * sd_slope,
+  slope_U = slope_ind + 1.96 * sd_slope
+)
+
+# --- 4.1 DIAGNÓSTICO: HISTOGRAMAS E QQ-PLOTS ---
+par(mfrow=c(2,2))
+
+# Para o Intercepto
+hist(ran$`(Intercept)`, main="Resíduos: Intercepto", col="lightblue", border="white")
+car::qqPlot(ran$`(Intercept)`, main="QQ-Plot: Intercepto")
+
+# Para a Inclinação (Tempo)
+hist(ran$tempo_rec, main="Resíduos: Slope (Tempo)", col="lightgreen", border="white")
+car::qqPlot(ran$tempo_rec, main="QQ-Plot: Slope")
+
+# --- 4.2 CATERPILLAR PLOTS (ORDENADOS) ---
+par(mfrow=c(1,2))
+
+# Caterpillar Interceptos
+ord_int <- order(intercept_ind)
+plot(intercept_ind[ord_int], pch=19, main="Caterpillar: Interceptos", xlab="Indivíduos", ylab="Peso Inicial")
+segments(1:n_subjects, IC_bez$intercept_L[ord_int], 1:n_subjects, IC_bez$intercept_U[ord_int], col="gray")
+abline(h=beta_fix["(Intercept)"], lty=2, col="red")
+
+# Caterpillar Slopes
+ord_slope <- order(slope_ind)
+plot(slope_ind[ord_slope], pch=19, main="Caterpillar: Slopes", xlab="Indivíduos", ylab="Taxa de Crescimento")
+segments(1:n_subjects, IC_bez$slope_L[ord_slope], 1:n_subjects, IC_bez$slope_U[ord_slope], col="gray")
+abline(h=beta_fix["tempo_rec"], lty=2, col="red")
+
+```
+
+<br>
+
+
+::: {style="text-align: justify"}
+
+Análise de crescimento (bezerros)
+
+Modelo e resultados:
+
+utilizamos um modelo de coeficientes aleatórios (intercepto e inclinação), pois cada animal cresce em seu próprio ritmo.
+
+$$Y_{ij} = (\beta_0 + b_{0i}) + (\beta_1 + b_{1i}) \text{tempo}_{ij} + \varepsilon_{ij}$$
+
+
+**Efeitos fixos (tendência populacional)**
+
+- **intercepto (69.27):** peso médio inicial. Altamente significativo ($t = 17.48$).
+
+- tempo_rec (4.65): ganho de peso médio por período. Altamente significativo ($t = 16.37$). Os bezerros estão ganhando peso de forma consistente.
+
+
+
+** Efeitos aleatórios (heterogeneidade biológica)**
+
+- **intercepto (231.99):** confirma que os bezerros começam o experimento com pesos iniciais muito distintos.
+
+- **tempo_rec (1.16):** este efeito é significativo para a estrutura do modelo. Ele prova que a "velocidade" de crescimento não é igual para todos. Alguns bezerros são "ganhadores de peso" natos, enquanto outros são mais lentos.
+
+- **correlação (0.45):** indica uma associação positiva moderada. Bezerros que nascem/começam maiores tendem a ter um metabolismo que favorece um crescimento mais rápido (o slope aumenta conforme o intercepto aumenta).
+
+:::
+
+```{r}
+# ------------------------------------------------------------------------------
+# 4. EXTRAÇÃO DE EFEITOS E DIAGNÓSTICOS (MODELO DO PROFESSOR)
+# ------------------------------------------------------------------------------
+
+# Extração de efeitos aleatórios com variâncias posteriores
+ran_full <- ranef(fit_bez, condVar = TRUE) 
+ran <- ran_full$ind
+postVar <- attr(ran_full$ind, "postVar")
+
+# Efeitos fixos estimados (Médias populacionais)
+beta_fix <- fixef(fit_bez)
+
+# Interceptos e Slopes individuais (Média + Desvio Individual)
+intercept_ind <- beta_fix["(Intercept)"] + ran[, "(Intercept)"]
+slope_ind     <- beta_fix["tempo_rec"] + ran[, "tempo_rec"]
+
+# SD posterior para os intervalos de confiança
+n_subjects <- nrow(ran)
+sd_intercept <- sqrt(sapply(1:n_subjects, function(i) postVar[1,1,i]))
+sd_slope     <- sqrt(sapply(1:n_subjects, function(i) postVar[2,2,i]))
+
+# Tabela de Intervalos de Confiança (IC)
+IC_bez <- data.frame(
+  id = rownames(ran),
+  intercept = intercept_ind,
+  intercept_L = intercept_ind - 1.96 * sd_intercept,
+  intercept_U = intercept_ind + 1.96 * sd_intercept,
+  slope = slope_ind,
+  slope_L = slope_ind - 1.96 * sd_slope,
+  slope_U = slope_ind + 1.96 * sd_slope
+)
+
+# --- 4.1 DIAGNÓSTICO: HISTOGRAMAS E QQ-PLOTS ---
+par(mfrow=c(2,2))
+
+# Para o Intercepto
+hist(ran$`(Intercept)`, main="Resíduos: Intercepto", col="lightblue", border="white")
+car::qqPlot(ran$`(Intercept)`, main="QQ-Plot: Intercepto")
+
+# Para a Inclinação (Tempo)
+hist(ran$tempo_rec, main="Resíduos: Slope (Tempo)", col="lightgreen", border="white")
+car::qqPlot(ran$tempo_rec, main="QQ-Plot: Slope")
+
+# --- 4.2 CATERPILLAR PLOTS (ORDENADOS) ---
+par(mfrow=c(1,2))
+
+# Caterpillar Interceptos
+ord_int <- order(intercept_ind)
+plot(intercept_ind[ord_int], pch=19, main="Caterpillar: Interceptos", xlab="Indivíduos", ylab="Peso Inicial")
+segments(1:n_subjects, IC_bez$intercept_L[ord_int], 1:n_subjects, IC_bez$intercept_U[ord_int], col="gray")
+abline(h=beta_fix["(Intercept)"], lty=2, col="red")
+
+# Caterpillar Slopes
+ord_slope <- order(slope_ind)
+plot(slope_ind[ord_slope], pch=19, main="Caterpillar: Slopes", xlab="Indivíduos", ylab="Taxa de Crescimento")
+segments(1:n_subjects, IC_bez$slope_L[ord_slope], 1:n_subjects, IC_bez$slope_U[ord_slope], col="gray")
+abline(h=beta_fix["tempo_rec"], lty=2, col="red")
+
+```
+
+::: {style="border-top: 2px solid #003366;"}
+:::
+
+
 
