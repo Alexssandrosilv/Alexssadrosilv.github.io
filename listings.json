@@ -1,8 +1,19 @@
 [
   {
-    "listing": "/conteudos.html",
+    "listing": "/codigos/6_Estatistica_Multivariada/index.html",
     "items": [
-      "/codigos/6_Estatistica_Multivariada/index.html"
+      "/codigos/6_Estatistica_Multivariada/1 - Análise de componentes principais (PCA).html",
+      "/codigos/6_Estatistica_Multivariada/2 - Leonardo.html",
+      "/codigos/6_Estatistica_Multivariada/3 - Análise de correlação canônica.html",
+      "/codigos/6_Estatistica_Multivariada/4 - Análise discriminante (AD).html",
+      "/codigos/6_Estatistica_Multivariada/5 - Análise de agrupamentos.html",
+      "/codigos/6_Estatistica_Multivariada/6 - Análise de Correspondência (AC).html"
+    ]
+  },
+  {
+    "listing": "/codigos/7_Assessoria_Estatistica/index.html",
+    "items": [
+      "/codigos/7_Assessoria_Estatistica/Analise.html"
     ]
   },
   {
@@ -13,15 +24,10 @@
     ]
   },
   {
-    "listing": "/codigos/3_Modelos_Lineares_Generalizados/index.html",
+    "listing": "/codigos/1_Inferencia_Estatística/index.html",
     "items": [
-      "/codigos/3_Modelos_Lineares_Generalizados/projeto-mlg.html"
-    ]
-  },
-  {
-    "listing": "/codigos/5_Labest/index.html",
-    "items": [
-      "/codigos/5_Labest/projeto-labest.html"
+      "/codigos/1_Inferencia_Estatística/projeto-long.html",
+      "/codigos/1_Inferencia_Estatística/projeto-tcc.html"
     ]
   },
   {
@@ -31,33 +37,34 @@
     ]
   },
   {
-    "listing": "/codigos/4_Modelos_Lineares_Dinamicos/index.html",
+    "listing": "/conteudos.html",
     "items": [
-      "/codigos/4_Modelos_Lineares_Dinamicos/projeto-mld.html"
-    ]
-  },
-  {
-    "listing": "/codigos/1_Inferencia_Estatística/index.html",
-    "items": [
-      "/codigos/1_Inferencia_Estatística/projeto-long.html",
-      "/codigos/1_Inferencia_Estatística/projeto-tcc.html"
-    ]
-  },
-  {
-    "listing": "/codigos/6_Estatistica_Multivariada/index.html",
-    "items": [
-      "/codigos/6_Estatistica_Multivariada/1 - Análise de componentes principais (PCA).html",
-      "/codigos/6_Estatistica_Multivariada/2 - Análise fatorial.html",
-      "/codigos/6_Estatistica_Multivariada/3 - Análise de correlação canônica.html",
-      "/codigos/6_Estatistica_Multivariada/4 - Análise discriminante (AD).html",
-      "/codigos/6_Estatistica_Multivariada/5 - Análise de agrupamentos.html",
-      "/codigos/6_Estatistica_Multivariada/6 - Análise de Correspondência (AC).html"
+      "/codigos/6_Estatistica_Multivariada/index.html",
+      "/codigos/7_Assessoria_Estatistica/index.html"
     ]
   },
   {
     "listing": "/portfolio.html",
     "items": [
       "/codigos/6_Estatistica_Multivariada/index.html"
+    ]
+  },
+  {
+    "listing": "/codigos/5_Labest/index.html",
+    "items": [
+      "/codigos/5_Labest/projeto-labest.html"
+    ]
+  },
+  {
+    "listing": "/codigos/4_Modelos_Lineares_Dinamicos/index.html",
+    "items": [
+      "/codigos/4_Modelos_Lineares_Dinamicos/projeto-mld.html"
+    ]
+  },
+  {
+    "listing": "/codigos/3_Modelos_Lineares_Generalizados/index.html",
+    "items": [
+      "/codigos/3_Modelos_Lineares_Generalizados/projeto-mlg.html"
     ]
   }
 ]
