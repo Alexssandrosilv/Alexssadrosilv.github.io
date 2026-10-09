@@ -87,7 +87,7 @@ ul.task-list li input[type="checkbox"] {
     const options = {
       valueNames: ['listing-image','listing-title','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-title","listing-author","listing-image","listing-description","listing-categories"],
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -185,97 +185,14 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categorias</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">Tudo <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RXN0YXQlQzMlQURzdGljYSUyME11bHRpdmFyaWFkYQ==">Estatística Multivariada <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UHl0aG9u">Python <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Ug==">R <span class="quarto-category-count">(1)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categorias</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">Tudo <span class="quarto-category-count">(1)</span></div><div class="category" data-category="QW4lQzMlQTFsaXNlJTIwZGUlMjBkYWRvcw==">Análise de dados <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Ug==">R <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content column-page-left" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
 
-<div id="fundo-animado-snoopy" style="position: fixed; width: 100%; height: 100%; top: 0; left: 0; z-index: -2;">
-<div id="particles-js" style="position: absolute; width: 100%; height: 100%; z-index: -3;">
-
-</div>
-<div class="snoop-dance-container">
-
-</div>
-</div>
-<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-<script>
-  particlesJS("particles-js", {
-    "particles": {
-      "number": { 
-        "value": 70,           /* QUANTIDADE: Densidade das partículas na tela */
-        "density": { "enable": true, "value_area": 800 } 
-      },
-      "color": { 
-        "value": "#000000"      /* COR: Definida como preto sólido (Corrigido) */
-      },
-      "shape": { "type": "circle" }, /* FORMA: Partículas circulares */
-      "opacity": { 
-        "value": 0.3,           /* VISIBILIDADE: Transparência das bolinhas */
-        "random": false 
-      },
-      "size": { 
-        "value": 3,             /* TAMANHO: Diâmetro das bolinhas */
-        "random": true          /* Faz os tamanhos variarem um pouco */
-      },
-      "line_linked": {
-        "enable": false
-      },         
-      <!-- /* CONEXÕES: Ativado para ligar as bolinhas */ -->
-      <!-- "line_linked": {  -->
-      <!--   "enable": true,         /* CONEXÕES: Ativado para ligar as bolinhas */ -->
-      <!--   "distance": 150,        /* Distância máxima entre pontos para criar linha */ -->
-      <!--   "color": "#18bc9c",     /* COR DA LINHA: Seu Verde Teal característico */ -->
-      <!--   "opacity": 0.2,         /* Linhas sutis para não poluir o visual */ -->
-      <!--   "width": 0.8            /* Grossura fina das linhas */ -->
-      <!-- }, -->
-      "move": { 
-        "enable": true,         /* MOVIMENTO: Permite que as bolinhas flutuem */
-        "speed": 1.5,           /* VELOCIDADE: Ritmo constante do fundo */
-        "direction": "none",    /* Direção aleatória */
-        "random": true,         /* Movimento orgânico */
-        "out_mode": "out"       /* Partículas saem por um lado e entram pelo outro */
-      }
-    },
-    "interactivity": {
-      "events": { 
-        /* INTERAÇÃO: Desativado para o mouse não interferir no fundo minimalista */
-        "onhover": { "enable": false }, 
-        "onclick": { "enable": false }
-      }
-    }
-  });
-</script>
 <style>
-  /* CONFIGURAÇÃO DO SNOOPY (PC) */
-  .snoop-dance-container {
-    position: fixed;            /* Trava o personagem na tela durante a rolagem */
-    width: 90px;                /* Tamanho do container */
-    height: 90px;
-    background: url('snoopy-dance.gif') no-repeat; /* Chama seu GIF */
-    background-size: contain;   /* Ajusta o GIF sem cortar */
-    bottom: 50px;               /* Distância da base */
-    right: 20px;                /* Distância da lateral direita */
-    z-index: 1;                 /* Z-index positivo para não sumir atrás do fundo */
-    opacity: 0.9 !important;    /* Nitidez do Snoopy */
-    pointer-events: none;       /* Ignora cliques do mouse (não atrapalha o site) */
-  }
-
-  /* AJUSTE PARA MOBILE (Celulares e Tablets) */
-  /* Resolve o problema do Snoopy sumir no mobile */
-  @media (max-width: 768px) {
-    .snoop-dance-container {
-      display: block !important; /* Força a exibição mesmo em telas pequenas */
-      width: 70px;               /* Diminui um pouco para não cobrir o texto */
-      height: 70px;
-      bottom: 60px;              /* Ajusta altura para não bater no rodapé mobile */
-      right: 15px;               /* Colado no canto */
-      z-index: 100;              /* Prioridade máxima de camada no mobile */
-    }
-  }
-
   /* RODAPÉ (FOOTER): Fundo preto sólido */
   .quarto-page-footer {
     background-color: #000000 !important; /* Força o preto absoluto */
@@ -309,23 +226,21 @@ window.Quarto = {
 
 <div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="RXN0YXQlQzMlQURzdGljYSUyME11bHRpdmFyaWFkYSUyQ1IlMkNQeXRob24=" data-listing-file-modified-sort="1791575904840" data-listing-reading-time-sort="7" data-listing-word-count-sort="1340">
-<a href="./codigos/6_Estatistica_Multivariada/index.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="0" data-categories="QW4lQzMlQTFsaXNlJTIwZGUlMjBkYWRvcyUyQ1I=" data-listing-date-sort="1791578669000" data-listing-file-modified-sort="1791578669562" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1647">
+<a href="./codigos/7_Assessoria_Estatistica/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img loading="lazy" src="./codigos/6_Estatistica_Multivariada/imagens/Multivariada.jpg" class="thumbnail-image card-img" style="height: 150px;">
+<img loading="lazy" src="./codigos/7_Assessoria_Estatistica/imagens/Serie_temporal.jpg" class="thumbnail-image card-img" style="height: 150px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
-Estatística Multivariada II
+Projeto - Lucas Lara
 </h5>
 <div class="listing-categories">
 
-<div class="listing-category" onclick="window.quartoListingCategory('RXN0YXQlQzMlQURzdGljYSUyME11bHRpdmFyaWFkYQ=='); return false;">Estatística Multivariada</div>
+<div class="listing-category" onclick="window.quartoListingCategory('QW4lQzMlQTFsaXNlJTIwZGUlMjBkYWRvcw=='); return false;">Análise de dados</div>
 
 <div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UHl0aG9u'); return false;">Python</div>
 
 </div>
 </div>

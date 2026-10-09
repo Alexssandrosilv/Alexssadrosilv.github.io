@@ -11,27 +11,19 @@
     ]
   },
   {
-    "listing": "/codigos/7_Assessoria_Estatistica/index.html",
+    "listing": "/codigos/4_Modelos_Lineares_Dinamicos/index.html",
     "items": [
-      "/codigos/7_Assessoria_Estatistica/Analise.html"
+      "/codigos/4_Modelos_Lineares_Dinamicos/projeto-mld.html"
     ]
   },
   {
-    "listing": "/codigos/2_Modelos_de_Regressao/index.html",
+    "listing": "/codigos/5_Labest/index.html",
     "items": [
-      "/codigos/2_Modelos_de_Regressao/projeto-long.html",
-      "/codigos/2_Modelos_de_Regressao/projeto-reg.html"
+      "/codigos/5_Labest/projeto-labest.html"
     ]
   },
   {
-    "listing": "/codigos/1_Inferencia_Estatística/index.html",
-    "items": [
-      "/codigos/1_Inferencia_Estatística/projeto-long.html",
-      "/codigos/1_Inferencia_Estatística/projeto-tcc.html"
-    ]
-  },
-  {
-    "listing": "/index.html",
+    "listing": "/portfolio.html",
     "items": [
       "/codigos/6_Estatistica_Multivariada/index.html"
     ]
@@ -43,21 +35,23 @@
     ]
   },
   {
-    "listing": "/portfolio.html",
+    "listing": "/index.html",
     "items": [
-      "/codigos/6_Estatistica_Multivariada/index.html"
+      "/codigos/7_Assessoria_Estatistica/index.html"
     ]
   },
   {
-    "listing": "/codigos/5_Labest/index.html",
+    "listing": "/codigos/1_Inferencia_Estatística/index.html",
     "items": [
-      "/codigos/5_Labest/projeto-labest.html"
+      "/codigos/1_Inferencia_Estatística/projeto-long.html",
+      "/codigos/1_Inferencia_Estatística/projeto-tcc.html"
     ]
   },
   {
-    "listing": "/codigos/4_Modelos_Lineares_Dinamicos/index.html",
+    "listing": "/codigos/2_Modelos_de_Regressao/index.html",
     "items": [
-      "/codigos/4_Modelos_Lineares_Dinamicos/projeto-mld.html"
+      "/codigos/2_Modelos_de_Regressao/projeto-long.html",
+      "/codigos/2_Modelos_de_Regressao/projeto-reg.html"
     ]
   },
   {
