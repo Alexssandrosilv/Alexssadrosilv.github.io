@@ -38,29 +38,6 @@ knitr::opts_chunk$set(
 )
 ```
 
-<br>
-
-::: {style="border-top: 2px solid #003366;"}
-:::
-
-<br>
-
-## Sobre os dados
-
-Os dados analisados são registros de desembarque pesqueiro das colônias de pescadores dos municípios de Borba e Manicoré, no período de 2002 a 2025. Eles foram organizados para comparar a pesca antes e depois da entrada em operação das hidrelétricas (UHEs) Jirau e Santo Antônio, no Rio Madeira.
-
-## Objetivo 1: Variáveis hidrológicas
-
-Correlacionar a produção pesqueira com variáveis hidrológicas influenciadas pela ação antropomórfica das UHEs;
-
-## Objetivo 2: Séries temporais
-
-Detectar mudanças nas séries temporais de produção pesqueira;
-
-## Objetivo 3: Antes e depois das UHEs
-
-Quantificar as mudanças a produção, composição e diversidade de capturas pesqueiras registradas no banco de dados das colônias de pescadores, comparando os períodos “Antes” e “Depois” da operação das UHEs;
-
 ```{r}
 #| label: carregar-dados
 #| include: false
@@ -71,11 +48,24 @@ source("2_funcoes.R")
 source("3_tratamento_dados.R")
 ```
 
-## Preparação dos Dados
+<br>
+
+::: {style="border-top: 2px solid #003366;"}
+:::
+
+<br>
+
+## Sobre os dados
+
+Os dados analisados são registros de desembarque pesqueiro das colônias de pescadores dos municípios de Borba e Manicoré, no período de 2002 a 2025. Eles foram organizados para comparar a pesca antes e depois da entrada em operação das hidrelétricas (UHEs) Jirau e Santo Antônio, no Rio Madeira. O trabalho tem os seguintes objetivos:
+
+1. Correlacionar a produção pesqueira com variáveis hidrológicas influenciadas pela ação antropomórfica das UHEs;
+2. Detectar mudanças nas séries temporais de produção pesqueira;
+3. Quantificar as mudanças a produção, composição e diversidade de capturas pesqueiras registradas no banco de dados das colônias de pescadores, comparando os períodos “Antes” e “Depois” da operação das UHEs;
+
+### Preparação dos Dados
 
 Antes das análises, os dados de desembarque pesqueiro dos municípios de Borba e Manicoré passaram por um processo de organização e limpeza. Essa etapa foi realizada no Microsoft Excel e no R (versão 4.5.3; R Core Team, 2026), e seguiu os passos descritos a seguir.
-
-### Etapas realizadas
 
 1. **Reunião das bases (Excel).** Os registros de Borba e Manicoré foram reunidos em uma única planilha, chamada `dados_tratados.xlsx`. Nela, cada registro recebeu informações sobre o local de desembarque, a espécie capturada, o ambiente em que ela vive e as características da pescaria, representadas pelas variáveis `localidade`, `nome_comum`, `ordem`, `familia`, `especie`, `habitat`, `migration`, `nivel_tropico`, `status_mercado`, `periodo`, `periodo_2` e `dias`.
 
@@ -85,56 +75,36 @@ Antes das análises, os dados de desembarque pesqueiro dos municípios de Borba 
 
 4. **Ajuste dos valores de captura.** Na variável `captura_total`, a vírgula decimal foi substituída por ponto, que é o padrão reconhecido pelo R, e os valores foram convertidos para número. Com isso, tornou-se possível realizar cálculos e construir gráficos com essa variável.
 
-5. **Criação da variável `periodo_barragem`.** A partir do ano de cada registro, foram definidos três grupos que indicam o momento em relação às hidrelétricas: antes, transição e depois, conforme apresentado na @tbl-grupos.
+5. **Criação da variável `periodo_barragem`.** A partir do ano de cada registro, foram definidos três grupos que indicam o momento em relação às hidrelétricas: antes (2002 a 2010), período anterior à entrada em operação das usinas; transição (2011), ano em que as comportas foram fechadas; e depois (2012 a 2025), período com as usinas em funcionamento.
 
 6. **Remoção de registros sem informação.** Foram excluídas as linhas sem dado de captura (`NA`) e os anos de 2000 e 2001. Dessa forma, a base final cobre, de maneira contínua, o período de 2002 a 2025.
 
-### Grupos da variável `periodo_barragem`
-
-| Grupo | Anos | Significado |
-|:------|:----:|:------------|
-| **Antes** | 2002 a 2010 | Período anterior às hidrelétricas |
-| **Transição** | 2011 | Ano de mudança, em que as comportas foram fechadas |
-| **Depois** | 2012 a 2025 | Período com as hidrelétricas em funcionamento |
-
-: Grupos da variável `periodo_barragem`. {#tbl-grupos}
-
-### Variáveis da base final
-
 A base final reúne 15 variáveis. Doze vêm da planilha `dados_tratados.xlsx`, duas surgiram na mudança de formato da tabela e uma foi criada a partir do ano. Cada variável foi classificada quanto à natureza (qualitativa ou quantitativa) e à classe em que está guardada no R, conforme a @tbl-variaveis.
 
-| Grupo | Variável | Descrição | Natureza | Classe no R | Origem |
-|:------|:---------|:----------|:---------|:------------|:-------|
-| **Local** | `localidade` | Município de desembarque do pescado (Borba ou Manicoré) | Qualitativa nominal | Fator | Planilha |
-| **Espécie** | `especie` | Nome científico da espécie | Qualitativa nominal | Caractere | Planilha |
-| | `nome_comum` | Nome popular do peixe | Qualitativa nominal | Caractere | Planilha |
-| | `familia` | Família a que a espécie pertence | Qualitativa nominal | Fator | Planilha |
-| | `ordem` | Ordem a que a espécie pertence | Qualitativa nominal | Fator | Planilha |
-| **Características** | `habitat` | Ambiente em que a espécie vive | Qualitativa nominal | Fator | Planilha |
-| | `migration` | Comportamento migratório da espécie | Qualitativa nominal | Fator | Planilha |
-| | `nivel_tropico` | Posição da espécie na cadeia alimentar | Qualitativa nominal | Fator | Planilha |
-| **Pescaria** | `status_mercado` | Situação do pescado no mercado | Qualitativa nominal | Fator | Planilha |
-| | `periodo` | Classificação da pescaria por período | Qualitativa nominal | Caractere | Planilha |
-| | `periodo_2` | Segunda classificação da pescaria por período | Qualitativa nominal | Fator | Planilha |
-| | `dias` | Número de dias de pesca informados (esforço) | Quantitativa discreta | Numérica | Planilha |
-| **Captura** | `ano` | Ano do registro (de 2002 a 2025) | Quantitativa discreta | Inteira | **Criada** (mudança de formato) |
-| | `captura_total` | Quantidade desembarcada, em quilos | Quantitativa contínua | Numérica | **Criada** (mudança de formato) |
-| **Hidrelétricas** | `periodo_barragem` | Momento em relação às hidrelétricas (antes, transição ou depois) | Qualitativa ordinal | Fator | **Criada** (a partir de `ano`) |
+| Variável | Descrição | Natureza | Classe no R | Origem |
+|:---------|:----------|:---------|:------------|:-------|
+| `localidade` | Município de desembarque do pescado (Borba ou Manicoré) | Qualitativa nominal | Fator | Planilha |
+| `especie` | Nome científico da espécie | Qualitativa nominal | Caractere | Planilha |
+| `nome_comum` | Nome popular do peixe | Qualitativa nominal | Caractere | Planilha |
+| `familia` | Família a que a espécie pertence | Qualitativa nominal | Fator | Planilha |
+| `ordem` | Ordem a que a espécie pertence | Qualitativa nominal | Fator | Planilha |
+| `habitat` | Ambiente em que a espécie vive | Qualitativa nominal | Fator | Planilha |
+| `migration` | Comportamento migratório da espécie | Qualitativa nominal | Fator | Planilha |
+| `nivel_tropico` | Posição da espécie na cadeia alimentar | Qualitativa nominal | Fator | Planilha |
+| `status_mercado` | Situação do pescado no mercado | Qualitativa nominal | Fator | Planilha |
+| `periodo` | Classificação da pescaria por período | Qualitativa nominal | Caractere | Planilha |
+| `periodo_2` | Segunda classificação da pescaria por período | Qualitativa nominal | Fator | Planilha |
+| `dias` | Número de dias de pesca informados (esforço) | Quantitativa discreta | Numérica | Planilha |
+| `ano` | Ano do registro (de 2002 a 2025) | Quantitativa discreta | Inteira | Criada |
+| `captura_total` | Quantidade desembarcada, em quilos | Quantitativa contínua | Numérica | Criada |
+| `periodo_barragem` | Momento em relação às hidrelétricas (antes, transição ou depois) | Qualitativa ordinal | Fator | Criada |
 
 : Variáveis da base de dados tratada. {#tbl-variaveis}
 
-**Variáveis criadas no processamento:**
+As variáveis criadas no processamento foram:
 
 - **`ano` e `captura_total`:** na planilha original, cada ano era uma coluna (2000, 2001, ..., 2025) com as quantidades pescadas. Com a mudança de formato, os nomes dessas colunas passaram a ser os valores de `ano`, e as quantidades, os valores de `captura_total`.
-- **`periodo_barragem`:** criada a partir de `ano`, reúne os registros em antes (2002 a 2010), transição (2011) e depois (2012 a 2025) da entrada em operação das hidrelétricas.
-
-**Como ler as classificações:**
-
-- **Qualitativa nominal:** categorias sem ordem natural (por exemplo, Borba e Manicoré).
-- **Qualitativa ordinal:** categorias com ordem natural (antes, transição e depois).
-- **Quantitativa discreta:** valores obtidos por contagem, em números inteiros (dias de pesca e anos).
-- **Quantitativa contínua:** valores obtidos por medição, que podem ter casas decimais (quilos).
-- **Fator, caractere, numérica e inteira:** nomes das classes no R (`factor`, `character`, `numeric` e `integer`).
+- **`periodo_barragem`:** criada a partir de `ano`, reúne os registros em antes, transição e depois da entrada em operação das hidrelétricas.
 
 ## Visualização dos Dados Brutos
 
@@ -144,9 +114,14 @@ Para conhecer a base, a @tbl-dados-brutos mostra os registros dos dados tratados
 #| label: tbl-dados-brutos
 #| tbl-cap: "Dados brutos de desembarque pesqueiro das colônias de Borba e Manicoré (2002 a 2025)."
 #| echo: false
-#| column: page
 
-dados_longos |> tabela_interativa(linhas = 10, colunas_decimais = "captura_total")
+dados_longos |>
+  tabela_interativa(
+    linhas = 10,
+    colunas = c("localidade", "nome_comum", "especie", "ano",
+                "captura_total", "periodo_barragem"),
+    colunas_decimais = "captura_total"
+  )
 ```
 
 ::: {style="border-top: 2px solid #003366;"}

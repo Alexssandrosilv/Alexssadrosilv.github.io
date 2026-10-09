@@ -284,7 +284,11 @@ gera_heatmap <- function(df, col_eixo_x, col_eixo_y, titulo, fonte = "Roboto") {
 
 
 # Tabela interativa no padrão do site (pesquisa + paginação, estilo minimalista)
-tabela_interativa <- function(dados, linhas = 5, colunas_decimais = NULL) {
+tabela_interativa <- function(dados, linhas = 5, colunas = NULL,
+                              colunas_decimais = NULL) {
+  
+  # Mostra só as colunas escolhidas (se nenhuma for informada, mostra todas)
+  if (!is.null(colunas)) dados <- dados[, colunas, drop = FALSE]
   
   tab <- DT::datatable(
     dados,
@@ -294,6 +298,7 @@ tabela_interativa <- function(dados, linhas = 5, colunas_decimais = NULL) {
       pageLength = linhas,
       lengthMenu = c(5, 10, 25, 50),
       scrollX = TRUE,
+      ordering = FALSE,   # sem setas de ordenação no cabeçalho
       dom = 'ft<"dt-rodape"i<"dt-direita"lp>>',
       language = list(
         search = "Pesquisa:",
