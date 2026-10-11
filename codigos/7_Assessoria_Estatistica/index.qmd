@@ -52,12 +52,24 @@ knitr::opts_chunk$set(
 )
 ```
 
+
+
+Para a elaboração deste estudo, utilizaremos a linguagem de programação [R](http://www.R-project.org/) (versão 4.5.3; R Core Team, 2026), voltada para a manipulação, análise e visualização de dados. O bloco de código (Listagem @lst-carregar-dados) garante que todos os pacotes necessários para o desenvolvimento deste trabalho sejam corretamente instalados e carregados no ambiente de trabalho.
+
+```{r}
+#| label: lst-carregar-dados
+#| lst-cap: "Instalação e carregamento de pacotes auxiliares"
+#| include: true
+
+# Algoritmos auxiliares
+source("1_pacotes.R")
+```
+
 ```{r}
 #| label: carregar-dados
 #| include: false
 
 # Algoritmos auxiliares
-source("1_pacotes.R")
 source("2_funcoes.R")
 source("3_tratamento_dados.R")
 ```
