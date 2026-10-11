@@ -930,19 +930,40 @@ html { font-size: var(--fs-root) !important; }
 }
 
 /* 12.5 Legenda: "Tabela N." em verde, resto em preto, tudo em negrito */
-figure.quarto-float-tbl figcaption,
+/*figure.quarto-float-tbl figcaption,
 #quarto-document-content table caption {
   font-weight: 700;
   color: #000000;
   text-align: left;
   margin-bottom: 0.5rem;
 }
+*/
+/* 12.5 Legenda: justificada, "Tabela N:" em verde, resto em preto, tudo em negrito */
+#quarto-document-content figure.quarto-float-tbl figcaption,
+#quarto-document-content table caption {
+  font-weight: 700;
+  color: #000000;
+  text-align: justify !important;
+  text-justify: inter-word;
+  margin-bottom: 0.5rem;
+}
+
+
 figure.quarto-float-tbl figcaption .rotulo-tabela,
 #quarto-document-content table caption .rotulo-tabela {
   color: var(--cor-rotulo-tabela);
   font-weight: 700;
 }
 
+/* 12.5 Legenda: justificada, "Tabela N:" em verde, resto em preto, tudo em negrito */
+#quarto-document-content figure.quarto-float-tbl figcaption,
+#quarto-document-content table caption {
+  font-weight: 700;
+  color: #000000;
+  text-align: justify !important;
+  text-justify: inter-word;
+  margin-bottom: 0.5rem;
+}
 /* 12.6 Tabela interativa (DT) */
 .dataTables_wrapper { font-size: var(--fs-tabela); }
 
@@ -1056,7 +1077,7 @@ figure.quarto-float-tbl {
 
 /* Caixa de objetivo: título curto + texto completo da tese */
 .objetivo {
-  border-left: 4px solid var(--verde-titulos, #18bc9c);
+  border-left: 4px solid var(--verde-titulos, #000);
   background: #f4fbf9;
   padding: 0.7rem 1rem;
   margin: 0.5rem 0 1.2rem 0;
