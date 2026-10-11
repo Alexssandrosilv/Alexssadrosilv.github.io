@@ -91,13 +91,9 @@ website:
 format: 
   html: 
     theme: flatly
-    # css: [s8.css, tabelas.css]
-    css: [s8.css, tabelas.css]
+    css: s8.css
     tbl-cap-location: top
-# 
-# crossref:
-#   title-delim: "."
-    
+
     # Configurações de Layout
     toc: true # Table of Contents (Menu da Direita)
     toc-title: "Nesta página"
@@ -125,11 +121,11 @@ format:
           }
           </style>
 
-          <!-- Rótulo "Tabela N." das legendas e citações das tabelas em verde -->
+          <!-- Rótulo "Tabela N:" das legendas e citações das tabelas em verde -->
           <script>
           document.addEventListener('DOMContentLoaded', function () {
 
-            // 1) Rótulo "Tabela N." da legenda
+            // 1) Rótulo "Tabela N:" da legenda
             document.querySelectorAll('figure.quarto-float-tbl figcaption, table caption').forEach(function (cap) {
               if (cap.querySelector('.rotulo-tabela')) return;
               var m = cap.textContent.match(/^\s*Tabela[\s\u00a0]*\d+\s*[.:]?/);
@@ -149,9 +145,12 @@ format:
               range.insertNode(span);
             });
 
-            // 2) Citação da tabela no texto (@tbl-...) com a mesma cor da legenda
-            document.querySelectorAll('#quarto-document-content a[href^="#tbl-"]').forEach(function (a) {
-              a.style.setProperty('color', 'var(--cor-rotulo-tabela, #0a7d4f)', 'important');
+            // 2) Citação no texto: qualquer link cujo texto seja "Tabela N"
+            document.querySelectorAll('a').forEach(function (a) {
+              if (/^Tabela[\s\u00a0]*\d+$/.test(a.textContent.trim())) {
+                a.classList.add('citacao-tabela');
+                a.style.setProperty('color', 'var(--cor-rotulo-tabela, #0a7d4f)', 'important');
+              }
             });
 
           });

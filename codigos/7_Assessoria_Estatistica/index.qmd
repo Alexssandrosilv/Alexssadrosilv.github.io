@@ -7,7 +7,7 @@ date: last-modified
 image: "imagens/Serie_temporal.jpg"
 categories: ["R"]
 crossref:
-  title-delim: "."
+  title-delim: ":"
 ---
 
 <style>
@@ -26,6 +26,18 @@ crossref:
   }
   /* Esconde a busca do menu nesta página (a busca do Quarto é do site todo) */
   #quarto-search { display: none !important; }
+  
+  <script>
+  // Desativa os atalhos da busca do Quarto (F, S e /) nesta página
+  window.addEventListener('keydown', function (e) {
+    var t = e.target, tag = t && t.tagName;
+    // Dentro de campos (ex.: a pesquisa da tabela) continua digitando normal
+    if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || (t && t.isContentEditable)) return;
+    var k = (e.key || '').toLowerCase();
+    if (k === 'f' || k === 's' || k === '/') { e.stopImmediatePropagation(); }
+  }, true);
+</script>
+
 </style>
 
 ```{r setup, include=FALSE}
