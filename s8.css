@@ -1076,8 +1076,18 @@ figure.quarto-float-tbl {
 
 
 /* Caixa de objetivo: título curto + texto completo da tese */
-.objetivo {
+/*.objetivo {
   border-left: 4px solid var(--verde-titulos, #000);
+  background: #f4fbf9;
+  padding: 0.7rem 1rem;
+  margin: 0.5rem 0 1.2rem 0;
+  border-radius: 0 8px 8px 0;
+}
+.objetivo p { margin: 0; }
+*/
+/* Caixa de objetivo: título curto + texto completo da tese */
+.objetivo {
+  border-left: 4px solid #000;
   background: #f4fbf9;
   padding: 0.7rem 1rem;
   margin: 0.5rem 0 1.2rem 0;
