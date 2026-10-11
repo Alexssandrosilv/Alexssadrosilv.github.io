@@ -59,14 +59,12 @@ knitr::opts_chunk$set(
 
 <br>
 
-
-Para a elaboração deste estudo, utilizaremos a linguagem de programação [R](http://www.R-project.org/) (versão 4.5.3; R Core Team, 2026), voltada para a manipulação, análise e visualização de dados.
+Para a elaboração desta análise, foi utilizada a linguagem de programação [R](http://www.R-project.org/) (versão 4.5.3; R Core Team, 2026), voltada para a manipulação, análise e visualização de dados.
 
 ```{r}
 #| label: lst-carregar-dados
 #| lst-cap: "Instalação e carregamento de pacotes auxiliares"
 #| include: false
-#| 
 
 # Algoritmos auxiliares
 source("1_pacotes.R")
@@ -74,76 +72,143 @@ source("2_funcoes.R")
 source("3_tratamento_dados.R")
 ```
 
-
 ## Sobre os dados
 
-Os dados analisados são registros de coatas e desembarque pesqueiro das colônias de pescadores dos municípios de Borba e Manicoré, no período de 2002 a 2025. Eles foram organizados para comparar a pesca antes e depois da entrada em operação das hidrelétricas (UHEs) Jirau e Santo Antônio, no Rio Madeira. O trabalho tem os seguintes objetivos:
+Os dados analisados compreendem duas bases de dados. A primeira corresponde aos registros de desembarque pesqueiro das colônias de pescadores dos municípios de Borba e Manicoré, abrangendo o período de 2002 a 2025. A segunda compreende uma extensa série histórica de cotas fluviométricas do Rio Madeira, abrangendo o período de 1967 a 2026. As duas bases foram organizadas com o objetivo de avaliar a dinâmica da pesca e sua relação com as variações hidrológicas do Rio Madeira, considerando os períodos antes e depois da entrada em operação das Usinas Hidrelétricas (UHEs) Jirau e Santo Antônio.
 
-1. **Correlacionar a produção pesqueira com variáveis hidrológicas influenciadas pela ação antropomórfica das UHEs;**
-2. **Detectar mudanças nas séries temporais de produção pesqueira;**
-3. **Quantificar as mudanças a produção, composição e diversidade de capturas pesqueiras registradas no banco de dados das colônias de pescadores, comparando os períodos “Antes” e “Depois” da operação das UHEs.**
+O trabalho tem os seguintes objetivos:
+
+1. **Correlacionar a produção pesqueira com as variáveis hidrológicas, considerando as possíveis alterações associadas à operação das UHEs;**
+2. **Detectar mudanças nas séries temporais da produção pesqueira e das cotas fluviométricas;**
+3. **Quantificar as mudanças na produção, composição e diversidade das capturas pesqueiras, comparando os períodos “Antes” e “Depois” da operação das UHEs.**
 
 ### Tratamento
 
-Antes das análises, os dados de desembarque pesqueiro e das cotas dos municípios de Borba e Manicoré passaram por um processo de organização e limpeza. Essa etapa foi realizada no Microsoft Excel e no R (versão 4.5.3; R Core Team, 2026), e seguiu os passos descritos a seguir.
+Antes das análises, realizamos o tratamento e a organização das duas bases de dados. Esta etapa foi desenvolvida no Microsoft Excel e no R, considerando separadamente as características dos dados de desembarque pesqueiro e das cotas fluviométricas.
 
-1. **União das bases (Excel).** Os registros de Borba e Manicoré foram reunidos em uma única planilha, chamada `dados_tratados.xlsx`. 
+**Base 1 – Desembarque Pesqueiro:**
+
+Ao analisar os dados da **Base 1 – Desembarque Pesqueiro**, realizamos inicialmente a consolidação dos registros de Borba e Manicoré em uma única base. Padronizamos as variáveis textuais e de agrupamento, sendo posteriormente transformadas em fatores ou caracteres, conforme a natureza de cada variável. A estrutura original dos dados estava no formato largo, com os valores de captura distribuídos entre os anos. Dessa forma, utilizamos a função `tidyr::pivot_longer()` para transformar a base para o formato longo, criando as variáveis `ano` e `captura_total`.
+
+Para a variável `captura_total`, substituímos a vírgula decimal por ponto e realizamos a conversão para o tipo numérico. Em seguida, removemos os registros sem informação de captura e os anos de 2000 e 2001, mantendo como período de análise os anos de 2002 a 2025. Criamos também a variável `periodo_barragem`, condicionada pela variável `ano`, para classificar os registros em três momentos: **Antes** (2002 a 2010), **Transição** (2011) e **Depois** (2012 a 2025).
+
+A priori, verificamos a presença de valores ausentes após o tratamento, não sendo identificados registros com dados omissos nas variáveis consideradas. Ao final, a Base 1 apresentou 888 observações, cujas variáveis estão descritas na @tbl-var-pesca.
+
+| Variável | Descrição | Tipo | Classe (R) | Níveis | n | NA |
+|:---|:---|:---|:---|:---|:---|:---|
+| `localidade` | Município de desembarque (Borba ou Manicoré) | Qualitativa Nominal | Fator | 2 | 888 | 0 |
+| `especie` | Nome científico da espécie | Qualitativa Nominal | Caractere | – | 888 | 0 |
+| `nome_comum` | Nome popular do peixe | Qualitativa Nominal | Caractere | – | 888 | 0 |
+| `familia` | Família a que a espécie pertence | Qualitativa Nominal | Fator | 9 | 888 | 0 |
+| `ordem` | Ordem a que a espécie pertence | Qualitativa Nominal | Fator | 5 | 888 | 0 |
+| `habitat` | Ambiente em que a espécie vive | Qualitativa Nominal | Fator | 3 | 888 | 0 |
+| `migration` | Comportamento migratório da espécie | Qualitativa Nominal | Fator | 3 | 888 | 0 |
+| `nivel_tropico` | Posição da espécie na cadeia alimentar | Qualitativa Nominal | Fator | 5 | 888 | 0 |
+| `status_mercado` | Situação do pescado no mercado | Qualitativa Nominal | Fator | 3 | 888 | 0 |
+| `periodo` | Classificação da pescaria por período | Qualitativa Nominal | Caractere | – | 888 | 0 |
+| `periodo_2` | Segunda classificação da pescaria por período | Qualitativa Nominal | Fator | 6 | 888 | 0 |
+| `periodo_barragem` | Momento em relação às hidrelétricas | Qualitativa Ordinal | Fator | 3 | 888 | 0 |
+| `ano` | Ano do registro (2002 a 2025) | Quantitativa Discreta | Inteira | – | 888 | 0 |
+| `dias` | Número de dias de pesca informados (esforço) | Quantitativa Discreta | Numérica | – | 888 | 0 |
+| `captura_total` | Quantidade desembarcada, em quilos | Quantitativa Contínua | Numérica | – | 888 | 0 |
+
+: Descrição das variáveis (Integração: Base 1 – Desembarque Pesqueiro). {#tbl-var-pesca}
 
 
-2. **Mudança do formato da tabela.** Na planilha original, cada ano, de 2000 a 2025, ocupava uma coluna, formato conhecido como "largo". Com a função `pivot_longer`, a tabela passou para o formato "longo", em que cada linha corresponde a um registro de um único ano. Assim, os anos foram reunidos na coluna `ano`, e as quantidades pescadas, na coluna `captura_total`. Esse formato é o mais adequado para as análises e os gráficos feitos no R.
+**Base 2 – Cotas Fluviométricas:**
 
-3. **Ajuste dos valores de captura.** Na variável `captura_total`, a vírgula decimal foi substituída por ponto, que é o padrão reconhecido pelo R, e os valores foram convertidos para número. Com isso, tornou-se possível realizar cálculos e construir gráficos com essa variável.
+Ao analisar os dados da **Base 2 – Cotas Fluviométricas**, identificamos que os arquivos originais da Agência Nacional de Águas e Saneamento Básico (ANA) apresentavam um cabeçalho institucional contendo informações e o dicionário dos dados. Dessa forma, optamos por desconsiderar essas linhas durante a importação. Posteriormente, realizamos a consolidação dos registros das estações de Borba e Manicoré em uma única base.
 
-4. **Criação da variável `periodo_barragem`.** A partir do ano de cada registro, foram definidos três grupos que indicam o momento em relação às hidrelétricas: antes (2002 a 2010), período anterior à entrada em operação das usinas; transição (2011), ano em que as comportas foram fechadas; e depois (2012 a 2025), período com as usinas em funcionamento.
+A priori, realizamos a tipificação das variáveis de identificação e tempo, entre elas `localidade`, `ano` e `mes`. Padronizamos a variável `hora` para o formato `%H:%M:%S`, corrigindo inconsistências de formatação existentes nos arquivos de origem. Utilizando o dicionário disponibilizado pela ANA, substituímos os códigos numéricos das variáveis de validação e status pelos respectivos rótulos categóricos, como `Branco`, `Real` e `Estimado`.
 
-5. **Remoção de registros sem informação.** Foram excluídas as linhas sem dado de captura (`NA`) e os anos de 2000 e 2001. Dessa forma, a base final cobre, de maneira contínua, o período de 2002 a 2025.
+A estrutura original apresentava 31 colunas destinadas às cotas diárias e outras 31 colunas correspondentes aos respectivos status. Para organizar essas informações, utilizamos a função `tidyr::pivot_longer()`, transformando os dados do formato largo para o formato longo. A partir dessa transformação, foram estruturadas as variáveis `cota`, `status` e `referencia_dia`.
 
-A base final reúne 15 variáveis. Doze vêm da planilha `dados_tratados.xlsx`, duas surgiram na mudança de formato da tabela e uma foi criada a partir do ano. Cada variável foi classificada quanto à natureza (qualitativa ou quantitativa) e à classe em que está guardada no R, conforme a @tbl-variaveis.
+Criamos também a variável `identificador_cota`, utilizada para manter a referência da coluna original de cada medição, como, por exemplo, `cota_01`. Optamos por não remover os valores ausentes (`NA`) da variável `cota` e das demais variáveis hidrológicas, uma vez que esses valores representam períodos em que não houve registro da medição. Dessa forma, mantemos a sequência temporal original dos dados e evitamos alterações no espaçamento entre as observações da série histórica.
 
-| Variável | Descrição | Natureza | Classe no R | Origem |
-|:---------|:----------|:---------|:------------|:-------|
-| `localidade` | Município de desembarque do pescado (Borba ou Manicoré) | Qualitativa nominal | Fator | Planilha |
-| `especie` | Nome científico da espécie | Qualitativa nominal | Caractere | Planilha |
-| `nome_comum` | Nome popular do peixe | Qualitativa nominal | Caractere | Planilha |
-| `familia` | Família a que a espécie pertence | Qualitativa nominal | Fator | Planilha |
-| `ordem` | Ordem a que a espécie pertence | Qualitativa nominal | Fator | Planilha |
-| `habitat` | Ambiente em que a espécie vive | Qualitativa nominal | Fator | Planilha |
-| `migration` | Comportamento migratório da espécie | Qualitativa nominal | Fator | Planilha |
-| `nivel_tropico` | Posição da espécie na cadeia alimentar | Qualitativa nominal | Fator | Planilha |
-| `status_mercado` | Situação do pescado no mercado | Qualitativa nominal | Fator | Planilha |
-| `periodo` | Classificação da pescaria por período | Qualitativa nominal | Caractere | Planilha |
-| `periodo_2` | Segunda classificação da pescaria por período | Qualitativa nominal | Fator | Criada |
-| `dias` | Número de dias de pesca informados (esforço) | Quantitativa discreta | Numérica | Planilha |
-| `ano` | Ano do registro (de 2002 a 2025) | Quantitativa discreta | Inteira | Criada |
-| `captura_total` | Quantidade desembarcada, em quilos | Quantitativa contínua | Numérica | Criada |
-| `periodo_barragem` | Momento em relação às hidrelétricas (antes, transição ou depois) | Qualitativa ordinal | Fator | Criada |
+Após o tratamento, a Base 2 apresentou 144.181 registros. Diferentemente da Base 1, foram mantidos os valores ausentes existentes nos dados hidrológicos. A quantidade de observações e de valores ausentes para cada variável está apresentada na @tbl-var-cotas.
 
-: Variáveis da base de dados tratada. {#tbl-variaveis}
+| Variável | Descrição | Tipo | Classe (R) | Níveis | n | NA |
+|:---|:---|:---|:---|:---|:---|:---|
+| `localidade` | Município da estação de medição | Qualitativa Nominal | Fator | 2 | 144.181 | 0 |
+| `estacao_codigo` | Código identificador da estação na ANA | Qualitativa Nominal | Caractere | – | 144.181 | 0 |
+| `nivel_consistencia` | Consistência do dado (Bruto ou Consistido) | Qualitativa Nominal | Fator | 2 | 144.181 | 0 |
+| `data` | Data do registro da medição | Quantitativa Contínua | Data | – | 144.181 | 0 |
+| `ano` | Ano de referência da medição | Quantitativa Discreta | Inteira | – | 144.181 | 0 |
+| `mes` | Mês de referência da medição | Quantitativa Discreta | Inteira | – | 144.181 | 0 |
+| `referencia_dia` | Dia do mês extraído das cotas originais | Quantitativa Discreta | Inteira | – | 144.181 | 0 |
+| `hora` | Hora do registro da medição tratada | Quantitativa Discreta | Caractere | – | 144.181 | 80.879 |
+| `media_diaria` | Indicador de média diária ou instantânea | Qualitativa Nominal | Fator | 2 | 144.181 | 0 |
+| `tipo_medicao_cotas` | Método de leitura (Escala, Linígrafo, etc.) | Qualitativa Nominal | Fator | 4 | 144.181 | 0 |
+| `identificador_cota` | Identificador da cota original (ex: cota_01) | Qualitativa Nominal | Fator | 31 | 144.181 | 0 |
+| `cota` | Medição diária do nível do rio (formato longo) | Quantitativa Contínua | Numérica | – | 144.181 | 3.240 |
+| `status` | Status de qualidade da medição diária | Qualitativa Nominal | Fator | 5 | 144.181 | 26.732 |
+| `maxima` | Cota máxima mensal | Quantitativa Contínua | Numérica | – | 144.181 | 1.953 |
+| `minima` | Cota mínima mensal | Quantitativa Contínua | Numérica | – | 144.181 | 2.015 |
+| `media` | Cota média mensal | Quantitativa Contínua | Numérica | – | 144.181 | 2.015 |
+| `dia_maxima` | Dia de ocorrência da cota máxima | Quantitativa Discreta | Numérica | – | 144.181 | 1.953 |
+| `dia_minima` | Dia de ocorrência da cota mínima | Quantitativa Discreta | Numérica | – | 144.181 | 2.015 |
+| `media_anual` | Cota média anual no período | Quantitativa Contínua | Numérica | – | 144.181 | 76.508 |
+| `maxima_status` | Status de qualidade da cota máxima | Qualitativa Nominal | Fator | 5 | 144.181 | 0 |
+| `minima_status` | Status de qualidade da cota mínima | Qualitativa Nominal | Fator | 5 | 144.181 | 0 |
+| `media_status` | Status de qualidade da cota média | Qualitativa Nominal | Fator | 5 | 144.181 | 0 |
+| `media_anual_status` | Status de qualidade da média anual | Qualitativa Nominal | Fator | 5 | 144.181 | 2.604 |
 
-As variáveis criadas no processamento foram:
+: Descrição das variáveis (Integração: Base 2 – Cotas Fluviométricas). {#tbl-var-cotas}
 
-- **`ano` e `captura_total`:** na planilha original, cada ano era uma coluna (2000, 2001, ..., 2025) com as quantidades pescadas. Com a mudança de formato, os nomes dessas colunas passaram a ser os valores de `ano`, e as quantidades, os valores de `captura_total`.
-- **`periodo_2`:** criada a partir de `periodo`, apenas para padronização do periodo.
-- **`periodo_barragem`:** criada a partir de `ano`, reúne os registros em antes, transição e depois da entrada em operação das hidrelétricas.
 
-## Visualização dos Dados Brutos
+## Visualização dos Dados
 
-Para conhecer a base, a @tbl-dados-brutos mostra os registros dos dados tratados, com 10 linhas por página. É possível pesquisar e navegar entre as páginas.
+Para conhecer a estrutura das bases após o tratamento, apresentamos os registros das duas bases utilizadas no estudo. As tabelas apresentam 10 linhas por página e permitem realizar pesquisas e navegar entre os registros.
+
+**Base 1 – Desembarque Pesqueiro:**
+
+A @tbl-dados-pesca apresenta os registros da **Base 1 – Desembarque Pesqueiro**, considerando as principais variáveis utilizadas nas análises.
 
 ```{r}
-#| label: tbl-dados-brutos
-#| tbl-cap: "Dados brutos de desembarque pesqueiro das colônias de Borba e Manicoré (2002 a 2025)."
+#| label: tbl-dados-pesca
+#| tbl-cap: "Dados tratados de desembarque pesqueiro das colônias de Borba e Manicoré (2002 a 2025)."
 #| echo: false
 
 dados_longos |>
   tabela_interativa(
     linhas = 10,
-    colunas = c("localidade", "nome_comum", "especie", "ano",
-                "captura_total", "periodo_barragem"),
+    colunas = c(
+      "localidade",
+      "nome_comum",
+      "especie",
+      "ano",
+      "captura_total",
+      "periodo_barragem"
+    ),
     colunas_decimais = "captura_total"
   )
 ```
 
+**Base 2 – Cotas Fluviométricas:**
+
+A @tbl-dados-cotas apresenta os registros da **Base 2 – Cotas Fluviométricas**, considerando as principais variáveis utilizadas para caracterizar as medições do nível do Rio Madeira nas estações de Borba e Manicoré.
+
+```{r}
+#| label: tbl-dados-cotas
+#| tbl-cap: "Dados tratados de cotas fluviométricas das estações de Borba e Manicoré (1967 a 2026)."
+#| echo: false
+
+dados_cotas |>
+  tabela_interativa(
+    linhas = 10,
+    colunas = c(
+      "localidade",
+      "estacao_codigo",
+      "data",
+      "ano",
+      "mes",
+      "referencia_dia",
+      "cota",
+      "status"
+    ),
+    colunas_decimais = "cota"
+  )
+```
 
 ## Variáveis hidrológicas
 
