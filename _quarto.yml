@@ -91,7 +91,7 @@ website:
 format: 
   html: 
     theme: flatly
-    css: [s8.css, tabelas.css]
+    # css: [s8.css, tabelas.css]
     css: [s8.css, tabelas.css]
     tbl-cap-location: top
 # 
