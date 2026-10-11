@@ -879,9 +879,17 @@ html { font-size: var(--fs-root) !important; }
 #quarto-document-content h3 { font-size: var(--fs-h3); }
 #quarto-document-content h4 { font-size: var(--fs-h4); }
 
-/* 12.3 Citação de tabela no texto (@tbl-...) */
+/* 12.3 Citação de tabela no texto (@tbl-...) 
 #quarto-document-content a.quarto-xref[href^="#tbl-"] {
   color: var(--cor-rotulo-tabela);
+}
+*/
+
+/* Citação de tabela no texto: mesma cor do rótulo "Tabela N." da legenda */
+#quarto-document-content a[href^="#tbl-"],
+#quarto-document-content a[href^="#tbl-"]:hover,
+#quarto-document-content a[href^="#tbl-"]:visited {
+  color: var(--cor-rotulo-tabela, #0a7d4f) !important;
 }
 
 

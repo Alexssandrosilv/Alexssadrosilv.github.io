@@ -24,6 +24,8 @@ crossref:
     text-align: justify;
     text-justify: inter-word;
   }
+  /* Esconde a busca do menu nesta página (a busca do Quarto é do site todo) */
+  #quarto-search { display: none !important; }
 </style>
 
 ```{r setup, include=FALSE}
@@ -123,6 +125,12 @@ dados_longos |>
     colunas_decimais = "captura_total"
   )
 ```
+
+
+##  Correlacionar a produção pesqueira com variáveis hidrológicas influenciadas pela ação antropomórfica das UHEs.
+##  Detectar mudanças nas séries temporais de produção pesqueira.
+##  Quantificar as mudanças a produção, composição e diversidade de capturas pesqueiras registradas no banco de dados das colônias de pescadores, comparando os períodos “Antes” e “Depois” da operação das UHEs.
+
 
 ::: {style="border-top: 2px solid #040404;"}
 :::
