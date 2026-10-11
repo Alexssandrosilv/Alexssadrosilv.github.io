@@ -110,13 +110,12 @@ format:
     code-fold: true
     code-summary: "Mostrar/Ocultar Código"
     
-    # Importa as fontes profissionais do Google e o CSS extra
     include-in-header:
       - text: |
           <link rel="preconnect" href="https://fonts.googleapis.com">
           <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
           <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Fira+Code&display=swap" rel="stylesheet">
-          
+
           <!-- Estilo CSS para detalhes/sumário -->
           <style>
           details > summary {
@@ -125,6 +124,8 @@ format:
             cursor: pointer;
           }
           </style>
+
+          <!-- Rótulo "Tabela N." das legendas em verde -->
           <script>
           document.addEventListener('DOMContentLoaded', function () {
             document.querySelectorAll('figure.quarto-float-tbl figcaption, table caption').forEach(function (cap) {
@@ -147,7 +148,6 @@ format:
             });
           });
           </script>
-    
 
 # 4. Configuração do R
 execute:

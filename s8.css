@@ -811,17 +811,84 @@ footer.footer,
 /* ==========================================================================
     BLOCO 12: TÍTULOS, TABELAS E TAMANHOS DE FONTE
 ========================================================================== */
+/* ==========================================================================
+    BLOCO 12: TÍTULOS, TABELAS, LEGENDAS E ESCALA DE FONTES
+    (substitui os antigos BLOCO 12 e BLOCO 13)
+========================================================================== */
 
-/* 12.1 Títulos ## (e o número da seção) em verde */
-#quarto-document-content h2,
-#quarto-document-content h2 .header-section-number {
-  color: var(--cor-destaque-viva);
+/* 12.1 Variáveis: verdes por nível e escala de fontes */
+:root {
+  /* Verdes: um tom para cada nível */
+  --verde-h2: #18bc9c;           /* ##   verde vivo da marca */
+  --verde-h3: #128f76;           /* ###  verde escuro */
+  --verde-h4: #0d6e5b;           /* #### verde mais fechado */
+  --cor-rotulo-tabela: #0a7d4f;  /* "Tabela N." e citações no texto (esmeralda) */
+
+  /* Escala de fontes (computador) */
+  --fs-root: 15px;
+  --fs-titulo: 2rem;
+  --fs-h2: 1.5rem;
+  --fs-h3: 1.25rem;
+  --fs-h4: 1.1rem;
+  --fs-tabela: 0.8rem;
 }
 
-/* 12.2 Tabelas estáticas: fundo branco, cabeçalho em negrito com linhas */
+/* Tablet */
+@media (max-width: 991px) {
+  :root {
+    --fs-root: 14.5px;
+    --fs-titulo: 1.8rem;
+    --fs-h2: 1.4rem;
+    --fs-h3: 1.2rem;
+    --fs-h4: 1.08rem;
+    --fs-tabela: 0.78rem;
+  }
+}
+
+/* Celular */
+@media (max-width: 576px) {
+  :root {
+    --fs-root: 14px;
+    --fs-titulo: 1.6rem;
+    --fs-h2: 1.35rem;
+    --fs-h3: 1.15rem;
+    --fs-h4: 1.05rem;
+    --fs-tabela: 0.75rem;
+  }
+}
+
+html { font-size: var(--fs-root) !important; }
+
+/* 12.2 Títulos: cor e tamanho por nível */
+.quarto-title h1.title {
+  font-size: var(--fs-titulo);
+  line-height: 1.25;
+}
+
+#quarto-document-content h2,
+#quarto-document-content h2 .header-section-number { color: var(--verde-h2); }
+#quarto-document-content h2 { font-size: var(--fs-h2); }
+
+#quarto-document-content h3,
+#quarto-document-content h3 .header-section-number { color: var(--verde-h3); }
+#quarto-document-content h3 { font-size: var(--fs-h3); }
+
+#quarto-document-content h4,
+#quarto-document-content h4 .header-section-number { color: var(--verde-h4); }
+#quarto-document-content h4 { font-size: var(--fs-h4); }
+
+/* 12.3 Citação de tabela no texto (@tbl-...) */
+#quarto-document-content a.quarto-xref[href^="#tbl-"] {
+  color: var(--cor-rotulo-tabela);
+}
+#quarto-document-content a.quarto-xref[href^="#tbl-"]:hover {
+  color: var(--verde-h4);
+}
+
+/* 12.4 Tabelas estáticas: fundo branco, cabeçalho em negrito com linhas */
 #quarto-document-content table {
   width: 100%;
-  font-size: 0.8rem;
+  font-size: var(--fs-tabela);
   border-collapse: collapse;
   --bs-table-bg: #ffffff;
   --bs-table-striped-bg: #ffffff;
@@ -843,11 +910,7 @@ footer.footer,
   border-bottom: 2px solid #000000;
 }
 
-/* 12.3 Legenda das tabelas: rótulo em verde, resto em preto, tudo em negrito */
-:root {
-  --cor-rotulo-tabela: #0a7d4f;   /* verde esmeralda (diferente do verde dos títulos) */
-}
-
+/* 12.5 Legenda: "Tabela N." em verde, resto em preto, tudo em negrito */
 figure.quarto-float-tbl figcaption,
 #quarto-document-content table caption {
   font-weight: 700;
@@ -855,30 +918,16 @@ figure.quarto-float-tbl figcaption,
   text-align: left;
   margin-bottom: 0.5rem;
 }
-
 figure.quarto-float-tbl figcaption .rotulo-tabela,
 #quarto-document-content table caption .rotulo-tabela {
   color: var(--cor-rotulo-tabela);
   font-weight: 700;
 }
 
-/* 12.3 Legenda: negrito, "Tabela N." em azul */
-/*#quarto-document-content figcaption,
-#quarto-document-content table caption {
-  font-weight: 700;
-  color: #2b2b2b;
-  text-align: left;
-  margin-bottom: 0.5rem;
-}
-#quarto-document-content .quarto-float-title,
-#quarto-document-content .caption-prefix {
-  color: #003366;
-}
-*/
+/* 12.6 Tabela interativa (DT) */
+.dataTables_wrapper { font-size: var(--fs-tabela); }
 
-/* 12.4 Tabela interativa (DT): só linha embaixo do cabeçalho */
-.dataTables_wrapper { font-size: 0.8rem; }
-
+/* Só linha embaixo do cabeçalho, linhas finas entre os registros */
 #quarto-document-content table.dt-minimal thead th {
   border-top: none;
   border-bottom: 2px solid #000000;
@@ -888,11 +937,23 @@ figure.quarto-float-tbl figcaption .rotulo-tabela,
   border-bottom: 1px solid #eeeeee;
 }
 
-.dataTables_filter input {
+/* Não quebra palavras ao meio */
+table.dt-minimal th,
+table.dt-minimal td {
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+/* Pesquisa afastada da tabela */
+.dataTables_wrapper .dataTables_filter { margin-bottom: 0.9rem; }
+.dataTables_wrapper .dataTables_filter input {
+  margin-left: 0.5rem;
   border: 1px solid #cccccc;
   border-radius: 6px;
   padding: 2px 8px;
 }
+
+/* Rodapé: informação à esquerda, controles à direita */
 .dt-rodape {
   display: flex;
   justify-content: space-between;
@@ -912,6 +973,8 @@ figure.quarto-float-tbl figcaption .rotulo-tabela,
   float: none !important;
   padding: 0;
 }
+
+/* Página atual em preto */
 .dataTables_wrapper .dataTables_paginate .paginate_button.current {
   background: #000000 !important;
   color: #ffffff !important;
@@ -919,7 +982,7 @@ figure.quarto-float-tbl figcaption .rotulo-tabela,
   border-radius: 6px;
 }
 
-/* 12.5 CORREÇÃO DA LARGURA: tabela larga não alarga mais a página */
+/* 12.7 Largura: tabela larga não alarga a página */
 main.content,
 #quarto-document-content {
   min-width: 0;
@@ -938,43 +1001,30 @@ figure.quarto-float-tbl {
   max-width: 100%;
 }
 .dataTables_wrapper { overflow-x: auto; }
-table.dt-minimal th,
-table.dt-minimal td {
-  overflow-wrap: anywhere;
-}
 
-/* 12.6 CELULAR: escala de fontes menor e proporcional */
-@media (max-width: 768px) {
+/* 12.8 Celular */
+@media (max-width: 576px) {
 
-  /* Tamanho base: todo o resto é proporcional (rem) */
-  html { font-size: 14px !important; }
-
-  /* Escala: texto 1 | h4 1.05 | h3 1.15 | h2 1.35 | título 1.6 */
-  .quarto-title h1.title {
-    font-size: 1.6rem;
-    line-height: 1.25;
-    text-align: left;       /* evita buracos entre palavras no título */
+  /* Margem lateral maior (ajuste o 1rem: 0.5rem menor, 1.5rem maior) */
+  #quarto-document-content {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
-  .quarto-title .description { font-size: 1rem; text-align: left; }
+
+  /* Título sem buracos entre palavras */
+  .quarto-title h1.title,
+  .quarto-title .description { text-align: left; }
+  .quarto-title .description { font-size: 1rem; }
   .quarto-title-meta { font-size: 0.85rem; }
 
-  #quarto-document-content h2 { font-size: 1.35rem; }
-  #quarto-document-content h3 { font-size: 1.15rem; }
-  #quarto-document-content h4 { font-size: 1.05rem; }
-
-  /* Texto justificado, com hifenização para reduzir os buracos */
+  /* Texto justificado com hifenização */
   #quarto-document-content p,
-  #quarto-document-content li {
-    hyphens: auto;
-  }
+  #quarto-document-content li { hyphens: auto; }
 
-  /* Tabelas mais compactas */
-  #quarto-document-content table,
-  .dataTables_wrapper { font-size: 0.75rem; }
+  /* Tabela interativa mais compacta */
   table.dt-minimal thead th,
   table.dt-minimal tbody td { padding: 6px 3px !important; }
 
-  /* Pesquisa à esquerda e rodapé da tabela em coluna */
   .dataTables_filter { text-align: left !important; }
   .dt-rodape,
   .dt-direita {
