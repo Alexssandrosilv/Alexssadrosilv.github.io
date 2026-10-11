@@ -5,3 +5,5 @@
 
 /.quarto/
 renv/library/
+
+**/*.quarto_ipynb
