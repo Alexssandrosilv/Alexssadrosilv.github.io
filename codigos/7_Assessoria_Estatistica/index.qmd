@@ -50,14 +50,14 @@ source("3_tratamento_dados.R")
 
 <br>
 
-::: {style="border-top: 2px solid #003366;"}
+::: {style="border-top: 2px solid #040404;"}
 :::
 
 <br>
 
 ## Sobre os dados
 
-Os dados analisados são registros de desembarque pesqueiro das colônias de pescadores dos municípios de Borba e Manicoré, no período de 2002 a 2025. Eles foram organizados para comparar a pesca antes e depois da entrada em operação das hidrelétricas (UHEs) Jirau e Santo Antônio, no Rio Madeira. O trabalho tem os seguintes objetivos:
+Os dados analisados são registros de coatas e desembarque pesqueiro das colônias de pescadores dos municípios de Borba e Manicoré, no período de 2002 a 2025. Eles foram organizados para comparar a pesca antes e depois da entrada em operação das hidrelétricas (UHEs) Jirau e Santo Antônio, no Rio Madeira. O trabalho tem os seguintes objetivos:
 
 1. **Correlacionar a produção pesqueira com variáveis hidrológicas influenciadas pela ação antropomórfica das UHEs;**
 2. **Detectar mudanças nas séries temporais de produção pesqueira;**
@@ -124,5 +124,5 @@ dados_longos |>
   )
 ```
 
-::: {style="border-top: 2px solid #003366;"}
+::: {style="border-top: 2px solid #040404;"}
 :::
