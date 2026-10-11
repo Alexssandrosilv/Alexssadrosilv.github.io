@@ -118,9 +118,11 @@ details > summary {
 }
 </style>
 
-<!-- Rótulo "Tabela N." das legendas em verde -->
+<!-- Rótulo "Tabela N." das legendas e citações das tabelas em verde -->
 <script>
 document.addEventListener('DOMContentLoaded', function () {
+
+  // 1) Rótulo "Tabela N." da legenda
   document.querySelectorAll('figure.quarto-float-tbl figcaption, table caption').forEach(function (cap) {
     if (cap.querySelector('.rotulo-tabela')) return;
     var m = cap.textContent.match(/^\s*Tabela[\s\u00a0]*\d+\s*[.:]?/);
@@ -139,6 +141,12 @@ document.addEventListener('DOMContentLoaded', function () {
     span.appendChild(range.extractContents());
     range.insertNode(span);
   });
+
+  // 2) Citação da tabela no texto (@tbl-...) com a mesma cor da legenda
+  document.querySelectorAll('#quarto-document-content a[href^="#tbl-"]').forEach(function (a) {
+    a.style.setProperty('color', 'var(--cor-rotulo-tabela, #0a7d4f)', 'important');
+  });
+
 });
 </script>
 
@@ -260,7 +268,7 @@ window.Quarto = {
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-left" data-index="0" data-listing-date-sort="NaN" data-listing-file-modified-sort="1791746012096" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1736">
+<div class="quarto-post image-left" data-index="0" data-listing-date-sort="NaN" data-listing-file-modified-sort="1791747047027" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1736">
 <div class="thumbnail"><a href="../../codigos/1_Inferencia_Estatística/projeto-long.html" class="no-external">
 
 <p class="card-img-top"><img loading='lazy' src="projeto-long_files/figure-html/unnamed-chunk-2-1.png"  class="thumbnail-image card-img"/></p>
@@ -283,7 +291,7 @@ Alexssandro Oliveira | alexssandrosg@gmail.com
 </a>
 </div>
 </div>
-<div class="quarto-post image-left" data-index="1" data-categories="UiUyQ0luZmVyJUMzJUFBbmNpYSUyQ0VzdHVkbyUyMGRlJTIwQ2Fzbw==" data-listing-date-sort="1791746012000" data-listing-file-modified-sort="1791746012096" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="531">
+<div class="quarto-post image-left" data-index="1" data-categories="UiUyQ0luZmVyJUMzJUFBbmNpYSUyQ0VzdHVkbyUyMGRlJTIwQ2Fzbw==" data-listing-date-sort="1791747047000" data-listing-file-modified-sort="1791747047027" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="531">
 <div class="thumbnail"><a href="../../codigos/1_Inferencia_Estatística/projeto-tcc.html" class="no-external">
 
 <img loading="lazy" src="../../codigos/1_Inferencia_Estatística/imagens/modulo_inferencia.jpg" class="thumbnail-image">
