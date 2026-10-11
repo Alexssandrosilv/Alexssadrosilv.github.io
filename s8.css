@@ -885,10 +885,21 @@ html { font-size: var(--fs-root) !important; }
 }
 */
 
-/* Citação de tabela no texto: mesma cor do rótulo "Tabela N." da legenda */
+/* Citação de tabela no texto: mesma cor do rótulo "Tabela N." da legenda 
 #quarto-document-content a[href^="#tbl-"],
 #quarto-document-content a[href^="#tbl-"]:hover,
 #quarto-document-content a[href^="#tbl-"]:visited {
+  color: var(--cor-rotulo-tabela, #0a7d4f) !important;
+}*/
+
+
+/* Citação de tabela no texto: mesma cor do rótulo "Tabela N." da legenda */
+#quarto-document-content a[href^="#tbl-"],
+#quarto-document-content a[href^="#tbl-"]:link,
+#quarto-document-content a[href^="#tbl-"]:visited,
+#quarto-document-content a[href^="#tbl-"]:hover,
+#quarto-document-content a[href^="#tbl-"]:focus,
+#quarto-document-content a[href^="#tbl-"]:active {
   color: var(--cor-rotulo-tabela, #0a7d4f) !important;
 }
 
@@ -1041,3 +1052,14 @@ figure.quarto-float-tbl {
     gap: 0.5rem;
   }
 }
+
+
+/* Caixa de objetivo: título curto + texto completo da tese */
+.objetivo {
+  border-left: 4px solid var(--verde-titulos, #18bc9c);
+  background: #f4fbf9;
+  padding: 0.7rem 1rem;
+  margin: 0.5rem 0 1.2rem 0;
+  border-radius: 0 8px 8px 0;
+}
+.objetivo p { margin: 0; }

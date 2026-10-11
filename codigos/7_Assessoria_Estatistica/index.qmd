@@ -127,9 +127,23 @@ dados_longos |>
 ```
 
 
-##  Correlacionar a produção pesqueira com variáveis hidrológicas influenciadas pela ação antropomórfica das UHEs.
-##  Detectar mudanças nas séries temporais de produção pesqueira.
-##  Quantificar as mudanças a produção, composição e diversidade de capturas pesqueiras registradas no banco de dados das colônias de pescadores, comparando os períodos “Antes” e “Depois” da operação das UHEs.
+## Variáveis hidrológicas
+
+::: {.objetivo}
+**Objetivo:** Correlacionar a produção pesqueira com variáveis hidrológicas influenciadas pela ação antropomórfica das UHEs;
+:::
+
+## Séries temporais
+
+::: {.objetivo}
+**Objetivo:** Detectar mudanças nas séries temporais de produção pesqueira;
+:::
+
+## Antes e depois das UHEs
+
+::: {.objetivo}
+**Objetivo:** Quantificar as mudanças a produção, composição e diversidade de capturas pesqueiras registradas no banco de dados das colônias de pescadores, comparando os períodos “Antes” e “Depois” da operação das UHEs;
+:::
 
 
 ::: {style="border-top: 2px solid #040404;"}
