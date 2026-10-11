@@ -119,11 +119,11 @@ details > summary {
 }
 </style>
 
-<!-- Rótulo "Tabela N." das legendas e citações das tabelas em verde -->
+<!-- Rótulo "Tabela N:" das legendas e citações das tabelas em verde -->
 <script>
 document.addEventListener('DOMContentLoaded', function () {
 
-  // 1) Rótulo "Tabela N." da legenda
+  // 1) Rótulo "Tabela N:" da legenda
   document.querySelectorAll('figure.quarto-float-tbl figcaption, table caption').forEach(function (cap) {
     if (cap.querySelector('.rotulo-tabela')) return;
     var m = cap.textContent.match(/^\s*Tabela[\s\u00a0]*\d+\s*[.:]?/);
@@ -143,9 +143,12 @@ document.addEventListener('DOMContentLoaded', function () {
     range.insertNode(span);
   });
 
-  // 2) Citação da tabela no texto (@tbl-...) com a mesma cor da legenda
-  document.querySelectorAll('#quarto-document-content a[href^="#tbl-"]').forEach(function (a) {
-    a.style.setProperty('color', 'var(--cor-rotulo-tabela, #0a7d4f)', 'important');
+  // 2) Citação no texto: qualquer link cujo texto seja "Tabela N"
+  document.querySelectorAll('a').forEach(function (a) {
+    if (/^Tabela[\s\u00a0]*\d+$/.test(a.textContent.trim())) {
+      a.classList.add('citacao-tabela');
+      a.style.setProperty('color', 'var(--cor-rotulo-tabela, #0a7d4f)', 'important');
+    }
   });
 
 });
@@ -182,7 +185,6 @@ window.Quarto = {
 </script>
 
 <link rel="stylesheet" href="../../s8.css">
-<link rel="stylesheet" href="tabelas.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -279,7 +281,7 @@ window.Quarto = {
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-date-sort="NaN" data-listing-file-modified-sort="1791747047027" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1736">
+<div class="quarto-post image-right" data-index="0" data-listing-date-sort="NaN" data-listing-file-modified-sort="1791747714566" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1736">
 <div class="thumbnail"><a href="../../codigos/2_Modelos_de_Regressao/projeto-long.html" class="no-external">
 
 <p class="card-img-top"><img loading='lazy' src="projeto-long_files/figure-html/unnamed-chunk-2-1.png"  class="thumbnail-image card-img"/></p>
@@ -302,7 +304,7 @@ Invalid Date
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-listing-date-sort="NaN" data-listing-file-modified-sort="1791747047027" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="23" data-listing-word-count-sort="4477">
+<div class="quarto-post image-right" data-index="1" data-listing-date-sort="NaN" data-listing-file-modified-sort="1791747714566" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="23" data-listing-word-count-sort="4477">
 <div class="thumbnail"><a href="../../codigos/2_Modelos_de_Regressao/projeto-reg.html" class="no-external">
 
 <p class="card-img-top"><img loading='lazy' src="projeto-reg_files/figure-html/Análise exploratória-1.png"  class="thumbnail-image card-img"/></p>
