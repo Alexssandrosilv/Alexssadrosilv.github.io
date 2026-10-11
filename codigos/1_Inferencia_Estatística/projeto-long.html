@@ -121,6 +121,28 @@ details > summary {
   cursor: pointer;
 }
 </style>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('figure.quarto-float-tbl figcaption, table caption').forEach(function (cap) {
+    if (cap.querySelector('.rotulo-tabela')) return;
+    var m = cap.textContent.match(/^\s*Tabela[\s\u00a0]*\d+\s*[.:]?/);
+    if (!m) return;
+    var restante = m[0].length;
+    var walker = document.createTreeWalker(cap, NodeFilter.SHOW_TEXT);
+    var range = document.createRange();
+    var n, iniciou = false;
+    while ((n = walker.nextNode())) {
+      if (!iniciou) { range.setStart(n, 0); iniciou = true; }
+      if (n.nodeValue.length >= restante) { range.setEnd(n, restante); break; }
+      restante -= n.nodeValue.length;
+    }
+    var span = document.createElement('span');
+    span.className = 'rotulo-tabela';
+    span.appendChild(range.extractContents());
+    range.insertNode(span);
+  });
+});
+</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
@@ -230,7 +252,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Data de Publicação</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">9 de outubro de 2026</p>
+      <p class="date">11 de outubro de 2026</p>
     </div>
   </div>
   

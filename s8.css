@@ -807,3 +807,179 @@ footer.footer,
     box-shadow: none !important;          /* Sem sombras estranhas */
     border-bottom: none !important;       /* Sem bordas no final da página */
 }
+
+/* ==========================================================================
+    BLOCO 12: TÍTULOS, TABELAS E TAMANHOS DE FONTE
+========================================================================== */
+
+/* 12.1 Títulos ## (e o número da seção) em verde */
+#quarto-document-content h2,
+#quarto-document-content h2 .header-section-number {
+  color: var(--cor-destaque-viva);
+}
+
+/* 12.2 Tabelas estáticas: fundo branco, cabeçalho em negrito com linhas */
+#quarto-document-content table {
+  width: 100%;
+  font-size: 0.8rem;
+  border-collapse: collapse;
+  --bs-table-bg: #ffffff;
+  --bs-table-striped-bg: #ffffff;
+  --bs-table-hover-bg: #ffffff;
+}
+#quarto-document-content table thead th {
+  font-weight: 700;
+  background-color: #ffffff !important;
+  border-top: 2px solid #000000;
+  border-bottom: 1.5px solid #000000;
+  text-align: center;
+}
+#quarto-document-content table tbody td {
+  background-color: #ffffff !important;
+  border: none;
+  text-align: center;
+}
+#quarto-document-content table tbody tr:last-child td {
+  border-bottom: 2px solid #000000;
+}
+
+/* 12.3 Legenda das tabelas: rótulo em verde, resto em preto, tudo em negrito */
+:root {
+  --cor-rotulo-tabela: #0a7d4f;   /* verde esmeralda (diferente do verde dos títulos) */
+}
+
+figure.quarto-float-tbl figcaption,
+#quarto-document-content table caption {
+  font-weight: 700;
+  color: #000000;
+  text-align: left;
+  margin-bottom: 0.5rem;
+}
+
+figure.quarto-float-tbl figcaption .rotulo-tabela,
+#quarto-document-content table caption .rotulo-tabela {
+  color: var(--cor-rotulo-tabela);
+  font-weight: 700;
+}
+
+/* 12.3 Legenda: negrito, "Tabela N." em azul */
+/*#quarto-document-content figcaption,
+#quarto-document-content table caption {
+  font-weight: 700;
+  color: #2b2b2b;
+  text-align: left;
+  margin-bottom: 0.5rem;
+}
+#quarto-document-content .quarto-float-title,
+#quarto-document-content .caption-prefix {
+  color: #003366;
+}
+*/
+
+/* 12.4 Tabela interativa (DT): só linha embaixo do cabeçalho */
+.dataTables_wrapper { font-size: 0.8rem; }
+
+#quarto-document-content table.dt-minimal thead th {
+  border-top: none;
+  border-bottom: 2px solid #000000;
+}
+#quarto-document-content table.dt-minimal tbody td,
+#quarto-document-content table.dt-minimal tbody tr:last-child td {
+  border-bottom: 1px solid #eeeeee;
+}
+
+.dataTables_filter input {
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+  padding: 2px 8px;
+}
+.dt-rodape {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+.dt-direita {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.dt-rodape .dataTables_info,
+.dt-rodape .dataTables_length,
+.dt-rodape .dataTables_paginate {
+  float: none !important;
+  padding: 0;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+  background: #000000 !important;
+  color: #ffffff !important;
+  border: none !important;
+  border-radius: 6px;
+}
+
+/* 12.5 CORREÇÃO DA LARGURA: tabela larga não alarga mais a página */
+main.content,
+#quarto-document-content {
+  min-width: 0;
+  max-width: 100%;
+}
+figure.quarto-float-tbl {
+  max-width: 100%;
+  overflow-x: auto;
+}
+#quarto-document-content table code {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.html-widget,
+.dataTables_wrapper {
+  max-width: 100%;
+}
+.dataTables_wrapper { overflow-x: auto; }
+table.dt-minimal th,
+table.dt-minimal td {
+  overflow-wrap: anywhere;
+}
+
+/* 12.6 CELULAR: escala de fontes menor e proporcional */
+@media (max-width: 768px) {
+
+  /* Tamanho base: todo o resto é proporcional (rem) */
+  html { font-size: 14px !important; }
+
+  /* Escala: texto 1 | h4 1.05 | h3 1.15 | h2 1.35 | título 1.6 */
+  .quarto-title h1.title {
+    font-size: 1.6rem;
+    line-height: 1.25;
+    text-align: left;       /* evita buracos entre palavras no título */
+  }
+  .quarto-title .description { font-size: 1rem; text-align: left; }
+  .quarto-title-meta { font-size: 0.85rem; }
+
+  #quarto-document-content h2 { font-size: 1.35rem; }
+  #quarto-document-content h3 { font-size: 1.15rem; }
+  #quarto-document-content h4 { font-size: 1.05rem; }
+
+  /* Texto justificado, com hifenização para reduzir os buracos */
+  #quarto-document-content p,
+  #quarto-document-content li {
+    hyphens: auto;
+  }
+
+  /* Tabelas mais compactas */
+  #quarto-document-content table,
+  .dataTables_wrapper { font-size: 0.75rem; }
+  table.dt-minimal thead th,
+  table.dt-minimal tbody td { padding: 6px 3px !important; }
+
+  /* Pesquisa à esquerda e rodapé da tabela em coluna */
+  .dataTables_filter { text-align: left !important; }
+  .dt-rodape,
+  .dt-direita {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
