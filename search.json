@@ -214,7 +214,7 @@
     "href": "codigos/7_Assessoria_Estatistica/index.html",
     "title": "AVALIAÇÃO DO ESTOQUE PESQUEIRO NO RIO MADEIRA À JUSANTE DAS HIDRELÉTRICAS JIRAU E SANTO ANTÔNIO NO ESTADO DO AMAZONAS",
     "section": "",
-    "text": "Para a elaboração deste estudo, utilizaremos a linguagem de programação R (versão 4.5.3; R Core Team, 2026), voltada para a manipulação, análise e visualização de dados. O bloco de código (Listagem ?@lst-carregar-dados) garante que todos os pacotes necessários para o desenvolvimento deste trabalho sejam corretamente instalados e carregados no ambiente de trabalho.\nMostrar/Ocultar Código\n# Algoritmos auxiliares\nsource(\"1_pacotes.R\")"
+    "text": "Para a elaboração deste estudo, utilizaremos a linguagem de programação R (versão 4.5.3; R Core Team, 2026), voltada para a manipulação, análise e visualização de dados."
   },
   {
     "objectID": "codigos/7_Assessoria_Estatistica/index.html#sobre-os-dados",
