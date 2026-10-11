@@ -63,11 +63,11 @@ Os dados analisados são registros de desembarque pesqueiro das colônias de pes
 2. **Detectar mudanças nas séries temporais de produção pesqueira;**
 3. **Quantificar as mudanças a produção, composição e diversidade de capturas pesqueiras registradas no banco de dados das colônias de pescadores, comparando os períodos “Antes” e “Depois” da operação das UHEs.**
 
-### Preparação dos Dados
+### Tratamento
 
-Antes das análises, os dados de desembarque pesqueiro dos municípios de Borba e Manicoré passaram por um processo de organização e limpeza. Essa etapa foi realizada no Microsoft Excel e no R (versão 4.5.3; R Core Team, 2026), e seguiu os passos descritos a seguir.
+Antes das análises, os dados de desembarque pesqueiro e das cotas dos municípios de Borba e Manicoré passaram por um processo de organização e limpeza. Essa etapa foi realizada no Microsoft Excel e no R (versão 4.5.3; R Core Team, 2026), e seguiu os passos descritos a seguir.
 
-1. **Reunião das bases (Excel).** Os registros de Borba e Manicoré foram reunidos em uma única planilha, chamada `dados_tratados.xlsx`. Nela, cada registro recebeu informações sobre o local de desembarque, a espécie capturada, o ambiente em que ela vive e as características da pescaria, representadas pelas variáveis `localidade`, `nome_comum`, `ordem`, `familia`, `especie`, `habitat`, `migration`, `nivel_tropico`, `status_mercado`, `periodo`, `periodo_2` e `dias`.
+1. **União das bases (Excel).** Os registros de Borba e Manicoré foram reunidos em uma única planilha, chamada `dados_tratados.xlsx`. 
 
 
 2. **Mudança do formato da tabela.** Na planilha original, cada ano, de 2000 a 2025, ocupava uma coluna, formato conhecido como "largo". Com a função `pivot_longer`, a tabela passou para o formato "longo", em que cada linha corresponde a um registro de um único ano. Assim, os anos foram reunidos na coluna `ano`, e as quantidades pescadas, na coluna `captura_total`. Esse formato é o mais adequado para as análises e os gráficos feitos no R.
