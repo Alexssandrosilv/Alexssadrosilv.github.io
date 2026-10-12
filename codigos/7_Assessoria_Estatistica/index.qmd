@@ -11,6 +11,7 @@ crossref:
 resources:
   - dados/dados_tratados.xlsx
   - dados/dados_cotas_tratados.xlsx
+  - graficos/Mapas_taxas.png
 ---
 
 <style>
@@ -44,25 +45,45 @@ resources:
     margin: 0.4rem 0 0.8rem 0;
   }
   a.baixar {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 3px 12px;
-    margin-right: 8px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    white-space: nowrap;
-    border: 1px solid var(--verde-titulos, #18bc9c);
-    border-radius: 999px;
-    color: var(--verde-titulos, #18bc9c) !important;
-    text-decoration: none !important;
-    transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 12px;
+  margin-right: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+  border: 1px solid var(--verde-titulos, #18bc9c);
+  border-radius: 999px;
+  color: var(--verde-titulos, #18bc9c) !important;
+  text-decoration: none !important;
+  transition: all 0.2s ease;
   }
+
   a.baixar:hover {
-    <!-- background: var(--verde-titulos, #18bc9c); -->
-     background: #000000;
+    background: #000000;
     color: #ffffff !important;
   }
+<!--   a.baixar { -->
+<!--     display: inline-flex; -->
+<!--     align-items: center; -->
+<!--     gap: 6px; -->
+<!--     padding: 3px 12px; -->
+<!--     margin-right: 8px; -->
+<!--     font-size: 0.8rem; -->
+<!--     font-weight: 600; -->
+<!--     white-space: nowrap; -->
+<!--     border: 1px solid var(--verde-titulos, #18bc9c); -->
+<!--     border-radius: 999px; -->
+<!--     color: var(--verde-titulos, #18bc9c) !important; -->
+<!--     text-decoration: none !important; -->
+<!--     transition: all 0.2s ease; -->
+<!--   } -->
+<!--   a.baixar:hover { -->
+<!--     background: var(--verde-titulos, #18bc9c); -->
+<!--     color: #ffffff !important; -->
+<!--   } -->
+
 </style>
 
 <script>
@@ -205,7 +226,7 @@ Os dados tratados das duas bases estão disponíveis para download em formato Ex
 ## Taxas de Declínio Produtivo
 
 | Município | Período | Série Temporal<br>($n$) | Total Acumulado<br>(kg) | Média Anual ± DP<br>(kg) | Intervalo da Série<br>[Mín – Máx] (kg) | Amplitude da Série<br>(kg) | Taxa de Declínio<br>Produtivo |
-|:---|:---|:---:|---:|---:|:---:|---:|:---:|
+|:---|:---|:---|:---|:---|:---|:---|:---|
 | **Borba** | Antes | 2002–2010 (9) | 816.058 | 90.673 ± 25.026 | [50.007 – 126.332] | 76.325 | **−69,9%** [↓]{style="color:#9d0208; font-size:1.25em; font-weight:700;"} |
 |  | Depois | 2012–2024 (13) | 354.846 | 27.296 ± 4.621 | [20.450 – 36.161] | 15.711 | |
 | **Manicoré** | Antes | 2002–2010 (9) | 17.020 | 1.891 ± 85 | [1.701 – 1.971] | 270 | **−64,1%** [↓]{style="color:#9d0208; font-size:1.25em; font-weight:700;"} |
@@ -279,6 +300,17 @@ $$
 
 ## Mapa comparativo das taxas
 
+![Distribuição espacial das taxas de declínio da atividade pesqueira ao longo da calha do Rio Madeira, entre Porto Velho (RO) e Borba (AM). Os percentuais apresentados correspondem às taxas de declínio reportadas para Porto Velho (37,0%) e Humaitá (39,0%) e às estimadas neste estudo para Manicoré (64,1%) e Borba (69,9%). Os triângulos indicam a localização das UHEs Jirau e Santo Antônio.](graficos/Mapas_taxas.png){#fig-mapa-taxas width=100% fig-align="center"}
+
+::: {.linha-baixar}
+[<i class="bi bi-download"></i> Baixar mapa (PNG)](graficos/Mapas_taxas.png){.baixar download="Mapas_taxas.png"}
+:::
+
+### Resumo das taxas de declínio ao longo da calha do Rio Madeira
+
+A distribuição espacial apresentada na @fig-mapa-taxas evidencia taxas de declínio distintas entre as localidades avaliadas ao longo da calha do Rio Madeira. Em Porto Velho (RO), Arantes et al. (2021) reportaram redução de 37,0% na CPUE geral, enquanto, em Humaitá (AM), Santos et al. (2018) observaram redução de 39,0% na produção pesqueira média anual. Para as localidades analisadas neste estudo, foram estimadas reduções de 64,1% em Manicoré e 69,9% em Borba, ambas calculadas a partir da produção pesqueira média anual nos períodos antes e depois do barramento.
+
+Em termos espaciais, observa-se um aumento na magnitude das taxas de declínio entre as localidades representadas no sentido de Porto Velho para Borba. Entretanto, essa distribuição deve ser interpretada com cautela, uma vez que os percentuais apresentados são provenientes de diferentes estudos e, no caso de Porto Velho, referem-se à CPUE, enquanto os valores de Humaitá, Manicoré e Borba estão associados à produção pesqueira média anual.
 
 ## Variáveis hidrológicas
 
