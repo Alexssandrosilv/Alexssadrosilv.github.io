@@ -126,10 +126,10 @@ details > summary {
 <script>
 document.addEventListener('DOMContentLoaded', function () {
 
-  // 1) Rótulo "Tabela N:" da legenda
-  document.querySelectorAll('figure.quarto-float-tbl figcaption, table caption').forEach(function (cap) {
+  // 1) Rótulo "Tabela N:" ou "Figura N:" da legenda
+  document.querySelectorAll('figure figcaption, table caption').forEach(function (cap) {
     if (cap.querySelector('.rotulo-tabela')) return;
-    var m = cap.textContent.match(/^\s*Tabela[\s\u00a0]*\d+\s*[.:]?/);
+    var m = cap.textContent.match(/^\s*(Tabela|Figura)[\s\u00a0]*\d+\s*[.:]?/);
     if (!m) return;
     var restante = m[0].length;
     var walker = document.createTreeWalker(cap, NodeFilter.SHOW_TEXT);
@@ -146,9 +146,9 @@ document.addEventListener('DOMContentLoaded', function () {
     range.insertNode(span);
   });
 
-  // 2) Citação no texto: qualquer link cujo texto seja "Tabela N"
+  // 2) Citação no texto: links "Tabela N" ou "Figura N"
   document.querySelectorAll('a').forEach(function (a) {
-    if (/^Tabela[\s\u00a0]*\d+$/.test(a.textContent.trim())) {
+    if (/^(Tabela|Figura)[\s\u00a0]*\d+$/.test(a.textContent.trim())) {
       a.classList.add('citacao-tabela');
       a.style.setProperty('color', 'var(--cor-rotulo-tabela, #0a7d4f)', 'important');
     }

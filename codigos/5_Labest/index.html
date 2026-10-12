@@ -123,10 +123,10 @@ details > summary {
 <script>
 document.addEventListener('DOMContentLoaded', function () {
 
-  // 1) Rótulo "Tabela N:" da legenda
-  document.querySelectorAll('figure.quarto-float-tbl figcaption, table caption').forEach(function (cap) {
+  // 1) Rótulo "Tabela N:" ou "Figura N:" da legenda
+  document.querySelectorAll('figure figcaption, table caption').forEach(function (cap) {
     if (cap.querySelector('.rotulo-tabela')) return;
-    var m = cap.textContent.match(/^\s*Tabela[\s\u00a0]*\d+\s*[.:]?/);
+    var m = cap.textContent.match(/^\s*(Tabela|Figura)[\s\u00a0]*\d+\s*[.:]?/);
     if (!m) return;
     var restante = m[0].length;
     var walker = document.createTreeWalker(cap, NodeFilter.SHOW_TEXT);
@@ -143,9 +143,9 @@ document.addEventListener('DOMContentLoaded', function () {
     range.insertNode(span);
   });
 
-  // 2) Citação no texto: qualquer link cujo texto seja "Tabela N"
+  // 2) Citação no texto: links "Tabela N" ou "Figura N"
   document.querySelectorAll('a').forEach(function (a) {
-    if (/^Tabela[\s\u00a0]*\d+$/.test(a.textContent.trim())) {
+    if (/^(Tabela|Figura)[\s\u00a0]*\d+$/.test(a.textContent.trim())) {
       a.classList.add('citacao-tabela');
       a.style.setProperty('color', 'var(--cor-rotulo-tabela, #0a7d4f)', 'important');
     }
@@ -272,7 +272,7 @@ window.Quarto = {
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-date-sort="NaN" data-listing-file-modified-sort="1791825504451" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="531">
+<div class="quarto-post image-right" data-index="0" data-listing-date-sort="NaN" data-listing-file-modified-sort="1791835381992" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="531">
 <div class="thumbnail"><a href="../../codigos/5_Labest/projeto-labest.html" class="no-external">
 
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>

@@ -92,10 +92,10 @@ details > summary {
 <script>
 document.addEventListener('DOMContentLoaded', function () {
 
-  // 1) Rótulo "Tabela N:" da legenda
-  document.querySelectorAll('figure.quarto-float-tbl figcaption, table caption').forEach(function (cap) {
+  // 1) Rótulo "Tabela N:" ou "Figura N:" da legenda
+  document.querySelectorAll('figure figcaption, table caption').forEach(function (cap) {
     if (cap.querySelector('.rotulo-tabela')) return;
-    var m = cap.textContent.match(/^\s*Tabela[\s\u00a0]*\d+\s*[.:]?/);
+    var m = cap.textContent.match(/^\s*(Tabela|Figura)[\s\u00a0]*\d+\s*[.:]?/);
     if (!m) return;
     var restante = m[0].length;
     var walker = document.createTreeWalker(cap, NodeFilter.SHOW_TEXT);
@@ -112,9 +112,9 @@ document.addEventListener('DOMContentLoaded', function () {
     range.insertNode(span);
   });
 
-  // 2) Citação no texto: qualquer link cujo texto seja "Tabela N"
+  // 2) Citação no texto: links "Tabela N" ou "Figura N"
   document.querySelectorAll('a').forEach(function (a) {
-    if (/^Tabela[\s\u00a0]*\d+$/.test(a.textContent.trim())) {
+    if (/^(Tabela|Figura)[\s\u00a0]*\d+$/.test(a.textContent.trim())) {
       a.classList.add('citacao-tabela');
       a.style.setProperty('color', 'var(--cor-rotulo-tabela, #0a7d4f)', 'important');
     }
@@ -324,11 +324,16 @@ window.Quarto = {
   // Desativa os atalhos da busca do Quarto (F, S e /) nesta página
   window.addEventListener('keydown', function (e) {
     var t = e.target, tag = t && t.tagName;
-    // Dentro de campos de texto continua digitando normal
     if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || (t && t.isContentEditable)) return;
     var k = (e.key || '').toLowerCase();
     if (k === 'f' || k === 's' || k === '/') { e.stopImmediatePropagation(); }
   }, true);
+
+  // Se o painel de busca abrir por qualquer motivo, fecha na hora
+  new MutationObserver(function () {
+    var c = document.querySelector('.aa-DetachedCancelButton');
+    if (c) c.click();
+  }).observe(document.body, { childList: true, subtree: true });
 </script>
 <p><br></p>
 <div style="border-top: 2px solid #040404;">
@@ -902,8 +907,8 @@ Tabela&nbsp;4: Estatísticas descritivas anuais da produção pesqueira (kg), es
 \right)
 \times 100
 \]</span></p>
-<div style="display:grid; grid-template-columns:1fr 1fr; column-gap:0; margin-top:1.5rem; margin-bottom:2rem;">
-<div style="text-align:center; padding-right:32px; border-right:1px solid #adb5bd;">
+<div class="calc-taxas">
+<div class="calc-col">
 <p><strong>Borba</strong></p>
 <p><span class="math display">\[
 \Delta P_{\text{Borba}}
@@ -920,7 +925,7 @@ Tabela&nbsp;4: Estatísticas descritivas anuais da produção pesqueira (kg), es
 69{,}9\%
 \]</span></p>
 </div>
-<div style="text-align:center; padding-left:32px;">
+<div class="calc-col">
 <p><strong>Manicoré</strong></p>
 <p><span class="math display">\[
 \Delta P_{\text{Manicoré}}

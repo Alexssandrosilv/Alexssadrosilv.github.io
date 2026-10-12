@@ -121,10 +121,10 @@ details > summary {
 <script>
 document.addEventListener('DOMContentLoaded', function () {
 
-  // 1) Rótulo "Tabela N:" da legenda
-  document.querySelectorAll('figure.quarto-float-tbl figcaption, table caption').forEach(function (cap) {
+  // 1) Rótulo "Tabela N:" ou "Figura N:" da legenda
+  document.querySelectorAll('figure figcaption, table caption').forEach(function (cap) {
     if (cap.querySelector('.rotulo-tabela')) return;
-    var m = cap.textContent.match(/^\s*Tabela[\s\u00a0]*\d+\s*[.:]?/);
+    var m = cap.textContent.match(/^\s*(Tabela|Figura)[\s\u00a0]*\d+\s*[.:]?/);
     if (!m) return;
     var restante = m[0].length;
     var walker = document.createTreeWalker(cap, NodeFilter.SHOW_TEXT);
@@ -141,9 +141,9 @@ document.addEventListener('DOMContentLoaded', function () {
     range.insertNode(span);
   });
 
-  // 2) Citação no texto: qualquer link cujo texto seja "Tabela N"
+  // 2) Citação no texto: links "Tabela N" ou "Figura N"
   document.querySelectorAll('a').forEach(function (a) {
-    if (/^Tabela[\s\u00a0]*\d+$/.test(a.textContent.trim())) {
+    if (/^(Tabela|Figura)[\s\u00a0]*\d+$/.test(a.textContent.trim())) {
       a.classList.add('citacao-tabela');
       a.style.setProperty('color', 'var(--cor-rotulo-tabela, #0a7d4f)', 'important');
     }
@@ -355,7 +355,7 @@ window.Quarto = {
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-left" data-index="0" data-categories="UiUyQ1B5dGhvbiUyQzElMjAtJTIwUENB" data-listing-date-sort="1791825504000" data-listing-file-modified-sort="1791825504451" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1827">
+<div class="quarto-post image-left" data-index="0" data-categories="UiUyQ1B5dGhvbiUyQzElMjAtJTIwUENB" data-listing-date-sort="1791835381000" data-listing-file-modified-sort="1791835381992" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1827">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../../codigos/6_Estatistica_Multivariada/1 - Análise de componentes principais (PCA).html" class="no-external">1. Análise de Componentes Principais (PCA)</a>
@@ -367,7 +367,7 @@ window.Quarto = {
 </a>
 </div>
 </div>
-<div class="quarto-post image-left" data-index="1" data-categories="UiUyQ0FuYWxpc2UlMjBNdWx0aXZhcmlhZGElMkNQQ0ElMkNLcnVza2FsLVdhbGxpcw==" data-listing-date-sort="1791825504000" data-listing-file-modified-sort="1791825504452" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<div class="quarto-post image-left" data-index="1" data-categories="UiUyQ0FuYWxpc2UlMjBNdWx0aXZhcmlhZGElMkNQQ0ElMkNLcnVza2FsLVdhbGxpcw==" data-listing-date-sort="1791835381000" data-listing-file-modified-sort="1791835381993" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../../codigos/6_Estatistica_Multivariada/2 - Leonardo.html" class="no-external">Análise Estatística Avançada e Modelação Multivariada</a>
@@ -379,7 +379,7 @@ window.Quarto = {
 </a>
 </div>
 </div>
-<div class="quarto-post image-left" data-index="2" data-categories="UiUyQ1B5dGhvbiUyQzMlMjAtJTIwQUND" data-listing-date-sort="1791825504000" data-listing-file-modified-sort="1791825504452" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1736">
+<div class="quarto-post image-left" data-index="2" data-categories="UiUyQ1B5dGhvbiUyQzMlMjAtJTIwQUND" data-listing-date-sort="1791835381000" data-listing-file-modified-sort="1791835381993" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1736">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../../codigos/6_Estatistica_Multivariada/3 - Análise de correlação canônica.html" class="no-external">3. Análise de Correlação Canônica (ACC)</a>
@@ -391,7 +391,7 @@ window.Quarto = {
 </a>
 </div>
 </div>
-<div class="quarto-post image-left" data-index="3" data-categories="UiUyQ1B5dGhvbiUyQzQlMjAtJTIwQUQ=" data-listing-date-sort="1791825504000" data-listing-file-modified-sort="1791825504452" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1736">
+<div class="quarto-post image-left" data-index="3" data-categories="UiUyQ1B5dGhvbiUyQzQlMjAtJTIwQUQ=" data-listing-date-sort="1791835381000" data-listing-file-modified-sort="1791835381993" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1736">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../../codigos/6_Estatistica_Multivariada/4 - Análise discriminante (AD).html" class="no-external">4. Análise Discriminante (AD)</a>
@@ -403,7 +403,7 @@ window.Quarto = {
 </a>
 </div>
 </div>
-<div class="quarto-post image-left" data-index="4" data-categories="UiUyQ1B5dGhvbiUyQzUlMjAtJTIwQ0xVU1RFUg==" data-listing-date-sort="1791825504000" data-listing-file-modified-sort="1791825504452" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1736">
+<div class="quarto-post image-left" data-index="4" data-categories="UiUyQ1B5dGhvbiUyQzUlMjAtJTIwQ0xVU1RFUg==" data-listing-date-sort="1791835381000" data-listing-file-modified-sort="1791835381993" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1736">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../../codigos/6_Estatistica_Multivariada/5 - Análise de agrupamentos.html" class="no-external">5. Análise de Agrupamentos (Clusters)</a>
@@ -415,7 +415,7 @@ window.Quarto = {
 </a>
 </div>
 </div>
-<div class="quarto-post image-left" data-index="5" data-categories="UiUyQ1B5dGhvbiUyQzYlMjAtJTIwQUMlMkM2LjElMjAtJTIwQUNTJTJDNi4yJTIwLSUyMEFDTQ==" data-listing-date-sort="1791825504000" data-listing-file-modified-sort="1791825504452" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1736">
+<div class="quarto-post image-left" data-index="5" data-categories="UiUyQ1B5dGhvbiUyQzYlMjAtJTIwQUMlMkM2LjElMjAtJTIwQUNTJTJDNi4yJTIwLSUyMEFDTQ==" data-listing-date-sort="1791835381000" data-listing-file-modified-sort="1791835381993" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1736">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../../codigos/6_Estatistica_Multivariada/6 - Análise de Correspondência (AC).html" class="no-external">6. Análise de Correspondência (AC)</a>
