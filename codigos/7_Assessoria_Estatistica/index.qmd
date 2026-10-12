@@ -59,7 +59,8 @@ resources:
     transition: all 0.2s ease;
   }
   a.baixar:hover {
-    background: var(--verde-titulos, #18bc9c);
+    <!-- background: var(--verde-titulos, #18bc9c); -->
+     background: #000000;
     color: #ffffff !important;
   }
 </style>
@@ -146,7 +147,7 @@ Após o tratamento, verificamos a presença de valores ausentes e não encontram
 | `dias` | Número de dias de pesca informados (esforço) | Quantitativa Discreta | Numérica | – | 888 | 0 |
 | `captura_total` | Quantidade desembarcada, em quilos | Quantitativa Contínua | Numérica | – | 888 | 0 |
 
-: Descrição das variáveis (Integração: Base 1 – Desembarque Pesqueiro). {#tbl-var-pesca}
+: Descrição das variáveis: Base 1 – Desembarque Pesqueiro. {#tbl-var-pesca}
 
 **Base 2 – Cotas Fluviométricas:**
 
@@ -191,7 +192,7 @@ Diferentemente da Base 1, mantivemos os valores ausentes (`NA`) de `cota` e das 
 | `media_status` | Status de qualidade da cota média | Qualitativa Nominal | Fator | 5 | 144.181 | 0 |
 | `media_anual_status` | Status de qualidade da média anual | Qualitativa Nominal | Fator | 5 | 144.181 | 2.604 |
 
-: Descrição das variáveis (Integração: Base 2 – Cotas Fluviométricas). {#tbl-var-cotas}
+: Descrição das variáveis: Base 2 – Cotas Fluviométricas. {#tbl-var-cotas}
 
 ### Dados tratados
 
@@ -199,6 +200,90 @@ Os dados tratados das duas bases estão disponíveis para download em formato Ex
 
 ::: {.linha-baixar}
 [<i class="bi bi-download"></i> Base 1 – Desembarque (19 KB)](dados/dados_tratados.xlsx){.baixar download="dados_tratados.xlsx"} [<i class="bi bi-download"></i> Base 2 – Cotas (1,5 MB)](dados/dados_cotas_tratados.xlsx){.baixar download="dados_cotas_tratados.xlsx"}
+:::
+
+
+## Taxas de Declínio Produtivo
+
+| Município | Período do Barramento | Série Temporal ($n$) | Total Acumulado (kg) | Média Anual ± DP (kg) | Intervalo da Série [Mín – Máx] (kg) | Amplitude da Série (kg) | Taxa de Declínio Produtivo ($\Delta P$) |
+|:---|:---|:---:|---:|---:|:---:|---:|:---:|
+| **Borba** | Pré-barramento | 2002–2010 (9) | 816.058 | 90.673 ± 25.026 | [50.007 – 126.332] | 76.325 | **−69,9%** [↓]{style="color:#9d0208; font-size:1.25em; font-weight:700;"} |
+|  | Pós-barramento | 2012–2024 (13) | 354.846 | 27.296 ± 4.621 | [20.450 – 36.161] | 15.711 | |
+| **Manicoré** | Pré-barramento | 2002–2010 (9) | 17.020 | 1.891 ± 85 | [1.701 – 1.971] | 270 | **−64,1%** [↓]{style="color:#9d0208; font-size:1.25em; font-weight:700;"} |
+|  | Pós-barramento | 2012–2024 (13) | 8.826 | 679 ± 143 | [453 – 975] | 522 | |
+
+: Estatísticas descritivas anuais da produção pesqueira (kg), estratificadas por município e período de intervenção hidrelétrica. {#tbl-estatisticas-pesca}
+
+
+**Notas metodológicas.** Para a análise comparativa, foram considerados os períodos **2002–2010 (pré-barramento)** e **2012–2024 (pós-barramento)**. O ano de **2011**, classificado anteriormente como período de transição, foi excluído por não permitir a separação entre os momentos pré e pós-barramento nos dados anuais. O ano de **2025** também foi desconsiderado por apresentar dados incompletos. Assim, o ano produtivo foi adotado como unidade amostral, sendo $n$ o número de anos em cada período. O **Desvio Padrão (DP)** representa a variabilidade interanual da produção, enquanto a **Amplitude da Série** corresponde à diferença entre os valores máximo e mínimo observados.
+
+A **Taxa de Declínio Produtivo ($\Delta P$)** expressa a redução percentual da **produção pesqueira média anual** entre os períodos pré e pós-barramento, sendo calculada por:
+
+$$
+\Delta P(\%) =
+\left(
+\frac{
+\bar{P}_{\text{Antes}}-\bar{P}_{\text{Depois}}
+}{
+\bar{P}_{\text{Antes}}
+}
+\right)
+\times 100
+$$
+
+
+::: columns
+
+::: {.column width="49%"}
+
+**Borba**
+
+$$
+\Delta P_{\text{Borba}}
+=
+\left(
+\frac{
+90.673-27.296
+}{
+90.673
+}
+\right)
+\times 100
+=
+69{,}9\%
+$$
+
+:::
+
+::: {.column width="2%"}
+
+\[
+\Bigg|
+\]
+
+:::
+
+::: {.column width="49%"}
+
+**Manicoré**
+
+$$
+\Delta P_{\text{Manicoré}}
+=
+\left(
+\frac{
+1.891-679
+}{
+1.891
+}
+\right)
+\times 100
+=
+64{,}1\%
+$$
+
+:::
+
 :::
 
 ## Variáveis hidrológicas
