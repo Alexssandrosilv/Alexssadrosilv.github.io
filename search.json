@@ -228,28 +228,35 @@
     "href": "codigos/7_Assessoria_Estatistica/index.html#taxas-de-declínio-produtivo",
     "title": "AVALIAÇÃO DO ESTOQUE PESQUEIRO NO RIO MADEIRA À JUSANTE DAS HIDRELÉTRICAS JIRAU E SANTO ANTÔNIO NO ESTADO DO AMAZONAS",
     "section": "2 Taxas de Declínio Produtivo",
-    "text": "2 Taxas de Declínio Produtivo\n\n\n\nTabela 4: Estatísticas descritivas anuais da produção pesqueira (kg), estratificadas por município e período de intervenção hidrelétrica.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMunicípio\nPeríodo do Barramento\nSérie Temporal (\\(n\\))\nTotal Acumulado (kg)\nMédia Anual ± DP (kg)\nIntervalo da Série [Mín – Máx] (kg)\nAmplitude da Série (kg)\nTaxa de Declínio Produtivo (\\(\\Delta P\\))\n\n\n\n\nBorba\nPré-barramento\n2002–2010 (9)\n816.058\n90.673 ± 25.026\n[50.007 – 126.332]\n76.325\n−69,9% ↓\n\n\n\nPós-barramento\n2012–2024 (13)\n354.846\n27.296 ± 4.621\n[20.450 – 36.161]\n15.711\n\n\n\nManicoré\nPré-barramento\n2002–2010 (9)\n17.020\n1.891 ± 85\n[1.701 – 1.971]\n270\n−64,1% ↓\n\n\n\nPós-barramento\n2012–2024 (13)\n8.826\n679 ± 143\n[453 – 975]\n522\n\n\n\n\n\n\n\nNotas metodológicas. Para a análise comparativa, foram considerados os períodos 2002–2010 (pré-barramento) e 2012–2024 (pós-barramento). O ano de 2011, classificado anteriormente como período de transição, foi excluído por não permitir a separação entre os momentos pré e pós-barramento nos dados anuais. O ano de 2025 também foi desconsiderado por apresentar dados incompletos. Assim, o ano produtivo foi adotado como unidade amostral, sendo \\(n\\) o número de anos em cada período. O Desvio Padrão (DP) representa a variabilidade interanual da produção, enquanto a Amplitude da Série corresponde à diferença entre os valores máximo e mínimo observados.\nA Taxa de Declínio Produtivo (\\(\\Delta P\\)) expressa a redução percentual da produção pesqueira média anual entre os períodos pré e pós-barramento, sendo calculada por:\n\\[\n\\Delta P(\\%) =\n\\left(\n\\frac{\n\\bar{P}_{\\text{Antes}}-\\bar{P}_{\\text{Depois}}\n}{\n\\bar{P}_{\\text{Antes}}\n}\n\\right)\n\\times 100\n\\]\n\n\nBorba\n\\[\n\\Delta P_{\\text{Borba}}\n=\n\\left(\n\\frac{\n90.673-27.296\n}{\n90.673\n}\n\\right)\n\\times 100\n=\n69{,}9\\%\n\\]\n\n[ | ]\n\nManicoré\n\\[\n\\Delta P_{\\text{Manicoré}}\n=\n\\left(\n\\frac{\n1.891-679\n}{\n1.891\n}\n\\right)\n\\times 100\n=\n64{,}1\\%\n\\]"
+    "text": "2 Taxas de Declínio Produtivo\n\n\n\nTabela 4: Estatísticas descritivas anuais da produção pesqueira (kg), estratificadas por município e período de intervenção hidrelétrica.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMunicípio\nPeríodo\nSérie Temporal(\\(n\\))\nTotal Acumulado(kg)\nMédia Anual ± DP(kg)\nIntervalo da Série[Mín – Máx] (kg)\nAmplitude da Série(kg)\nTaxa de DeclínioProdutivo\n\n\n\n\nBorba\nAntes\n2002–2010 (9)\n816.058\n90.673 ± 25.026\n[50.007 – 126.332]\n76.325\n−69,9% ↓\n\n\n\nDepois\n2012–2024 (13)\n354.846\n27.296 ± 4.621\n[20.450 – 36.161]\n15.711\n\n\n\nManicoré\nAntes\n2002–2010 (9)\n17.020\n1.891 ± 85\n[1.701 – 1.971]\n270\n−64,1% ↓\n\n\n\nDepois\n2012–2024 (13)\n8.826\n679 ± 143\n[453 – 975]\n522\n\n\n\n\n\n\n\nNotas metodológicas. Para a análise comparativa, foram considerados os períodos Antes do barramento (2002–2010) e Depois do barramento (2012–2024). O ano de 2011, classificado anteriormente como período de transição, foi excluído por não permitir a separação entre os momentos antes e depois do barramento nos dados anuais. O ano de 2025 também foi desconsiderado por apresentar dados incompletos. Assim, o ano produtivo foi adotado como unidade amostral, sendo \\(n\\) o número de anos em cada período. O Desvio Padrão (DP) representa a variabilidade interanual da produção, enquanto a Amplitude da Série corresponde à diferença entre os valores máximo e mínimo observados.\nA Taxa de Declínio Produtivo (\\(\\Delta P\\)) expressa a redução percentual da produção pesqueira média anual entre os períodos antes e depois do barramento, sendo calculada por:\n\\[\n\\Delta P(\\%) =\n\\left(\n\\frac{\n\\bar{P}_{\\text{Antes}}-\\bar{P}_{\\text{Depois}}\n}{\n\\bar{P}_{\\text{Antes}}\n}\n\\right)\n\\times 100\n\\]\n\n\nBorba\n\\[\n\\Delta P_{\\text{Borba}}\n=\n\\left(\n\\frac{\n90.673-27.296\n}{\n90.673\n}\n\\right)\n\\times 100\n=\n69{,}9\\%\n\\]\n\n\n\n\n\nManicoré\n\\[\n\\Delta P_{\\text{Manicoré}}\n=\n\\left(\n\\frac{\n1.891-679\n}{\n1.891\n}\n\\right)\n\\times 100\n=\n64{,}1\\%\n\\]"
+  },
+  {
+    "objectID": "codigos/7_Assessoria_Estatistica/index.html#mapa-comparativo-das-taxas",
+    "href": "codigos/7_Assessoria_Estatistica/index.html#mapa-comparativo-das-taxas",
+    "title": "AVALIAÇÃO DO ESTOQUE PESQUEIRO NO RIO MADEIRA À JUSANTE DAS HIDRELÉTRICAS JIRAU E SANTO ANTÔNIO NO ESTADO DO AMAZONAS",
+    "section": "3 Mapa comparativo das taxas",
+    "text": "3 Mapa comparativo das taxas"
   },
   {
     "objectID": "codigos/7_Assessoria_Estatistica/index.html#variáveis-hidrológicas",
     "href": "codigos/7_Assessoria_Estatistica/index.html#variáveis-hidrológicas",
     "title": "AVALIAÇÃO DO ESTOQUE PESQUEIRO NO RIO MADEIRA À JUSANTE DAS HIDRELÉTRICAS JIRAU E SANTO ANTÔNIO NO ESTADO DO AMAZONAS",
-    "section": "3 Variáveis hidrológicas",
-    "text": "3 Variáveis hidrológicas\n\nObjetivo: Correlacionar a produção pesqueira com as variáveis hidrológicas, considerando as possíveis alterações associadas à operação das UHEs;"
+    "section": "4 Variáveis hidrológicas",
+    "text": "4 Variáveis hidrológicas\n\nObjetivo: Correlacionar a produção pesqueira com as variáveis hidrológicas, considerando as possíveis alterações associadas à operação das UHEs;"
   },
   {
     "objectID": "codigos/7_Assessoria_Estatistica/index.html#séries-temporais",
     "href": "codigos/7_Assessoria_Estatistica/index.html#séries-temporais",
     "title": "AVALIAÇÃO DO ESTOQUE PESQUEIRO NO RIO MADEIRA À JUSANTE DAS HIDRELÉTRICAS JIRAU E SANTO ANTÔNIO NO ESTADO DO AMAZONAS",
-    "section": "4 Séries temporais",
-    "text": "4 Séries temporais\n\nObjetivo: Detectar mudanças nas séries temporais da produção pesqueira e das cotas fluviométricas;"
+    "section": "5 Séries temporais",
+    "text": "5 Séries temporais\n\nObjetivo: Detectar mudanças nas séries temporais da produção pesqueira e das cotas fluviométricas;"
   },
   {
     "objectID": "codigos/7_Assessoria_Estatistica/index.html#antes-e-depois-das-uhes",
     "href": "codigos/7_Assessoria_Estatistica/index.html#antes-e-depois-das-uhes",
     "title": "AVALIAÇÃO DO ESTOQUE PESQUEIRO NO RIO MADEIRA À JUSANTE DAS HIDRELÉTRICAS JIRAU E SANTO ANTÔNIO NO ESTADO DO AMAZONAS",
-    "section": "5 Antes e depois das UHEs",
-    "text": "5 Antes e depois das UHEs\n\nObjetivo: Quantificar as mudanças na produção, composição e diversidade das capturas pesqueiras, comparando os períodos “Antes” e “Depois” da operação das UHEs;"
+    "section": "6 Antes e depois das UHEs",
+    "text": "6 Antes e depois das UHEs\n\nObjetivo: Quantificar as mudanças na produção, composição e diversidade das capturas pesqueiras, comparando os períodos “Antes” e “Depois” da operação das UHEs;"
   },
   {
     "objectID": "codigos/6_Estatistica_Multivariada/5 - Análise de agrupamentos.html#importação-reestruturação-e-tratamento-dos-dados",
