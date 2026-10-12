@@ -30,6 +30,38 @@ resources:
 
   /* Esconde a busca do menu nesta página (a busca do Quarto é do site todo) */
   #quarto-search { display: none !important; }
+
+  /* Coluna de dados ausentes (NA's) em vermelho */
+  #tbl-var-pesca tbody td:last-child,
+  #tbl-var-cotas tbody td:last-child {
+    color: #c0392b;
+    font-weight: 600;
+  }
+
+  /* Links de download compactos */
+  .linha-baixar p {
+    text-align: left !important;
+    margin: 0.4rem 0 0.8rem 0;
+  }
+  a.baixar {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 12px;
+    margin-right: 8px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    white-space: nowrap;
+    border: 1px solid var(--verde-titulos, #18bc9c);
+    border-radius: 999px;
+    color: var(--verde-titulos, #18bc9c) !important;
+    text-decoration: none !important;
+    transition: all 0.2s ease;
+  }
+  a.baixar:hover {
+    background: var(--verde-titulos, #18bc9c);
+    color: #ffffff !important;
+  }
 </style>
 
 <script>
@@ -78,7 +110,7 @@ source("3_tratamento_dados.R")
 
 Esta análise utiliza duas bases de dados. A **Base 1 – Desembarque Pesqueiro** reúne os registros de desembarque das colônias de pescadores dos municípios de Borba e Manicoré, no período de 2002 a 2025. A **Base 2 – Cotas Fluviométricas** reúne a série histórica das cotas (nível) do Rio Madeira nas estações dessas duas localidades, no período de 1967 a 2026. Juntas, as bases permitem avaliar a dinâmica da pesca e sua relação com as variações do nível do rio, antes e depois da entrada em operação das Usinas Hidrelétricas (UHEs) Jirau e Santo Antônio.
 
-A análise tem os seguintes objetivos:
+A presente análise tem os seguintes objetivos:
 
 1. **Correlacionar a produção pesqueira com as variáveis hidrológicas, considerando as possíveis alterações associadas à operação das UHEs;**
 2. **Detectar mudanças nas séries temporais da produção pesqueira e das cotas fluviométricas;**
@@ -90,9 +122,11 @@ Antes das análises, as duas bases passaram por um processo de organização e l
 
 **Base 1 – Desembarque Pesqueiro:**
 
-Ao analisar os dados da **Base 1 – Desembarque Pesqueiro**, reunimos os registros de Borba e Manicoré em uma única base e padronizamos as variáveis de texto e de agrupamento, definindo cada uma como fator ou caractere, conforme a sua natureza. Os dados originais estavam em formato largo, com cada ano em uma coluna. Por isso, utilizamos a função `tidyr::pivot_longer()` para passá-los ao formato longo, no qual cada linha corresponde a um registro de um ano, criando as variáveis `ano` e `captura_total`. Em `captura_total`, trocamos a vírgula decimal por ponto e convertemos os valores para número. Em seguida, removemos os registros sem informação de captura e os anos de 2000 e 2001, mantendo o período de 2002 a 2025. Por fim, criamos a variável `periodo_barragem`, a partir do ano, que classifica os registros em três momentos: **Antes** (2002 a 2010), **Transição** (2011) e **Depois** (2012 a 2025).
+Ao analisar os dados, reunimos os registros de Borba e Manicoré em uma única base e padronizamos as variáveis de texto e de agrupamento, definindo cada uma como fator ou caractere, conforme a sua natureza. Os dados originais estavam em formato largo, com cada ano em uma coluna. Por isso, utilizamos a função `tidyr::pivot_longer()` para passá-los ao formato longo, no qual cada linha corresponde a um registro de um ano, criando as variáveis `ano` e `captura_total`. Em `captura_total`, trocamos a vírgula decimal por ponto e convertemos os valores para número. Em seguida, removemos os registros sem informação de captura e os anos de 2000 e 2001, mantendo o período de 2002 a 2025. Por fim, criamos a variável `periodo_barragem`, a partir do ano, que classifica os registros em três momentos: **Antes** (2002 a 2010), **Transição** (2011) e **Depois** (2012 a 2025).
 
-Após o tratamento, verificamos a presença de valores ausentes e não encontramos registros omissos nas variáveis consideradas. Ao final, a Base 1 ficou com 888 observações, cujas variáveis estão descritas na @tbl-var-pesca.
+Conforme a metodologia da tese, os dados de pesca recolhidos de janeiro de 2002 a julho de 2011 pertencem à categoria “Antes”, e os recolhidos de agosto de 2011 a dezembro de 2025, à categoria “Depois”. Como os nossos registros de desembarque são anuais, e não mensais, não é possível separar o ano de 2011 nesses dois momentos. Por isso, mantivemos 2011 como ano de **Transição**, sem atribuí-lo a nenhum dos dois grupos.
+
+Após o tratamento, verificamos a presença de valores ausentes e não encontramos registros omissos nas variáveis consideradas. Ao final, a base ficou com 888 observações, cujas variáveis estão descritas na @tbl-var-pesca.
 
 | Variável | Descrição | Tipo | Classe (R) | Níveis | Tamanho Amostral (n) | Dados Ausentes (NA's) |
 |:---|:---|:---|:---|:---|:---|:---|
@@ -116,9 +150,20 @@ Após o tratamento, verificamos a presença de valores ausentes e não encontram
 
 **Base 2 – Cotas Fluviométricas:**
 
-Ao analisar os dados da **Base 2 – Cotas Fluviométricas**, observamos que os arquivos originais da Agência Nacional de Águas e Saneamento Básico (ANA) começam com um cabeçalho institucional, que traz o dicionário dos dados. Esse trecho foi desconsiderado na importação. Em seguida, reunimos as estações de Borba e Manicoré em uma única base e definimos o tipo das variáveis `localidade`, `ano` e `mes`. Padronizamos `hora` para o formato `%H:%M:%S` e, com o dicionário da ANA, substituímos os códigos numéricos das variáveis de validação e de status pelos rótulos correspondentes, como `Branco`, `Real` e `Estimado`. Os dados originais traziam 31 colunas de cotas diárias e outras 31 de status. Com a função `tidyr::pivot_longer()`, passamos a base para o formato longo, criando as variáveis `cota`, `status` e `referencia_dia`. Criamos ainda a variável `identificador_cota`, que guarda a coluna de origem de cada medição (por exemplo, `cota_01`).
+Ao analisar os dados, observamos que os arquivos originais da Agência Nacional de Águas e Saneamento Básico (ANA) começam com um cabeçalho institucional, que traz o dicionário dos dados. Esse trecho foi desconsiderado na importação. Em seguida, reunimos as estações de Borba e Manicoré em uma única base e definimos o tipo das variáveis `localidade`, `ano` e `mes`. Padronizamos `hora` para o formato `%H:%M:%S` e, com o dicionário da ANA, substituímos os códigos numéricos das variáveis categóricas pelos rótulos correspondentes, apresentados na @tbl-rotulos-ana.
 
-Diferentemente da Base 1, mantivemos os valores ausentes (`NA`) de `cota` e das demais variáveis hidrológicas, pois eles indicam períodos em que não houve medição. Dessa forma, preservamos a sequência e o espaçamento originais da série histórica. Ao final, a Base 2 ficou com 144.181 registros. A quantidade de observações e de valores ausentes de cada variável está na @tbl-var-cotas.
+| Variável | Código = Rótulo |
+|:---|:---|
+| `nivel_consistencia` | 1 = Bruto; 2 = Consistido |
+| `media_diaria` | 0 = Não; 1 = Sim |
+| `tipo_medicao_cotas` | 1 = Escala; 2 = Linígrafo; 3 = Data Logger; 5 = Escala SMS |
+| `status`, `maxima_status`, `minima_status`, `media_status`, `media_anual_status` | 0 = Branco; 1 = Real; 2 = Estimado; 3 = Duvidoso; 4 = Régua Seca |
+
+: Rótulos aplicados às variáveis categóricas da Base 2, conforme o dicionário da ANA. {#tbl-rotulos-ana}
+
+Os dados originais traziam 31 colunas de cotas diárias e outras 31 de status. Com a função `tidyr::pivot_longer()`, passamos a base para o formato longo, criando as variáveis `cota`, `status` e `referencia_dia`. Criamos ainda a variável `identificador_cota`, que guarda a coluna de origem de cada medição (por exemplo, `cota_01`).
+
+Diferentemente da Base 1, mantivemos os valores ausentes (`NA`) de `cota` e das demais variáveis hidrológicas, pois eles indicam períodos em que não houve medição. Dessa forma, preservamos a sequência e o espaçamento originais da série histórica. Ao final, a base ficou com 144.181 registros. A quantidade de observações e de valores ausentes de cada variável está na @tbl-var-cotas.
 
 | Variável | Descrição | Tipo | Classe (R) | Níveis | Tamanho Amostral (n) | Dados Ausentes (NA's) |
 |:---|:---|:---|:---|:---|:---|:---|
@@ -150,12 +195,10 @@ Diferentemente da Base 1, mantivemos os valores ausentes (`NA`) de `cota` e das 
 
 ### Dados tratados
 
-Os dados tratados das duas bases podem ser baixados em formato Excel (`.xlsx`), para consulta ou para reproduzir as análises. A Base 1 tem cerca de 19 KB e a Base 2, cerca de 1,5 MB.
+Os dados tratados das duas bases estão disponíveis para download em formato Excel (`.xlsx`), para consulta ou para reproduzir as análises.
 
-::: {style="display: flex; flex-wrap: wrap; gap: 12px; margin: 1rem 0 0.5rem 0;"}
-[<i class="bi bi-download"></i> Base 1 – Desembarque Pesqueiro](dados/dados_tratados.xlsx){.btn-action-primary download="dados_tratados.xlsx" style="white-space: normal;"}
-
-[<i class="bi bi-download"></i> Base 2 – Cotas Fluviométricas](dados/dados_cotas_tratados.xlsx){.btn-action-secondary download="dados_cotas_tratados.xlsx" style="white-space: normal;"}
+::: {.linha-baixar}
+[<i class="bi bi-download"></i> Base 1 – Desembarque (19 KB)](dados/dados_tratados.xlsx){.baixar download="dados_tratados.xlsx"} [<i class="bi bi-download"></i> Base 2 – Cotas (1,5 MB)](dados/dados_cotas_tratados.xlsx){.baixar download="dados_cotas_tratados.xlsx"}
 :::
 
 ## Variáveis hidrológicas
