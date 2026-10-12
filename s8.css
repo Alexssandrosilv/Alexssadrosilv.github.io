@@ -816,16 +816,14 @@ footer.footer,
     (substitui os antigos BLOCO 12 e BLOCO 13)
 ========================================================================== */
 
-/* 12.1 Variáveis: verdes por nível e escala de fontes */
+/* ==========================================================================
+    BLOCO 12: TÍTULOS, TABELAS, FIGURAS, EQUAÇÕES E ESCALA DE FONTES
+========================================================================== */
 
-
+/* 12.1 Variáveis: cores e escala de fontes */
 :root {
-  /* Verdes: um tom para cada nível */
-  --verde-h2: #18bc9c;           /* ##   verde vivo da marca */
-  --verde-h3: #128f76;           /* ###  verde escuro */
-  --verde-h4: #0d6e5b;           /* #### verde mais fechado */
-  --verde-titulos: #18bc9c;       /* ##, ### e #### (mesma cor) */
-  --cor-rotulo-tabela: #0a7d4f;   /* "Tabela N." e citações no texto */
+  --verde-titulos: #18bc9c;       /* títulos ##, ### e #### */
+  --cor-rotulo-tabela: #0a7d4f;   /* "Tabela N:", "Figura N:" e citações no texto */
 
   /* Escala de fontes (computador) */
   --fs-root: 15px;
@@ -879,30 +877,15 @@ html { font-size: var(--fs-root) !important; }
 #quarto-document-content h3 { font-size: var(--fs-h3); }
 #quarto-document-content h4 { font-size: var(--fs-h4); }
 
-/* 12.3 Citação de tabela no texto (@tbl-...) 
-#quarto-document-content a.quarto-xref[href^="#tbl-"] {
-  color: var(--cor-rotulo-tabela);
-}
-*/
-
-/* Citação de tabela no texto: mesma cor do rótulo "Tabela N." da legenda 
-#quarto-document-content a[href^="#tbl-"],
-#quarto-document-content a[href^="#tbl-"]:hover,
-#quarto-document-content a[href^="#tbl-"]:visited {
-  color: var(--cor-rotulo-tabela, #0a7d4f) !important;
-}*/
-
-
-/* Citação de tabela no texto: mesma cor do rótulo "Tabela N." da legenda */
-#quarto-document-content a[href^="#tbl-"],
-#quarto-document-content a[href^="#tbl-"]:link,
-#quarto-document-content a[href^="#tbl-"]:visited,
-#quarto-document-content a[href^="#tbl-"]:hover,
-#quarto-document-content a[href^="#tbl-"]:focus,
-#quarto-document-content a[href^="#tbl-"]:active {
+/* 12.3 Citação de tabela ou figura no texto: mesma cor do rótulo da legenda */
+#quarto-document-content :is(a[href^="#tbl-"], a[href^="#fig-"]),
+#quarto-document-content :is(a[href^="#tbl-"], a[href^="#fig-"]):link,
+#quarto-document-content :is(a[href^="#tbl-"], a[href^="#fig-"]):visited,
+#quarto-document-content :is(a[href^="#tbl-"], a[href^="#fig-"]):hover,
+#quarto-document-content :is(a[href^="#tbl-"], a[href^="#fig-"]):focus,
+#quarto-document-content :is(a[href^="#tbl-"], a[href^="#fig-"]):active {
   color: var(--cor-rotulo-tabela, #0a7d4f) !important;
 }
-
 
 /* 12.4 Tabelas estáticas: fundo branco, cabeçalho em negrito com linhas */
 #quarto-document-content table {
@@ -929,16 +912,7 @@ html { font-size: var(--fs-root) !important; }
   border-bottom: 2px solid #000000;
 }
 
-/* 12.5 Legenda: "Tabela N." em verde, resto em preto, tudo em negrito */
-/*figure.quarto-float-tbl figcaption,
-#quarto-document-content table caption {
-  font-weight: 700;
-  color: #000000;
-  text-align: left;
-  margin-bottom: 0.5rem;
-}
-*/
-/* 12.5 Legenda: justificada, "Tabela N:" em verde, resto em preto, tudo em negrito */
+/* 12.5 Legenda das tabelas: justificada, preta e em negrito */
 #quarto-document-content figure.quarto-float-tbl figcaption,
 #quarto-document-content table caption {
   font-weight: 700;
@@ -948,23 +922,31 @@ html { font-size: var(--fs-root) !important; }
   margin-bottom: 0.5rem;
 }
 
-
-figure.quarto-float-tbl figcaption .rotulo-tabela,
-#quarto-document-content table caption .rotulo-tabela {
-  color: var(--cor-rotulo-tabela);
-  font-weight: 700;
-}
-
-/* 12.5 Legenda: justificada, "Tabela N:" em verde, resto em preto, tudo em negrito */
-#quarto-document-content figure.quarto-float-tbl figcaption,
-#quarto-document-content table caption {
-  font-weight: 700;
+/* 12.6 Figuras */
+#quarto-document-content figure.quarto-float-fig figcaption,
+#quarto-document-content .figure-caption {
   color: #000000;
   text-align: justify !important;
   text-justify: inter-word;
-  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+  line-height: 1.5;
 }
-/* 12.6 Tabela interativa (DT) */
+
+/* Rótulo "Tabela N:" e "Figura N:" em verde (a classe é criada pelo script do _quarto.yml) */
+figure figcaption .rotulo-tabela,
+#quarto-document-content table caption .rotulo-tabela,
+#quarto-document-content figure.quarto-float-fig figcaption .figure-number {
+  color: var(--cor-rotulo-tabela, #0a7d4f) !important;
+  font-weight: 700;
+}
+
+/* Imagem não ultrapassa a largura do documento */
+#quarto-document-content figure.quarto-float-fig img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* 12.7 Tabela interativa (DT) */
 .dataTables_wrapper { font-size: var(--fs-tabela); }
 
 /* Só linha embaixo do cabeçalho, linhas finas entre os registros */
@@ -1022,7 +1004,7 @@ table.dt-minimal td {
   border-radius: 6px;
 }
 
-/* 12.7 Largura: tabela larga não alarga a página */
+/* 12.8 Largura: tabela larga não alarga a página */
 main.content,
 #quarto-document-content {
   min-width: 0;
@@ -1042,15 +1024,33 @@ figure.quarto-float-tbl {
 }
 .dataTables_wrapper { overflow-x: auto; }
 
-/* 12.8 Celular */
+/* 12.9 Equações: se passarem da tela, rolam dentro da própria caixa */
+mjx-container[display="true"],
+.math.display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  max-width: 100%;
+}
+
+/* 12.10 Caixa de objetivo: título curto + texto completo da tese */
+.objetivo {
+  border-left: 4px solid #000;
+  background: #f4fbf9;
+  padding: 0.7rem 1rem;
+  margin: 0.5rem 0 1.2rem 0;
+  border-radius: 0 8px 8px 0;
+}
+.objetivo p { margin: 0; }
+
+/* 12.11 Celular */
 @media (max-width: 576px) {
 
-  /* Margem lateral do celular (0 = padrão do tema, ~21px; negativo = mais largura) */
+  /* Margem lateral (0 = padrão do tema, ~21px; negativo = mais largura) */
   #quarto-document-content {
     margin-left: -0.5rem;
     margin-right: -0.5rem;
   }
-  
+
   /* Título sem buracos entre palavras */
   .quarto-title h1.title,
   .quarto-title .description { text-align: left; }
@@ -1060,6 +1060,9 @@ figure.quarto-float-tbl {
   /* Texto justificado com hifenização */
   #quarto-document-content p,
   #quarto-document-content li { hyphens: auto; }
+
+  /* Equações um pouco menores */
+  mjx-container[display="true"] { font-size: 90%; }
 
   /* Tabela interativa mais compacta */
   table.dt-minimal thead th,
@@ -1071,77 +1074,5 @@ figure.quarto-float-tbl {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.5rem;
-  }
-}
-
-
-/* Caixa de objetivo: título curto + texto completo da tese */
-/*.objetivo {
-  border-left: 4px solid var(--verde-titulos, #000);
-  background: #f4fbf9;
-  padding: 0.7rem 1rem;
-  margin: 0.5rem 0 1.2rem 0;
-  border-radius: 0 8px 8px 0;
-}
-.objetivo p { margin: 0; }
-*/
-/* Caixa de objetivo: título curto + texto completo da tese */
-.objetivo {
-  border-left: 4px solid #000;
-  background: #f4fbf9;
-  padding: 0.7rem 1rem;
-  margin: 0.5rem 0 1.2rem 0;
-  border-radius: 0 8px 8px 0;
-}
-.objetivo p { margin: 0; }
-
-
-/* ==========================================================
-   12.9 FIGURAS
-   Mesma padronização visual das tabelas
-   ========================================================== */
-
-/* Citação de figura no texto: mesma cor das citações de tabela */
-#quarto-document-content a[href^="#fig-"],
-#quarto-document-content a[href^="#fig-"]:link,
-#quarto-document-content a[href^="#fig-"]:visited,
-#quarto-document-content a[href^="#fig-"]:hover,
-#quarto-document-content a[href^="#fig-"]:focus,
-#quarto-document-content a[href^="#fig-"]:active {
-  color: var(--cor-rotulo-tabela, #0a7d4f) !important;
-}
-
-
-/* Legenda das figuras:
-   texto preto + alinhamento justificado */
-#quarto-document-content figure.quarto-float-fig figcaption,
-#quarto-document-content .figure-caption {
-  color: #000000;
-  text-align: justify !important;
-  text-justify: inter-word;
-  margin-top: 0.5rem;
-  line-height: 1.5;
-}
-
-
-/* "Figura N:" em verde */
-#quarto-document-content figure.quarto-float-fig figcaption .figure-number,
-#quarto-document-content .figure-caption .figure-number {
-  color: var(--cor-rotulo-tabela, #0a7d4f) !important;
-  font-weight: 700;
-}
-
-
-/* Imagem não ultrapassa a largura do documento */
-#quarto-document-content figure.quarto-float-fig img {
-  max-width: 100%;
-  height: auto;
-}
-
-
-/* Ajustando imagens */
-@media (max-width: 576px) {
-  .comparacao-declinio .math.display {
-    font-size: 0.72rem;
   }
 }

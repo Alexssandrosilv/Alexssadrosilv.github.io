@@ -90,11 +90,16 @@ resources:
   // Desativa os atalhos da busca do Quarto (F, S e /) nesta página
   window.addEventListener('keydown', function (e) {
     var t = e.target, tag = t && t.tagName;
-    // Dentro de campos de texto continua digitando normal
     if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || (t && t.isContentEditable)) return;
     var k = (e.key || '').toLowerCase();
     if (k === 'f' || k === 's' || k === '/') { e.stopImmediatePropagation(); }
   }, true);
+
+  // Se o painel de busca abrir por qualquer motivo, fecha na hora
+  new MutationObserver(function () {
+    var c = document.querySelector('.aa-DetachedCancelButton');
+    if (c) c.click();
+  }).observe(document.body, { childList: true, subtree: true });
 </script>
 
 ```{r setup, include=FALSE}
@@ -251,10 +256,9 @@ $$
 \times 100
 $$
 
+::: {.calc-taxas}
 
-::: {style="display:grid; grid-template-columns:1fr 1fr; column-gap:0; margin-top:1.5rem; margin-bottom:2rem;"}
-
-::: {style="text-align:center; padding-right:32px; border-right:1px solid #adb5bd;"}
+::: {.calc-col}
 
 **Borba**
 
@@ -275,7 +279,7 @@ $$
 
 :::
 
-::: {style="text-align:center; padding-left:32px;"}
+::: {.calc-col}
 
 **Manicoré**
 
@@ -297,6 +301,7 @@ $$
 :::
 
 :::
+
 
 ## Mapa comparativo das taxas
 
