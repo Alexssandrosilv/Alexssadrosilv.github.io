@@ -1094,3 +1094,54 @@ figure.quarto-float-tbl {
   border-radius: 0 8px 8px 0;
 }
 .objetivo p { margin: 0; }
+
+
+/* ==========================================================
+   12.9 FIGURAS
+   Mesma padronização visual das tabelas
+   ========================================================== */
+
+/* Citação de figura no texto: mesma cor das citações de tabela */
+#quarto-document-content a[href^="#fig-"],
+#quarto-document-content a[href^="#fig-"]:link,
+#quarto-document-content a[href^="#fig-"]:visited,
+#quarto-document-content a[href^="#fig-"]:hover,
+#quarto-document-content a[href^="#fig-"]:focus,
+#quarto-document-content a[href^="#fig-"]:active {
+  color: var(--cor-rotulo-tabela, #0a7d4f) !important;
+}
+
+
+/* Legenda das figuras:
+   texto preto + alinhamento justificado */
+#quarto-document-content figure.quarto-float-fig figcaption,
+#quarto-document-content .figure-caption {
+  color: #000000;
+  text-align: justify !important;
+  text-justify: inter-word;
+  margin-top: 0.5rem;
+  line-height: 1.5;
+}
+
+
+/* "Figura N:" em verde */
+#quarto-document-content figure.quarto-float-fig figcaption .figure-number,
+#quarto-document-content .figure-caption .figure-number {
+  color: var(--cor-rotulo-tabela, #0a7d4f) !important;
+  font-weight: 700;
+}
+
+
+/* Imagem não ultrapassa a largura do documento */
+#quarto-document-content figure.quarto-float-fig img {
+  max-width: 100%;
+  height: auto;
+}
+
+
+/* Ajustando imagens */
+@media (max-width: 576px) {
+  .comparacao-declinio .math.display {
+    font-size: 0.72rem;
+  }
+}
