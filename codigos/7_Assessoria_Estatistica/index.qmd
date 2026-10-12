@@ -202,22 +202,22 @@ Os dados tratados das duas bases estão disponíveis para download em formato Ex
 [<i class="bi bi-download"></i> Base 1 – Desembarque (19 KB)](dados/dados_tratados.xlsx){.baixar download="dados_tratados.xlsx"} [<i class="bi bi-download"></i> Base 2 – Cotas (1,5 MB)](dados/dados_cotas_tratados.xlsx){.baixar download="dados_cotas_tratados.xlsx"}
 :::
 
-
 ## Taxas de Declínio Produtivo
 
-| Município | Período do Barramento | Série Temporal ($n$) | Total Acumulado (kg) | Média Anual ± DP (kg) | Intervalo da Série [Mín – Máx] (kg) | Amplitude da Série (kg) | Taxa de Declínio Produtivo ($\Delta P$) |
-|:---|:---|:---:|---:|---:|:---:|---:|:---:|
-| **Borba** | Pré-barramento | 2002–2010 (9) | 816.058 | 90.673 ± 25.026 | [50.007 – 126.332] | 76.325 | **−69,9%** [↓]{style="color:#9d0208; font-size:1.25em; font-weight:700;"} |
-|  | Pós-barramento | 2012–2024 (13) | 354.846 | 27.296 ± 4.621 | [20.450 – 36.161] | 15.711 | |
-| **Manicoré** | Pré-barramento | 2002–2010 (9) | 17.020 | 1.891 ± 85 | [1.701 – 1.971] | 270 | **−64,1%** [↓]{style="color:#9d0208; font-size:1.25em; font-weight:700;"} |
-|  | Pós-barramento | 2012–2024 (13) | 8.826 | 679 ± 143 | [453 – 975] | 522 | |
+
+| Município | Período | Série Temporal<br>($n$) | Total Acumulado<br>(kg) | Média Anual ± DP<br>(kg) | Intervalo da Série<br>[Mín – Máx] (kg) | Amplitude da Série<br>(kg) | Taxa de Declínio<br>Produtivo |
+|:---|:---:|:---:|---:|---:|:---:|---:|:---:|
+| **Borba** | Antes | 2002–2010 (9) | 816.058 | 90.673 ± 25.026 | [50.007 – 126.332] | 76.325 | **−69,9%** [↓]{style="color:#9d0208; font-size:1.25em; font-weight:700;"} |
+|  | Depois | 2012–2024 (13) | 354.846 | 27.296 ± 4.621 | [20.450 – 36.161] | 15.711 | |
+| **Manicoré** | Antes | 2002–2010 (9) | 17.020 | 1.891 ± 85 | [1.701 – 1.971] | 270 | **−64,1%** [↓]{style="color:#9d0208; font-size:1.25em; font-weight:700;"} |
+|  | Depois | 2012–2024 (13) | 8.826 | 679 ± 143 | [453 – 975] | 522 | |
 
 : Estatísticas descritivas anuais da produção pesqueira (kg), estratificadas por município e período de intervenção hidrelétrica. {#tbl-estatisticas-pesca}
 
 
-**Notas metodológicas.** Para a análise comparativa, foram considerados os períodos **2002–2010 (pré-barramento)** e **2012–2024 (pós-barramento)**. O ano de **2011**, classificado anteriormente como período de transição, foi excluído por não permitir a separação entre os momentos pré e pós-barramento nos dados anuais. O ano de **2025** também foi desconsiderado por apresentar dados incompletos. Assim, o ano produtivo foi adotado como unidade amostral, sendo $n$ o número de anos em cada período. O **Desvio Padrão (DP)** representa a variabilidade interanual da produção, enquanto a **Amplitude da Série** corresponde à diferença entre os valores máximo e mínimo observados.
+**Notas metodológicas.** Para a análise comparativa, foram considerados os períodos **Antes do barramento (2002–2010)** e **Depois do barramento (2012–2024)**. O ano de **2011**, classificado anteriormente como período de transição, foi excluído por não permitir a separação entre os momentos antes e depois do barramento nos dados anuais. O ano de **2025** também foi desconsiderado por apresentar dados incompletos. Assim, o ano produtivo foi adotado como unidade amostral, sendo $n$ o número de anos em cada período. O **Desvio Padrão (DP)** representa a variabilidade interanual da produção, enquanto a **Amplitude da Série** corresponde à diferença entre os valores máximo e mínimo observados.
 
-A **Taxa de Declínio Produtivo ($\Delta P$)** expressa a redução percentual da **produção pesqueira média anual** entre os períodos pré e pós-barramento, sendo calculada por:
+A **Taxa de Declínio Produtivo ($\Delta P$)** expressa a redução percentual da **produção pesqueira média anual** entre os períodos antes e depois do barramento, sendo calculada por:
 
 $$
 \Delta P(\%) =
@@ -232,9 +232,9 @@ $$
 $$
 
 
-::: columns
+::: {style="display: grid; grid-template-columns: 1fr 1px 1fr; column-gap: 32px; align-items: stretch; margin-top: 1.5rem; margin-bottom: 2rem;"}
 
-::: {.column width="49%"}
+::: {style="text-align: center;"}
 
 **Borba**
 
@@ -255,15 +255,10 @@ $$
 
 :::
 
-::: {.column width="2%"}
-
-\[
-\Bigg|
-\]
-
+::: {style="background-color: #adb5bd; width: 1px; min-height: 120px;"}
 :::
 
-::: {.column width="49%"}
+::: {style="text-align: center;"}
 
 **Manicoré**
 
@@ -285,6 +280,9 @@ $$
 :::
 
 :::
+
+## Mapa comparativo das taxas
+
 
 ## Variáveis hidrológicas
 
