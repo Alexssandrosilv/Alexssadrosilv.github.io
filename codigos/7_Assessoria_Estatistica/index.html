@@ -123,6 +123,35 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../s8.css">
 </head>
@@ -170,9 +199,10 @@ document.addEventListener('DOMContentLoaded', function () {
   <li><a href="#tratamento" id="toc-tratamento" class="nav-link" data-scroll-target="#tratamento"><span class="header-section-number">1.1</span> Tratamento</a></li>
   <li><a href="#dados-tratados" id="toc-dados-tratados" class="nav-link" data-scroll-target="#dados-tratados"><span class="header-section-number">1.2</span> Dados tratados</a></li>
   </ul></li>
-  <li><a href="#variáveis-hidrológicas" id="toc-variáveis-hidrológicas" class="nav-link" data-scroll-target="#variáveis-hidrológicas"><span class="header-section-number">2</span> Variáveis hidrológicas</a></li>
-  <li><a href="#séries-temporais" id="toc-séries-temporais" class="nav-link" data-scroll-target="#séries-temporais"><span class="header-section-number">3</span> Séries temporais</a></li>
-  <li><a href="#antes-e-depois-das-uhes" id="toc-antes-e-depois-das-uhes" class="nav-link" data-scroll-target="#antes-e-depois-das-uhes"><span class="header-section-number">4</span> Antes e depois das UHEs</a></li>
+  <li><a href="#taxas-de-declínio-produtivo" id="toc-taxas-de-declínio-produtivo" class="nav-link" data-scroll-target="#taxas-de-declínio-produtivo"><span class="header-section-number">2</span> Taxas de Declínio Produtivo</a></li>
+  <li><a href="#variáveis-hidrológicas" id="toc-variáveis-hidrológicas" class="nav-link" data-scroll-target="#variáveis-hidrológicas"><span class="header-section-number">3</span> Variáveis hidrológicas</a></li>
+  <li><a href="#séries-temporais" id="toc-séries-temporais" class="nav-link" data-scroll-target="#séries-temporais"><span class="header-section-number">4</span> Séries temporais</a></li>
+  <li><a href="#antes-e-depois-das-uhes" id="toc-antes-e-depois-das-uhes" class="nav-link" data-scroll-target="#antes-e-depois-das-uhes"><span class="header-section-number">5</span> Antes e depois das UHEs</a></li>
   </ul>
 </nav>
     </div>
@@ -264,7 +294,8 @@ document.addEventListener('DOMContentLoaded', function () {
     transition: all 0.2s ease;
   }
   a.baixar:hover {
-    background: var(--verde-titulos, #18bc9c);
+    <!-- background: var(--verde-titulos, #18bc9c); -->
+     background: #000000;
     color: #ffffff !important;
   }
 </style>
@@ -303,7 +334,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <div id="tbl-var-pesca" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-var-pesca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;1: Descrição das variáveis (Integração: Base 1 – Desembarque Pesqueiro).
+Tabela&nbsp;1: Descrição das variáveis: Base 1 – Desembarque Pesqueiro.
 </figcaption>
 <div aria-describedby="tbl-var-pesca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -514,7 +545,7 @@ Tabela&nbsp;2: Rótulos aplicados às variáveis categóricas da Base 2, conform
 <div id="tbl-var-cotas" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-var-cotas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;3: Descrição das variáveis (Integração: Base 2 – Cotas Fluviométricas).
+Tabela&nbsp;3: Descrição das variáveis: Base 2 – Cotas Fluviométricas.
 </figcaption>
 <div aria-describedby="tbl-var-cotas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -760,20 +791,148 @@ Tabela&nbsp;3: Descrição das variáveis (Integração: Base 2 – Cotas Fluvio
 </div>
 </section>
 </section>
-<section id="variáveis-hidrológicas" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="variáveis-hidrológicas"><span class="header-section-number">2</span> Variáveis hidrológicas</h2>
+<section id="taxas-de-declínio-produtivo" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="taxas-de-declínio-produtivo"><span class="header-section-number">2</span> Taxas de Declínio Produtivo</h2>
+<div id="tbl-estatisticas-pesca" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-estatisticas-pesca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabela&nbsp;4: Estatísticas descritivas anuais da produção pesqueira (kg), estratificadas por município e período de intervenção hidrelétrica.
+</figcaption>
+<div aria-describedby="tbl-estatisticas-pesca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 14%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 14%">
+<col style="width: 11%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Município</th>
+<th style="text-align: left;">Período do Barramento</th>
+<th style="text-align: center;">Série Temporal (<span class="math inline">\(n\)</span>)</th>
+<th style="text-align: right;">Total Acumulado (kg)</th>
+<th style="text-align: right;">Média Anual ± DP (kg)</th>
+<th style="text-align: center;">Intervalo da Série [Mín – Máx] (kg)</th>
+<th style="text-align: right;">Amplitude da Série (kg)</th>
+<th style="text-align: center;">Taxa de Declínio Produtivo (<span class="math inline">\(\Delta P\)</span>)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Borba</strong></td>
+<td style="text-align: left;">Pré-barramento</td>
+<td style="text-align: center;">2002–2010 (9)</td>
+<td style="text-align: right;">816.058</td>
+<td style="text-align: right;">90.673 ± 25.026</td>
+<td style="text-align: center;">[50.007 – 126.332]</td>
+<td style="text-align: right;">76.325</td>
+<td style="text-align: center;"><strong>−69,9%</strong> <span style="color:#9d0208; font-size:1.25em; font-weight:700;">↓</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Pós-barramento</td>
+<td style="text-align: center;">2012–2024 (13)</td>
+<td style="text-align: right;">354.846</td>
+<td style="text-align: right;">27.296 ± 4.621</td>
+<td style="text-align: center;">[20.450 – 36.161]</td>
+<td style="text-align: right;">15.711</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Manicoré</strong></td>
+<td style="text-align: left;">Pré-barramento</td>
+<td style="text-align: center;">2002–2010 (9)</td>
+<td style="text-align: right;">17.020</td>
+<td style="text-align: right;">1.891 ± 85</td>
+<td style="text-align: center;">[1.701 – 1.971]</td>
+<td style="text-align: right;">270</td>
+<td style="text-align: center;"><strong>−64,1%</strong> <span style="color:#9d0208; font-size:1.25em; font-weight:700;">↓</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Pós-barramento</td>
+<td style="text-align: center;">2012–2024 (13)</td>
+<td style="text-align: right;">8.826</td>
+<td style="text-align: right;">679 ± 143</td>
+<td style="text-align: center;">[453 – 975]</td>
+<td style="text-align: right;">522</td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p><strong>Notas metodológicas.</strong> Para a análise comparativa, foram considerados os períodos <strong>2002–2010 (pré-barramento)</strong> e <strong>2012–2024 (pós-barramento)</strong>. O ano de <strong>2011</strong>, classificado anteriormente como período de transição, foi excluído por não permitir a separação entre os momentos pré e pós-barramento nos dados anuais. O ano de <strong>2025</strong> também foi desconsiderado por apresentar dados incompletos. Assim, o ano produtivo foi adotado como unidade amostral, sendo <span class="math inline">\(n\)</span> o número de anos em cada período. O <strong>Desvio Padrão (DP)</strong> representa a variabilidade interanual da produção, enquanto a <strong>Amplitude da Série</strong> corresponde à diferença entre os valores máximo e mínimo observados.</p>
+<p>A <strong>Taxa de Declínio Produtivo (<span class="math inline">\(\Delta P\)</span>)</strong> expressa a redução percentual da <strong>produção pesqueira média anual</strong> entre os períodos pré e pós-barramento, sendo calculada por:</p>
+<p><span class="math display">\[
+\Delta P(\%) =
+\left(
+\frac{
+\bar{P}_{\text{Antes}}-\bar{P}_{\text{Depois}}
+}{
+\bar{P}_{\text{Antes}}
+}
+\right)
+\times 100
+\]</span></p>
+<div class="columns">
+<div class="column" style="width:49%;">
+<p><strong>Borba</strong></p>
+<p><span class="math display">\[
+\Delta P_{\text{Borba}}
+=
+\left(
+\frac{
+90.673-27.296
+}{
+90.673
+}
+\right)
+\times 100
+=
+69{,}9\%
+\]</span></p>
+</div><div class="column" style="width:2%;">
+<p>[ | ]</p>
+</div><div class="column" style="width:49%;">
+<p><strong>Manicoré</strong></p>
+<p><span class="math display">\[
+\Delta P_{\text{Manicoré}}
+=
+\left(
+\frac{
+1.891-679
+}{
+1.891
+}
+\right)
+\times 100
+=
+64{,}1\%
+\]</span></p>
+</div>
+</div>
+</section>
+<section id="variáveis-hidrológicas" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="variáveis-hidrológicas"><span class="header-section-number">3</span> Variáveis hidrológicas</h2>
 <div class="objetivo">
 <p><strong>Objetivo:</strong> Correlacionar a produção pesqueira com as variáveis hidrológicas, considerando as possíveis alterações associadas à operação das UHEs;</p>
 </div>
 </section>
-<section id="séries-temporais" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="séries-temporais"><span class="header-section-number">3</span> Séries temporais</h2>
+<section id="séries-temporais" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="séries-temporais"><span class="header-section-number">4</span> Séries temporais</h2>
 <div class="objetivo">
 <p><strong>Objetivo:</strong> Detectar mudanças nas séries temporais da produção pesqueira e das cotas fluviométricas;</p>
 </div>
 </section>
-<section id="antes-e-depois-das-uhes" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="antes-e-depois-das-uhes"><span class="header-section-number">4</span> Antes e depois das UHEs</h2>
+<section id="antes-e-depois-das-uhes" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="antes-e-depois-das-uhes"><span class="header-section-number">5</span> Antes e depois das UHEs</h2>
 <div class="objetivo">
 <p><strong>Objetivo:</strong> Quantificar as mudanças na produção, composição e diversidade das capturas pesqueiras, comparando os períodos “Antes” e “Depois” da operação das UHEs;</p>
 </div>
