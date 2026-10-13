@@ -233,25 +233,18 @@ Os dados tratados das duas bases estão disponíveis para download em formato Ex
 
 ## Taxas de Declínio Produtivo
 
-| Município | Período | Série Temporal<br>($n$) | Total Acumulado<br>(kg) | Média Anual ± DP<br>(kg) | Intervalo da Série<br>[Mín – Máx] (kg) | Amplitude da Série<br>(kg) | Normalidade<br>Shapiro-Wilk<br>$W$ ($p$) | Teste de Comparação<br>Estatística ($p$) | Taxa de Declínio<br>Produtivo |
+## Taxas de Declínio Produtivo
+
+| Município | Período | Série Temporal<br>($n$) | Total Acumulado<br>(kg) | Média Anual ± DP<br>(kg) | Intervalo da Série<br>[Mín – Máx] (kg) | Amplitude da Série<br>(kg) | Normalidade<br>Shapiro-Wilk | Teste de Comparação | Taxa de Declínio<br>Produtivo |
 |:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|
-| **Borba** | Antes | 2002–2010 (9) | 816.058 | 90.673 ± 25.026<sup class="t-welch">a</sup> | [50.007 – 126.332] | 76.325 | 0,9809 (0,9688)<br>Normal | [Teste t de Welch<br>$t$ = 7,3533<br>($p < 0,001$)]{.t-welch} | **−68,8%** [↓]{style="color:#9d0208; font-size:1.25em; font-weight:700;"} |
-|  | Depois | 2011–2024 (14) | 396.013 | 28.287 ± 5.784<sup class="t-welch">b</sup> | [20.450 – 41.167] | 20.717 | 0,9582 (0,6936)<br>Normal |  |  |
-| **Manicoré** | Antes | 2002–2010 (9) | 17.020 | 1.891 ± 85<sup class="t-wilcoxon">a</sup> | [1.701 – 1.971] | 270 | 0,8338 (0,0493)<br>Não normal | [Wilcoxon-Mann-Whitney<br>$W$ = 126<br>($p < 0,001$)]{.t-wilcoxon} | **−62,7%** [↓]{style="color:#9d0208; font-size:1.25em; font-weight:700;"} |
-|  | Depois | 2011–2024 (14) | 9.887 | 706 ± 171<sup class="t-wilcoxon">b</sup> | [453 – 1.061] | 608 | 0,9592 (0,7105)<br>Normal |  |  |
+| **Borba** | Antes | 2002–2010 (9) | 816.058 | 90.673 ± 25.026<sup class="t-welch">a</sup> | [50.007 – 126.332] | 76.325 | $W = 0,9809$<br>$p = 0,9688$ | [Teste t de Welch<br>$t = 7,3533$<br>$p < 0,001$]{.t-welch} | **−68,8%** [↓]{style="color:#9d0208; font-size:1.25em; font-weight:700;"} |
+|  | Depois | 2011–2024 (14) | 396.013 | 28.287 ± 5.784<sup class="t-welch">b</sup> | [20.450 – 41.167] | 20.717 | $W = 0,9582$<br>$p = 0,6936$ |  |  |
+| **Manicoré** | Antes | 2002–2010 (9) | 17.020 | 1.891 ± 85<sup class="t-wilcoxon">a</sup> | [1.701 – 1.971] | 270 | $W = 0,8338$<br>$p = 0,0493$ | [Wilcoxon-Mann-Whitney<br>$W = 126$<br>$p < 0,001$]{.t-wilcoxon} | **−62,7%** [↓]{style="color:#9d0208; font-size:1.25em; font-weight:700;"} |
+|  | Depois | 2011–2024 (14) | 9.887 | 706 ± 171<sup class="t-wilcoxon">b</sup> | [453 – 1.061] | 608 | $W = 0,9592$<br>$p = 0,7105$ |  |  |
 
-: Estatísticas descritivas anuais da produção pesqueira (kg), testes de normalidade e de comparação entre períodos, estratificados por município e período de intervenção hidrelétrica. {#tbl-estatisticas-pesca}
+: Estatísticas descritivas anuais da produção pesqueira (kg), testes de normalidade e de comparação entre os períodos Antes e Depois, estratificados por município. $n$ corresponde ao número de anos avaliados em cada período e DP ao desvio padrão. A normalidade foi avaliada pelo teste de Shapiro-Wilk, sendo $W$ a estatística de teste e $p$ o valor-p. Para a comparação entre os períodos, utilizou-se o teste t de Welch em Borba, sendo $t$ a estatística de teste, e o teste de Wilcoxon-Mann-Whitney em Manicoré, sendo $W$ a respectiva estatística de teste. Adotou-se nível de significância de 5% ($\alpha = 0,05$). Letras sobrescritas diferentes (a, b) indicam diferença estatisticamente significativa entre os períodos ($p < 0,05$). A Taxa de Declínio Produtivo representa a redução percentual da produção pesqueira média anual entre os períodos. {#tbl-estatisticas-pesca}
 
-
-: Estatísticas descritivas anuais da produção pesqueira (kg), testes de normalidade e de comparação entre períodos, estratificados por município e período de intervenção hidrelétrica. {#tbl-estatisticas-pesca}
-
-
-
-**Notas metodológicas.** Para a análise comparativa, foram considerados os períodos 2002–2010 (antes do barramento) e 2011–2024 (depois do barramento). Os anos de 2025 e 2026 foram desconsiderados por apresentarem dados incompletos. Assim, o ano produtivo foi adotado como unidade amostral, sendo $n$ o número de anos em cada período. O Desvio Padrão (DP) representa a variabilidade interanual da produção, e a Amplitude da Série corresponde à diferença entre os valores máximo e mínimo observados. A Taxa de Declínio Produtivo expressa a redução percentual da produção pesqueira média anual entre os períodos. A coluna de normalidade apresenta o resultado do teste de Shapiro-Wilk ($W$ e valor de $p$), e a coluna de comparação, o teste aplicado em cada município. Em cada município, letras sobrescritas diferentes na coluna da média anual (a, b) indicam diferença estatisticamente significativa ($p < 0,05$) entre os períodos Antes e Depois, e a mesma letra indicaria ausência de diferença. A cor azul sinaliza a aplicação do Teste t de Welch (paramétrico), enquanto a cor vermelha sinaliza a aplicação do Teste de Wilcoxon-Mann-Whitney (não paramétrico).
-
-
-
-A **Taxa de Declínio Produtivo** ($\Delta P$) é calculada por:
+A **Taxa de Declínio Produtivo** é calculada por:
 
 $$
 \Delta P(\%) =
@@ -308,6 +301,7 @@ $$
 
 :::
 
+
 **Testes de Hipótese.** Para comparar a produção pesqueira anual entre os períodos Antes e Depois, inicialmente avaliou-se a suposição de normalidade dos dados, uma vez que essa condição auxilia na definição do teste estatístico mais adequado para a comparação entre os períodos. Em todos os testes foi adotado um nível de significância de 5% ($\alpha = 0,05$), de modo que valores-p inferiores a 0,05 indicam evidências estatisticamente significativas contra a hipótese nula ($H_0$).
 
 **Sobre os testes de normalidade**, foram utilizados os testes de Shapiro-Wilk e Anderson-Darling para verificar se os dados de cada período poderiam ser considerados provenientes de uma distribuição normal. Para o teste de Shapiro-Wilk, a estatística de teste é representada por $W$, enquanto, para o teste de Anderson-Darling, é representada por $A$. Em ambos os testes, a hipótese nula ($H_0$) estabelece que os dados seguem uma distribuição normal, enquanto a hipótese alternativa ($H_1$) estabelece que os dados não seguem uma distribuição normal. Assim, para um nível de significância de 5%, valores-p superiores a 0,05 indicam que não há evidências suficientes para rejeitar a hipótese de normalidade, enquanto valores-p inferiores a 0,05 indicam evidências de afastamento da distribuição normal. O teste de Shapiro-Wilk é amplamente utilizado na avaliação da normalidade em pequenas amostras, como as consideradas neste estudo (9 e 14 anos), enquanto o teste de Anderson-Darling atribui maior peso às caudas da distribuição. Dessa forma, ambos foram utilizados de maneira complementar na avaliação da distribuição dos dados.
@@ -320,6 +314,9 @@ $$
 
 Para o município de **Manicoré**, no período Antes, o teste de Shapiro-Wilk apresentou estatística de teste $W = 0,8338$ e valor-p $= 0,0493$. Como o valor-p foi inferior ao nível de significância de 5% ($\alpha = 0,05$), rejeitou-se a hipótese nula de normalidade, indicando evidências de que os dados desse período não seguem uma distribuição normal. No período Depois, o teste de Shapiro-Wilk apresentou estatística $W = 0,9592$ e valor-p $= 0,7105$, enquanto o teste de Anderson-Darling apresentou estatística $A = 0,2511$ e valor-p $= 0,6864$, não indicando evidências suficientes para rejeitar a normalidade nesse período. Entretanto, como a suposição de normalidade não foi atendida em um dos períodos analisados, optou-se pela utilização do teste não paramétrico de Wilcoxon-Mann-Whitney para a comparação entre os grupos. O teste apresentou estatística $W = 126$ e valor-p $< 0,001$. Como o valor-p foi inferior ao nível de significância adotado, rejeitou-se a hipótese nula de igualdade das distribuições, evidenciando diferença estatisticamente significativa entre os períodos Antes e Depois, com menores valores de produção pesqueira após o barramento.
 
+
+## Mapa comparativo das taxas
+
 ![Spatial distribution of fishing activity decline rates along the Madeira River, between Porto Velho (RO) and Borba (AM). The percentages correspond to the reductions reported for Porto Velho (37.0%), based on Catch Per Unit Effort (CPUE), and Humaitá (39.0%), as well as those estimated in this study for Manicoré (64.1%) and Borba (69.9%), based on mean annual fish production. CPUE relates the amount of catch to the fishing effort employed. The triangles indicate the locations of the Jirau and Santo Antônio hydroelectric power plants.](graficos/Mapas_taxas.png){#fig-mapa-taxas width=100% fig-align="center"}
 
 
@@ -330,6 +327,7 @@ Para o município de **Manicoré**, no período Antes, o teste de Shapiro-Wilk a
 **Comentários:** A distribuição espacial apresentada na @fig-mapa-taxas evidencia diferentes magnitudes de declínio entre as localidades avaliadas ao longo da calha do Rio Madeira. Em Porto Velho (RO), Arantes et al. (2021) reportaram redução de 37,0% na Captura por Unidade de Esforço (CPUE), indicador que relaciona a quantidade capturada ao esforço de pesca empregado. Em Humaitá (AM), Santos et al. (2018) observaram redução de 39,0% na produção pesqueira média anual. Para as localidades analisadas neste estudo, foram estimadas reduções de 64,1% em Manicoré e 69,9% em Borba, calculadas a partir da produção pesqueira média anual nos períodos antes e depois do barramento.
 
 Em termos espaciais, observa-se aumento na magnitude das taxas de declínio no sentido de Porto Velho para Borba. Entretanto, essa distribuição deve ser interpretada com cautela, pois os percentuais são provenientes de diferentes estudos e não representam necessariamente o mesmo indicador. Em Porto Velho, a redução refere-se à CPUE, enquanto os valores de Humaitá, Manicoré e Borba estão associados à produção pesqueira média anual.
+
 
 ## Variáveis hidrológicas
 
