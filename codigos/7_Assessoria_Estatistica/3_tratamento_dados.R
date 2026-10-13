@@ -1,6 +1,5 @@
 # Caminho dados
-
-caminho_dados <- "dados/"
+caminho_dados <- "H:/Meu Drive/2 - UFAM/1 - Estatística/Assessoria Estatística/Lucas Lara - Tese de Doutorado/Dados/"
 
 # Tratamento (base tratada)
 tratar_dados_pesca_consolidado <- function(bd) {
@@ -41,10 +40,10 @@ tratar_dados_pesca_consolidado <- function(bd) {
       
       periodo_barragem = dplyr::case_when(
         ano <= 2010 ~ "Antes",
-        ano == 2011 ~ "Transição",
-        ano >= 2012 ~ "Depois"
+        # ano == 2011 ~ "Transição",
+        ano >= 2011 ~ "Depois"
       ),
-      periodo_barragem = base::factor(periodo_barragem, levels = c("Antes", "Transição", "Depois"))
+      periodo_barragem = base::factor(periodo_barragem, levels = c("Antes", "Depois"))
     ) |>
     
     # D. Remove anos sem registo (NAs) e corta os dados anteriores a 2002
@@ -129,3 +128,76 @@ tratar_dados_cotas <- function(bd) {
 # Leitura base de dados de cotas
 dados_cotas <- readxl::read_excel(paste0(caminho_dados, "dados_cotas_tratados.xlsx")) |> 
   tratar_dados_cotas()
+
+# # Tratamento (base de cotas tratada)
+# tratar_dados_cotas <- function(bd) {
+#   
+#   bd_padronizado <- bd |> 
+#     dplyr::mutate(
+#       # A. Tipagem básica das variáveis de identificação e tempo
+#       localidade         = base::as.factor(stringr::str_trim(localidade)),
+#       estacao_codigo     = base::as.character(stringr::str_trim(estacao_codigo)),
+#       data               = base::as.Date(data),
+#       ano                = base::as.integer(ano),
+#       mes                = base::as.integer(mes),
+#       hora               = base::format(hora, "%H:%M:%S"), # Correção da hora
+#       
+#       # B. Aplicação dos Rótulos (Dicionário de Dados da ANA)
+#       nivel_consistencia = base::factor(
+#         nivel_consistencia, 
+#         levels = base::c(1, 2), 
+#         labels = base::c("Bruto", "Consistido")
+#       ),
+#       
+#       media_diaria = base::factor(
+#         media_diaria, 
+#         levels = base::c(0, 1), 
+#         labels = base::c("Não", "Sim")
+#       ),
+#       
+#       tipo_medicao_cotas = base::factor(
+#         tipo_medicao_cotas, 
+#         levels = base::c(1, 2, 3, 5), 
+#         labels = base::c("Escala", "Linígrafo", "Data Logger", "Escala SMS")
+#       )
+#     ) |> 
+#     
+#     # C. Aplicação em massa dos rótulos para TODAS as colunas de status
+#     dplyr::mutate(
+#       dplyr::across(
+#         .cols = tidyselect::ends_with("_status"),
+#         .fns  = ~ base::factor(
+#           .x, 
+#           levels = base::c(0, 1, 2, 3, 4), 
+#           labels = base::c("Branco", "Real", "Estimado", "Duvidoso", "Régua Seca")
+#         )
+#       )
+#     ) |> 
+#     
+#     # D. Transformação para o formato LONGO (Pivot)
+#     dplyr::rename_with(
+#       .fn = ~ stringr::str_replace(.x, "cota_(\\d{2})_status", "status_\\1"),
+#       .cols = tidyselect::ends_with("_status")
+#     ) |> 
+#     
+#     tidyr::pivot_longer(
+#       cols = tidyselect::matches("^(cota|status)_\\d{2}$"),
+#       names_to = base::c(".value", "referencia_dia"),
+#       names_sep = "_"
+#     ) |> 
+#     
+#     # E. Criação da variável para identificar qual era a cota original e limpeza
+#     dplyr::mutate(
+#       identificador_cota = base::as.factor(base::paste0("cota_", referencia_dia)),
+#       referencia_dia     = base::as.integer(referencia_dia)
+#     ) |> 
+#     
+#     # Removemos os dias que não existem (ex: 31 de fevereiro)
+#     dplyr::filter(!base::is.na(cota))
+#   
+#   return(bd_padronizado)
+# }
+# 
+# # Leitura base de dados de cotas
+# dados_cotas <- readxl::read_excel(paste0(caminho_dados, "dados_cotas_tratados.xlsx")) |> 
+#   tratar_dados_cotas()
