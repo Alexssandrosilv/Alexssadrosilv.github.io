@@ -237,7 +237,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Data de Publicação</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">12 de outubro de 2026</p>
+      <p class="date">13 de outubro de 2026</p>
     </div>
   </div>
   
@@ -319,6 +319,10 @@ window.Quarto = {
 <!--     color: #ffffff !important; -->
 <!--   } -->
 
+  /* Tabela de estatísticas: azul = Welch (paramétrico), vermelho = Wilcoxon (não paramétrico) */
+  .t-welch { color: #1f5fbf; }
+  .t-wilcoxon { color: #c0392b; }
+  sup.t-welch, sup.t-wilcoxon { font-weight: 700; }
 </style>
 <script>
   // Desativa os atalhos da busca do Quarto (F, S e /) nesta página
@@ -354,8 +358,7 @@ window.Quarto = {
 <h3 data-number="1.1" class="anchored" data-anchor-id="tratamento"><span class="header-section-number">1.1</span> Tratamento</h3>
 <p>Antes das análises, as duas bases passaram por um processo de organização e limpeza, feito no Microsoft Excel e no R, de forma separada para cada uma.</p>
 <p><strong>Base 1 – Desembarque Pesqueiro:</strong></p>
-<p>Ao analisar os dados, reunimos os registros de Borba e Manicoré em uma única base e padronizamos as variáveis de texto e de agrupamento, definindo cada uma como fator ou caractere, conforme a sua natureza. Os dados originais estavam em formato largo, com cada ano em uma coluna. Por isso, utilizamos a função <code>tidyr::pivot_longer()</code> para passá-los ao formato longo, no qual cada linha corresponde a um registro de um ano, criando as variáveis <code>ano</code> e <code>captura_total</code>. Em <code>captura_total</code>, trocamos a vírgula decimal por ponto e convertemos os valores para número. Em seguida, removemos os registros sem informação de captura e os anos de 2000 e 2001, mantendo o período de 2002 a 2025. Por fim, criamos a variável <code>periodo_barragem</code>, a partir do ano, que classifica os registros em três momentos: <strong>Antes</strong> (2002 a 2010), <strong>Transição</strong> (2011) e <strong>Depois</strong> (2012 a 2025).</p>
-<p>Conforme a metodologia da tese, os dados de pesca recolhidos de janeiro de 2002 a julho de 2011 pertencem à categoria “Antes”, e os recolhidos de agosto de 2011 a dezembro de 2025, à categoria “Depois”. Como os nossos registros de desembarque são anuais, e não mensais, não é possível separar o ano de 2011 nesses dois momentos. Por isso, mantivemos 2011 como ano de <strong>Transição</strong>, sem atribuí-lo a nenhum dos dois grupos.</p>
+<p>Ao analisar os dados, reunimos os registros de Borba e Manicoré em uma única base e padronizamos as variáveis de texto e de agrupamento, definindo cada uma como fator ou caractere, conforme a sua natureza. Os dados originais estavam em formato largo, com cada ano em uma coluna. Por isso, utilizamos a função ‘tidyr::pivot_longer()’ para passá-los ao formato longo, no qual cada linha corresponde a um registro de um ano, criando as variáveis ‘ano’ e ‘captura_total’. Em ‘captura_total’, trocamos a vírgula decimal por ponto e convertemos os valores para número. Em seguida, removemos os registros sem informação de captura e os anos de 2000 e 2001. Posteriormente, removemos os anos de 2025 e 2026, pois estavam incompletos, mantendo o período de 2002 a 2024. Por fim, criamos a variável ‘periodo_barragem’, a partir do ano, que classifica os registros em dois momentos: <strong>Antes</strong> (2002 a 2010) e <strong>Depois</strong> (2011 a 2024).</p>
 <p>Após o tratamento, verificamos a presença de valores ausentes e não encontramos registros omissos nas variáveis consideradas. Ao final, a base ficou com 888 observações, cujas variáveis estão descritas na <a href="#tbl-var-pesca" class="quarto-xref">Tabela&nbsp;1</a>.</p>
 <div id="tbl-var-pesca" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -489,7 +492,7 @@ Tabela&nbsp;1: Descrição das variáveis: Base 1 – Desembarque Pesqueiro.
 <td style="text-align: left;">Momento em relação às hidrelétricas</td>
 <td style="text-align: left;">Qualitativa Ordinal</td>
 <td style="text-align: left;">Fator</td>
-<td style="text-align: left;">3</td>
+<td style="text-align: left;">2</td>
 <td style="text-align: left;">888</td>
 <td style="text-align: left;">0</td>
 </tr>
@@ -819,130 +822,53 @@ Tabela&nbsp;3: Descrição das variáveis: Base 2 – Cotas Fluviométricas.
 </section>
 <section id="taxas-de-declínio-produtivo" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="taxas-de-declínio-produtivo"><span class="header-section-number">2</span> Taxas de Declínio Produtivo</h2>
-<div id="tbl-estatisticas-pesca" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-estatisticas-pesca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;4: Estatísticas descritivas anuais da produção pesqueira (kg), estratificadas por município e período de intervenção hidrelétrica.
-</figcaption>
-<div aria-describedby="tbl-estatisticas-pesca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="caption-top table">
-<colgroup>
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 12%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Município</th>
-<th style="text-align: left;">Período</th>
-<th style="text-align: left;">Série Temporal<br>(<span class="math inline">\(n\)</span>)</th>
-<th style="text-align: left;">Total Acumulado<br>(kg)</th>
-<th style="text-align: left;">Média Anual ± DP<br>(kg)</th>
-<th style="text-align: left;">Intervalo da Série<br>[Mín – Máx] (kg)</th>
-<th style="text-align: left;">Amplitude da Série<br>(kg)</th>
-<th style="text-align: left;">Taxa de Declínio<br>Produtivo</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Borba</strong></td>
-<td style="text-align: left;">Antes</td>
-<td style="text-align: left;">2002–2010 (9)</td>
-<td style="text-align: left;">816.058</td>
-<td style="text-align: left;">90.673 ± 25.026</td>
-<td style="text-align: left;">[50.007 – 126.332]</td>
-<td style="text-align: left;">76.325</td>
-<td style="text-align: left;"><strong>−69,9%</strong> <span style="color:#9d0208; font-size:1.25em; font-weight:700;">↓</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">Depois</td>
-<td style="text-align: left;">2012–2024 (13)</td>
-<td style="text-align: left;">354.846</td>
-<td style="text-align: left;">27.296 ± 4.621</td>
-<td style="text-align: left;">[20.450 – 36.161]</td>
-<td style="text-align: left;">15.711</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>Manicoré</strong></td>
-<td style="text-align: left;">Antes</td>
-<td style="text-align: left;">2002–2010 (9)</td>
-<td style="text-align: left;">17.020</td>
-<td style="text-align: left;">1.891 ± 85</td>
-<td style="text-align: left;">[1.701 – 1.971]</td>
-<td style="text-align: left;">270</td>
-<td style="text-align: left;"><strong>−64,1%</strong> <span style="color:#9d0208; font-size:1.25em; font-weight:700;">↓</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">Depois</td>
-<td style="text-align: left;">2012–2024 (13)</td>
-<td style="text-align: left;">8.826</td>
-<td style="text-align: left;">679 ± 143</td>
-<td style="text-align: left;">[453 – 975]</td>
-<td style="text-align: left;">522</td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-</div>
-</figure>
-</div>
-<p><strong>Notas metodológicas.</strong> Para a análise comparativa, foram considerados os períodos 2002–2010 (antes do barramento) e 2012–2024 (depois do barramento). O ano de 2011, classificado anteriormente como período de transição, foi excluído por não permitir a separação entre os momentos antes e depois do barramento nos dados anuais. O ano de 2025 também foi desconsiderado por apresentar dados incompletos. Assim, o ano produtivo foi adotado como unidade amostral, sendo <span class="math inline">\(n\)</span> o número de anos em cada período. O Desvio Padrão (DP) representa a variabilidade interanual da produção, enquanto a Amplitude da Série corresponde à diferença entre os valores máximo e mínimo observados.</p>
-<p>A <strong>Taxa de Declínio Produtivo (<span class="math inline">\(\Delta P\)</span>)</strong> expressa a redução percentual da produção pesqueira média anual entre os períodos antes e depois do barramento, sendo calculada por:</p>
-<p><span class="math display">\[
-\Delta P(\%) =
-\left(
-\frac{
-\bar{P}_{\text{Antes}}-\bar{P}_{\text{Depois}}
-}{
-\bar{P}_{\text{Antes}}
-}
-\right)
-\times 100
-\]</span></p>
+<div class="line-block">Município | Período | Série Temporal<br>(<span class="math inline">\(n\)</span>) | Total Acumulado<br>(kg) | Média Anual ± DP<br>(kg) | Intervalo da Série<br>[Mín – Máx] (kg) | Amplitude da Série<br>(kg) | Normalidade<br>Shapiro-Wilk<br><span class="math inline">\(W\)</span> (<span class="math inline">\(p\)</span>) | Teste de Comparação<br>Estatística (<span class="math inline">\(p\)</span>) | Taxa de Declínio<br>Produtivo |</div>
+<p>|:——-|:——-|:——-|:——-|:——-|:——-|:——-|:——-|:——-|:——-|</p>
+<div class="line-block"><strong>Borba</strong> | Antes | 2002–2010 (9) | 816.058 | 90.673 ± 25.026<sup class="t-welch">a</sup> | [50.007 – 126.332] | 76.325 | 0,9809 (0,9688)<br>Normal | <span class="t-welch">Teste t de Welch<br><span class="math inline">\(t\)</span> = 7,3533<br>(<span class="math inline">\(p &lt; 0,001\)</span>)</span> | <strong>−68,8%</strong> <span style="color:#9d0208; font-size:1.25em; font-weight:700;">↓</span> |</div>
+<p>|&nbsp; | Depois | 2011–2024 (14) | 396.013 | 28.287 ± 5.784<sup class="t-welch">b</sup> | [20.450 – 41.167] | 20.717 | 0,9582 (0,6936)<br>Normal |&nbsp; |&nbsp; |</p>
+<div class="line-block"><strong>Manicoré</strong> | Antes | 2002–2010 (9) | 17.020 | 1.891 ± 85<sup class="t-wilcoxon">a</sup> | [1.701 – 1.971] | 270 | 0,8338 (0,0493)<br>Não normal | <span class="t-wilcoxon">Wilcoxon-Mann-Whitney<br><span class="math inline">\(W\)</span> = 126<br>(<span class="math inline">\(p &lt; 0,001\)</span>)</span> | <strong>−62,7%</strong> <span style="color:#9d0208; font-size:1.25em; font-weight:700;">↓</span> |</div>
+<p>|&nbsp; | Depois | 2011–2024 (14) | 9.887 | 706 ± 171<sup class="t-wilcoxon">b</sup> | [453 – 1.061] | 608 | 0,9592 (0,7105)<br>Normal |&nbsp; |&nbsp; |</p>
+<p>: Estatísticas descritivas anuais da produção pesqueira (kg), testes de normalidade e de comparação entre períodos, estratificados por município e período de intervenção hidrelétrica. {#tbl-estatisticas-pesca}</p>
+<p><strong>Notas metodológicas.</strong> Para a análise comparativa, foram considerados os períodos 2002–2010 (antes do barramento) e 2011–2024 (depois do barramento). Os anos de 2025 e 2026 foram desconsiderados por apresentarem dados incompletos. Assim, o ano produtivo foi adotado como unidade amostral, sendo <span class="math inline">\(n\)</span> o número de anos em cada período. O Desvio Padrão (DP) representa a variabilidade interanual da produção, e a Amplitude da Série corresponde à diferença entre os valores máximo e mínimo observados. A Taxa de Declínio Produtivo expressa a redução percentual da produção pesqueira média anual entre os períodos. A coluna de normalidade apresenta o resultado do teste de Shapiro-Wilk (<span class="math inline">\(W\)</span> e valor de <span class="math inline">\(p\)</span>), e a coluna de comparação, o teste aplicado em cada município. Em cada município, letras sobrescritas diferentes na coluna da média anual (a, b) indicam diferença estatisticamente significativa (<span class="math inline">\(p &lt; 0,05\)</span>) entre os períodos Antes e Depois, e a mesma letra indicaria ausência de diferença. A cor azul sinaliza a aplicação do Teste t de Welch (paramétrico), enquanto a cor vermelha sinaliza a aplicação do Teste de Wilcoxon-Mann-Whitney (não paramétrico).</p>
+<p>A <strong>Taxa de Declínio Produtivo (</strong><span class="math inline">\(\Delta P\)</span>) é calculada por:</p>
+<p>$$</p>
+<p>P(%) =</p>
+<p>(</p>
+<p>)</p>
+<p>$$</p>
 <div class="calc-taxas">
 <div class="calc-col">
 <p><strong>Borba</strong></p>
-<p><span class="math display">\[
-\Delta P_{\text{Borba}}
-=
-\left(
-\frac{
-90.673-27.296
-}{
-90.673
-}
-\right)
-\times 100
-=
-69{,}9\%
-\]</span></p>
+<p>$$</p>
+<p>P_{}</p>
+<p>=</p>
+<p>(</p>
+<p>)</p>
+<p>=</p>
+<p>68{,}8%</p>
+<p>$$</p>
 </div>
 <div class="calc-col">
 <p><strong>Manicoré</strong></p>
-<p><span class="math display">\[
-\Delta P_{\text{Manicoré}}
-=
-\left(
-\frac{
-1.891-679
-}{
-1.891
-}
-\right)
-\times 100
-=
-64{,}1\%
-\]</span></p>
+<p>$$</p>
+<p>P_{}</p>
+<p>=</p>
+<p>(</p>
+<p>)</p>
+<p>=</p>
+<p>62{,}7%</p>
+<p>$$</p>
 </div>
 </div>
+<p><strong>Análise Estatística e Testes de Hipótese.</strong> Para comparar a produção pesqueira média anual entre os períodos Antes e Depois, seguimos duas etapas. Primeiro, verificamos se os dados de cada período seguem uma distribuição normal, pois essa característica define qual teste de comparação é adequado. Em seguida, comparamos os períodos com um teste paramétrico, quando os dados são normais, ou com um teste não paramétrico, quando não são. O teste paramétrico depende da suposição de normalidade, e o não paramétrico não depende dela. Em todos os testes, adotamos o nível de significância de 5% (<span class="math inline">\(\alpha = 0,05\)</span>): valores de <span class="math inline">\(p\)</span> menores que 0,05 indicam diferença ou desvio estatisticamente significativo.</p>
+<p><strong>Teste de Normalidade – Testes de Shapiro-Wilk e Anderson-Darling para a distribuição dos dados</strong></p>
+<p>Os testes de Shapiro-Wilk (<span class="math inline">\(W\)</span>) e de Anderson-Darling (<span class="math inline">\(A\)</span>) verificam se uma amostra pode ser considerada proveniente de uma distribuição normal. A hipótese nula (<span class="math inline">\(H_0\)</span>) afirma que os dados seguem uma distribuição normal, e a hipótese alternativa (<span class="math inline">\(H_1\)</span>) indica que não seguem. Assim, valores de <span class="math inline">\(p\)</span> maiores que 0,05 mostram que não há evidência contra a normalidade, e valores menores que 0,05 indicam desvio da normalidade. O teste de Shapiro-Wilk é muito utilizado em amostras pequenas, como as deste estudo (9 e 14 anos), enquanto o de Anderson-Darling dá mais atenção aos valores extremos da distribuição. Utilizamos os dois para confirmar o resultado.</p>
+<p><strong>Teste Paramétrico – Teste t de Welch para diferenças de médias</strong></p>
+<p>O teste t de Welch é um teste paramétrico utilizado para verificar se as médias de dois grupos independentes são diferentes. A hipótese nula afirma que as médias dos dois períodos são iguais (<span class="math inline">\(\mu_{\text{Antes}} = \mu_{\text{Depois}}\)</span>), ou seja, não houve mudança na produção média. A hipótese alternativa indica que as médias são diferentes (<span class="math inline">\(\mu_{\text{Antes}} \neq \mu_{\text{Depois}}\)</span>). Este teste exige que os dados de cada grupo sejam normais, mas não exige que a variabilidade dos grupos seja igual, o que o torna adequado para casos como o de Borba, em que o desvio padrão do período Antes é bem maior que o do período Depois.</p>
+<p><strong>Teste Não Paramétrico – Teste de Wilcoxon-Mann-Whitney para diferenças entre grupos</strong></p>
+<p>O teste de Wilcoxon-Mann-Whitney é um teste não paramétrico utilizado para verificar se dois grupos independentes diferem entre si, sem exigir que os dados sejam normais. Em vez de comparar as médias diretamente, o teste ordena todos os valores do menor para o maior e compara a posição ocupada por cada grupo. A hipótese nula afirma que os dois períodos têm a mesma distribuição de capturas, ou seja, não há diferença entre eles. A hipótese alternativa indica que há diferença, geralmente expressa na mediana das capturas. Este teste é indicado quando a normalidade não é atendida e também em amostras pequenas.</p>
+<p><strong>Resultados.</strong> Para o município de Borba, tanto o período anterior quanto o posterior ao barramento apresentaram distribuição normal nos testes de Shapiro-Wilk e de Anderson-Darling (Antes: <span class="math inline">\(W = 0,9809\)</span>; <span class="math inline">\(p = 0,9688\)</span>; <span class="math inline">\(A = 0,1239\)</span>; <span class="math inline">\(p = 0,9765\)</span>. Depois: <span class="math inline">\(W = 0,9582\)</span>; <span class="math inline">\(p = 0,6936\)</span>; <span class="math inline">\(A = 0,2086\)</span>; <span class="math inline">\(p = 0,8293\)</span>). Por isso, aplicamos o Teste t de Welch para amostras independentes, que confirmou uma redução altamente significativa na média de produção pesqueira após a intervenção hidrelétrica (<span class="math inline">\(t = 7,3533\)</span>; <span class="math inline">\(p &lt; 0,001\)</span>).</p>
+<p>Para o município de Manicoré, o período anterior rejeitou a normalidade no teste de Shapiro-Wilk (<span class="math inline">\(W = 0,8338\)</span>; <span class="math inline">\(p = 0,0493\)</span>), embora o período posterior tenha mantido a normalidade (<span class="math inline">\(W = 0,9592\)</span>; <span class="math inline">\(p = 0,7105\)</span>; <span class="math inline">\(A = 0,2511\)</span>; <span class="math inline">\(p = 0,6864\)</span>). Como um dos períodos não atendeu a esse pressuposto, a comparação foi conduzida de forma conservadora com o teste não paramétrico de Wilcoxon-Mann-Whitney. O resultado evidenciou uma queda estatisticamente altamente significativa na mediana das capturas anuais após o barramento (<span class="math inline">\(W = 126\)</span>; <span class="math inline">\(p &lt; 0,001\)</span>).</p>
 </section>
 <section id="mapa-comparativo-das-taxas" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="mapa-comparativo-das-taxas"><span class="header-section-number">3</span> Mapa comparativo das taxas</h2>
@@ -952,7 +878,7 @@ Tabela&nbsp;4: Estatísticas descritivas anuais da produção pesqueira (kg), es
 <img src="graficos/Mapas_taxas.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mapa-taxas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;1: <strong>PT-BR:</strong> Distribuição espacial das taxas de declínio da atividade pesqueira ao longo da calha do Rio Madeira, entre Porto Velho (RO) e Borba (AM). Os percentuais correspondem às reduções reportadas para Porto Velho (37,0%), com base na Captura por Unidade de Esforço (CPUE), e para Humaitá (39,0%), bem como às estimadas neste estudo para Manicoré (64,1%) e Borba (69,9%), com base na produção pesqueira média anual. A CPUE relaciona a quantidade capturada ao esforço de pesca empregado. Os triângulos indicam a localização das UHEs Jirau e Santo Antônio.<br><br><strong>EN:</strong> Spatial distribution of fishing activity decline rates along the Madeira River, between Porto Velho (RO) and Borba (AM). The percentages correspond to the reductions reported for Porto Velho (37.0%), based on Catch Per Unit Effort (CPUE), and Humaitá (39.0%), as well as those estimated in this study for Manicoré (64.1%) and Borba (69.9%), based on mean annual fish production. CPUE relates the amount of catch to the fishing effort employed. The triangles indicate the locations of the Jirau and Santo Antônio hydroelectric power plants.
+Figura&nbsp;1: Spatial distribution of fishing activity decline rates along the Madeira River, between Porto Velho (RO) and Borba (AM). The percentages correspond to the reductions reported for Porto Velho (37.0%), based on Catch Per Unit Effort (CPUE), and Humaitá (39.0%), as well as those estimated in this study for Manicoré (64.1%) and Borba (69.9%), based on mean annual fish production. CPUE relates the amount of catch to the fishing effort employed. The triangles indicate the locations of the Jirau and Santo Antônio hydroelectric power plants.
 </figcaption>
 </figure>
 </div>
