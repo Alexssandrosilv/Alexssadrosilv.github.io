@@ -330,19 +330,20 @@ Quando a normalidade não foi atendida, recorremos ao teste de Wilcoxon-Mann-Whi
 - $H_0$: os dois períodos têm a mesma distribuição de produção;
 - $H_1$: os dois períodos têm distribuições de produção diferentes.
 
+
 Os resultados dos testes estão na @tbl-testes-hipotese.
 
-| Município | Período | Shapiro-Wilk<br>Estatística de teste ($W$) | Shapiro-Wilk<br>$p$-valor | Anderson-Darling<br>Estatística de teste ($A$) | Anderson-Darling<br>$p$-valor | Distribuição | Teste de Comparação |
-|:---|:---|:---|:---|:---|:---|:---|:---|
-| **Borba** | Antes | 0,9809 | 0,9688 | 0,1239 | 0,9765 | Normal | [Teste t de Welch para amostras independentes<br>Estatística de teste: $t = 7,3533$<br>$p$-valor $< 0,001$<br>Rejeita $H_0$]{.t-welch} |
-|  | Depois | 0,9582 | 0,6936 | 0,2086 | 0,8293 | Normal | |
-| **Manicoré** | Antes | 0,8338 | 0,0493 | – | – | Não normal | [Wilcoxon-Mann-Whitney para amostras independentes<br>Estatística de teste: $W = 126$<br>$p$-valor $< 0,001$<br>Rejeita $H_0$]{.t-wilcoxon} |
-|  | Depois | 0,9592 | 0,7105 | 0,2511 | 0,6864 | Normal | |
+| Município | Período | Estatística de teste | $p$-valor | Teste de Comparação |
+|:---|:---|:---|:---|:---|
+| **Borba** | Antes | SW: 0,9809<br>AD: 0,1239 | SW: 0,9688<br>AD: 0,9765 | [Teste t de Welch para amostras independentes<br>Estatística de teste: $t = 7,5092$<br>$p$-valor $< 0,001$<br>Rejeita $H_0$]{.t-welch} |
+| | Depois | SW: 0,9809<br>AD: 0,1137 | SW: 0,9838<br>AD: 0,9882 | |
+| **Manicoré** | Antes | SW: 0,8338<br>AD: 0,6465 | SW: 0,0493<br>AD: 0,0610 | [Wilcoxon-Mann-Whitney para amostras independentes<br>Estatística de teste: $W = 126$<br>$p$-valor $< 0,001$<br>Rejeita $H_0$]{.t-wilcoxon} |
+| | Depois | SW: 0,9833<br>AD: 0,1327 | SW: 0,9916<br>AD: 0,9722 | |
 
 : Resultados dos testes de normalidade e de comparação entre os períodos Antes e Depois. {#tbl-testes-hipotese}
 
 ::: {.nota-tabela}
-**Notas.** Nível de significância adotado: 5% ($\alpha = 0,05$). Um $p$-valor menor que $\alpha$ leva à rejeição da hipótese nula ($H_0$). Nos testes de normalidade, $H_0$ afirma que os dados seguem uma distribuição normal. Para comparar os períodos, utilizamos testes para amostras independentes: teste t de Welch, quando os dois períodos são normais, e teste de Wilcoxon-Mann-Whitney, quando ao menos um período não é normal. O símbolo “–” indica valor não apresentado.
+**Notas.** SW: teste de Shapiro-Wilk; AD: teste de Anderson-Darling. Nível de significância adotado: 5% ($\alpha = 0,05$). Um $p$-valor menor que $\alpha$ leva à rejeição da hipótese nula ($H_0$). Nos testes de normalidade, $H_0$ afirma que os dados seguem uma distribuição normal. Para comparar os períodos, utilizamos testes para amostras independentes: teste t de Welch, quando os dois períodos são normais, e teste de Wilcoxon-Mann-Whitney, quando ao menos um período não é normal.
 :::
 
 Em **Borba**, todos os $p$-valores dos testes de normalidade foram maiores que $\alpha$, o que indica que os dois períodos seguem uma distribuição normal e permitiu aplicar o teste t de Welch. A estatística de teste foi $t = 7,3533$, com $p$-valor $< 0,001$. Como o $p$-valor é menor que $\alpha = 0,05$, rejeitamos $H_0$: a produção média anual difere entre os períodos e é menor no período Depois (28.287 kg) do que no período Antes (90.673 kg).
