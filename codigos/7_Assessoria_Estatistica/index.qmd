@@ -244,7 +244,7 @@ Os dados tratados das duas bases estão disponíveis para download em formato Ex
 : Estatísticas descritivas anuais da produção pesqueira (kg) por município e período. {#tbl-estatisticas-pesca}
 
 ::: {.nota-tabela}
-**Notas.** Foram considerados os períodos 2002–2010 (Antes) e 2011–2024 (Depois); o ano de 2025 foi excluído por apresentar dados incompletos. $n$ corresponde ao número de anos avaliados em cada período e DP ao desvio padrão. A Amplitude da Série é a diferença entre os valores máximo e mínimo, e a Taxa de Declínio Produtivo é a redução percentual da produção média anual entre os períodos. Letras sobrescritas diferentes (a, b) indicam diferença estatisticamente significativa entre os períodos, com nível de significância de 5% ($\alpha = 0,05$). A cor azul indica o teste t de Welch (paramétrico) e a cor vermelha, o teste de Wilcoxon-Mann-Whitney (não paramétrico), cujos resultados estão na @tbl-testes-hipotese.
+**Notas.** Foram considerados os períodos 2002–2010 (Antes) e 2011–2024 (Depois); o ano de 2025 foi excluído por apresentar dados incompletos. $n$ corresponde ao número de anos avaliados em cada período e DP ao desvio padrão. A Amplitude da Série é a diferença entre os valores máximo e mínimo, e a Taxa de Declínio Produtivo é a redução percentual da produção média anual entre os períodos. Letras sobrescritas diferentes (a, b) indicam diferença estatisticamente significativa entre os períodos, com nível de significância de 5% ($\alpha = 0,05$). A cor azul indica o teste t de Welch para amostras independentes (paramétrico) e a cor vermelha, o teste de Wilcoxon-Mann-Whitney para amostras independentes (não paramétrico), cujos resultados estão na @tbl-testes-hipotese.
 :::
 
 A **Taxa de Declínio Produtivo** é calculada por:
@@ -304,43 +304,50 @@ $$
 
 :::
 
+## Antes e depois das UHEs
 
-**Testes de Hipótese.** Para comparar a produção pesqueira anual entre os períodos Antes e Depois, verificamos primeiro se os dados de cada período seguem uma distribuição normal, pois essa condição define o teste de comparação adequado. Quando os dois períodos atendem à normalidade, utilizamos um teste paramétrico (teste t de Welch). Quando ao menos um deles não atende, utilizamos um teste não paramétrico (Wilcoxon-Mann-Whitney). Em todos os testes, adotamos o nível de significância de 5% ($\alpha = 0,05$). Cada teste fornece uma estatística de teste e um $p$-valor: se o $p$-valor for menor que $\alpha$, rejeitamos a hipótese nula ($H_0$); caso contrário, não a rejeitamos.
+::: {.objetivo}
+**Objetivo:** Quantificar as mudanças na produção, composição e diversidade das capturas pesqueiras, comparando os períodos “Antes” e “Depois” da operação das UHEs;
+:::
 
-**Testes de normalidade (Shapiro-Wilk e Anderson-Darling).** Verificam se os dados de cada período podem ser considerados provenientes de uma distribuição normal. O teste de Shapiro-Wilk (estatística de teste $W$) é indicado para amostras pequenas, como as deste estudo (9 e 14 anos), e o de Anderson-Darling (estatística de teste $A$) dá mais peso aos valores extremos da distribuição. Utilizamos os dois de forma complementar. As hipóteses são:
+::: {style="border-top: 2px solid #040404;"}
+:::
+
+**Testes de Hipótese.** Para comparar a produção pesqueira anual entre os períodos Antes e Depois, adotamos o nível de significância de 5% ($\alpha = 0,05$) e seguimos duas etapas. Na primeira, verificamos se os dados de cada período seguem uma distribuição normal, pois essa condição define o teste de comparação adequado. Na segunda, comparamos os períodos com um teste para amostras independentes, já que Antes e Depois são formados por anos distintos: utilizamos o teste t de Welch (paramétrico) quando os dois períodos atendem à normalidade e o teste de Wilcoxon-Mann-Whitney (não paramétrico) quando ao menos um deles não atende. Cada teste fornece uma estatística de teste e um $p$-valor. Quando o $p$-valor é menor que $\alpha$, rejeitamos a hipótese nula ($H_0$); caso contrário, não a rejeitamos.
+
+A normalidade foi avaliada pelos testes de Shapiro-Wilk e de Anderson-Darling. O primeiro (estatística de teste $W$) é indicado para amostras pequenas, como as deste estudo (9 e 14 anos), e o segundo (estatística de teste $A$) dá mais peso aos valores extremos da distribuição, por isso os utilizamos de forma complementar. Em ambos, as hipóteses são:
 
 - $H_0$: os dados seguem uma distribuição normal;
 - $H_1$: os dados não seguem uma distribuição normal.
 
-**Teste t de Welch (paramétrico).** Compara as médias de dois grupos independentes. Exige que os dados de cada grupo sejam normais, mas não exige que as variâncias sejam iguais. A estatística de teste é $t$, e as hipóteses são:
+Quando os dois períodos foram considerados normais, comparamos as médias com o teste t de Welch para amostras independentes, que não exige variâncias iguais entre os grupos. Sua estatística de teste é $t$, e as hipóteses são:
 
 - $H_0$: $\mu_{\text{Antes}} = \mu_{\text{Depois}}$ (as médias dos dois períodos são iguais);
 - $H_1$: $\mu_{\text{Antes}} \neq \mu_{\text{Depois}}$ (as médias dos dois períodos são diferentes).
 
-**Teste de Wilcoxon-Mann-Whitney (não paramétrico).** Compara dois grupos independentes a partir da ordenação (postos) das observações, sem exigir normalidade. A estatística de teste é $W$, e as hipóteses são:
+Quando a normalidade não foi atendida, recorremos ao teste de Wilcoxon-Mann-Whitney para amostras independentes, que compara os grupos pela ordenação (postos) das observações e não exige normalidade. Sua estatística de teste é $W$, e as hipóteses são:
 
 - $H_0$: os dois períodos têm a mesma distribuição de produção;
 - $H_1$: os dois períodos têm distribuições de produção diferentes.
 
-(Aqui entra a Tabela 5 com os resultados, como no item 3.)
-
-**Resultados.** Em **Borba**, todos os $p$-valores dos testes de normalidade foram maiores que $\alpha$ (@tbl-testes-hipotese), portanto não rejeitamos $H_0$ de normalidade nos dois períodos e aplicamos o teste t de Welch. A estatística de teste foi $t = 7,3533$, com $p$-valor $< 0,001$. Como o $p$-valor é menor que $\alpha = 0,05$, rejeitamos $H_0$: a produção média anual é diferente entre os períodos, sendo menor no período Depois (28.287 kg) do que no período Antes (90.673 kg).
-
-Em **Manicoré**, o teste de Shapiro-Wilk do período Antes apresentou estatística de teste $W = 0,8338$ e $p$-valor $= 0,0493$, menor que $\alpha$. Rejeitamos, então, $H_0$ de normalidade nesse período, enquanto o período Depois não indicou afastamento da normalidade ($p$-valores de 0,7105 e 0,6864). Como a normalidade não foi atendida em um dos períodos, aplicamos o teste de Wilcoxon-Mann-Whitney, que resultou em estatística de teste $W = 126$ e $p$-valor $< 0,001$. Como o $p$-valor é menor que $\alpha = 0,05$, rejeitamos $H_0$: as distribuições de produção diferem entre os períodos, com valores menores no período Depois.
+Os resultados dos testes estão na @tbl-testes-hipotese.
 
 | Município | Período | Shapiro-Wilk<br>Estatística de teste ($W$) | Shapiro-Wilk<br>$p$-valor | Anderson-Darling<br>Estatística de teste ($A$) | Anderson-Darling<br>$p$-valor | Distribuição | Teste de Comparação |
 |:---|:---|:---|:---|:---|:---|:---|:---|
-| **Borba** | Antes | 0,9809 | 0,9688 | 0,1239 | 0,9765 | Normal | [Teste t de Welch<br>(paramétrico)<br>Estatística de teste: $t = 7,3533$<br>$p$-valor $< 0,001$]{.t-welch} |
+| **Borba** | Antes | 0,9809 | 0,9688 | 0,1239 | 0,9765 | Normal | [Teste t de Welch para amostras independentes<br>Estatística de teste: $t = 7,3533$<br>$p$-valor $< 0,001$<br>Rejeita $H_0$]{.t-welch} |
 |  | Depois | 0,9582 | 0,6936 | 0,2086 | 0,8293 | Normal | |
-| **Manicoré** | Antes | 0,8338 | 0,0493 | – | – | Não normal | [Wilcoxon-Mann-Whitney<br>(não paramétrico)<br>Estatística de teste: $W = 126$<br>$p$-valor $< 0,001$]{.t-wilcoxon} |
+| **Manicoré** | Antes | 0,8338 | 0,0493 | – | – | Não normal | [Wilcoxon-Mann-Whitney para amostras independentes<br>Estatística de teste: $W = 126$<br>$p$-valor $< 0,001$<br>Rejeita $H_0$]{.t-wilcoxon} |
 |  | Depois | 0,9592 | 0,7105 | 0,2511 | 0,6864 | Normal | |
 
 : Resultados dos testes de normalidade e de comparação entre os períodos Antes e Depois. {#tbl-testes-hipotese}
 
 ::: {.nota-tabela}
-**Notas.** Nível de significância adotado: 5% ($\alpha = 0,05$). Um $p$-valor menor que $\alpha$ leva à rejeição da hipótese nula ($H_0$). Nos testes de normalidade, $H_0$ afirma que os dados seguem uma distribuição normal. O teste de comparação foi escolhido conforme a normalidade: teste t de Welch quando os dois períodos são normais, e Wilcoxon-Mann-Whitney quando ao menos um período não é normal. O símbolo “–” indica valor não apresentado.
+**Notas.** Nível de significância adotado: 5% ($\alpha = 0,05$). Um $p$-valor menor que $\alpha$ leva à rejeição da hipótese nula ($H_0$). Nos testes de normalidade, $H_0$ afirma que os dados seguem uma distribuição normal. Para comparar os períodos, utilizamos testes para amostras independentes: teste t de Welch, quando os dois períodos são normais, e teste de Wilcoxon-Mann-Whitney, quando ao menos um período não é normal. O símbolo “–” indica valor não apresentado.
 :::
 
+Em **Borba**, todos os $p$-valores dos testes de normalidade foram maiores que $\alpha$, o que indica que os dois períodos seguem uma distribuição normal e permitiu aplicar o teste t de Welch. A estatística de teste foi $t = 7,3533$, com $p$-valor $< 0,001$. Como o $p$-valor é menor que $\alpha = 0,05$, rejeitamos $H_0$: a produção média anual difere entre os períodos e é menor no período Depois (28.287 kg) do que no período Antes (90.673 kg).
+
+Em **Manicoré**, o período Antes não atendeu à normalidade no teste de Shapiro-Wilk (estatística de teste $W = 0,8338$ e $p$-valor $= 0,0493$, menor que $\alpha$), enquanto o período Depois não mostrou afastamento da normalidade. Por isso, a comparação foi feita com o teste de Wilcoxon-Mann-Whitney, que resultou em estatística de teste $W = 126$ e $p$-valor $< 0,001$. Rejeitamos, portanto, $H_0$: as distribuições de produção diferem entre os períodos, com valores menores no período Depois.
 
 ## Mapa comparativo das taxas
 
@@ -368,11 +375,3 @@ Em termos espaciais, observa-se aumento na magnitude das taxas de declínio no s
 **Objetivo:** Detectar mudanças nas séries temporais da produção pesqueira e das cotas fluviométricas;
 :::
 
-## Antes e depois das UHEs
-
-::: {.objetivo}
-**Objetivo:** Quantificar as mudanças na produção, composição e diversidade das capturas pesqueiras, comparando os períodos “Antes” e “Depois” da operação das UHEs;
-:::
-
-::: {style="border-top: 2px solid #040404;"}
-:::
