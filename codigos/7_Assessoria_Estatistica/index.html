@@ -979,24 +979,18 @@ Tabela&nbsp;5: Resultados dos testes de normalidade e de comparação entre os p
 <div aria-describedby="tbl-testes-hipotese-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
 <colgroup>
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 12%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
 </colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;">Município</th>
 <th style="text-align: left;">Período</th>
-<th style="text-align: left;">Shapiro-Wilk<br>Estatística de teste (<span class="math inline">\(W\)</span>)</th>
-<th style="text-align: left;">Shapiro-Wilk<br><span class="math inline">\(p\)</span>-valor</th>
-<th style="text-align: left;">Anderson-Darling<br>Estatística de teste (<span class="math inline">\(A\)</span>)</th>
-<th style="text-align: left;">Anderson-Darling<br><span class="math inline">\(p\)</span>-valor</th>
-<th style="text-align: left;">Distribuição</th>
+<th style="text-align: left;">Estatística de teste</th>
+<th style="text-align: left;"><span class="math inline">\(p\)</span>-valor</th>
 <th style="text-align: left;">Teste de Comparação</th>
 </tr>
 </thead>
@@ -1004,41 +998,29 @@ Tabela&nbsp;5: Resultados dos testes de normalidade e de comparação entre os p
 <tr class="odd">
 <td style="text-align: left;"><strong>Borba</strong></td>
 <td style="text-align: left;">Antes</td>
-<td style="text-align: left;">0,9809</td>
-<td style="text-align: left;">0,9688</td>
-<td style="text-align: left;">0,1239</td>
-<td style="text-align: left;">0,9765</td>
-<td style="text-align: left;">Normal</td>
-<td style="text-align: left;"><span class="t-welch">Teste t de Welch para amostras independentes<br>Estatística de teste: <span class="math inline">\(t = 7,3533\)</span><br><span class="math inline">\(p\)</span>-valor <span class="math inline">\(&lt; 0,001\)</span><br>Rejeita <span class="math inline">\(H_0\)</span></span></td>
+<td style="text-align: left;">SW: 0,9809<br>AD: 0,1239</td>
+<td style="text-align: left;">SW: 0,9688<br>AD: 0,9765</td>
+<td style="text-align: left;"><span class="t-welch">Teste t de Welch para amostras independentes<br>Estatística de teste: <span class="math inline">\(t = 7,5092\)</span><br><span class="math inline">\(p\)</span>-valor <span class="math inline">\(&lt; 0,001\)</span><br>Rejeita <span class="math inline">\(H_0\)</span></span></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"></td>
 <td style="text-align: left;">Depois</td>
-<td style="text-align: left;">0,9582</td>
-<td style="text-align: left;">0,6936</td>
-<td style="text-align: left;">0,2086</td>
-<td style="text-align: left;">0,8293</td>
-<td style="text-align: left;">Normal</td>
+<td style="text-align: left;">SW: 0,9809<br>AD: 0,1137</td>
+<td style="text-align: left;">SW: 0,9838<br>AD: 0,9882</td>
 <td style="text-align: left;"></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><strong>Manicoré</strong></td>
 <td style="text-align: left;">Antes</td>
-<td style="text-align: left;">0,8338</td>
-<td style="text-align: left;">0,0493</td>
-<td style="text-align: left;">–</td>
-<td style="text-align: left;">–</td>
-<td style="text-align: left;">Não normal</td>
+<td style="text-align: left;">SW: 0,8338<br>AD: 0,6465</td>
+<td style="text-align: left;">SW: 0,0493<br>AD: 0,0610</td>
 <td style="text-align: left;"><span class="t-wilcoxon">Wilcoxon-Mann-Whitney para amostras independentes<br>Estatística de teste: <span class="math inline">\(W = 126\)</span><br><span class="math inline">\(p\)</span>-valor <span class="math inline">\(&lt; 0,001\)</span><br>Rejeita <span class="math inline">\(H_0\)</span></span></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"></td>
 <td style="text-align: left;">Depois</td>
-<td style="text-align: left;">0,9592</td>
-<td style="text-align: left;">0,7105</td>
-<td style="text-align: left;">0,2511</td>
-<td style="text-align: left;">0,6864</td>
-<td style="text-align: left;">Normal</td>
+<td style="text-align: left;">SW: 0,9833<br>AD: 0,1327</td>
+<td style="text-align: left;">SW: 0,9916<br>AD: 0,9722</td>
 <td style="text-align: left;"></td>
 </tr>
 </tbody>
@@ -1047,7 +1029,7 @@ Tabela&nbsp;5: Resultados dos testes de normalidade e de comparação entre os p
 </figure>
 </div>
 <div class="nota-tabela">
-<p><strong>Notas.</strong> Nível de significância adotado: 5% (<span class="math inline">\(\alpha = 0,05\)</span>). Um <span class="math inline">\(p\)</span>-valor menor que <span class="math inline">\(\alpha\)</span> leva à rejeição da hipótese nula (<span class="math inline">\(H_0\)</span>). Nos testes de normalidade, <span class="math inline">\(H_0\)</span> afirma que os dados seguem uma distribuição normal. Para comparar os períodos, utilizamos testes para amostras independentes: teste t de Welch, quando os dois períodos são normais, e teste de Wilcoxon-Mann-Whitney, quando ao menos um período não é normal. O símbolo “–” indica valor não apresentado.</p>
+<p><strong>Notas.</strong> SW: teste de Shapiro-Wilk; AD: teste de Anderson-Darling. Nível de significância adotado: 5% (<span class="math inline">\(\alpha = 0,05\)</span>). Um <span class="math inline">\(p\)</span>-valor menor que <span class="math inline">\(\alpha\)</span> leva à rejeição da hipótese nula (<span class="math inline">\(H_0\)</span>). Nos testes de normalidade, <span class="math inline">\(H_0\)</span> afirma que os dados seguem uma distribuição normal. Para comparar os períodos, utilizamos testes para amostras independentes: teste t de Welch, quando os dois períodos são normais, e teste de Wilcoxon-Mann-Whitney, quando ao menos um período não é normal.</p>
 </div>
 <p>Em <strong>Borba</strong>, todos os <span class="math inline">\(p\)</span>-valores dos testes de normalidade foram maiores que <span class="math inline">\(\alpha\)</span>, o que indica que os dois períodos seguem uma distribuição normal e permitiu aplicar o teste t de Welch. A estatística de teste foi <span class="math inline">\(t = 7,3533\)</span>, com <span class="math inline">\(p\)</span>-valor <span class="math inline">\(&lt; 0,001\)</span>. Como o <span class="math inline">\(p\)</span>-valor é menor que <span class="math inline">\(\alpha = 0,05\)</span>, rejeitamos <span class="math inline">\(H_0\)</span>: a produção média anual difere entre os períodos e é menor no período Depois (28.287 kg) do que no período Antes (90.673 kg).</p>
 <p>Em <strong>Manicoré</strong>, o período Antes não atendeu à normalidade no teste de Shapiro-Wilk (estatística de teste <span class="math inline">\(W = 0,8338\)</span> e <span class="math inline">\(p\)</span>-valor <span class="math inline">\(= 0,0493\)</span>, menor que <span class="math inline">\(\alpha\)</span>), enquanto o período Depois não mostrou afastamento da normalidade. Por isso, a comparação foi feita com o teste de Wilcoxon-Mann-Whitney, que resultou em estatística de teste <span class="math inline">\(W = 126\)</span> e <span class="math inline">\(p\)</span>-valor <span class="math inline">\(&lt; 0,001\)</span>. Rejeitamos, portanto, <span class="math inline">\(H_0\)</span>: as distribuições de produção diferem entre os períodos, com valores menores no período Depois.</p>
