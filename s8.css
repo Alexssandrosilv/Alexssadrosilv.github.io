@@ -912,36 +912,37 @@ html { font-size: var(--fs-root) !important; }
   border-bottom: 2px solid #000000;
 }
 
-/* 12.5 Legenda das tabelas: justificada, preta e em negrito */
-#quarto-document-content figure.quarto-float-tbl figcaption,
+/* 12.5 Legendas de tabelas e figuras: mesmo estilo.
+   Rótulo ("Tabela N:" / "Figura N:") em verde e negrito; texto preto, normal e justificado */
+#quarto-document-content figure figcaption,
 #quarto-document-content table caption {
-  font-weight: 700;
+  font-size: 0.9rem;
+  font-weight: 400;
   color: #000000;
   text-align: justify !important;
   text-justify: inter-word;
-  margin-bottom: 0.5rem;
-}
-
-/* 12.6 Figuras */
-#quarto-document-content figure.quarto-float-fig figcaption,
-#quarto-document-content .figure-caption {
-  color: #000000;
-  text-align: justify !important;
-  text-justify: inter-word;
-  margin-top: 0.5rem;
   line-height: 1.5;
+  margin: 0.5rem 0;
 }
 
-/* Rótulo "Tabela N:" e "Figura N:" em verde (a classe é criada pelo script do _quarto.yml) */
 figure figcaption .rotulo-tabela,
 #quarto-document-content table caption .rotulo-tabela,
-#quarto-document-content figure.quarto-float-fig figcaption .figure-number {
+#quarto-document-content figure figcaption .figure-number {
   color: var(--cor-rotulo-tabela, #0a7d4f) !important;
   font-weight: 700;
 }
 
-/* Imagem não ultrapassa a largura do documento */
-#quarto-document-content figure.quarto-float-fig img {
+/* 12.6 Notas abaixo das tabelas: mesmo estilo da legenda */
+.nota-tabela p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #000000;
+  text-align: justify !important;
+  margin: -0.5rem 0 1.5rem 0;
+}
+
+/* Imagens e figuras nunca passam da largura do documento */
+#quarto-document-content img {
   max-width: 100%;
   height: auto;
 }
