@@ -200,10 +200,10 @@ window.Quarto = {
   <li><a href="#dados-tratados" id="toc-dados-tratados" class="nav-link" data-scroll-target="#dados-tratados"><span class="header-section-number">1.2</span> Dados tratados</a></li>
   </ul></li>
   <li><a href="#taxas-de-declínio-produtivo" id="toc-taxas-de-declínio-produtivo" class="nav-link" data-scroll-target="#taxas-de-declínio-produtivo"><span class="header-section-number">2</span> Taxas de Declínio Produtivo</a></li>
-  <li><a href="#mapa-comparativo-das-taxas" id="toc-mapa-comparativo-das-taxas" class="nav-link" data-scroll-target="#mapa-comparativo-das-taxas"><span class="header-section-number">3</span> Mapa comparativo das taxas</a></li>
-  <li><a href="#variáveis-hidrológicas" id="toc-variáveis-hidrológicas" class="nav-link" data-scroll-target="#variáveis-hidrológicas"><span class="header-section-number">4</span> Variáveis hidrológicas</a></li>
-  <li><a href="#séries-temporais" id="toc-séries-temporais" class="nav-link" data-scroll-target="#séries-temporais"><span class="header-section-number">5</span> Séries temporais</a></li>
-  <li><a href="#antes-e-depois-das-uhes" id="toc-antes-e-depois-das-uhes" class="nav-link" data-scroll-target="#antes-e-depois-das-uhes"><span class="header-section-number">6</span> Antes e depois das UHEs</a></li>
+  <li><a href="#antes-e-depois-das-uhes" id="toc-antes-e-depois-das-uhes" class="nav-link" data-scroll-target="#antes-e-depois-das-uhes"><span class="header-section-number">3</span> Antes e depois das UHEs</a></li>
+  <li><a href="#mapa-comparativo-das-taxas" id="toc-mapa-comparativo-das-taxas" class="nav-link" data-scroll-target="#mapa-comparativo-das-taxas"><span class="header-section-number">4</span> Mapa comparativo das taxas</a></li>
+  <li><a href="#variáveis-hidrológicas" id="toc-variáveis-hidrológicas" class="nav-link" data-scroll-target="#variáveis-hidrológicas"><span class="header-section-number">5</span> Variáveis hidrológicas</a></li>
+  <li><a href="#séries-temporais" id="toc-séries-temporais" class="nav-link" data-scroll-target="#séries-temporais"><span class="header-section-number">6</span> Séries temporais</a></li>
   </ul>
 </nav>
     </div>
@@ -898,7 +898,7 @@ Tabela&nbsp;4: Estatísticas descritivas anuais da produção pesqueira (kg) por
 </figure>
 </div>
 <div class="nota-tabela">
-<p><strong>Notas.</strong> Foram considerados os períodos 2002–2010 (Antes) e 2011–2024 (Depois); o ano de 2025 foi excluído por apresentar dados incompletos. <span class="math inline">\(n\)</span> corresponde ao número de anos avaliados em cada período e DP ao desvio padrão. A Amplitude da Série é a diferença entre os valores máximo e mínimo, e a Taxa de Declínio Produtivo é a redução percentual da produção média anual entre os períodos. Letras sobrescritas diferentes (a, b) indicam diferença estatisticamente significativa entre os períodos, com nível de significância de 5% (<span class="math inline">\(\alpha = 0,05\)</span>). A cor azul indica o teste t de Welch (paramétrico) e a cor vermelha, o teste de Wilcoxon-Mann-Whitney (não paramétrico), cujos resultados estão na <a href="#tbl-testes-hipotese" class="quarto-xref">Tabela&nbsp;5</a>.</p>
+<p><strong>Notas.</strong> Foram considerados os períodos 2002–2010 (Antes) e 2011–2024 (Depois); o ano de 2025 foi excluído por apresentar dados incompletos. <span class="math inline">\(n\)</span> corresponde ao número de anos avaliados em cada período e DP ao desvio padrão. A Amplitude da Série é a diferença entre os valores máximo e mínimo, e a Taxa de Declínio Produtivo é a redução percentual da produção média anual entre os períodos. Letras sobrescritas diferentes (a, b) indicam diferença estatisticamente significativa entre os períodos, com nível de significância de 5% (<span class="math inline">\(\alpha = 0,05\)</span>). A cor azul indica o teste t de Welch para amostras independentes (paramétrico) e a cor vermelha, o teste de Wilcoxon-Mann-Whitney para amostras independentes (não paramétrico), cujos resultados estão na <a href="#tbl-testes-hipotese" class="quarto-xref">Tabela&nbsp;5</a>.</p>
 </div>
 <p>A <strong>Taxa de Declínio Produtivo</strong> é calculada por:</p>
 <p><span class="math display">\[
@@ -945,25 +945,32 @@ Tabela&nbsp;4: Estatísticas descritivas anuais da produção pesqueira (kg) por
 \]</span></p>
 </div>
 </div>
-<p><strong>Testes de Hipótese.</strong> Para comparar a produção pesqueira anual entre os períodos Antes e Depois, verificamos primeiro se os dados de cada período seguem uma distribuição normal, pois essa condição define o teste de comparação adequado. Quando os dois períodos atendem à normalidade, utilizamos um teste paramétrico (teste t de Welch). Quando ao menos um deles não atende, utilizamos um teste não paramétrico (Wilcoxon-Mann-Whitney). Em todos os testes, adotamos o nível de significância de 5% (<span class="math inline">\(\alpha = 0,05\)</span>). Cada teste fornece uma estatística de teste e um <span class="math inline">\(p\)</span>-valor: se o <span class="math inline">\(p\)</span>-valor for menor que <span class="math inline">\(\alpha\)</span>, rejeitamos a hipótese nula (<span class="math inline">\(H_0\)</span>); caso contrário, não a rejeitamos.</p>
-<p><strong>Testes de normalidade (Shapiro-Wilk e Anderson-Darling).</strong> Verificam se os dados de cada período podem ser considerados provenientes de uma distribuição normal. O teste de Shapiro-Wilk (estatística de teste <span class="math inline">\(W\)</span>) é indicado para amostras pequenas, como as deste estudo (9 e 14 anos), e o de Anderson-Darling (estatística de teste <span class="math inline">\(A\)</span>) dá mais peso aos valores extremos da distribuição. Utilizamos os dois de forma complementar. As hipóteses são:</p>
+</section>
+<section id="antes-e-depois-das-uhes" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="antes-e-depois-das-uhes"><span class="header-section-number">3</span> Antes e depois das UHEs</h2>
+<div class="objetivo">
+<p><strong>Objetivo:</strong> Quantificar as mudanças na produção, composição e diversidade das capturas pesqueiras, comparando os períodos “Antes” e “Depois” da operação das UHEs;</p>
+</div>
+<div style="border-top: 2px solid #040404;">
+
+</div>
+<p><strong>Testes de Hipótese.</strong> Para comparar a produção pesqueira anual entre os períodos Antes e Depois, adotamos o nível de significância de 5% (<span class="math inline">\(\alpha = 0,05\)</span>) e seguimos duas etapas. Na primeira, verificamos se os dados de cada período seguem uma distribuição normal, pois essa condição define o teste de comparação adequado. Na segunda, comparamos os períodos com um teste para amostras independentes, já que Antes e Depois são formados por anos distintos: utilizamos o teste t de Welch (paramétrico) quando os dois períodos atendem à normalidade e o teste de Wilcoxon-Mann-Whitney (não paramétrico) quando ao menos um deles não atende. Cada teste fornece uma estatística de teste e um <span class="math inline">\(p\)</span>-valor. Quando o <span class="math inline">\(p\)</span>-valor é menor que <span class="math inline">\(\alpha\)</span>, rejeitamos a hipótese nula (<span class="math inline">\(H_0\)</span>); caso contrário, não a rejeitamos.</p>
+<p>A normalidade foi avaliada pelos testes de Shapiro-Wilk e de Anderson-Darling. O primeiro (estatística de teste <span class="math inline">\(W\)</span>) é indicado para amostras pequenas, como as deste estudo (9 e 14 anos), e o segundo (estatística de teste <span class="math inline">\(A\)</span>) dá mais peso aos valores extremos da distribuição, por isso os utilizamos de forma complementar. Em ambos, as hipóteses são:</p>
 <ul>
 <li><span class="math inline">\(H_0\)</span>: os dados seguem uma distribuição normal;</li>
 <li><span class="math inline">\(H_1\)</span>: os dados não seguem uma distribuição normal.</li>
 </ul>
-<p><strong>Teste t de Welch (paramétrico).</strong> Compara as médias de dois grupos independentes. Exige que os dados de cada grupo sejam normais, mas não exige que as variâncias sejam iguais. A estatística de teste é <span class="math inline">\(t\)</span>, e as hipóteses são:</p>
+<p>Quando os dois períodos foram considerados normais, comparamos as médias com o teste t de Welch para amostras independentes, que não exige variâncias iguais entre os grupos. Sua estatística de teste é <span class="math inline">\(t\)</span>, e as hipóteses são:</p>
 <ul>
 <li><span class="math inline">\(H_0\)</span>: <span class="math inline">\(\mu_{\text{Antes}} = \mu_{\text{Depois}}\)</span> (as médias dos dois períodos são iguais);</li>
 <li><span class="math inline">\(H_1\)</span>: <span class="math inline">\(\mu_{\text{Antes}} \neq \mu_{\text{Depois}}\)</span> (as médias dos dois períodos são diferentes).</li>
 </ul>
-<p><strong>Teste de Wilcoxon-Mann-Whitney (não paramétrico).</strong> Compara dois grupos independentes a partir da ordenação (postos) das observações, sem exigir normalidade. A estatística de teste é <span class="math inline">\(W\)</span>, e as hipóteses são:</p>
+<p>Quando a normalidade não foi atendida, recorremos ao teste de Wilcoxon-Mann-Whitney para amostras independentes, que compara os grupos pela ordenação (postos) das observações e não exige normalidade. Sua estatística de teste é <span class="math inline">\(W\)</span>, e as hipóteses são:</p>
 <ul>
 <li><span class="math inline">\(H_0\)</span>: os dois períodos têm a mesma distribuição de produção;</li>
 <li><span class="math inline">\(H_1\)</span>: os dois períodos têm distribuições de produção diferentes.</li>
 </ul>
-<p>(Aqui entra a Tabela 5 com os resultados, como no item 3.)</p>
-<p><strong>Resultados.</strong> Em <strong>Borba</strong>, todos os <span class="math inline">\(p\)</span>-valores dos testes de normalidade foram maiores que <span class="math inline">\(\alpha\)</span> (<a href="#tbl-testes-hipotese" class="quarto-xref">Tabela&nbsp;5</a>), portanto não rejeitamos <span class="math inline">\(H_0\)</span> de normalidade nos dois períodos e aplicamos o teste t de Welch. A estatística de teste foi <span class="math inline">\(t = 7,3533\)</span>, com <span class="math inline">\(p\)</span>-valor <span class="math inline">\(&lt; 0,001\)</span>. Como o <span class="math inline">\(p\)</span>-valor é menor que <span class="math inline">\(\alpha = 0,05\)</span>, rejeitamos <span class="math inline">\(H_0\)</span>: a produção média anual é diferente entre os períodos, sendo menor no período Depois (28.287 kg) do que no período Antes (90.673 kg).</p>
-<p>Em <strong>Manicoré</strong>, o teste de Shapiro-Wilk do período Antes apresentou estatística de teste <span class="math inline">\(W = 0,8338\)</span> e <span class="math inline">\(p\)</span>-valor <span class="math inline">\(= 0,0493\)</span>, menor que <span class="math inline">\(\alpha\)</span>. Rejeitamos, então, <span class="math inline">\(H_0\)</span> de normalidade nesse período, enquanto o período Depois não indicou afastamento da normalidade (<span class="math inline">\(p\)</span>-valores de 0,7105 e 0,6864). Como a normalidade não foi atendida em um dos períodos, aplicamos o teste de Wilcoxon-Mann-Whitney, que resultou em estatística de teste <span class="math inline">\(W = 126\)</span> e <span class="math inline">\(p\)</span>-valor <span class="math inline">\(&lt; 0,001\)</span>. Como o <span class="math inline">\(p\)</span>-valor é menor que <span class="math inline">\(\alpha = 0,05\)</span>, rejeitamos <span class="math inline">\(H_0\)</span>: as distribuições de produção diferem entre os períodos, com valores menores no período Depois.</p>
+<p>Os resultados dos testes estão na <a href="#tbl-testes-hipotese" class="quarto-xref">Tabela&nbsp;5</a>.</p>
 <div id="tbl-testes-hipotese" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-testes-hipotese-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -1002,7 +1009,7 @@ Tabela&nbsp;5: Resultados dos testes de normalidade e de comparação entre os p
 <td style="text-align: left;">0,1239</td>
 <td style="text-align: left;">0,9765</td>
 <td style="text-align: left;">Normal</td>
-<td style="text-align: left;"><span class="t-welch">Teste t de Welch<br>(paramétrico)<br>Estatística de teste: <span class="math inline">\(t = 7,3533\)</span><br><span class="math inline">\(p\)</span>-valor <span class="math inline">\(&lt; 0,001\)</span></span></td>
+<td style="text-align: left;"><span class="t-welch">Teste t de Welch para amostras independentes<br>Estatística de teste: <span class="math inline">\(t = 7,3533\)</span><br><span class="math inline">\(p\)</span>-valor <span class="math inline">\(&lt; 0,001\)</span><br>Rejeita <span class="math inline">\(H_0\)</span></span></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"></td>
@@ -1022,7 +1029,7 @@ Tabela&nbsp;5: Resultados dos testes de normalidade e de comparação entre os p
 <td style="text-align: left;">–</td>
 <td style="text-align: left;">–</td>
 <td style="text-align: left;">Não normal</td>
-<td style="text-align: left;"><span class="t-wilcoxon">Wilcoxon-Mann-Whitney<br>(não paramétrico)<br>Estatística de teste: <span class="math inline">\(W = 126\)</span><br><span class="math inline">\(p\)</span>-valor <span class="math inline">\(&lt; 0,001\)</span></span></td>
+<td style="text-align: left;"><span class="t-wilcoxon">Wilcoxon-Mann-Whitney para amostras independentes<br>Estatística de teste: <span class="math inline">\(W = 126\)</span><br><span class="math inline">\(p\)</span>-valor <span class="math inline">\(&lt; 0,001\)</span><br>Rejeita <span class="math inline">\(H_0\)</span></span></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"></td>
@@ -1040,11 +1047,13 @@ Tabela&nbsp;5: Resultados dos testes de normalidade e de comparação entre os p
 </figure>
 </div>
 <div class="nota-tabela">
-<p><strong>Notas.</strong> Nível de significância adotado: 5% (<span class="math inline">\(\alpha = 0,05\)</span>). Um <span class="math inline">\(p\)</span>-valor menor que <span class="math inline">\(\alpha\)</span> leva à rejeição da hipótese nula (<span class="math inline">\(H_0\)</span>). Nos testes de normalidade, <span class="math inline">\(H_0\)</span> afirma que os dados seguem uma distribuição normal. O teste de comparação foi escolhido conforme a normalidade: teste t de Welch quando os dois períodos são normais, e Wilcoxon-Mann-Whitney quando ao menos um período não é normal. O símbolo “–” indica valor não apresentado.</p>
+<p><strong>Notas.</strong> Nível de significância adotado: 5% (<span class="math inline">\(\alpha = 0,05\)</span>). Um <span class="math inline">\(p\)</span>-valor menor que <span class="math inline">\(\alpha\)</span> leva à rejeição da hipótese nula (<span class="math inline">\(H_0\)</span>). Nos testes de normalidade, <span class="math inline">\(H_0\)</span> afirma que os dados seguem uma distribuição normal. Para comparar os períodos, utilizamos testes para amostras independentes: teste t de Welch, quando os dois períodos são normais, e teste de Wilcoxon-Mann-Whitney, quando ao menos um período não é normal. O símbolo “–” indica valor não apresentado.</p>
 </div>
+<p>Em <strong>Borba</strong>, todos os <span class="math inline">\(p\)</span>-valores dos testes de normalidade foram maiores que <span class="math inline">\(\alpha\)</span>, o que indica que os dois períodos seguem uma distribuição normal e permitiu aplicar o teste t de Welch. A estatística de teste foi <span class="math inline">\(t = 7,3533\)</span>, com <span class="math inline">\(p\)</span>-valor <span class="math inline">\(&lt; 0,001\)</span>. Como o <span class="math inline">\(p\)</span>-valor é menor que <span class="math inline">\(\alpha = 0,05\)</span>, rejeitamos <span class="math inline">\(H_0\)</span>: a produção média anual difere entre os períodos e é menor no período Depois (28.287 kg) do que no período Antes (90.673 kg).</p>
+<p>Em <strong>Manicoré</strong>, o período Antes não atendeu à normalidade no teste de Shapiro-Wilk (estatística de teste <span class="math inline">\(W = 0,8338\)</span> e <span class="math inline">\(p\)</span>-valor <span class="math inline">\(= 0,0493\)</span>, menor que <span class="math inline">\(\alpha\)</span>), enquanto o período Depois não mostrou afastamento da normalidade. Por isso, a comparação foi feita com o teste de Wilcoxon-Mann-Whitney, que resultou em estatística de teste <span class="math inline">\(W = 126\)</span> e <span class="math inline">\(p\)</span>-valor <span class="math inline">\(&lt; 0,001\)</span>. Rejeitamos, portanto, <span class="math inline">\(H_0\)</span>: as distribuições de produção diferem entre os períodos, com valores menores no período Depois.</p>
 </section>
-<section id="mapa-comparativo-das-taxas" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="mapa-comparativo-das-taxas"><span class="header-section-number">3</span> Mapa comparativo das taxas</h2>
+<section id="mapa-comparativo-das-taxas" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="mapa-comparativo-das-taxas"><span class="header-section-number">4</span> Mapa comparativo das taxas</h2>
 <div id="fig-mapa-taxas" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-mapa-taxas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -1061,25 +1070,16 @@ Figura&nbsp;1: Spatial distribution of fishing activity decline rates along the 
 <p><strong>Comentários:</strong> A distribuição espacial apresentada na <a href="#fig-mapa-taxas" class="quarto-xref">Figura&nbsp;1</a> evidencia diferentes magnitudes de declínio entre as localidades avaliadas ao longo da calha do Rio Madeira. Em Porto Velho (RO), Arantes et al.&nbsp;(2021) reportaram redução de 37,0% na Captura por Unidade de Esforço (CPUE), indicador que relaciona a quantidade capturada ao esforço de pesca empregado. Em Humaitá (AM), Santos et al.&nbsp;(2018) observaram redução de 39,0% na produção pesqueira média anual. Para as localidades analisadas neste estudo, foram estimadas reduções de 64,1% em Manicoré e 69,9% em Borba, calculadas a partir da produção pesqueira média anual nos períodos antes e depois do barramento.</p>
 <p>Em termos espaciais, observa-se aumento na magnitude das taxas de declínio no sentido de Porto Velho para Borba. Entretanto, essa distribuição deve ser interpretada com cautela, pois os percentuais são provenientes de diferentes estudos e não representam necessariamente o mesmo indicador. Em Porto Velho, a redução refere-se à CPUE, enquanto os valores de Humaitá, Manicoré e Borba estão associados à produção pesqueira média anual.</p>
 </section>
-<section id="variáveis-hidrológicas" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="variáveis-hidrológicas"><span class="header-section-number">4</span> Variáveis hidrológicas</h2>
+<section id="variáveis-hidrológicas" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="variáveis-hidrológicas"><span class="header-section-number">5</span> Variáveis hidrológicas</h2>
 <div class="objetivo">
 <p><strong>Objetivo:</strong> Correlacionar a produção pesqueira com as variáveis hidrológicas, considerando as possíveis alterações associadas à operação das UHEs;</p>
 </div>
 </section>
-<section id="séries-temporais" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="séries-temporais"><span class="header-section-number">5</span> Séries temporais</h2>
+<section id="séries-temporais" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="séries-temporais"><span class="header-section-number">6</span> Séries temporais</h2>
 <div class="objetivo">
 <p><strong>Objetivo:</strong> Detectar mudanças nas séries temporais da produção pesqueira e das cotas fluviométricas;</p>
-</div>
-</section>
-<section id="antes-e-depois-das-uhes" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="antes-e-depois-das-uhes"><span class="header-section-number">6</span> Antes e depois das UHEs</h2>
-<div class="objetivo">
-<p><strong>Objetivo:</strong> Quantificar as mudanças na produção, composição e diversidade das capturas pesqueiras, comparando os períodos “Antes” e “Depois” da operação das UHEs;</p>
-</div>
-<div style="border-top: 2px solid #040404;">
-
 </div>
 
 
