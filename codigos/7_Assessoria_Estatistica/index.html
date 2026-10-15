@@ -206,7 +206,7 @@ window.Quarto = {
   <li><a href="#variáveis-hidrológicas" id="toc-variáveis-hidrológicas" class="nav-link" data-scroll-target="#variáveis-hidrológicas"><span class="header-section-number">3</span> Variáveis hidrológicas</a></li>
   <li><a href="#séries-temporais" id="toc-séries-temporais" class="nav-link" data-scroll-target="#séries-temporais"><span class="header-section-number">4</span> Séries temporais</a>
   <ul class="collapse">
-  <li><a href="#análise-de-tendência" id="toc-análise-de-tendência" class="nav-link" data-scroll-target="#análise-de-tendência"><span class="header-section-number">4.1</span> Análise de tendência</a></li>
+  <li><a href="#análise-de-tendência-para-produção-pesqueira" id="toc-análise-de-tendência-para-produção-pesqueira" class="nav-link" data-scroll-target="#análise-de-tendência-para-produção-pesqueira"><span class="header-section-number">4.1</span> Análise de tendência para Produção Pesqueira</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -1001,8 +1001,8 @@ Figura&nbsp;1: Spatial distribution of fishing activity decline rates along the 
 <div class="objetivo">
 <p><strong>Objetivo:</strong> Detectar mudanças nas séries temporais da produção pesqueira e das cotas fluviométricas;</p>
 </div>
-<section id="análise-de-tendência" class="level3" data-number="4.1">
-<h3 data-number="4.1" class="anchored" data-anchor-id="análise-de-tendência"><span class="header-section-number">4.1</span> Análise de tendência</h3>
+<section id="análise-de-tendência-para-produção-pesqueira" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="análise-de-tendência-para-produção-pesqueira"><span class="header-section-number">4.1</span> Análise de tendência para Produção Pesqueira</h3>
 <p>Para avaliar a tendência da produção pesqueira ao longo do tempo em cada período (Antes e Depois), utilizamos o teste de Mann-Kendall, o estimador de inclinação de Sen e a regressão linear por mínimos quadrados, descritos a seguir.</p>
 <div id="met-mann-kendall" class="metodo metodo-tendencia">
 <p><strong>Teste de tendência de Mann-Kendall (correlação τ de Kendall)</strong></p>
@@ -1022,7 +1022,20 @@ Figura&nbsp;1: Spatial distribution of fishing activity decline rates along the 
 </div>
 <div id="met-ols" class="metodo metodo-tendencia">
 <p><strong>Regressão linear por mínimos quadrados (OLS)</strong></p>
-<p>Ajusta uma reta aos dados minimizando a soma dos quadrados das diferenças entre os valores observados e os previstos. Neste estudo, a reta foi ajustada separadamente para cada período e utilizada para representar a tendência nos gráficos.</p>
+<p>Método paramétrico que ajusta uma reta aos dados minimizando a soma dos quadrados dos resíduos (diferenças entre os valores observados e os previstos). A formulação geral do modelo para a série temporal é dada por:</p>
+<p><span class="math display">\[
+Y_i = \beta_0 + \beta_1 X_i + \varepsilon_i
+\]</span></p>
+<p>Em que <span class="math inline">\(Y_i\)</span> representa a captura total (kg), <span class="math inline">\(X_i\)</span> o ano, <span class="math inline">\(\beta_0\)</span> o intercepto e <span class="math inline">\(\beta_1\)</span> o coeficiente angular (taxa de variação anual). Especificamente para este estudo, o modelo foi ajustado de forma independente para cada período, resultando nas seguintes equações estimadas:</p>
+<ul>
+<li><p><strong>Período Anterior (2002–2010):</strong> <span class="math display">\[
+\text{Captura}_{\text{Antes}} = \hat{\beta}_0 + \hat{\beta}_1 \cdot \text{Ano}
+\]</span></p></li>
+<li><p><strong>Período Posterior (2011–2024):</strong> <span class="math display">\[
+\text{Captura}_{\text{Depois}} = \hat{\beta}_0 + \hat{\beta}_1 \cdot \text{Ano}
+\]</span></p></li>
+</ul>
+<p>Essas retas foram utilizadas para ilustrar graficamente a direção, a velocidade e a mudança de inclinação da perda produtiva em cada município após o represamento.</p>
 </div>
 <p>As <a href="#fig-serie-borba" class="quarto-xref">Figura&nbsp;2</a> e <a href="#fig-serie-manicore" class="quarto-xref">Figura&nbsp;3</a> mostram a série temporal da captura total em cada colônia.</p>
 <div id="fig-serie-borba" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
