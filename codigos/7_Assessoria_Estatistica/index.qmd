@@ -186,7 +186,7 @@ Reunimos os registros de Borba e Manicoré em uma única base e padronizamos as 
 | `dias` | Número de dias de pesca informados (esforço) | Quantitativa Discreta | Numérica | – | 888 | 0 |
 | `captura_total` | Quantidade desembarcada, em quilos | Quantitativa Contínua | Numérica | – | 888 | 0 |
 
-: Descrição das variáveis: Base 1 Tratada – Desembarque Pesqueiro. {#tbl-var-pesca}
+: **Descrição das variáveis: Base 1 Tratada – Desembarque Pesqueiro.** {#tbl-var-pesca}
 
 **Base 2 – Cotas Fluviométricas:**
 
@@ -199,7 +199,7 @@ Ao analisar os dados, observamos que os arquivos originais da Agência Nacional 
 | `tipo_medicao_cotas` | 1 = Escala; 2 = Linígrafo; 3 = Data Logger; 5 = Escala SMS |
 | `status`, `maxima_status`, `minima_status`, `media_status`, `media_anual_status` | 0 = Branco; 1 = Real; 2 = Estimado; 3 = Duvidoso; 4 = Régua Seca |
 
-: Rótulos aplicados às variáveis categóricas da Base 2, conforme o dicionário da ANA. {#tbl-rotulos-ana}
+: **Rótulos aplicados às variáveis categóricas da Base 2, conforme o dicionário da ANA.** {#tbl-rotulos-ana}
 
 Os dados originais traziam 31 colunas de cotas diárias e outras 31 de status. Com a função `tidyr::pivot_longer()`, passamos a base para o formato longo, criando as variáveis `cota`, `status` e `referencia_dia`. Criamos ainda a variável `identificador_cota`, que guarda a coluna de origem de cada medição (por exemplo, `cota_01`).
 
@@ -231,7 +231,7 @@ Diferentemente da Base 1, mantivemos os valores ausentes (`NA`) de `cota` e das 
 | `media_status` | Status de qualidade da cota média | Qualitativa Nominal | Fator | 5 | 144.181 | 0 |
 | `media_anual_status` | Status de qualidade da média anual | Qualitativa Nominal | Fator | 5 | 144.181 | 2.604 |
 
-: Descrição das variáveis: Base 2 Tratada – Cotas Fluviométricas. {#tbl-var-cotas}
+: **Descrição das variáveis: Base 2 Tratada – Cotas Fluviométricas.** {#tbl-var-cotas}
 
 Os dados tratados das duas bases estão disponíveis para download em formato Excel (`.xlsx`), para consulta ou para reproduzir as análises.
 
@@ -242,11 +242,12 @@ Os dados tratados das duas bases estão disponíveis para download em formato Ex
 
 ## Antes e Depois das UHEs
 
-### Testes de comparação e estatísticas descritivas
-
 ::: {.objetivo}
 **Objetivo:** Quantificar as mudanças na produção, composição e diversidade das capturas pesqueiras, comparando os períodos “Antes” e “Depois” da operação das UHEs;
 :::
+
+### Testes de comparação e estatísticas descritivas
+
 
 | Município | Período | Série Temporal<br>($n$) | Total Acumulado<br>(kg) | Média Anual ± DP<br>(kg) | Intervalo da Série<br>[Mín – Máx] (kg) | Método Estatístico | Taxa de Declínio<br>Produtivo |
 |:---|:---|:---|:---|:---|:---|:---|:---|
@@ -255,7 +256,7 @@ Os dados tratados das duas bases estão disponíveis para download em formato Ex
 | **Manicoré** | Antes | 2002–2010 (9) | 17.020 | 1.891 ± 85<sup class="t-wilcoxon">a</sup> | [1.701 – 1.971] | [Wilcoxon-Mann-Whitney]{.t-wilcoxon} | **−62,7%** [↓]{style="color:#9d0208; font-size:1.25em; font-weight:700;"} |
 |   | Depois | 2011–2024 (14) | 9.887 | 706 ± 171<sup class="t-wilcoxon">b</sup> | [453 – 1.061] | | |
 
-: Testes de comparação e estatísticas descritivas da produção pesqueira (kg) por município e período. {#tbl-estatisticas-pesca}
+: **Testes de comparação e estatísticas descritivas da produção pesqueira (kg) por município e período.** {#tbl-estatisticas-pesca}
 
 ::: {.nota-tabela}
 **Notas:** Foram considerados os períodos 2002–2010 (Antes) e 2011–2024 (Depois) | 2025 foi excluído por apresentar dados incompletos | $n$ = número de anos avaliados em cada período | DP = desvio padrão | Taxa de Declínio Produtivo = redução percentual da produção média anual entre os períodos | Letras sobrescritas diferentes (a, b) indicam diferença estatisticamente significativa entre os períodos ($\alpha = 0,05$) | Cor azul = teste $t$ de Welch para amostras independentes (paramétrico) | Cor vermelha = teste de Wilcoxon-Mann-Whitney para amostras independentes (não paramétrico).
@@ -267,8 +268,8 @@ Os dados tratados das duas bases estão disponíveis para download em formato Ex
 A seguir, apresentamos o cálculo da **Taxa de Declínio Produtivo**, bem como cada teste utilizado, sua estatística e as respetivas hipóteses que compõem os resultados da @tbl-estatisticas-pesca.
 
 
-::: {.metodo-geral .metodo-taxa}
-### Taxa de Declínio Produtivo
+::: {#calc-taxa-declinio .metodo .metodo-taxa}
+**Taxa de Declínio Produtivo**
 
 Representa a redução percentual da produção pesqueira média anual entre os períodos "Antes" e "Depois" da instalação das UHEs, sendo calculada pela seguinte fórmula geral:
 
