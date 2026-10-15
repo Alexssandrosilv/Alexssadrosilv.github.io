@@ -240,7 +240,9 @@ Os dados tratados das duas bases estão disponíveis para download em formato Ex
 :::
 
 
-## Comparação entre os períodos Antes e Depois
+## Antes e Depois das UHEs
+
+### Testes de comparação e estatísticas descritivas
 
 ::: {.objetivo}
 **Objetivo:** Quantificar as mudanças na produção, composição e diversidade das capturas pesqueiras, comparando os períodos “Antes” e “Depois” da operação das UHEs;
@@ -256,8 +258,7 @@ Os dados tratados das duas bases estão disponíveis para download em formato Ex
 : Testes de comparação e estatísticas descritivas da produção pesqueira (kg) por município e período. {#tbl-estatisticas-pesca}
 
 ::: {.nota-tabela}
-**Notas:** Foram considerados os períodos 2002–2010 (Antes) e 2011–2024 (Depois) | 2025 foi excluído por apresentar dados incompletos | $n$ = número de anos avaliados em cada período | DP = desvio padrão | Taxa de Declínio Produtivo = redução percentual da produção média anual entre os períodos | Letras sobrescritas diferentes (a, b) indicam diferença estatisticamente significativa entre os períodos ($\alpha = 0,05$) | Cor azul = teste $t$ de Welch para amostras independentes (paramétrico) | Cor vermelha = teste de Wilcoxon-Mann-Whitney para amostras independentes (não paramétrico), cujos resultados detalhados são apresentados no texto.
-
+**Notas:** Foram considerados os períodos 2002–2010 (Antes) e 2011–2024 (Depois) | 2025 foi excluído por apresentar dados incompletos | $n$ = número de anos avaliados em cada período | DP = desvio padrão | Taxa de Declínio Produtivo = redução percentual da produção média anual entre os períodos | Letras sobrescritas diferentes (a, b) indicam diferença estatisticamente significativa entre os períodos ($\alpha = 0,05$) | Cor azul = teste $t$ de Welch para amostras independentes (paramétrico) | Cor vermelha = teste de Wilcoxon-Mann-Whitney para amostras independentes (não paramétrico).
 :::
 
 **Comentários:** Ao aplicar os testes verificamos uma redução significativa ($p$-valor $< 0,001$) na produção pesqueira anual de ambos os municípios no período posterior à instalação das UHEs, considerando um nível de significância de 5% ($\alpha = 0,05$). Em Borba, os pressupostos de normalidade foram atendidos, conforme verificado pelas estatísticas de teste $W$ de Shapiro-Wilk ($W = 0,9809$, $p$-valor $= 0,9688$ no período "Antes" e $W = 0,9582$, $p$-valor $= 0,6936$ no "Depois") e $A$ de Anderson-Darling ($A = 0,1239$, $p$-valor $= 0,9765$ no "Antes" e $A = 0,2086$, $p$-valor $= 0,8293$ no "Depois"). Por isso, aplicou-se o teste $t$ de Welch, cuja estatística de teste resultou em $t = 7,3533$ ($p$-valor $< 0,001$). Já em Manicoré, devido à ausência de normalidade no período "Antes" apontada pela estatística de teste $W$ de Shapiro-Wilk ($W = 0,8338$ e $p$-valor $= 0,0493$), aplicou-se o teste não paramétrico de Wilcoxon-Mann-Whitney para grupos independentes. Este procedimento resultou na estatística de teste $W$ máxima possível ($W = 126$, valor que corresponde exatamente ao produto do número de anos dos dois períodos avaliados, $n_1 = 9$ e $n_2 = 14$), com $p$-valor $< 0,001$, evidenciando uma separação absoluta entre as épocas: todos os anos do período "Antes" registraram produção superior a qualquer ano do período "Depois". Conclui-se que houve uma diminuição drástica e estatisticamente comprovada associada ao período de operação das barragens, embora a influência de outros fatores simultâneos ainda deva ser investigada.
@@ -341,8 +342,8 @@ Compara dois grupos independentes a partir da ordenação (postos) das observaç
 :::
 
 
+### Mapa comparativo das taxas de declínio produtivo com estudos prévios
 
-### Mapa comparativo das taxas
 
 ![Spatial distribution of fishing activity decline rates along the Madeira River, between Porto Velho (RO) and Borba (AM). Guajará-Mirim represents the upstream reference site (\*\*\*). The percentages correspond to reductions reported for Porto Velho (-37.0%\*), based on Catch Per Unit Effort (CPUE), and Humaitá (-39.0%\*\*), based on mean annual catch, as well as those estimated in this study (\*\*\*) for Manicoré (-62.7%\*\*\*) and Borba (-68.8%\*\*\*), based on mean annual fish production. The triangles indicate the locations of the Jirau and Santo Antônio hydroelectric power plants. Sources: \*Arantes et al. (2021); \*\*Santos et al. (2018); \*\*\*This study.](graficos/Mapa_1_Declinio_Reproducao.png){#fig-mapa-declinio-reproducao width="100%" fig-align="center"}
 
