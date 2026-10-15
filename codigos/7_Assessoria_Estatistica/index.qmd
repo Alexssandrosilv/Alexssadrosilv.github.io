@@ -154,7 +154,7 @@ source("3_tratamento_dados.R")
 
 ## Sobre os dados
 
-Esta análise utiliza duas bases de dados. A **Base 1 – Desembarque Pesqueiro** reúne os registros de desembarque das colônias de pescadores dos municípios de Borba e Manicoré, no período de 2002 a 2025. A **Base 2 – Cotas Fluviométricas** reúne a série histórica das cotas (nível) do Rio Madeira nas estações dessas duas localidades, no período de 1967 a 2026. Juntas, as bases permitem avaliar a dinâmica da pesca e sua relação com as variações do nível do rio, antes e depois da entrada em operação das Usinas Hidrelétricas (UHEs) Jirau e Santo Antônio.
+Esta análise utiliza duas bases de dados. A **Base 1 – Desembarque Pesqueiro** reúne os registros de desembarque das colônias de pescadores dos municípios de Borba e Manicoré, no período de 2002 a 2025. A **Base 2 – Cotas Fluviométricas** reúne a série histórica das cotas (nível) do Rio Madeira nas estações dessas duas localidades, no período de 1967 a 2026.
 
 A presente análise tem os seguintes objetivos:
 
@@ -162,15 +162,13 @@ A presente análise tem os seguintes objetivos:
 2. **Detectar mudanças nas séries temporais da produção pesqueira e das cotas fluviométricas;**
 3. **Quantificar as mudanças na produção, composição e diversidade das capturas pesqueiras, comparando os períodos “Antes” e “Depois” da operação das UHEs.**
 
-### Tratamento
+## Tratamento
 
 Antes das análises, as duas bases passaram por um processo de organização e limpeza, feito no Microsoft Excel e no R, de forma separada para cada uma.
 
 **Base 1 – Desembarque Pesqueiro:**
 
-Ao analisar os dados, reunimos os registros de Borba e Manicoré em uma única base e padronizamos as variáveis de texto e de agrupamento, definindo cada uma como fator ou caractere, conforme a sua natureza. Os dados originais estavam em formato largo, com cada ano em uma coluna. Por isso, utilizamos a função `tidyr::pivot_longer()` para passá-los ao formato longo, no qual cada linha corresponde a um registro de um ano, criando as variáveis `ano` e `captura_total`. Em `captura_total`, trocamos a vírgula decimal por ponto e convertemos os valores para número. Em seguida, removemos os registros sem informação de captura e os anos de 2000 e 2001. Posteriormente, removemos os anos de 2025 e 2026, pois estavam incompletos, mantendo o período de 2002 a 2024. Por fim, criamos a variável `periodo_barragem`, a partir do ano, que classifica os registros em dois momentos: **Antes** (2002 a 2010) e **Depois** (2011 a 2024). 
-
-Após o tratamento, verificamos a presença de valores ausentes e não encontramos registros omissos nas variáveis consideradas. Ao final, a base ficou com 888 observações, cujas variáveis estão descritas na @tbl-var-pesca.
+Ao analisar os dados, reunimos os registros de Borba e Manicoré em uma única base e padronizamos as variáveis de texto e de agrupamento, definindo cada uma como fator ou caractere, conforme a sua natureza. Os dados originais estavam em formato largo, com cada ano em uma coluna. Por isso, utilizamos a função `tidyr::pivot_longer()` para passá-los ao formato longo, no qual cada linha corresponde a um registro de um ano, criando as variáveis `ano` e `captura_total`. Em `captura_total`, trocamos a vírgula decimal por ponto e convertemos os valores para número. Em seguida, removemos os registros sem informação de captura e os anos de 2000 e 2001. Posteriormente, removemos os anos de 2025 e 2026, pois estavam incompletos, mantendo o período de 2002 a 2024. Por fim, criamos a variável `periodo_barragem`, a partir do ano, que classifica os registros em dois momentos: **Antes** (2002 a 2010) e **Depois** (2011 a 2024). Após o tratamento, verificamos a presença de valores ausentes e não encontramos registros omissos nas variáveis consideradas. Ao final, a base ficou com 888 observações, cujas variáveis estão descritas na @tbl-var-pesca.
 
 | Variável | Descrição | Tipo | Classe (R) | Níveis | Tamanho Amostral (n) | Dados Ausentes (NA's) |
 |:---|:---|:---|:---|:---|:---|:---|
@@ -237,15 +235,21 @@ Diferentemente da Base 1, mantivemos os valores ausentes (`NA`) de `cota` e das 
 
 : Descrição das variáveis: Base 2 – Cotas Fluviométricas. {#tbl-var-cotas}
 
-### Dados tratados
-
 Os dados tratados das duas bases estão disponíveis para download em formato Excel (`.xlsx`), para consulta ou para reproduzir as análises.
 
 ::: {.linha-baixar}
 [<i class="bi bi-download"></i> Base 1 – Desembarque (19 KB)](dados/dados_tratados.xlsx){.baixar download="dados_tratados.xlsx"} [<i class="bi bi-download"></i> Base 2 – Cotas (1,5 MB)](dados/dados_cotas_tratados.xlsx){.baixar download="dados_cotas_tratados.xlsx"}
 :::
 
-## Taxas de Declínio Produtivo
+
+## Antes e depois das UHEs
+
+::: {.objetivo}
+**Objetivo:** Quantificar as mudanças na produção, composição e diversidade das capturas pesqueiras, comparando os períodos “Antes” e “Depois” da operação das UHEs;
+:::
+
+
+### Taxas de Declínio Produtivo
 
 
 | Município | Período | Série Temporal<br>($n$) | Total Acumulado<br>(kg) | Média Anual ± DP<br>(kg) | Intervalo da Série<br>[Mín – Máx] (kg) | Amplitude da Série<br>(kg) | Taxa de Declínio<br>Produtivo |
@@ -258,7 +262,7 @@ Os dados tratados das duas bases estão disponíveis para download em formato Ex
 : Estatísticas descritivas anuais da produção pesqueira (kg) por município e período. {#tbl-estatisticas-pesca}
 
 ::: {.nota-tabela}
-**Notas.** Foram considerados os períodos 2002–2010 (Antes) e 2011–2024 (Depois); o ano de 2025 foi excluído por apresentar dados incompletos. $n$ corresponde ao número de anos avaliados em cada período e DP ao desvio padrão. A Amplitude da Série é a diferença entre os valores máximo e mínimo, e a Taxa de Declínio Produtivo é a redução percentual da produção média anual entre os períodos. Letras sobrescritas diferentes (a, b) indicam diferença estatisticamente significativa entre os períodos, com nível de significância de 5% ($\alpha = 0,05$). A cor azul indica o teste t de Welch para amostras independentes (paramétrico) e a cor vermelha, o teste de Wilcoxon-Mann-Whitney para amostras independentes (não paramétrico), cujos resultados estão na @tbl-testes-hipotese.
+**Notas.** Foram considerados os períodos 2002–2010 (Antes) e 2011–2024 (Depois); o ano de 2025 foi excluído por apresentar dados incompletos. $n$ corresponde ao número de anos avaliados em cada período e DP ao desvio padrão. A Amplitude da Série é a diferença entre os valores máximo e mínimo, e a Taxa de Declínio Produtivo é a redução percentual da produção média anual entre os períodos. Letras sobrescritas diferentes (a, b) indicam diferença estatisticamente significativa entre os períodos, com nível de significância de 5% ($\alpha = 0,05$). A cor azul indica o teste t de Welch para amostras independentes (paramétrico) e a cor vermelha, o teste de Wilcoxon-Mann-Whitney para amostras independentes (não paramétrico), cujos resultados detalhados estão na @tbl-testes-hipotese.
 :::
 
 A **Taxa de Declínio Produtivo** é calculada por:
@@ -318,21 +322,28 @@ $$
 
 :::
 
-## Antes e depois das UHEs
 
-::: {.objetivo}
-**Objetivo:** Quantificar as mudanças na produção, composição e diversidade das capturas pesqueiras, comparando os períodos “Antes” e “Depois” da operação das UHEs;
+### Mapa comparativo das taxas
+
+![Spatial distribution of fishing activity decline rates along the Madeira River, between Porto Velho (RO) and Borba (AM). Guajará-Mirim represents the upstream reference site (\*\*\*). The percentages correspond to reductions reported for Porto Velho (-37.0%\*), based on Catch Per Unit Effort (CPUE), and Humaitá (-39.0%\*\*), based on mean annual catch, as well as those estimated in this study (\*\*\*) for Manicoré (-62.7%\*\*\*) and Borba (-68.8%\*\*\*), based on mean annual fish production. The triangles indicate the locations of the Jirau and Santo Antônio hydroelectric power plants. Sources: \*Arantes et al. (2021); \*\*Santos et al. (2018); \*\*\*This study.](graficos/Mapa_1_Declinio_Reproducao.png){#fig-mapa-declinio-reproducao width="100%" fig-align="center"}
+
+
+::: {.linha-baixar}
+[<i class="bi bi-download"></i> Baixar mapa (PNG)](graficos/Mapas_taxas.png){.baixar download="Mapas_taxas.png"}
 :::
 
+**Comentários:** A distribuição espacial apresentada na @fig-mapa-declinio-reproducao evidencia diferentes magnitudes de declínio entre as localidades avaliadas ao longo da calha do Rio Madeira. Em Porto Velho (RO), Arantes et al. (2021) reportaram redução de 37,0% na Captura por Unidade de Esforço (CPUE), indicador que relaciona a quantidade capturada ao esforço de pesca empregado. Em Humaitá (AM), Santos et al. (2018) observaram redução de 39,0% na produção pesqueira média anual. Para as localidades analisadas neste estudo, foram estimadas reduções de 64,1% em Manicoré e 69,9% em Borba, calculadas a partir da produção pesqueira média anual nos períodos antes e depois do barramento.
 
-### Testes de Hipótese
+Em termos espaciais, observa-se aumento na magnitude das taxas de declínio no sentido de Porto Velho para Borba. Entretanto, essa distribuição deve ser interpretada com cautela, pois os percentuais são provenientes de diferentes estudos e não representam necessariamente o mesmo indicador. Em Porto Velho, a redução refere-se à CPUE, enquanto os valores de Humaitá, Manicoré e Borba estão associados à produção pesqueira média anual.
 
-Para comparar a produção pesqueira anual entre os períodos Antes e Depois, adotamos o nível de significância de 5% ($\alpha = 0,05$) e seguimos duas etapas: primeiro, avaliamos a normalidade dos dados de cada período; em seguida, escolhemos o teste de comparação adequado. Como Antes e Depois são formados por anos distintos, utilizamos testes para amostras independentes. Cada teste fornece uma estatística de teste e um $p$-valor. Quando o $p$-valor é menor que $\alpha$, rejeitamos a hipótese nula ($H_0$); caso contrário, não a rejeitamos.
 
-**Sobre os testes.** A seguir, apresentamos cada teste utilizado, com a sua estatística de teste e as respectivas hipóteses.
+### Testes de Hipótese (Comparação Entre Antes e Depois)
+
+
+A seguir, apresentamos cada teste utilizado, sua estatística de teste e as respectivas hipóteses, no qual foi adotado um nível de significância de 5% ($\alpha = 0,05$) para tomada de decisão.
 
 ::: {#met-shapiro-wilk .metodo .metodo-normalidade}
-**Teste de Shapiro-Wilk**
+*Shapiro-Wilk**
 
 Verifica se uma amostra pode ser considerada proveniente de uma distribuição normal. Sua estatística de teste é $W$, e ele é indicado para amostras pequenas, como as deste estudo (9 e 14 anos). Um $p$-valor maior que $\alpha$ indica que não há evidência contra a normalidade. As hipóteses são:
 
@@ -341,7 +352,7 @@ Verifica se uma amostra pode ser considerada proveniente de uma distribuição n
 :::
 
 ::: {#met-anderson-darling .metodo .metodo-normalidade}
-**Teste de Anderson-Darling**
+**Anderson-Darling**
 
 Também avalia a normalidade dos dados, com estatística de teste $A$. Ele dá mais peso aos valores extremos da distribuição e, por isso, foi utilizado de forma complementar ao de Shapiro-Wilk. As hipóteses são:
 
@@ -350,7 +361,7 @@ Também avalia a normalidade dos dados, com estatística de teste $A$. Ele dá m
 :::
 
 ::: {#met-welch .metodo .metodo-param}
-**Teste t de Welch para amostras independentes**
+**T de Welch para amostras independentes**
 
 Compara as médias de dois grupos independentes. Exige que os dados de cada grupo sejam normais, mas não exige que as variâncias sejam iguais. Sua estatística de teste é $t$, e ele foi utilizado quando os dois períodos atenderam à normalidade. As hipóteses são:
 
@@ -359,7 +370,7 @@ Compara as médias de dois grupos independentes. Exige que os dados de cada grup
 :::
 
 ::: {#met-wilcoxon .metodo .metodo-nparam}
-**Teste de Wilcoxon-Mann-Whitney para amostras independentes**
+**Wilcoxon-Mann-Whitney para amostras independentes**
 
 Compara dois grupos independentes a partir da ordenação (postos) das observações, sem exigir normalidade. Sua estatística de teste é $W$, e ele foi utilizado quando ao menos um período não atendeu à normalidade. As hipóteses são:
 
@@ -385,29 +396,11 @@ Os resultados dos testes estão na @tbl-testes-hipotese.
 : Resultados dos testes de normalidade e de comparação entre os períodos Antes e Depois. {#tbl-testes-hipotese}
 
 ::: {.nota-tabela}
-**Notas.** Nível de significância adotado: 5% ($\alpha = 0,05$). Nos testes de normalidade, a hipótese nula ($H_0$) afirma que os dados seguem uma distribuição normal, e um *p*-valor maior que $\alpha$ leva a "Normal". Na comparação entre os períodos, um *p*-valor menor que $\alpha$ leva à rejeição de $H_0$. Utilizamos testes para amostras independentes: teste t de Welch (cor azul), quando os dois períodos são normais, e teste de Wilcoxon-Mann-Whitney (cor vermelha), quando ao menos um período não é normal.
+**Notas.** Nível de significância adotado: 5% ($\alpha = 0,05$) | Teste t de Welch (cor azul) | Teste de Wilcoxon-Mann-Whitney (cor vermelha).
 :::
 
-**Comentários.** Em **Borba**, todos os $p$-valores dos testes de normalidade foram maiores que $\alpha$, ou seja, não houve evidência contra a normalidade nos dois períodos, o que permitiu aplicar o teste t de Welch. Sua estatística de teste foi $t = 7,3533$, com $p$-valor $< 0,001$, e rejeitamos $H_0$: a produção média anual passou de 90.673 kg no período Antes para 28.287 kg no período Depois.
 
-Em **Manicoré**, os dois testes de normalidade do período Antes ficaram próximos do nível de significância: o de Shapiro-Wilk rejeitou a normalidade ($p$-valor $= 0,0493$), enquanto o de Anderson-Darling não a rejeitou ($p$-valor $= 0,0610$). No período Depois, nenhum dos testes indicou afastamento da normalidade ($p$-valores de 0,7105 e 0,6864). Como a normalidade não foi atendida de forma clara no período Antes, adotamos a conduta conservadora e aplicamos o teste de Wilcoxon-Mann-Whitney, que resultou em estatística de teste $W = 126$ e $p$-valor $< 0,001$, levando à rejeição de $H_0$. Esse valor de $W$ é o máximo possível para 9 e 14 anos (9 × 14 = 126), o que indica que todos os anos do período Antes tiveram produção maior que todos os anos do período Depois.
-
-**Conclusões.** Em ambos os municípios, a produção pesqueira anual foi estatisticamente menor no período Depois, ao nível de significância de 5%, com reduções de 68,8% em Borba e de 62,7% em Manicoré. Como a comparação é feita entre períodos, os resultados indicam uma diferença associada ao período de operação das UHEs, mas não isolam outros fatores que possam ter atuado no mesmo intervalo, o que pode ser investigado com as variáveis hidrológicas.
-
-
-## Mapa comparativo das taxas
-
-![Spatial distribution of fishing activity decline rates along the Madeira River, between Porto Velho (RO) and Borba (AM). Guajará-Mirim represents the upstream reference site (\*\*\*). The percentages correspond to reductions reported for Porto Velho (-37.0%\*), based on Catch Per Unit Effort (CPUE), and Humaitá (-39.0%\*\*), based on mean annual catch, as well as those estimated in this study (\*\*\*) for Manicoré (-62.7%\*\*\*) and Borba (-68.8%\*\*\*), based on mean annual fish production. The triangles indicate the locations of the Jirau and Santo Antônio hydroelectric power plants. Sources: \*Arantes et al. (2021); \*\*Santos et al. (2018); \*\*\*This study.](graficos/Mapa_1_Declinio_Reproducao.png){#fig-mapa-declinio-reproducao width="100%" fig-align="center"}
-
-
-::: {.linha-baixar}
-[<i class="bi bi-download"></i> Baixar mapa (PNG)](graficos/Mapas_taxas.png){.baixar download="Mapas_taxas.png"}
-:::
-
-**Comentários:** A distribuição espacial apresentada na @fig-mapa-declinio-reproducao evidencia diferentes magnitudes de declínio entre as localidades avaliadas ao longo da calha do Rio Madeira. Em Porto Velho (RO), Arantes et al. (2021) reportaram redução de 37,0% na Captura por Unidade de Esforço (CPUE), indicador que relaciona a quantidade capturada ao esforço de pesca empregado. Em Humaitá (AM), Santos et al. (2018) observaram redução de 39,0% na produção pesqueira média anual. Para as localidades analisadas neste estudo, foram estimadas reduções de 64,1% em Manicoré e 69,9% em Borba, calculadas a partir da produção pesqueira média anual nos períodos antes e depois do barramento.
-
-Em termos espaciais, observa-se aumento na magnitude das taxas de declínio no sentido de Porto Velho para Borba. Entretanto, essa distribuição deve ser interpretada com cautela, pois os percentuais são provenientes de diferentes estudos e não representam necessariamente o mesmo indicador. Em Porto Velho, a redução refere-se à CPUE, enquanto os valores de Humaitá, Manicoré e Borba estão associados à produção pesqueira média anual.
-
+A análise estatística demonstrou uma redução significativa ($p < 0,001$) na produção pesqueira anual de ambos os municípios no período posterior à instalação das UHEs. Em Borba, onde os pressupostos de normalidade foram atendidos, aplicou-se o teste $t$ de Welch. Já em Manicoré, devido à ausência de normalidade, aplicou-se o teste não paramétrico de Wilcoxon-Mann-Whitney para grupos independentes. Este teste resultou na estatística máxima possível ($W = 126$, $p < 0,001$), evidenciando uma separação absoluta entre as épocas: todos os anos do período "Antes" registraram produção superior a qualquer ano do período "Depois". Conclui-se que houve uma diminuição drástica e estatisticamente comprovada associada ao período de operação das barragens, embora a influência de outros fatores simultâneos ainda deva ser investigada.
 
 ## Variáveis hidrológicas
 
@@ -451,19 +444,19 @@ Ajusta uma reta aos dados minimizando a soma dos quadrados das diferenças entre
 
 As @fig-serie-borba e @fig-serie-manicore mostram a série temporal da captura total em cada colônia.
 
-![**PT-BR:** Série temporal da captura total (kg) na colônia de Borba entre 2002 e 2024. Os pontos representam o volume anual observado, divididos nos períodos antes (azul escuro) e depois (azul claro) do barramento em 2011 (linha tracejada vertical). A linha azul clara liga as observações anuais, e as linhas vermelhas escuras indicam a tendência estimada por regressão linear de mínimos quadrados (OLS) em cada período. Os valores de $\tau$ correspondem ao coeficiente $\tau$ de Kendall do teste de Mann-Kendall, os $p$-valores indicam a significância estatística de $\tau$ e da inclinação de Sen, e Sen representa o estimador de inclinação de Sen, que quantifica a taxa anual de variação (taxa de perda) em kg/ano em cada período. A captura total corresponde à soma das 19 espécies registradas por ano. A área cinza de 2025 indica que esse ano é exibido apenas como referência visual e foi excluído das análises estatísticas de tendência por apresentar dados incompletos.<br><br>**EN:** Time series of total catch (kg) in the Borba fishers' colony between 2002 and 2024. Dots represent the observed annual volume, divided into the periods before (dark blue) and after (light blue) the dam impoundment in 2011 (dashed vertical line). The light-blue line connects the annual observations, and the dark-red lines indicate the trend estimated by Ordinary Least Squares (OLS) regression in each period. The $\tau$ values are Kendall's $\tau$ coefficients from the Mann-Kendall trend test, the $p$-values indicate the statistical significance of $\tau$ and of Sen's slope, and Sen represents Sen's slope estimator, which quantifies the annual rate of change (loss rate) in kg/year for each period. Total catch is the sum of the 19 species recorded per year. The grey shaded area for 2025 indicates that this year is shown for visual reference only and was excluded from the statistical trend analyses because of incomplete data.](graficos/Time_Series_Borba.png){#fig-serie-borba width="100%" fig-align="center"}
+![Time series of total catch (kg) in the Borba fishers' colony between 2002 and 2024. Dots represent the observed annual volume, divided into the periods before (dark blue) and after (light blue) the dam impoundment in 2011 (dashed vertical line). The light-blue line connects the annual observations, and the dark-red lines indicate the trend estimated by Ordinary Least Squares (OLS) regression in each period. The $\tau$ values are Kendall's $\tau$ coefficients from the Mann-Kendall trend test, the $p$-values indicate the statistical significance of $\tau$ and of Sen's slope, and Sen represents Sen's slope estimator, which quantifies the annual rate of change (loss rate) in kg/year for each period. Total catch is the sum of the 19 species recorded per year. The grey shaded area for 2025 indicates that this year is shown for visual reference only and was excluded from the statistical trend analyses because of incomplete data.](graficos/Time_Series_Borba.png){#fig-serie-borba width="100%" fig-align="center"}
 
 
 
 ::: {.linha-baixar}
-[<i class="bi bi-download"></i> Baixar mapa (PNG)](graficos/Time_Series_Borba.png){.baixar download="Time_Series_Borba.png"}
+[<i class="bi bi-download"></i> Baixar Gráfico (PNG)](graficos/Time_Series_Borba.png){.baixar download="Time_Series_Borba.png"}
 :::
 
 
-![**PT-BR:** Série temporal da captura total (kg) na colônia de Manicoré entre 2002 e 2024. Os pontos representam o volume anual observado, divididos nos períodos antes (azul escuro) e depois (azul claro) do barramento em 2011 (linha tracejada vertical). A linha azul clara liga as observações anuais, e as linhas vermelhas escuras indicam a tendência estimada por regressão linear de mínimos quadrados (OLS) em cada período. Os valores de $\tau$ correspondem ao coeficiente $\tau$ de Kendall do teste de Mann-Kendall, os $p$-valores indicam a significância estatística de $\tau$ e da inclinação de Sen, e Sen representa o estimador de inclinação de Sen, que quantifica a taxa anual de variação (taxa de perda) em kg/ano em cada período. A captura total corresponde à soma das 18 espécies registradas por ano. A área cinza de 2025 indica que esse ano é exibido apenas como referência visual e foi excluído das análises estatísticas de tendência por apresentar dados incompletos.<br><br>**EN:** Time series of total catch (kg) in the Manicoré fishers' colony between 2002 and 2024. Dots represent the observed annual volume, divided into the periods before (dark blue) and after (light blue) the dam impoundment in 2011 (dashed vertical line). The light-blue line connects the annual observations, and the dark-red lines indicate the trend estimated by Ordinary Least Squares (OLS) regression in each period. The $\tau$ values are Kendall's $\tau$ coefficients from the Mann-Kendall trend test, the $p$-values indicate the statistical significance of $\tau$ and of Sen's slope, and Sen represents Sen's slope estimator, which quantifies the annual rate of change (loss rate) in kg/year for each period. Total catch is the sum of the 18 species recorded per year. The grey shaded area for 2025 indicates that this year is shown for visual reference only and was excluded from the statistical trend analyses because of incomplete data.](graficos/Time_Series_Manicore.png){#fig-serie-manicore width="100%" fig-align="center"}
+![Time series of total catch (kg) in the Manicoré fishers' colony between 2002 and 2024. Dots represent the observed annual volume, divided into the periods before (dark blue) and after (light blue) the dam impoundment in 2011 (dashed vertical line). The light-blue line connects the annual observations, and the dark-red lines indicate the trend estimated by Ordinary Least Squares (OLS) regression in each period. The $\tau$ values are Kendall's $\tau$ coefficients from the Mann-Kendall trend test, the $p$-values indicate the statistical significance of $\tau$ and of Sen's slope, and Sen represents Sen's slope estimator, which quantifies the annual rate of change (loss rate) in kg/year for each period. Total catch is the sum of the 18 species recorded per year. The grey shaded area for 2025 indicates that this year is shown for visual reference only and was excluded from the statistical trend analyses because of incomplete data.](graficos/Time_Series_Manicore.png){#fig-serie-manicore width="100%" fig-align="center"}
 
 
 ::: {.linha-baixar}
-[<i class="bi bi-download"></i> Baixar mapa (PNG)](graficos/Time_Series_Manicore.png){.baixar download="Time_Series_Manicore.png"}
+[<i class="bi bi-download"></i> Baixar Gráfico (PNG)](graficos/Time_Series_Manicore.png){.baixar download="Time_Series_Manicore.png"}
 :::
 
