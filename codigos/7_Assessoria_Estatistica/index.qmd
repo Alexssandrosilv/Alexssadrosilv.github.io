@@ -663,3 +663,5 @@ No que tange à validação dos modelos de regressão OLS auxiliares, os resulta
 :::
 
 :::
+
+### Análise de Tendência Temporal e Autocorrelação para as Cotas Fluviométricas
