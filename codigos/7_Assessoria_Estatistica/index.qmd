@@ -12,6 +12,8 @@ resources:
   - dados/dados_tratados.xlsx
   - dados/dados_cotas_tratados.xlsx
   - graficos/Mapa_1_Declinio_Reproducao.png
+  - graficos/Time_Series_Borba.png
+  - graficos/Time_Series_Manicore.png
 ---
 
 <style>
@@ -90,6 +92,23 @@ resources:
   sup.t-welch, sup.t-wilcoxon { font-weight: 700; }
 </style>
 
+<!-- <script> -->
+<!--   // Desativa os atalhos da busca do Quarto (F, S e /) nesta página -->
+<!--   window.addEventListener('keydown', function (e) { -->
+<!--     var t = e.target, tag = t && t.tagName; -->
+<!--     if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || (t && t.isContentEditable)) return; -->
+<!--     var k = (e.key || '').toLowerCase(); -->
+<!--     if (k === 'f' || k === 's' || k === '/') { e.stopImmediatePropagation(); } -->
+<!--   }, true); -->
+
+<!--   // Se o painel de busca abrir por qualquer motivo, fecha na hora -->
+<!--   new MutationObserver(function () { -->
+<!--     var c = document.querySelector('.aa-DetachedCancelButton'); -->
+<!--     if (c) c.click(); -->
+<!--   }).observe(document.body, { childList: true, subtree: true }); -->
+<!-- </script> -->
+
+
 <script>
   // Desativa os atalhos da busca do Quarto (F, S e /) nesta página
   window.addEventListener('keydown', function (e) {
@@ -98,13 +117,8 @@ resources:
     var k = (e.key || '').toLowerCase();
     if (k === 'f' || k === 's' || k === '/') { e.stopImmediatePropagation(); }
   }, true);
-
-  // Se o painel de busca abrir por qualquer motivo, fecha na hora
-  new MutationObserver(function () {
-    var c = document.querySelector('.aa-DetachedCancelButton');
-    if (c) c.click();
-  }).observe(document.body, { childList: true, subtree: true });
 </script>
+
 
 ```{r setup, include=FALSE}
 # Opções padrão para todos os chunks de código
@@ -309,47 +323,69 @@ $$
 ::: {.objetivo}
 **Objetivo:** Quantificar as mudanças na produção, composição e diversidade das capturas pesqueiras, comparando os períodos “Antes” e “Depois” da operação das UHEs;
 :::
+
+
 ### Testes de Hipótese
 
 Para comparar a produção pesqueira anual entre os períodos Antes e Depois, adotamos o nível de significância de 5% ($\alpha = 0,05$) e seguimos duas etapas: primeiro, avaliamos a normalidade dos dados de cada período; em seguida, escolhemos o teste de comparação adequado. Como Antes e Depois são formados por anos distintos, utilizamos testes para amostras independentes. Cada teste fornece uma estatística de teste e um $p$-valor. Quando o $p$-valor é menor que $\alpha$, rejeitamos a hipótese nula ($H_0$); caso contrário, não a rejeitamos.
 
 **Sobre os testes.** A seguir, apresentamos cada teste utilizado, com a sua estatística de teste e as respectivas hipóteses.
 
-**Teste de normalidade de Shapiro-Wilk.** Verifica se uma amostra pode ser considerada proveniente de uma distribuição normal. Sua estatística de teste é $W$, e ele é indicado para amostras pequenas, como as deste estudo (9 e 14 anos). As hipóteses são:
+::: {#met-shapiro-wilk .metodo .metodo-normalidade}
+**Teste de Shapiro-Wilk**
+
+Verifica se uma amostra pode ser considerada proveniente de uma distribuição normal. Sua estatística de teste é $W$, e ele é indicado para amostras pequenas, como as deste estudo (9 e 14 anos). Um $p$-valor maior que $\alpha$ indica que não há evidência contra a normalidade. As hipóteses são:
 
 - $H_0$: os dados seguem uma distribuição normal;
 - $H_1$: os dados não seguem uma distribuição normal.
+:::
 
-Um $p$-valor maior que $\alpha$ indica que não há evidência contra a normalidade.
+::: {#met-anderson-darling .metodo .metodo-normalidade}
+**Teste de Anderson-Darling**
 
-**Teste de normalidade de Anderson-Darling.** Também avalia a normalidade dos dados, com estatística de teste $A$. Ele dá mais peso aos valores extremos da distribuição e, por isso, foi utilizado de forma complementar ao de Shapiro-Wilk. As hipóteses são:
+Também avalia a normalidade dos dados, com estatística de teste $A$. Ele dá mais peso aos valores extremos da distribuição e, por isso, foi utilizado de forma complementar ao de Shapiro-Wilk. As hipóteses são:
 
 - $H_0$: os dados seguem uma distribuição normal;
 - $H_1$: os dados não seguem uma distribuição normal.
+:::
 
-**Teste paramétrico: teste t de Welch para amostras independentes.** Compara as médias de dois grupos independentes. Exige que os dados de cada grupo sejam normais, mas não exige que as variâncias sejam iguais. Sua estatística de teste é $t$, e ele foi utilizado quando os dois períodos atenderam à normalidade. As hipóteses são:
+::: {#met-welch .metodo .metodo-param}
+**Teste t de Welch para amostras independentes**
+
+Compara as médias de dois grupos independentes. Exige que os dados de cada grupo sejam normais, mas não exige que as variâncias sejam iguais. Sua estatística de teste é $t$, e ele foi utilizado quando os dois períodos atenderam à normalidade. As hipóteses são:
 
 - $H_0$: $\mu_{\text{Antes}} = \mu_{\text{Depois}}$ (as médias dos dois períodos são iguais);
 - $H_1$: $\mu_{\text{Antes}} \neq \mu_{\text{Depois}}$ (as médias dos dois períodos são diferentes).
+:::
 
-**Teste não paramétrico: teste de Wilcoxon-Mann-Whitney para amostras independentes.** Compara dois grupos independentes a partir da ordenação (postos) das observações, sem exigir normalidade. Sua estatística de teste é $W$, e ele foi utilizado quando ao menos um período não atendeu à normalidade. As hipóteses são:
+::: {#met-wilcoxon .metodo .metodo-nparam}
+**Teste de Wilcoxon-Mann-Whitney para amostras independentes**
+
+Compara dois grupos independentes a partir da ordenação (postos) das observações, sem exigir normalidade. Sua estatística de teste é $W$, e ele foi utilizado quando ao menos um período não atendeu à normalidade. As hipóteses são:
 
 - $H_0$: os dois períodos têm a mesma distribuição de produção;
 - $H_1$: os dois períodos têm distribuições de produção diferentes.
+:::
 
 Os resultados dos testes estão na @tbl-testes-hipotese.
 
-| Município | Período | Normalidade<br>Estatística de teste | Normalidade<br>$p$-valor | Teste de Comparação |
+| Município | Período | Método estatístico | Estatística de teste e *p*-valor | Conclusão |
 |:---|:---|:---|:---|:---|
-| **Borba** | Antes | SW: 0,9809<br>AD: 0,1239 | SW: 0,9688<br>AD: 0,9765 | [Teste t de Welch para amostras independentes<br>Estatística de teste: $t = 7,3533$<br>$p$-valor $< 0,001$<br>Rejeita $H_0$]{.t-welch} |
-| | Depois | SW: 0,9582<br>AD: 0,2086 | SW: 0,6936<br>AD: 0,8293 | |
-| **Manicoré** | Antes | SW: 0,8338<br>AD: 0,6465 | SW: 0,0493<br>AD: 0,0610 | [Wilcoxon-Mann-Whitney para amostras independentes<br>Estatística de teste: $W = 126$<br>$p$-valor $< 0,001$<br>Rejeita $H_0$]{.t-wilcoxon} |
-| | Depois | SW: 0,9592<br>AD: 0,2511 | SW: 0,7105<br>AD: 0,6864 | |
+| **Borba** | Antes | Shapiro-Wilk | *W* = 0,9809; *p*-valor = 0,9688 | Normal |
+| | | Anderson-Darling | *A* = 0,1239; *p*-valor = 0,9765 | Normal |
+| | Depois | Shapiro-Wilk | *W* = 0,9582; *p*-valor = 0,6936 | Normal |
+| | | Anderson-Darling | *A* = 0,2086; *p*-valor = 0,8293 | Normal |
+| | Antes e Depois | [Teste t de Welch para amostras independentes]{.t-welch} | [*t* = 7,3533; *p*-valor < 0,001]{.t-welch} | [Rejeita *H*~0~]{.t-welch} |
+| **Manicoré** | Antes | Shapiro-Wilk | *W* = 0,8338; *p*-valor = 0,0493 | Não normal |
+| | | Anderson-Darling | *A* = 0,6465; *p*-valor = 0,0610 | Normal |
+| | Depois | Shapiro-Wilk | *W* = 0,9592; *p*-valor = 0,7105 | Normal |
+| | | Anderson-Darling | *A* = 0,2511; *p*-valor = 0,6864 | Normal |
+| | Antes e Depois | [Wilcoxon-Mann-Whitney para amostras independentes]{.t-wilcoxon} | [*W* = 126; *p*-valor < 0,001]{.t-wilcoxon} | [Rejeita *H*~0~]{.t-wilcoxon} |
 
 : Resultados dos testes de normalidade e de comparação entre os períodos Antes e Depois. {#tbl-testes-hipotese}
 
 ::: {.nota-tabela}
-**Notas.** SW: teste de Shapiro-Wilk (estatística de teste $W$); AD: teste de Anderson-Darling (estatística de teste $A$). Nível de significância adotado: 5% ($\alpha = 0,05$). Um $p$-valor menor que $\alpha$ leva à rejeição da hipótese nula ($H_0$). Nos testes de normalidade, $H_0$ afirma que os dados seguem uma distribuição normal. Para comparar os períodos, utilizamos testes para amostras independentes: teste t de Welch (cor azul), quando os dois períodos são normais, e teste de Wilcoxon-Mann-Whitney (cor vermelha), quando ao menos um período não é normal.
+**Notas.** Nível de significância adotado: 5% ($\alpha = 0,05$). Nos testes de normalidade, a hipótese nula ($H_0$) afirma que os dados seguem uma distribuição normal, e um *p*-valor maior que $\alpha$ leva a "Normal". Na comparação entre os períodos, um *p*-valor menor que $\alpha$ leva à rejeição de $H_0$. Utilizamos testes para amostras independentes: teste t de Welch (cor azul), quando os dois períodos são normais, e teste de Wilcoxon-Mann-Whitney (cor vermelha), quando ao menos um período não é normal.
 :::
 
 **Comentários.** Em **Borba**, todos os $p$-valores dos testes de normalidade foram maiores que $\alpha$, ou seja, não houve evidência contra a normalidade nos dois períodos, o que permitiu aplicar o teste t de Welch. Sua estatística de teste foi $t = 7,3533$, com $p$-valor $< 0,001$, e rejeitamos $H_0$: a produção média anual passou de 90.673 kg no período Antes para 28.287 kg no período Depois.
@@ -383,5 +419,51 @@ Em termos espaciais, observa-se aumento na magnitude das taxas de declínio no s
 
 ::: {.objetivo}
 **Objetivo:** Detectar mudanças nas séries temporais da produção pesqueira e das cotas fluviométricas;
+:::
+
+### Análise de tendência
+
+Para avaliar a tendência da produção pesqueira ao longo do tempo em cada período (Antes e Depois), utilizamos o teste de Mann-Kendall, o estimador de inclinação de Sen e a regressão linear por mínimos quadrados, descritos a seguir.
+
+::: {#met-mann-kendall .metodo .metodo-tendencia}
+**Teste de tendência de Mann-Kendall (correlação τ de Kendall)**
+
+É um teste não paramétrico que verifica se existe uma tendência contínua de aumento ou de queda ao longo do tempo. Ele se baseia no coeficiente $\tau$ de Kendall, que compara todos os pares de anos: o par é concordante quando o ano mais recente tem produção maior que o mais antigo e discordante quando tem produção menor. Como usa a ordem (postos) dos valores, não exige normalidade. O coeficiente $\tau$ varia de −1 a +1: valores próximos de −1 indicam queda consistente, valores próximos de +1 indicam aumento consistente e valores próximos de 0 indicam ausência de tendência. Elevar $\tau$ ao quadrado ($\tau^2$) fornece uma medida aproximada do tamanho do efeito. As hipóteses são:
+
+- $H_0$: não há tendência ao longo do tempo ($\tau = 0$);
+- $H_1$: há tendência ao longo do tempo ($\tau \neq 0$).
+:::
+
+::: {#met-sen .metodo .metodo-tendencia}
+**Estimador de inclinação de Sen (Sen's slope)**
+
+É um método não paramétrico que estima a magnitude da tendência identificada pelo teste de Mann-Kendall, isto é, a taxa de variação por unidade de tempo, aqui em kg/ano. Ele calcula a inclinação entre todos os pares possíveis de anos e adota a mediana dessas inclinações como estimativa final. Como se baseia na mediana, e não na média, é resistente a valores discrepantes (outliers) e a ruídos comuns em séries longas de desembarque pesqueiro. As hipóteses para o $p$-valor associado são:
+
+- $H_0$: a inclinação é igual a zero (não há variação anual);
+- $H_1$: a inclinação é diferente de zero (há variação anual).
+:::
+
+::: {#met-ols .metodo .metodo-tendencia}
+**Regressão linear por mínimos quadrados (OLS)**
+
+Ajusta uma reta aos dados minimizando a soma dos quadrados das diferenças entre os valores observados e os previstos. Neste estudo, a reta foi ajustada separadamente para cada período e utilizada para representar a tendência nos gráficos.
+:::
+
+As @fig-serie-borba e @fig-serie-manicore mostram a série temporal da captura total em cada colônia.
+
+![**PT-BR:** Série temporal da captura total (kg) na colônia de Borba entre 2002 e 2024. Os pontos representam o volume anual observado, divididos nos períodos antes (azul escuro) e depois (azul claro) do barramento em 2011 (linha tracejada vertical). A linha azul clara liga as observações anuais, e as linhas vermelhas escuras indicam a tendência estimada por regressão linear de mínimos quadrados (OLS) em cada período. Os valores de $\tau$ correspondem ao coeficiente $\tau$ de Kendall do teste de Mann-Kendall, os $p$-valores indicam a significância estatística de $\tau$ e da inclinação de Sen, e Sen representa o estimador de inclinação de Sen, que quantifica a taxa anual de variação (taxa de perda) em kg/ano em cada período. A captura total corresponde à soma das 19 espécies registradas por ano. A área cinza de 2025 indica que esse ano é exibido apenas como referência visual e foi excluído das análises estatísticas de tendência por apresentar dados incompletos.<br><br>**EN:** Time series of total catch (kg) in the Borba fishers' colony between 2002 and 2024. Dots represent the observed annual volume, divided into the periods before (dark blue) and after (light blue) the dam impoundment in 2011 (dashed vertical line). The light-blue line connects the annual observations, and the dark-red lines indicate the trend estimated by Ordinary Least Squares (OLS) regression in each period. The $\tau$ values are Kendall's $\tau$ coefficients from the Mann-Kendall trend test, the $p$-values indicate the statistical significance of $\tau$ and of Sen's slope, and Sen represents Sen's slope estimator, which quantifies the annual rate of change (loss rate) in kg/year for each period. Total catch is the sum of the 19 species recorded per year. The grey shaded area for 2025 indicates that this year is shown for visual reference only and was excluded from the statistical trend analyses because of incomplete data.](graficos/Time_Series_Borba.png){#fig-serie-borba width="100%" fig-align="center"}
+
+
+
+::: {.linha-baixar}
+[<i class="bi bi-download"></i> Baixar mapa (PNG)](graficos/Time_Series_Borba.png){.baixar download="Time_Series_Borba.png"}
+:::
+
+
+![**PT-BR:** Série temporal da captura total (kg) na colônia de Manicoré entre 2002 e 2024. Os pontos representam o volume anual observado, divididos nos períodos antes (azul escuro) e depois (azul claro) do barramento em 2011 (linha tracejada vertical). A linha azul clara liga as observações anuais, e as linhas vermelhas escuras indicam a tendência estimada por regressão linear de mínimos quadrados (OLS) em cada período. Os valores de $\tau$ correspondem ao coeficiente $\tau$ de Kendall do teste de Mann-Kendall, os $p$-valores indicam a significância estatística de $\tau$ e da inclinação de Sen, e Sen representa o estimador de inclinação de Sen, que quantifica a taxa anual de variação (taxa de perda) em kg/ano em cada período. A captura total corresponde à soma das 18 espécies registradas por ano. A área cinza de 2025 indica que esse ano é exibido apenas como referência visual e foi excluído das análises estatísticas de tendência por apresentar dados incompletos.<br><br>**EN:** Time series of total catch (kg) in the Manicoré fishers' colony between 2002 and 2024. Dots represent the observed annual volume, divided into the periods before (dark blue) and after (light blue) the dam impoundment in 2011 (dashed vertical line). The light-blue line connects the annual observations, and the dark-red lines indicate the trend estimated by Ordinary Least Squares (OLS) regression in each period. The $\tau$ values are Kendall's $\tau$ coefficients from the Mann-Kendall trend test, the $p$-values indicate the statistical significance of $\tau$ and of Sen's slope, and Sen represents Sen's slope estimator, which quantifies the annual rate of change (loss rate) in kg/year for each period. Total catch is the sum of the 18 species recorded per year. The grey shaded area for 2025 indicates that this year is shown for visual reference only and was excluded from the statistical trend analyses because of incomplete data.](graficos/Time_Series_Manicore.png){#fig-serie-manicore width="100%" fig-align="center"}
+
+
+::: {.linha-baixar}
+[<i class="bi bi-download"></i> Baixar mapa (PNG)](graficos/Time_Series_Manicore.png){.baixar download="Time_Series_Manicore.png"}
 :::
 
