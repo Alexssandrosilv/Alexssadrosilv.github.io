@@ -370,7 +370,7 @@ Em termos espaciais, observa-se aumento na magnitude das taxas de declínio no s
 **Objetivo:** Detectar mudanças nas séries temporais da produção pesqueira e das cotas fluviométricas;
 :::
 
-### Análise de tendência
+### Análise de tendência para Produção Pesqueira
 
 Para avaliar a tendência da produção pesqueira ao longo do tempo em cada período (Antes e Depois), utilizamos o teste de Mann-Kendall, o estimador de inclinação de Sen e a regressão linear por mínimos quadrados, descritos a seguir.
 
@@ -395,7 +395,25 @@ Para avaliar a tendência da produção pesqueira ao longo do tempo em cada per�
 ::: {#met-ols .metodo .metodo-tendencia}
 **Regressão linear por mínimos quadrados (OLS)**
 
-Ajusta uma reta aos dados minimizando a soma dos quadrados das diferenças entre os valores observados e os previstos. Neste estudo, a reta foi ajustada separadamente para cada período e utilizada para representar a tendência nos gráficos.
+Método paramétrico que ajusta uma reta aos dados minimizando a soma dos quadrados dos resíduos (diferenças entre os valores observados e os previstos). A formulação geral do modelo para a série temporal é dada por:
+
+$$
+Y_i = \beta_0 + \beta_1 X_i + \varepsilon_i
+$$
+
+Em que $Y_i$ representa a captura total (kg), $X_i$ o ano, $\beta_0$ o intercepto e $\beta_1$ o coeficiente angular (taxa de variação anual). Especificamente para este estudo, o modelo foi ajustado de forma independente para cada período, resultando nas seguintes equações estimadas:
+
+- **Período Anterior (2002–2010):**
+  $$
+  \text{Captura}_{\text{Antes}} = \hat{\beta}_0 + \hat{\beta}_1 \cdot \text{Ano}
+  $$
+
+- **Período Posterior (2011–2024):**
+  $$
+  \text{Captura}_{\text{Depois}} = \hat{\beta}_0 + \hat{\beta}_1 \cdot \text{Ano}
+  $$
+
+Essas retas foram utilizadas para ilustrar graficamente a direção, a velocidade e a mudança de inclinação da perda produtiva em cada município após o represamento.
 :::
 
 As @fig-serie-borba e @fig-serie-manicore mostram a série temporal da captura total em cada colônia.
