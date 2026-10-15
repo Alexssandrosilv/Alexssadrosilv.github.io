@@ -1077,3 +1077,41 @@ mjx-container[display="true"],
     gap: 0.5rem;
   }
 }
+
+
+/* ==========================================================================
+   FICHA DE MÉTODO ESTATÍSTICO (reutilizável)
+   Uso: ::: {#met-nome .metodo .metodo-normalidade} ... :::
+========================================================================== */
+.metodo {
+  --cor-metodo: #0a7d4f;
+  --rotulo-metodo: "MÉTODO ESTATÍSTICO";
+  border: 1px solid #e3e8e8;
+  border-left: 5px solid var(--cor-metodo);
+  background: #fafcfc;
+  border-radius: 0 10px 10px 0;
+  padding: 0.9rem 1.2rem 0.4rem 1.2rem;
+  margin: 1.4rem 0;
+}
+.metodo::before {
+  content: var(--rotulo-metodo);
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--cor-metodo);
+  margin-bottom: 0.15rem;
+}
+.metodo > p:first-of-type {
+  font-size: 1.05rem;
+  margin-bottom: 0.5rem;
+}
+.metodo-normalidade { --cor-metodo: #0a7d4f; --rotulo-metodo: "TESTE DE NORMALIDADE"; }
+.metodo-param       { --cor-metodo: #1f5fbf; --rotulo-metodo: "TESTE PARAMÉTRICO"; }
+.metodo-nparam      { --cor-metodo: #c0392b; --rotulo-metodo: "TESTE NÃO PARAMÉTRICO"; }
+.metodo-tendencia   { --cor-metodo: #5b4b8a; --rotulo-metodo: "TENDÊNCIA TEMPORAL"; }
+
+/* Citação de um método no texto */
+#quarto-document-content a[href^="#met-"] {
+  color: var(--cor-rotulo-tabela, #0a7d4f) !important;
+}

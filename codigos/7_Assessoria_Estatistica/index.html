@@ -206,7 +206,10 @@ window.Quarto = {
   </ul></li>
   <li><a href="#mapa-comparativo-das-taxas" id="toc-mapa-comparativo-das-taxas" class="nav-link" data-scroll-target="#mapa-comparativo-das-taxas"><span class="header-section-number">4</span> Mapa comparativo das taxas</a></li>
   <li><a href="#variáveis-hidrológicas" id="toc-variáveis-hidrológicas" class="nav-link" data-scroll-target="#variáveis-hidrológicas"><span class="header-section-number">5</span> Variáveis hidrológicas</a></li>
-  <li><a href="#séries-temporais" id="toc-séries-temporais" class="nav-link" data-scroll-target="#séries-temporais"><span class="header-section-number">6</span> Séries temporais</a></li>
+  <li><a href="#séries-temporais" id="toc-séries-temporais" class="nav-link" data-scroll-target="#séries-temporais"><span class="header-section-number">6</span> Séries temporais</a>
+  <ul class="collapse">
+  <li><a href="#análise-de-tendência" id="toc-análise-de-tendência" class="nav-link" data-scroll-target="#análise-de-tendência"><span class="header-section-number">6.1</span> Análise de tendência</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -327,6 +330,20 @@ window.Quarto = {
   .t-wilcoxon { color: #c0392b; }
   sup.t-welch, sup.t-wilcoxon { font-weight: 700; }
 </style>
+<!-- <script> -->
+<!--   // Desativa os atalhos da busca do Quarto (F, S e /) nesta página -->
+<!--   window.addEventListener('keydown', function (e) { -->
+<!--     var t = e.target, tag = t && t.tagName; -->
+<!--     if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || (t && t.isContentEditable)) return; -->
+<!--     var k = (e.key || '').toLowerCase(); -->
+<!--     if (k === 'f' || k === 's' || k === '/') { e.stopImmediatePropagation(); } -->
+<!--   }, true); -->
+<!--   // Se o painel de busca abrir por qualquer motivo, fecha na hora -->
+<!--   new MutationObserver(function () { -->
+<!--     var c = document.querySelector('.aa-DetachedCancelButton'); -->
+<!--     if (c) c.click(); -->
+<!--   }).observe(document.body, { childList: true, subtree: true }); -->
+<!-- </script> -->
 <script>
   // Desativa os atalhos da busca do Quarto (F, S e /) nesta página
   window.addEventListener('keydown', function (e) {
@@ -335,12 +352,6 @@ window.Quarto = {
     var k = (e.key || '').toLowerCase();
     if (k === 'f' || k === 's' || k === '/') { e.stopImmediatePropagation(); }
   }, true);
-
-  // Se o painel de busca abrir por qualquer motivo, fecha na hora
-  new MutationObserver(function () {
-    var c = document.querySelector('.aa-DetachedCancelButton');
-    if (c) c.click();
-  }).observe(document.body, { childList: true, subtree: true });
 </script>
 <p><br></p>
 <div style="border-top: 2px solid #040404;">
@@ -958,27 +969,38 @@ Tabela&nbsp;4: Estatísticas descritivas anuais da produção pesqueira (kg) por
 <h3 data-number="3.1" class="anchored" data-anchor-id="testes-de-hipótese"><span class="header-section-number">3.1</span> Testes de Hipótese</h3>
 <p>Para comparar a produção pesqueira anual entre os períodos Antes e Depois, adotamos o nível de significância de 5% (<span class="math inline">\(\alpha = 0,05\)</span>) e seguimos duas etapas: primeiro, avaliamos a normalidade dos dados de cada período; em seguida, escolhemos o teste de comparação adequado. Como Antes e Depois são formados por anos distintos, utilizamos testes para amostras independentes. Cada teste fornece uma estatística de teste e um <span class="math inline">\(p\)</span>-valor. Quando o <span class="math inline">\(p\)</span>-valor é menor que <span class="math inline">\(\alpha\)</span>, rejeitamos a hipótese nula (<span class="math inline">\(H_0\)</span>); caso contrário, não a rejeitamos.</p>
 <p><strong>Sobre os testes.</strong> A seguir, apresentamos cada teste utilizado, com a sua estatística de teste e as respectivas hipóteses.</p>
-<p><strong>Teste de normalidade de Shapiro-Wilk.</strong> Verifica se uma amostra pode ser considerada proveniente de uma distribuição normal. Sua estatística de teste é <span class="math inline">\(W\)</span>, e ele é indicado para amostras pequenas, como as deste estudo (9 e 14 anos). As hipóteses são:</p>
+<div id="met-shapiro-wilk" class="metodo metodo-normalidade">
+<p><strong>Teste de Shapiro-Wilk</strong></p>
+<p>Verifica se uma amostra pode ser considerada proveniente de uma distribuição normal. Sua estatística de teste é <span class="math inline">\(W\)</span>, e ele é indicado para amostras pequenas, como as deste estudo (9 e 14 anos). Um <span class="math inline">\(p\)</span>-valor maior que <span class="math inline">\(\alpha\)</span> indica que não há evidência contra a normalidade. As hipóteses são:</p>
 <ul>
 <li><span class="math inline">\(H_0\)</span>: os dados seguem uma distribuição normal;</li>
 <li><span class="math inline">\(H_1\)</span>: os dados não seguem uma distribuição normal.</li>
 </ul>
-<p>Um <span class="math inline">\(p\)</span>-valor maior que <span class="math inline">\(\alpha\)</span> indica que não há evidência contra a normalidade.</p>
-<p><strong>Teste de normalidade de Anderson-Darling.</strong> Também avalia a normalidade dos dados, com estatística de teste <span class="math inline">\(A\)</span>. Ele dá mais peso aos valores extremos da distribuição e, por isso, foi utilizado de forma complementar ao de Shapiro-Wilk. As hipóteses são:</p>
+</div>
+<div id="met-anderson-darling" class="metodo metodo-normalidade">
+<p><strong>Teste de Anderson-Darling</strong></p>
+<p>Também avalia a normalidade dos dados, com estatística de teste <span class="math inline">\(A\)</span>. Ele dá mais peso aos valores extremos da distribuição e, por isso, foi utilizado de forma complementar ao de Shapiro-Wilk. As hipóteses são:</p>
 <ul>
 <li><span class="math inline">\(H_0\)</span>: os dados seguem uma distribuição normal;</li>
 <li><span class="math inline">\(H_1\)</span>: os dados não seguem uma distribuição normal.</li>
 </ul>
-<p><strong>Teste paramétrico: teste t de Welch para amostras independentes.</strong> Compara as médias de dois grupos independentes. Exige que os dados de cada grupo sejam normais, mas não exige que as variâncias sejam iguais. Sua estatística de teste é <span class="math inline">\(t\)</span>, e ele foi utilizado quando os dois períodos atenderam à normalidade. As hipóteses são:</p>
+</div>
+<div id="met-welch" class="metodo metodo-param">
+<p><strong>Teste t de Welch para amostras independentes</strong></p>
+<p>Compara as médias de dois grupos independentes. Exige que os dados de cada grupo sejam normais, mas não exige que as variâncias sejam iguais. Sua estatística de teste é <span class="math inline">\(t\)</span>, e ele foi utilizado quando os dois períodos atenderam à normalidade. As hipóteses são:</p>
 <ul>
 <li><span class="math inline">\(H_0\)</span>: <span class="math inline">\(\mu_{\text{Antes}} = \mu_{\text{Depois}}\)</span> (as médias dos dois períodos são iguais);</li>
 <li><span class="math inline">\(H_1\)</span>: <span class="math inline">\(\mu_{\text{Antes}} \neq \mu_{\text{Depois}}\)</span> (as médias dos dois períodos são diferentes).</li>
 </ul>
-<p><strong>Teste não paramétrico: teste de Wilcoxon-Mann-Whitney para amostras independentes.</strong> Compara dois grupos independentes a partir da ordenação (postos) das observações, sem exigir normalidade. Sua estatística de teste é <span class="math inline">\(W\)</span>, e ele foi utilizado quando ao menos um período não atendeu à normalidade. As hipóteses são:</p>
+</div>
+<div id="met-wilcoxon" class="metodo metodo-nparam">
+<p><strong>Teste de Wilcoxon-Mann-Whitney para amostras independentes</strong></p>
+<p>Compara dois grupos independentes a partir da ordenação (postos) das observações, sem exigir normalidade. Sua estatística de teste é <span class="math inline">\(W\)</span>, e ele foi utilizado quando ao menos um período não atendeu à normalidade. As hipóteses são:</p>
 <ul>
 <li><span class="math inline">\(H_0\)</span>: os dois períodos têm a mesma distribuição de produção;</li>
 <li><span class="math inline">\(H_1\)</span>: os dois períodos têm distribuições de produção diferentes.</li>
 </ul>
+</div>
 <p>Os resultados dos testes estão na <a href="#tbl-testes-hipotese" class="quarto-xref">Tabela&nbsp;5</a>.</p>
 <div id="tbl-testes-hipotese" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -998,39 +1020,81 @@ Tabela&nbsp;5: Resultados dos testes de normalidade e de comparação entre os p
 <tr class="header">
 <th style="text-align: left;">Município</th>
 <th style="text-align: left;">Período</th>
-<th style="text-align: left;">Normalidade<br>Estatística de teste</th>
-<th style="text-align: left;">Normalidade<br><span class="math inline">\(p\)</span>-valor</th>
-<th style="text-align: left;">Teste de Comparação</th>
+<th style="text-align: left;">Método estatístico</th>
+<th style="text-align: left;">Estatística de teste e <em>p</em>-valor</th>
+<th style="text-align: left;">Conclusão</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><strong>Borba</strong></td>
 <td style="text-align: left;">Antes</td>
-<td style="text-align: left;">SW: 0,9809<br>AD: 0,1239</td>
-<td style="text-align: left;">SW: 0,9688<br>AD: 0,9765</td>
-<td style="text-align: left;"><span class="t-welch">Teste t de Welch para amostras independentes<br>Estatística de teste: <span class="math inline">\(t = 7,3533\)</span><br><span class="math inline">\(p\)</span>-valor <span class="math inline">\(&lt; 0,001\)</span><br>Rejeita <span class="math inline">\(H_0\)</span></span></td>
+<td style="text-align: left;">Shapiro-Wilk</td>
+<td style="text-align: left;"><em>W</em> = 0,9809; <em>p</em>-valor = 0,9688</td>
+<td style="text-align: left;">Normal</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"></td>
-<td style="text-align: left;">Depois</td>
-<td style="text-align: left;">SW: 0,9582<br>AD: 0,2086</td>
-<td style="text-align: left;">SW: 0,6936<br>AD: 0,8293</td>
 <td style="text-align: left;"></td>
+<td style="text-align: left;">Anderson-Darling</td>
+<td style="text-align: left;"><em>A</em> = 0,1239; <em>p</em>-valor = 0,9765</td>
+<td style="text-align: left;">Normal</td>
 </tr>
 <tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Depois</td>
+<td style="text-align: left;">Shapiro-Wilk</td>
+<td style="text-align: left;"><em>W</em> = 0,9582; <em>p</em>-valor = 0,6936</td>
+<td style="text-align: left;">Normal</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Anderson-Darling</td>
+<td style="text-align: left;"><em>A</em> = 0,2086; <em>p</em>-valor = 0,8293</td>
+<td style="text-align: left;">Normal</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Antes e Depois</td>
+<td style="text-align: left;"><span class="t-welch">Teste t de Welch para amostras independentes</span></td>
+<td style="text-align: left;"><span class="t-welch"><em>t</em> = 7,3533; <em>p</em>-valor &lt; 0,001</span></td>
+<td style="text-align: left;"><span class="t-welch">Rejeita <em>H</em><sub>0</sub></span></td>
+</tr>
+<tr class="even">
 <td style="text-align: left;"><strong>Manicoré</strong></td>
 <td style="text-align: left;">Antes</td>
-<td style="text-align: left;">SW: 0,8338<br>AD: 0,6465</td>
-<td style="text-align: left;">SW: 0,0493<br>AD: 0,0610</td>
-<td style="text-align: left;"><span class="t-wilcoxon">Wilcoxon-Mann-Whitney para amostras independentes<br>Estatística de teste: <span class="math inline">\(W = 126\)</span><br><span class="math inline">\(p\)</span>-valor <span class="math inline">\(&lt; 0,001\)</span><br>Rejeita <span class="math inline">\(H_0\)</span></span></td>
+<td style="text-align: left;">Shapiro-Wilk</td>
+<td style="text-align: left;"><em>W</em> = 0,8338; <em>p</em>-valor = 0,0493</td>
+<td style="text-align: left;">Não normal</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Anderson-Darling</td>
+<td style="text-align: left;"><em>A</em> = 0,6465; <em>p</em>-valor = 0,0610</td>
+<td style="text-align: left;">Normal</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"></td>
 <td style="text-align: left;">Depois</td>
-<td style="text-align: left;">SW: 0,9592<br>AD: 0,2511</td>
-<td style="text-align: left;">SW: 0,7105<br>AD: 0,6864</td>
+<td style="text-align: left;">Shapiro-Wilk</td>
+<td style="text-align: left;"><em>W</em> = 0,9592; <em>p</em>-valor = 0,7105</td>
+<td style="text-align: left;">Normal</td>
+</tr>
+<tr class="odd">
 <td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Anderson-Darling</td>
+<td style="text-align: left;"><em>A</em> = 0,2511; <em>p</em>-valor = 0,6864</td>
+<td style="text-align: left;">Normal</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Antes e Depois</td>
+<td style="text-align: left;"><span class="t-wilcoxon">Wilcoxon-Mann-Whitney para amostras independentes</span></td>
+<td style="text-align: left;"><span class="t-wilcoxon"><em>W</em> = 126; <em>p</em>-valor &lt; 0,001</span></td>
+<td style="text-align: left;"><span class="t-wilcoxon">Rejeita <em>H</em><sub>0</sub></span></td>
 </tr>
 </tbody>
 </table>
@@ -1038,7 +1102,7 @@ Tabela&nbsp;5: Resultados dos testes de normalidade e de comparação entre os p
 </figure>
 </div>
 <div class="nota-tabela">
-<p><strong>Notas.</strong> SW: teste de Shapiro-Wilk (estatística de teste <span class="math inline">\(W\)</span>); AD: teste de Anderson-Darling (estatística de teste <span class="math inline">\(A\)</span>). Nível de significância adotado: 5% (<span class="math inline">\(\alpha = 0,05\)</span>). Um <span class="math inline">\(p\)</span>-valor menor que <span class="math inline">\(\alpha\)</span> leva à rejeição da hipótese nula (<span class="math inline">\(H_0\)</span>). Nos testes de normalidade, <span class="math inline">\(H_0\)</span> afirma que os dados seguem uma distribuição normal. Para comparar os períodos, utilizamos testes para amostras independentes: teste t de Welch (cor azul), quando os dois períodos são normais, e teste de Wilcoxon-Mann-Whitney (cor vermelha), quando ao menos um período não é normal.</p>
+<p><strong>Notas.</strong> Nível de significância adotado: 5% (<span class="math inline">\(\alpha = 0,05\)</span>). Nos testes de normalidade, a hipótese nula (<span class="math inline">\(H_0\)</span>) afirma que os dados seguem uma distribuição normal, e um <em>p</em>-valor maior que <span class="math inline">\(\alpha\)</span> leva a “Normal”. Na comparação entre os períodos, um <em>p</em>-valor menor que <span class="math inline">\(\alpha\)</span> leva à rejeição de <span class="math inline">\(H_0\)</span>. Utilizamos testes para amostras independentes: teste t de Welch (cor azul), quando os dois períodos são normais, e teste de Wilcoxon-Mann-Whitney (cor vermelha), quando ao menos um período não é normal.</p>
 </div>
 <p><strong>Comentários.</strong> Em <strong>Borba</strong>, todos os <span class="math inline">\(p\)</span>-valores dos testes de normalidade foram maiores que <span class="math inline">\(\alpha\)</span>, ou seja, não houve evidência contra a normalidade nos dois períodos, o que permitiu aplicar o teste t de Welch. Sua estatística de teste foi <span class="math inline">\(t = 7,3533\)</span>, com <span class="math inline">\(p\)</span>-valor <span class="math inline">\(&lt; 0,001\)</span>, e rejeitamos <span class="math inline">\(H_0\)</span>: a produção média anual passou de 90.673 kg no período Antes para 28.287 kg no período Depois.</p>
 <p>Em <strong>Manicoré</strong>, os dois testes de normalidade do período Antes ficaram próximos do nível de significância: o de Shapiro-Wilk rejeitou a normalidade (<span class="math inline">\(p\)</span>-valor <span class="math inline">\(= 0,0493\)</span>), enquanto o de Anderson-Darling não a rejeitou (<span class="math inline">\(p\)</span>-valor <span class="math inline">\(= 0,0610\)</span>). No período Depois, nenhum dos testes indicou afastamento da normalidade (<span class="math inline">\(p\)</span>-valores de 0,7105 e 0,6864). Como a normalidade não foi atendida de forma clara no período Antes, adotamos a conduta conservadora e aplicamos o teste de Wilcoxon-Mann-Whitney, que resultou em estatística de teste <span class="math inline">\(W = 126\)</span> e <span class="math inline">\(p\)</span>-valor <span class="math inline">\(&lt; 0,001\)</span>, levando à rejeição de <span class="math inline">\(H_0\)</span>. Esse valor de <span class="math inline">\(W\)</span> é o máximo possível para 9 e 14 anos (9 × 14 = 126), o que indica que todos os anos do período Antes tiveram produção maior que todos os anos do período Depois.</p>
@@ -1074,8 +1138,59 @@ Figura&nbsp;1: Spatial distribution of fishing activity decline rates along the 
 <div class="objetivo">
 <p><strong>Objetivo:</strong> Detectar mudanças nas séries temporais da produção pesqueira e das cotas fluviométricas;</p>
 </div>
+<section id="análise-de-tendência" class="level3" data-number="6.1">
+<h3 data-number="6.1" class="anchored" data-anchor-id="análise-de-tendência"><span class="header-section-number">6.1</span> Análise de tendência</h3>
+<p>Para avaliar a tendência da produção pesqueira ao longo do tempo em cada período (Antes e Depois), utilizamos o teste de Mann-Kendall, o estimador de inclinação de Sen e a regressão linear por mínimos quadrados, descritos a seguir.</p>
+<div id="met-mann-kendall" class="metodo metodo-tendencia">
+<p><strong>Teste de tendência de Mann-Kendall (correlação τ de Kendall)</strong></p>
+<p>É um teste não paramétrico que verifica se existe uma tendência contínua de aumento ou de queda ao longo do tempo. Ele se baseia no coeficiente <span class="math inline">\(\tau\)</span> de Kendall, que compara todos os pares de anos: o par é concordante quando o ano mais recente tem produção maior que o mais antigo e discordante quando tem produção menor. Como usa a ordem (postos) dos valores, não exige normalidade. O coeficiente <span class="math inline">\(\tau\)</span> varia de −1 a +1: valores próximos de −1 indicam queda consistente, valores próximos de +1 indicam aumento consistente e valores próximos de 0 indicam ausência de tendência. Elevar <span class="math inline">\(\tau\)</span> ao quadrado (<span class="math inline">\(\tau^2\)</span>) fornece uma medida aproximada do tamanho do efeito. As hipóteses são:</p>
+<ul>
+<li><span class="math inline">\(H_0\)</span>: não há tendência ao longo do tempo (<span class="math inline">\(\tau = 0\)</span>);</li>
+<li><span class="math inline">\(H_1\)</span>: há tendência ao longo do tempo (<span class="math inline">\(\tau \neq 0\)</span>).</li>
+</ul>
+</div>
+<div id="met-sen" class="metodo metodo-tendencia">
+<p><strong>Estimador de inclinação de Sen (Sen’s slope)</strong></p>
+<p>É um método não paramétrico que estima a magnitude da tendência identificada pelo teste de Mann-Kendall, isto é, a taxa de variação por unidade de tempo, aqui em kg/ano. Ele calcula a inclinação entre todos os pares possíveis de anos e adota a mediana dessas inclinações como estimativa final. Como se baseia na mediana, e não na média, é resistente a valores discrepantes (outliers) e a ruídos comuns em séries longas de desembarque pesqueiro. As hipóteses para o <span class="math inline">\(p\)</span>-valor associado são:</p>
+<ul>
+<li><span class="math inline">\(H_0\)</span>: a inclinação é igual a zero (não há variação anual);</li>
+<li><span class="math inline">\(H_1\)</span>: a inclinação é diferente de zero (há variação anual).</li>
+</ul>
+</div>
+<div id="met-ols" class="metodo metodo-tendencia">
+<p><strong>Regressão linear por mínimos quadrados (OLS)</strong></p>
+<p>Ajusta uma reta aos dados minimizando a soma dos quadrados das diferenças entre os valores observados e os previstos. Neste estudo, a reta foi ajustada separadamente para cada período e utilizada para representar a tendência nos gráficos.</p>
+</div>
+<p>As <a href="#fig-serie-borba" class="quarto-xref">Figura&nbsp;2</a> e <a href="#fig-serie-manicore" class="quarto-xref">Figura&nbsp;3</a> mostram a série temporal da captura total em cada colônia.</p>
+<div id="fig-serie-borba" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-serie-borba-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="graficos/Time_Series_Borba.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-serie-borba-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;2: <strong>PT-BR:</strong> Série temporal da captura total (kg) na colônia de Borba entre 2002 e 2024. Os pontos representam o volume anual observado, divididos nos períodos antes (azul escuro) e depois (azul claro) do barramento em 2011 (linha tracejada vertical). A linha azul clara liga as observações anuais, e as linhas vermelhas escuras indicam a tendência estimada por regressão linear de mínimos quadrados (OLS) em cada período. Os valores de <span class="math inline">\(\tau\)</span> correspondem ao coeficiente <span class="math inline">\(\tau\)</span> de Kendall do teste de Mann-Kendall, os <span class="math inline">\(p\)</span>-valores indicam a significância estatística de <span class="math inline">\(\tau\)</span> e da inclinação de Sen, e Sen representa o estimador de inclinação de Sen, que quantifica a taxa anual de variação (taxa de perda) em kg/ano em cada período. A captura total corresponde à soma das 19 espécies registradas por ano. A área cinza de 2025 indica que esse ano é exibido apenas como referência visual e foi excluído das análises estatísticas de tendência por apresentar dados incompletos.<br><br><strong>EN:</strong> Time series of total catch (kg) in the Borba fishers’ colony between 2002 and 2024. Dots represent the observed annual volume, divided into the periods before (dark blue) and after (light blue) the dam impoundment in 2011 (dashed vertical line). The light-blue line connects the annual observations, and the dark-red lines indicate the trend estimated by Ordinary Least Squares (OLS) regression in each period. The <span class="math inline">\(\tau\)</span> values are Kendall’s <span class="math inline">\(\tau\)</span> coefficients from the Mann-Kendall trend test, the <span class="math inline">\(p\)</span>-values indicate the statistical significance of <span class="math inline">\(\tau\)</span> and of Sen’s slope, and Sen represents Sen’s slope estimator, which quantifies the annual rate of change (loss rate) in kg/year for each period. Total catch is the sum of the 19 species recorded per year. The grey shaded area for 2025 indicates that this year is shown for visual reference only and was excluded from the statistical trend analyses because of incomplete data.
+</figcaption>
+</figure>
+</div>
+<div class="linha-baixar">
+<p><a href="graficos/Time_Series_Borba.png" class="baixar" download="Time_Series_Borba.png"><i class="bi bi-download"></i> Baixar mapa (PNG)</a></p>
+</div>
+<div id="fig-serie-manicore" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-serie-manicore-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="graficos/Time_Series_Manicore.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-serie-manicore-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;3: <strong>PT-BR:</strong> Série temporal da captura total (kg) na colônia de Manicoré entre 2002 e 2024. Os pontos representam o volume anual observado, divididos nos períodos antes (azul escuro) e depois (azul claro) do barramento em 2011 (linha tracejada vertical). A linha azul clara liga as observações anuais, e as linhas vermelhas escuras indicam a tendência estimada por regressão linear de mínimos quadrados (OLS) em cada período. Os valores de <span class="math inline">\(\tau\)</span> correspondem ao coeficiente <span class="math inline">\(\tau\)</span> de Kendall do teste de Mann-Kendall, os <span class="math inline">\(p\)</span>-valores indicam a significância estatística de <span class="math inline">\(\tau\)</span> e da inclinação de Sen, e Sen representa o estimador de inclinação de Sen, que quantifica a taxa anual de variação (taxa de perda) em kg/ano em cada período. A captura total corresponde à soma das 18 espécies registradas por ano. A área cinza de 2025 indica que esse ano é exibido apenas como referência visual e foi excluído das análises estatísticas de tendência por apresentar dados incompletos.<br><br><strong>EN:</strong> Time series of total catch (kg) in the Manicoré fishers’ colony between 2002 and 2024. Dots represent the observed annual volume, divided into the periods before (dark blue) and after (light blue) the dam impoundment in 2011 (dashed vertical line). The light-blue line connects the annual observations, and the dark-red lines indicate the trend estimated by Ordinary Least Squares (OLS) regression in each period. The <span class="math inline">\(\tau\)</span> values are Kendall’s <span class="math inline">\(\tau\)</span> coefficients from the Mann-Kendall trend test, the <span class="math inline">\(p\)</span>-values indicate the statistical significance of <span class="math inline">\(\tau\)</span> and of Sen’s slope, and Sen represents Sen’s slope estimator, which quantifies the annual rate of change (loss rate) in kg/year for each period. Total catch is the sum of the 18 species recorded per year. The grey shaded area for 2025 indicates that this year is shown for visual reference only and was excluded from the statistical trend analyses because of incomplete data.
+</figcaption>
+</figure>
+</div>
+<div class="linha-baixar">
+<p><a href="graficos/Time_Series_Manicore.png" class="baixar" download="Time_Series_Manicore.png"><i class="bi bi-download"></i> Baixar mapa (PNG)</a></p>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
