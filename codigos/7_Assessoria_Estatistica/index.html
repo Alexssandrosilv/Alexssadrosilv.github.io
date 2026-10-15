@@ -1117,7 +1117,7 @@ Tabela&nbsp;5: <strong>Testes de tendência de Mann-Kendall, Sen’s Slope e ver
 <p><strong>Notas:</strong> Foram considerados os períodos 2002–2010 (Antes) e 2011–2024 (Depois) | <span class="math inline">\(n\)</span> = número de anos avaliados em cada período | <span class="math inline">\(\tau\)</span> de Kendall = coeficiente de correlação de postos | Sen’s Slope = estimativa não paramétrica da taxa de variação mediana anual (kg/ano) | Durbin-Watson (<span class="math inline">\(d\)</span>) = estatística de teste para autocorrelação de primeira ordem nos resíduos (valores próximos de 2 indicam independência) | <span class="math inline">\(p\)</span>-valor (D.W.) = significância do teste de autocorrelação (<span class="math inline">\(\alpha = 0,05\)</span>) | [↓] = tendência temporal decrescente estatisticamente significativa.</p>
 </div>
 <p><strong>Comentários:</strong> A análise de tendência corroborou o declínio contínuo e expressivo da produção pesqueira em ambos os municípios, com quedas estatisticamente significativas (<span class="math inline">\(p &lt; 0,05\)</span>) em todas as janelas temporais. Destaca-se a extrema correlação negativa (<span class="math inline">\(\tau = -1,000\)</span>) no período “Depois” para as duas colônias e no “Antes” para Borba, apontando um decréscimo monotônico rigoroso. O <em>Sen’s Slope</em> detalha a magnitude dessa perda: Borba registrou uma redução mediana de 8.990,62 kg/ano antes do represamento, passando para 1.108,33 kg/ano após as obras (ritmo menor devido ao esgotamento prévio da base produtiva), enquanto Manicoré intensificou a queda de 21,00 kg/ano para 33,50 kg/ano.</p>
-<p>A análise de autocorrelação (via teste de Durbin-Watson) evidenciou forte dependência temporal nas séries. Sabendo que a estatística <span class="math inline">\(d\)</span> varia num intervalo de 0 a 4 — onde valores próximos de 2 indicam ausência de correlação serial e valores que se aproximam de 0 denotam forte autocorrelação positiva —, os resultados obtidos (<span class="math inline">\(d &lt; 1,35\)</span> com <span class="math inline">\(p &lt; 0,05\)</span> na maioria dos recortes) confirmam inequivocamente essa dependência, uma característica inerente a dados de captura pesqueira plurianuais. Esta constatação metodológica fundamenta a adoção prioritária dos testes não paramétricos de Mann-Kendall e do estimador de Sen.&nbsp;Sendo estas métricas robustas e imunes às violações de normalidade e de autocorrelação serial.</p>
+<p>A análise de autocorrelação (via teste de Durbin-Watson) evidenciou forte dependência temporal nas séries. Sabendo que a estatística <span class="math inline">\(d\)</span> varia num intervalo de 0 a 4, onde valores próximos de 2 indicam ausência de correlação serial e valores que se aproximam de 0 denotam forte autocorrelação positiva, os resultados obtidos (<span class="math inline">\(d &lt; 1,35\)</span> com <span class="math inline">\(p &lt; 0,05\)</span> na maioria dos recortes) confirmam inequivocamente essa dependência, uma característica inerente a dados de captura pesqueira plurianuais. Esta constatação metodológica fundamenta a adoção prioritária dos testes não paramétricos de Mann-Kendall e do estimador de Sen.&nbsp;Sendo estas métricas robustas e imunes às violações de normalidade e de autocorrelação serial.</p>
 <div id="fig-serie-borba" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-serie-borba-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -1147,13 +1147,1240 @@ Figura&nbsp;3: Time series of total catch (kg) in the Manicoré fishers’ colon
 </section>
 <section id="análise-de-tendência-temporal-e-autocorrelação-para-as-espécies" class="level3" data-number="4.2">
 <h3 data-number="4.2" class="anchored" data-anchor-id="análise-de-tendência-temporal-e-autocorrelação-para-as-espécies"><span class="header-section-number">4.2</span> Análise de Tendência Temporal e Autocorrelação para as Espécies</h3>
+<div id="tbl-testes-especies" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-testes-especies-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabela&nbsp;6: <strong>Testes de normalidade e de comparação entre os períodos Antes e Depois da produção pesqueira anual por espécie e município.</strong>
+</figcaption>
+<div aria-describedby="tbl-testes-especies-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Município</th>
+<th style="text-align: left;">Espécie</th>
+<th style="text-align: left;">Normalidade<br><em>p</em>-valor (Antes)</th>
+<th style="text-align: left;">Normalidade<br><em>p</em>-valor (Depois)</th>
+<th style="text-align: left;">Método Estatístico</th>
+<th style="text-align: left;">Estatística de teste</th>
+<th style="text-align: left;"><em>p</em>-valor</th>
+<th style="text-align: left;">Resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Borba</strong></td>
+<td style="text-align: left;">Aracu</td>
+<td style="text-align: left;">0,5050</td>
+<td style="text-align: left;"><strong>0,0102</strong></td>
+<td style="text-align: left;"><span class="t-wilcoxon">Wilcoxon-Mann-Whitney</span></td>
+<td style="text-align: left;"><em>W</em> = 126</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">Diferente</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Branquinha</td>
+<td style="text-align: left;">0,4814</td>
+<td style="text-align: left;">0,3485</td>
+<td style="text-align: left;"><span class="t-welch">Teste <em>t</em> de Welch</span></td>
+<td style="text-align: left;"><em>t</em> = 7,0685</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">Diferente</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Caparari</td>
+<td style="text-align: left;">0,7998</td>
+<td style="text-align: left;"><strong>0,0316</strong></td>
+<td style="text-align: left;"><span class="t-wilcoxon">Wilcoxon-Mann-Whitney</span></td>
+<td style="text-align: left;"><em>W</em> = 126</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">Diferente</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Cara branco</td>
+<td style="text-align: left;">0,0672</td>
+<td style="text-align: left;"><strong>0,0236</strong></td>
+<td style="text-align: left;"><span class="t-wilcoxon">Wilcoxon-Mann-Whitney</span></td>
+<td style="text-align: left;"><em>W</em> = 126</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">Diferente</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Carauaçu</td>
+<td style="text-align: left;">0,9480</td>
+<td style="text-align: left;"><strong>0,0103</strong></td>
+<td style="text-align: left;"><span class="t-wilcoxon">Wilcoxon-Mann-Whitney</span></td>
+<td style="text-align: left;"><em>W</em> = 126</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">Diferente</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Curimatã</td>
+<td style="text-align: left;">0,4114</td>
+<td style="text-align: left;">0,1407</td>
+<td style="text-align: left;"><span class="t-welch">Teste <em>t</em> de Welch</span></td>
+<td style="text-align: left;"><em>t</em> = 5,4171</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">Diferente</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Dourada</td>
+<td style="text-align: left;">0,1869</td>
+<td style="text-align: left;">0,9968</td>
+<td style="text-align: left;"><span class="t-welch">Teste <em>t</em> de Welch</span></td>
+<td style="text-align: left;"><em>t</em> = 7,9663</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">Diferente</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Filhote</td>
+<td style="text-align: left;">0,9369</td>
+<td style="text-align: left;"><strong>0,0053</strong></td>
+<td style="text-align: left;"><span class="t-wilcoxon">Wilcoxon-Mann-Whitney</span></td>
+<td style="text-align: left;"><em>W</em> = 126</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">Diferente</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Jaraqui</td>
+<td style="text-align: left;">0,9888</td>
+<td style="text-align: left;"><strong>0,0006</strong></td>
+<td style="text-align: left;"><span class="t-wilcoxon">Wilcoxon-Mann-Whitney</span></td>
+<td style="text-align: left;"><em>W</em> = 126</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">Diferente</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Matrinxã</td>
+<td style="text-align: left;">0,9369</td>
+<td style="text-align: left;">0,4878</td>
+<td style="text-align: left;"><span class="t-welch">Teste <em>t</em> de Welch</span></td>
+<td style="text-align: left;"><em>t</em> = 7,2466</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">Diferente</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Pacu</td>
+<td style="text-align: left;">0,6620</td>
+<td style="text-align: left;">0,1317</td>
+<td style="text-align: left;"><span class="t-welch">Teste <em>t</em> de Welch</span></td>
+<td style="text-align: left;"><em>t</em> = 6,7055</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">Diferente</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Pescada</td>
+<td style="text-align: left;">0,3988</td>
+<td style="text-align: left;"><strong>0,0073</strong></td>
+<td style="text-align: left;"><span class="t-wilcoxon">Wilcoxon-Mann-Whitney</span></td>
+<td style="text-align: left;"><em>W</em> = 126</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">Diferente</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Piranambu/Barbado</td>
+<td style="text-align: left;">0,6657</td>
+<td style="text-align: left;">0,5922</td>
+<td style="text-align: left;"><span class="t-welch">Teste <em>t</em> de Welch</span></td>
+<td style="text-align: left;"><em>t</em> = 7,9110</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">Diferente</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Pirapitinga</td>
+<td style="text-align: left;">0,0783</td>
+<td style="text-align: left;">0,1500</td>
+<td style="text-align: left;"><span class="t-welch">Teste <em>t</em> de Welch</span></td>
+<td style="text-align: left;"><em>t</em> = 4,9082</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">Diferente</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Pirarara</td>
+<td style="text-align: left;">0,2103</td>
+<td style="text-align: left;">0,9804</td>
+<td style="text-align: left;"><span class="t-welch">Teste <em>t</em> de Welch</span></td>
+<td style="text-align: left;"><em>t</em> = 6,4354</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">Diferente</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Sardinha</td>
+<td style="text-align: left;">0,2655</td>
+<td style="text-align: left;">0,8578</td>
+<td style="text-align: left;"><span class="t-welch">Teste <em>t</em> de Welch</span></td>
+<td style="text-align: left;"><em>t</em> = 4,5728</td>
+<td style="text-align: left;">0,002</td>
+<td style="text-align: left;">Diferente</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Surubim</td>
+<td style="text-align: left;">0,2497</td>
+<td style="text-align: left;">0,9125</td>
+<td style="text-align: left;"><span class="t-welch">Teste <em>t</em> de Welch</span></td>
+<td style="text-align: left;"><em>t</em> = 4,8991</td>
+<td style="text-align: left;">0,001</td>
+<td style="text-align: left;">Diferente</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Tambaqui</td>
+<td style="text-align: left;">0,2685</td>
+<td style="text-align: left;"><strong>0,0195</strong></td>
+<td style="text-align: left;"><span class="t-wilcoxon">Wilcoxon-Mann-Whitney</span></td>
+<td style="text-align: left;"><em>W</em> = 126</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">Diferente</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Tucunaré</td>
+<td style="text-align: left;">0,6110</td>
+<td style="text-align: left;"><strong>0,0465</strong></td>
+<td style="text-align: left;"><span class="t-wilcoxon">Wilcoxon-Mann-Whitney</span></td>
+<td style="text-align: left;"><em>W</em> = 126</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">Diferente</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Manicoré</strong></td>
+<td style="text-align: left;">Aracu</td>
+<td style="text-align: left;">0,2574</td>
+<td style="text-align: left;">0,0786</td>
+<td style="text-align: left;"><span class="t-welch">Teste <em>t</em> de Welch</span></td>
+<td style="text-align: left;"><em>t</em> = 16,1726</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">Diferente</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Branquinha</td>
+<td style="text-align: left;"><strong>0,0033</strong></td>
+<td style="text-align: left;">0,6692</td>
+<td style="text-align: left;"><span class="t-wilcoxon">Wilcoxon-Mann-Whitney</span></td>
+<td style="text-align: left;"><em>W</em> = 126</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">Diferente</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Caparari</td>
+<td style="text-align: left;">0,3202</td>
+<td style="text-align: left;">0,6522</td>
+<td style="text-align: left;"><span class="t-welch">Teste <em>t</em> de Welch</span></td>
+<td style="text-align: left;"><em>t</em> = 25,4883</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">Diferente</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Cara branco</td>
+<td style="text-align: left;">0,4936</td>
+<td style="text-align: left;">0,3694</td>
+<td style="text-align: left;"><span class="t-welch">Teste <em>t</em> de Welch</span></td>
+<td style="text-align: left;"><em>t</em> = 15,4677</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">Diferente</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Carauaçu</td>
+<td style="text-align: left;">0,5948</td>
+<td style="text-align: left;">0,1534</td>
+<td style="text-align: left;"><span class="t-welch">Teste <em>t</em> de Welch</span></td>
+<td style="text-align: left;"><em>t</em> = 27,8316</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">Diferente</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Curimatã</td>
+<td style="text-align: left;">0,7468</td>
+<td style="text-align: left;">0,1132</td>
+<td style="text-align: left;"><span class="t-welch">Teste <em>t</em> de Welch</span></td>
+<td style="text-align: left;"><em>t</em> = 23,9779</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">Diferente</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Dourada</td>
+<td style="text-align: left;">0,0662</td>
+<td style="text-align: left;">0,9999</td>
+<td style="text-align: left;"><span class="t-welch">Teste <em>t</em> de Welch</span></td>
+<td style="text-align: left;"><em>t</em> = 12,4558</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">Diferente</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Filhote</td>
+<td style="text-align: left;">0,0654</td>
+<td style="text-align: left;">0,7860</td>
+<td style="text-align: left;"><span class="t-welch">Teste <em>t</em> de Welch</span></td>
+<td style="text-align: left;"><em>t</em> = 17,7850</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">Diferente</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Jaraqui</td>
+<td style="text-align: left;"><strong>0,0238</strong></td>
+<td style="text-align: left;">0,2769</td>
+<td style="text-align: left;"><span class="t-wilcoxon">Wilcoxon-Mann-Whitney</span></td>
+<td style="text-align: left;"><em>W</em> = 126</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">Diferente</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Matrinxã</td>
+<td style="text-align: left;"><strong>0,0012</strong></td>
+<td style="text-align: left;">0,6581</td>
+<td style="text-align: left;"><span class="t-wilcoxon">Wilcoxon-Mann-Whitney</span></td>
+<td style="text-align: left;"><em>W</em> = 126</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">Diferente</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Pacu</td>
+<td style="text-align: left;">0,0704</td>
+<td style="text-align: left;">0,6822</td>
+<td style="text-align: left;"><span class="t-welch">Teste <em>t</em> de Welch</span></td>
+<td style="text-align: left;"><em>t</em> = 32,8344</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">Diferente</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Pescada</td>
+<td style="text-align: left;">0,0871</td>
+<td style="text-align: left;"><strong>0,0104</strong></td>
+<td style="text-align: left;"><span class="t-wilcoxon">Wilcoxon-Mann-Whitney</span></td>
+<td style="text-align: left;"><em>W</em> = 126</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">Diferente</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Pirapitinga</td>
+<td style="text-align: left;">0,1620</td>
+<td style="text-align: left;">0,6100</td>
+<td style="text-align: left;"><span class="t-welch">Teste <em>t</em> de Welch</span></td>
+<td style="text-align: left;"><em>t</em> = 15,9602</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">Diferente</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Pirarara</td>
+<td style="text-align: left;">0,4486</td>
+<td style="text-align: left;">0,9804</td>
+<td style="text-align: left;"><span class="t-welch">Teste <em>t</em> de Welch</span></td>
+<td style="text-align: left;"><em>t</em> = 17,7902</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">Diferente</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Sardinha</td>
+<td style="text-align: left;">0,3593</td>
+<td style="text-align: left;">0,1163</td>
+<td style="text-align: left;"><span class="t-welch">Teste <em>t</em> de Welch</span></td>
+<td style="text-align: left;"><em>t</em> = 20,5883</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">Diferente</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Surubim</td>
+<td style="text-align: left;">0,7805</td>
+<td style="text-align: left;">0,8529</td>
+<td style="text-align: left;"><span class="t-welch">Teste <em>t</em> de Welch</span></td>
+<td style="text-align: left;"><em>t</em> = 20,3144</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">Diferente</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Tambaqui</td>
+<td style="text-align: left;"><strong>0,0054</strong></td>
+<td style="text-align: left;"><strong>0,0024</strong></td>
+<td style="text-align: left;"><span class="t-wilcoxon">Wilcoxon-Mann-Whitney</span></td>
+<td style="text-align: left;"><em>W</em> = 126</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">Diferente</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Tucunaré</td>
+<td style="text-align: left;">0,5814</td>
+<td style="text-align: left;">0,2947</td>
+<td style="text-align: left;"><span class="t-welch">Teste <em>t</em> de Welch</span></td>
+<td style="text-align: left;"><em>t</em> = 14,9312</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">Diferente</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<div class="nota-tabela">
+<p><strong>Notas:</strong> <span class="math inline">\(n\)</span> = 9 anos (Antes: 2002–2010) e 14 anos (Depois: 2011–2024) em todas as espécies | A normalidade foi avaliada em cada período pelo teste de Shapiro-Wilk, e <em>p</em>-valores em negrito indicam rejeição da normalidade (<span class="math inline">\(p &lt; 0,05\)</span>) | Cor azul = teste <em>t</em> de Welch para amostras independentes (paramétrico), aplicado quando os dois períodos são normais | Cor vermelha = teste de Wilcoxon-Mann-Whitney para amostras independentes (não paramétrico), aplicado quando ao menos um período não é normal | Nível de significância: <span class="math inline">\(\alpha = 0,05\)</span> | <em>p</em>-valores menores que 0,001 são apresentados como &lt; 0,001 | Resultado “Diferente” = diferença estatisticamente significativa entre os períodos.</p>
+</div>
+<p><strong>Comentários:</strong> Em todas as 37 comparações entre os períodos Antes e Depois (19 espécies em Borba e 18 em Manicoré), o <em>p</em>-valor foi menor que 0,05, ou seja, rejeitamos a hipótese nula de igualdade (<span class="math inline">\(\alpha = 0,05\)</span>) e houve diferença estatisticamente significativa entre os períodos. Em Borba, a normalidade foi atendida nos dois períodos em 10 espécies, para as quais aplicamos o teste <em>t</em> de Welch, e não foi atendida em ao menos um período em 9 espécies, para as quais aplicamos o teste de Wilcoxon-Mann-Whitney. Em Manicoré, o teste <em>t</em> de Welch foi aplicado a 13 espécies e o de Wilcoxon-Mann-Whitney a 5 (Branquinha, Jaraqui, Matrinxã, Pescada e Tambaqui). Em todas as espécies em que o teste de Wilcoxon-Mann-Whitney foi aplicado, a estatística de teste foi <span class="math inline">\(W = 126\)</span>, valor máximo possível para 9 e 14 anos (<span class="math inline">\(9 \times 14\)</span>), o que indica separação completa entre os períodos: todos os anos do período Antes tiveram captura maior que todos os anos do período Depois.</p>
+<div id="tbl-tendencia-borba" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-tendencia-borba-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabela&nbsp;7: <strong>Teste de tendência de Mann-Kendall e inclinação de Sen da captura anual (kg) por espécie e período na colônia de Borba.</strong>
+</figcaption>
+<div aria-describedby="tbl-tendencia-borba-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Espécie</th>
+<th style="text-align: left;">Período</th>
+<th style="text-align: left;"><em>n</em></th>
+<th style="text-align: left;"><span class="math inline">\(\tau\)</span> de Kendall</th>
+<th style="text-align: left;"><span class="math inline">\(\tau^2\)</span></th>
+<th style="text-align: left;"><em>p</em>-valor</th>
+<th style="text-align: left;">Inclinação de Sen<br>(kg/ano)</th>
+<th style="text-align: left;">Tendência</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Aracu</strong></td>
+<td style="text-align: left;">Antes</td>
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">−1,000</td>
+<td style="text-align: left;">1,000</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">−724,03</td>
+<td style="text-align: left;">Queda significativa</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Depois</td>
+<td style="text-align: left;">14</td>
+<td style="text-align: left;">−0,934</td>
+<td style="text-align: left;">0,872</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">−55,12</td>
+<td style="text-align: left;">Queda significativa</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Branquinha</strong></td>
+<td style="text-align: left;">Antes</td>
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">−0,889</td>
+<td style="text-align: left;">0,790</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">−261,75</td>
+<td style="text-align: left;">Queda significativa</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Depois</td>
+<td style="text-align: left;">14</td>
+<td style="text-align: left;">−1,000</td>
+<td style="text-align: left;">1,000</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">−52,00</td>
+<td style="text-align: left;">Queda significativa</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Caparari</strong></td>
+<td style="text-align: left;">Antes</td>
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">−0,889</td>
+<td style="text-align: left;">0,790</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">−751,52</td>
+<td style="text-align: left;">Queda significativa</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Depois</td>
+<td style="text-align: left;">14</td>
+<td style="text-align: left;">−1,000</td>
+<td style="text-align: left;">1,000</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">−33,14</td>
+<td style="text-align: left;">Queda significativa</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Cara branco</strong></td>
+<td style="text-align: left;">Antes</td>
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">−0,889</td>
+<td style="text-align: left;">0,790</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">−234,50</td>
+<td style="text-align: left;">Queda significativa</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Depois</td>
+<td style="text-align: left;">14</td>
+<td style="text-align: left;">−1,000</td>
+<td style="text-align: left;">1,000</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">−38,25</td>
+<td style="text-align: left;">Queda significativa</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Carauaçu</strong></td>
+<td style="text-align: left;">Antes</td>
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">−0,889</td>
+<td style="text-align: left;">0,790</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">−485,88</td>
+<td style="text-align: left;">Queda significativa</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Depois</td>
+<td style="text-align: left;">14</td>
+<td style="text-align: left;">−1,000</td>
+<td style="text-align: left;">1,000</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">−47,75</td>
+<td style="text-align: left;">Queda significativa</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Curimatã</strong></td>
+<td style="text-align: left;">Antes</td>
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">−1,000</td>
+<td style="text-align: left;">1,000</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">−545,64</td>
+<td style="text-align: left;">Queda significativa</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Depois</td>
+<td style="text-align: left;">14</td>
+<td style="text-align: left;">−0,994</td>
+<td style="text-align: left;">0,989</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">−47,00</td>
+<td style="text-align: left;">Queda significativa</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Dourada</strong></td>
+<td style="text-align: left;">Antes</td>
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">−0,389</td>
+<td style="text-align: left;">0,151</td>
+<td style="text-align: left;">0,144</td>
+<td style="text-align: left;">−208,73</td>
+<td style="text-align: left;">Estável (não significativa)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Depois</td>
+<td style="text-align: left;">14</td>
+<td style="text-align: left;">−1,000</td>
+<td style="text-align: left;">1,000</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">−54,75</td>
+<td style="text-align: left;">Queda significativa</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Filhote</strong></td>
+<td style="text-align: left;">Antes</td>
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">−0,389</td>
+<td style="text-align: left;">0,151</td>
+<td style="text-align: left;">0,144</td>
+<td style="text-align: left;">−161,92</td>
+<td style="text-align: left;">Estável (não significativa)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Depois</td>
+<td style="text-align: left;">14</td>
+<td style="text-align: left;">−0,994</td>
+<td style="text-align: left;">0,989</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">−50,75</td>
+<td style="text-align: left;">Queda significativa</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Jaraqui</strong></td>
+<td style="text-align: left;">Antes</td>
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">−0,944</td>
+<td style="text-align: left;">0,892</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">−605,40</td>
+<td style="text-align: left;">Queda significativa</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Depois</td>
+<td style="text-align: left;">14</td>
+<td style="text-align: left;">−0,934</td>
+<td style="text-align: left;">0,872</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">−50,33</td>
+<td style="text-align: left;">Queda significativa</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Matrinxã</strong></td>
+<td style="text-align: left;">Antes</td>
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">−0,889</td>
+<td style="text-align: left;">0,790</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">−368,20</td>
+<td style="text-align: left;">Queda significativa</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Depois</td>
+<td style="text-align: left;">14</td>
+<td style="text-align: left;">−1,000</td>
+<td style="text-align: left;">1,000</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">−43,33</td>
+<td style="text-align: left;">Queda significativa</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Pacu</strong></td>
+<td style="text-align: left;">Antes</td>
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">−0,778</td>
+<td style="text-align: left;">0,605</td>
+<td style="text-align: left;">0,004</td>
+<td style="text-align: left;">−457,17</td>
+<td style="text-align: left;">Queda significativa</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Depois</td>
+<td style="text-align: left;">14</td>
+<td style="text-align: left;">−0,868</td>
+<td style="text-align: left;">0,754</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">−51,50</td>
+<td style="text-align: left;">Queda significativa</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Pescada</strong></td>
+<td style="text-align: left;">Antes</td>
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">−1,000</td>
+<td style="text-align: left;">1,000</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">−356,38</td>
+<td style="text-align: left;">Queda significativa</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Depois</td>
+<td style="text-align: left;">14</td>
+<td style="text-align: left;">−1,000</td>
+<td style="text-align: left;">1,000</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">−78,70</td>
+<td style="text-align: left;">Queda significativa</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Piranambu/Barbado</strong></td>
+<td style="text-align: left;">Antes</td>
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">−0,778</td>
+<td style="text-align: left;">0,605</td>
+<td style="text-align: left;">0,004</td>
+<td style="text-align: left;">−481,33</td>
+<td style="text-align: left;">Queda significativa</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Depois</td>
+<td style="text-align: left;">14</td>
+<td style="text-align: left;">−1,000</td>
+<td style="text-align: left;">1,000</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">−51,50</td>
+<td style="text-align: left;">Queda significativa</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Pirapitinga</strong></td>
+<td style="text-align: left;">Antes</td>
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">−0,889</td>
+<td style="text-align: left;">0,790</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">−579,33</td>
+<td style="text-align: left;">Queda significativa</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Depois</td>
+<td style="text-align: left;">14</td>
+<td style="text-align: left;">−1,000</td>
+<td style="text-align: left;">1,000</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">−161,50</td>
+<td style="text-align: left;">Queda significativa</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Pirarara</strong></td>
+<td style="text-align: left;">Antes</td>
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">−0,944</td>
+<td style="text-align: left;">0,892</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">−504,00</td>
+<td style="text-align: left;">Queda significativa</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Depois</td>
+<td style="text-align: left;">14</td>
+<td style="text-align: left;">−0,950</td>
+<td style="text-align: left;">0,903</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">−55,50</td>
+<td style="text-align: left;">Queda significativa</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Sardinha</strong></td>
+<td style="text-align: left;">Antes</td>
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">−0,944</td>
+<td style="text-align: left;">0,892</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">−1.166,00</td>
+<td style="text-align: left;">Queda significativa</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Depois</td>
+<td style="text-align: left;">14</td>
+<td style="text-align: left;">−1,000</td>
+<td style="text-align: left;">1,000</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">−101,50</td>
+<td style="text-align: left;">Queda significativa</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Surubim</strong></td>
+<td style="text-align: left;">Antes</td>
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">−0,833</td>
+<td style="text-align: left;">0,694</td>
+<td style="text-align: left;">0,002</td>
+<td style="text-align: left;">−584,88</td>
+<td style="text-align: left;">Queda significativa</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Depois</td>
+<td style="text-align: left;">14</td>
+<td style="text-align: left;">−1,000</td>
+<td style="text-align: left;">1,000</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">−88,40</td>
+<td style="text-align: left;">Queda significativa</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Tambaqui</strong></td>
+<td style="text-align: left;">Antes</td>
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">−0,667</td>
+<td style="text-align: left;">0,444</td>
+<td style="text-align: left;">0,012</td>
+<td style="text-align: left;">−250,60</td>
+<td style="text-align: left;">Queda significativa</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Depois</td>
+<td style="text-align: left;">14</td>
+<td style="text-align: left;">−1,000</td>
+<td style="text-align: left;">1,000</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">−51,20</td>
+<td style="text-align: left;">Queda significativa</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Tucunaré</strong></td>
+<td style="text-align: left;">Antes</td>
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">−1,000</td>
+<td style="text-align: left;">1,000</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">−423,08</td>
+<td style="text-align: left;">Queda significativa</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Depois</td>
+<td style="text-align: left;">14</td>
+<td style="text-align: left;">−1,000</td>
+<td style="text-align: left;">1,000</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">−47,50</td>
+<td style="text-align: left;">Queda significativa</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<div class="nota-tabela">
+<p><strong>Notas:</strong> <span class="math inline">\(n\)</span> = número de anos avaliados em cada período (Antes: 2002–2010; Depois: 2011–2024) | <span class="math inline">\(\tau\)</span> = coeficiente <span class="math inline">\(\tau\)</span> de Kendall do teste de Mann-Kendall | <span class="math inline">\(\tau^2\)</span> = medida aproximada do tamanho do efeito | Inclinação de Sen = taxa anual de variação da captura (kg/ano) | Nível de significância: <span class="math inline">\(\alpha = 0,05\)</span> | <em>p</em>-valores menores que 0,001 são apresentados como &lt; 0,001 | Queda significativa = <span class="math inline">\(\tau\)</span> negativo com <em>p</em>-valor &lt; 0,05 | Estável = tendência não significativa (<em>p</em>-valor ≥ 0,05).</p>
+</div>
+<p><strong>Comentários:</strong> Em Borba, 36 das 38 séries (19 espécies em dois períodos) apresentaram queda significativa pelo teste de Mann-Kendall (<span class="math inline">\(\alpha = 0,05\)</span>). As únicas exceções foram Dourada e Filhote no período Antes, que não tiveram tendência significativa (<span class="math inline">\(\tau = −0,389\)</span>; <em>p</em>-valor <span class="math inline">\(= 0,144\)</span>). No período Depois, todas as espécies apresentaram queda significativa, com <span class="math inline">\(\tau\)</span> entre −0,868 e −1,000. A inclinação de Sen mostra que a perda anual foi menor no período Depois em todas as espécies (de −33,14 a −161,50 kg/ano) do que no período Antes (de −161,92 a −1.166,00 kg/ano), ou seja, a produção continuou em queda após o barramento, porém em ritmo menor.</p>
+<div id="tbl-tendencia-manicore" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-tendencia-manicore-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabela&nbsp;8: <strong>Teste de tendência de Mann-Kendall e inclinação de Sen da captura anual (kg) por espécie e período na colônia de Manicoré.</strong>
+</figcaption>
+<div aria-describedby="tbl-tendencia-manicore-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Espécie</th>
+<th style="text-align: left;">Período</th>
+<th style="text-align: left;"><em>n</em></th>
+<th style="text-align: left;"><span class="math inline">\(\tau\)</span> de Kendall</th>
+<th style="text-align: left;"><span class="math inline">\(\tau^2\)</span></th>
+<th style="text-align: left;"><em>p</em>-valor</th>
+<th style="text-align: left;">Inclinação de Sen<br>(kg/ano)</th>
+<th style="text-align: left;">Tendência</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Aracu</strong></td>
+<td style="text-align: left;">Antes</td>
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">−0,650</td>
+<td style="text-align: left;">0,422</td>
+<td style="text-align: left;">0,021</td>
+<td style="text-align: left;">−0,45</td>
+<td style="text-align: left;">Queda significativa</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Depois</td>
+<td style="text-align: left;">14</td>
+<td style="text-align: left;">−0,628</td>
+<td style="text-align: left;">0,394</td>
+<td style="text-align: left;">0,004</td>
+<td style="text-align: left;">−0,17</td>
+<td style="text-align: left;">Queda significativa</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Branquinha</strong></td>
+<td style="text-align: left;">Antes</td>
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">−0,354</td>
+<td style="text-align: left;">0,125</td>
+<td style="text-align: left;">0,199</td>
+<td style="text-align: left;">−0,50</td>
+<td style="text-align: left;">Estável (não significativa)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Depois</td>
+<td style="text-align: left;">14</td>
+<td style="text-align: left;">−0,994</td>
+<td style="text-align: left;">0,989</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">−2,60</td>
+<td style="text-align: left;">Queda significativa</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Caparari</strong></td>
+<td style="text-align: left;">Antes</td>
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">−0,236</td>
+<td style="text-align: left;">0,056</td>
+<td style="text-align: left;">0,392</td>
+<td style="text-align: left;">−0,38</td>
+<td style="text-align: left;">Estável (não significativa)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Depois</td>
+<td style="text-align: left;">14</td>
+<td style="text-align: left;">−1,000</td>
+<td style="text-align: left;">1,000</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">−2,00</td>
+<td style="text-align: left;">Queda significativa</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Cara branco</strong></td>
+<td style="text-align: left;">Antes</td>
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">−0,817</td>
+<td style="text-align: left;">0,667</td>
+<td style="text-align: left;">0,002</td>
+<td style="text-align: left;">−1,00</td>
+<td style="text-align: left;">Queda significativa</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Depois</td>
+<td style="text-align: left;">14</td>
+<td style="text-align: left;">−0,961</td>
+<td style="text-align: left;">0,923</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">−0,50</td>
+<td style="text-align: left;">Queda significativa</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Carauaçu</strong></td>
+<td style="text-align: left;">Antes</td>
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">−0,464</td>
+<td style="text-align: left;">0,216</td>
+<td style="text-align: left;">0,098</td>
+<td style="text-align: left;">−0,33</td>
+<td style="text-align: left;">Estável (não significativa)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Depois</td>
+<td style="text-align: left;">14</td>
+<td style="text-align: left;">−0,938</td>
+<td style="text-align: left;">0,879</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">−0,40</td>
+<td style="text-align: left;">Queda significativa</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Curimatã</strong></td>
+<td style="text-align: left;">Antes</td>
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">−0,114</td>
+<td style="text-align: left;">0,013</td>
+<td style="text-align: left;">0,673</td>
+<td style="text-align: left;">−0,62</td>
+<td style="text-align: left;">Estável (não significativa)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Depois</td>
+<td style="text-align: left;">14</td>
+<td style="text-align: left;">−1,000</td>
+<td style="text-align: left;">1,000</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">−4,00</td>
+<td style="text-align: left;">Queda significativa</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Dourada</strong></td>
+<td style="text-align: left;">Antes</td>
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">−0,514</td>
+<td style="text-align: left;">0,265</td>
+<td style="text-align: left;">0,058</td>
+<td style="text-align: left;">−0,76</td>
+<td style="text-align: left;">Estável (não significativa)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Depois</td>
+<td style="text-align: left;">14</td>
+<td style="text-align: left;">−0,978</td>
+<td style="text-align: left;">0,957</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">−2,50</td>
+<td style="text-align: left;">Queda significativa</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Filhote</strong></td>
+<td style="text-align: left;">Antes</td>
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">−0,592</td>
+<td style="text-align: left;">0,350</td>
+<td style="text-align: left;">0,028</td>
+<td style="text-align: left;">−1,50</td>
+<td style="text-align: left;">Queda significativa</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Depois</td>
+<td style="text-align: left;">14</td>
+<td style="text-align: left;">−1,000</td>
+<td style="text-align: left;">1,000</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">−2,50</td>
+<td style="text-align: left;">Queda significativa</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Jaraqui</strong></td>
+<td style="text-align: left;">Antes</td>
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">−0,817</td>
+<td style="text-align: left;">0,667</td>
+<td style="text-align: left;">0,002</td>
+<td style="text-align: left;">−5,33</td>
+<td style="text-align: left;">Queda significativa</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Depois</td>
+<td style="text-align: left;">14</td>
+<td style="text-align: left;">−1,000</td>
+<td style="text-align: left;">1,000</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">−4,17</td>
+<td style="text-align: left;">Queda significativa</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Matrinxã</strong></td>
+<td style="text-align: left;">Antes</td>
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">−0,609</td>
+<td style="text-align: left;">0,371</td>
+<td style="text-align: left;">0,026</td>
+<td style="text-align: left;">−1,50</td>
+<td style="text-align: left;">Queda significativa</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Depois</td>
+<td style="text-align: left;">14</td>
+<td style="text-align: left;">−1,000</td>
+<td style="text-align: left;">1,000</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">−2,50</td>
+<td style="text-align: left;">Queda significativa</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Pacu</strong></td>
+<td style="text-align: left;">Antes</td>
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">−0,857</td>
+<td style="text-align: left;">0,735</td>
+<td style="text-align: left;">0,002</td>
+<td style="text-align: left;">−2,00</td>
+<td style="text-align: left;">Queda significativa</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Depois</td>
+<td style="text-align: left;">14</td>
+<td style="text-align: left;">−0,928</td>
+<td style="text-align: left;">0,862</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">−2,71</td>
+<td style="text-align: left;">Queda significativa</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Pescada</strong></td>
+<td style="text-align: left;">Antes</td>
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">−0,748</td>
+<td style="text-align: left;">0,560</td>
+<td style="text-align: left;">0,007</td>
+<td style="text-align: left;">−0,50</td>
+<td style="text-align: left;">Queda significativa</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Depois</td>
+<td style="text-align: left;">14</td>
+<td style="text-align: left;">−0,669</td>
+<td style="text-align: left;">0,447</td>
+<td style="text-align: left;">0,003</td>
+<td style="text-align: left;">−0,12</td>
+<td style="text-align: left;">Queda significativa</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Pirapitinga</strong></td>
+<td style="text-align: left;">Antes</td>
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">−0,704</td>
+<td style="text-align: left;">0,496</td>
+<td style="text-align: left;">0,009</td>
+<td style="text-align: left;">−1,20</td>
+<td style="text-align: left;">Queda significativa</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Depois</td>
+<td style="text-align: left;">14</td>
+<td style="text-align: left;">−0,966</td>
+<td style="text-align: left;">0,934</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">−0,71</td>
+<td style="text-align: left;">Queda significativa</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Pirarara</strong></td>
+<td style="text-align: left;">Antes</td>
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">−0,611</td>
+<td style="text-align: left;">0,373</td>
+<td style="text-align: left;">0,022</td>
+<td style="text-align: left;">−2,00</td>
+<td style="text-align: left;">Queda significativa</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Depois</td>
+<td style="text-align: left;">14</td>
+<td style="text-align: left;">−0,928</td>
+<td style="text-align: left;">0,862</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">−2,88</td>
+<td style="text-align: left;">Queda significativa</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Sardinha</strong></td>
+<td style="text-align: left;">Antes</td>
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">−0,611</td>
+<td style="text-align: left;">0,373</td>
+<td style="text-align: left;">0,022</td>
+<td style="text-align: left;">−2,55</td>
+<td style="text-align: left;">Queda significativa</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Depois</td>
+<td style="text-align: left;">14</td>
+<td style="text-align: left;">−1,000</td>
+<td style="text-align: left;">1,000</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">−2,50</td>
+<td style="text-align: left;">Queda significativa</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Surubim</strong></td>
+<td style="text-align: left;">Antes</td>
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">−0,611</td>
+<td style="text-align: left;">0,373</td>
+<td style="text-align: left;">0,022</td>
+<td style="text-align: left;">−1,50</td>
+<td style="text-align: left;">Queda significativa</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Depois</td>
+<td style="text-align: left;">14</td>
+<td style="text-align: left;">−1,000</td>
+<td style="text-align: left;">1,000</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">−2,50</td>
+<td style="text-align: left;">Queda significativa</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Tambaqui</strong></td>
+<td style="text-align: left;">Antes</td>
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">−0,889</td>
+<td style="text-align: left;">0,790</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">−2,00</td>
+<td style="text-align: left;">Queda significativa</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Depois</td>
+<td style="text-align: left;">14</td>
+<td style="text-align: left;">−0,656</td>
+<td style="text-align: left;">0,431</td>
+<td style="text-align: left;">0,002</td>
+<td style="text-align: left;">−0,50</td>
+<td style="text-align: left;">Queda significativa</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Tucunaré</strong></td>
+<td style="text-align: left;">Antes</td>
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">−0,366</td>
+<td style="text-align: left;">0,134</td>
+<td style="text-align: left;">0,173</td>
+<td style="text-align: left;">−0,68</td>
+<td style="text-align: left;">Estável (não significativa)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Depois</td>
+<td style="text-align: left;">14</td>
+<td style="text-align: left;">−0,961</td>
+<td style="text-align: left;">0,923</td>
+<td style="text-align: left;">&lt; 0,001</td>
+<td style="text-align: left;">−0,50</td>
+<td style="text-align: left;">Queda significativa</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<div class="nota-tabela">
+<p><strong>Notas:</strong> <span class="math inline">\(n\)</span> = número de anos avaliados em cada período (Antes: 2002–2010; Depois: 2011–2024) | <span class="math inline">\(\tau\)</span> = coeficiente <span class="math inline">\(\tau\)</span> de Kendall do teste de Mann-Kendall | <span class="math inline">\(\tau^2\)</span> = medida aproximada do tamanho do efeito | Inclinação de Sen = taxa anual de variação da captura (kg/ano) | Nível de significância: <span class="math inline">\(\alpha = 0,05\)</span> | <em>p</em>-valores menores que 0,001 são apresentados como &lt; 0,001 | Queda significativa = <span class="math inline">\(\tau\)</span> negativo com <em>p</em>-valor &lt; 0,05 | Estável = tendência não significativa (<em>p</em>-valor ≥ 0,05).</p>
+</div>
+<p><strong>Comentários:</strong> Em Manicoré, 30 das 36 séries (18 espécies em dois períodos) apresentaram queda significativa. No período Antes, seis espécies (Branquinha, Caparari, Carauaçu, Curimatã, Dourada e Tucunaré) não tiveram tendência significativa, enquanto no período Depois todas as espécies apresentaram queda significativa, com <span class="math inline">\(\tau\)</span> entre −0,628 e −1,000. As inclinações de Sen em Manicoré são de poucos kg/ano por espécie e variaram entre espécies: em módulo, foram maiores no período Depois em 10 das 18 espécies, com destaque para Jaraqui (−4,17 kg/ano) e Curimatã (−4,00 kg/ano), e menores nas outras 8.</p>
 <div id="fig-boxplot-borba" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-boxplot-borba-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="graficos/Boxplot_Species_Borba.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-boxplot-borba-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;4: Boxplot da distribuição da captura anual (kg, escala log10) por espécie na colónia de pescadores de Borba. Os dados estão divididos em dois períodos: antes (2002-2010, azul escuro) e depois (2011-2024, azul claro) do represamento da barragem. As caixas representam o intervalo interquartil (IIQ), com a linha horizontal a indicar a mediana. As hastes (<em>whiskers</em>) estendem-se até aos pontos de dados mais extremos dentro de 1,5 vezes o IIQ, e os pontos individuais representam valores atípicos (<em>outliers</em>). As letras abaixo dos nomes das espécies indicam a significância estatística entre os períodos para cada espécie: letras diferentes (a | b) denotam diferenças significativas, enquanto letras iguais (a | a) indicam ausência de diferença estatisticamente significativa.
+Figura&nbsp;4: <strong>PT-BR:</strong> Distribuição da captura anual (kg, escala logarítmica) por espécie na colônia de Borba, comparando os períodos antes (2002–2010; n = 9 anos; azul escuro) e depois (2011–2024; n = 14 anos; azul claro) do barramento. As caixas representam o intervalo interquartil, a linha dentro da caixa indica a mediana, as hastes se estendem aos valores dentro de 1,5 vez o intervalo interquartil e os pontos representam valores discrepantes (outliers). As letras abaixo do nome de cada espécie comparam os dois períodos: letras diferentes (a | b) indicam diferença estatisticamente significativa entre Antes e Depois (<span class="math inline">\(\alpha = 0,05\)</span>). As letras em laranja indicam comparação pelo teste <em>t</em> de Welch (paramétrico), e as letras em verde, pelo teste de Wilcoxon-Mann-Whitney (não paramétrico), conforme a normalidade dos dados em cada período. As espécies estão ordenadas da maior para a menor captura no período anterior ao barramento.<br><br><strong>EN:</strong> Distribution of annual catch (kg, logarithmic scale) by species in the Borba fishers’ colony, comparing the periods before (2002–2010; n = 9 years; dark blue) and after (2011–2024; n = 14 years; light blue) the dam impoundment. Boxes represent the interquartile range, horizontal lines inside the boxes indicate the median, whiskers extend to values within 1.5 times the interquartile range, and dots represent outliers. Letters below each species name compare the two periods: different letters (a | b) indicate a statistically significant difference between Before and After (<span class="math inline">\(\alpha = 0.05\)</span>). Orange letters indicate that the comparison was performed with Welch’s <em>t</em>-test (parametric), and green letters with the Wilcoxon-Mann-Whitney test (non-parametric), according to the normality of the data in each period. Species are ordered from highest to lowest catch in the period before the impoundment.
 </figcaption>
 </figure>
 </div>
@@ -1166,7 +2393,7 @@ Figura&nbsp;4: Boxplot da distribuição da captura anual (kg, escala log10) por
 <img src="graficos/Boxplot_Species_Manicore.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-boxplot-manicore-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;5: Boxplot da distribuição da captura anual (kg, escala log10) por espécie na colónia de pescadores de Manicoré. Os dados estão divididos em dois períodos: antes (2002-2010, verde escuro) e depois (2011-2024, verde claro) do represamento da barragem. As caixas representam o intervalo interquartil (IIQ), com a linha horizontal a indicar a mediana. As hastes (<em>whiskers</em>) estendem-se até aos pontos de dados mais extremos dentro de 1,5 vezes o IIQ, e os pontos individuais representam valores atípicos (<em>outliers</em>). As letras abaixo dos nomes das espécies indicam a significância estatística entre os períodos para cada espécie: letras diferentes (a | b) denotam diferenças significativas, enquanto letras iguais (a | a) indicam ausência de diferença estatisticamente significativa.
+Figura&nbsp;5: <strong>PT-BR:</strong> Distribuição da captura anual (kg, escala logarítmica) por espécie na colônia de Manicoré, comparando os períodos antes (2002–2010; n = 9 anos; azul escuro) e depois (2011–2024; n = 14 anos; azul claro) do barramento. As caixas representam o intervalo interquartil, a linha dentro da caixa indica a mediana, as hastes se estendem aos valores dentro de 1,5 vez o intervalo interquartil e os pontos representam valores discrepantes (outliers). As letras abaixo do nome de cada espécie comparam os dois períodos: letras diferentes (a | b) indicam diferença estatisticamente significativa entre Antes e Depois (<span class="math inline">\(\alpha = 0,05\)</span>). As letras em laranja indicam comparação pelo teste <em>t</em> de Welch (paramétrico), e as letras em verde, pelo teste de Wilcoxon-Mann-Whitney (não paramétrico), conforme a normalidade dos dados em cada período. As espécies estão ordenadas da maior para a menor captura no período anterior ao barramento.<br><br><strong>EN:</strong> Distribution of annual catch (kg, logarithmic scale) by species in the Manicoré fishers’ colony, comparing the periods before (2002–2010; n = 9 years; dark blue) and after (2011–2024; n = 14 years; light blue) the dam impoundment. Boxes represent the interquartile range, horizontal lines inside the boxes indicate the median, whiskers extend to values within 1.5 times the interquartile range, and dots represent outliers. Letters below each species name compare the two periods: different letters (a | b) indicate a statistically significant difference between Before and After (<span class="math inline">\(\alpha = 0.05\)</span>). Orange letters indicate that the comparison was performed with Welch’s <em>t</em>-test (parametric), and green letters with the Wilcoxon-Mann-Whitney test (non-parametric), according to the normality of the data in each period. Species are ordered from highest to lowest catch in the period before the impoundment.
 </figcaption>
 </figure>
 </div>
