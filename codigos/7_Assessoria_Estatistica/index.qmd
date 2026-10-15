@@ -35,6 +35,10 @@ resources:
   - graficos/TimeSeries_Final_Surubim.png
   - graficos/TimeSeries_Final_Tambaqui.png
   - graficos/TimeSeries_Final_Tucunaré.png
+  - graficos/TimeSeries_Cotas_Borba.png
+  - graficos/TimeSeries_Cotas_Manicore.png
+  
+  
 
 ---
 
@@ -782,5 +786,37 @@ A análise de autocorrelação (via teste de Durbin-Watson) evidenciou forte dep
 :::
 
 :::
-
 ### Análise de Tendência Temporal e Autocorrelação para as Cotas Fluviométricas
+
+As @fig-serie-cotas-borba e @fig-serie-cotas-manicore mostram a série temporal do nível médio anual do rio Madeira nas estações de cada município. Inicialmente, a avaliação dos pressupostos indicou que as séries não diferem significativamente da normalidade (Teste de Shapiro-Wilk, $p > 0,05$). Contudo, para lidar com a autocorrelação residual detetada em alguns períodos e manter a consistência metodológica rigorosa adotada nas análises de produção pesqueira, optou-se por abordagens estatísticas não paramétricas.
+
+Para avaliar o comportamento direcional destas séries ao longo do tempo, aplicou-se o teste de Mann-Kendall e a estimativa de Sen's Slope. Adicionalmente, verificou-se a premissa de independência dos resíduos por meio do teste de Durbin-Watson ($d$). Os resultados estão sintetizados na tabela a seguir.
+
+| Município | Período | Série Temporal<br>($n$) | $\tau$ de Kendall | Sen's Slope<br>(cm/ano) | $p$-valor<br>(Mann-Kendall) | Durbin-Watson<br>($d$) | $p$-valor<br>(D.W.) | Tendência |
+|:---|:---|:---|:---|:---|:---|:---|:---|:---|
+| **Borba** | Antes | 2002–2010 (9) | 0,111 | 3,28 | 0,677 | 1,97 | 0,304 | Estável [—]{style="color:#6c757d; font-weight:700;"} |
+|   | Depois | 2011–2024 (14) | −0,253 | −13,20 | 0,208 | 1,29 | 0,037 | Estável [—]{style="color:#6c757d; font-weight:700;"} |
+| **Manicoré** | Antes | 2002–2010 (9) | 0,278 | 19,98 | 0,297 | 1,98 | 0,313 | Estável [—]{style="color:#6c757d; font-weight:700;"} |
+|   | Depois | 2011–2024 (14) | −0,341 | −16,57 | 0,090 | 1,34 | 0,047 | Estável [—]{style="color:#6c757d; font-weight:700;"} |
+
+: **Testes de tendência de Mann-Kendall, Sen's Slope e verificação de autocorrelação de Durbin-Watson para o nível médio anual do rio Madeira por município e período.** {#tbl-tendencia-cotas}
+
+::: {.nota-tabela}
+**Notas:** Foram considerados os períodos 2002–2010 (Antes) e 2011–2024 (Depois) | $n$ = número de anos avaliados em cada período | $\tau$ de Kendall = coeficiente de correlação de postos | Sen's Slope = estimativa não paramétrica da taxa de variação mediana anual (cm/ano) | Durbin-Watson ($d$) = estatística de teste para autocorrelação de primeira ordem nos resíduos (valores próximos de 2 indicam independência) | $p$-valor (D.W.) = significância do teste de autocorrelação ($\alpha = 0,05$) | [—] = ausência de tendência temporal estatisticamente significativa a 5%.
+:::
+
+**Comentários:** A avaliação rigorosa dos pressupostos indicou que as séries anuais de cotas assumem uma distribuição normal em todos os cenários (Teste de Shapiro-Wilk: Borba Total $W = 0,957, p = 0,398$; Borba Antes $W = 0,962, p = 0,817$; Borba Depois $W = 0,946, p = 0,494$; Manicoré Total $W = 0,988, p = 0,991$; Manicoré Antes $W = 0,935, p = 0,527$; Manicoré Depois $W = 0,964, p = 0,792$). Contudo, o teste de Durbin-Watson detetou autocorrelação serial significativa na série total para Borba ($d = 1,190; p = 0,010$) e Manicoré ($d = 1,120; p = 0,006$), bem como no período pós-barragem ($p < 0,05$), justificando amplamente o uso de métodos não paramétricos. A análise de tendência demonstra que, a 5% de significância ($\alpha = 0,05$), os níveis fluviométricos mantiveram-se estatisticamente estáveis. No entanto, nota-se uma clara inversão de comportamento capturada pelo *Sen's Slope*: antes do represamento (2002–2010), registava-se uma suave tendência de aumento no volume de água (Borba: 3,28 cm/ano; Manicoré: 19,98 cm/ano); após a barragem (2011–2024), a inclinação tornou-se negativa, sinalizando um ritmo de perda hídrica (-13,20 cm/ano e -16,57 cm/ano). O decréscimo no período "Depois" em Manicoré foi marginalmente significativo ($p = 0,090$). Para confirmar o impacto global absoluto, o Teste de Mann-Whitney atestou que as medianas do nível do rio não sofreram alterações significativas entre as fases Antes e Depois (Borba: $W = 59, p = 0,825$; Manicoré: $W = 51, p = 0,469$).
+
+![Série temporal do nível médio anual (cm) da cota fluviométrica do rio Madeira na estação de Borba entre 2002 e 2024. Os pontos representam a cota anual observada. A linha tracejada vertical indica o ano de início do represamento da barragem (2011). Os valores de $\tau$ são os coeficientes de Kendall resultantes do teste de tendência de Mann-Kendall, os valores de $p$ indicam a significância estatística de $\tau$ e do declive de Sen, e Sen representa o estimador de declive, que quantifica a taxa anual de variação em cm/ano para cada período. O ano de 2025 foi mantido na projeção gráfica apenas para fins de referência visual.](graficos/TimeSeries_Cotas_Borba.png){#fig-serie-cotas-borba width="100%" fig-align="center"}
+
+::: {.linha-baixar}
+[<i class="bi bi-download"></i> Baixar Gráfico (PNG)](graficos/TimeSeries_Cotas_Borba.png){.baixar download="TimeSeries_Cotas_Borba.png"}
+:::
+
+<br>
+
+![Série temporal do nível médio anual (cm) da cota fluviométrica do rio Madeira na estação de Manicoré entre 2002 e 2024. Os pontos representam a cota anual observada. A linha tracejada vertical indica o ano de início do represamento da barragem (2011). Os valores de $\tau$ são os coeficientes de Kendall resultantes do teste de tendência de Mann-Kendall, os valores de $p$ indicam a significância estatística de $\tau$ e do declive de Sen, e Sen representa o estimador de declive, que quantifica a taxa anual de variação em cm/ano para cada período. O ano de 2025 foi mantido na projeção gráfica apenas para fins de referência visual.](graficos/TimeSeries_Cotas_Manicore.png){#fig-serie-cotas-manicore width="100%" fig-align="center"}
+
+::: {.linha-baixar}
+[<i class="bi bi-download"></i> Baixar Gráfico (PNG)](graficos/TimeSeries_Cotas_Manicore.png){.baixar download="TimeSeries_Cotas_Manicore.png"}
+:::
