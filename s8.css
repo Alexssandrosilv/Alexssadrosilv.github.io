@@ -1096,20 +1096,20 @@ mjx-container[display="true"],
 .metodo::before {
   content: var(--rotulo-metodo);
   display: block;
-  font-size: 0.7rem;
+  font-size: 0.6rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   color: var(--cor-metodo);
   margin-bottom: 0.15rem;
 }
-.metodo > p:first-of-type {
+.metodo > p:first-of-type {x
   font-size: 1.05rem;
   margin-bottom: 0.5rem;
 }
 .metodo-normalidade { --cor-metodo: #0a7d4f; --rotulo-metodo: "TESTE DE NORMALIDADE"; }
-.metodo-param       { --cor-metodo: #1f5fbf; --rotulo-metodo: "TESTE PARAMÉTRICO"; }
-.metodo-nparam      { --cor-metodo: #c0392b; --rotulo-metodo: "TESTE NÃO PARAMÉTRICO"; }
-.metodo-tendencia   { --cor-metodo: #5b4b8a; --rotulo-metodo: "TENDÊNCIA TEMPORAL"; }
+.metodo-param       { --cor-metodo: #0a7d4f; --rotulo-metodo: "TESTE PARAMÉTRICO"; }
+.metodo-nparam      { --cor-metodo: #0a7d4f; --rotulo-metodo: "TESTE NÃO PARAMÉTRICO"; }
+.metodo-tendencia   { --cor-metodo: #0a7d4f; --rotulo-metodo: "TENDÊNCIA TEMPORAL"; }
 
 /* Citação de um método no texto */
 #quarto-document-content a[href^="#met-"] {
