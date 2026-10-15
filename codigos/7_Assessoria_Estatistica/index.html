@@ -206,8 +206,7 @@ window.Quarto = {
   <li><a href="#variáveis-hidrológicas" id="toc-variáveis-hidrológicas" class="nav-link" data-scroll-target="#variáveis-hidrológicas"><span class="header-section-number">3</span> Variáveis hidrológicas</a></li>
   <li><a href="#séries-temporais" id="toc-séries-temporais" class="nav-link" data-scroll-target="#séries-temporais"><span class="header-section-number">4</span> Séries temporais</a>
   <ul class="collapse">
-  <li><a href="#análise-de-tendência-temporal-e-autocorrelação" id="toc-análise-de-tendência-temporal-e-autocorrelação" class="nav-link" data-scroll-target="#análise-de-tendência-temporal-e-autocorrelação"><span class="header-section-number">4.1</span> Análise de Tendência Temporal e Autocorrelação</a></li>
-  <li><a href="#análise-de-tendência-para-produção-pesqueira" id="toc-análise-de-tendência-para-produção-pesqueira" class="nav-link" data-scroll-target="#análise-de-tendência-para-produção-pesqueira"><span class="header-section-number">4.2</span> Análise de tendência para Produção Pesqueira</a></li>
+  <li><a href="#análise-de-tendência-temporal-e-autocorrelação-para-produção-pesqueira" id="toc-análise-de-tendência-temporal-e-autocorrelação-para-produção-pesqueira" class="nav-link" data-scroll-target="#análise-de-tendência-temporal-e-autocorrelação-para-produção-pesqueira"><span class="header-section-number">4.1</span> Análise de Tendência Temporal e Autocorrelação para Produção Pesqueira</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -1002,8 +1001,51 @@ Figura&nbsp;1: Spatial distribution of fishing activity decline rates along the 
 <div class="objetivo">
 <p><strong>Objetivo:</strong> Detectar mudanças nas séries temporais da produção pesqueira e das cotas fluviométricas;</p>
 </div>
-<section id="análise-de-tendência-temporal-e-autocorrelação" class="level3" data-number="4.1">
-<h3 data-number="4.1" class="anchored" data-anchor-id="análise-de-tendência-temporal-e-autocorrelação"><span class="header-section-number">4.1</span> Análise de Tendência Temporal e Autocorrelação</h3>
+<section id="análise-de-tendência-temporal-e-autocorrelação-para-produção-pesqueira" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="análise-de-tendência-temporal-e-autocorrelação-para-produção-pesqueira"><span class="header-section-number">4.1</span> Análise de Tendência Temporal e Autocorrelação para Produção Pesqueira</h3>
+<p>Para avaliar a tendência temporal e o comportamento da produção pesqueira em cada período (Antes e Depois), utilizou-se o teste não paramétrico de Mann-Kendall associado à estimativa de inclinação de Sen (<em>Sen’s Slope</em>), complementados por modelos de regressão linear por mínimos quadrados ordinários (OLS) para suporte visual e pelo teste de Durbin-Watson para a verificação da autocorrelação dos resíduos, cujos métodos encontram-se descritos a seguir.</p>
+<div id="met-mann-kendall" class="metodo metodo-tendencia">
+<p><strong>Teste de tendência de Mann-Kendall (correlação τ de Kendall)</strong></p>
+<p>É um teste não paramétrico que verifica se existe uma tendência contínua de aumento ou de queda ao longo do tempo. Ele se baseia no coeficiente <span class="math inline">\(\tau\)</span> de Kendall, que compara todos os pares de anos: o par é concordante quando o ano mais recente tem produção maior que o mais antigo e discordante quando tem produção menor. Como usa a ordem (postos) dos valores, não exige normalidade. O coeficiente <span class="math inline">\(\tau\)</span> varia de −1 a +1: valores próximos de −1 indicam queda consistente, valores próximos de +1 indicam aumento consistente e valores próximos de 0 indicam ausência de tendência. Elevar <span class="math inline">\(\tau\)</span> ao quadrado (<span class="math inline">\(\tau^2\)</span>) fornece uma medida aproximada do tamanho do efeito. As hipóteses são:</p>
+<ul>
+<li><span class="math inline">\(H_0\)</span>: não há tendência ao longo do tempo (<span class="math inline">\(\tau = 0\)</span>);</li>
+<li><span class="math inline">\(H_1\)</span>: há tendência ao longo do tempo (<span class="math inline">\(\tau \neq 0\)</span>).</li>
+</ul>
+</div>
+<div id="met-sen" class="metodo metodo-tendencia">
+<p><strong>Estimador de inclinação de Sen (Sen’s slope)</strong></p>
+<p>É um método não paramétrico que estima a magnitude da tendência identificada pelo teste de Mann-Kendall, isto é, a taxa de variação por unidade de tempo, aqui em kg/ano. Ele calcula a inclinação entre todos os pares possíveis de anos e adota a mediana dessas inclinações como estimativa final. Como se baseia na mediana, e não na média, é resistente a valores discrepantes (outliers) e a ruídos comuns em séries longas de desembarque pesqueiro. As hipóteses para o <span class="math inline">\(p\)</span>-valor associado são:</p>
+<ul>
+<li><span class="math inline">\(H_0\)</span>: a inclinação é igual a zero (não há variação anual);</li>
+<li><span class="math inline">\(H_1\)</span>: a inclinação é diferente de zero (há variação anual).</li>
+</ul>
+</div>
+<div id="met-dw" class="metodo metodo-tendencia">
+<p><strong>Teste de Durbin-Watson</strong></p>
+<p>Utilizado para detetar a presença de autocorrelação de primeira ordem nos resíduos de uma análise de regressão linear. Em séries temporais, valores da estatística <span class="math inline">\(d\)</span> próximos de 2 indicam ausência de autocorrelação, enquanto valores distantes apontam para dependência entre os erros consecutivos. As hipóteses testadas são:</p>
+<ul>
+<li><span class="math inline">\(H_0\)</span>: ausência de autocorrelação nos resíduos (<span class="math inline">\(\rho = 0\)</span>);</li>
+<li><span class="math inline">\(H_1\)</span>: presença de autocorrelação nos resíduos (<span class="math inline">\(\rho \neq 0\)</span>).</li>
+</ul>
+<p>A violação desta premissa justifica o uso complementar de métodos não paramétricos (como Mann-Kendall) para a validação robusta das tendências temporais.</p>
+</div>
+<div id="met-ols" class="metodo metodo-tendencia">
+<p><strong>Regressão linear por mínimos quadrados (OLS)</strong></p>
+<p>Método paramétrico que ajusta uma reta aos dados minimizando a soma dos quadrados dos resíduos (diferenças entre os valores observados e os previstos). A formulação geral do modelo para a série temporal é dada por:</p>
+<p><span class="math display">\[
+Y_i = \beta_0 + \beta_1 X_i + \varepsilon_i
+\]</span></p>
+<p>Em que <span class="math inline">\(Y_i\)</span> representa a captura total observada (kg), <span class="math inline">\(X_i\)</span> o ano, <span class="math inline">\(\beta_0\)</span> o intercepto, <span class="math inline">\(\beta_1\)</span> o coeficiente angular (taxa de variação anual) e <span class="math inline">\(\varepsilon_i\)</span> o termo de erro aleatório. Especificamente para este estudo, o modelo foi ajustado de forma independente para cada período, resultando nas seguintes equações de regressão estimadas (representando os valores previstos <span class="math inline">\(\hat{Y}\)</span>):</p>
+<ul>
+<li><p><strong>Período Anterior (2002–2010):</strong> <span class="math display">\[
+\widehat{\text{Captura}}_{\text{Antes}} = \hat{\beta}_0 + \hat{\beta}_1 \cdot \text{Ano}
+\]</span></p></li>
+<li><p><strong>Período Posterior (2011–2024):</strong> <span class="math display">\[
+\widehat{\text{Captura}}_{\text{Depois}} = \hat{\beta}_0 + \hat{\beta}_1 \cdot \text{Ano}
+\]</span></p></li>
+</ul>
+<p>Essas retas estimadas foram utilizadas para ilustrar graficamente a direção, a velocidade e a mudança de inclinação da perda produtiva em cada município após o represamento.</p>
+</div>
 <p>As <a href="#fig-serie-borba" class="quarto-xref">Figura&nbsp;2</a> e <a href="#fig-serie-manicore" class="quarto-xref">Figura&nbsp;3</a> mostram a série temporal da captura total em cada colônia. Para avaliar estatisticamente o comportamento dessas séries ao longo do tempo, aplicou-se o teste não paramétrico de Mann-Kendall e a estimativa de Sen’s Slope. Adicionalmente, verificou-se a premissa de independência dos resíduos dos modelos de regressão OLS por meio do teste de Durbin-Watson (<span class="math inline">\(d\)</span>). Os resultados estão sintetizados na tabela a seguir.</p>
 <div id="tbl-tendencia-pesca" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -1091,53 +1133,6 @@ Tabela&nbsp;5: <strong>Testes de tendência de Mann-Kendall, Sen’s Slope e ver
 </div>
 <p><strong>Comentários:</strong> A análise de tendência corroborou o declínio contínuo e expressivo da produção pesqueira em ambos os municípios, com quedas estatisticamente significativas (<span class="math inline">\(p &lt; 0,05\)</span>) em todas as janelas temporais. Destaca-se a extrema correlação negativa (<span class="math inline">\(\tau = -1,000\)</span>) no período “Depois” para as duas colônias e no “Antes” para Borba, apontando um decréscimo monotônico rigoroso. O <em>Sen’s Slope</em> detalha a magnitude dessa perda: Borba registrou uma redução mediana de 8.990,62 kg/ano antes do represamento, passando para 1.108,33 kg/ano após as obras (ritmo menor devido ao esgotamento prévio da base produtiva), enquanto Manicoré intensificou a queda de 21,00 kg/ano para 33,50 kg/ano.</p>
 <p>No que tange à validação dos modelos de regressão OLS auxiliares, os resultados do teste de Durbin-Watson evidenciaram a presença de autocorrelação positiva nos resíduos das séries (<span class="math inline">\(d &lt; 1,35\)</span> com <span class="math inline">\(p &lt; 0,05\)</span> na maioria dos recortes, exceto no período pré-UHE de Borba, onde o índice tendeu à limiaridade). Valores de <span class="math inline">\(d\)</span> distantes de 2 confirmam a forte dependência temporal inerente a dados de captura pesqueira plurianuais. Esta constatação metodológica fundamenta e valida a adoção prioritária dos testes não paramétricos de Mann-Kendall, cujas inferências permanecem imunes às violações de normalidade e autocorrelação dos resíduos, assegurando total robustez analítica à tese.</p>
-</section>
-<section id="análise-de-tendência-para-produção-pesqueira" class="level3" data-number="4.2">
-<h3 data-number="4.2" class="anchored" data-anchor-id="análise-de-tendência-para-produção-pesqueira"><span class="header-section-number">4.2</span> Análise de tendência para Produção Pesqueira</h3>
-<p>Para avaliar a tendência da produção pesqueira ao longo do tempo em cada período (Antes e Depois), utilizamos o teste de Mann-Kendall, o estimador de inclinação de Sen e a regressão linear por mínimos quadrados, descritos a seguir.</p>
-<div id="met-mann-kendall" class="metodo metodo-tendencia">
-<p><strong>Teste de tendência de Mann-Kendall (correlação τ de Kendall)</strong></p>
-<p>É um teste não paramétrico que verifica se existe uma tendência contínua de aumento ou de queda ao longo do tempo. Ele se baseia no coeficiente <span class="math inline">\(\tau\)</span> de Kendall, que compara todos os pares de anos: o par é concordante quando o ano mais recente tem produção maior que o mais antigo e discordante quando tem produção menor. Como usa a ordem (postos) dos valores, não exige normalidade. O coeficiente <span class="math inline">\(\tau\)</span> varia de −1 a +1: valores próximos de −1 indicam queda consistente, valores próximos de +1 indicam aumento consistente e valores próximos de 0 indicam ausência de tendência. Elevar <span class="math inline">\(\tau\)</span> ao quadrado (<span class="math inline">\(\tau^2\)</span>) fornece uma medida aproximada do tamanho do efeito. As hipóteses são:</p>
-<ul>
-<li><span class="math inline">\(H_0\)</span>: não há tendência ao longo do tempo (<span class="math inline">\(\tau = 0\)</span>);</li>
-<li><span class="math inline">\(H_1\)</span>: há tendência ao longo do tempo (<span class="math inline">\(\tau \neq 0\)</span>).</li>
-</ul>
-</div>
-<div id="met-sen" class="metodo metodo-tendencia">
-<p><strong>Estimador de inclinação de Sen (Sen’s slope)</strong></p>
-<p>É um método não paramétrico que estima a magnitude da tendência identificada pelo teste de Mann-Kendall, isto é, a taxa de variação por unidade de tempo, aqui em kg/ano. Ele calcula a inclinação entre todos os pares possíveis de anos e adota a mediana dessas inclinações como estimativa final. Como se baseia na mediana, e não na média, é resistente a valores discrepantes (outliers) e a ruídos comuns em séries longas de desembarque pesqueiro. As hipóteses para o <span class="math inline">\(p\)</span>-valor associado são:</p>
-<ul>
-<li><span class="math inline">\(H_0\)</span>: a inclinação é igual a zero (não há variação anual);</li>
-<li><span class="math inline">\(H_1\)</span>: a inclinação é diferente de zero (há variação anual).</li>
-</ul>
-</div>
-<div id="met-dw" class="metodo metodo-tendencia">
-<p><strong>Teste de Durbin-Watson</strong></p>
-<p>Utilizado para detetar a presença de autocorrelação de primeira ordem nos resíduos de uma análise de regressão linear. Em séries temporais, valores da estatística <span class="math inline">\(d\)</span> próximos de 2 indicam ausência de autocorrelação, enquanto valores distantes apontam para dependência entre os erros consecutivos. As hipóteses testadas são:</p>
-<ul>
-<li><span class="math inline">\(H_0\)</span>: ausência de autocorrelação nos resíduos (<span class="math inline">\(\rho = 0\)</span>);</li>
-<li><span class="math inline">\(H_1\)</span>: presença de autocorrelação nos resíduos (<span class="math inline">\(\rho \neq 0\)</span>).</li>
-</ul>
-<p>A violação desta premissa justifica o uso complementar de métodos não paramétricos (como Mann-Kendall) para a validação robusta das tendências temporais.</p>
-</div>
-<div id="met-ols" class="metodo metodo-tendencia">
-<p><strong>Regressão linear por mínimos quadrados (OLS)</strong></p>
-<p>Método paramétrico que ajusta uma reta aos dados minimizando a soma dos quadrados dos resíduos (diferenças entre os valores observados e os previstos). A formulação geral do modelo para a série temporal é dada por:</p>
-<p><span class="math display">\[
-Y_i = \beta_0 + \beta_1 X_i + \varepsilon_i
-\]</span></p>
-<p>Em que <span class="math inline">\(Y_i\)</span> representa a captura total observada (kg), <span class="math inline">\(X_i\)</span> o ano, <span class="math inline">\(\beta_0\)</span> o intercepto, <span class="math inline">\(\beta_1\)</span> o coeficiente angular (taxa de variação anual) e <span class="math inline">\(\varepsilon_i\)</span> o termo de erro aleatório. Especificamente para este estudo, o modelo foi ajustado de forma independente para cada período, resultando nas seguintes equações de regressão estimadas (representando os valores previstos <span class="math inline">\(\hat{Y}\)</span>):</p>
-<ul>
-<li><p><strong>Período Anterior (2002–2010):</strong> <span class="math display">\[
-\widehat{\text{Captura}}_{\text{Antes}} = \hat{\beta}_0 + \hat{\beta}_1 \cdot \text{Ano}
-\]</span></p></li>
-<li><p><strong>Período Posterior (2011–2024):</strong> <span class="math display">\[
-\widehat{\text{Captura}}_{\text{Depois}} = \hat{\beta}_0 + \hat{\beta}_1 \cdot \text{Ano}
-\]</span></p></li>
-</ul>
-<p>Essas retas estimadas foram utilizadas para ilustrar graficamente a direção, a velocidade e a mudança de inclinação da perda produtiva em cada município após o represamento.</p>
-</div>
-<p>As <a href="#fig-serie-borba" class="quarto-xref">Figura&nbsp;2</a> e <a href="#fig-serie-manicore" class="quarto-xref">Figura&nbsp;3</a> mostram a série temporal da captura total em cada colônia.</p>
 <div id="fig-serie-borba" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-serie-borba-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
