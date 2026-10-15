@@ -2694,6 +2694,120 @@ Figura&nbsp;24: Time series of annual catch (kg) for Tucunaré in the Borba and 
 </section>
 <section id="análise-de-tendência-temporal-e-autocorrelação-para-as-cotas-fluviométricas" class="level3" data-number="4.3">
 <h3 data-number="4.3" class="anchored" data-anchor-id="análise-de-tendência-temporal-e-autocorrelação-para-as-cotas-fluviométricas"><span class="header-section-number">4.3</span> Análise de Tendência Temporal e Autocorrelação para as Cotas Fluviométricas</h3>
+<p>As <a href="#fig-serie-cotas-borba" class="quarto-xref">Figura&nbsp;25</a> e <a href="#fig-serie-cotas-manicore" class="quarto-xref">Figura&nbsp;26</a> mostram a série temporal do nível médio anual do rio Madeira nas estações de cada município. Inicialmente, a avaliação dos pressupostos indicou que as séries não diferem significativamente da normalidade (Teste de Shapiro-Wilk, <span class="math inline">\(p &gt; 0,05\)</span>). Contudo, para lidar com a autocorrelação residual detetada em alguns períodos e manter a consistência metodológica rigorosa adotada nas análises de produção pesqueira, optou-se por abordagens estatísticas não paramétricas.</p>
+<p>Para avaliar o comportamento direcional destas séries ao longo do tempo, aplicou-se o teste de Mann-Kendall e a estimativa de Sen’s Slope. Adicionalmente, verificou-se a premissa de independência dos resíduos por meio do teste de Durbin-Watson (<span class="math inline">\(d\)</span>). Os resultados estão sintetizados na tabela a seguir.</p>
+<div id="tbl-tendencia-cotas" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-tendencia-cotas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabela&nbsp;9: <strong>Testes de tendência de Mann-Kendall, Sen’s Slope e verificação de autocorrelação de Durbin-Watson para o nível médio anual do rio Madeira por município e período.</strong>
+</figcaption>
+<div aria-describedby="tbl-tendencia-cotas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Município</th>
+<th style="text-align: left;">Período</th>
+<th style="text-align: left;">Série Temporal<br>(<span class="math inline">\(n\)</span>)</th>
+<th style="text-align: left;"><span class="math inline">\(\tau\)</span> de Kendall</th>
+<th style="text-align: left;">Sen’s Slope<br>(cm/ano)</th>
+<th style="text-align: left;"><span class="math inline">\(p\)</span>-valor<br>(Mann-Kendall)</th>
+<th style="text-align: left;">Durbin-Watson<br>(<span class="math inline">\(d\)</span>)</th>
+<th style="text-align: left;"><span class="math inline">\(p\)</span>-valor<br>(D.W.)</th>
+<th style="text-align: left;">Tendência</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Borba</strong></td>
+<td style="text-align: left;">Antes</td>
+<td style="text-align: left;">2002–2010 (9)</td>
+<td style="text-align: left;">0,111</td>
+<td style="text-align: left;">3,28</td>
+<td style="text-align: left;">0,677</td>
+<td style="text-align: left;">1,97</td>
+<td style="text-align: left;">0,304</td>
+<td style="text-align: left;">Estável <span style="color:#6c757d; font-weight:700;">—</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Depois</td>
+<td style="text-align: left;">2011–2024 (14)</td>
+<td style="text-align: left;">−0,253</td>
+<td style="text-align: left;">−13,20</td>
+<td style="text-align: left;">0,208</td>
+<td style="text-align: left;">1,29</td>
+<td style="text-align: left;">0,037</td>
+<td style="text-align: left;">Estável <span style="color:#6c757d; font-weight:700;">—</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Manicoré</strong></td>
+<td style="text-align: left;">Antes</td>
+<td style="text-align: left;">2002–2010 (9)</td>
+<td style="text-align: left;">0,278</td>
+<td style="text-align: left;">19,98</td>
+<td style="text-align: left;">0,297</td>
+<td style="text-align: left;">1,98</td>
+<td style="text-align: left;">0,313</td>
+<td style="text-align: left;">Estável <span style="color:#6c757d; font-weight:700;">—</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Depois</td>
+<td style="text-align: left;">2011–2024 (14)</td>
+<td style="text-align: left;">−0,341</td>
+<td style="text-align: left;">−16,57</td>
+<td style="text-align: left;">0,090</td>
+<td style="text-align: left;">1,34</td>
+<td style="text-align: left;">0,047</td>
+<td style="text-align: left;">Estável <span style="color:#6c757d; font-weight:700;">—</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<div class="nota-tabela">
+<p><strong>Notas:</strong> Foram considerados os períodos 2002–2010 (Antes) e 2011–2024 (Depois) | <span class="math inline">\(n\)</span> = número de anos avaliados em cada período | <span class="math inline">\(\tau\)</span> de Kendall = coeficiente de correlação de postos | Sen’s Slope = estimativa não paramétrica da taxa de variação mediana anual (cm/ano) | Durbin-Watson (<span class="math inline">\(d\)</span>) = estatística de teste para autocorrelação de primeira ordem nos resíduos (valores próximos de 2 indicam independência) | <span class="math inline">\(p\)</span>-valor (D.W.) = significância do teste de autocorrelação (<span class="math inline">\(\alpha = 0,05\)</span>) | [—] = ausência de tendência temporal estatisticamente significativa a 5%.</p>
+</div>
+<p><strong>Comentários:</strong> A avaliação rigorosa dos pressupostos indicou que as séries anuais de cotas assumem uma distribuição normal em todos os cenários (Teste de Shapiro-Wilk: Borba Total <span class="math inline">\(W = 0,957, p = 0,398\)</span>; Borba Antes <span class="math inline">\(W = 0,962, p = 0,817\)</span>; Borba Depois <span class="math inline">\(W = 0,946, p = 0,494\)</span>; Manicoré Total <span class="math inline">\(W = 0,988, p = 0,991\)</span>; Manicoré Antes <span class="math inline">\(W = 0,935, p = 0,527\)</span>; Manicoré Depois <span class="math inline">\(W = 0,964, p = 0,792\)</span>). Contudo, o teste de Durbin-Watson detetou autocorrelação serial significativa na série total para Borba (<span class="math inline">\(d = 1,190; p = 0,010\)</span>) e Manicoré (<span class="math inline">\(d = 1,120; p = 0,006\)</span>), bem como no período pós-barragem (<span class="math inline">\(p &lt; 0,05\)</span>), justificando amplamente o uso de métodos não paramétricos. A análise de tendência demonstra que, a 5% de significância (<span class="math inline">\(\alpha = 0,05\)</span>), os níveis fluviométricos mantiveram-se estatisticamente estáveis. No entanto, nota-se uma clara inversão de comportamento capturada pelo <em>Sen’s Slope</em>: antes do represamento (2002–2010), registava-se uma suave tendência de aumento no volume de água (Borba: 3,28 cm/ano; Manicoré: 19,98 cm/ano); após a barragem (2011–2024), a inclinação tornou-se negativa, sinalizando um ritmo de perda hídrica (-13,20 cm/ano e -16,57 cm/ano). O decréscimo no período “Depois” em Manicoré foi marginalmente significativo (<span class="math inline">\(p = 0,090\)</span>). Para confirmar o impacto global absoluto, o Teste de Mann-Whitney atestou que as medianas do nível do rio não sofreram alterações significativas entre as fases Antes e Depois (Borba: <span class="math inline">\(W = 59, p = 0,825\)</span>; Manicoré: <span class="math inline">\(W = 51, p = 0,469\)</span>).</p>
+<div id="fig-serie-cotas-borba" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-serie-cotas-borba-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="graficos/TimeSeries_Cotas_Borba.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-serie-cotas-borba-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;25: Série temporal do nível médio anual (cm) da cota fluviométrica do rio Madeira na estação de Borba entre 2002 e 2024. Os pontos representam a cota anual observada. A linha tracejada vertical indica o ano de início do represamento da barragem (2011). Os valores de <span class="math inline">\(\tau\)</span> são os coeficientes de Kendall resultantes do teste de tendência de Mann-Kendall, os valores de <span class="math inline">\(p\)</span> indicam a significância estatística de <span class="math inline">\(\tau\)</span> e do declive de Sen, e Sen representa o estimador de declive, que quantifica a taxa anual de variação em cm/ano para cada período. O ano de 2025 foi mantido na projeção gráfica apenas para fins de referência visual.
+</figcaption>
+</figure>
+</div>
+<div class="linha-baixar">
+<p><a href="graficos/TimeSeries_Cotas_Borba.png" class="baixar" download="TimeSeries_Cotas_Borba.png"><i class="bi bi-download"></i> Baixar Gráfico (PNG)</a></p>
+</div>
+<p><br></p>
+<div id="fig-serie-cotas-manicore" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-serie-cotas-manicore-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="graficos/TimeSeries_Cotas_Manicore.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-serie-cotas-manicore-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;26: Série temporal do nível médio anual (cm) da cota fluviométrica do rio Madeira na estação de Manicoré entre 2002 e 2024. Os pontos representam a cota anual observada. A linha tracejada vertical indica o ano de início do represamento da barragem (2011). Os valores de <span class="math inline">\(\tau\)</span> são os coeficientes de Kendall resultantes do teste de tendência de Mann-Kendall, os valores de <span class="math inline">\(p\)</span> indicam a significância estatística de <span class="math inline">\(\tau\)</span> e do declive de Sen, e Sen representa o estimador de declive, que quantifica a taxa anual de variação em cm/ano para cada período. O ano de 2025 foi mantido na projeção gráfica apenas para fins de referência visual.
+</figcaption>
+</figure>
+</div>
+<div class="linha-baixar">
+<p><a href="graficos/TimeSeries_Cotas_Manicore.png" class="baixar" download="TimeSeries_Cotas_Manicore.png"><i class="bi bi-download"></i> Baixar Gráfico (PNG)</a></p>
+</div>
 
 
 </section>
