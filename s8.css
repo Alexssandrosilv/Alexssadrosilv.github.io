@@ -1110,6 +1110,8 @@ mjx-container[display="true"],
 .metodo-param       { --cor-metodo: #0a7d4f; --rotulo-metodo: "TESTE PARAMÉTRICO"; }
 .metodo-nparam      { --cor-metodo: #0a7d4f; --rotulo-metodo: "TESTE NÃO PARAMÉTRICO"; }
 .metodo-tendencia   { --cor-metodo: #0a7d4f; --rotulo-metodo: "TENDÊNCIA TEMPORAL"; }
+.metodo-taxa { --cor-metodo: #0a7d4f; --rotulo-metodo: "CÁLCULO DE MÉTRICA"; }
+
 
 /* Citação de um método no texto */
 #quarto-document-content a[href^="#met-"] {
