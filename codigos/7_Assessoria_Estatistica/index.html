@@ -207,6 +207,7 @@ window.Quarto = {
   <li><a href="#séries-temporais" id="toc-séries-temporais" class="nav-link" data-scroll-target="#séries-temporais"><span class="header-section-number">4</span> Séries temporais</a>
   <ul class="collapse">
   <li><a href="#análise-de-tendência-temporal-e-autocorrelação-para-produção-pesqueira" id="toc-análise-de-tendência-temporal-e-autocorrelação-para-produção-pesqueira" class="nav-link" data-scroll-target="#análise-de-tendência-temporal-e-autocorrelação-para-produção-pesqueira"><span class="header-section-number">4.1</span> Análise de Tendência Temporal e Autocorrelação para Produção Pesqueira</a></li>
+  <li><a href="#análise-de-tendência-temporal-e-autocorrelação-para-as-espécies" id="toc-análise-de-tendência-temporal-e-autocorrelação-para-as-espécies" class="nav-link" data-scroll-target="#análise-de-tendência-temporal-e-autocorrelação-para-as-espécies"><span class="header-section-number">4.2</span> Análise de Tendência Temporal e Autocorrelação para as Espécies</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -1158,6 +1159,326 @@ Figura&nbsp;3: Time series of total catch (kg) in the Manicoré fishers’ colon
 </div>
 <div class="linha-baixar">
 <p><a href="graficos/Time_Series_Manicore.png" class="baixar" download="Time_Series_Manicore.png"><i class="bi bi-download"></i> Baixar Gráfico (PNG)</a></p>
+</div>
+</section>
+<section id="análise-de-tendência-temporal-e-autocorrelação-para-as-espécies" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="análise-de-tendência-temporal-e-autocorrelação-para-as-espécies"><span class="header-section-number">4.2</span> Análise de Tendência Temporal e Autocorrelação para as Espécies</h3>
+<div id="fig-boxplot-borba" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-boxplot-borba-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="graficos/Boxplot_Species_Borba.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-boxplot-borba-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;4: Boxplot da distribuição da captura anual (kg, escala log10) por espécie na colónia de pescadores de Borba. Os dados estão divididos em dois períodos: antes (2002-2010, azul escuro) e depois (2011-2024, azul claro) do represamento da barragem. As caixas representam o intervalo interquartil (IIQ), com a linha horizontal a indicar a mediana. As hastes (<em>whiskers</em>) estendem-se até aos pontos de dados mais extremos dentro de 1,5 vezes o IIQ, e os pontos individuais representam valores atípicos (<em>outliers</em>). As letras abaixo dos nomes das espécies indicam a significância estatística entre os períodos para cada espécie: letras diferentes (a | b) denotam diferenças significativas, enquanto letras iguais (a | a) indicam ausência de diferença estatisticamente significativa.
+</figcaption>
+</figure>
+</div>
+<div class="linha-baixar">
+<p><a href="graficos/Boxplot_Species_Borba.png" class="baixar" download="Boxplot_Species_Borba.png"><i class="bi bi-download"></i> Baixar Gráfico (PNG)</a></p>
+</div>
+<div id="fig-boxplot-manicore" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-boxplot-manicore-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="graficos/Boxplot_Species_Manicore.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-boxplot-manicore-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;5: Boxplot da distribuição da captura anual (kg, escala log10) por espécie na colónia de pescadores de Manicoré. Os dados estão divididos em dois períodos: antes (2002-2010, verde escuro) e depois (2011-2024, verde claro) do represamento da barragem. As caixas representam o intervalo interquartil (IIQ), com a linha horizontal a indicar a mediana. As hastes (<em>whiskers</em>) estendem-se até aos pontos de dados mais extremos dentro de 1,5 vezes o IIQ, e os pontos individuais representam valores atípicos (<em>outliers</em>). As letras abaixo dos nomes das espécies indicam a significância estatística entre os períodos para cada espécie: letras diferentes (a | b) denotam diferenças significativas, enquanto letras iguais (a | a) indicam ausência de diferença estatisticamente significativa.
+</figcaption>
+</figure>
+</div>
+<div class="linha-baixar">
+<p><a href="graficos/Boxplot_Species_Manicore.png" class="baixar" download="Boxplot_Species_Manicore.png"><i class="bi bi-download"></i> Baixar Gráfico (PNG)</a></p>
+</div>
+<p><strong>Interpretação:</strong> As <a href="#fig-serie-aracu" class="quarto-xref">Figura&nbsp;6</a>, <a href="#fig-serie-branquinha" class="quarto-xref">Figura&nbsp;7</a>, <a href="#fig-serie-caparari" class="quarto-xref">Figura&nbsp;8</a>, <a href="#fig-serie-cara-branco" class="quarto-xref">Figura&nbsp;9</a>, <a href="#fig-serie-carauacu" class="quarto-xref">Figura&nbsp;10</a>, <a href="#fig-serie-curimata" class="quarto-xref">Figura&nbsp;11</a>, <a href="#fig-serie-dourada" class="quarto-xref">Figura&nbsp;12</a>, <a href="#fig-serie-filhote" class="quarto-xref">Figura&nbsp;13</a>, <a href="#fig-serie-jaraqui" class="quarto-xref">Figura&nbsp;14</a>, <a href="#fig-serie-matrinxa" class="quarto-xref">Figura&nbsp;15</a>, <a href="#fig-serie-pacu" class="quarto-xref">Figura&nbsp;16</a>, <a href="#fig-serie-pescada" class="quarto-xref">Figura&nbsp;17</a>, <a href="#fig-serie-piranambu-barbado" class="quarto-xref">Figura&nbsp;18</a>, <a href="#fig-serie-pirapitinga" class="quarto-xref">Figura&nbsp;19</a>, <a href="#fig-serie-pirarara" class="quarto-xref">Figura&nbsp;20</a>, <a href="#fig-serie-sardinha" class="quarto-xref">Figura&nbsp;21</a>, <a href="#fig-serie-surubim" class="quarto-xref">Figura&nbsp;22</a>, <a href="#fig-serie-tambaqui" class="quarto-xref">Figura&nbsp;23</a> e <a href="#fig-serie-tucunare" class="quarto-xref">Figura&nbsp;24</a> apresentam as séries temporais da produção pesqueira anual das espécies analisadas em <strong>Borba</strong> e <strong>Manicoré</strong>, separadas entre os períodos antes e após o barramento. Para cada período, o valor de <span class="math inline">\(\tau\)</span> (tau de Kendall) indica a direção da tendência ao longo dos anos: valores negativos representam <strong>redução da produção</strong>, enquanto valores positivos indicam <strong>aumento</strong>. O valor de <em>p</em> indica se essa tendência é estatisticamente significativa, considerando <em>p</em> &lt; 0,05. Já a inclinação de Sen representa a intensidade da mudança, expressa em <strong>kg por ano</strong>, indicando quanto a produção aumentou ou diminuiu anualmente. Assim, a leitura conjunta desses indicadores permite identificar a <strong>direção, a significância e a magnitude das mudanças na produção pesqueira</strong>, bem como comparar o comportamento observado antes e após o barramento em cada localidade.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Aracu</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Branquinha</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">Caparari</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false" href="">Cara branco</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-5" role="tab" aria-controls="tabset-1-5" aria-selected="false" href="">Carauaçu</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-6-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-6" role="tab" aria-controls="tabset-1-6" aria-selected="false" href="">Curimatã</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-7-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-7" role="tab" aria-controls="tabset-1-7" aria-selected="false" href="">Dourada</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-8-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-8" role="tab" aria-controls="tabset-1-8" aria-selected="false" href="">Filhote</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-9-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-9" role="tab" aria-controls="tabset-1-9" aria-selected="false" href="">Jaraqui</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-10-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-10" role="tab" aria-controls="tabset-1-10" aria-selected="false" href="">Matrinxã</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-11-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-11" role="tab" aria-controls="tabset-1-11" aria-selected="false" href="">Pacu</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-12-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-12" role="tab" aria-controls="tabset-1-12" aria-selected="false" href="">Pescada</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-13-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-13" role="tab" aria-controls="tabset-1-13" aria-selected="false" href="">Piranambu / Barbado</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-14-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-14" role="tab" aria-controls="tabset-1-14" aria-selected="false" href="">Pirapitinga</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-15-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-15" role="tab" aria-controls="tabset-1-15" aria-selected="false" href="">Pirarara</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-16-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-16" role="tab" aria-controls="tabset-1-16" aria-selected="false" href="">Sardinha</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-17-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-17" role="tab" aria-controls="tabset-1-17" aria-selected="false" href="">Surubim</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-18-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-18" role="tab" aria-controls="tabset-1-18" aria-selected="false" href="">Tambaqui</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-19-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-19" role="tab" aria-controls="tabset-1-19" aria-selected="false" href="">Tucunaré</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div id="fig-serie-aracu" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-serie-aracu-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="graficos/TimeSeries_Final_Aracu.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-serie-aracu-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;6: Time series of annual catch (kg) for Aracu in the Borba and Manicoré fishers’ colonies between 2002 and 2024. Dots represent the observed annual volume. The dashed vertical line indicates the dam impoundment in 2011. The <span class="math inline">\(\tau\)</span> values are Kendall’s <span class="math inline">\(\tau\)</span> coefficients from the Mann-Kendall trend test, the <span class="math inline">\(p\)</span>-values indicate the statistical significance of <span class="math inline">\(\tau\)</span> and of Sen’s slope, and Sen represents Sen’s slope estimator, which quantifies the annual rate of change (loss rate) in kg/year for each period and locality.
+</figcaption>
+</figure>
+</div>
+<div class="linha-baixar">
+<p><a href="graficos/TimeSeries_Final_Aracu.png" class="baixar" download="TimeSeries_Final_Aracu.png"><i class="bi bi-download"></i> Baixar Gráfico (PNG)</a></p>
+</div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div id="fig-serie-branquinha" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-serie-branquinha-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="graficos/TimeSeries_Final_Branquinha.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-serie-branquinha-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;7: Time series of annual catch (kg) for Branquinha in the Borba and Manicoré fishers’ colonies between 2002 and 2024. Dots represent the observed annual volume. The dashed vertical line indicates the dam impoundment in 2011. The <span class="math inline">\(\tau\)</span> values are Kendall’s <span class="math inline">\(\tau\)</span> coefficients from the Mann-Kendall trend test, the <span class="math inline">\(p\)</span>-values indicate the statistical significance of <span class="math inline">\(\tau\)</span> and of Sen’s slope, and Sen represents Sen’s slope estimator, which quantifies the annual rate of change (loss rate) in kg/year for each period and locality.
+</figcaption>
+</figure>
+</div>
+<div class="linha-baixar">
+<p><a href="graficos/TimeSeries_Final_Branquinha.png" class="baixar" download="TimeSeries_Final_Branquinha.png"><i class="bi bi-download"></i> Baixar Gráfico (PNG)</a></p>
+</div>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<div id="fig-serie-caparari" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-serie-caparari-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="graficos/TimeSeries_Final_Caparari.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-serie-caparari-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;8: Time series of annual catch (kg) for Caparari in the Borba and Manicoré fishers’ colonies between 2002 and 2024. Dots represent the observed annual volume. The dashed vertical line indicates the dam impoundment in 2011. The <span class="math inline">\(\tau\)</span> values are Kendall’s <span class="math inline">\(\tau\)</span> coefficients from the Mann-Kendall trend test, the <span class="math inline">\(p\)</span>-values indicate the statistical significance of <span class="math inline">\(\tau\)</span> and of Sen’s slope, and Sen represents Sen’s slope estimator, which quantifies the annual rate of change (loss rate) in kg/year for each period and locality.
+</figcaption>
+</figure>
+</div>
+<div class="linha-baixar">
+<p><a href="graficos/TimeSeries_Final_Caparari.png" class="baixar" download="TimeSeries_Final_Caparari.png"><i class="bi bi-download"></i> Baixar Gráfico (PNG)</a></p>
+</div>
+</div>
+<div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
+<div id="fig-serie-cara-branco" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-serie-cara-branco-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="graficos/TimeSeries_Final_Cara_branco.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-serie-cara-branco-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;9: Time series of annual catch (kg) for Cara branco in the Borba and Manicoré fishers’ colonies between 2002 and 2024. Dots represent the observed annual volume. The dashed vertical line indicates the dam impoundment in 2011. The <span class="math inline">\(\tau\)</span> values are Kendall’s <span class="math inline">\(\tau\)</span> coefficients from the Mann-Kendall trend test, the <span class="math inline">\(p\)</span>-values indicate the statistical significance of <span class="math inline">\(\tau\)</span> and of Sen’s slope, and Sen represents Sen’s slope estimator, which quantifies the annual rate of change (loss rate) in kg/year for each period and locality.
+</figcaption>
+</figure>
+</div>
+<div class="linha-baixar">
+<p><a href="graficos/TimeSeries_Final_Cara_branco.png" class="baixar" download="TimeSeries_Final_Cara_branco.png"><i class="bi bi-download"></i> Baixar Gráfico (PNG)</a></p>
+</div>
+</div>
+<div id="tabset-1-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-5-tab">
+<div id="fig-serie-carauacu" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-serie-carauacu-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="graficos/TimeSeries_Final_Carauaçu.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-serie-carauacu-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;10: Time series of annual catch (kg) for Carauaçu in the Borba and Manicoré fishers’ colonies between 2002 and 2024. Dots represent the observed annual volume. The dashed vertical line indicates the dam impoundment in 2011. The <span class="math inline">\(\tau\)</span> values are Kendall’s <span class="math inline">\(\tau\)</span> coefficients from the Mann-Kendall trend test, the <span class="math inline">\(p\)</span>-values indicate the statistical significance of <span class="math inline">\(\tau\)</span> and of Sen’s slope, and Sen represents Sen’s slope estimator, which quantifies the annual rate of change (loss rate) in kg/year for each period and locality.
+</figcaption>
+</figure>
+</div>
+<div class="linha-baixar">
+<p><a href="graficos/TimeSeries_Final_Carauaçu.png" class="baixar" download="TimeSeries_Final_Carauaçu.png"><i class="bi bi-download"></i> Baixar Gráfico (PNG)</a></p>
+</div>
+</div>
+<div id="tabset-1-6" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-6-tab">
+<div id="fig-serie-curimata" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-serie-curimata-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="graficos/TimeSeries_Final_Curimatã.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-serie-curimata-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;11: Time series of annual catch (kg) for Curimatã in the Borba and Manicoré fishers’ colonies between 2002 and 2024. Dots represent the observed annual volume. The dashed vertical line indicates the dam impoundment in 2011. The <span class="math inline">\(\tau\)</span> values are Kendall’s <span class="math inline">\(\tau\)</span> coefficients from the Mann-Kendall trend test, the <span class="math inline">\(p\)</span>-values indicate the statistical significance of <span class="math inline">\(\tau\)</span> and of Sen’s slope, and Sen represents Sen’s slope estimator, which quantifies the annual rate of change (loss rate) in kg/year for each period and locality.
+</figcaption>
+</figure>
+</div>
+<div class="linha-baixar">
+<p><a href="graficos/TimeSeries_Final_Curimatã.png" class="baixar" download="TimeSeries_Final_Curimatã.png"><i class="bi bi-download"></i> Baixar Gráfico (PNG)</a></p>
+</div>
+</div>
+<div id="tabset-1-7" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-7-tab">
+<div id="fig-serie-dourada" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-serie-dourada-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="graficos/TimeSeries_Final_Dourada.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-serie-dourada-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;12: Time series of annual catch (kg) for Dourada in the Borba and Manicoré fishers’ colonies between 2002 and 2024. Dots represent the observed annual volume. The dashed vertical line indicates the dam impoundment in 2011. The <span class="math inline">\(\tau\)</span> values are Kendall’s <span class="math inline">\(\tau\)</span> coefficients from the Mann-Kendall trend test, the <span class="math inline">\(p\)</span>-values indicate the statistical significance of <span class="math inline">\(\tau\)</span> and of Sen’s slope, and Sen represents Sen’s slope estimator, which quantifies the annual rate of change (loss rate) in kg/year for each period and locality.
+</figcaption>
+</figure>
+</div>
+<div class="linha-baixar">
+<p><a href="graficos/TimeSeries_Final_Dourada.png" class="baixar" download="TimeSeries_Final_Dourada.png"><i class="bi bi-download"></i> Baixar Gráfico (PNG)</a></p>
+</div>
+</div>
+<div id="tabset-1-8" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-8-tab">
+<div id="fig-serie-filhote" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-serie-filhote-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="graficos/TimeSeries_Final_Filhote.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-serie-filhote-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;13: Time series of annual catch (kg) for Filhote in the Borba and Manicoré fishers’ colonies between 2002 and 2024. Dots represent the observed annual volume. The dashed vertical line indicates the dam impoundment in 2011. The <span class="math inline">\(\tau\)</span> values are Kendall’s <span class="math inline">\(\tau\)</span> coefficients from the Mann-Kendall trend test, the <span class="math inline">\(p\)</span>-values indicate the statistical significance of <span class="math inline">\(\tau\)</span> and of Sen’s slope, and Sen represents Sen’s slope estimator, which quantifies the annual rate of change (loss rate) in kg/year for each period and locality.
+</figcaption>
+</figure>
+</div>
+<div class="linha-baixar">
+<p><a href="graficos/TimeSeries_Final_Filhote.png" class="baixar" download="TimeSeries_Final_Filhote.png"><i class="bi bi-download"></i> Baixar Gráfico (PNG)</a></p>
+</div>
+</div>
+<div id="tabset-1-9" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-9-tab">
+<div id="fig-serie-jaraqui" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-serie-jaraqui-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="graficos/TimeSeries_Final_Jaraqui.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-serie-jaraqui-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;14: Time series of annual catch (kg) for Jaraqui in the Borba and Manicoré fishers’ colonies between 2002 and 2024. Dots represent the observed annual volume. The dashed vertical line indicates the dam impoundment in 2011. The <span class="math inline">\(\tau\)</span> values are Kendall’s <span class="math inline">\(\tau\)</span> coefficients from the Mann-Kendall trend test, the <span class="math inline">\(p\)</span>-values indicate the statistical significance of <span class="math inline">\(\tau\)</span> and of Sen’s slope, and Sen represents Sen’s slope estimator, which quantifies the annual rate of change (loss rate) in kg/year for each period and locality.
+</figcaption>
+</figure>
+</div>
+<div class="linha-baixar">
+<p><a href="graficos/TimeSeries_Final_Jaraqui.png" class="baixar" download="TimeSeries_Final_Jaraqui.png"><i class="bi bi-download"></i> Baixar Gráfico (PNG)</a></p>
+</div>
+</div>
+<div id="tabset-1-10" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-10-tab">
+<div id="fig-serie-matrinxa" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-serie-matrinxa-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="graficos/TimeSeries_Final_Matrinxã.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-serie-matrinxa-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;15: Time series of annual catch (kg) for Matrinxã in the Borba and Manicoré fishers’ colonies between 2002 and 2024. Dots represent the observed annual volume. The dashed vertical line indicates the dam impoundment in 2011. The <span class="math inline">\(\tau\)</span> values are Kendall’s <span class="math inline">\(\tau\)</span> coefficients from the Mann-Kendall trend test, the <span class="math inline">\(p\)</span>-values indicate the statistical significance of <span class="math inline">\(\tau\)</span> and of Sen’s slope, and Sen represents Sen’s slope estimator, which quantifies the annual rate of change (loss rate) in kg/year for each period and locality.
+</figcaption>
+</figure>
+</div>
+<div class="linha-baixar">
+<p><a href="graficos/TimeSeries_Final_Matrinxã.png" class="baixar" download="TimeSeries_Final_Matrinxã.png"><i class="bi bi-download"></i> Baixar Gráfico (PNG)</a></p>
+</div>
+</div>
+<div id="tabset-1-11" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-11-tab">
+<div id="fig-serie-pacu" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-serie-pacu-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="graficos/TimeSeries_Final_Pacu.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-serie-pacu-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;16: Time series of annual catch (kg) for Pacu in the Borba and Manicoré fishers’ colonies between 2002 and 2024. Dots represent the observed annual volume. The dashed vertical line indicates the dam impoundment in 2011. The <span class="math inline">\(\tau\)</span> values are Kendall’s <span class="math inline">\(\tau\)</span> coefficients from the Mann-Kendall trend test, the <span class="math inline">\(p\)</span>-values indicate the statistical significance of <span class="math inline">\(\tau\)</span> and of Sen’s slope, and Sen represents Sen’s slope estimator, which quantifies the annual rate of change (loss rate) in kg/year for each period and locality.
+</figcaption>
+</figure>
+</div>
+<div class="linha-baixar">
+<p><a href="graficos/TimeSeries_Final_Pacu.png" class="baixar" download="TimeSeries_Final_Pacu.png"><i class="bi bi-download"></i> Baixar Gráfico (PNG)</a></p>
+</div>
+</div>
+<div id="tabset-1-12" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-12-tab">
+<div id="fig-serie-pescada" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-serie-pescada-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="graficos/TimeSeries_Final_Pescada.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-serie-pescada-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;17: Time series of annual catch (kg) for Pescada in the Borba and Manicoré fishers’ colonies between 2002 and 2024. Dots represent the observed annual volume. The dashed vertical line indicates the dam impoundment in 2011. The <span class="math inline">\(\tau\)</span> values are Kendall’s <span class="math inline">\(\tau\)</span> coefficients from the Mann-Kendall trend test, the <span class="math inline">\(p\)</span>-values indicate the statistical significance of <span class="math inline">\(\tau\)</span> and of Sen’s slope, and Sen represents Sen’s slope estimator, which quantifies the annual rate of change (loss rate) in kg/year for each period and locality.
+</figcaption>
+</figure>
+</div>
+<div class="linha-baixar">
+<p><a href="graficos/TimeSeries_Final_Pescada.png" class="baixar" download="TimeSeries_Final_Pescada.png"><i class="bi bi-download"></i> Baixar Gráfico (PNG)</a></p>
+</div>
+</div>
+<div id="tabset-1-13" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-13-tab">
+<div id="fig-serie-piranambu-barbado" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-serie-piranambu-barbado-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="graficos/TimeSeries_Final_Piranambu_Barbado.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-serie-piranambu-barbado-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;18: Time series of annual catch (kg) for Piranambu/Barbado in the Borba and Manicoré fishers’ colonies between 2002 and 2024. Dots represent the observed annual volume. The dashed vertical line indicates the dam impoundment in 2011. The <span class="math inline">\(\tau\)</span> values are Kendall’s <span class="math inline">\(\tau\)</span> coefficients from the Mann-Kendall trend test, the <span class="math inline">\(p\)</span>-values indicate the statistical significance of <span class="math inline">\(\tau\)</span> and of Sen’s slope, and Sen represents Sen’s slope estimator, which quantifies the annual rate of change (loss rate) in kg/year for each period and locality.
+</figcaption>
+</figure>
+</div>
+<div class="linha-baixar">
+<p><a href="graficos/TimeSeries_Final_Piranambu_Barbado.png" class="baixar" download="TimeSeries_Final_Piranambu_Barbado.png"><i class="bi bi-download"></i> Baixar Gráfico (PNG)</a></p>
+</div>
+</div>
+<div id="tabset-1-14" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-14-tab">
+<div id="fig-serie-pirapitinga" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-serie-pirapitinga-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="graficos/TimeSeries_Final_Pirapitinga.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-serie-pirapitinga-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;19: Time series of annual catch (kg) for Pirapitinga in the Borba and Manicoré fishers’ colonies between 2002 and 2024. Dots represent the observed annual volume. The dashed vertical line indicates the dam impoundment in 2011. The <span class="math inline">\(\tau\)</span> values are Kendall’s <span class="math inline">\(\tau\)</span> coefficients from the Mann-Kendall trend test, the <span class="math inline">\(p\)</span>-values indicate the statistical significance of <span class="math inline">\(\tau\)</span> and of Sen’s slope, and Sen represents Sen’s slope estimator, which quantifies the annual rate of change (loss rate) in kg/year for each period and locality.
+</figcaption>
+</figure>
+</div>
+<div class="linha-baixar">
+<p><a href="graficos/TimeSeries_Final_Pirapitinga.png" class="baixar" download="TimeSeries_Final_Pirapitinga.png"><i class="bi bi-download"></i> Baixar Gráfico (PNG)</a></p>
+</div>
+</div>
+<div id="tabset-1-15" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-15-tab">
+<div id="fig-serie-pirarara" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-serie-pirarara-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="graficos/TimeSeries_Final_Pirarara.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-serie-pirarara-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;20: Time series of annual catch (kg) for Pirarara in the Borba and Manicoré fishers’ colonies between 2002 and 2024. Dots represent the observed annual volume. The dashed vertical line indicates the dam impoundment in 2011. The <span class="math inline">\(\tau\)</span> values are Kendall’s <span class="math inline">\(\tau\)</span> coefficients from the Mann-Kendall trend test, the <span class="math inline">\(p\)</span>-values indicate the statistical significance of <span class="math inline">\(\tau\)</span> and of Sen’s slope, and Sen represents Sen’s slope estimator, which quantifies the annual rate of change (loss rate) in kg/year for each period and locality.
+</figcaption>
+</figure>
+</div>
+<div class="linha-baixar">
+<p><a href="graficos/TimeSeries_Final_Pirarara.png" class="baixar" download="TimeSeries_Final_Pirarara.png"><i class="bi bi-download"></i> Baixar Gráfico (PNG)</a></p>
+</div>
+</div>
+<div id="tabset-1-16" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-16-tab">
+<div id="fig-serie-sardinha" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-serie-sardinha-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="graficos/TimeSeries_Final_Sardinha.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-serie-sardinha-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;21: Time series of annual catch (kg) for Sardinha in the Borba and Manicoré fishers’ colonies between 2002 and 2024. Dots represent the observed annual volume. The dashed vertical line indicates the dam impoundment in 2011. The <span class="math inline">\(\tau\)</span> values are Kendall’s <span class="math inline">\(\tau\)</span> coefficients from the Mann-Kendall trend test, the <span class="math inline">\(p\)</span>-values indicate the statistical significance of <span class="math inline">\(\tau\)</span> and of Sen’s slope, and Sen represents Sen’s slope estimator, which quantifies the annual rate of change (loss rate) in kg/year for each period and locality.
+</figcaption>
+</figure>
+</div>
+<div class="linha-baixar">
+<p><a href="graficos/TimeSeries_Final_Sardinha.png" class="baixar" download="TimeSeries_Final_Sardinha.png"><i class="bi bi-download"></i> Baixar Gráfico (PNG)</a></p>
+</div>
+</div>
+<div id="tabset-1-17" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-17-tab">
+<div id="fig-serie-surubim" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-serie-surubim-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="graficos/TimeSeries_Final_Surubim.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-serie-surubim-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;22: Time series of annual catch (kg) for Surubim in the Borba and Manicoré fishers’ colonies between 2002 and 2024. Dots represent the observed annual volume. The dashed vertical line indicates the dam impoundment in 2011. The <span class="math inline">\(\tau\)</span> values are Kendall’s <span class="math inline">\(\tau\)</span> coefficients from the Mann-Kendall trend test, the <span class="math inline">\(p\)</span>-values indicate the statistical significance of <span class="math inline">\(\tau\)</span> and of Sen’s slope, and Sen represents Sen’s slope estimator, which quantifies the annual rate of change (loss rate) in kg/year for each period and locality.
+</figcaption>
+</figure>
+</div>
+<div class="linha-baixar">
+<p><a href="graficos/TimeSeries_Final_Surubim.png" class="baixar" download="TimeSeries_Final_Surubim.png"><i class="bi bi-download"></i> Baixar Gráfico (PNG)</a></p>
+</div>
+</div>
+<div id="tabset-1-18" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-18-tab">
+<div id="fig-serie-tambaqui" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-serie-tambaqui-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="graficos/TimeSeries_Final_Tambaqui.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-serie-tambaqui-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;23: Time series of annual catch (kg) for Tambaqui in the Borba and Manicoré fishers’ colonies between 2002 and 2024. Dots represent the observed annual volume. The dashed vertical line indicates the dam impoundment in 2011. The <span class="math inline">\(\tau\)</span> values are Kendall’s <span class="math inline">\(\tau\)</span> coefficients from the Mann-Kendall trend test, the <span class="math inline">\(p\)</span>-values indicate the statistical significance of <span class="math inline">\(\tau\)</span> and of Sen’s slope, and Sen represents Sen’s slope estimator, which quantifies the annual rate of change (loss rate) in kg/year for each period and locality.
+</figcaption>
+</figure>
+</div>
+<div class="linha-baixar">
+<p><a href="graficos/TimeSeries_Final_Tambaqui.png" class="baixar" download="TimeSeries_Final_Tambaqui.png"><i class="bi bi-download"></i> Baixar Gráfico (PNG)</a></p>
+</div>
+</div>
+<div id="tabset-1-19" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-19-tab">
+<div id="fig-serie-tucunare" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-serie-tucunare-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="graficos/TimeSeries_Final_Tucunaré.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-serie-tucunare-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;24: Time series of annual catch (kg) for Tucunaré in the Borba and Manicoré fishers’ colonies between 2002 and 2024. Dots represent the observed annual volume. The dashed vertical line indicates the dam impoundment in 2011. The <span class="math inline">\(\tau\)</span> values are Kendall’s <span class="math inline">\(\tau\)</span> coefficients from the Mann-Kendall trend test, the <span class="math inline">\(p\)</span>-values indicate the statistical significance of <span class="math inline">\(\tau\)</span> and of Sen’s slope, and Sen represents Sen’s slope estimator, which quantifies the annual rate of change (loss rate) in kg/year for each period and locality.
+</figcaption>
+</figure>
+</div>
+<div class="linha-baixar">
+<p><a href="graficos/TimeSeries_Final_Tucunaré.png" class="baixar" download="TimeSeries_Final_Tucunaré.png"><i class="bi bi-download"></i> Baixar Gráfico (PNG)</a></p>
+</div>
+</div>
+</div>
 </div>
 
 
