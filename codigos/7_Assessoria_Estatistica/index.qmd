@@ -199,7 +199,7 @@ A presente análise tem os seguintes objetivos:
 
 ### Tratamento
 
-**Base 1 – Desembarque Pesqueiro:** Inicialmente, consolidamos os registros de Borba e Manicoré em uma única base, padronizando as variáveis de agrupamento e convertendo os dados do formato largo para o longo por meio da função `tidyr::pivot_longer()`, o que originou as variáveis `ano` e `captura_total`. Na sequência, convertemos os valores de captura para o formato numérico (substituindo vírgulas por pontos) e aplicamos um filtro de limpeza para remover registros vazios e os anos de 2000, 2001, 2025 e 2026, estabilizando a série histórica no período de 2002 a 2024. Para viabilizar as análises de impacto, criamos a variável `periodo_barragem`, segmentando a série nas fases **Antes** (2002 a 2010) e **Depois** (2011 a 2024). Por fim, após atestar a inexistência de valores ausentes nas variáveis de interesse, a base de dados final resultou em 888 observações estruturadas, cujas variáveis estão detalhadas na @tbl-var-pesca.
+**Base 1 – Desembarque Pesqueiro:** Inicialmente, consolidamos os registros de Borba e Manicoré em uma única base, padronizando as variáveis de agrupamento e convertendo os dados do formato largo para o longo por meio da função `tidyr::pivot_longer()`, o que originou as variáveis `ano` e `captura_total`. Na sequência, convertemos os valores de captura para o formato numérico (substituindo vírgulas por pontos) e aplicamos um filtro de limpeza para remover registros vazios e os anos de 2000, 2001, 2025 e 2026, estabilizando a série histórica no período de 2002 a 2024. Para viabilizar as análises de impacto, criamos a variável `periodo_barragem`, segmentando a série nas fases **Antes** (2002 a 2010) e **Depois** (2011 a 2024). Por fim, após verificar ausência de valores nulos nas variáveis de interesse, a base de dados final resultou em 888 observações estruturadas, cujas variáveis estão detalhadas na @tbl-var-pesca.
 
 
 | Variável | Descrição | Tipo | Classe (R) | Níveis | Tamanho Amostral (n) | Dados Ausentes (NA's) |
@@ -232,7 +232,7 @@ A presente análise tem os seguintes objetivos:
 | `tipo_medicao_cotas` | 1 = Escala; 2 = Linígrafo; 3 = Data Logger; 5 = Escala SMS |
 | `status`, `maxima_status`, `minima_status`, `media_status`, `media_anual_status` | 0 = Branco; 1 = Real; 2 = Estimado; 3 = Duvidoso; 4 = Régua Seca |
 
-: **Rótulos aplicados às variáveis categóricas (Dicionário da ANA).** {#tbl-rotulos-ana tbl-colwidths="[60,40]"}
+: **Rótulos aplicados às variáveis categóricas (Dicionário da ANA).** {#tbl-rotulos-ana tbl-colwidths="[53,47]"}
 
 Com a base estruturada e consolidada após todo o processo de limpeza e padronização, a tabela @tbl-rotulos-ana detalha a natureza de cada variável hidrológica.
 
@@ -262,7 +262,7 @@ Com a base estruturada e consolidada após todo o processo de limpeza e padroniz
 | `media_status` | Status de qualidade da cota média | Qualitativa Nominal | Fator | 5 | 144.181 | 0 |
 | `media_anual_status` | Status de qualidade da média anual | Qualitativa Nominal | Fator | 5 | 144.181 | 2.604 |
 
-: **Descrição das variáveis base cotas fluviométricas.** {#tbl-var-cotas tbl-colwidths="[15,30,15,10,10,10,10]"}
+: **Descrição das variáveis base cotas fluviométricas.** {#tbl-var-cotas tbl-colwidths="[15,36,18,10,7,7,7]"}
 
 
 ## Antes e Depois das UHEs
