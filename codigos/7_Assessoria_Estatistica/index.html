@@ -194,10 +194,7 @@ window.Quarto = {
     <h2 id="toc-title">Nesta página</h2>
    
   <ul>
-  <li><a href="#sobre-os-dados" id="toc-sobre-os-dados" class="nav-link active" data-scroll-target="#sobre-os-dados"><span class="header-section-number">1</span> Sobre os dados</a>
-  <ul class="collapse">
-  <li><a href="#tratamento" id="toc-tratamento" class="nav-link" data-scroll-target="#tratamento"><span class="header-section-number">1.1</span> Tratamento</a></li>
-  </ul></li>
+  <li><a href="#sobre-os-dados" id="toc-sobre-os-dados" class="nav-link active" data-scroll-target="#sobre-os-dados"><span class="header-section-number">1</span> Sobre os dados</a></li>
   <li><a href="#antes-e-depois-das-uhes" id="toc-antes-e-depois-das-uhes" class="nav-link" data-scroll-target="#antes-e-depois-das-uhes"><span class="header-section-number">2</span> Antes e Depois das UHEs</a>
   <ul class="collapse">
   <li><a href="#testes-de-comparação-e-estatísticas-descritivas" id="toc-testes-de-comparação-e-estatísticas-descritivas" class="nav-link" data-scroll-target="#testes-de-comparação-e-estatísticas-descritivas"><span class="header-section-number">2.1</span> Testes de comparação e estatísticas descritivas</a></li>
@@ -358,24 +355,30 @@ window.Quarto = {
 
 </div>
 <p><br></p>
-<p>Para a elaboração desta análise, utilizamos a linguagem de programação <a href="http://www.R-project.org/">R</a> (versão 4.5.3; R Core Team, 2026), voltada para a manipulação, a análise e a visualização de dados.</p>
 <section id="sobre-os-dados" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="sobre-os-dados"><span class="header-section-number">1</span> Sobre os dados</h2>
-<p>Esta análise utiliza duas bases de dados. A <strong>Base 1 – Desembarque Pesqueiro</strong> reúne os registros de desembarque das colônias de pescadores dos municípios de Borba e Manicoré, no período de 2002 a 2025. A <strong>Base 2 – Cotas Fluviométricas</strong> reúne a série histórica das cotas (nível) do Rio Madeira nas estações dessas duas localidades, no período de 1967 a 2026. Antes das análises, as duas bases passaram por um processo de organização e limpeza, feito no Microsoft Excel e no R, de forma separada para cada uma.</p>
+<p>Para a elaboração desta análise, utilizamos a linguagem de programação <a href="http://www.R-project.org/">R</a> (versão 4.5.3; R Core Team, 2026), voltada para a manipulação, análise e visualização de dados. O estudo baseia-se em duas bases de dados que, a priori, passaram por um processo de organização e limpeza realizado de forma separada no Microsoft Excel e no R:</p>
+<ul>
+<li>A <strong>Base 1 – Desembarque Pesqueiro</strong> reúne os registros de desembarque das colônias de pescadores dos municípios de Borba e Manicoré, no período de 2002 a 2025.</li>
+<li>A <strong>Base 2 – Cotas Fluviométricas</strong> reúne a série histórica das cotas (nível) do Rio Madeira nas estações dessas duas localidades, no período de 1967 a 2026.</li>
+</ul>
+<p>Os dados tratados de ambas as bases estão disponíveis para download em formato Excel (<code>.xlsx</code>), permitindo a consulta e a reprodutibilidade das análises.</p>
+<div class="linha-baixar">
+<p><a href="dados/dados_tratados.xlsx" class="baixar" download="dados_tratados.xlsx"><i class="bi bi-download"></i> Base 1 – Desembarque (19 KB)</a> <a href="dados/dados_cotas_tratados.xlsx" class="baixar" download="dados_cotas_tratados.xlsx"><i class="bi bi-download"></i> Base 2 – Cotas (1,5 MB)</a></p>
+</div>
 <p>A presente análise tem os seguintes objetivos:</p>
 <ol type="1">
 <li><strong>Correlacionar a produção pesqueira com as variáveis hidrológicas, considerando as possíveis alterações associadas à operação das UHEs;</strong></li>
 <li><strong>Detectar mudanças nas séries temporais da produção pesqueira e das cotas fluviométricas;</strong></li>
 <li><strong>Quantificar as mudanças na produção, composição e diversidade das capturas pesqueiras, comparando os períodos “Antes” e “Depois” da operação das UHEs.</strong></li>
 </ol>
-<section id="tratamento" class="level3" data-number="1.1">
-<h3 data-number="1.1" class="anchored" data-anchor-id="tratamento"><span class="header-section-number">1.1</span> Tratamento</h3>
-<p><strong>Base 1 – Desembarque Pesqueiro:</strong></p>
-<p>Reunimos os registros de Borba e Manicoré em uma única base e padronizamos as variáveis de texto e de agrupamento, definindo cada uma como fator ou caractere, conforme a sua natureza. Os dados originais estavam em formato largo, com cada ano em uma coluna. Por isso, utilizamos a função <code>tidyr::pivot_longer()</code> para passá-los ao formato longo, no qual cada linha corresponde a um registro de um ano, criando as variáveis <code>ano</code> e <code>captura_total</code>. Em <code>captura_total</code>, trocamos a vírgula decimal por ponto e convertemos os valores para número. Em seguida, removemos os registros sem informação de captura e os anos de 2000 e 2001. Posteriormente, removemos os anos de 2025 e 2026, pois estavam incompletos, mantendo o período de 2002 a 2024. Por fim, criamos a variável <code>periodo_barragem</code>, a partir do ano, que classifica os registros em dois momentos: <strong>Antes</strong> (2002 a 2010) e <strong>Depois</strong> (2011 a 2024). Após o tratamento, verificamos a presença de valores ausentes e não encontramos registros omissos nas variáveis consideradas. Ao final, a base ficou com 888 observações, cujas variáveis estão descritas na <a href="#tbl-var-pesca" class="quarto-xref">Tabela&nbsp;1</a>.</p>
+<!-- ### Etapas Tratamento  -->
+<!-- **Base 1 – Desembarque Pesqueiro:** -->
+<!-- Reunimos os registros de Borba e Manicoré em uma única base e padronizamos as variáveis de texto e de agrupamento, definindo cada uma como fator ou caractere, conforme a sua natureza. Os dados originais estavam em formato largo, com cada ano em uma coluna. Por isso, utilizamos a função `tidyr::pivot_longer()` para passá-los ao formato longo, no qual cada linha corresponde a um registro de um ano, criando as variáveis `ano` e `captura_total`. Em `captura_total`, trocamos a vírgula decimal por ponto e convertemos os valores para número. Em seguida, removemos os registros sem informação de captura e os anos de 2000 e 2001. Posteriormente, removemos os anos de 2025 e 2026, pois estavam incompletos, mantendo o período de 2002 a 2024. Por fim, criamos a variável `periodo_barragem`, a partir do ano, que classifica os registros em dois momentos: **Antes** (2002 a 2010) e **Depois** (2011 a 2024). Após o tratamento, verificamos a presença de valores ausentes e não encontramos registros omissos nas variáveis consideradas. Ao final, a base ficou com 888 observações, cujas variáveis estão descritas na @tbl-var-pesca. -->
 <div id="tbl-var-pesca" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-var-pesca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;1: <strong>Descrição das variáveis: Base 1 Tratada – Desembarque Pesqueiro.</strong>
+Tabela&nbsp;1: <strong>Base 1 – Desembarque Pesqueiro: Descrição das variáveis.</strong>
 </figcaption>
 <div aria-describedby="tbl-var-pesca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -540,53 +543,21 @@ Tabela&nbsp;1: <strong>Descrição das variáveis: Base 1 Tratada – Desembarqu
 </div>
 </figure>
 </div>
-<p><strong>Base 2 – Cotas Fluviométricas:</strong></p>
-<p>Ao analisar os dados, observamos que os arquivos originais da Agência Nacional de Águas e Saneamento Básico (ANA) começam com um cabeçalho institucional, que traz o dicionário dos dados. Esse trecho foi desconsiderado na importação. Em seguida, reunimos as estações de Borba e Manicoré em uma única base e definimos o tipo das variáveis <code>localidade</code>, <code>ano</code> e <code>mes</code>. Padronizamos <code>hora</code> para o formato <code>%H:%M:%S</code> e, com o dicionário da ANA, substituímos os códigos numéricos das variáveis categóricas pelos rótulos correspondentes, apresentados na <a href="#tbl-rotulos-ana" class="quarto-xref">Tabela&nbsp;2</a>.</p>
-<div id="tbl-rotulos-ana" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-rotulos-ana-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;2: <strong>Rótulos aplicados às variáveis categóricas da Base 2, conforme o dicionário da ANA.</strong>
-</figcaption>
-<div aria-describedby="tbl-rotulos-ana-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="caption-top table">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Variável</th>
-<th style="text-align: left;">Código = Rótulo</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><code>nivel_consistencia</code></td>
-<td style="text-align: left;">1 = Bruto; 2 = Consistido</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><code>media_diaria</code></td>
-<td style="text-align: left;">0 = Não; 1 = Sim</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><code>tipo_medicao_cotas</code></td>
-<td style="text-align: left;">1 = Escala; 2 = Linígrafo; 3 = Data Logger; 5 = Escala SMS</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><code>status</code>, <code>maxima_status</code>, <code>minima_status</code>, <code>media_status</code>, <code>media_anual_status</code></td>
-<td style="text-align: left;">0 = Branco; 1 = Real; 2 = Estimado; 3 = Duvidoso; 4 = Régua Seca</td>
-</tr>
-</tbody>
-</table>
-</div>
-</figure>
-</div>
-<p>Os dados originais traziam 31 colunas de cotas diárias e outras 31 de status. Com a função <code>tidyr::pivot_longer()</code>, passamos a base para o formato longo, criando as variáveis <code>cota</code>, <code>status</code> e <code>referencia_dia</code>. Criamos ainda a variável <code>identificador_cota</code>, que guarda a coluna de origem de cada medição (por exemplo, <code>cota_01</code>).</p>
-<p>Diferentemente da Base 1, mantivemos os valores ausentes (<code>NA</code>) de <code>cota</code> e das demais variáveis hidrológicas, pois eles indicam períodos em que não houve medição. Dessa forma, preservamos a sequência e o espaçamento originais da série histórica. Ao final, a base ficou com 144.181 registros. A quantidade de observações e de valores ausentes de cada variável está na <a href="#tbl-var-cotas" class="quarto-xref">Tabela&nbsp;3</a>.</p>
+<!-- **Base 2 – Cotas Fluviométricas:** -->
+<!-- Ao analisar os dados, observamos que os arquivos originais da Agência Nacional de Águas e Saneamento Básico (ANA) começam com um cabeçalho institucional, que traz o dicionário dos dados. Esse trecho foi desconsiderado na importação. Em seguida, reunimos as estações de Borba e Manicoré em uma única base e definimos o tipo das variáveis `localidade`, `ano` e `mes`. Padronizamos `hora` para o formato `%H:%M:%S` e, com o dicionário da ANA, substituímos os códigos numéricos das variáveis categóricas pelos rótulos correspondentes, apresentados na @tbl-rotulos-ana. -->
+<!-- | Variável | Código = Rótulo | -->
+<!-- |:---|:---| -->
+<!-- | `nivel_consistencia` | 1 = Bruto; 2 = Consistido | -->
+<!-- | `media_diaria` | 0 = Não; 1 = Sim | -->
+<!-- | `tipo_medicao_cotas` | 1 = Escala; 2 = Linígrafo; 3 = Data Logger; 5 = Escala SMS | -->
+<!-- | `status`, `maxima_status`, `minima_status`, `media_status`, `media_anual_status` | 0 = Branco; 1 = Real; 2 = Estimado; 3 = Duvidoso; 4 = Régua Seca | -->
+<!-- : **Rótulos aplicados às variáveis categóricas da Base 2, conforme o dicionário da ANA.** {#tbl-rotulos-ana} -->
+<!-- Os dados originais traziam 31 colunas de cotas diárias e outras 31 de status. Com a função `tidyr::pivot_longer()`, passamos a base para o formato longo, criando as variáveis `cota`, `status` e `referencia_dia`. Criamos ainda a variável `identificador_cota`, que guarda a coluna de origem de cada medição (por exemplo, `cota_01`). -->
+<!-- Diferentemente da Base 1, mantivemos os valores ausentes (`NA`) de `cota` e das demais variáveis hidrológicas, pois eles indicam períodos em que não houve medição. Dessa forma, preservamos a sequência e o espaçamento originais da série histórica. Ao final, a base ficou com 144.181 registros. A quantidade de observações e de valores ausentes de cada variável está na @tbl-var-cotas. -->
 <div id="tbl-var-cotas" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-var-cotas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;3: <strong>Descrição das variáveis: Base 2 Tratada – Cotas Fluviométricas.</strong>
+Tabela&nbsp;2: <strong>Base 2 – Cotas Fluviométricas: Descrição das variáveis.</strong>
 </figcaption>
 <div aria-describedby="tbl-var-cotas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -823,11 +794,6 @@ Tabela&nbsp;3: <strong>Descrição das variáveis: Base 2 Tratada – Cotas Fluv
 </div>
 </figure>
 </div>
-<p>Os dados tratados das duas bases estão disponíveis para download em formato Excel (<code>.xlsx</code>), para consulta ou para reproduzir as análises.</p>
-<div class="linha-baixar">
-<p><a href="dados/dados_tratados.xlsx" class="baixar" download="dados_tratados.xlsx"><i class="bi bi-download"></i> Base 1 – Desembarque (19 KB)</a> <a href="dados/dados_cotas_tratados.xlsx" class="baixar" download="dados_cotas_tratados.xlsx"><i class="bi bi-download"></i> Base 2 – Cotas (1,5 MB)</a></p>
-</div>
-</section>
 </section>
 <section id="antes-e-depois-das-uhes" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="antes-e-depois-das-uhes"><span class="header-section-number">2</span> Antes e Depois das UHEs</h2>
@@ -839,7 +805,7 @@ Tabela&nbsp;3: <strong>Descrição das variáveis: Base 2 Tratada – Cotas Fluv
 <div id="tbl-estatisticas-pesca" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-estatisticas-pesca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;4: <strong>Testes de comparação e estatísticas descritivas da produção pesqueira (kg) por município e período.</strong>
+Tabela&nbsp;3: <strong>Testes de comparação e estatísticas descritivas da produção pesqueira (kg) por município e período.</strong>
 </figcaption>
 <div aria-describedby="tbl-estatisticas-pesca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -915,7 +881,7 @@ Tabela&nbsp;4: <strong>Testes de comparação e estatísticas descritivas da pro
 <p><strong>Notas:</strong> Foram considerados os períodos 2002–2010 (Antes) e 2011–2024 (Depois) | 2025 foi excluído por apresentar dados incompletos | <span class="math inline">\(n\)</span> = número de anos avaliados em cada período | DP = desvio padrão | Taxa de Declínio Produtivo = redução percentual da produção média anual entre os períodos | Letras sobrescritas diferentes (a, b) indicam diferença estatisticamente significativa entre os períodos (<span class="math inline">\(\alpha = 0,05\)</span>) | Cor azul = teste <span class="math inline">\(t\)</span> de Welch para amostras independentes (paramétrico) | Cor vermelha = teste de Wilcoxon-Mann-Whitney para amostras independentes (não paramétrico).</p>
 </div>
 <p><strong>Comentários:</strong> Ao aplicar os testes verificamos uma redução significativa (<span class="math inline">\(p\)</span>-valor <span class="math inline">\(&lt; 0,001\)</span>) na produção pesqueira anual de ambos os municípios no período posterior à instalação das UHEs, considerando um nível de significância de 5% (<span class="math inline">\(\alpha = 0,05\)</span>). Em Borba, os pressupostos de normalidade foram atendidos, conforme verificado pelas estatísticas de teste <span class="math inline">\(W\)</span> de Shapiro-Wilk (<span class="math inline">\(W = 0,9809\)</span>, <span class="math inline">\(p\)</span>-valor <span class="math inline">\(= 0,9688\)</span> no período “Antes” e <span class="math inline">\(W = 0,9582\)</span>, <span class="math inline">\(p\)</span>-valor <span class="math inline">\(= 0,6936\)</span> no “Depois”) e <span class="math inline">\(A\)</span> de Anderson-Darling (<span class="math inline">\(A = 0,1239\)</span>, <span class="math inline">\(p\)</span>-valor <span class="math inline">\(= 0,9765\)</span> no “Antes” e <span class="math inline">\(A = 0,2086\)</span>, <span class="math inline">\(p\)</span>-valor <span class="math inline">\(= 0,8293\)</span> no “Depois”). Por isso, aplicou-se o teste <span class="math inline">\(t\)</span> de Welch, cuja estatística de teste resultou em <span class="math inline">\(t = 7,3533\)</span> (<span class="math inline">\(p\)</span>-valor <span class="math inline">\(&lt; 0,001\)</span>). Já em Manicoré, devido à ausência de normalidade no período “Antes” apontada pela estatística de teste <span class="math inline">\(W\)</span> de Shapiro-Wilk (<span class="math inline">\(W = 0,8338\)</span> e <span class="math inline">\(p\)</span>-valor <span class="math inline">\(= 0,0493\)</span>), aplicou-se o teste não paramétrico de Wilcoxon-Mann-Whitney para grupos independentes. Este procedimento resultou na estatística de teste <span class="math inline">\(W\)</span> máxima possível (<span class="math inline">\(W = 126\)</span>, valor que corresponde exatamente ao produto do número de anos dos dois períodos avaliados, <span class="math inline">\(n_1 = 9\)</span> e <span class="math inline">\(n_2 = 14\)</span>), com <span class="math inline">\(p\)</span>-valor <span class="math inline">\(&lt; 0,001\)</span>, evidenciando uma separação absoluta entre as épocas: todos os anos do período “Antes” registraram produção superior a qualquer ano do período “Depois”. Conclui-se que houve uma diminuição drástica e estatisticamente comprovada associada ao período de operação das barragens, embora a influência de outros fatores simultâneos ainda deva ser investigada.</p>
-<p>A seguir, apresentamos o cálculo da <strong>Taxa de Declínio Produtivo</strong>, bem como cada teste utilizado, sua estatística e as respetivas hipóteses que compõem os resultados da <a href="#tbl-estatisticas-pesca" class="quarto-xref">Tabela&nbsp;4</a>.</p>
+<p>A seguir, apresentamos o cálculo da <strong>Taxa de Declínio Produtivo</strong>, bem como cada teste utilizado, sua estatística e as respetivas hipóteses que compõem os resultados da <a href="#tbl-estatisticas-pesca" class="quarto-xref">Tabela&nbsp;3</a>.</p>
 <div id="calc-taxa-declinio" class="metodo metodo-taxa">
 <p><strong>Taxa de Declínio Produtivo</strong></p>
 <p>Representa a redução percentual da produção pesqueira média anual entre os períodos “Antes” e “Depois” da instalação das UHEs, sendo calculada pela seguinte fórmula geral:</p>
@@ -1035,7 +1001,7 @@ Figura&nbsp;1: Spatial distribution of fishing activity decline rates along the 
 <div id="tbl-tendencia-pesca" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-tendencia-pesca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;5: <strong>Testes de tendência de Mann-Kendall, Sen’s Slope e verificação de autocorrelação de Durbin-Watson para a produção pesqueira anual por município e período.</strong>
+Tabela&nbsp;4: <strong>Testes de tendência de Mann-Kendall, Sen’s Slope e verificação de autocorrelação de Durbin-Watson para a produção pesqueira anual por município e período.</strong>
 </figcaption>
 <div aria-describedby="tbl-tendencia-pesca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -1150,7 +1116,7 @@ Figura&nbsp;3: Time series of total catch (kg) in the Manicoré fishers’ colon
 <div id="tbl-testes-especies" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-testes-especies-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;6: <strong>Testes de normalidade e de comparação entre os períodos Antes e Depois da produção pesqueira anual por espécie e município.</strong>
+Tabela&nbsp;5: <strong>Testes de normalidade e de comparação entre os períodos Antes e Depois da produção pesqueira anual por espécie e município.</strong>
 </figcaption>
 <div aria-describedby="tbl-testes-especies-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -1559,7 +1525,7 @@ Tabela&nbsp;6: <strong>Testes de normalidade e de comparação entre os período
 <div id="tbl-tendencia-borba" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-tendencia-borba-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;7: <strong>Teste de tendência de Mann-Kendall e inclinação de Sen da captura anual (kg) por espécie e período na colônia de Borba.</strong>
+Tabela&nbsp;6: <strong>Teste de tendência de Mann-Kendall e inclinação de Sen da captura anual (kg) por espécie e período na colônia de Borba.</strong>
 </figcaption>
 <div aria-describedby="tbl-tendencia-borba-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -1978,7 +1944,7 @@ Tabela&nbsp;7: <strong>Teste de tendência de Mann-Kendall e inclinação de Sen
 <div id="tbl-tendencia-manicore" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-tendencia-manicore-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;8: <strong>Teste de tendência de Mann-Kendall e inclinação de Sen da captura anual (kg) por espécie e período na colônia de Manicoré.</strong>
+Tabela&nbsp;7: <strong>Teste de tendência de Mann-Kendall e inclinação de Sen da captura anual (kg) por espécie e período na colônia de Manicoré.</strong>
 </figcaption>
 <div aria-describedby="tbl-tendencia-manicore-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -2703,7 +2669,7 @@ Figura&nbsp;24: Time series of annual catch (kg) for Tucunaré in the Borba and 
 <div id="tbl-tendencia-cotas" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-tendencia-cotas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;9: <strong>Testes de tendência de Mann-Kendall, Sen’s Slope e verificação de autocorrelação de Durbin-Watson para o nível médio anual do rio Madeira por município e período.</strong>
+Tabela&nbsp;8: <strong>Testes de tendência de Mann-Kendall, Sen’s Slope e verificação de autocorrelação de Durbin-Watson para o nível médio anual do rio Madeira por município e período.</strong>
 </figcaption>
 <div aria-describedby="tbl-tendencia-cotas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
