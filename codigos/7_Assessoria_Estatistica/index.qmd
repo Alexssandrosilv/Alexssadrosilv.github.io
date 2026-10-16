@@ -234,7 +234,7 @@ A presente análise tem os seguintes objetivos:
 
 : **Rótulos aplicados às variáveis categóricas (Dicionário da ANA).** {#tbl-rotulos-ana tbl-colwidths="[53,47]"}
 
-Com a base estruturada e consolidada após todo o processo de limpeza e padronização, a tabela @tbl-rotulos-ana detalha a natureza de cada variável hidrológica.
+Com a base estruturada e consolidada após todo o processo de limpeza e padronização, a tabela @tbl-var-cotas detalha a natureza de cada variável hidrológica.
 
 | Variável | Descrição | Tipo | Classe (R) | Níveis | Tamanho Amostral (n) | Dados Ausentes (NA's) |
 |:---|:---|:---|:---|:---|:---|:---|
@@ -262,7 +262,7 @@ Com a base estruturada e consolidada após todo o processo de limpeza e padroniz
 | `media_status` | Status de qualidade da cota média | Qualitativa Nominal | Fator | 5 | 144.181 | 0 |
 | `media_anual_status` | Status de qualidade da média anual | Qualitativa Nominal | Fator | 5 | 144.181 | 2.604 |
 
-: **Descrição das variáveis base cotas fluviométricas.** {#tbl-var-cotas tbl-colwidths="[15,36,18,10,7,7,7]"}
+: **Descrição das variáveis base cotas fluviométricas.** {#tbl-var-cotas tbl-colwidths="[19,35,17,9,6,7,7]"}
 
 
 ## Antes e Depois das UHEs
