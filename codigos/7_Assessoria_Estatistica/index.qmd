@@ -220,7 +220,7 @@ A presente análise tem os seguintes objetivos:
 | `dias` | Número de dias de pesca informados (esforço) | Quantitativa Discreta | Numérica | – | 888 | 0 |
 | `captura_total` | Quantidade desembarcada, em quilos | Quantitativa Contínua | Numérica | – | 888 | 0 |
 
-: **Base 1 – Desembarque Pesqueiro: Descrição das variáveis.** {#tbl-var-pesca tbl-colwidths="[15,30,15,10,10,10,10]"}
+: **Descrição das variáveis base desembarque pesqueiro.** {#tbl-var-pesca tbl-colwidths="[15,36,18,10,7,7,7]"}
 
 
 **Base 2 – Cotas Fluviométricas:** A partir dos dados originais da Agência Nacional de Águas e Saneamento Básico (ANA), unificamos inicialmente os registros das estações de Borba e Manicoré, definindo adequadamente o tipo de dado para as variáveis `localidade`, `ano` e `mes`, e padronizando a variável `hora` para o formato `%H:%M:%S`. Utilizando o dicionário de dados da ANA (@tbl-rotulos-ana), os códigos numéricos das variáveis categóricas foram substituídos pelos seus rótulos textuais correspondentes. Visto que o banco de dados original apresentava 31 colunas de cotas diárias e outras 31 de *status*, convertemos a base para o formato longo através da função `tidyr::pivot_longer()`, o que permitiu criar as variáveis `cota`, `status`, `referencia_dia` e `identificador_cota` (esta última para rastrear a coluna de origem da medição). Optamos por manter os valores ausentes (`NA's`) nas variáveis hidrológicas, uma vez que estes representam ausência de medição e são cruciais para preservar a sequência cronológica e o espaçamento da série histórica. Ao final do tratamento, a base consolidou 144.181 registros discriminadas na @tbl-var-cotas.
@@ -262,7 +262,7 @@ Com a base estruturada e consolidada após todo o processo de limpeza e padroniz
 | `media_status` | Status de qualidade da cota média | Qualitativa Nominal | Fator | 5 | 144.181 | 0 |
 | `media_anual_status` | Status de qualidade da média anual | Qualitativa Nominal | Fator | 5 | 144.181 | 2.604 |
 
-: **Base 2 – Cotas Fluviométricas: Descrição das variáveis.** {#tbl-var-cotas tbl-colwidths="[15,30,15,10,10,10,10]"}
+: **Descrição das variáveis base cotas fluviométricas.** {#tbl-var-cotas tbl-colwidths="[15,30,15,10,10,10,10]"}
 
 
 ## Antes e Depois das UHEs
