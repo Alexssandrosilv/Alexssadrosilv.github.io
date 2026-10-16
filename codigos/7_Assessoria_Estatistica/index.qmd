@@ -216,7 +216,7 @@ A presente análise tem os seguintes objetivos:
 | `periodo` | Classificação da pescaria por período | Qualitativa Nominal | Caractere | – | 888 | 0 |
 | `periodo_2` | Segunda classificação da pescaria por período | Qualitativa Nominal | Fator | 6 | 888 | 0 |
 | `periodo_barragem` | Momento em relação às hidrelétricas | Qualitativa Ordinal | Fator | 2 | 888 | 0 |
-| `ano` | Ano do registro (2002 a 2025) | Quantitativa Discreta | Inteira | – | 888 | 0 |
+| `ano` | Ano do registro (2002 a 2025) | Quantitativa Discreta | Inteiro | – | 888 | 0 |
 | `dias` | Número de dias de pesca informados (esforço) | Quantitativa Discreta | Numérica | – | 888 | 0 |
 | `captura_total` | Quantidade desembarcada, em quilos | Quantitativa Contínua | Numérica | – | 888 | 0 |
 
@@ -242,9 +242,9 @@ Com a base estruturada e consolidada após todo o processo de limpeza e padroniz
 | `estacao_codigo` | Código identificador da estação na ANA | Qualitativa Nominal | Caractere | – | 144.181 | 0 |
 | `nivel_consistencia` | Consistência do dado (Bruto ou Consistido) | Qualitativa Nominal | Fator | 2 | 144.181 | 0 |
 | `data` | Data do registro da medição | Quantitativa Contínua | Data | – | 144.181 | 0 |
-| `ano` | Ano de referência da medição | Quantitativa Discreta | Inteira | – | 144.181 | 0 |
-| `mes` | Mês de referência da medição | Quantitativa Discreta | Inteira | – | 144.181 | 0 |
-| `referencia_dia` | Dia do mês extraído das cotas originais | Quantitativa Discreta | Inteira | – | 144.181 | 0 |
+| `ano` | Ano de referência da medição | Quantitativa Discreta | Inteiro | – | 144.181 | 0 |
+| `mes` | Mês de referência da medição | Quantitativa Discreta | Inteiro | – | 144.181 | 0 |
+| `referencia_dia` | Dia do mês extraído das cotas originais | Quantitativa Discreta | Inteiro | – | 144.181 | 0 |
 | `hora` | Hora do registro da medição tratada | Quantitativa Discreta | Caractere | – | 144.181 | 80.879 |
 | `media_diaria` | Indicador de média diária ou instantânea | Qualitativa Nominal | Fator | 2 | 144.181 | 0 |
 | `tipo_medicao_cotas` | Método de leitura (Escala, Linígrafo, etc.) | Qualitativa Nominal | Fator | 4 | 144.181 | 0 |
@@ -281,10 +281,10 @@ Com a base estruturada e consolidada após todo o processo de limpeza e padroniz
 | **Manicoré** | Antes | 2002–2010 (9) | 17.020 | 1.891 ± 85<sup class="t-wilcoxon">a</sup> | [1.701 – 1.971] | [Wilcoxon-Mann-Whitney]{.t-wilcoxon} | **−62,7%** [↓]{style="color:#9d0208; font-size:1.25em; font-weight:700;"} |
 |   | Depois | 2011–2024 (14) | 9.887 | 706 ± 171<sup class="t-wilcoxon">b</sup> | [453 – 1.061] | | |
 
-: **Testes de comparação e estatísticas descritivas da produção pesqueira (kg) por município e período.** {#tbl-estatisticas-pesca}
+: **Testes de comparação e estatísticas descritivas da produção pesqueira (kg) por município e período.** {#tbl-estatisticas-pesca tbl-colwidths="[13,13,14,13,27,10,10]"}
 
 ::: {.nota-tabela}
-**Notas:** Foram considerados os períodos 2002–2010 (Antes) e 2011–2024 (Depois) | 2025 foi excluído por apresentar dados incompletos | $n$ = número de anos avaliados em cada período | DP = desvio padrão | Taxa de Declínio Produtivo = redução percentual da produção média anual entre os períodos | Letras sobrescritas diferentes (a, b) indicam diferença estatisticamente significativa entre os períodos ($\alpha = 0,05$) | Cor azul = teste $t$ de Welch para amostras independentes (paramétrico) | Cor vermelha = teste de Wilcoxon-Mann-Whitney para amostras independentes (não paramétrico).
+**Notas:** $n$ = número de anos avaliados em cada período | DP = desvio padrão | Taxa de Declínio Produtivo = redução percentual da produção média anual entre os períodos | Letras sobrescritas diferentes (a, b) indicam diferença estatisticamente significativa entre os períodos ($\alpha = 0,05$) | Cor azul = teste $t$ de Welch para amostras independentes (paramétrico) | Cor vermelha = teste de Wilcoxon-Mann-Whitney para amostras independentes (não paramétrico).
 :::
 
 **Comentários:** Ao aplicar os testes verificamos uma redução significativa ($p$-valor $< 0,001$) na produção pesqueira anual de ambos os municípios no período posterior à instalação das UHEs, considerando um nível de significância de 5% ($\alpha = 0,05$). Em Borba, os pressupostos de normalidade foram atendidos, conforme verificado pelas estatísticas de teste $W$ de Shapiro-Wilk ($W = 0,9809$, $p$-valor $= 0,9688$ no período "Antes" e $W = 0,9582$, $p$-valor $= 0,6936$ no "Depois") e $A$ de Anderson-Darling ($A = 0,1239$, $p$-valor $= 0,9765$ no "Antes" e $A = 0,2086$, $p$-valor $= 0,8293$ no "Depois"). Por isso, aplicou-se o teste $t$ de Welch, cuja estatística de teste resultou em $t = 7,3533$ ($p$-valor $< 0,001$). Já em Manicoré, devido à ausência de normalidade no período "Antes" apontada pela estatística de teste $W$ de Shapiro-Wilk ($W = 0,8338$ e $p$-valor $= 0,0493$), aplicou-se o teste não paramétrico de Wilcoxon-Mann-Whitney para grupos independentes. Este procedimento resultou na estatística de teste $W$ máxima possível ($W = 126$, valor que corresponde exatamente ao produto do número de anos dos dois períodos avaliados, $n_1 = 9$ e $n_2 = 14$), com $p$-valor $< 0,001$, evidenciando uma separação absoluta entre as épocas: todos os anos do período "Antes" registraram produção superior a qualquer ano do período "Depois". Conclui-se que houve uma diminuição drástica e estatisticamente comprovada associada ao período de operação das barragens, embora a influência de outros fatores simultâneos ainda deva ser investigada.
