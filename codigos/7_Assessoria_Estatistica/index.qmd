@@ -177,7 +177,7 @@ source("3_tratamento_dados.R")
 
 ## Sobre os dados
 
-Para a elaboração desta análise, utilizamos a linguagem de programação [R](http://www.R-project.org/) (versão 4.5.3; R Core Team, 2026), voltada para a manipulação, análise e visualização de dados. O estudo baseia-se em duas bases de dados que, a priori, passaram por um processo de organização e limpeza realizado de forma separada no Microsoft Excel e no R:
+Para a elaboração desta análise, utilizamos a linguagem de programação [R](http://www.R-project.org/) (versão 4.5.3; R Core Team, 2026), voltada para a manipulação, análise e visualização de dados. O estudo baseia-se em duas bases de dados que, a priori, passaram por um processo de organização e limpeza realizado de forma separada no Microsoft Excel e no R. Como decisão metodológica, o recorte temporal da análise foi estruturado em função do período de barramento das Usinas Hidrelétricas (UHEs), dividindo a série histórica nos períodos de 2002 a 2010 ("Antes") e de 2011 a 2024 ("Depois"), sendo o ano de 2025 excluído por apresentar dados incompletos:
 
 - **Base 1 – Desembarque Pesqueiro:** reúne os registros de desembarque das colônias de pescadores dos municípios de Borba e Manicoré, no período de 2002 a 2025. 
 - **Base 2 – Cotas Fluviométricas:** reúne a série histórica das cotas (nível) do Rio Madeira nas estações dessas duas localidades, no período de 1967 a 2026. 
@@ -223,7 +223,7 @@ A presente análise tem os seguintes objetivos:
 : **Base 1 – Desembarque Pesqueiro: Descrição das variáveis.** {#tbl-var-pesca tbl-colwidths="[15,30,15,10,10,10,10]"}
 
 
-**Base 2 – Cotas Fluviométricas:** A partir dos dados originais da Agência Nacional de Águas e Saneamento Básico (ANA), unificamos inicialmente os registros das estações de Borba e Manicoré, definindo adequadamente o tipo de dado para as variáveis `localidade`, `ano` e `mes`, e padronizando a variável `hora` para o formato `%H:%M:%S`. Utilizando o dicionário de dados da ANA, os códigos numéricos das variáveis categóricas foram substituídos pelos seus rótulos textuais correspondentes. Visto que o banco de dados original apresentava 31 colunas de cotas diárias e outras 31 de *status*, convertemos a base para o formato longo através da função `tidyr::pivot_longer()`, o que permitiu criar as variáveis `cota`, `status`, `referencia_dia` e `identificador_cota` (esta última para rastrear a coluna de origem da medição). Optamos por manter os valores ausentes (`NA's`) nas variáveis hidrológicas, uma vez que estes representam ausência de medição e são cruciais para preservar a sequência cronológica e o espaçamento da série histórica. Ao final do tratamento, a base consolidou 144.181 registros discriminadas na @tbl-var-cotas.
+**Base 2 – Cotas Fluviométricas:** A partir dos dados originais da Agência Nacional de Águas e Saneamento Básico (ANA), unificamos inicialmente os registros das estações de Borba e Manicoré, definindo adequadamente o tipo de dado para as variáveis `localidade`, `ano` e `mes`, e padronizando a variável `hora` para o formato `%H:%M:%S`. Utilizando o dicionário de dados da ANA (@tbl-rotulos-ana), os códigos numéricos das variáveis categóricas foram substituídos pelos seus rótulos textuais correspondentes. Visto que o banco de dados original apresentava 31 colunas de cotas diárias e outras 31 de *status*, convertemos a base para o formato longo através da função `tidyr::pivot_longer()`, o que permitiu criar as variáveis `cota`, `status`, `referencia_dia` e `identificador_cota` (esta última para rastrear a coluna de origem da medição). Optamos por manter os valores ausentes (`NA's`) nas variáveis hidrológicas, uma vez que estes representam ausência de medição e são cruciais para preservar a sequência cronológica e o espaçamento da série histórica. Ao final do tratamento, a base consolidou 144.181 registros discriminadas na @tbl-var-cotas.
 
 | Variável | Código = Rótulo |
 |:---|:---|
@@ -232,9 +232,9 @@ A presente análise tem os seguintes objetivos:
 | `tipo_medicao_cotas` | 1 = Escala; 2 = Linígrafo; 3 = Data Logger; 5 = Escala SMS |
 | `status`, `maxima_status`, `minima_status`, `media_status`, `media_anual_status` | 0 = Branco; 1 = Real; 2 = Estimado; 3 = Duvidoso; 4 = Régua Seca |
 
-: **Rótulos aplicados às variáveis categóricas da Base 2, conforme o dicionário da ANA.** {#tbl-rotulos-ana tbl-colwidths="[60,40]"}
+: **Rótulos aplicados às variáveis categóricas (Dicionário da ANA).** {#tbl-rotulos-ana tbl-colwidths="[60,40]"}
 
-Com a base estruturada e consolidada após todo o processo de limpeza e padronização, a tabela @tbl-rotulos-ana detalha a natureza de cada variável hidrológica, a sua classificação metodológica e computacional (ambiente R), bem como o respectivo volume de observações e de dados ausentes.
+Com a base estruturada e consolidada após todo o processo de limpeza e padronização, a tabela @tbl-rotulos-ana detalha a natureza de cada variável hidrológica.
 
 | Variável | Descrição | Tipo | Classe (R) | Níveis | Tamanho Amostral (n) | Dados Ausentes (NA's) |
 |:---|:---|:---|:---|:---|:---|:---|
@@ -262,7 +262,7 @@ Com a base estruturada e consolidada após todo o processo de limpeza e padroniz
 | `media_status` | Status de qualidade da cota média | Qualitativa Nominal | Fator | 5 | 144.181 | 0 |
 | `media_anual_status` | Status de qualidade da média anual | Qualitativa Nominal | Fator | 5 | 144.181 | 2.604 |
 
-: **Base 2 – Cotas Fluviométricas: Descrição das variáveis.** {#tbl-var-cotas tbl-colwidths="[15,30,15,10,10,10,10]}
+: **Base 2 – Cotas Fluviométricas: Descrição das variáveis.** {#tbl-var-cotas tbl-colwidths="[15,30,15,10,10,10,10]"}
 
 
 ## Antes e Depois das UHEs
