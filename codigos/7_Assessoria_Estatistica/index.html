@@ -382,21 +382,21 @@ window.Quarto = {
 <section id="tratamento" class="level3" data-number="1.2">
 <h3 data-number="1.2" class="anchored" data-anchor-id="tratamento"><span class="header-section-number">1.2</span> Tratamento</h3>
 <p><strong>Base 1 – Desembarque Pesqueiro:</strong> Inicialmente, consolidamos os registros de Borba e Manicoré em uma única base, padronizando as variáveis de agrupamento e convertendo os dados do formato largo para o longo por meio da função <code>tidyr::pivot_longer()</code>, o que originou as variáveis <code>ano</code> e <code>captura_total</code>. Na sequência, convertemos os valores de captura para o formato numérico (substituindo vírgulas por pontos) e aplicamos um filtro de limpeza para remover registros vazios e os anos de 2000, 2001, 2025 e 2026, estabilizando a série histórica no período de 2002 a 2024. Para viabilizar as análises de impacto, criamos a variável <code>periodo_barragem</code>, segmentando a série nas fases <strong>Antes</strong> (2002 a 2010) e <strong>Depois</strong> (2011 a 2024). Por fim, após atestar a inexistência de valores ausentes nas variáveis de interesse, a base de dados final resultou em 888 observações estruturadas, cujas variáveis estão detalhadas na <a href="#tbl-var-pesca" class="quarto-xref">Tabela&nbsp;1</a>.</p>
-<div id="tbl-var-pesca" class="quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[15,30,15,10,10,10,10]">
+<div id="tbl-var-pesca" class="quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[15,36,18,10,7,7,7]">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-var-pesca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;1: <strong>Base 1 – Desembarque Pesqueiro: Descrição das variáveis.</strong>
+Tabela&nbsp;1: <strong>Descrição das variáveis base desembarque pesqueiro.</strong>
 </figcaption>
 <div aria-describedby="tbl-var-pesca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
 <colgroup>
 <col style="width: 15%">
-<col style="width: 30%">
-<col style="width: 15%">
+<col style="width: 36%">
+<col style="width: 18%">
 <col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 10%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -594,7 +594,7 @@ Tabela&nbsp;2: <strong>Rótulos aplicados às variáveis categóricas (Dicionár
 <div id="tbl-var-cotas" class="quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[15,30,15,10,10,10,10]">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-var-cotas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;3: <strong>Base 2 – Cotas Fluviométricas: Descrição das variáveis.</strong>
+Tabela&nbsp;3: <strong>Descrição das variáveis base cotas fluviométricas.</strong>
 </figcaption>
 <div aria-describedby="tbl-var-cotas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
