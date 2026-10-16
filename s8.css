@@ -653,16 +653,16 @@ input[type="file"]::file-selector-button:hover {
 }
 
 .panel-tabset > .nav-tabs .nav-link:hover {
-  background: #f0faf7;
-  border-color: #fffffd;
-  color: #000;
+  background: #000;
+  border-color #4a4a4a;
+  color: #fff;
   text-decoration: none;
 }
 
 .panel-tabset > .nav-tabs .nav-link.active {
-  background: var(--verde-titulos, #18bc9c) !important;
-  border: 1px solid var(--verde-titulos, #18bc9c) !important;
-  color: #ffffff !important;
+  background: #000 !important;
+  border: 1px solid #4a4a4a !important;
+  color: #fff !important;
 }
 
 /* Quadro ao redor do conteúdo da aba (gráfico + legenda) */

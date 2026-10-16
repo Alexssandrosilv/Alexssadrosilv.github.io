@@ -98,8 +98,8 @@ format:
     toc: true # Table of Contents (Menu da Direita)
     toc-title: "Nesta página"
     fontsize: 0.9em
-    margin-left: 0em
-    margin-right: 0em
+    # margin-left: 0em
+    # margin-right: 0em
     margin-bottom: 0em
     margin-top: -1em
     number-sections: true

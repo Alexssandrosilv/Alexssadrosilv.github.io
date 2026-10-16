@@ -639,7 +639,7 @@ A análise de autocorrelação (via teste de Durbin-Watson) evidenciou forte dep
 
 ### Aracu
 
-![Time series of annual catch (kg) for Aracu in the Borba and Manicoré fishers' colonies between 2002 and 2024. Dots represent the observed annual volume. The dashed vertical line indicates the dam impoundment in 2011. The $\tau$ values are Kendall's $\tau$ coefficients from the Mann-Kendall trend test, the $p$-values indicate the statistical significance of $\tau$ and of Sen's slope, and Sen represents Sen's slope estimator, which quantifies the annual rate of change (loss rate) in kg/year for each period and locality.](graficos/TimeSeries_Final_Aracu.png){#fig-serie-aracu width="100%" fig-align="center"}
+![Time series of annual catch (kg) for Aracu in the Borba and Manicoré fishers' colonies between 2002 and 2024.](graficos/TimeSeries_Final_Aracu.png){#fig-serie-aracu width="100%" fig-align="center"}
 
 ::: {.linha-baixar}
 [<i class="bi bi-download"></i> Baixar Gráfico (PNG)](graficos/TimeSeries_Final_Aracu.png){.baixar download="TimeSeries_Final_Aracu.png"}
@@ -789,10 +789,10 @@ A análise de autocorrelação (via teste de Durbin-Watson) evidenciou forte dep
 [<i class="bi bi-download"></i> Baixar Gráfico (PNG)](graficos/TimeSeries_Final_Tucunaré.png){.baixar download="TimeSeries_Final_Tucunaré.png"}
 :::
 
-::: {.nota-tabela}
-**Notas:** Os pontos representam o volume anual observado | A linha tracejada vertical indica o barramento em 2011 | $\tau$ = coeficiente $\tau$ de Kendall do teste de Mann-Kendall | Os *p*-valores indicam a significância estatística de $\tau$ e da inclinação de Sen | Sen = estimador da inclinação de Sen, que quantifica a taxa anual de variação (taxa de perda), em kg/ano, em cada período e localidade.
 :::
 
+::: {.nota-tabela}
+**Notas:** Os pontos representam o volume anual observado | A linha tracejada vertical indica o barramento em 2011 | $\tau$ = coeficiente $\tau$ de Kendall do teste de Mann-Kendall | Os *p*-valores indicam a significância estatística de $\tau$ e da inclinação de Sen | Sen = estimador da inclinação de Sen, que quantifica a taxa anual de variação (taxa de perda), em kg/ano, em cada período e localidade.
 :::
 
 ### Análise de Tendência Temporal e Autocorrelação para as Cotas Fluviométricas
