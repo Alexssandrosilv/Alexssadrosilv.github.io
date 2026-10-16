@@ -381,7 +381,7 @@ window.Quarto = {
 </section>
 <section id="tratamento" class="level3" data-number="1.2">
 <h3 data-number="1.2" class="anchored" data-anchor-id="tratamento"><span class="header-section-number">1.2</span> Tratamento</h3>
-<p><strong>Base 1 – Desembarque Pesqueiro:</strong> Inicialmente, consolidamos os registros de Borba e Manicoré em uma única base, padronizando as variáveis de agrupamento e convertendo os dados do formato largo para o longo por meio da função <code>tidyr::pivot_longer()</code>, o que originou as variáveis <code>ano</code> e <code>captura_total</code>. Na sequência, convertemos os valores de captura para o formato numérico (substituindo vírgulas por pontos) e aplicamos um filtro de limpeza para remover registros vazios e os anos de 2000, 2001, 2025 e 2026, estabilizando a série histórica no período de 2002 a 2024. Para viabilizar as análises de impacto, criamos a variável <code>periodo_barragem</code>, segmentando a série nas fases <strong>Antes</strong> (2002 a 2010) e <strong>Depois</strong> (2011 a 2024). Por fim, após atestar a inexistência de valores ausentes nas variáveis de interesse, a base de dados final resultou em 888 observações estruturadas, cujas variáveis estão detalhadas na <a href="#tbl-var-pesca" class="quarto-xref">Tabela&nbsp;1</a>.</p>
+<p><strong>Base 1 – Desembarque Pesqueiro:</strong> Inicialmente, consolidamos os registros de Borba e Manicoré em uma única base, padronizando as variáveis de agrupamento e convertendo os dados do formato largo para o longo por meio da função <code>tidyr::pivot_longer()</code>, o que originou as variáveis <code>ano</code> e <code>captura_total</code>. Na sequência, convertemos os valores de captura para o formato numérico (substituindo vírgulas por pontos) e aplicamos um filtro de limpeza para remover registros vazios e os anos de 2000, 2001, 2025 e 2026, estabilizando a série histórica no período de 2002 a 2024. Para viabilizar as análises de impacto, criamos a variável <code>periodo_barragem</code>, segmentando a série nas fases <strong>Antes</strong> (2002 a 2010) e <strong>Depois</strong> (2011 a 2024). Por fim, após verificar ausência de valores nulos nas variáveis de interesse, a base de dados final resultou em 888 observações estruturadas, cujas variáveis estão detalhadas na <a href="#tbl-var-pesca" class="quarto-xref">Tabela&nbsp;1</a>.</p>
 <div id="tbl-var-pesca" class="quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[15,36,18,10,7,7,7]">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-var-pesca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -551,7 +551,7 @@ Tabela&nbsp;1: <strong>Descrição das variáveis base desembarque pesqueiro.</s
 </figure>
 </div>
 <p><strong>Base 2 – Cotas Fluviométricas:</strong> A partir dos dados originais da Agência Nacional de Águas e Saneamento Básico (ANA), unificamos inicialmente os registros das estações de Borba e Manicoré, definindo adequadamente o tipo de dado para as variáveis <code>localidade</code>, <code>ano</code> e <code>mes</code>, e padronizando a variável <code>hora</code> para o formato <code>%H:%M:%S</code>. Utilizando o dicionário de dados da ANA (<a href="#tbl-rotulos-ana" class="quarto-xref">Tabela&nbsp;2</a>), os códigos numéricos das variáveis categóricas foram substituídos pelos seus rótulos textuais correspondentes. Visto que o banco de dados original apresentava 31 colunas de cotas diárias e outras 31 de <em>status</em>, convertemos a base para o formato longo através da função <code>tidyr::pivot_longer()</code>, o que permitiu criar as variáveis <code>cota</code>, <code>status</code>, <code>referencia_dia</code> e <code>identificador_cota</code> (esta última para rastrear a coluna de origem da medição). Optamos por manter os valores ausentes (<code>NA's</code>) nas variáveis hidrológicas, uma vez que estes representam ausência de medição e são cruciais para preservar a sequência cronológica e o espaçamento da série histórica. Ao final do tratamento, a base consolidou 144.181 registros discriminadas na <a href="#tbl-var-cotas" class="quarto-xref">Tabela&nbsp;3</a>.</p>
-<div id="tbl-rotulos-ana" class="quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[60,40]">
+<div id="tbl-rotulos-ana" class="quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[53,47]">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-rotulos-ana-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Tabela&nbsp;2: <strong>Rótulos aplicados às variáveis categóricas (Dicionário da ANA).</strong>
@@ -559,8 +559,8 @@ Tabela&nbsp;2: <strong>Rótulos aplicados às variáveis categóricas (Dicionár
 <div aria-describedby="tbl-rotulos-ana-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
 <colgroup>
-<col style="width: 60%">
-<col style="width: 40%">
+<col style="width: 53%">
+<col style="width: 47%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -591,7 +591,7 @@ Tabela&nbsp;2: <strong>Rótulos aplicados às variáveis categóricas (Dicionár
 </figure>
 </div>
 <p>Com a base estruturada e consolidada após todo o processo de limpeza e padronização, a tabela <a href="#tbl-rotulos-ana" class="quarto-xref">Tabela&nbsp;2</a> detalha a natureza de cada variável hidrológica.</p>
-<div id="tbl-var-cotas" class="quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[15,30,15,10,10,10,10]">
+<div id="tbl-var-cotas" class="quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[15,36,18,10,7,7,7]">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-var-cotas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Tabela&nbsp;3: <strong>Descrição das variáveis base cotas fluviométricas.</strong>
@@ -600,12 +600,12 @@ Tabela&nbsp;3: <strong>Descrição das variáveis base cotas fluviométricas.</s
 <table class="caption-top table">
 <colgroup>
 <col style="width: 15%">
-<col style="width: 30%">
-<col style="width: 15%">
+<col style="width: 36%">
+<col style="width: 18%">
 <col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 10%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
 </colgroup>
 <thead>
 <tr class="header">
