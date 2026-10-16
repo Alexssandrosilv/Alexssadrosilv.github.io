@@ -631,6 +631,10 @@ A análise de autocorrelação (via teste de Durbin-Watson) evidenciou forte dep
 
 **Interpretação:** As @fig-serie-aracu, @fig-serie-branquinha, @fig-serie-caparari, @fig-serie-cara-branco, @fig-serie-carauacu, @fig-serie-curimata, @fig-serie-dourada, @fig-serie-filhote, @fig-serie-jaraqui, @fig-serie-matrinxa, @fig-serie-pacu, @fig-serie-pescada, @fig-serie-piranambu-barbado, @fig-serie-pirapitinga, @fig-serie-pirarara, @fig-serie-sardinha, @fig-serie-surubim, @fig-serie-tambaqui e @fig-serie-tucunare apresentam as séries temporais da produção pesqueira anual das espécies analisadas em **Borba** e **Manicoré**, separadas entre os períodos antes e após o barramento. Para cada período, o valor de $\tau$ (tau de Kendall) indica a direção da tendência ao longo dos anos: valores negativos representam **redução da produção**, enquanto valores positivos indicam **aumento**. O valor de *p* indica se essa tendência é estatisticamente significativa, considerando *p* < 0,05. Já a inclinação de Sen representa a intensidade da mudança, expressa em **kg por ano**, indicando quanto a produção aumentou ou diminuiu anualmente. Assim, a leitura conjunta desses indicadores permite identificar a **direção, a significância e a magnitude das mudanças na produção pesqueira**, bem como comparar o comportamento observado antes e após o barramento em cada localidade.
 
+
+**Selecione a espécie:**
+
+
 ::: {.panel-tabset}
 
 ### Aracu
@@ -643,7 +647,7 @@ A análise de autocorrelação (via teste de Durbin-Watson) evidenciou forte dep
 
 ### Branquinha
 
-![Time series of annual catch (kg) for Branquinha in the Borba and Manicoré fishers' colonies between 2002 and 2024. Dots represent the observed annual volume. The dashed vertical line indicates the dam impoundment in 2011. The $\tau$ values are Kendall's $\tau$ coefficients from the Mann-Kendall trend test, the $p$-values indicate the statistical significance of $\tau$ and of Sen's slope, and Sen represents Sen's slope estimator, which quantifies the annual rate of change (loss rate) in kg/year for each period and locality.](graficos/TimeSeries_Final_Branquinha.png){#fig-serie-branquinha width="100%" fig-align="center"}
+![Time series of annual catch (kg) for Branquinha in the Borba and Manicoré fishers' colonies between 2002 and 2024.](graficos/TimeSeries_Final_Branquinha.png){#fig-serie-branquinha width="100%" fig-align="center"}
 
 ::: {.linha-baixar}
 [<i class="bi bi-download"></i> Baixar Gráfico (PNG)](graficos/TimeSeries_Final_Branquinha.png){.baixar download="TimeSeries_Final_Branquinha.png"}
@@ -651,7 +655,7 @@ A análise de autocorrelação (via teste de Durbin-Watson) evidenciou forte dep
 
 ### Caparari
 
-![Time series of annual catch (kg) for Caparari in the Borba and Manicoré fishers' colonies between 2002 and 2024. Dots represent the observed annual volume. The dashed vertical line indicates the dam impoundment in 2011. The $\tau$ values are Kendall's $\tau$ coefficients from the Mann-Kendall trend test, the $p$-values indicate the statistical significance of $\tau$ and of Sen's slope, and Sen represents Sen's slope estimator, which quantifies the annual rate of change (loss rate) in kg/year for each period and locality.](graficos/TimeSeries_Final_Caparari.png){#fig-serie-caparari width="100%" fig-align="center"}
+![Time series of annual catch (kg) for Caparari in the Borba and Manicoré fishers' colonies between 2002 and 2024.](graficos/TimeSeries_Final_Caparari.png){#fig-serie-caparari width="100%" fig-align="center"}
 
 ::: {.linha-baixar}
 [<i class="bi bi-download"></i> Baixar Gráfico (PNG)](graficos/TimeSeries_Final_Caparari.png){.baixar download="TimeSeries_Final_Caparari.png"}
@@ -659,7 +663,7 @@ A análise de autocorrelação (via teste de Durbin-Watson) evidenciou forte dep
 
 ### Cara branco
 
-![Time series of annual catch (kg) for Cara branco in the Borba and Manicoré fishers' colonies between 2002 and 2024. Dots represent the observed annual volume. The dashed vertical line indicates the dam impoundment in 2011. The $\tau$ values are Kendall's $\tau$ coefficients from the Mann-Kendall trend test, the $p$-values indicate the statistical significance of $\tau$ and of Sen's slope, and Sen represents Sen's slope estimator, which quantifies the annual rate of change (loss rate) in kg/year for each period and locality.](graficos/TimeSeries_Final_Cara_branco.png){#fig-serie-cara-branco width="100%" fig-align="center"}
+![Time series of annual catch (kg) for Cara branco in the Borba and Manicoré fishers' colonies between 2002 and 2024.](graficos/TimeSeries_Final_Cara_branco.png){#fig-serie-cara-branco width="100%" fig-align="center"}
 
 ::: {.linha-baixar}
 [<i class="bi bi-download"></i> Baixar Gráfico (PNG)](graficos/TimeSeries_Final_Cara_branco.png){.baixar download="TimeSeries_Final_Cara_branco.png"}
@@ -667,7 +671,7 @@ A análise de autocorrelação (via teste de Durbin-Watson) evidenciou forte dep
 
 ### Carauaçu
 
-![Time series of annual catch (kg) for Carauaçu in the Borba and Manicoré fishers' colonies between 2002 and 2024. Dots represent the observed annual volume. The dashed vertical line indicates the dam impoundment in 2011. The $\tau$ values are Kendall's $\tau$ coefficients from the Mann-Kendall trend test, the $p$-values indicate the statistical significance of $\tau$ and of Sen's slope, and Sen represents Sen's slope estimator, which quantifies the annual rate of change (loss rate) in kg/year for each period and locality.](graficos/TimeSeries_Final_Carauaçu.png){#fig-serie-carauacu width="100%" fig-align="center"}
+![Time series of annual catch (kg) for Carauaçu in the Borba and Manicoré fishers' colonies between 2002 and 2024. ](graficos/TimeSeries_Final_Carauaçu.png){#fig-serie-carauacu width="100%" fig-align="center"}
 
 ::: {.linha-baixar}
 [<i class="bi bi-download"></i> Baixar Gráfico (PNG)](graficos/TimeSeries_Final_Carauaçu.png){.baixar download="TimeSeries_Final_Carauaçu.png"}
@@ -675,7 +679,7 @@ A análise de autocorrelação (via teste de Durbin-Watson) evidenciou forte dep
 
 ### Curimatã
 
-![Time series of annual catch (kg) for Curimatã in the Borba and Manicoré fishers' colonies between 2002 and 2024. Dots represent the observed annual volume. The dashed vertical line indicates the dam impoundment in 2011. The $\tau$ values are Kendall's $\tau$ coefficients from the Mann-Kendall trend test, the $p$-values indicate the statistical significance of $\tau$ and of Sen's slope, and Sen represents Sen's slope estimator, which quantifies the annual rate of change (loss rate) in kg/year for each period and locality.](graficos/TimeSeries_Final_Curimatã.png){#fig-serie-curimata width="100%" fig-align="center"}
+![Time series of annual catch (kg) for Curimatã in the Borba and Manicoré fishers' colonies between 2002 and 2024. ](graficos/TimeSeries_Final_Curimatã.png){#fig-serie-curimata width="100%" fig-align="center"}
 
 ::: {.linha-baixar}
 [<i class="bi bi-download"></i> Baixar Gráfico (PNG)](graficos/TimeSeries_Final_Curimatã.png){.baixar download="TimeSeries_Final_Curimatã.png"}
@@ -683,7 +687,7 @@ A análise de autocorrelação (via teste de Durbin-Watson) evidenciou forte dep
 
 ### Dourada
 
-![Time series of annual catch (kg) for Dourada in the Borba and Manicoré fishers' colonies between 2002 and 2024. Dots represent the observed annual volume. The dashed vertical line indicates the dam impoundment in 2011. The $\tau$ values are Kendall's $\tau$ coefficients from the Mann-Kendall trend test, the $p$-values indicate the statistical significance of $\tau$ and of Sen's slope, and Sen represents Sen's slope estimator, which quantifies the annual rate of change (loss rate) in kg/year for each period and locality.](graficos/TimeSeries_Final_Dourada.png){#fig-serie-dourada width="100%" fig-align="center"}
+![Time series of annual catch (kg) for Dourada in the Borba and Manicoré fishers' colonies between 2002 and 2024.](graficos/TimeSeries_Final_Dourada.png){#fig-serie-dourada width="100%" fig-align="center"}
 
 ::: {.linha-baixar}
 [<i class="bi bi-download"></i> Baixar Gráfico (PNG)](graficos/TimeSeries_Final_Dourada.png){.baixar download="TimeSeries_Final_Dourada.png"}
@@ -691,7 +695,7 @@ A análise de autocorrelação (via teste de Durbin-Watson) evidenciou forte dep
 
 ### Filhote
 
-![Time series of annual catch (kg) for Filhote in the Borba and Manicoré fishers' colonies between 2002 and 2024. Dots represent the observed annual volume. The dashed vertical line indicates the dam impoundment in 2011. The $\tau$ values are Kendall's $\tau$ coefficients from the Mann-Kendall trend test, the $p$-values indicate the statistical significance of $\tau$ and of Sen's slope, and Sen represents Sen's slope estimator, which quantifies the annual rate of change (loss rate) in kg/year for each period and locality.](graficos/TimeSeries_Final_Filhote.png){#fig-serie-filhote width="100%" fig-align="center"}
+![Time series of annual catch (kg) for Filhote in the Borba and Manicoré fishers' colonies between 2002 and 2024.](graficos/TimeSeries_Final_Filhote.png){#fig-serie-filhote width="100%" fig-align="center"}
 
 ::: {.linha-baixar}
 [<i class="bi bi-download"></i> Baixar Gráfico (PNG)](graficos/TimeSeries_Final_Filhote.png){.baixar download="TimeSeries_Final_Filhote.png"}
@@ -699,7 +703,7 @@ A análise de autocorrelação (via teste de Durbin-Watson) evidenciou forte dep
 
 ### Jaraqui
 
-![Time series of annual catch (kg) for Jaraqui in the Borba and Manicoré fishers' colonies between 2002 and 2024. Dots represent the observed annual volume. The dashed vertical line indicates the dam impoundment in 2011. The $\tau$ values are Kendall's $\tau$ coefficients from the Mann-Kendall trend test, the $p$-values indicate the statistical significance of $\tau$ and of Sen's slope, and Sen represents Sen's slope estimator, which quantifies the annual rate of change (loss rate) in kg/year for each period and locality.](graficos/TimeSeries_Final_Jaraqui.png){#fig-serie-jaraqui width="100%" fig-align="center"}
+![Time series of annual catch (kg) for Jaraqui in the Borba and Manicoré fishers' colonies between 2002 and 2024. ](graficos/TimeSeries_Final_Jaraqui.png){#fig-serie-jaraqui width="100%" fig-align="center"}
 
 ::: {.linha-baixar}
 [<i class="bi bi-download"></i> Baixar Gráfico (PNG)](graficos/TimeSeries_Final_Jaraqui.png){.baixar download="TimeSeries_Final_Jaraqui.png"}
@@ -707,7 +711,7 @@ A análise de autocorrelação (via teste de Durbin-Watson) evidenciou forte dep
 
 ### Matrinxã
 
-![Time series of annual catch (kg) for Matrinxã in the Borba and Manicoré fishers' colonies between 2002 and 2024. Dots represent the observed annual volume. The dashed vertical line indicates the dam impoundment in 2011. The $\tau$ values are Kendall's $\tau$ coefficients from the Mann-Kendall trend test, the $p$-values indicate the statistical significance of $\tau$ and of Sen's slope, and Sen represents Sen's slope estimator, which quantifies the annual rate of change (loss rate) in kg/year for each period and locality.](graficos/TimeSeries_Final_Matrinxã.png){#fig-serie-matrinxa width="100%" fig-align="center"}
+![Time series of annual catch (kg) for Matrinxã in the Borba and Manicoré fishers' colonies between 2002 and 2024. ](graficos/TimeSeries_Final_Matrinxã.png){#fig-serie-matrinxa width="100%" fig-align="center"}
 
 ::: {.linha-baixar}
 [<i class="bi bi-download"></i> Baixar Gráfico (PNG)](graficos/TimeSeries_Final_Matrinxã.png){.baixar download="TimeSeries_Final_Matrinxã.png"}
@@ -715,7 +719,7 @@ A análise de autocorrelação (via teste de Durbin-Watson) evidenciou forte dep
 
 ### Pacu
 
-![Time series of annual catch (kg) for Pacu in the Borba and Manicoré fishers' colonies between 2002 and 2024. Dots represent the observed annual volume. The dashed vertical line indicates the dam impoundment in 2011. The $\tau$ values are Kendall's $\tau$ coefficients from the Mann-Kendall trend test, the $p$-values indicate the statistical significance of $\tau$ and of Sen's slope, and Sen represents Sen's slope estimator, which quantifies the annual rate of change (loss rate) in kg/year for each period and locality.](graficos/TimeSeries_Final_Pacu.png){#fig-serie-pacu width="100%" fig-align="center"}
+![Time series of annual catch (kg) for Pacu in the Borba and Manicoré fishers' colonies between 2002 and 2024.](graficos/TimeSeries_Final_Pacu.png){#fig-serie-pacu width="100%" fig-align="center"}
 
 ::: {.linha-baixar}
 [<i class="bi bi-download"></i> Baixar Gráfico (PNG)](graficos/TimeSeries_Final_Pacu.png){.baixar download="TimeSeries_Final_Pacu.png"}
@@ -723,7 +727,7 @@ A análise de autocorrelação (via teste de Durbin-Watson) evidenciou forte dep
 
 ### Pescada
 
-![Time series of annual catch (kg) for Pescada in the Borba and Manicoré fishers' colonies between 2002 and 2024. Dots represent the observed annual volume. The dashed vertical line indicates the dam impoundment in 2011. The $\tau$ values are Kendall's $\tau$ coefficients from the Mann-Kendall trend test, the $p$-values indicate the statistical significance of $\tau$ and of Sen's slope, and Sen represents Sen's slope estimator, which quantifies the annual rate of change (loss rate) in kg/year for each period and locality.](graficos/TimeSeries_Final_Pescada.png){#fig-serie-pescada width="100%" fig-align="center"}
+![Time series of annual catch (kg) for Pescada in the Borba and Manicoré fishers' colonies between 2002 and 2024.](graficos/TimeSeries_Final_Pescada.png){#fig-serie-pescada width="100%" fig-align="center"}
 
 ::: {.linha-baixar}
 [<i class="bi bi-download"></i> Baixar Gráfico (PNG)](graficos/TimeSeries_Final_Pescada.png){.baixar download="TimeSeries_Final_Pescada.png"}
@@ -731,7 +735,7 @@ A análise de autocorrelação (via teste de Durbin-Watson) evidenciou forte dep
 
 ### Piranambu / Barbado
 
-![Time series of annual catch (kg) for Piranambu/Barbado in the Borba and Manicoré fishers' colonies between 2002 and 2024. Dots represent the observed annual volume. The dashed vertical line indicates the dam impoundment in 2011. The $\tau$ values are Kendall's $\tau$ coefficients from the Mann-Kendall trend test, the $p$-values indicate the statistical significance of $\tau$ and of Sen's slope, and Sen represents Sen's slope estimator, which quantifies the annual rate of change (loss rate) in kg/year for each period and locality.](graficos/TimeSeries_Final_Piranambu_Barbado.png){#fig-serie-piranambu-barbado width="100%" fig-align="center"}
+![Time series of annual catch (kg) for Piranambu/Barbado in the Borba and Manicoré fishers' colonies between 2002 and 2024.](graficos/TimeSeries_Final_Piranambu_Barbado.png){#fig-serie-piranambu-barbado width="100%" fig-align="center"}
 
 ::: {.linha-baixar}
 [<i class="bi bi-download"></i> Baixar Gráfico (PNG)](graficos/TimeSeries_Final_Piranambu_Barbado.png){.baixar download="TimeSeries_Final_Piranambu_Barbado.png"}
@@ -739,7 +743,7 @@ A análise de autocorrelação (via teste de Durbin-Watson) evidenciou forte dep
 
 ### Pirapitinga
 
-![Time series of annual catch (kg) for Pirapitinga in the Borba and Manicoré fishers' colonies between 2002 and 2024. Dots represent the observed annual volume. The dashed vertical line indicates the dam impoundment in 2011. The $\tau$ values are Kendall's $\tau$ coefficients from the Mann-Kendall trend test, the $p$-values indicate the statistical significance of $\tau$ and of Sen's slope, and Sen represents Sen's slope estimator, which quantifies the annual rate of change (loss rate) in kg/year for each period and locality.](graficos/TimeSeries_Final_Pirapitinga.png){#fig-serie-pirapitinga width="100%" fig-align="center"}
+![Time series of annual catch (kg) for Pirapitinga in the Borba and Manicoré fishers' colonies between 2002 and 2024.](graficos/TimeSeries_Final_Pirapitinga.png){#fig-serie-pirapitinga width="100%" fig-align="center"}
 
 ::: {.linha-baixar}
 [<i class="bi bi-download"></i> Baixar Gráfico (PNG)](graficos/TimeSeries_Final_Pirapitinga.png){.baixar download="TimeSeries_Final_Pirapitinga.png"}
@@ -747,7 +751,7 @@ A análise de autocorrelação (via teste de Durbin-Watson) evidenciou forte dep
 
 ### Pirarara
 
-![Time series of annual catch (kg) for Pirarara in the Borba and Manicoré fishers' colonies between 2002 and 2024. Dots represent the observed annual volume. The dashed vertical line indicates the dam impoundment in 2011. The $\tau$ values are Kendall's $\tau$ coefficients from the Mann-Kendall trend test, the $p$-values indicate the statistical significance of $\tau$ and of Sen's slope, and Sen represents Sen's slope estimator, which quantifies the annual rate of change (loss rate) in kg/year for each period and locality.](graficos/TimeSeries_Final_Pirarara.png){#fig-serie-pirarara width="100%" fig-align="center"}
+![Time series of annual catch (kg) for Pirarara in the Borba and Manicoré fishers' colonies between 2002 and 2024. ](graficos/TimeSeries_Final_Pirarara.png){#fig-serie-pirarara width="100%" fig-align="center"}
 
 ::: {.linha-baixar}
 [<i class="bi bi-download"></i> Baixar Gráfico (PNG)](graficos/TimeSeries_Final_Pirarara.png){.baixar download="TimeSeries_Final_Pirarara.png"}
@@ -755,7 +759,7 @@ A análise de autocorrelação (via teste de Durbin-Watson) evidenciou forte dep
 
 ### Sardinha
 
-![Time series of annual catch (kg) for Sardinha in the Borba and Manicoré fishers' colonies between 2002 and 2024. Dots represent the observed annual volume. The dashed vertical line indicates the dam impoundment in 2011. The $\tau$ values are Kendall's $\tau$ coefficients from the Mann-Kendall trend test, the $p$-values indicate the statistical significance of $\tau$ and of Sen's slope, and Sen represents Sen's slope estimator, which quantifies the annual rate of change (loss rate) in kg/year for each period and locality.](graficos/TimeSeries_Final_Sardinha.png){#fig-serie-sardinha width="100%" fig-align="center"}
+![Time series of annual catch (kg) for Sardinha in the Borba and Manicoré fishers' colonies between 2002 and 2024. ](graficos/TimeSeries_Final_Sardinha.png){#fig-serie-sardinha width="100%" fig-align="center"}
 
 ::: {.linha-baixar}
 [<i class="bi bi-download"></i> Baixar Gráfico (PNG)](graficos/TimeSeries_Final_Sardinha.png){.baixar download="TimeSeries_Final_Sardinha.png"}
@@ -763,7 +767,7 @@ A análise de autocorrelação (via teste de Durbin-Watson) evidenciou forte dep
 
 ### Surubim
 
-![Time series of annual catch (kg) for Surubim in the Borba and Manicoré fishers' colonies between 2002 and 2024. Dots represent the observed annual volume. The dashed vertical line indicates the dam impoundment in 2011. The $\tau$ values are Kendall's $\tau$ coefficients from the Mann-Kendall trend test, the $p$-values indicate the statistical significance of $\tau$ and of Sen's slope, and Sen represents Sen's slope estimator, which quantifies the annual rate of change (loss rate) in kg/year for each period and locality.](graficos/TimeSeries_Final_Surubim.png){#fig-serie-surubim width="100%" fig-align="center"}
+![Time series of annual catch (kg) for Surubim in the Borba and Manicoré fishers' colonies between 2002 and 2024.](graficos/TimeSeries_Final_Surubim.png){#fig-serie-surubim width="100%" fig-align="center"}
 
 ::: {.linha-baixar}
 [<i class="bi bi-download"></i> Baixar Gráfico (PNG)](graficos/TimeSeries_Final_Surubim.png){.baixar download="TimeSeries_Final_Surubim.png"}
@@ -771,7 +775,7 @@ A análise de autocorrelação (via teste de Durbin-Watson) evidenciou forte dep
 
 ### Tambaqui
 
-![Time series of annual catch (kg) for Tambaqui in the Borba and Manicoré fishers' colonies between 2002 and 2024. Dots represent the observed annual volume. The dashed vertical line indicates the dam impoundment in 2011. The $\tau$ values are Kendall's $\tau$ coefficients from the Mann-Kendall trend test, the $p$-values indicate the statistical significance of $\tau$ and of Sen's slope, and Sen represents Sen's slope estimator, which quantifies the annual rate of change (loss rate) in kg/year for each period and locality.](graficos/TimeSeries_Final_Tambaqui.png){#fig-serie-tambaqui width="100%" fig-align="center"}
+![Time series of annual catch (kg) for Tambaqui in the Borba and Manicoré fishers' colonies between 2002 and 2024.](graficos/TimeSeries_Final_Tambaqui.png){#fig-serie-tambaqui width="100%" fig-align="center"}
 
 ::: {.linha-baixar}
 [<i class="bi bi-download"></i> Baixar Gráfico (PNG)](graficos/TimeSeries_Final_Tambaqui.png){.baixar download="TimeSeries_Final_Tambaqui.png"}
@@ -779,13 +783,18 @@ A análise de autocorrelação (via teste de Durbin-Watson) evidenciou forte dep
 
 ### Tucunaré
 
-![Time series of annual catch (kg) for Tucunaré in the Borba and Manicoré fishers' colonies between 2002 and 2024. Dots represent the observed annual volume. The dashed vertical line indicates the dam impoundment in 2011. The $\tau$ values are Kendall's $\tau$ coefficients from the Mann-Kendall trend test, the $p$-values indicate the statistical significance of $\tau$ and of Sen's slope, and Sen represents Sen's slope estimator, which quantifies the annual rate of change (loss rate) in kg/year for each period and locality.](graficos/TimeSeries_Final_Tucunaré.png){#fig-serie-tucunare width="100%" fig-align="center"}
+![Time series of annual catch (kg) for Tucunaré in the Borba and Manicoré fishers' colonies between 2002 and 2024.](graficos/TimeSeries_Final_Tucunaré.png){#fig-serie-tucunare width="100%" fig-align="center"}
 
 ::: {.linha-baixar}
 [<i class="bi bi-download"></i> Baixar Gráfico (PNG)](graficos/TimeSeries_Final_Tucunaré.png){.baixar download="TimeSeries_Final_Tucunaré.png"}
 :::
 
+::: {.nota-tabela}
+**Notas:** Os pontos representam o volume anual observado | A linha tracejada vertical indica o barramento em 2011 | $\tau$ = coeficiente $\tau$ de Kendall do teste de Mann-Kendall | Os *p*-valores indicam a significância estatística de $\tau$ e da inclinação de Sen | Sen = estimador da inclinação de Sen, que quantifica a taxa anual de variação (taxa de perda), em kg/ano, em cada período e localidade.
 :::
+
+:::
+
 ### Análise de Tendência Temporal e Autocorrelação para as Cotas Fluviométricas
 
 As @fig-serie-cotas-borba e @fig-serie-cotas-manicore mostram a série temporal do nível médio anual do rio Madeira nas estações de cada município. Inicialmente, a avaliação dos pressupostos indicou que as séries não diferem significativamente da normalidade (Teste de Shapiro-Wilk, $p > 0,05$). Contudo, para lidar com a autocorrelação residual detetada em alguns períodos e manter a consistência metodológica rigorosa adotada nas análises de produção pesqueira, optou-se por abordagens estatísticas não paramétricas.
