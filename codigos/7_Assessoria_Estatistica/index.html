@@ -208,8 +208,9 @@ window.Quarto = {
   <li><a href="#séries-temporais" id="toc-séries-temporais" class="nav-link" data-scroll-target="#séries-temporais"><span class="header-section-number">4</span> Séries temporais</a>
   <ul class="collapse">
   <li><a href="#análise-de-tendência-temporal-e-autocorrelação-para-produção-pesqueira" id="toc-análise-de-tendência-temporal-e-autocorrelação-para-produção-pesqueira" class="nav-link" data-scroll-target="#análise-de-tendência-temporal-e-autocorrelação-para-produção-pesqueira"><span class="header-section-number">4.1</span> Análise de Tendência Temporal e Autocorrelação para Produção Pesqueira</a></li>
-  <li><a href="#análise-de-tendência-temporal-e-autocorrelação-para-as-espécies" id="toc-análise-de-tendência-temporal-e-autocorrelação-para-as-espécies" class="nav-link" data-scroll-target="#análise-de-tendência-temporal-e-autocorrelação-para-as-espécies"><span class="header-section-number">4.2</span> Análise de Tendência Temporal e Autocorrelação para as Espécies</a></li>
-  <li><a href="#análise-de-tendência-temporal-e-autocorrelação-para-as-cotas-fluviométricas" id="toc-análise-de-tendência-temporal-e-autocorrelação-para-as-cotas-fluviométricas" class="nav-link" data-scroll-target="#análise-de-tendência-temporal-e-autocorrelação-para-as-cotas-fluviométricas"><span class="header-section-number">4.3</span> Análise de Tendência Temporal e Autocorrelação para as Cotas Fluviométricas</a></li>
+  <li><a href="#relação-entre-cotas-fluviométricas-e-produção-pesqueira" id="toc-relação-entre-cotas-fluviométricas-e-produção-pesqueira" class="nav-link" data-scroll-target="#relação-entre-cotas-fluviométricas-e-produção-pesqueira"><span class="header-section-number">4.2</span> Relação entre Cotas Fluviométricas e Produção Pesqueira</a></li>
+  <li><a href="#análise-de-tendência-temporal-e-autocorrelação-para-as-espécies" id="toc-análise-de-tendência-temporal-e-autocorrelação-para-as-espécies" class="nav-link" data-scroll-target="#análise-de-tendência-temporal-e-autocorrelação-para-as-espécies"><span class="header-section-number">4.3</span> Análise de Tendência Temporal e Autocorrelação para as Espécies</a></li>
+  <li><a href="#análise-de-tendência-temporal-e-autocorrelação-para-as-cotas-fluviométricas" id="toc-análise-de-tendência-temporal-e-autocorrelação-para-as-cotas-fluviométricas" class="nav-link" data-scroll-target="#análise-de-tendência-temporal-e-autocorrelação-para-as-cotas-fluviométricas"><span class="header-section-number">4.4</span> Análise de Tendência Temporal e Autocorrelação para as Cotas Fluviométricas</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -244,7 +245,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Data de Publicação</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">16 de outubro de 2026</p>
+      <p class="date">17 de outubro de 2026</p>
     </div>
   </div>
   
@@ -840,7 +841,7 @@ Tabela&nbsp;3: <strong>Descrição das variáveis base cotas fluviométricas.</s
 </div>
 <section id="comparação-entre-períodos." class="level3" data-number="2.1">
 <h3 data-number="2.1" class="anchored" data-anchor-id="comparação-entre-períodos."><span class="header-section-number">2.1</span> Comparação entre períodos.</h3>
-<div id="tbl-estatisticas-pesca" class="quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[7,7,13,8,19,19,19,8]">
+<div id="tbl-estatisticas-pesca" class="quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[8,8,13,8,17,17,19,10]">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-estatisticas-pesca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Tabela&nbsp;4: <strong>Testes de comparação e estatísticas descritivas da produção pesqueira (kg) por município e período.</strong>
@@ -848,14 +849,14 @@ Tabela&nbsp;4: <strong>Testes de comparação e estatísticas descritivas da pro
 <div aria-describedby="tbl-estatisticas-pesca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
 <colgroup>
-<col style="width: 7%">
-<col style="width: 7%">
+<col style="width: 8%">
+<col style="width: 8%">
 <col style="width: 13%">
 <col style="width: 8%">
+<col style="width: 17%">
+<col style="width: 17%">
 <col style="width: 19%">
-<col style="width: 19%">
-<col style="width: 19%">
-<col style="width: 8%">
+<col style="width: 10%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1009,7 +1010,160 @@ Figura&nbsp;1: Spatial distribution of fishing activity decline rates along the 
 </div>
 <section id="análise-de-tendência-temporal-e-autocorrelação-para-produção-pesqueira" class="level3" data-number="4.1">
 <h3 data-number="4.1" class="anchored" data-anchor-id="análise-de-tendência-temporal-e-autocorrelação-para-produção-pesqueira"><span class="header-section-number">4.1</span> Análise de Tendência Temporal e Autocorrelação para Produção Pesqueira</h3>
-<p>Para avaliar a tendência temporal e o comportamento da produção pesqueira em cada período (Antes e Depois), utilizou-se o teste não paramétrico de Mann-Kendall associado à estimativa de inclinação de Sen (<em>Sen’s Slope</em>), complementados por modelos de regressão linear por mínimos quadrados ordinários (OLS) para suporte visual e pelo teste de Durbin-Watson para a verificação da autocorrelação dos resíduos, cujos métodos encontram-se descritos a seguir.</p>
+<p>Para avaliar a tendência temporal e o comportamento da produção pesqueira em cada período (Antes e Depois), utilizou-se o teste não paramétrico de Mann-Kendall associado à estimativa de inclinação de Sen (<em>Sen’s Slope</em>), cujos métodos encontram-se descritos a seguir.</p>
+</section>
+<section id="relação-entre-cotas-fluviométricas-e-produção-pesqueira" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="relação-entre-cotas-fluviométricas-e-produção-pesqueira"><span class="header-section-number">4.2</span> Relação entre Cotas Fluviométricas e Produção Pesqueira</h3>
+<p>Para avaliar a influência das variações hidrológicas na produção pesqueira e investigar se a operação das Usinas Hidrelétricas (UHEs) alterou essa dinâmica, analisamos a relação entre a cota média anual e a captura total por meio da Correlação de Spearman e de Modelos de Mínimos Quadrados Generalizados (GLS).</p>
+<p>A análise de correlação não paramétrica de Spearman (<a href="#tbl-spearman-cotas" class="quarto-xref">Tabela&nbsp;5</a>) indicou que não há uma associação monotônica significativa entre o nível médio anual do rio e o volume de capturas desembarcadas no município de Borba. Tanto no período anterior ao barramento (<span class="math inline">\(\rho\)</span> = -0,150; <em>p</em> = 0,700) quanto no período posterior (<span class="math inline">\(\rho\)</span> = 0,389; <em>p</em> = 0,169), as variações na cota média não se traduziram em aumentos ou reduções proporcionais diretas na pesca.</p>
+<div id="tbl-spearman-cotas" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-spearman-cotas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabela&nbsp;5: <strong>Correlação de Spearman entre a cota média anual e a captura total em Borba, estratificada pelos períodos Antes e Depois das UHEs.</strong>
+</figcaption>
+<div aria-describedby="tbl-spearman-cotas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 17%">
+<col style="width: 21%">
+<col style="width: 21%">
+<col style="width: 21%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Localidade</th>
+<th style="text-align: left;">Período da Barragem</th>
+<th style="text-align: center;"><span class="math inline">\(\rho\)</span> (Spearman)</th>
+<th style="text-align: center;">Valor-<em>p</em></th>
+<th style="text-align: center;"><em>n</em> (anos)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Borba</td>
+<td style="text-align: left;">Antes</td>
+<td style="text-align: center;">-0,150</td>
+<td style="text-align: center;">0,700</td>
+<td style="text-align: center;">9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Borba</td>
+<td style="text-align: left;">Depois</td>
+<td style="text-align: center;">0,389</td>
+<td style="text-align: center;">0,169</td>
+<td style="text-align: center;">14</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Para testar o impacto estrutural das UHEs considerando a autocorrelação temporal da série, ajustamos um modelo GLS incorporando uma estrutura autorregressiva de ordem 1 (AR1). Os resultados dos coeficientes do modelo (<a href="#tbl-gls-coef" class="quarto-xref">Tabela&nbsp;6</a>) e da Análise de Variância (<a href="#tbl-gls-anova" class="quarto-xref">Tabela&nbsp;7</a>) confirmam as observações preliminares.</p>
+<p>O termo de interação entre a cota média anual e o período da barragem não apresentou significância estatística (<em>F</em> = 0,432; <em>p</em> = 0,518). Isso indica que a inclinação da reta de regressão entre a hidrologia e a pesca não sofreu uma alteração estrutural significativa após 2011 em função da cota média. Da mesma forma, os efeitos principais do nível do rio (<em>F</em> = 0,054; <em>p</em> = 0,818) e do período isolado (<em>F</em> = 1,877; <em>p</em> = 0,186) não se mostraram preditores significativos para explicar a variabilidade da captura total neste modelo.</p>
+<div id="tbl-gls-coef" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-gls-coef-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabela&nbsp;6: <strong>Coeficientes do modelo de Mínimos Quadrados Generalizados (GLS) avaliando o efeito da cota média e do período de barramento sobre a captura pesqueira.</strong>
+</figcaption>
+<div aria-describedby="tbl-gls-coef-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Termo do Modelo</th>
+<th style="text-align: right;">Estimativa</th>
+<th style="text-align: right;">Erro Padrão</th>
+<th style="text-align: right;">Valor-<em>t</em></th>
+<th style="text-align: right;">Valor-<em>p</em></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Intercepto</td>
+<td style="text-align: right;">52.130,22</td>
+<td style="text-align: right;">223.136.751,50</td>
+<td style="text-align: right;">0,0002</td>
+<td style="text-align: right;">0,999</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Cota Média Anual</td>
+<td style="text-align: right;">16,47</td>
+<td style="text-align: right;">22,20</td>
+<td style="text-align: right;">0,7420</td>
+<td style="text-align: right;">0,467</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Período (Depois)</td>
+<td style="text-align: right;">16.119,70</td>
+<td style="text-align: right;">38.788,72</td>
+<td style="text-align: right;">0,4156</td>
+<td style="text-align: right;">0,682</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Cota Média <span class="math inline">\(\times\)</span> Período (Depois)</td>
+<td style="text-align: right;">-16,71</td>
+<td style="text-align: right;">25,41</td>
+<td style="text-align: right;">-0,6578</td>
+<td style="text-align: right;">0,518</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<div id="tbl-gls-anova" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-gls-anova-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabela&nbsp;7: <strong>Análise de Variância (ANOVA) do modelo GLS, indicando a significância dos termos principais e da interação.</strong>
+</figcaption>
+<div aria-describedby="tbl-gls-anova-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Termo</th>
+<th style="text-align: center;">Graus de Liberdade (num)</th>
+<th style="text-align: right;">Valor-<em>F</em></th>
+<th style="text-align: right;">Valor-<em>p</em></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Intercepto</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: right;"><span class="math inline">\(&lt; 0,001\)</span></td>
+<td style="text-align: right;">0,999</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Cota Média Anual</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: right;">0,054</td>
+<td style="text-align: right;">0,818</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Período da Barragem</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: right;">1,878</td>
+<td style="text-align: right;">0,186</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Cota Média <span class="math inline">\(\times\)</span> Período</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: right;">0,432</td>
+<td style="text-align: right;">0,518</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Estes resultados sugerem que a cota <em>média</em> anual, por retratar um cenário muito homogeneizado do regime hidrológico, pode não capturar os pulsos vitais de inundação (cotas máximas) e de seca (cotas mínimas) que tradicionalmente regulam a acessibilidade e a concentração dos recursos pesqueiros na bacia Amazônica.</p>
 <div id="met-mann-kendall" class="metodo metodo-tendencia">
 <p><strong>Teste de tendência de Mann-Kendall (correlação τ de Kendall)</strong></p>
 <p>É um teste não paramétrico que verifica se existe uma tendência contínua de aumento ou de queda ao longo do tempo. Ele se baseia no coeficiente <span class="math inline">\(\tau\)</span> de Kendall, que compara todos os pares de anos: o par é concordante quando o ano mais recente tem produção maior que o mais antigo e discordante quando tem produção menor. Como usa a ordem (postos) dos valores, não exige normalidade. O coeficiente <span class="math inline">\(\tau\)</span> varia de −1 a +1: valores próximos de −1 indicam queda consistente, valores próximos de +1 indicam aumento consistente e valores próximos de 0 indicam ausência de tendência. Elevar <span class="math inline">\(\tau\)</span> ao quadrado (<span class="math inline">\(\tau^2\)</span>) fornece uma medida aproximada do tamanho do efeito. As hipóteses são:</p>
@@ -1039,7 +1193,7 @@ Figura&nbsp;1: Spatial distribution of fishing activity decline rates along the 
 <div id="tbl-tendencia-pesca" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-tendencia-pesca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;5: <strong>Testes de tendência de Mann-Kendall, Sen’s Slope e verificação de autocorrelação de Durbin-Watson para a produção pesqueira anual por município e período.</strong>
+Tabela&nbsp;8: <strong>Testes de tendência de Mann-Kendall, Sen’s Slope e verificação de autocorrelação de Durbin-Watson para a produção pesqueira anual por município e período.</strong>
 </figcaption>
 <div aria-describedby="tbl-tendencia-pesca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -1149,12 +1303,12 @@ Figura&nbsp;3: Time series of total catch (kg) in the Manicoré fishers’ colon
 <p><a href="graficos/Time_Series_Manicore.png" class="baixar" download="Time_Series_Manicore.png"><i class="bi bi-download"></i> Baixar Gráfico (PNG)</a></p>
 </div>
 </section>
-<section id="análise-de-tendência-temporal-e-autocorrelação-para-as-espécies" class="level3" data-number="4.2">
-<h3 data-number="4.2" class="anchored" data-anchor-id="análise-de-tendência-temporal-e-autocorrelação-para-as-espécies"><span class="header-section-number">4.2</span> Análise de Tendência Temporal e Autocorrelação para as Espécies</h3>
+<section id="análise-de-tendência-temporal-e-autocorrelação-para-as-espécies" class="level3" data-number="4.3">
+<h3 data-number="4.3" class="anchored" data-anchor-id="análise-de-tendência-temporal-e-autocorrelação-para-as-espécies"><span class="header-section-number">4.3</span> Análise de Tendência Temporal e Autocorrelação para as Espécies</h3>
 <div id="tbl-testes-especies" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-testes-especies-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;6: <strong>Testes de normalidade e de comparação entre os períodos Antes e Depois da produção pesqueira anual por espécie e município.</strong>
+Tabela&nbsp;9: <strong>Testes de normalidade e de comparação entre os períodos Antes e Depois da produção pesqueira anual por espécie e município.</strong>
 </figcaption>
 <div aria-describedby="tbl-testes-especies-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -1563,7 +1717,7 @@ Tabela&nbsp;6: <strong>Testes de normalidade e de comparação entre os período
 <div id="tbl-tendencia-borba" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-tendencia-borba-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;7: <strong>Teste de tendência de Mann-Kendall e inclinação de Sen da captura anual (kg) por espécie e período na colônia de Borba.</strong>
+Tabela&nbsp;10: <strong>Teste de tendência de Mann-Kendall e inclinação de Sen da captura anual (kg) por espécie e período na colônia de Borba.</strong>
 </figcaption>
 <div aria-describedby="tbl-tendencia-borba-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -1982,7 +2136,7 @@ Tabela&nbsp;7: <strong>Teste de tendência de Mann-Kendall e inclinação de Sen
 <div id="tbl-tendencia-manicore" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-tendencia-manicore-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;8: <strong>Teste de tendência de Mann-Kendall e inclinação de Sen da captura anual (kg) por espécie e período na colônia de Manicoré.</strong>
+Tabela&nbsp;11: <strong>Teste de tendência de Mann-Kendall e inclinação de Sen da captura anual (kg) por espécie e período na colônia de Manicoré.</strong>
 </figcaption>
 <div aria-describedby="tbl-tendencia-manicore-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -2700,14 +2854,14 @@ Figura&nbsp;24: Time series of annual catch (kg) for Tucunaré in the Borba and 
 <p><strong>Notas:</strong> Os pontos representam o volume anual observado | A linha tracejada vertical indica o barramento em 2011 | <span class="math inline">\(\tau\)</span> = coeficiente <span class="math inline">\(\tau\)</span> de Kendall do teste de Mann-Kendall | Os <em>p</em>-valores indicam a significância estatística de <span class="math inline">\(\tau\)</span> e da inclinação de Sen | Sen = estimador da inclinação de Sen, que quantifica a taxa anual de variação (taxa de perda), em kg/ano, em cada período e localidade.</p>
 </div>
 </section>
-<section id="análise-de-tendência-temporal-e-autocorrelação-para-as-cotas-fluviométricas" class="level3" data-number="4.3">
-<h3 data-number="4.3" class="anchored" data-anchor-id="análise-de-tendência-temporal-e-autocorrelação-para-as-cotas-fluviométricas"><span class="header-section-number">4.3</span> Análise de Tendência Temporal e Autocorrelação para as Cotas Fluviométricas</h3>
+<section id="análise-de-tendência-temporal-e-autocorrelação-para-as-cotas-fluviométricas" class="level3" data-number="4.4">
+<h3 data-number="4.4" class="anchored" data-anchor-id="análise-de-tendência-temporal-e-autocorrelação-para-as-cotas-fluviométricas"><span class="header-section-number">4.4</span> Análise de Tendência Temporal e Autocorrelação para as Cotas Fluviométricas</h3>
 <p>As <a href="#fig-serie-cotas-borba" class="quarto-xref">Figura&nbsp;25</a> e <a href="#fig-serie-cotas-manicore" class="quarto-xref">Figura&nbsp;26</a> mostram a série temporal do nível médio anual do rio Madeira nas estações de cada município. Inicialmente, a avaliação dos pressupostos indicou que as séries não diferem significativamente da normalidade (Teste de Shapiro-Wilk, <span class="math inline">\(p &gt; 0,05\)</span>). Contudo, para lidar com a autocorrelação residual detetada em alguns períodos e manter a consistência metodológica rigorosa adotada nas análises de produção pesqueira, optou-se por abordagens estatísticas não paramétricas.</p>
 <p>Para avaliar o comportamento direcional destas séries ao longo do tempo, aplicou-se o teste de Mann-Kendall e a estimativa de Sen’s Slope. Adicionalmente, verificou-se a premissa de independência dos resíduos por meio do teste de Durbin-Watson (<span class="math inline">\(d\)</span>). Os resultados estão sintetizados na tabela a seguir.</p>
 <div id="tbl-tendencia-cotas" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-tendencia-cotas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;9: <strong>Testes de tendência de Mann-Kendall, Sen’s Slope e verificação de autocorrelação de Durbin-Watson para o nível médio anual do rio Madeira por município e período.</strong>
+Tabela&nbsp;12: <strong>Testes de tendência de Mann-Kendall, Sen’s Slope e verificação de autocorrelação de Durbin-Watson para o nível médio anual do rio Madeira por município e período.</strong>
 </figcaption>
 <div aria-describedby="tbl-tendencia-cotas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
