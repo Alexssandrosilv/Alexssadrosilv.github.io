@@ -212,6 +212,7 @@ window.Quarto = {
   <li><a href="#análise-de-tendência-temporal-e-autocorrelação-para-as-espécies" id="toc-análise-de-tendência-temporal-e-autocorrelação-para-as-espécies" class="nav-link" data-scroll-target="#análise-de-tendência-temporal-e-autocorrelação-para-as-espécies"><span class="header-section-number">4.3</span> Análise de Tendência Temporal e Autocorrelação para as Espécies</a></li>
   <li><a href="#análise-de-tendência-temporal-e-autocorrelação-para-as-cotas-fluviométricas" id="toc-análise-de-tendência-temporal-e-autocorrelação-para-as-cotas-fluviométricas" class="nav-link" data-scroll-target="#análise-de-tendência-temporal-e-autocorrelação-para-as-cotas-fluviométricas"><span class="header-section-number">4.4</span> Análise de Tendência Temporal e Autocorrelação para as Cotas Fluviométricas</a></li>
   </ul></li>
+  <li><a href="#apêndices" id="toc-apêndices" class="nav-link" data-scroll-target="#apêndices"><span class="header-section-number">5</span> Apêndices</a></li>
   </ul>
 </nav>
     </div>
@@ -382,7 +383,7 @@ window.Quarto = {
 </section>
 <section id="tratamento" class="level3" data-number="1.2">
 <h3 data-number="1.2" class="anchored" data-anchor-id="tratamento"><span class="header-section-number">1.2</span> Tratamento</h3>
-<p><strong>Base 1 – Desembarque Pesqueiro:</strong> Inicialmente, consolidamos os registros de Borba e Manicoré em uma única base, padronizando os caracteres das variáveis <code>localidade</code> e <code>nome_comum</code> e convertendo os dados do formato largo para o longo por meio da função <code>tidyr::pivot_longer()</code>, o que originou as variáveis <code>ano</code> e <code>captura_total</code>. Na sequência, convertemos os valores de captura para o formato numérico (substituindo vírgulas por pontos) e aplicamos um filtro de limpeza para remover registros vazios e os anos de 2000, 2001 e 2026, estabilizando a série histórica no período de 2002 a 2025. Para viabilizar as análises de impacto, criamos a variável <code>periodo_barragem</code>, segmentando a série nas fases <strong>Antes</strong> (2002 a 2010) e <strong>Depois</strong> (a partir de 2011). Por fim, selecionamos as variáveis de interesse e verificamos a ausência de valores nulos, resultando em uma base final estruturada com <strong>888 linhas</strong> e <strong>5 colunas</strong>, cujas variáveis estão detalhadas na <a href="#tbl-var-pesca" class="quarto-xref">Tabela&nbsp;1</a>.</p>
+<p><strong>Base 1 – Desembarque Pesqueiro:</strong> Inicialmente, consolidamos os registros de Borba e Manicoré em uma única base, padronizando os caracteres das variáveis <code>localidade</code> e <code>nome_comum</code> e convertendo os dados do formato largo para o longo por meio da função <code>tidyr::pivot_longer()</code>, o que originou as variáveis <code>ano</code> e <code>captura_total</code>. Na sequência, convertemos os valores de captura para o formato numérico (substituindo vírgulas por pontos) e aplicamos um filtro de limpeza para remover registros vazios e os anos de 2000, 2001 e 2026, mantendo os registros de 2002 a 2025. Para viabilizar as análises de impacto, criamos a variável <code>periodo_barragem</code>, segmentando a série nas fases <strong>Antes</strong> (2002 a 2010) e <strong>Depois</strong> (2011 a 2024), sendo que o ano de 2025 foi mantido na base apenas como referência visual e excluído das análises estatísticas e inferenciais por não apresentar dados anuais completos. Por fim, selecionamos as variáveis de interesse e verificamos a ausência de valores nulos, resultando em uma base final estruturada com 888 linhas e 5 colunas, cujas variáveis estão detalhadas na <a href="#tbl-var-pesca" class="quarto-xref">Tabela&nbsp;1</a>.</p>
 <div id="tbl-var-pesca" class="quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[15,36,18,10,7,7,7]">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-var-pesca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -461,12 +462,11 @@ Tabela&nbsp;1: <strong>Descrição das variáveis da base de desembarque pesquei
 </div>
 </figure>
 </div>
-<p><br></p>
-<p><strong>Base 2 – Cotas Fluviométricas:</strong> A partir dos dados originais da Agência Nacional de Águas e Saneamento Básico (ANA), unificamos os registros das estações de Borba e Manicoré, padronizando a nomenclatura dos municípios e definindo adequadamente a tipagem das variáveis temporais (<code>ano</code> e <code>mes</code>) e hidrológicas (<code>media</code>, <code>minima</code> e <code>maxima</code>). Alinhamos a série histórica ao intervalo de 2002 a 2025 e, visto que o banco original apresentava múltiplas linhas para um mesmo mês devido a leituras em diferentes horários[cite: 1], aplicamos a função <code>dplyr::distinct()</code> para remover duplicidades e consolidar um único registro mensal por estação. Na sequência, adicionamos a variável <code>periodo_barragem</code> (<strong>Antes</strong> e <strong>Depois</strong>) para permitir o cruzamento direto com os dados pesqueiros. Optamos por manter os valores ausentes (<code>NA's</code>) nas variáveis de cota, uma vez que estes representam ausência de medição e são cruciais para preservar a sequência cronológica da série histórica. Ao final do tratamento, a base consolidou <strong>995 linhas</strong> e <strong>7 colunas</strong>, discriminadas na <a href="#tbl-var-cotas" class="quarto-xref">Tabela&nbsp;2</a>.</p>
+<p><strong>Base 2 – Cotas Fluviométricas:</strong> A partir dos dados originais da Agência Nacional de Águas e Saneamento Básico (ANA), unificamos os registros das estações de Borba e Manicoré, padronizando a nomenclatura dos municípios e definindo adequadamente a tipagem das variáveis temporais (<code>ano</code> e <code>mes</code>) e hidrológicas (<code>media</code>, <code>minima</code> e <code>maxima</code>). Alinhamos a série histórica ao intervalo de 2002 a 2025 e, visto que o banco original apresentava múltiplas linhas para um mesmo mês devido a leituras em diferentes horários, aplicamos a função <code>dplyr::distinct()</code> para remover duplicidades e consolidar um único registro mensal por estação. Na sequência, adicionamos a variável <code>periodo_barragem</code> (<strong>Antes</strong>: 2002 a 2010; <strong>Depois</strong>: 2011 a 2024, mantendo 2025 apenas como referência e fora das avaliações estatísticas) para permitir o cruzamento direto com os dados pesqueiros. Optamos por manter os valores ausentes (<code>NA's</code>) nas variáveis de cota, uma vez que estes representam ausência de medição e são cruciais para preservar a sequência cronológica da série histórica. Ao final do tratamento, a base consolidou 995 linhas e 7 colunas, discriminadas na <a href="#tbl-var-cotas" class="quarto-xref">Tabela&nbsp;2</a>.</p>
 <div id="tbl-var-cotas" class="quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[15,36,18,10,7,7,7]">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-var-cotas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;2: <strong>Descrição das variáveis base cotas fluviométricas.</strong>
+Tabela&nbsp;2: <strong>Descrição das variáveis da base de cotas fluviométricas.</strong>
 </figcaption>
 <div aria-describedby="tbl-var-cotas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -495,7 +495,7 @@ Tabela&nbsp;2: <strong>Descrição das variáveis base cotas fluviométricas.</s
 <td style="text-align: left;"><code>localidade</code></td>
 <td style="text-align: left;">Município da estação de medição</td>
 <td style="text-align: left;">Qualitativa Nominal</td>
-<td style="text-align: left;">Caractere/Fator</td>
+<td style="text-align: left;">Fator</td>
 <td style="text-align: left;">2</td>
 <td style="text-align: left;">995</td>
 <td style="text-align: left;">0</td>
@@ -568,7 +568,7 @@ Tabela&nbsp;2: <strong>Descrição das variáveis base cotas fluviométricas.</s
 </div>
 <section id="análise-descritiva" class="level3" data-number="2.1">
 <h3 data-number="2.1" class="anchored" data-anchor-id="análise-descritiva"><span class="header-section-number">2.1</span> Análise descritiva</h3>
-<p>Essa etapa permite dimensionar as diferenças observadas entre os períodos antes da aplicação da modelagem inferencial, que posteriormente considerará também a tendência temporal e a dependência entre as observações anuais.</p>
+<p>Esta etapa possui caráter estritamente descritivo, permitindo dimensionar a magnitude das diferenças observadas entre os períodos, mas isoladamente não estabelece significância estatística nem causalidade. A avaliação inferencial formal será realizada na etapa seguinte por meio de modelagem estatística, considerando simultaneamente a tendência temporal e a autocorrelação entre as observações anuais.</p>
 <div id="tbl-estatisticas-pesca" class="quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[10,8,12,12,16,18,10,14]">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-estatisticas-pesca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -645,10 +645,9 @@ Tabela&nbsp;3: <strong>Estatísticas descritivas da produção pesqueira (kg) po
 </figure>
 </div>
 <div class="nota-tabela">
-<p><strong>Notas:</strong> <span class="math inline">\(n\)</span> = número de anos avaliados em cada período | DP = desvio padrão | Amplitude = diferença entre o valor máximo e o mínimo registrado no período | Taxa de Declínio (<span class="math inline">\(\%\)</span>) = redução percentual da produção média anual no período “Depois” em relação ao período “Antes”.</p>
+<p><strong>Notas:</strong> <span class="math inline">\(n\)</span> = número de anos avaliados em cada período | DP = desvio padrão | Amplitude = diferença entre o valor máximo e o mínimo registrado no período | Taxa de Declínio = redução percentual da produção média anual no período “Depois” em relação ao período “Antes”.</p>
 </div>
-<p><strong>Comentários:</strong> A análise descritiva revela um declínio evidente nos volumes de captura em ambos os municípios no período posterior à instalação das UHEs. Em Borba, a média anual reduziu de aproximadamente 1.499 toneladas (“Antes”) para 964 toneladas (“Depois”), representando uma queda de 35,7%. Em Manicoré, a redução observada foi ainda mais acentuada, com a média caindo de 1.891 toneladas para 706 toneladas, o que equivale a um declínio de 62,7%. Além da diminuição direta no volume produtivo, os dados descritivos apontam para um aumento expressivo na instabilidade das capturas no período “Depois”. Este cenário é evidenciado pelo salto na amplitude (que passou de 213,1 toneladas para 651,4 toneladas em Borba, e de 270 toneladas para 608 toneladas em Manicoré) e pelo aumento acentuado do desvio padrão em ambas as localidades, sugerindo que o regime de pesca se tornou significativamente mais variável e imprevisível após o barramento. As diferenças apresentadas nesta etapa possuem caráter descritivo e, isoladamente, não permitem estabelecer significância estatística nem atribuir causalidade à operação das UHEs. Na etapa seguinte, a diferença entre os períodos será avaliada por meio de modelagem estatística.</p>
-<!-- , considerando simultaneamente a tendência temporal e a autocorrelação existente entre as observações anuais. -->
+<p><strong>Comentários:</strong> A <a href="#tbl-estatisticas-pesca" class="quarto-xref">Tabela&nbsp;3</a> revela um declínio evidente nos volumes de captura em ambos os municípios no período posterior à instalação das UHEs. Em Borba, a média anual reduziu de aproximadamente 1.500 toneladas (“Antes”) para 964 toneladas (“Depois”), representando uma queda de 35,7%. Em Manicoré, a redução observada foi ainda mais acentuada, com a média caindo de 1.891 toneladas para 706 toneladas, o que equivale a um declínio de 62,7%. Além da diminuição direta no volume produtivo, os dados apontam para um aumento expressivo na instabilidade das capturas no período “Depois”. Este cenário é evidenciado pelo salto na amplitude (que passou de 213,1 para 651,4 toneladas em Borba, e de 270,0 para 608,0 toneladas em Manicoré) e pelo aumento acentuado do desvio padrão em ambas as localidades (de cerca de 67 mil para 202 mil kg em Borba, e de 85 mil para 171 mil kg em Manicoré), indicando maior variabilidade e imprevisibilidade interanual das capturas após o barramento.</p>
 <p>A seguir, apresentamos o cálculo da <strong>Taxa de Declínio Produtivo</strong>, bem como cada teste utilizado, sua estatística e as respetivas hipóteses que compõem os resultados da <a href="#tbl-estatisticas-pesca" class="quarto-xref">Tabela&nbsp;3</a>.</p>
 <div id="calc-taxa-declinio" class="metodo metodo-taxa">
 <p><strong>Taxa de Declínio Produtivo</strong></p>
@@ -2699,9 +2698,37 @@ Figura&nbsp;26: Série temporal do nível médio anual (cm) da cota fluviométri
 <div class="linha-baixar">
 <p><a href="graficos/TimeSeries_Cotas_Manicore.png" class="baixar" download="TimeSeries_Cotas_Manicore.png"><i class="bi bi-download"></i> Baixar Gráfico (PNG)</a></p>
 </div>
-
-
 </section>
+</section>
+<section id="apêndices" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="apêndices"><span class="header-section-number">5</span> Apêndices</h2>
+<p>Nesta seção, apresentamos os detalhamentos metodológicos, as demonstrações algébricas, as formulações matemáticas dos testes estatísticos e os materiais complementares que fundamentam os resultados apresentados ao longo deste documento.</p>
+<div id="calc-taxa-declinio" class="metodo metodo-taxa">
+<p><strong>Taxa de Declínio Produtivo</strong></p>
+<p>Representa a redução percentual da produção pesqueira média anual (em kg) entre os períodos “Antes” (2002 a 2010) e “Depois” (2011 a 2024) da instalação das UHEs, compondo os resultados descritivos da <a href="#tbl-estatisticas-pesca" class="quarto-xref">Tabela&nbsp;3</a> e sendo calculada pela seguinte fórmula geral:</p>
+<p><span class="math display">\[
+\Delta P = \left( \frac{ \bar{X}_{\text{Antes}} - \bar{X}_{\text{Depois}} }{ \bar{X}_{\text{Antes}} } \right) \times 100
+\]</span></p>
+<p>Os cálculos específicos para cada município, utilizando as médias anuais exatas da série histórica, são apresentados a seguir:</p>
+<div class="calc-taxas" style="display: flex; justify-content: space-between; font-size: 0.85em; margin-top: 15px;">
+<div class="calc-col" style="width: 48%; border-right: 2px solid #d3d3d3; padding-right: 15px;">
+<p><strong>Borba</strong></p>
+<p><span class="math display">\[
+\small
+\Delta P_{\text{Borba}} = \left( \frac{ 1.499.501 - 964.113 }{ 1.499.501 } \right) \times 100 = 35{,}7\%
+\]</span></p>
+</div>
+<div class="calc-col" style="width: 48%; padding-left: 15px;">
+<p><strong>Manicoré</strong></p>
+<p><span class="math display">\[
+\small
+\Delta P_{\text{Manicoré}} = \left( \frac{ 1.891.111 - 706.214 }{ 1.891.111 } \right) \times 100 = 62{,}7\%
+\]</span></p>
+</div>
+</div>
+</div>
+
+
 </section>
 
 </main> <!-- /main -->
