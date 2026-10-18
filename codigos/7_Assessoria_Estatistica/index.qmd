@@ -225,7 +225,9 @@ A presente análise tem os seguintes objetivos:
 | `minima` | Cota mínima mensal do rio (cm) | Quantitativa Contínua | Numérica | – | `r base::nrow(dados_cotas)` | `r base::sum(base::is.na(dados_cotas$minima))` |
 | `maxima` | Cota máxima mensal do rio (cm) | Quantitativa Contínua | Numérica | – | `r base::nrow(dados_cotas)` | `r base::sum(base::is.na(dados_cotas$maxima))` |
 
-: **Descrição das variáveis da base de cotas fluviométricas.** {#tbl-var-cotas tbl-colwidths="[15,36,18,10,7,7,7]"}
+: **Descrição das variáveis base cotas fluviométricas.** {#tbl-var-cotas tbl-colwidths="[15,36,18,10,7,7,7]"}
+
+
 ## Antes e Depois das UHEs
 
 ::: {.objetivo}
@@ -249,14 +251,10 @@ Essa etapa permite dimensionar as diferenças observadas entre os períodos ante
 **Notas:** $n$ = número de anos avaliados em cada período | DP = desvio padrão | Amplitude = diferença entre o valor máximo e o mínimo registrado no período | Taxa de Declínio ($\%$) = redução percentual da produção média anual no período “Depois” em relação ao período “Antes”.
 :::
 
-**Comentários:** Na @tbl-estatisticas-pesca, observa-se redução da produção pesqueira média anual nos dois municípios no período “Depois”. Em Borba, a média passou de aproximadamente 1.500 toneladas/ano no período “Antes” para 964 toneladas/ano no período “Depois”, correspondendo a uma redução descritiva de **35,7%**. Em Manicoré, a média anual passou de aproximadamente 1.891 para 706 toneladas/ano, resultando em uma redução de **62,7%**. Além da redução das médias, verificou-se maior dispersão da produção anual no período “Depois”. Em Borba, o desvio padrão aumentou de aproximadamente 67 mil para 202 mil kg, enquanto a amplitude passou de 213 mil para 651 mil kg. Em Manicoré, o desvio padrão aumentou de aproximadamente 85 mil para 171 mil kg, acompanhado de aumento da amplitude de 270 mil para 608 mil kg. Esses resultados indicam maior variabilidade interanual das capturas no período posterior.
 
-As diferenças apresentadas nesta etapa possuem caráter **descritivo** e, isoladamente, não permitem estabelecer significância estatística nem atribuir causalidade à operação das UHEs. Na etapa seguinte, a diferença entre os períodos será avaliada por meio de modelagem estatística, considerando simultaneamente a tendência temporal e a autocorrelação existente entre as observações anuais.
+**Comentários:** A análise descritiva revela um declínio evidente nos volumes de captura em ambos os municípios no período posterior à instalação das UHEs. Em Borba, a média anual reduziu de aproximadamente 1.499 toneladas ("Antes") para 964 toneladas ("Depois"), representando uma queda de 35,7%. Em Manicoré, a redução observada foi ainda mais acentuada, com a média caindo de 1.891 toneladas para 706 toneladas, o que equivale a um declínio de 62,7%. Além da diminuição direta no volume produtivo, os dados descritivos apontam para um aumento expressivo na instabilidade das capturas no período "Depois". Este cenário é evidenciado pelo salto na amplitude (que passou de 213,1 toneladas para 651,4 toneladas em Borba, e de 270 toneladas para 608 toneladas em Manicoré) e pelo aumento acentuado do desvio padrão em ambas as localidades, sugerindo que o regime de pesca se tornou significativamente mais variável e imprevisível após o barramento. As diferenças apresentadas nesta etapa possuem caráter descritivo e, isoladamente, não permitem estabelecer significância estatística nem atribuir causalidade à operação das UHEs. Na etapa seguinte, a diferença entre os períodos será avaliada por meio de modelagem estatística.
 
-
-
-**Comentários:** A análise descritiva revela um declínio evidente nos volumes de captura em ambos os municípios no período posterior à instalação das UHEs. Em Borba, a média anual reduziu de aproximadamente 1.499 toneladas ("Antes") para 964 toneladas ("Depois"), representando uma queda de 35,7%. Em Manicoré, a redução observada foi ainda mais acentuada, com a média caindo de 1.891 toneladas para 706 toneladas, o que equivale a um declínio de 62,7%. Além da diminuição direta no volume produtivo, os dados descritivos apontam para um aumento expressivo na instabilidade das capturas no período "Depois". Este cenário é evidenciado pelo salto na amplitude (que passou de 213,1 toneladas para 651,4 toneladas em Borba, e de 270 toneladas para 608 toneladas em Manicoré) e pelo aumento acentuado do desvio padrão em ambas as localidades, sugerindo que o regime de pesca se tornou significativamente mais variável e imprevisível após o barramento. A significância estatística destas reduções face à variabilidade natural e temporal será avaliada através de modelagem específica.
-
+<!-- , considerando simultaneamente a tendência temporal e a autocorrelação existente entre as observações anuais. -->
 
 
 A seguir, apresentamos o cálculo da **Taxa de Declínio Produtivo**, bem como cada teste utilizado, sua estatística e as respetivas hipóteses que compõem os resultados da @tbl-estatisticas-pesca.
