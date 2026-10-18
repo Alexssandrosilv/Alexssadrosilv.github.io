@@ -38,7 +38,8 @@ resources:
   - graficos/TimeSeries_Cotas_Borba.png
   - graficos/TimeSeries_Cotas_Manicore.png
   
-  
+  - graficos/Time_Series_Manicore_GLS.png
+  - graficos/Time_Series_Borba_GLS.png
 
 ---
 
@@ -254,7 +255,6 @@ Esta etapa possui caráter estritamente descritivo, permitindo dimensionar a mag
 **Comentários:** A @tbl-estatisticas-pesca revela um declínio evidente nos volumes de captura em ambos os municípios no período posterior à instalação das UHEs. Em Borba, a média anual reduziu de aproximadamente 1.500 toneladas (Antes) para 964 toneladas (Depois), representando uma queda de 35,7%. Em Manicoré, a redução observada foi ainda mais acentuada, com a média caindo de 1.891 toneladas para 706 toneladas, o que equivale a um declínio de 62,7%. Além da diminuição direta no volume produtivo, os dados apontam para um aumento expressivo na instabilidade das capturas no período "Depois". Este cenário é evidenciado pelo salto na amplitude (que passou de 213,1 para 651,4 toneladas em Borba, e de 270,0 para 608,0 toneladas em Manicoré) e pelo aumento acentuado do desvio padrão em ambas as localidades (de cerca de 67 mil para 202 mil kg em Borba, e de 85 mil para 171 mil kg em Manicoré), indicando maior variabilidade e imprevisibilidade interanual das capturas após o barramento.
 
 
-
 ### Modelo de Mínimos Quadrados Generalizados (GLS)
 
 A comparação descritiva entre os períodos (Antes) e (Depois) permite dimensionar as alterações observadas na produção pesqueira, mas não considera que os registros correspondem a observações anuais sucessivas. Em séries temporais, valores registrados em anos próximos podem apresentar dependência entre si, violando o pressuposto de independência dos erros exigido pelos modelos lineares convencionais. Por esse motivo, antes da comparação inferencial entre os períodos, foi investigada a estrutura temporal dos dados.
@@ -273,7 +273,7 @@ $$
 tempo = ano - 2002.
 $$
 
-Assim, `tempo` assume valor 0 em 2002, 1 em 2003 e sucessivamente até 22 em 2024. A inclusão dessa variável melhorou significativamente o ajuste em Borba ($LRT=34,88$; $p<0,001$) e Manicoré ($LRT=24,82$; $p<0,001$), segundo o teste da razão de verossimilhanças (LRT, do inglês *Likelihood Ratio Test*).
+Assim, `tempo` assume valor 0 em 2002, 1 em 2003 e sucessivamente até 22 em 2024. A inclusão dessa variável melhorou significativamente o ajuste em Borba ($LRT=34,88$; $p<0,001$) e Manicoré ($LRT=24,82$; $p<0,001$), segundo o teste da razão de verossimilhanças (LRT).
 
 Mesmo após considerar a tendência temporal, a estrutura AR(1) permaneceu necessária, apresentando melhora significativa no ajuste em Borba ($LRT=27,93$; $p<0,001$) e Manicoré ($LRT=13,11$; $p<0,001$).
 
@@ -298,7 +298,7 @@ No modelo, `captura_anual` corresponde à produção pesqueira total anual; `per
 
 O parâmetro $\beta_0$ representa o nível esperado da produção em 2002, quando `tempo = 0` e a observação pertence ao período (Antes). O parâmetro $\beta_1$ representa a mudança de nível da produção no período (Depois) em relação ao período (Antes), após considerar a tendência temporal. O parâmetro $\beta_2$ representa a variação linear média da produção em kg/ano, enquanto $\phi$ representa a intensidade da dependência residual entre anos consecutivos.
 
-Como não foi incluída interação entre `periodo_barragem` e `tempo`, o modelo considera uma tendência temporal linear comum aos dois períodos. Assim, $\beta_1$ representa uma mudança de nível entre (Antes) e (Depois), enquanto $\beta_2$ representa a tendência temporal da produção ao longo dos anos.
+Como não foi incluída interação entre `periodo_barragem` e `tempo`, o modelo considera uma tendência temporal linear comum aos dois períodos. Assim, $\beta_1$ representa a mudança de nível entre (Antes) e (Depois), enquanto $\beta_2$ representa a tendência temporal da produção ao longo dos anos.
 
 A modelagem busca responder à seguinte questão:
 
@@ -306,9 +306,9 @@ A modelagem busca responder à seguinte questão:
 
 #### Hipóteses avaliadas no modelo
 
-Após a definição do modelo, foram avaliados separadamente os efeitos associados ao período e ao tempo. Essa distinção permite verificar se as alterações observadas decorrem de uma mudança específica de nível entre os períodos ou de uma trajetória gradual da produção ao longo dos anos.
+Após a definição do modelo, foram avaliados separadamente os efeitos associados ao período e ao tempo. Essa distinção permite verificar se as alterações observadas correspondem a uma mudança específica de nível entre os períodos ou a uma trajetória gradual da produção ao longo dos anos.
 
-##### Efeito do período — $\beta_1$
+##### **Efeito do período - $\beta_1$**
 
 O parâmetro $\beta_1$ corresponde ao coeficiente de `periodo_barragemDepois` e representa a mudança de nível da produção no período (Depois), em relação ao período (Antes), após considerar a tendência temporal e a autocorrelação.
 
@@ -342,9 +342,9 @@ Existe mudança adicional no nível da produção entre os períodos (Antes) e (
 
 A decisão é baseada no $p$-valor associado ao coeficiente. Quando $p<0,05$, rejeita-se $H_0$, indicando evidência estatística de mudança de nível entre os períodos. Quando $p\geq0,05$, não há evidência estatística suficiente para identificar uma mudança adicional de nível.
 
-O sinal de $\hat{\beta}_1$ indica a direção da mudança. Valores negativos representam redução da produção no período (Depois), enquanto valores positivos representam aumento. O intervalo de confiança de 95% complementa essa interpretação: quando inclui zero, o resultado é compatível com ausência de mudança estatisticamente detectável.
+O sinal de $\hat{\beta}_1$ indica a direção da mudança. Valores negativos representam redução da produção no período (Depois), enquanto valores positivos representam aumento. O intervalo de confiança de 95% (IC95%) complementa essa avaliação ao indicar a faixa de valores plausíveis para o efeito estimado. Quando o intervalo inclui zero, a estimativa é compatível com ausência de mudança estatisticamente detectável.
 
-##### Efeito da tendência temporal — $\beta_2$
+##### **Efeito do tempo - $\beta_2$**
 
 O parâmetro $\beta_2$ corresponde ao coeficiente de `tempo` e representa a variação linear média da produção pesqueira a cada ano, expressa em kg/ano.
 
@@ -378,34 +378,53 @@ Existe tendência temporal linear da produção pesqueira ao longo dos anos.
 
 Quando $p<0,05$, rejeita-se $H_0$, indicando evidência de tendência temporal linear. Valores negativos de $\hat{\beta}_2$ representam redução média da produção ao longo dos anos, enquanto valores positivos representam crescimento médio anual.
 
+O IC95% de $\beta_2$ permite avaliar a precisão da tendência estimada. Quando todo o intervalo permanece abaixo de zero, há evidência de uma tendência temporal decrescente; quando permanece acima de zero, a tendência é crescente. Caso o intervalo inclua zero, não há evidência estatística suficiente de tendência linear.
+
 A inclusão de `tempo` permite separar uma trajetória gradual da série de uma mudança específica de nível entre os períodos. Dessa forma, uma redução progressiva ao longo dos anos não é automaticamente atribuída ao período (Depois).
 
 ::: {.callout-note title="Como interpretar os parâmetros do modelo"}
 1. Avalia-se o $p$-valor de $\beta_1$ para verificar se existe mudança adicional de nível entre (Antes) e (Depois).
-2. O sinal de $\hat{\beta}_1$ indica se essa mudança corresponde a redução ou aumento.
+2. O sinal de $\hat{\beta}_1$ indica a direção dessa mudança.
 3. O IC95% de $\beta_1$ informa a precisão da estimativa e permite verificar se o intervalo inclui zero.
 4. Avalia-se o $p$-valor de $\beta_2$ para verificar se existe tendência temporal linear.
 5. O sinal e a magnitude de $\hat{\beta}_2$ indicam a direção e a variação média estimada da produção em kg/ano.
-6. O parâmetro $\phi$ representa a persistência temporal residual entre anos consecutivos.
+6. O IC95% de $\beta_2$ informa a precisão da tendência temporal estimada.
+7. O parâmetro $\phi$ representa a persistência temporal residual entre anos consecutivos.
 :::
 
-| **Município** | **Mudança Depois − Antes**<br>**($\hat{\beta}_1$; kg)** | **IC95%**<br>**($\beta_1$; kg)** | **Teste de $\beta_1$**<br>**$t$ ($p$)** | **Tendência**<br>**($\hat{\beta}_2$; kg/ano)** | **Teste de $\beta_2$**<br>**$t$ ($p$)** | **$\phi$**<br>**AR(1)** |
-|:---|:---|:---|:---|:---|:---|:---|
-| Borba | −4.455 | [−61.620; 52.710] | −0,163 (0,872) | −42.293 | −12,75 (<0,001) | 0,854 |
-| Manicoré | −607.477 | [−687.296; −527.657] | −15,88 (<0,001) | −42.704 | −9,52 (<0,001) | 0,841 |
+| **Município** | **Efeito do período**<br>**$\hat{\beta}_1$ (IC95%; kg)** | **Teste de $\beta_1$**<br>**$t$ ($p$)** | **Efeito do tempo**<br>**$\hat{\beta}_2$ (IC95%; kg/ano)** | **Teste de $\beta_2$**<br>**$t$ ($p$)** | **$\phi$**<br>**AR(1)** |
+|:---|:---|:---|:---|:---|:---|
+| Borba | −4.455 [−61.620; 52.710] | −0,163 (0,872) | −42.293 [−49.214; −35.372] | −12,75 (<0,001) | 0,854 |
+| Manicoré | −607.477 [−687.296; −527.657] | −15,88 (<0,001) | −42.704 [−52.062; −33.345] | −9,52 (<0,001) | 0,841 |
 
-: Resultados do modelo GLS para a produção pesqueira, considerando o efeito do período, a tendência temporal e a estrutura de autocorrelação AR(1). {#tbl-gls-producao tbl-colwidths="[11,21,20,13,18,12,5]"}
+: Resultados do modelo GLS para a produção pesqueira, considerando o efeito do período, o efeito do tempo e a estrutura de autocorrelação AR(1). {#tbl-gls-producao tbl-colwidths="[12,25,15,27,15,6]"}
 
 ::: {.nota-tabela}
-Notas: $\hat{\beta}_1$ = mudança de nível estimada no período (Depois) em relação ao período (Antes), ajustada pela tendência temporal | $\hat{\beta}_2$ = tendência linear estimada da produção em kg/ano | IC95% = intervalo de confiança de 95% | $t$ = estatística do teste do coeficiente | $p$ = nível descritivo associado ao teste | $\phi$ = parâmetro de autocorrelação de primeira ordem.
+Notas: $\hat{\beta}_1$ = efeito do período, correspondente à mudança de nível estimada em (Depois) em relação a (Antes), ajustada pelo tempo | $\hat{\beta}_2$ = efeito do tempo, correspondente à variação linear média estimada da produção em kg/ano | IC95% = intervalo de confiança de 95% | $t$ = estatística do teste do coeficiente | $p$ = nível descritivo associado ao teste | $\phi$ = parâmetro de autocorrelação de primeira ordem.
 :::
 
-**Comentários:** Conforme a @tbl-gls-producao, os parâmetros associados ao período e ao tempo apresentaram comportamentos distintos entre os municípios. Em Borba, $\hat{\beta}_1$ não foi estatisticamente significativo ($t=-0,163$; $p=0,872$), e seu intervalo de confiança incluiu zero (IC95%: −61.620 a 52.710 kg). Portanto, após considerar a tendência temporal e a autocorrelação, não foi identificada evidência de mudança adicional de nível da produção entre os períodos (Antes) e (Depois). Em contrapartida, $\hat{\beta}_2$ foi estatisticamente significativo ($t=-12,75$; $p<0,001$), com estimativa de −42.293 kg/ano, indicando uma tendência linear decrescente de aproximadamente 42,3 mil kg por ano.
+**Comentários:** Conforme a @tbl-gls-producao, os efeitos do período e do tempo apresentaram comportamentos distintos entre os municípios. Em Borba, o efeito do período ($\hat{\beta}_1=-4.455$ kg) não foi estatisticamente significativo ($t=-0,163$; $p=0,872$), e seu IC95% incluiu zero [−61.620; 52.710 kg]. Portanto, após considerar a tendência temporal e a autocorrelação, não foi identificada evidência de mudança adicional de nível da produção entre os períodos (Antes) e (Depois).
 
-Em Manicoré, ambos os parâmetros apresentaram significância estatística. O parâmetro $\hat{\beta}_1$ foi negativo e significativo ($t=-15,88$; $p<0,001$), com estimativa de −607.477 kg e IC95% inteiramente abaixo de zero [−687.296; −527.657 kg]. Assim, mesmo após considerar a tendência temporal e a autocorrelação, foi identificada uma redução adicional de aproximadamente 607,5 mil kg no nível da produção durante o período (Depois). O parâmetro $\hat{\beta}_2$ também foi negativo e significativo ($t=-9,52$; $p<0,001$), correspondendo a uma redução linear média estimada de aproximadamente 42,7 mil kg por ano.
+Em contrapartida, o efeito do tempo em Borba foi negativo e estatisticamente significativo ($\hat{\beta}_2=-42.293$ kg/ano; $t=-12,75$; $p<0,001$), com IC95% inteiramente abaixo de zero [−49.214; −35.372 kg/ano]. Esse resultado indica uma tendência linear decrescente, correspondente a uma redução média estimada de aproximadamente 42,3 mil kg de produção por ano.
+
+Em Manicoré, ambos os efeitos foram estatisticamente significativos. O efeito do período foi negativo ($\hat{\beta}_1=-607.477$ kg; $t=-15,88$; $p<0,001$), com IC95% inteiramente abaixo de zero [−687.296; −527.657 kg]. Assim, mesmo após considerar a tendência temporal e a autocorrelação, foi identificada uma redução adicional de aproximadamente 607,5 mil kg no nível da produção durante o período (Depois).
+
+O efeito do tempo em Manicoré também foi negativo e significativo ($\hat{\beta}_2=-42.704$ kg/ano; $t=-9,52$; $p<0,001$), com IC95% [−52.062; −33.345 kg/ano], indicando uma redução linear média estimada de aproximadamente 42,7 mil kg por ano.
 
 Os parâmetros de autocorrelação foram $\phi=0,854$ em Borba e $\phi=0,841$ em Manicoré, indicando persistência temporal positiva entre observações anuais consecutivas. Nos diagnósticos finais, os resíduos normalizados permaneceram compatíveis com a normalidade em Borba ($W=0,980$; $p=0,902$) e Manicoré ($W=0,951$; $p=0,302$).
 
+
+![Observed annual fish production and GLS-adjusted trend for Borba (AM), considering the periods Before (2002–2010) and After (2011–2024). The dashed vertical line indicates the beginning of the After period (2011), associated with the operation of the Madeira River hydroelectric dams. The blue points represent the observed annual production values, and the red line represents the GLS fit, incorporating the period effect, the linear time trend, and the AR(1) autocorrelation structure. Source: This study.](graficos/Time_Series_Borba_GLS.png){#fig-gls-borba width="100%" fig-align="center"}
+
+::: {.linha-baixar}
+[<i class="bi bi-download"></i> Baixar gráfico de Borba (PNG)](graficos/Time_Series_Borba_GLS.png){.baixar download="Time_Series_Borba_GLS.png"}
+:::
+
+![Observed annual fish production and GLS-adjusted trend for Manicoré (AM), considering the periods Before (2002–2010) and After (2011–2024). The dashed vertical line indicates the beginning of the After period (2011), associated with the operation of the Madeira River hydroelectric dams. The blue points represent the observed annual production values, and the red line represents the GLS fit, incorporating the period effect, the linear time trend, and the AR(1) autocorrelation structure. Source: This study.](graficos/Time_Series_Manicore_GLS.png){#fig-gls-manicore width="100%" fig-align="center"}
+
+::: {.linha-baixar}
+[<i class="bi bi-download"></i> Baixar gráfico de Manicoré (PNG)](graficos/Time_Series_Manicore_GLS.png){.baixar download="Time_Series_Manicore_GLS.png"}
+:::
 
 
 ### Mapa: Comparativo das Taxas de Declínio Produtivo com Estudos Prévios
