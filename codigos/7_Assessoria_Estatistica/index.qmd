@@ -270,24 +270,23 @@ Com a base estruturada e consolidada após todo o processo de limpeza e padroniz
 ::: {.objetivo}
 **Objetivo:** Quantificar as mudanças na produção, composição e diversidade das capturas pesqueiras, comparando os períodos “Antes” e “Depois” da operação das UHEs;
 :::
+### Análise Descritiva.
 
-### Comparação entre períodos.
-
-
-| Município | Período | Série Temporal<br>($n$) | Total Acumulado<br>(kg) | Média Anual ± DP<br>(kg) | Intervalo da Série<br>[Mín – Máx]<br>(kg) | Método Estatístico | Taxa de Declínio<br>Produtivo |
+| Município | Período | Série Temporal<br>($n$) | Total Acumulado<br>(kg) | Média Anual ± DP<br>(kg) | Intervalo da Série<br>[Mín – Máx]<br>(kg) | Amplitude<br>(kg) | Taxa de Declínio<br>($\%$) |
 |:---|:---|:---|:---|:---|:---|:---|:---|
-| **Borba** | Antes | 2002–2010 (9) | 816.058 | 90.673 ± 25.026<sup class="t-welch">a</sup> | [50.007 – 126.332] | [Teste *t* de Welch]{.t-welch} | **−68,8%** [↓]{style="color:#9d0208; font-size:1.25em; font-weight:700;"} |
-|   | Depois | 2011–2024 (14) | 396.013 | 28.287 ± 5.784<sup class="t-welch">b</sup> | [20.450 – 41.167] | | |
-| **Manicoré** | Antes | 2002–2010 (9) | 17.020 | 1.891 ± 85<sup class="t-wilcoxon">a</sup> | [1.701 – 1.971] | [Wilcoxon-Mann-Whitney]{.t-wilcoxon} | **−62,7%** [↓]{style="color:#9d0208; font-size:1.25em; font-weight:700;"} |
-|   | Depois | 2011–2024 (14) | 9.887 | 706 ± 171<sup class="t-wilcoxon">b</sup> | [453 – 1.061] | | |
+| **Borba** | Antes | 2002–2010 (9) | 13.495.513 | 1.499.501 ± 67.355 | [1.402.302 – 1.615.403] | 213.101 | |
+|   | Depois | 2011–2024 (14) | 13.497.584 | 964.113 ± 201.641 | [707.989 – 1.359.394] | 651.405 | **−35,7%** [↓]{style="color:#9d0208; font-weight:700;"} |
+| **Manicoré** | Antes | 2002–2010 (9) | 17.020.000 | 1.891.111 ± 84.855 | [1.701.000 – 1.971.000] | 270.000 | |
+|   | Depois | 2011–2024 (14) | 9.887.000 | 706.214 ± 170.875 | [453.000 – 1.061.000] | 608.000 | **−62,7%** [↓]{style="color:#9d0208; font-weight:700;"} |
 
-: **Testes de comparação e estatísticas descritivas da produção pesqueira (kg) por município e período.** {#tbl-estatisticas-pesca tbl-colwidths="[8,8,13,8,17,17,19,10]"}
+: **Estatísticas descritivas da produção pesqueira (kg) por município e período.** {#tbl-estatisticas-pesca tbl-colwidths="[10,8,12,12,16,18,10,14]"}
 
 ::: {.nota-tabela}
-**Notas:** $n$ = número de anos avaliados em cada período | DP = desvio padrão | Taxa de Declínio Produtivo = redução percentual da produção média anual entre os períodos | Letras sobrescritas diferentes (a, b) indicam diferença estatisticamente significativa entre os períodos ($\alpha = 0,05$) | Cor azul = teste $t$ de Welch para amostras independentes (paramétrico) | Cor vermelha = teste de Wilcoxon-Mann-Whitney para amostras independentes (não paramétrico).
+**Notas:** $n$ = número de anos avaliados em cada período | DP = desvio padrão | Amplitude = diferença entre o valor máximo e o mínimo registrado no período | Taxa de Declínio ($\Delta P\%$) = redução percentual da produção média anual entre os períodos avaliados.
 :::
 
-**Comentários:** Ao aplicar os testes verificamos uma redução significativa ($p$-valor $< 0,001$) na produção pesqueira anual de ambos os municípios no período posterior à instalação das UHEs, considerando um nível de significância de 5% ($\alpha = 0,05$). Em Borba, os pressupostos de normalidade foram atendidos, conforme verificado pelas estatísticas de teste $W$ de Shapiro-Wilk ($W = 0,9809$, $p$-valor $= 0,9688$ no período "Antes" e $W = 0,9582$, $p$-valor $= 0,6936$ no "Depois") e $A$ de Anderson-Darling ($A = 0,1239$, $p$-valor $= 0,9765$ no "Antes" e $A = 0,2086$, $p$-valor $= 0,8293$ no "Depois"). Por isso, aplicou-se o teste $t$ de Welch, cuja estatística de teste resultou em $t = 7,3533$ ($p$-valor $< 0,001$). Já em Manicoré, devido à ausência de normalidade no período "Antes" apontada pela estatística de teste $W$ de Shapiro-Wilk ($W = 0,8338$ e $p$-valor $= 0,0493$), aplicou-se o teste não paramétrico de Wilcoxon-Mann-Whitney para grupos independentes. Este procedimento resultou na estatística de teste $W$ máxima possível ($W = 126$, valor que corresponde exatamente ao produto do número de anos dos dois períodos avaliados, $n_1 = 9$ e $n_2 = 14$), com $p$-valor $< 0,001$, evidenciando uma separação absoluta entre as épocas: todos os anos do período "Antes" registraram produção superior a qualquer ano do período "Depois". Conclui-se que houve uma diminuição drástica e estatisticamente comprovada associada ao período de operação das barragens, embora a influência de outros fatores simultâneos ainda deva ser investigada.
+**Comentários:** A análise descritiva revela um declínio evidente nos volumes de captura em ambos os municípios no período posterior à instalação das UHEs. Em Borba, a média anual reduziu de aproximadamente 1.499 toneladas ("Antes") para 964 toneladas ("Depois"), representando uma queda de 35,7%. Em Manicoré, a redução observada foi ainda mais acentuada, com a média caindo de 1.891 toneladas para 706 toneladas, o que equivale a um declínio de 62,7%. Além da diminuição direta no volume produtivo, os dados descritivos apontam para um aumento expressivo na instabilidade das capturas no período "Depois". Este cenário é evidenciado pelo salto na amplitude (que passou de 213,1 toneladas para 651,4 toneladas em Borba, e de 270 toneladas para 608 toneladas em Manicoré) e pelo aumento acentuado do desvio padrão em ambas as localidades, sugerindo que o regime de pesca se tornou significativamente mais variável e imprevisível após o barramento. A significância estatística destas reduções face à variabilidade natural e temporal será avaliada através de modelagem específica.
+
 
 
 A seguir, apresentamos o cálculo da **Taxa de Declínio Produtivo**, bem como cada teste utilizado, sua estatística e as respetivas hipóteses que compõem os resultados da @tbl-estatisticas-pesca.
