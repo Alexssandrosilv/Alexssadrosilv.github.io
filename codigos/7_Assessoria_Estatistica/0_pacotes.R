@@ -9,6 +9,10 @@
 #| 2.  Todos as bibliotecas são carregadas de forma eficiente.
 #| 3.  Cada biblioteca é comentada para facilitar a consulta sobre seu uso e aplicabilidade.
 
+# ==============================================================================
+# PARTE 1: CONFIGURAÇÃO DE AMBIENTE E BIBLIOTECAS
+# ==============================================================================
+
 # Lista de pacotes necessários, organizados por funcionalidade
 pacotes <- c(
   # Manipulação e organização de dados
@@ -37,18 +41,18 @@ pacotes <- c(
   "htmltools",     # Exportação de HTML
   
   # Tabelas e relatórios
-  "officer",        # Geração de documentos Word/PPTX
-  "sjPlot",         # Tabelas apos a regressao
-  "ggtext"  
+  "officer",       # Geração de documentos Word/PPTX
+  "sjPlot",        # Tabelas apos a regressao
+  "ggtext",
+  "tidyr",         # Necessário para pivot_longer
+  "trend"          # Necessário para sens.slope
 )
 
-pacotes_nao_instalados <- pacotes[!pacotes %in% rownames(installed.packages())]
-
-# # Verifica e instala pacotes ausentes
-# pacotes_nao_instalados <- pacotes[!pacotes %in% installed.packages()]
-# if (length(pacotes_nao_instalados) > 0) {
-#   install.packages(pacotes_nao_instalados, dependencies = TRUE)
-# }
+# Verifica e instala pacotes ausentes
+pacotes_nao_instalados <- pacotes[!pacotes %in% installed.packages()]
+if (length(pacotes_nao_instalados) > 0) {
+  install.packages(pacotes_nao_instalados, dependencies = TRUE)
+}
 
 # Carrega todos os pacotes
-sapply(pacotes, require, character.only = TRUE) 
+sapply(pacotes, require, character.only = TRUE)

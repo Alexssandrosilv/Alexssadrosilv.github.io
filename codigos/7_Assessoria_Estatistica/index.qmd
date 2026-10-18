@@ -199,73 +199,142 @@ A presente análise tem os seguintes objetivos:
 
 ### Tratamento
 
-**Base 1 – Desembarque Pesqueiro:** Inicialmente, consolidamos os registros de Borba e Manicoré em uma única base, padronizando as variáveis de agrupamento e convertendo os dados do formato largo para o longo por meio da função `tidyr::pivot_longer()`, o que originou as variáveis `ano` e `captura_total`. Na sequência, convertemos os valores de captura para o formato numérico (substituindo vírgulas por pontos) e aplicamos um filtro de limpeza para remover registros vazios e os anos de 2000, 2001, 2025 e 2026, estabilizando a série histórica no período de 2002 a 2024. Para viabilizar as análises de impacto, criamos a variável `periodo_barragem`, segmentando a série nas fases **Antes** (2002 a 2010) e **Depois** (2011 a 2024). Por fim, após verificar ausência de valores nulos nas variáveis de interesse, a base de dados final resultou em 888 observações estruturadas, cujas variáveis estão detalhadas na @tbl-var-pesca.
+**Base 1 – Desembarque Pesqueiro:** Inicialmente, consolidamos os registros de Borba e Manicoré, convertendo os dados para o formato longo por meio da função `tidyr::pivot_longer()` (`ano` e `captura_total`). Em seguida, tratamos os valores numéricos, criamos a variável `periodo_barragem` (separando em **Antes** de 2011 e **Depois**) e filtramos a série para o período de 2002 a 2025. A base final apresenta as variáveis detalhadas na @tbl-var-pesca, totalizando **`r nrow(dados_desembarque)` linhas** e **`r ncol(dados_desembarque)` colunas**.
+
+| Variável | Descrição | Tipo | Classe (R) | Níveis |
+|:---|:---|:---|:---|:---|
+| `localidade` | Município de desembarque (Borba ou Manicoré) | Qualitativa Nominal | Fator | 2 |
+| `ano` | Ano do registro (2002 a 2025) | Quantitativa Discreta | Inteiro | – |
+| `periodo_barragem` | Momento em relação às hidrelétricas | Qualitativa Ordinal | Fator | 2 |
+| `nome_comum` | Nome popular do peixe | Qualitativa Nominal | Caractere | – |
+| `captura_total` | Quantidade desembarcada, em quilos | Quantitativa Contínua | Numérica | – |
+
+: **Descrição das variáveis da base de desembarque pesqueiro.** {#tbl-var-pesca tbl-colwidths="[20,40,20,10,10]"}
+
+<br>
+
+**Base 2 – Cotas Fluviométricas:** A partir dos dados originais da ANA, unificamos os registros das estações de Borba e Manicoré e mantivemos as variáveis essenciais para a análise: `localidade`, `ano`, `mes`, `periodo_barragem`, `media`, `minima` e `maxima`. Os valores ausentes (`NA's`) foram preservados para manter a sequência temporal. A estrutura final está descrita na @tbl-var-cotas, composta por **`r nrow(dados_cotas)` linhas** e **`r ncol(dados_cotas)` colunas**.
+
+| Variável | Descrição | Tipo | Classe (R) | Níveis |
+|:---|:---|:---|:---|:---|
+| `localidade` | Município da estação de medição | Qualitativa Nominal | Fator | 2 |
+| `ano` | Ano de referência da medição (2002 a 2025) | Quantitativa Discreta | Inteiro | – |
+| `mes` | Mês de referência da medição | Quantitativa Discreta | Inteiro | – |
+| `periodo_barragem` | Momento em relação às hidrelétricas | Qualitativa Ordinal | Fator | 2 |
+| `media` | Cota média mensal do rio | Quantitativa Contínua | Numérica | – |
+| `minima` | Cota mínima mensal do rio | Quantitativa Contínua | Numérica | – |
+| `maxima` | Cota máxima mensal do rio | Quantitativa Contínua | Numérica | – |
+
+: **Descrição das variáveis da base de cotas fluviométricas.** {#tbl-var-cotas tbl-colwidths="[20,40,20,10,10]"}
+
+<!-- ### Tratamento -->
+
+<!-- **Base 1 – Desembarque Pesqueiro:** Inicialmente, consolidamos os registros de Borba e Manicoré em uma única base, padronizando as variáveis de agrupamento e convertendo os dados do formato largo para o longo por meio da função `tidyr::pivot_longer()`, o que originou as variáveis `ano` e `captura_total`. Na sequência, convertemos os valores de captura para o formato numérico (substituindo vírgulas por pontos) e aplicamos um filtro de limpeza para remover registros vazios e os anos de 2000, 2001, 2025 e 2026, estabilizando a série histórica no período de 2002 a 2024. Para viabilizar as análises de impacto, criamos a variável `periodo_barragem`, segmentando a série nas fases **Antes** (2002 a 2010) e **Depois** (2011 a 2024). Por fim, após verificar ausência de valores nulos nas variáveis de interesse, a base de dados final resultou em 888 observações estruturadas, cujas variáveis estão detalhadas na @tbl-var-pesca. -->
 
 
-| Variável | Descrição | Tipo | Classe (R) | Níveis | Tamanho Amostral (n) | Dados Ausentes (NA's) |
-|:---|:---|:---|:---|:---|:---|:---|
-| `localidade` | Município de desembarque (Borba ou Manicoré) | Qualitativa Nominal | Fator | 2 | 888 | 0 |
-| `especie` | Nome científico da espécie | Qualitativa Nominal | Caractere | – | 888 | 0 |
-| `nome_comum` | Nome popular do peixe | Qualitativa Nominal | Caractere | – | 888 | 0 |
-| `familia` | Família a que a espécie pertence | Qualitativa Nominal | Fator | 9 | 888 | 0 |
-| `ordem` | Ordem a que a espécie pertence | Qualitativa Nominal | Fator | 5 | 888 | 0 |
-| `habitat` | Ambiente em que a espécie vive | Qualitativa Nominal | Fator | 3 | 888 | 0 |
-| `migration` | Comportamento migratório da espécie | Qualitativa Nominal | Fator | 3 | 888 | 0 |
-| `nivel_tropico` | Posição da espécie na cadeia alimentar | Qualitativa Nominal | Fator | 5 | 888 | 0 |
-| `status_mercado` | Situação do pescado no mercado | Qualitativa Nominal | Fator | 3 | 888 | 0 |
-| `periodo` | Classificação da pescaria por período | Qualitativa Nominal | Caractere | – | 888 | 0 |
-| `periodo_2` | Segunda classificação da pescaria por período | Qualitativa Nominal | Fator | 6 | 888 | 0 |
-| `periodo_barragem` | Momento em relação às hidrelétricas | Qualitativa Ordinal | Fator | 2 | 888 | 0 |
-| `ano` | Ano do registro (2002 a 2025) | Quantitativa Discreta | Inteiro | – | 888 | 0 |
-| `dias` | Número de dias de pesca informados (esforço) | Quantitativa Discreta | Numérica | – | 888 | 0 |
-| `captura_total` | Quantidade desembarcada, em quilos | Quantitativa Contínua | Numérica | – | 888 | 0 |
-
-: **Descrição das variáveis base desembarque pesqueiro.** {#tbl-var-pesca tbl-colwidths="[15,36,18,10,7,7,7]"}
+<!-- <!-- | Variável | Descrição | Tipo | Classe (R) | Níveis | Tamanho Amostral (n) | Dados Ausentes (NA's) | --> -->
+<!-- <!-- |:---|:---|:---|:---|:---|:---|:---| --> -->
+<!-- <!-- | `localidade` | Município de desembarque (Borba ou Manicoré) | Qualitativa Nominal | Fator | 2 | 888 | 0 | --> -->
+<!-- <!-- | `especie` | Nome científico da espécie | Qualitativa Nominal | Caractere | – | 888 | 0 | --> -->
+<!-- <!-- | `nome_comum` | Nome popular do peixe | Qualitativa Nominal | Caractere | – | 888 | 0 | --> -->
+<!-- <!-- | `familia` | Família a que a espécie pertence | Qualitativa Nominal | Fator | 9 | 888 | 0 | --> -->
+<!-- <!-- | `ordem` | Ordem a que a espécie pertence | Qualitativa Nominal | Fator | 5 | 888 | 0 | --> -->
+<!-- <!-- | `habitat` | Ambiente em que a espécie vive | Qualitativa Nominal | Fator | 3 | 888 | 0 | --> -->
+<!-- <!-- | `migration` | Comportamento migratório da espécie | Qualitativa Nominal | Fator | 3 | 888 | 0 | --> -->
+<!-- <!-- | `nivel_tropico` | Posição da espécie na cadeia alimentar | Qualitativa Nominal | Fator | 5 | 888 | 0 | --> -->
+<!-- <!-- | `status_mercado` | Situação do pescado no mercado | Qualitativa Nominal | Fator | 3 | 888 | 0 | --> -->
+<!-- <!-- | `periodo` | Classificação da pescaria por período | Qualitativa Nominal | Caractere | – | 888 | 0 | --> -->
+<!-- <!-- | `periodo_2` | Segunda classificação da pescaria por período | Qualitativa Nominal | Fator | 6 | 888 | 0 | --> -->
+<!-- <!-- | `periodo_barragem` | Momento em relação às hidrelétricas | Qualitativa Ordinal | Fator | 2 | 888 | 0 | --> -->
+<!-- <!-- | `ano` | Ano do registro (2002 a 2025) | Quantitativa Discreta | Inteiro | – | 888 | 0 | --> -->
+<!-- <!-- | `dias` | Número de dias de pesca informados (esforço) | Quantitativa Discreta | Numérica | – | 888 | 0 | --> -->
+<!-- <!-- | `captura_total` | Quantidade desembarcada, em quilos | Quantitativa Contínua | Numérica | – | 888 | 0 | --> -->
 
 
-**Base 2 – Cotas Fluviométricas:** A partir dos dados originais da Agência Nacional de Águas e Saneamento Básico (ANA), unificamos inicialmente os registros das estações de Borba e Manicoré, definindo adequadamente o tipo de dado para as variáveis `localidade`, `ano` e `mes`, e padronizando a variável `hora` para o formato `%H:%M:%S`. Utilizando o dicionário de dados da ANA (@tbl-rotulos-ana), os códigos numéricos das variáveis categóricas foram substituídos pelos seus rótulos textuais correspondentes. Visto que o banco de dados original apresentava 31 colunas de cotas diárias e outras 31 de *status*, convertemos a base para o formato longo através da função `tidyr::pivot_longer()`, o que permitiu criar as variáveis `cota`, `status`, `referencia_dia` e `identificador_cota` (esta última para rastrear a coluna de origem da medição). Optamos por manter os valores ausentes (`NA's`) nas variáveis hidrológicas, uma vez que estes representam ausência de medição e são cruciais para preservar a sequência cronológica e o espaçamento da série histórica. Ao final do tratamento, a base consolidou 144.181 registros discriminadas na @tbl-var-cotas.
 
-| Variável | Código = Rótulo |
-|:---|:---|
-| `nivel_consistencia` | 1 = Bruto; 2 = Consistido |
-| `media_diaria` | 0 = Não; 1 = Sim |
-| `tipo_medicao_cotas` | 1 = Escala; 2 = Linígrafo; 3 = Data Logger; 5 = Escala SMS |
-| `status`, `maxima_status`, `minima_status`, `media_status`, `media_anual_status` | 0 = Branco; 1 = Real; 2 = Estimado; 3 = Duvidoso; 4 = Régua Seca |
+<!-- : **Descrição das variáveis base desembarque pesqueiro.** {#tbl-var-pesca tbl-colwidths="[15,36,18,10,7,7,7]"} -->
 
-: **Rótulos aplicados às variáveis categóricas (Dicionário da ANA).** {#tbl-rotulos-ana tbl-colwidths="[53,47]"}
 
-Com a base estruturada e consolidada após todo o processo de limpeza e padronização, a tabela @tbl-var-cotas detalha a natureza de cada variável hidrológica.
+<!-- <!-- **Base 2 – Cotas Fluviométricas:** A partir dos dados originais da Agência Nacional de Águas e Saneamento Básico (ANA), unificamos inicialmente os registros das estações de Borba e Manicoré, definindo adequadamente o tipo de dado para as variáveis `localidade`, `ano` e `mes`, e padronizando a variável `hora` para o formato `%H:%M:%S`. Utilizando o dicionário de dados da ANA (@tbl-rotulos-ana), os códigos numéricos das variáveis categóricas foram substituídos pelos seus rótulos textuais correspondentes. Visto que o banco de dados original apresentava 31 colunas de cotas diárias e outras 31 de *status*, convertemos a base para o formato longo através da função `tidyr::pivot_longer()`, o que permitiu criar as variáveis `cota`, `status`, `referencia_dia` e `identificador_cota` (esta última para rastrear a coluna de origem da medição). Optamos por manter os valores ausentes (`NA's`) nas variáveis hidrológicas, uma vez que estes representam ausência de medição e são cruciais para preservar a sequência cronológica e o espaçamento da série histórica. Ao final do tratamento, a base consolidou 144.181 registros discriminadas na @tbl-var-cotas. --> -->
 
-| Variável | Descrição | Tipo | Classe (R) | Níveis | Tamanho Amostral (n) | Dados Ausentes (NA's) |
-|:---|:---|:---|:---|:---|:---|:---|
-| `localidade` | Município da estação de medição | Qualitativa Nominal | Fator | 2 | 144.181 | 0 |
-| `estacao_codigo` | Código identificador da estação na ANA | Qualitativa Nominal | Caractere | – | 144.181 | 0 |
-| `nivel_consistencia` | Consistência do dado (Bruto ou Consistido) | Qualitativa Nominal | Fator | 2 | 144.181 | 0 |
-| `data` | Data do registro da medição | Quantitativa Contínua | Data | – | 144.181 | 0 |
-| `ano` | Ano de referência da medição | Quantitativa Discreta | Inteiro | – | 144.181 | 0 |
-| `mes` | Mês de referência da medição | Quantitativa Discreta | Inteiro | – | 144.181 | 0 |
-| `referencia_dia` | Dia do mês extraído das cotas originais | Quantitativa Discreta | Inteiro | – | 144.181 | 0 |
-| `hora` | Hora do registro da medição tratada | Quantitativa Discreta | Caractere | – | 144.181 | 80.879 |
-| `media_diaria` | Indicador de média diária ou instantânea | Qualitativa Nominal | Fator | 2 | 144.181 | 0 |
-| `tipo_medicao_cotas` | Método de leitura (Escala, Linígrafo, etc.) | Qualitativa Nominal | Fator | 4 | 144.181 | 0 |
-| `identificador_cota` | Identificador da cota original (ex: cota_01) | Qualitativa Nominal | Fator | 31 | 144.181 | 0 |
-| `cota` | Medição diária do nível do rio (formato longo) | Quantitativa Contínua | Numérica | – | 144.181 | 3.240 |
-| `status` | Status de qualidade da medição diária | Qualitativa Nominal | Fator | 5 | 144.181 | 26.732 |
-| `maxima` | Cota máxima mensal | Quantitativa Contínua | Numérica | – | 144.181 | 1.953 |
-| `minima` | Cota mínima mensal | Quantitativa Contínua | Numérica | – | 144.181 | 2.015 |
-| `media` | Cota média mensal | Quantitativa Contínua | Numérica | – | 144.181 | 2.015 |
-| `dia_maxima` | Dia de ocorrência da cota máxima | Quantitativa Discreta | Numérica | – | 144.181 | 1.953 |
-| `dia_minima` | Dia de ocorrência da cota mínima | Quantitativa Discreta | Numérica | – | 144.181 | 2.015 |
-| `media_anual` | Cota média anual no período | Quantitativa Contínua | Numérica | – | 144.181 | 76.508 |
-| `maxima_status` | Status de qualidade da cota máxima | Qualitativa Nominal | Fator | 5 | 144.181 | 0 |
-| `minima_status` | Status de qualidade da cota mínima | Qualitativa Nominal | Fator | 5 | 144.181 | 0 |
-| `media_status` | Status de qualidade da cota média | Qualitativa Nominal | Fator | 5 | 144.181 | 0 |
-| `media_anual_status` | Status de qualidade da média anual | Qualitativa Nominal | Fator | 5 | 144.181 | 2.604 |
 
-: **Descrição das variáveis base cotas fluviométricas.** {#tbl-var-cotas tbl-colwidths="[19,35,17,9,6,7,7]"}
+
+<!-- <!-- | Variável | Código = Rótulo | --> -->
+<!-- <!-- |:---|:---| --> -->
+<!-- <!-- | `nivel_consistencia` | 1 = Bruto; 2 = Consistido | --> -->
+<!-- <!-- | `media_diaria` | 0 = Não; 1 = Sim | --> -->
+<!-- <!-- | `tipo_medicao_cotas` | 1 = Escala; 2 = Linígrafo; 3 = Data Logger; 5 = Escala SMS | --> -->
+<!-- <!-- | `status`, `maxima_status`, `minima_status`, `media_status`, `media_anual_status` | 0 = Branco; 1 = Real; 2 = Estimado; 3 = Duvidoso; 4 = Régua Seca | --> -->
+
+<!-- <!-- : **Rótulos aplicados às variáveis categóricas (Dicionário da ANA).** {#tbl-rotulos-ana tbl-colwidths="[53,47]"} --> -->
+
+<!-- <!-- Com a base estruturada e consolidada após todo o processo de limpeza e padronização, a tabela @tbl-var-cotas detalha a natureza de cada variável hidrológica. --> -->
+
+<!-- <!-- | Variável | Descrição | Tipo | Classe (R) | Níveis | Tamanho Amostral (n) | Dados Ausentes (NA's) | --> -->
+<!-- <!-- |:---|:---|:---|:---|:---|:---|:---| --> -->
+<!-- <!-- | `localidade` | Município da estação de medição | Qualitativa Nominal | Fator | 2 | 144.181 | 0 | --> -->
+<!-- <!-- | `estacao_codigo` | Código identificador da estação na ANA | Qualitativa Nominal | Caractere | – | 144.181 | 0 | --> -->
+<!-- <!-- | `nivel_consistencia` | Consistência do dado (Bruto ou Consistido) | Qualitativa Nominal | Fator | 2 | 144.181 | 0 | --> -->
+<!-- <!-- | `data` | Data do registro da medição | Quantitativa Contínua | Data | – | 144.181 | 0 | --> -->
+<!-- <!-- | `ano` | Ano de referência da medição | Quantitativa Discreta | Inteiro | – | 144.181 | 0 | --> -->
+<!-- <!-- | `mes` | Mês de referência da medição | Quantitativa Discreta | Inteiro | – | 144.181 | 0 | --> -->
+<!-- <!-- | `referencia_dia` | Dia do mês extraído das cotas originais | Quantitativa Discreta | Inteiro | – | 144.181 | 0 | --> -->
+<!-- <!-- | `hora` | Hora do registro da medição tratada | Quantitativa Discreta | Caractere | – | 144.181 | 80.879 | --> -->
+<!-- <!-- | `media_diaria` | Indicador de média diária ou instantânea | Qualitativa Nominal | Fator | 2 | 144.181 | 0 | --> -->
+<!-- <!-- | `tipo_medicao_cotas` | Método de leitura (Escala, Linígrafo, etc.) | Qualitativa Nominal | Fator | 4 | 144.181 | 0 | --> -->
+<!-- <!-- | `identificador_cota` | Identificador da cota original (ex: cota_01) | Qualitativa Nominal | Fator | 31 | 144.181 | 0 | --> -->
+<!-- <!-- | `cota` | Medição diária do nível do rio (formato longo) | Quantitativa Contínua | Numérica | – | 144.181 | 3.240 | --> -->
+<!-- <!-- | `status` | Status de qualidade da medição diária | Qualitativa Nominal | Fator | 5 | 144.181 | 26.732 | --> -->
+<!-- <!-- | `maxima` | Cota máxima mensal | Quantitativa Contínua | Numérica | – | 144.181 | 1.953 | --> -->
+<!-- <!-- | `minima` | Cota mínima mensal | Quantitativa Contínua | Numérica | – | 144.181 | 2.015 | --> -->
+<!-- <!-- | `media` | Cota média mensal | Quantitativa Contínua | Numérica | – | 144.181 | 2.015 | --> -->
+<!-- <!-- | `dia_maxima` | Dia de ocorrência da cota máxima | Quantitativa Discreta | Numérica | – | 144.181 | 1.953 | --> -->
+<!-- <!-- | `dia_minima` | Dia de ocorrência da cota mínima | Quantitativa Discreta | Numérica | – | 144.181 | 2.015 | --> -->
+<!-- <!-- | `media_anual` | Cota média anual no período | Quantitativa Contínua | Numérica | – | 144.181 | 76.508 | --> -->
+<!-- <!-- | `maxima_status` | Status de qualidade da cota máxima | Qualitativa Nominal | Fator | 5 | 144.181 | 0 | --> -->
+<!-- <!-- | `minima_status` | Status de qualidade da cota mínima | Qualitativa Nominal | Fator | 5 | 144.181 | 0 | --> -->
+<!-- <!-- | `media_status` | Status de qualidade da cota média | Qualitativa Nominal | Fator | 5 | 144.181 | 0 | --> -->
+<!-- <!-- | `media_anual_status` | Status de qualidade da média anual | Qualitativa Nominal | Fator | 5 | 144.181 | 2.604 | --> -->
+
+<!-- : **Descrição das variáveis base cotas fluviométricas.** {#tbl-var-cotas tbl-colwidths="[19,35,17,9,6,7,7]"} -->
+
 
 
 ## Antes e Depois das UHEs
+
+::: {.objetivo}
+**Objetivo:** Quantificar as mudanças na produção, composição e diversidade das capturas pesqueiras, comparando os períodos “Antes” e “Depois” da operação das UHEs.
+:::
+
+
+## Antes e Depois das UHEs
+
+::: {.objetivo}
+**Objetivo:** Quantificar as mudanças na produção, composição e diversidade das capturas pesqueiras, comparando os períodos “Antes” e “Depois” da operação das UHEs.
+:::
+
+### Análise descritiva
+
+Essa etapa permite dimensionar as diferenças observadas entre os períodos antes da aplicação da modelagem inferencial, que posteriormente considerará também a tendência temporal e a dependência entre as observações anuais.
+
+| Município | Período | Série Temporal<br>($n$) | Total Acumulado<br>(kg) | Média Anual ± DP<br>(kg) | Intervalo da Série<br>[Mín – Máx]<br>(kg) | Amplitude<br>(kg) | Taxa de Declínio<br>($\%$) |
+|:---|:---|:---|:---|:---|:---|:---|:---|
+| **Borba** | Antes | 2002–2010 (9) | 13.495.513 | 1.499.501 ± 67.355 | [1.402.302 – 1.615.403] | 213.101 | |
+|   | Depois | 2011–2024 (14) | 13.497.584 | 964.113 ± 201.641 | [707.989 – 1.359.394] | 651.405 | **−35,7%** [↓]{style="color:#9d0208; font-weight:700;"} |
+| **Manicoré** | Antes | 2002–2010 (9) | 17.020.000 | 1.891.111 ± 84.855 | [1.701.000 – 1.971.000] | 270.000 | |
+|   | Depois | 2011–2024 (14) | 9.887.000 | 706.214 ± 170.875 | [453.000 – 1.061.000] | 608.000 | **−62,7%** [↓]{style="color:#9d0208; font-weight:700;"} |
+
+: **Estatísticas descritivas da produção pesqueira (kg) por município e período.** {#tbl-estatisticas-pesca tbl-colwidths="[10,8,12,12,16,18,10,14]"}
+
+::: {.nota-tabela}
+**Notas:** $n$ = número de anos avaliados em cada período | DP = desvio padrão | Amplitude = diferença entre o valor máximo e o mínimo registrado no período | Taxa de Declínio ($\%$) = redução percentual da produção média anual no período “Depois” em relação ao período “Antes”.
+:::
+
+
+
+**Comentários:** Na @tbl-estatisticas-pesca, observa-se redução da produção pesqueira média anual nos dois municípios no período “Depois”. Em Borba, a média passou de aproximadamente 1.500 toneladas/ano no período “Antes” para 964 toneladas/ano no período “Depois”, correspondendo a uma redução descritiva de **35,7%**. Em Manicoré, a média anual passou de aproximadamente 1.891 para 706 toneladas/ano, resultando em uma redução de **62,7%**. Além da redução das médias, verificou-se maior dispersão da produção anual no período “Depois”. Em Borba, o desvio padrão aumentou de aproximadamente 67 mil para 202 mil kg, enquanto a amplitude passou de 213 mil para 651 mil kg. Em Manicoré, o desvio padrão aumentou de aproximadamente 85 mil para 171 mil kg, acompanhado de aumento da amplitude de 270 mil para 608 mil kg. Esses resultados indicam maior variabilidade interanual das capturas no período posterior.
+
+As diferenças apresentadas nesta etapa possuem caráter **descritivo** e, isoladamente, não permitem estabelecer significância estatística nem atribuir causalidade à operação das UHEs. Na etapa seguinte, a diferença entre os períodos será avaliada por meio de modelagem estatística, considerando simultaneamente a tendência temporal e a autocorrelação existente entre as observações anuais.
 
 ::: {.objetivo}
 **Objetivo:** Quantificar as mudanças na produção, composição e diversidade das capturas pesqueiras, comparando os períodos “Antes” e “Depois” da operação das UHEs;
@@ -282,7 +351,7 @@ Com a base estruturada e consolidada após todo o processo de limpeza e padroniz
 : **Estatísticas descritivas da produção pesqueira (kg) por município e período.** {#tbl-estatisticas-pesca tbl-colwidths="[10,8,12,12,16,18,10,14]"}
 
 ::: {.nota-tabela}
-**Notas:** $n$ = número de anos avaliados em cada período | DP = desvio padrão | Amplitude = diferença entre o valor máximo e o mínimo registrado no período | Taxa de Declínio = redução percentual da produção média anual entre os períodos avaliados.
+**Notas:** $n$ = número de anos avaliados em cada período | DP = desvio padrão | Amplitude = diferença entre o valor máximo e o mínimo registrado no período | Taxa de Declínio ($\%$) = redução percentual da produção média anual entre os períodos avaliados.
 :::
 
 **Comentários:** A análise descritiva revela um declínio evidente nos volumes de captura em ambos os municípios no período posterior à instalação das UHEs. Em Borba, a média anual reduziu de aproximadamente 1.499 toneladas ("Antes") para 964 toneladas ("Depois"), representando uma queda de 35,7%. Em Manicoré, a redução observada foi ainda mais acentuada, com a média caindo de 1.891 toneladas para 706 toneladas, o que equivale a um declínio de 62,7%. Além da diminuição direta no volume produtivo, os dados descritivos apontam para um aumento expressivo na instabilidade das capturas no período "Depois". Este cenário é evidenciado pelo salto na amplitude (que passou de 213,1 toneladas para 651,4 toneladas em Borba, e de 270 toneladas para 608 toneladas em Manicoré) e pelo aumento acentuado do desvio padrão em ambas as localidades, sugerindo que o regime de pesca se tornou significativamente mais variável e imprevisível após o barramento. A significância estatística destas reduções face à variabilidade natural e temporal será avaliada através de modelagem específica.
