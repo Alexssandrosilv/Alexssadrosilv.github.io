@@ -152,6 +152,8 @@ jobs:
             any::gsheet
             any::corrplot
             any::tidyverse
+            any::tidyr
+            any::trend
             any::nlme
             any::lme4
             any::car

@@ -1,23 +1,26 @@
-## Parte 1: Bibliotecas
-
-#| Este primeira parte do script configura o ambiente com as 
-#| bibliotecas "pacotes" utilizados neste trabalho
-
-# ------ 
-
-#| 1.  Bibliotecas ausentes são instalados automaticamente.
-#| 2.  Todos as bibliotecas são carregadas de forma eficiente.
-#| 3.  Cada biblioteca é comentada para facilitar a consulta sobre seu uso e aplicabilidade.
-
 # ==============================================================================
 # PARTE 1: CONFIGURAÇÃO DE AMBIENTE E BIBLIOTECAS
 # ==============================================================================
 
-# Lista de pacotes necessários, organizados por funcionalidade
+# Lista de pacotes necessários sincronizada com o GitHub Actions
 pacotes <- c(
+  # Renderização e relatórios
+  "knitr",
+  "rmarkdown",
+  "officer",       # Geração de documentos Word/PPTX
+  "sjPlot",        # Tabelas após a regressão
+  "flextable",     # Tabelas para relatórios Word/HTML
+  "fdth",          # Tabelas de frequência
+  "htmltools",     # Exportação de HTML
+  "reactable",     # Tabelas interativas
+  "DT",            # Tabelas interativas DataTables
+  "reticulate",    # Integração com Python
+  
   # Manipulação e organização de dados
+  "tidyverse",     # Meta-pacote
   "magrittr",      # Pipe (%>%) alternativo ao |> base
   "dplyr",         # Manipulação de dados (filter, select, mutate, etc.)
+  "tidyr",         # Transformação de dados (pivot_longer, pivot_wider)
   "reshape2",      # Funções como melt() para transformação de dados
   "stringr",       # Manipulação de strings
   "stringi",       # Manipulação avançada de strings
@@ -25,34 +28,35 @@ pacotes <- c(
   "readxl",        # Leitura de arquivos Excel
   "gsheet",        # Leitura de planilhas Google Sheets
   
-  # Estatísticas descritivas e psicometria
+  # Estatísticas descritivas, psicometria e modelagem
   "skimr",         # Sumários estatísticos rápidos
   "psych",         # Psicometria e estatísticas descritivas
   "Hmisc",         # Frequências, imputação, descrição
+  "trend",         # Testes não-paramétricos de tendência (Sen's Slope)
+  "nlme",          # Modelos lineares generalizados (GLS) e mistos
+  "lme4",          # Modelos lineares e generalizados de efeitos mistos
+  "car",           # Funções de apoio à regressão
+  "rstatix",       # Testes estatísticos compatíveis com pipe
   
   # Visualização de dados
   "ggplot2",       # Sistema de visualização gráfica
   "corrplot",      # Matriz de correlação
   "showtext",      # Fontes personalizadas para gráficos
-  
-  # Criação e personalização de tabelas
-  "flextable",     # Tabelas para relatórios Word/HTML
-  "fdth",          # Tabelas de frequência
-  "htmltools",     # Exportação de HTML
-  
-  # Tabelas e relatórios
-  "officer",       # Geração de documentos Word/PPTX
-  "sjPlot",        # Tabelas apos a regressao
-  "ggtext",
-  "tidyr",         # Necessário para pivot_longer
-  "trend"          # Necessário para sens.slope
+  "ggtext",        # Formatação rica de texto no ggplot2
+  "geomtextpath",  # Textos curvados acompanhando linhas no ggplot2
+  "viridis",       # Paletas de cores acessíveis
+  "ggrepel"        # Rótulos de texto sem sobreposição
 )
 
-# Verifica e instala pacotes ausentes
-pacotes_nao_instalados <- pacotes[!pacotes %in% installed.packages()]
+# Verifica e instala pacotes ausentes (com repositório CRAN fixo para evitar erro no GitHub)
+pacotes_nao_instalados <- pacotes[!pacotes %in% utils::installed.packages()[, "Package"]]
 if (length(pacotes_nao_instalados) > 0) {
-  install.packages(pacotes_nao_instalados, dependencies = TRUE)
+  utils::install.packages(
+    pacotes_nao_instalados, 
+    dependencies = TRUE, 
+    repos = "https://cloud.r-project.org"
+  )
 }
 
-# Carrega todos os pacotes
-sapply(pacotes, require, character.only = TRUE)
+# Carrega todos os pacotes silenciosamente
+invisible(lapply(pacotes, library, character.only = TRUE))
