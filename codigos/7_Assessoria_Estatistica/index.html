@@ -462,6 +462,7 @@ Tabela&nbsp;1: <strong>Descrição das variáveis da base de desembarque pesquei
 </div>
 </figure>
 </div>
+<p><br></p>
 <p><strong>Base 2 – Cotas Fluviométricas:</strong> A partir dos dados originais da Agência Nacional de Águas e Saneamento Básico (ANA), unificamos os registros das estações de Borba e Manicoré, padronizando a nomenclatura dos municípios e definindo adequadamente a tipagem das variáveis temporais (<code>ano</code> e <code>mes</code>) e hidrológicas (<code>media</code>, <code>minima</code> e <code>maxima</code>). Alinhamos a série histórica ao intervalo de 2002 a 2025 e, visto que o banco original apresentava múltiplas linhas para um mesmo mês devido a leituras em diferentes horários, aplicamos a função <code>dplyr::distinct()</code> para remover duplicidades e consolidar um único registro mensal por estação. Na sequência, adicionamos a variável <code>periodo_barragem</code> (<strong>Antes</strong>: 2002 a 2010; <strong>Depois</strong>: 2011 a 2024, mantendo 2025 apenas como referência e fora das avaliações estatísticas) para permitir o cruzamento direto com os dados pesqueiros. Optamos por manter os valores ausentes (<code>NA's</code>) nas variáveis de cota, uma vez que estes representam ausência de medição e são cruciais para preservar a sequência cronológica da série histórica. Ao final do tratamento, a base consolidou 995 linhas e 7 colunas, discriminadas na <a href="#tbl-var-cotas" class="quarto-xref">Tabela&nbsp;2</a>.</p>
 <div id="tbl-var-cotas" class="quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[15,36,18,10,7,7,7]">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -647,64 +648,8 @@ Tabela&nbsp;3: <strong>Estatísticas descritivas da produção pesqueira (kg) po
 <div class="nota-tabela">
 <p><strong>Notas:</strong> <span class="math inline">\(n\)</span> = número de anos avaliados em cada período | DP = desvio padrão | Amplitude = diferença entre o valor máximo e o mínimo registrado no período | Taxa de Declínio = redução percentual da produção média anual no período “Depois” em relação ao período “Antes”.</p>
 </div>
-<p><strong>Comentários:</strong> A <a href="#tbl-estatisticas-pesca" class="quarto-xref">Tabela&nbsp;3</a> revela um declínio evidente nos volumes de captura em ambos os municípios no período posterior à instalação das UHEs. Em Borba, a média anual reduziu de aproximadamente 1.500 toneladas (“Antes”) para 964 toneladas (“Depois”), representando uma queda de 35,7%. Em Manicoré, a redução observada foi ainda mais acentuada, com a média caindo de 1.891 toneladas para 706 toneladas, o que equivale a um declínio de 62,7%. Além da diminuição direta no volume produtivo, os dados apontam para um aumento expressivo na instabilidade das capturas no período “Depois”. Este cenário é evidenciado pelo salto na amplitude (que passou de 213,1 para 651,4 toneladas em Borba, e de 270,0 para 608,0 toneladas em Manicoré) e pelo aumento acentuado do desvio padrão em ambas as localidades (de cerca de 67 mil para 202 mil kg em Borba, e de 85 mil para 171 mil kg em Manicoré), indicando maior variabilidade e imprevisibilidade interanual das capturas após o barramento.</p>
+<p><strong>Comentários:</strong> A <a href="#tbl-estatisticas-pesca" class="quarto-xref">Tabela&nbsp;3</a> revela um declínio evidente nos volumes de captura em ambos os municípios no período posterior à instalação das UHEs. Em Borba, a média anual reduziu de aproximadamente 1.500 toneladas (Antes) para 964 toneladas (Depois), representando uma queda de 35,7%. Em Manicoré, a redução observada foi ainda mais acentuada, com a média caindo de 1.891 toneladas para 706 toneladas, o que equivale a um declínio de 62,7%. Além da diminuição direta no volume produtivo, os dados apontam para um aumento expressivo na instabilidade das capturas no período “Depois”. Este cenário é evidenciado pelo salto na amplitude (que passou de 213,1 para 651,4 toneladas em Borba, e de 270,0 para 608,0 toneladas em Manicoré) e pelo aumento acentuado do desvio padrão em ambas as localidades (de cerca de 67 mil para 202 mil kg em Borba, e de 85 mil para 171 mil kg em Manicoré), indicando maior variabilidade e imprevisibilidade interanual das capturas após o barramento.</p>
 <p>A seguir, apresentamos o cálculo da <strong>Taxa de Declínio Produtivo</strong>, bem como cada teste utilizado, sua estatística e as respetivas hipóteses que compõem os resultados da <a href="#tbl-estatisticas-pesca" class="quarto-xref">Tabela&nbsp;3</a>.</p>
-<div id="calc-taxa-declinio" class="metodo metodo-taxa">
-<p><strong>Taxa de Declínio Produtivo</strong></p>
-<p>Representa a redução percentual da produção pesqueira média anual entre os períodos “Antes” e “Depois” da instalação das UHEs, sendo calculada pela seguinte fórmula geral:</p>
-<p><span class="math display">\[
-\Delta P = \left( \frac{ \bar{X}_{\text{Antes}} - \bar{X}_{\text{Depois}} }{ \bar{X}_{\text{Antes}} } \right) \times 100
-\]</span></p>
-<p>Os cálculos específicos para cada município são apresentados a seguir:</p>
-<div class="calc-taxas" style="display: flex; justify-content: space-between; font-size: 0.85em; margin-top: 15px;">
-<div class="calc-col" style="width: 48%; border-right: 2px solid #d3d3d3; padding-right: 15px;">
-<p><strong>Borba</strong></p>
-<p><span class="math display">\[
-\small
-\Delta P_{\text{Borba}} = \left( \frac{ 90.673 - 28.287 }{ 90.673 } \right) \times 100 = 68{,}8\%
-\]</span></p>
-</div>
-<div class="calc-col" style="width: 48%; padding-left: 15px;">
-<p><strong>Manicoré</strong></p>
-<p><span class="math display">\[
-\small
-\Delta P_{\text{Manicoré}} = \left( \frac{ 1.891 - 706 }{ 1.891 } \right) \times 100 = 62{,}7\%
-\]</span></p>
-</div>
-</div>
-</div>
-<div id="met-shapiro-wilk" class="metodo metodo-normalidade">
-<p><strong>Shapiro-Wilk</strong></p>
-<p>Verifica se uma amostra pode ser considerada proveniente de uma distribuição normal. Sua estatística de teste é <span class="math inline">\(W\)</span>, e ele é indicado para amostras pequenas, como as deste estudo (9 e 14 anos). Um <span class="math inline">\(p\)</span>-valor maior que <span class="math inline">\(\alpha\)</span> indica que não há evidência contra a normalidade. As hipóteses são:</p>
-<ul>
-<li><span class="math inline">\(H_0\)</span>: os dados seguem uma distribuição normal;</li>
-<li><span class="math inline">\(H_1\)</span>: os dados não seguem uma distribuição normal.</li>
-</ul>
-</div>
-<div id="met-anderson-darling" class="metodo metodo-normalidade">
-<p><strong>Anderson-Darling</strong></p>
-<p>Também avalia a normalidade dos dados, com estatística de teste <span class="math inline">\(A\)</span>. Ele dá mais peso aos valores extremos da distribuição e, por isso, foi utilizado de forma complementar ao de Shapiro-Wilk. As hipóteses são:</p>
-<ul>
-<li><span class="math inline">\(H_0\)</span>: os dados seguem uma distribuição normal;</li>
-<li><span class="math inline">\(H_1\)</span>: os dados não seguem uma distribuição normal.</li>
-</ul>
-</div>
-<div id="met-welch" class="metodo metodo-param">
-<p><strong>T de Welch para amostras independentes</strong></p>
-<p>Compara as médias de dois grupos independentes. Exige que os dados de cada grupo sejam normais, mas não exige que as variâncias sejam iguais. Sua estatística de teste é <span class="math inline">\(t\)</span>, e ele foi utilizado quando os dois períodos atenderam à normalidade. As hipóteses são:</p>
-<ul>
-<li><span class="math inline">\(H_0\)</span>: <span class="math inline">\(\mu_{\text{Antes}} = \mu_{\text{Depois}}\)</span> (as médias dos dois períodos são iguais);</li>
-<li><span class="math inline">\(H_1\)</span>: <span class="math inline">\(\mu_{\text{Antes}} \neq \mu_{\text{Depois}}\)</span> (as médias dos dois períodos são diferentes).</li>
-</ul>
-</div>
-<div id="met-wilcoxon" class="metodo metodo-nparam">
-<p><strong>Wilcoxon-Mann-Whitney para amostras independentes</strong></p>
-<p>Compara dois grupos independentes a partir da ordenação (postos) das observações, sem exigir normalidade. Sua estatística de teste é <span class="math inline">\(W\)</span>, e ele foi utilizado quando ao menos um período não atendeu à normalidade. As hipóteses são:</p>
-<ul>
-<li><span class="math inline">\(H_0\)</span>: os dois períodos têm a mesma distribuição de produção;</li>
-<li><span class="math inline">\(H_1\)</span>: os dois períodos têm distribuições de produção diferentes.</li>
-</ul>
-</div>
 </section>
 <section id="mapa-comparativo-taxas-de-declínio-produtivo-com-estudos-prévios" class="level3" data-number="2.2">
 <h3 data-number="2.2" class="anchored" data-anchor-id="mapa-comparativo-taxas-de-declínio-produtivo-com-estudos-prévios"><span class="header-section-number">2.2</span> Mapa: Comparativo Taxas de declínio produtivo com estudos prévios</h3>
@@ -2726,6 +2671,38 @@ Figura&nbsp;26: Série temporal do nível médio anual (cm) da cota fluviométri
 \]</span></p>
 </div>
 </div>
+</div>
+<div id="met-shapiro-wilk" class="metodo metodo-normalidade">
+<p><strong>Shapiro-Wilk</strong></p>
+<p>Verifica se uma amostra pode ser considerada proveniente de uma distribuição normal. Sua estatística de teste é <span class="math inline">\(W\)</span>, e ele é indicado para amostras pequenas, como as deste estudo (9 e 14 anos). Um <span class="math inline">\(p\)</span>-valor maior que <span class="math inline">\(\alpha\)</span> indica que não há evidência contra a normalidade. As hipóteses são:</p>
+<ul>
+<li><span class="math inline">\(H_0\)</span>: os dados seguem uma distribuição normal;</li>
+<li><span class="math inline">\(H_1\)</span>: os dados não seguem uma distribuição normal.</li>
+</ul>
+</div>
+<div id="met-anderson-darling" class="metodo metodo-normalidade">
+<p><strong>Anderson-Darling</strong></p>
+<p>Também avalia a normalidade dos dados, com estatística de teste <span class="math inline">\(A\)</span>. Ele dá mais peso aos valores extremos da distribuição e, por isso, foi utilizado de forma complementar ao de Shapiro-Wilk. As hipóteses são:</p>
+<ul>
+<li><span class="math inline">\(H_0\)</span>: os dados seguem uma distribuição normal;</li>
+<li><span class="math inline">\(H_1\)</span>: os dados não seguem uma distribuição normal.</li>
+</ul>
+</div>
+<div id="met-welch" class="metodo metodo-param">
+<p><strong>T de Welch para amostras independentes</strong></p>
+<p>Compara as médias de dois grupos independentes. Exige que os dados de cada grupo sejam normais, mas não exige que as variâncias sejam iguais. Sua estatística de teste é <span class="math inline">\(t\)</span>, e ele foi utilizado quando os dois períodos atenderam à normalidade. As hipóteses são:</p>
+<ul>
+<li><span class="math inline">\(H_0\)</span>: <span class="math inline">\(\mu_{\text{Antes}} = \mu_{\text{Depois}}\)</span> (as médias dos dois períodos são iguais);</li>
+<li><span class="math inline">\(H_1\)</span>: <span class="math inline">\(\mu_{\text{Antes}} \neq \mu_{\text{Depois}}\)</span> (as médias dos dois períodos são diferentes).</li>
+</ul>
+</div>
+<div id="met-wilcoxon" class="metodo metodo-nparam">
+<p><strong>Wilcoxon-Mann-Whitney para amostras independentes</strong></p>
+<p>Compara dois grupos independentes a partir da ordenação (postos) das observações, sem exigir normalidade. Sua estatística de teste é <span class="math inline">\(W\)</span>, e ele foi utilizado quando ao menos um período não atendeu à normalidade. As hipóteses são:</p>
+<ul>
+<li><span class="math inline">\(H_0\)</span>: os dois períodos têm a mesma distribuição de produção;</li>
+<li><span class="math inline">\(H_1\)</span>: os dois períodos têm distribuições de produção diferentes.</li>
+</ul>
 </div>
 
 
