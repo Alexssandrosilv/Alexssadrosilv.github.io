@@ -2,8 +2,10 @@
 # PARTE 2: CAMINHOS E FUNÇÕES DE TRATAMENTO DE DADOS
 # ==============================================================================
 
-# Caminho dados
-caminho_dados <- "H:/Meu Drive/2 - UFAM/1 - Estatística/Assessoria Estatística/Lucas Lara - Tese de Doutorado/Analise Final/Dados/"
+
+# Caminho dos dados relativo à raiz do projeto/repositório
+caminho_dados <- "dados/"
+
 
 # A. Tratamento da base de desembarque pesqueiro
 tratar_dados_pesca_consolidado <- function(bd) {
