@@ -202,7 +202,8 @@ window.Quarto = {
   <li><a href="#antes-e-depois-das-uhes" id="toc-antes-e-depois-das-uhes" class="nav-link" data-scroll-target="#antes-e-depois-das-uhes"><span class="header-section-number">2</span> Antes e Depois das UHEs</a>
   <ul class="collapse">
   <li><a href="#análise-descritiva" id="toc-análise-descritiva" class="nav-link" data-scroll-target="#análise-descritiva"><span class="header-section-number">2.1</span> Análise descritiva</a></li>
-  <li><a href="#mapa-comparativo-das-taxas-de-declínio-produtivo-com-estudos-prévios" id="toc-mapa-comparativo-das-taxas-de-declínio-produtivo-com-estudos-prévios" class="nav-link" data-scroll-target="#mapa-comparativo-das-taxas-de-declínio-produtivo-com-estudos-prévios"><span class="header-section-number">2.2</span> Mapa: Comparativo das Taxas de Declínio Produtivo com Estudos Prévios</a></li>
+  <li><a href="#modelo-de-mínimos-quadrados-generalizados-gls" id="toc-modelo-de-mínimos-quadrados-generalizados-gls" class="nav-link" data-scroll-target="#modelo-de-mínimos-quadrados-generalizados-gls"><span class="header-section-number">2.2</span> Modelo de Mínimos Quadrados Generalizados (GLS)</a></li>
+  <li><a href="#mapa-comparativo-das-taxas-de-declínio-produtivo-com-estudos-prévios" id="toc-mapa-comparativo-das-taxas-de-declínio-produtivo-com-estudos-prévios" class="nav-link" data-scroll-target="#mapa-comparativo-das-taxas-de-declínio-produtivo-com-estudos-prévios"><span class="header-section-number">2.3</span> Mapa: Comparativo das Taxas de Declínio Produtivo com Estudos Prévios</a></li>
   </ul></li>
   <li><a href="#variáveis-hidrológicas" id="toc-variáveis-hidrológicas" class="nav-link" data-scroll-target="#variáveis-hidrológicas"><span class="header-section-number">3</span> Variáveis hidrológicas</a></li>
   <li><a href="#séries-temporais" id="toc-séries-temporais" class="nav-link" data-scroll-target="#séries-temporais"><span class="header-section-number">4</span> Séries temporais</a>
@@ -650,8 +651,90 @@ Tabela&nbsp;3: <strong>Estatísticas descritivas da produção pesqueira (kg) po
 </div>
 <p><strong>Comentários:</strong> A <a href="#tbl-estatisticas-pesca" class="quarto-xref">Tabela&nbsp;3</a> revela um declínio evidente nos volumes de captura em ambos os municípios no período posterior à instalação das UHEs. Em Borba, a média anual reduziu de aproximadamente 1.500 toneladas (Antes) para 964 toneladas (Depois), representando uma queda de 35,7%. Em Manicoré, a redução observada foi ainda mais acentuada, com a média caindo de 1.891 toneladas para 706 toneladas, o que equivale a um declínio de 62,7%. Além da diminuição direta no volume produtivo, os dados apontam para um aumento expressivo na instabilidade das capturas no período “Depois”. Este cenário é evidenciado pelo salto na amplitude (que passou de 213,1 para 651,4 toneladas em Borba, e de 270,0 para 608,0 toneladas em Manicoré) e pelo aumento acentuado do desvio padrão em ambas as localidades (de cerca de 67 mil para 202 mil kg em Borba, e de 85 mil para 171 mil kg em Manicoré), indicando maior variabilidade e imprevisibilidade interanual das capturas após o barramento.</p>
 </section>
-<section id="mapa-comparativo-das-taxas-de-declínio-produtivo-com-estudos-prévios" class="level3" data-number="2.2">
-<h3 data-number="2.2" class="anchored" data-anchor-id="mapa-comparativo-das-taxas-de-declínio-produtivo-com-estudos-prévios"><span class="header-section-number">2.2</span> Mapa: Comparativo das Taxas de Declínio Produtivo com Estudos Prévios</h3>
+<section id="modelo-de-mínimos-quadrados-generalizados-gls" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="modelo-de-mínimos-quadrados-generalizados-gls"><span class="header-section-number">2.2</span> Modelo de Mínimos Quadrados Generalizados (GLS)</h3>
+<p>A análise descritiva evidenciou reduções na produção pesqueira média anual nos períodos avaliados. Entretanto, por se tratar de observações anuais ordenadas no tempo, a comparação direta entre as médias dos períodos não considera a possível dependência entre anos consecutivos nem a tendência temporal existente nas séries.</p>
+<p>Inicialmente, foram avaliados os pressupostos de normalidade e independência dos resíduos. A normalidade foi investigada pelo teste de Shapiro–Wilk e por inspeção dos gráficos de quantis teóricos (QQ-plot), enquanto a dependência temporal foi avaliada pelo teste de Durbin–Watson e pela função de autocorrelação (ACF). A presença de autocorrelação serial motivou o uso de modelos de Mínimos Quadrados Generalizados (GLS), permitindo incorporar explicitamente a estrutura temporal dos dados.</p>
+<p>Foram comparadas diferentes estruturas de covariância por máxima verossimilhança (ML), utilizando os critérios AIC, BIC e o teste da razão de verossimilhanças. A estrutura com autocorrelação de primeira ordem, AR(1), apresentou melhor ajuste. Entretanto, os valores inicialmente elevados do parâmetro de autocorrelação (<span class="math inline">\(\phi\)</span>) indicaram a necessidade de representar explicitamente a tendência temporal da produção.</p>
+<p>Assim, foi incluída uma variável temporal linear, definida por <span class="math inline">\(Tempo = Ano - 2002\)</span>, e a estrutura de covariância foi novamente avaliada. O modelo selecionado para os dois municípios foi:</p>
+<p><span class="math display">\[
+Y_t = \beta_0 + \beta_1 D_t + \beta_2 Tempo_t + \varepsilon_t,
+\]</span></p>
+<p>em que <span class="math inline">\(Y_t\)</span> corresponde à produção pesqueira anual; <span class="math inline">\(D_t\)</span> é uma variável indicadora do período, assumindo 0 para “Antes” e 1 para “Depois”; <span class="math inline">\(\beta_0\)</span> representa o nível esperado da produção no início da série; <span class="math inline">\(\beta_1\)</span> representa a mudança de nível no período “Depois”, ajustada pela tendência temporal; e <span class="math inline">\(\beta_2\)</span> representa a tendência linear da produção em kg/ano.</p>
+<p>A estrutura residual foi definida por um processo AR(1):</p>
+<p><span class="math display">\[
+\varepsilon_t = \phi \varepsilon_{t-1} + u_t,
+\]</span></p>
+<p>em que <span class="math inline">\(\phi\)</span> representa a correlação residual entre anos consecutivos.</p>
+<p>Dessa forma, o principal parâmetro para a comparação entre os períodos é <span class="math inline">\(\beta_1\)</span>, testando-se:</p>
+<p><span class="math display">\[
+H_0:\beta_1=0
+\]</span></p>
+<p>contra</p>
+<p><span class="math display">\[
+H_1:\beta_1\neq0.
+\]</span></p>
+<p>A hipótese nula representa ausência de mudança adicional de nível entre os períodos “Antes” e “Depois”, após o ajuste pela tendência temporal e pela autocorrelação.</p>
+<div id="tbl-gls-producao" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-gls-producao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabela&nbsp;4: <strong>Resultados do modelo GLS para a produção pesqueira, considerando o efeito do período, a tendência temporal e a estrutura de autocorrelação AR(1).</strong>
+</figcaption>
+<div aria-describedby="tbl-gls-producao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Município</th>
+<th style="text-align: right;">Mudança Depois − Antes (<span class="math inline">\(\hat{\beta}_1\)</span>; kg)</th>
+<th style="text-align: right;">IC95% (kg)</th>
+<th style="text-align: right;"><span class="math inline">\(p\)</span>-valor</th>
+<th style="text-align: right;">Tendência (<span class="math inline">\(\hat{\beta}_2\)</span>; kg/ano)</th>
+<th style="text-align: right;"><span class="math inline">\(p\)</span>-valor</th>
+<th style="text-align: right;"><span class="math inline">\(\phi\)</span> AR(1)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Borba</strong></td>
+<td style="text-align: right;">−4.455</td>
+<td style="text-align: right;">[−61.620; 52.710]</td>
+<td style="text-align: right;">0,872</td>
+<td style="text-align: right;"><strong>−42.293</strong></td>
+<td style="text-align: right;"><strong>&lt;0,001</strong></td>
+<td style="text-align: right;">0,854</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Manicoré</strong></td>
+<td style="text-align: right;"><strong>−607.477</strong></td>
+<td style="text-align: right;"><strong>[−687.296; −527.657]</strong></td>
+<td style="text-align: right;"><strong>&lt;0,001</strong></td>
+<td style="text-align: right;"><strong>−42.704</strong></td>
+<td style="text-align: right;"><strong>&lt;0,001</strong></td>
+<td style="text-align: right;">0,841</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<div class="nota-tabela">
+<p><strong>Notas:</strong> <span class="math inline">\(\hat{\beta}_1\)</span> = mudança de nível estimada no período “Depois” em relação ao período “Antes”, ajustada pela tendência temporal | <span class="math inline">\(\hat{\beta}_2\)</span> = tendência linear estimada da produção em kg/ano | IC95% = intervalo de confiança de 95% | <span class="math inline">\(\phi\)</span> = parâmetro de autocorrelação de primeira ordem.</p>
+</div>
+<p><strong>Comentários:</strong> Conforme a <a href="#tbl-gls-producao" class="quarto-xref">Tabela&nbsp;4</a>, em Borba não foi identificada evidência de mudança adicional no nível da produção pesqueira entre os períodos “Antes” e “Depois” após o ajuste pela tendência temporal e pela autocorrelação (<span class="math inline">\(\hat{\beta}_1=-4.455\)</span> kg; IC95%: −61.620 a 52.710 kg; <span class="math inline">\(p=0,872\)</span>). Entretanto, foi observada uma tendência temporal decrescente significativa, estimada em aproximadamente <strong>42,3 mil kg por ano</strong> (<span class="math inline">\(\hat{\beta}_2=-42.293\)</span> kg/ano; <span class="math inline">\(p&lt;0,001\)</span>).</p>
+<p>Em Manicoré, além da tendência temporal decrescente de aproximadamente <strong>42,7 mil kg por ano</strong> (<span class="math inline">\(\hat{\beta}_2=-42.704\)</span> kg/ano; <span class="math inline">\(p&lt;0,001\)</span>), foi identificada uma redução adicional significativa no nível da produção durante o período “Depois”, estimada em aproximadamente <strong>607,5 mil kg</strong> (<span class="math inline">\(\hat{\beta}_1=-607.477\)</span> kg; IC95%: −687.296 a −527.657 kg; <span class="math inline">\(p&lt;0,001\)</span>).</p>
+<p>Os parâmetros AR(1) estimados foram <span class="math inline">\(\phi=0,854\)</span> para Borba e <span class="math inline">\(\phi=0,841\)</span> para Manicoré, indicando persistência temporal positiva entre anos consecutivos e justificando a consideração da autocorrelação na modelagem.</p>
+</section>
+<section id="mapa-comparativo-das-taxas-de-declínio-produtivo-com-estudos-prévios" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="mapa-comparativo-das-taxas-de-declínio-produtivo-com-estudos-prévios"><span class="header-section-number">2.3</span> Mapa: Comparativo das Taxas de Declínio Produtivo com Estudos Prévios</h3>
 <div id="fig-mapa-declinio-reproducao" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-mapa-declinio-reproducao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -686,11 +769,11 @@ Figura&nbsp;1: Spatial distribution of fishing activity decline rates along the 
 <section id="relação-entre-cotas-fluviométricas-e-produção-pesqueira" class="level3" data-number="4.2">
 <h3 data-number="4.2" class="anchored" data-anchor-id="relação-entre-cotas-fluviométricas-e-produção-pesqueira"><span class="header-section-number">4.2</span> Relação entre Cotas Fluviométricas e Produção Pesqueira</h3>
 <p>Para avaliar a influência das variações hidrológicas na produção pesqueira e investigar se a operação das Usinas Hidrelétricas (UHEs) alterou essa dinâmica, analisamos a relação entre a cota média anual e a captura total por meio da Correlação de Spearman e de Modelos de Mínimos Quadrados Generalizados (GLS).</p>
-<p>A análise de correlação não paramétrica de Spearman (<a href="#tbl-spearman-cotas" class="quarto-xref">Tabela&nbsp;4</a>) indicou que não há uma associação monotônica significativa entre o nível médio anual do rio e o volume de capturas desembarcadas no município de Borba. Tanto no período anterior ao barramento (<span class="math inline">\(\rho\)</span> = -0,150; <em>p</em> = 0,700) quanto no período posterior (<span class="math inline">\(\rho\)</span> = 0,389; <em>p</em> = 0,169), as variações na cota média não se traduziram em aumentos ou reduções proporcionais diretas na pesca.</p>
+<p>A análise de correlação não paramétrica de Spearman (<a href="#tbl-spearman-cotas" class="quarto-xref">Tabela&nbsp;5</a>) indicou que não há uma associação monotônica significativa entre o nível médio anual do rio e o volume de capturas desembarcadas no município de Borba. Tanto no período anterior ao barramento (<span class="math inline">\(\rho\)</span> = -0,150; <em>p</em> = 0,700) quanto no período posterior (<span class="math inline">\(\rho\)</span> = 0,389; <em>p</em> = 0,169), as variações na cota média não se traduziram em aumentos ou reduções proporcionais diretas na pesca.</p>
 <div id="tbl-spearman-cotas" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-spearman-cotas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;4: <strong>Correlação de Spearman entre a cota média anual e a captura total em Borba, estratificada pelos períodos Antes e Depois das UHEs.</strong>
+Tabela&nbsp;5: <strong>Correlação de Spearman entre a cota média anual e a captura total em Borba, estratificada pelos períodos Antes e Depois das UHEs.</strong>
 </figcaption>
 <div aria-describedby="tbl-spearman-cotas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -730,12 +813,12 @@ Tabela&nbsp;4: <strong>Correlação de Spearman entre a cota média anual e a ca
 </div>
 </figure>
 </div>
-<p>Para testar o impacto estrutural das UHEs considerando a autocorrelação temporal da série, ajustamos um modelo GLS incorporando uma estrutura autorregressiva de ordem 1 (AR1). Os resultados dos coeficientes do modelo (<a href="#tbl-gls-coef" class="quarto-xref">Tabela&nbsp;5</a>) e da Análise de Variância (<a href="#tbl-gls-anova" class="quarto-xref">Tabela&nbsp;6</a>) confirmam as observações preliminares.</p>
+<p>Para testar o impacto estrutural das UHEs considerando a autocorrelação temporal da série, ajustamos um modelo GLS incorporando uma estrutura autorregressiva de ordem 1 (AR1). Os resultados dos coeficientes do modelo (<a href="#tbl-gls-coef" class="quarto-xref">Tabela&nbsp;6</a>) e da Análise de Variância (<a href="#tbl-gls-anova" class="quarto-xref">Tabela&nbsp;7</a>) confirmam as observações preliminares.</p>
 <p>O termo de interação entre a cota média anual e o período da barragem não apresentou significância estatística (<em>F</em> = 0,432; <em>p</em> = 0,518). Isso indica que a inclinação da reta de regressão entre a hidrologia e a pesca não sofreu uma alteração estrutural significativa após 2011 em função da cota média. Da mesma forma, os efeitos principais do nível do rio (<em>F</em> = 0,054; <em>p</em> = 0,818) e do período isolado (<em>F</em> = 1,877; <em>p</em> = 0,186) não se mostraram preditores significativos para explicar a variabilidade da captura total neste modelo.</p>
 <div id="tbl-gls-coef" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-gls-coef-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;5: <strong>Coeficientes do modelo de Mínimos Quadrados Generalizados (GLS) avaliando o efeito da cota média e do período de barramento sobre a captura pesqueira.</strong>
+Tabela&nbsp;6: <strong>Coeficientes do modelo de Mínimos Quadrados Generalizados (GLS) avaliando o efeito da cota média e do período de barramento sobre a captura pesqueira.</strong>
 </figcaption>
 <div aria-describedby="tbl-gls-coef-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -792,7 +875,7 @@ Tabela&nbsp;5: <strong>Coeficientes do modelo de Mínimos Quadrados Generalizado
 <div id="tbl-gls-anova" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-gls-anova-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;6: <strong>Análise de Variância (ANOVA) do modelo GLS, indicando a significância dos termos principais e da interação.</strong>
+Tabela&nbsp;7: <strong>Análise de Variância (ANOVA) do modelo GLS, indicando a significância dos termos principais e da interação.</strong>
 </figcaption>
 <div aria-describedby="tbl-gls-anova-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -864,7 +947,7 @@ Tabela&nbsp;6: <strong>Análise de Variância (ANOVA) do modelo GLS, indicando a
 <div id="tbl-tendencia-pesca" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-tendencia-pesca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;7: <strong>Testes de tendência de Mann-Kendall, Sen’s Slope e verificação de autocorrelação de Durbin-Watson para a produção pesqueira anual por município e período.</strong>
+Tabela&nbsp;8: <strong>Testes de tendência de Mann-Kendall, Sen’s Slope e verificação de autocorrelação de Durbin-Watson para a produção pesqueira anual por município e período.</strong>
 </figcaption>
 <div aria-describedby="tbl-tendencia-pesca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -979,7 +1062,7 @@ Figura&nbsp;3: Time series of total catch (kg) in the Manicoré fishers’ colon
 <div id="tbl-testes-especies" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-testes-especies-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;8: <strong>Testes de normalidade e de comparação entre os períodos Antes e Depois da produção pesqueira anual por espécie e município.</strong>
+Tabela&nbsp;9: <strong>Testes de normalidade e de comparação entre os períodos Antes e Depois da produção pesqueira anual por espécie e município.</strong>
 </figcaption>
 <div aria-describedby="tbl-testes-especies-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -1388,7 +1471,7 @@ Tabela&nbsp;8: <strong>Testes de normalidade e de comparação entre os período
 <div id="tbl-tendencia-borba" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-tendencia-borba-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;9: <strong>Teste de tendência de Mann-Kendall e inclinação de Sen da captura anual (kg) por espécie e período na colônia de Borba.</strong>
+Tabela&nbsp;10: <strong>Teste de tendência de Mann-Kendall e inclinação de Sen da captura anual (kg) por espécie e período na colônia de Borba.</strong>
 </figcaption>
 <div aria-describedby="tbl-tendencia-borba-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -1807,7 +1890,7 @@ Tabela&nbsp;9: <strong>Teste de tendência de Mann-Kendall e inclinação de Sen
 <div id="tbl-tendencia-manicore" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-tendencia-manicore-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;10: <strong>Teste de tendência de Mann-Kendall e inclinação de Sen da captura anual (kg) por espécie e período na colônia de Manicoré.</strong>
+Tabela&nbsp;11: <strong>Teste de tendência de Mann-Kendall e inclinação de Sen da captura anual (kg) por espécie e período na colônia de Manicoré.</strong>
 </figcaption>
 <div aria-describedby="tbl-tendencia-manicore-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -2532,7 +2615,7 @@ Figura&nbsp;24: Time series of annual catch (kg) for Tucunaré in the Borba and 
 <div id="tbl-tendencia-cotas" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-tendencia-cotas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;11: <strong>Testes de tendência de Mann-Kendall, Sen’s Slope e verificação de autocorrelação de Durbin-Watson para o nível médio anual do rio Madeira por município e período.</strong>
+Tabela&nbsp;12: <strong>Testes de tendência de Mann-Kendall, Sen’s Slope e verificação de autocorrelação de Durbin-Watson para o nível médio anual do rio Madeira por município e período.</strong>
 </figcaption>
 <div aria-describedby="tbl-tendencia-cotas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
