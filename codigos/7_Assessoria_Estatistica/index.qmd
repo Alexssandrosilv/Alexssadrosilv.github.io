@@ -431,12 +431,13 @@ Os parâmetros de autocorrelação foram $\phi=0,854$ em Borba e $\phi=0,841$ em
 
 ![Spatial distribution of fishing activity decline rates along the Madeira River, between Porto Velho (RO) and Borba (AM). Guajará-Mirim represents the upstream reference site (\*\*\*). The percentages correspond to reductions reported for Porto Velho (-37.0%\*), based on Catch Per Unit Effort (CPUE), and Humaitá (-39.0%\*\*), based on mean annual catch, as well as those estimated in this study (\*\*\*) for Manicoré (-62.7%\*\*\*) and Borba (-35.7%\*\*\*), based on mean annual fish production. The triangles indicate the locations of the Jirau and Santo Antônio hydroelectric power plants. Sources: \*Arantes et al. (2021); \*\*Santos et al. (2018); \*\*\*This study.](graficos/Mapa_1_Declinio_Reproducao.png){#fig-mapa-declinio-reproducao width="100%" fig-align="center"}
 
-
+::: {.linha-baixar}
 [<i class="bi bi-download"></i> Baixar mapa (PNG)](graficos/Mapa_1_Declinio_Reproducao.png){.baixar download="Mapa_1_Declinio_Reproducao.png"}
+:::
 
 <!-- ::: {.linha-baixar} -->
 <!-- [<i class="bi bi-download"></i> Baixar mapa (PNG)](graficos/Mapas_taxas.png){.baixar download="Mapas_taxas.png"} -->
-:::
+<!-- ::: -->
 
 
 **Comentários:** A distribuição espacial apresentada na @fig-mapa-declinio-reproducao evidencia diferentes magnitudes de declínio entre as localidades avaliadas ao longo da calha do Rio Madeira, revelando um aumento na magnitude das reduções e indicando que essa distribuição deve ser interpretada com cautela, pois os percentuais são provenientes de diferentes estudos e não representam necessariamente o mesmo indicador. Em Porto Velho (RO), Arantes et al. (2021) reportaram redução de 37,0% na Captura por Unidade de Esforço (CPUE), indicador que relaciona a quantidade capturada ao esforço de pesca empregado, enquanto em Humaitá (AM), Santos et al. (2018) observaram redução de 39,0% na produção pesqueira média anual. Para as localidades analisadas neste estudo, as reduções estimadas a partir da produção pesqueira média anual nos períodos antes e depois do barramento foram de 62,7% em Manicoré e 35,7% em Borba.
