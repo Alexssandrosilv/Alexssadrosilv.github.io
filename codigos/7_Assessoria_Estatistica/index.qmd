@@ -37,7 +37,6 @@ resources:
   - graficos/TimeSeries_Final_Tucunaré.png
   - graficos/TimeSeries_Cotas_Borba.png
   - graficos/TimeSeries_Cotas_Manicore.png
-  
   - graficos/Time_Series_Manicore_GLS.png
   - graficos/Time_Series_Borba_GLS.png
 
@@ -433,8 +432,10 @@ Os parâmetros de autocorrelação foram $\phi=0,854$ em Borba e $\phi=0,841$ em
 ![Spatial distribution of fishing activity decline rates along the Madeira River, between Porto Velho (RO) and Borba (AM). Guajará-Mirim represents the upstream reference site (\*\*\*). The percentages correspond to reductions reported for Porto Velho (-37.0%\*), based on Catch Per Unit Effort (CPUE), and Humaitá (-39.0%\*\*), based on mean annual catch, as well as those estimated in this study (\*\*\*) for Manicoré (-62.7%\*\*\*) and Borba (-35.7%\*\*\*), based on mean annual fish production. The triangles indicate the locations of the Jirau and Santo Antônio hydroelectric power plants. Sources: \*Arantes et al. (2021); \*\*Santos et al. (2018); \*\*\*This study.](graficos/Mapa_1_Declinio_Reproducao.png){#fig-mapa-declinio-reproducao width="100%" fig-align="center"}
 
 
-::: {.linha-baixar}
-[<i class="bi bi-download"></i> Baixar mapa (PNG)](graficos/Mapas_taxas.png){.baixar download="Mapas_taxas.png"}
+[<i class="bi bi-download"></i> Baixar mapa (PNG)](graficos/Mapa_1_Declinio_Reproducao.png){.baixar download="Mapa_1_Declinio_Reproducao.png"}
+
+<!-- ::: {.linha-baixar} -->
+<!-- [<i class="bi bi-download"></i> Baixar mapa (PNG)](graficos/Mapas_taxas.png){.baixar download="Mapas_taxas.png"} -->
 :::
 
 
