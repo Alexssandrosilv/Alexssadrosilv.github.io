@@ -47,7 +47,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-f39ef5c4e3164ec0048ca37bd477ee40.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-660407e060cf1ae42354a3626da2f3f2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -201,9 +201,10 @@ window.Quarto = {
   </ul></li>
   <li><a href="#antes-e-depois-das-uhes" id="toc-antes-e-depois-das-uhes" class="nav-link" data-scroll-target="#antes-e-depois-das-uhes"><span class="header-section-number">2</span> Antes e Depois das UHEs</a>
   <ul class="collapse">
-  <li><a href="#análise-descritiva" id="toc-análise-descritiva" class="nav-link" data-scroll-target="#análise-descritiva"><span class="header-section-number">2.1</span> Análise descritiva</a></li>
-  <li><a href="#modelo-de-mínimos-quadrados-generalizados-gls" id="toc-modelo-de-mínimos-quadrados-generalizados-gls" class="nav-link" data-scroll-target="#modelo-de-mínimos-quadrados-generalizados-gls"><span class="header-section-number">2.2</span> Modelo de Mínimos Quadrados Generalizados (GLS)</a></li>
-  <li><a href="#mapa-comparativo-das-taxas-de-declínio-produtivo-com-estudos-prévios" id="toc-mapa-comparativo-das-taxas-de-declínio-produtivo-com-estudos-prévios" class="nav-link" data-scroll-target="#mapa-comparativo-das-taxas-de-declínio-produtivo-com-estudos-prévios"><span class="header-section-number">2.3</span> Mapa: Comparativo das Taxas de Declínio Produtivo com Estudos Prévios</a></li>
+  <li><a href="#produção-pesqueira-análise-descritiva" id="toc-produção-pesqueira-análise-descritiva" class="nav-link" data-scroll-target="#produção-pesqueira-análise-descritiva"><span class="header-section-number">2.1</span> Produção Pesqueira: Análise descritiva</a></li>
+  <li><a href="#produção-pesqueira-modelo-de-mínimos-quadrados-generalizados-gls" id="toc-produção-pesqueira-modelo-de-mínimos-quadrados-generalizados-gls" class="nav-link" data-scroll-target="#produção-pesqueira-modelo-de-mínimos-quadrados-generalizados-gls"><span class="header-section-number">2.2</span> Produção Pesqueira: Modelo de Mínimos Quadrados Generalizados (GLS)</a></li>
+  <li><a href="#composição-das-capturas-análise-descritiva" id="toc-composição-das-capturas-análise-descritiva" class="nav-link" data-scroll-target="#composição-das-capturas-análise-descritiva"><span class="header-section-number">2.3</span> Composição das Capturas: Análise descritiva</a></li>
+  <li><a href="#mapa-comparativo-das-taxas-de-declínio-produtivo-com-estudos-prévios" id="toc-mapa-comparativo-das-taxas-de-declínio-produtivo-com-estudos-prévios" class="nav-link" data-scroll-target="#mapa-comparativo-das-taxas-de-declínio-produtivo-com-estudos-prévios"><span class="header-section-number">2.4</span> Mapa: Comparativo das Taxas de Declínio Produtivo com Estudos Prévios</a></li>
   </ul></li>
   <li><a href="#variáveis-hidrológicas" id="toc-variáveis-hidrológicas" class="nav-link" data-scroll-target="#variáveis-hidrológicas"><span class="header-section-number">3</span> Variáveis hidrológicas</a></li>
   <li><a href="#séries-temporais" id="toc-séries-temporais" class="nav-link" data-scroll-target="#séries-temporais"><span class="header-section-number">4</span> Séries temporais</a>
@@ -247,7 +248,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Data de Publicação</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">20 de outubro de 2026</p>
+      <p class="date">24 de outubro de 2026</p>
     </div>
   </div>
   
@@ -568,8 +569,8 @@ Tabela&nbsp;2: <strong>Descrição das variáveis da base de cotas fluviométric
 <div class="objetivo">
 <p><strong>Objetivo:</strong> Quantificar as mudanças na produção, composição e diversidade das capturas pesqueiras, comparando os períodos “Antes” e “Depois” da operação das UHEs.</p>
 </div>
-<section id="análise-descritiva" class="level3" data-number="2.1">
-<h3 data-number="2.1" class="anchored" data-anchor-id="análise-descritiva"><span class="header-section-number">2.1</span> Análise descritiva</h3>
+<section id="produção-pesqueira-análise-descritiva" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="produção-pesqueira-análise-descritiva"><span class="header-section-number">2.1</span> Produção Pesqueira: Análise descritiva</h3>
 <p>Esta etapa possui caráter estritamente descritivo, permitindo dimensionar a magnitude das diferenças observadas entre os períodos, mas isoladamente não estabelece significância estatística nem causalidade. A avaliação inferencial formal será realizada na etapa seguinte por meio de modelagem estatística, considerando simultaneamente a tendência temporal e a autocorrelação entre as observações anuais.</p>
 <div id="tbl-estatisticas-pesca" class="quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[10,8,12,12,16,18,10,14]">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -651,8 +652,8 @@ Tabela&nbsp;3: <strong>Estatísticas descritivas da produção pesqueira (kg) po
 </div>
 <p><strong>Comentários:</strong> A <a href="#tbl-estatisticas-pesca" class="quarto-xref">Tabela&nbsp;3</a> revela um declínio evidente nos volumes de captura em ambos os municípios no período posterior à instalação das UHEs. Em Borba, a média anual reduziu de aproximadamente 1.500 toneladas (Antes) para 964 toneladas (Depois), representando uma queda de 35,7%. Em Manicoré, a redução observada foi ainda mais acentuada, com a média caindo de 1.891 toneladas para 706 toneladas, o que equivale a um declínio de 62,7%. Além da diminuição direta no volume produtivo, os dados apontam para um aumento expressivo na instabilidade das capturas no período “Depois”. Este cenário é evidenciado pelo salto na amplitude (que passou de 213,1 para 651,4 toneladas em Borba, e de 270,0 para 608,0 toneladas em Manicoré) e pelo aumento acentuado do desvio padrão em ambas as localidades (de cerca de 67 mil para 202 mil kg em Borba, e de 85 mil para 171 mil kg em Manicoré), indicando maior variabilidade e imprevisibilidade interanual das capturas após o barramento.</p>
 </section>
-<section id="modelo-de-mínimos-quadrados-generalizados-gls" class="level3" data-number="2.2">
-<h3 data-number="2.2" class="anchored" data-anchor-id="modelo-de-mínimos-quadrados-generalizados-gls"><span class="header-section-number">2.2</span> Modelo de Mínimos Quadrados Generalizados (GLS)</h3>
+<section id="produção-pesqueira-modelo-de-mínimos-quadrados-generalizados-gls" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="produção-pesqueira-modelo-de-mínimos-quadrados-generalizados-gls"><span class="header-section-number">2.2</span> Produção Pesqueira: Modelo de Mínimos Quadrados Generalizados (GLS)</h3>
 <p>A comparação descritiva entre os períodos (Antes) e (Depois) permite dimensionar as alterações observadas na produção pesqueira, mas não considera que os registros correspondem a observações anuais sucessivas. Em séries temporais, valores registrados em anos próximos podem apresentar dependência entre si, violando o pressuposto de independência dos erros exigido pelos modelos lineares convencionais. Por esse motivo, antes da comparação inferencial entre os períodos, foi investigada a estrutura temporal dos dados.</p>
 <p>Para cada município, foi inicialmente ajustado um modelo linear utilizando conjuntamente toda a série anual de 2002 a 2024, com o período (Antes: 2002–2010; Depois: 2011–2024) como variável explicativa. Portanto, os períodos não foram analisados separadamente nessa etapa; ambos compuseram uma única série temporal para cada município.</p>
 <p>A normalidade dos resíduos foi avaliada pelo teste de Shapiro–Wilk e pela inspeção dos gráficos de quantis teóricos (QQ-plot). Não foram identificadas evidências de afastamento da normalidade em Borba (<span class="math inline">\(W=0,971\)</span>; <span class="math inline">\(p=0,712\)</span>) ou em Manicoré (<span class="math inline">\(W=0,958\)</span>; <span class="math inline">\(p=0,433\)</span>).</p>
@@ -838,8 +839,347 @@ Figura&nbsp;2: Observed annual fish production and GLS-adjusted trend for Manico
 </section>
 </section>
 </section>
-<section id="mapa-comparativo-das-taxas-de-declínio-produtivo-com-estudos-prévios" class="level3" data-number="2.3">
-<h3 data-number="2.3" class="anchored" data-anchor-id="mapa-comparativo-das-taxas-de-declínio-produtivo-com-estudos-prévios"><span class="header-section-number">2.3</span> Mapa: Comparativo das Taxas de Declínio Produtivo com Estudos Prévios</h3>
+<section id="composição-das-capturas-análise-descritiva" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="composição-das-capturas-análise-descritiva"><span class="header-section-number">2.3</span> Composição das Capturas: Análise descritiva</h3>
+<p>Esta etapa possui caráter estritamente descritivo e busca caracterizar as alterações observadas na composição das capturas pesqueiras entre os períodos (Antes) e (Depois). Para cada espécie, foram consideradas a variação percentual da captura média anual e sua participação média relativa na produção pesqueira total de cada município. A mudança na participação foi expressa em pontos percentuais (p.p.), permitindo identificar as espécies que ganharam ou perderam representatividade na composição das capturas, independentemente das alterações observadas em sua captura absoluta.</p>
+<p>Essas medidas permitem dimensionar as alterações na estrutura das capturas, mas, isoladamente, não estabelecem significância estatística nem causalidade. A avaliação inferencial será realizada posteriormente, considerando também a possível presença de tendência temporal e autocorrelação nas séries anuais das espécies.</p>
+<div id="tbl-composicao-especies" class="quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[11,24,16,17,17,15]">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-composicao-especies-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabela&nbsp;5: <strong>Variação da captura média anual e da participação relativa das espécies na composição das capturas pesqueiras entre os períodos (Antes) e (Depois).</strong>
+</figcaption>
+<div aria-describedby="tbl-composicao-especies-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 11%">
+<col style="width: 24%">
+<col style="width: 16%">
+<col style="width: 17%">
+<col style="width: 17%">
+<col style="width: 15%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Município</strong></th>
+<th style="text-align: left;"><strong>Espécie</strong></th>
+<th style="text-align: left;"><strong>Variação da Captura</strong><br><strong>(%)</strong></th>
+<th style="text-align: left;"><strong>Participação Média</strong><br><strong>Antes (%)</strong></th>
+<th style="text-align: left;"><strong>Participação Média</strong><br><strong>Depois (%)</strong></th>
+<th style="text-align: left;"><strong>Mudança na Participação</strong><br><strong>(p.p.)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Borba</strong></td>
+<td style="text-align: left;">Filhote</td>
+<td style="text-align: left;">−50,43</td>
+<td style="text-align: left;">9,41</td>
+<td style="text-align: left;">7,01</td>
+<td style="text-align: left;">−2,40</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Dourada</td>
+<td style="text-align: left;">−19,68</td>
+<td style="text-align: left;">7,01</td>
+<td style="text-align: left;">8,92</td>
+<td style="text-align: left;">+1,91</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Sardinha</td>
+<td style="text-align: left;">−20,58</td>
+<td style="text-align: left;">6,66</td>
+<td style="text-align: left;">8,39</td>
+<td style="text-align: left;">+1,73</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Jaraqui</td>
+<td style="text-align: left;">−42,37</td>
+<td style="text-align: left;">11,48</td>
+<td style="text-align: left;">10,30</td>
+<td style="text-align: left;">−1,18</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Pirarara</td>
+<td style="text-align: left;">−21,44</td>
+<td style="text-align: left;">4,05</td>
+<td style="text-align: left;">5,00</td>
+<td style="text-align: left;">+0,95</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Tambaqui</td>
+<td style="text-align: left;">−58,84</td>
+<td style="text-align: left;">2,26</td>
+<td style="text-align: left;">1,37</td>
+<td style="text-align: left;">−0,89</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Curimatã</td>
+<td style="text-align: left;">−29,97</td>
+<td style="text-align: left;">10,81</td>
+<td style="text-align: left;">11,70</td>
+<td style="text-align: left;">+0,89</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Pirapitinga</td>
+<td style="text-align: left;">−57,95</td>
+<td style="text-align: left;">2,23</td>
+<td style="text-align: left;">1,38</td>
+<td style="text-align: left;">−0,85</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Pacu</td>
+<td style="text-align: left;">−39,50</td>
+<td style="text-align: left;">10,10</td>
+<td style="text-align: left;">9,74</td>
+<td style="text-align: left;">−0,36</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Carauaçu</td>
+<td style="text-align: left;">−47,04</td>
+<td style="text-align: left;">1,60</td>
+<td style="text-align: left;">1,30</td>
+<td style="text-align: left;">−0,31</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Branquinha</td>
+<td style="text-align: left;">−33,24</td>
+<td style="text-align: left;">7,99</td>
+<td style="text-align: left;">8,29</td>
+<td style="text-align: left;">+0,30</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Surubim</td>
+<td style="text-align: left;">−32,04</td>
+<td style="text-align: left;">6,99</td>
+<td style="text-align: left;">7,28</td>
+<td style="text-align: left;">+0,29</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Cara branco</td>
+<td style="text-align: left;">−41,70</td>
+<td style="text-align: left;">2,88</td>
+<td style="text-align: left;">2,61</td>
+<td style="text-align: left;">−0,27</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Caparari</td>
+<td style="text-align: left;">−33,37</td>
+<td style="text-align: left;">6,48</td>
+<td style="text-align: left;">6,69</td>
+<td style="text-align: left;">+0,22</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Tucunaré</td>
+<td style="text-align: left;">−45,71</td>
+<td style="text-align: left;">0,91</td>
+<td style="text-align: left;">0,76</td>
+<td style="text-align: left;">−0,15</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Matrinxã</td>
+<td style="text-align: left;">−36,84</td>
+<td style="text-align: left;">7,52</td>
+<td style="text-align: left;">7,38</td>
+<td style="text-align: left;">−0,14</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Piranambu/Barbado</td>
+<td style="text-align: left;">−14,14</td>
+<td style="text-align: left;">0,37</td>
+<td style="text-align: left;">0,50</td>
+<td style="text-align: left;">+0,13</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Aracu</td>
+<td style="text-align: left;">−27,32</td>
+<td style="text-align: left;">0,78</td>
+<td style="text-align: left;">0,88</td>
+<td style="text-align: left;">+0,10</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Pescada</td>
+<td style="text-align: left;">−32,26</td>
+<td style="text-align: left;">0,49</td>
+<td style="text-align: left;">0,52</td>
+<td style="text-align: left;">+0,04</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Manicoré</strong></td>
+<td style="text-align: left;">Dourada</td>
+<td style="text-align: left;">−39,23</td>
+<td style="text-align: left;">5,60</td>
+<td style="text-align: left;">9,22</td>
+<td style="text-align: left;">+3,62</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Sardinha</td>
+<td style="text-align: left;">−57,04</td>
+<td style="text-align: left;">9,99</td>
+<td style="text-align: left;">11,60</td>
+<td style="text-align: left;">+1,61</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Branquinha</td>
+<td style="text-align: left;">−69,81</td>
+<td style="text-align: left;">6,19</td>
+<td style="text-align: left;">4,87</td>
+<td style="text-align: left;">−1,32</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Surubim</td>
+<td style="text-align: left;">−69,65</td>
+<td style="text-align: left;">5,80</td>
+<td style="text-align: left;">4,58</td>
+<td style="text-align: left;">−1,23</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Pacu</td>
+<td style="text-align: left;">−60,67</td>
+<td style="text-align: left;">12,30</td>
+<td style="text-align: left;">13,20</td>
+<td style="text-align: left;">+0,90</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Caparari</td>
+<td style="text-align: left;">−67,95</td>
+<td style="text-align: left;">5,91</td>
+<td style="text-align: left;">5,01</td>
+<td style="text-align: left;">−0,90</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Tambaqui</td>
+<td style="text-align: left;">−74,78</td>
+<td style="text-align: left;">2,41</td>
+<td style="text-align: left;">1,62</td>
+<td style="text-align: left;">−0,79</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Pirapitinga</td>
+<td style="text-align: left;">−72,89</td>
+<td style="text-align: left;">1,95</td>
+<td style="text-align: left;">1,40</td>
+<td style="text-align: left;">−0,55</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Tucunaré</td>
+<td style="text-align: left;">−73,34</td>
+<td style="text-align: left;">1,68</td>
+<td style="text-align: left;">1,19</td>
+<td style="text-align: left;">−0,50</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Cara branco</td>
+<td style="text-align: left;">−73,97</td>
+<td style="text-align: left;">1,42</td>
+<td style="text-align: left;">0,98</td>
+<td style="text-align: left;">−0,44</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Matrinxã</td>
+<td style="text-align: left;">−64,91</td>
+<td style="text-align: left;">6,29</td>
+<td style="text-align: left;">5,89</td>
+<td style="text-align: left;">−0,40</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Carauaçu</td>
+<td style="text-align: left;">−70,40</td>
+<td style="text-align: left;">1,26</td>
+<td style="text-align: left;">1,00</td>
+<td style="text-align: left;">−0,26</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Filhote</td>
+<td style="text-align: left;">−61,08</td>
+<td style="text-align: left;">5,99</td>
+<td style="text-align: left;">6,17</td>
+<td style="text-align: left;">+0,18</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Aracu</td>
+<td style="text-align: left;">−56,31</td>
+<td style="text-align: left;">0,75</td>
+<td style="text-align: left;">0,91</td>
+<td style="text-align: left;">+0,16</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Pirarara</td>
+<td style="text-align: left;">−63,03</td>
+<td style="text-align: left;">6,07</td>
+<td style="text-align: left;">5,92</td>
+<td style="text-align: left;">−0,15</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Curimatã</td>
+<td style="text-align: left;">−62,53</td>
+<td style="text-align: left;">13,34</td>
+<td style="text-align: left;">13,39</td>
+<td style="text-align: left;">+0,04</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Jaraqui</td>
+<td style="text-align: left;">−62,75</td>
+<td style="text-align: left;">12,41</td>
+<td style="text-align: left;">12,43</td>
+<td style="text-align: left;">+0,02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Pescada</td>
+<td style="text-align: left;">−63,43</td>
+<td style="text-align: left;">0,64</td>
+<td style="text-align: left;">0,64</td>
+<td style="text-align: left;">+0,00</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<div class="nota-tabela">
+<p><strong>Notas:</strong> Antes = 2002–2010 (<span class="math inline">\(n=9\)</span> anos) | Depois = 2011–2024 (<span class="math inline">\(n=14\)</span> anos) | Variação da Captura = <span class="math inline">\([(\bar{P}_{Depois}-\bar{P}_{Antes})/\bar{P}_{Antes}]\times100\)</span>, em que valores negativos representam redução da captura média anual e valores positivos representam aumento | Participação Média = média das participações relativas anuais da espécie na produção pesqueira total de cada município | Mudança na Participação = Participação Média (Depois) − Participação Média (Antes), expressa em pontos percentuais (p.p.) | Valores positivos indicam ganho de participação relativa e valores negativos indicam perda de participação relativa.</p>
+</div>
+<p><strong>Comentários:</strong> A <a href="#tbl-composicao-especies" class="quarto-xref">Tabela&nbsp;5</a> evidencia que todas as espécies avaliadas apresentaram redução na captura média anual no período (Depois), embora a magnitude dessas reduções tenha variado entre espécies e municípios. Entretanto, as reduções não ocorreram de maneira proporcional entre todas as espécies, resultando em alterações em suas participações relativas na composição das capturas.</p>
+<p>Em Borba, as maiores perdas de participação média foram observadas para Filhote (−2,40 p.p.), Jaraqui (−1,18 p.p.), Tambaqui (−0,89 p.p.) e Pirapitinga (−0,85 p.p.). Em sentido contrário, Dourada (+1,91 p.p.), Sardinha (+1,73 p.p.), Pirarara (+0,95 p.p.) e Curimatã (+0,89 p.p.) apresentaram os maiores ganhos de participação relativa. A Dourada, por exemplo, apresentou redução de 19,68% na captura média anual, porém sua participação aumentou de 7,01% para 8,92%, mostrando que uma redução na quantidade capturada não implica necessariamente perda de representatividade na composição.</p>
+<p>Em Manicoré, as maiores reduções na captura média anual foram observadas para Tambaqui (−74,78%), Cara branco (−73,97%), Tucunaré (−73,34%) e Pirapitinga (−72,89%). Quanto à composição relativa, Dourada apresentou o maior ganho de participação, passando de 5,60% para 9,22% (+3,62 p.p.), seguida por Sardinha (+1,61 p.p.) e Pacu (+0,90 p.p.). As maiores perdas de participação foram observadas para Branquinha (−1,32 p.p.), Surubim (−1,23 p.p.) e Caparari (−0,90 p.p.). Curimatã, Jaraqui e Pescada apresentaram alterações médias próximas de zero, indicando maior estabilidade relativa de sua participação entre os períodos.</p>
+<p>De forma geral, os resultados descritivos indicam que a redução da produção pesqueira foi acompanhada por uma redistribuição da participação relativa das espécies, sugerindo alterações na composição das capturas entre os períodos (Antes) e (Depois). Entretanto, essas diferenças ainda devem ser avaliadas inferencialmente, considerando a estrutura temporal das observações antes de se concluir quais alterações apresentam evidência estatística.</p>
+</section>
+<section id="mapa-comparativo-das-taxas-de-declínio-produtivo-com-estudos-prévios" class="level3" data-number="2.4">
+<h3 data-number="2.4" class="anchored" data-anchor-id="mapa-comparativo-das-taxas-de-declínio-produtivo-com-estudos-prévios"><span class="header-section-number">2.4</span> Mapa: Comparativo das Taxas de Declínio Produtivo com Estudos Prévios</h3>
 <div id="fig-mapa-declinio-reproducao" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-mapa-declinio-reproducao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -877,11 +1217,11 @@ Figura&nbsp;3: Spatial distribution of fishing activity decline rates along the 
 <section id="relação-entre-cotas-fluviométricas-e-produção-pesqueira" class="level3" data-number="4.2">
 <h3 data-number="4.2" class="anchored" data-anchor-id="relação-entre-cotas-fluviométricas-e-produção-pesqueira"><span class="header-section-number">4.2</span> Relação entre Cotas Fluviométricas e Produção Pesqueira</h3>
 <p>Para avaliar a influência das variações hidrológicas na produção pesqueira e investigar se a operação das Usinas Hidrelétricas (UHEs) alterou essa dinâmica, analisamos a relação entre a cota média anual e a captura total por meio da Correlação de Spearman e de Modelos de Mínimos Quadrados Generalizados (GLS).</p>
-<p>A análise de correlação não paramétrica de Spearman (<a href="#tbl-spearman-cotas" class="quarto-xref">Tabela&nbsp;5</a>) indicou que não há uma associação monotônica significativa entre o nível médio anual do rio e o volume de capturas desembarcadas no município de Borba. Tanto no período anterior ao barramento (<span class="math inline">\(\rho\)</span> = -0,150; <em>p</em> = 0,700) quanto no período posterior (<span class="math inline">\(\rho\)</span> = 0,389; <em>p</em> = 0,169), as variações na cota média não se traduziram em aumentos ou reduções proporcionais diretas na pesca.</p>
+<p>A análise de correlação não paramétrica de Spearman (<a href="#tbl-spearman-cotas" class="quarto-xref">Tabela&nbsp;6</a>) indicou que não há uma associação monotônica significativa entre o nível médio anual do rio e o volume de capturas desembarcadas no município de Borba. Tanto no período anterior ao barramento (<span class="math inline">\(\rho\)</span> = -0,150; <em>p</em> = 0,700) quanto no período posterior (<span class="math inline">\(\rho\)</span> = 0,389; <em>p</em> = 0,169), as variações na cota média não se traduziram em aumentos ou reduções proporcionais diretas na pesca.</p>
 <div id="tbl-spearman-cotas" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-spearman-cotas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;5: <strong>Correlação de Spearman entre a cota média anual e a captura total em Borba, estratificada pelos períodos Antes e Depois das UHEs.</strong>
+Tabela&nbsp;6: <strong>Correlação de Spearman entre a cota média anual e a captura total em Borba, estratificada pelos períodos Antes e Depois das UHEs.</strong>
 </figcaption>
 <div aria-describedby="tbl-spearman-cotas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -921,12 +1261,12 @@ Tabela&nbsp;5: <strong>Correlação de Spearman entre a cota média anual e a ca
 </div>
 </figure>
 </div>
-<p>Para testar o impacto estrutural das UHEs considerando a autocorrelação temporal da série, ajustamos um modelo GLS incorporando uma estrutura autorregressiva de ordem 1 (AR1). Os resultados dos coeficientes do modelo (<a href="#tbl-gls-coef" class="quarto-xref">Tabela&nbsp;6</a>) e da Análise de Variância (<a href="#tbl-gls-anova" class="quarto-xref">Tabela&nbsp;7</a>) confirmam as observações preliminares.</p>
+<p>Para testar o impacto estrutural das UHEs considerando a autocorrelação temporal da série, ajustamos um modelo GLS incorporando uma estrutura autorregressiva de ordem 1 (AR1). Os resultados dos coeficientes do modelo (<a href="#tbl-gls-coef" class="quarto-xref">Tabela&nbsp;7</a>) e da Análise de Variância (<a href="#tbl-gls-anova" class="quarto-xref">Tabela&nbsp;8</a>) confirmam as observações preliminares.</p>
 <p>O termo de interação entre a cota média anual e o período da barragem não apresentou significância estatística (<em>F</em> = 0,432; <em>p</em> = 0,518). Isso indica que a inclinação da reta de regressão entre a hidrologia e a pesca não sofreu uma alteração estrutural significativa após 2011 em função da cota média. Da mesma forma, os efeitos principais do nível do rio (<em>F</em> = 0,054; <em>p</em> = 0,818) e do período isolado (<em>F</em> = 1,877; <em>p</em> = 0,186) não se mostraram preditores significativos para explicar a variabilidade da captura total neste modelo.</p>
 <div id="tbl-gls-coef" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-gls-coef-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;6: <strong>Coeficientes do modelo de Mínimos Quadrados Generalizados (GLS) avaliando o efeito da cota média e do período de barramento sobre a captura pesqueira.</strong>
+Tabela&nbsp;7: <strong>Coeficientes do modelo de Mínimos Quadrados Generalizados (GLS) avaliando o efeito da cota média e do período de barramento sobre a captura pesqueira.</strong>
 </figcaption>
 <div aria-describedby="tbl-gls-coef-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -983,7 +1323,7 @@ Tabela&nbsp;6: <strong>Coeficientes do modelo de Mínimos Quadrados Generalizado
 <div id="tbl-gls-anova" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-gls-anova-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;7: <strong>Análise de Variância (ANOVA) do modelo GLS, indicando a significância dos termos principais e da interação.</strong>
+Tabela&nbsp;8: <strong>Análise de Variância (ANOVA) do modelo GLS, indicando a significância dos termos principais e da interação.</strong>
 </figcaption>
 <div aria-describedby="tbl-gls-anova-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -1055,7 +1395,7 @@ Tabela&nbsp;7: <strong>Análise de Variância (ANOVA) do modelo GLS, indicando a
 <div id="tbl-tendencia-pesca" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-tendencia-pesca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;8: <strong>Testes de tendência de Mann-Kendall, Sen’s Slope e verificação de autocorrelação de Durbin-Watson para a produção pesqueira anual por município e período.</strong>
+Tabela&nbsp;9: <strong>Testes de tendência de Mann-Kendall, Sen’s Slope e verificação de autocorrelação de Durbin-Watson para a produção pesqueira anual por município e período.</strong>
 </figcaption>
 <div aria-describedby="tbl-tendencia-pesca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -1170,7 +1510,7 @@ Figura&nbsp;5: Time series of total catch (kg) in the Manicoré fishers’ colon
 <div id="tbl-testes-especies" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-testes-especies-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;9: <strong>Testes de normalidade e de comparação entre os períodos Antes e Depois da produção pesqueira anual por espécie e município.</strong>
+Tabela&nbsp;10: <strong>Testes de normalidade e de comparação entre os períodos Antes e Depois da produção pesqueira anual por espécie e município.</strong>
 </figcaption>
 <div aria-describedby="tbl-testes-especies-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -1579,7 +1919,7 @@ Tabela&nbsp;9: <strong>Testes de normalidade e de comparação entre os período
 <div id="tbl-tendencia-borba" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-tendencia-borba-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;10: <strong>Teste de tendência de Mann-Kendall e inclinação de Sen da captura anual (kg) por espécie e período na colônia de Borba.</strong>
+Tabela&nbsp;11: <strong>Teste de tendência de Mann-Kendall e inclinação de Sen da captura anual (kg) por espécie e período na colônia de Borba.</strong>
 </figcaption>
 <div aria-describedby="tbl-tendencia-borba-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -1998,7 +2338,7 @@ Tabela&nbsp;10: <strong>Teste de tendência de Mann-Kendall e inclinação de Se
 <div id="tbl-tendencia-manicore" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-tendencia-manicore-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;11: <strong>Teste de tendência de Mann-Kendall e inclinação de Sen da captura anual (kg) por espécie e período na colônia de Manicoré.</strong>
+Tabela&nbsp;12: <strong>Teste de tendência de Mann-Kendall e inclinação de Sen da captura anual (kg) por espécie e período na colônia de Manicoré.</strong>
 </figcaption>
 <div aria-describedby="tbl-tendencia-manicore-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -2723,7 +3063,7 @@ Figura&nbsp;26: Time series of annual catch (kg) for Tucunaré in the Borba and 
 <div id="tbl-tendencia-cotas" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-tendencia-cotas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;12: <strong>Testes de tendência de Mann-Kendall, Sen’s Slope e verificação de autocorrelação de Durbin-Watson para o nível médio anual do rio Madeira por município e período.</strong>
+Tabela&nbsp;13: <strong>Testes de tendência de Mann-Kendall, Sen’s Slope e verificação de autocorrelação de Durbin-Watson para o nível médio anual do rio Madeira por município e período.</strong>
 </figcaption>
 <div aria-describedby="tbl-tendencia-cotas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -2892,6 +3232,141 @@ Figura&nbsp;28: Série temporal do nível médio anual (cm) da cota fluviométri
 <li><span class="math inline">\(H_0\)</span>: os dois períodos têm a mesma distribuição de produção;</li>
 <li><span class="math inline">\(H_1\)</span>: os dois períodos têm distribuições de produção diferentes.</li>
 </ul>
+</div>
+<div id="calc-composicao-especies" class="metodo metodo-composicao">
+<p><strong>Métricas de Alteração da Composição das Capturas</strong></p>
+<p>As alterações na composição das capturas pesqueiras foram descritas a partir de três medidas complementares: a variação percentual da captura média anual de cada espécie, sua participação relativa na produção pesqueira total de cada ano e a mudança dessa participação entre os períodos (Antes) e (Depois). Essas medidas fundamentam os resultados apresentados na <a href="#tbl-composicao-especies" class="quarto-xref">Tabela&nbsp;5</a>.</p>
+<section id="variação-percentual-da-captura-por-espécie" class="level4" data-number="5.0.1">
+<h4 data-number="5.0.1" class="anchored" data-anchor-id="variação-percentual-da-captura-por-espécie"><span class="header-section-number">5.0.1</span> Variação percentual da captura por espécie</h4>
+<p>A variação percentual da captura representa a mudança relativa na captura média anual de cada espécie entre os períodos (Antes) e (Depois), sendo calculada por:</p>
+<p><span class="math display">\[
+V_i =
+\left(
+\frac{
+\bar{X}_{i,\text{Depois}} -
+\bar{X}_{i,\text{Antes}}
+}{
+\bar{X}_{i,\text{Antes}}
+}
+\right)
+\times 100,
+\]</span></p>
+<p>em que <span class="math inline">\(\bar{X}_{i,\text{Antes}}\)</span> e <span class="math inline">\(\bar{X}_{i,\text{Depois}}\)</span> representam, respectivamente, as capturas médias anuais da espécie <span class="math inline">\(i\)</span> nos períodos (Antes) e (Depois).</p>
+<p>Valores negativos indicam redução da captura média anual, enquanto valores positivos indicam aumento.</p>
+<p>Como exemplo, para o Filhote em Borba:</p>
+<p><span class="math display">\[
+\small
+V_{\text{Filhote}}
+=
+\left(
+\frac{
+69.911 - 141.030
+}{
+141.030
+}
+\right)
+\times 100
+=
+-50{,}43\%.
+\]</span></p>
+<p>Portanto, a captura média anual do Filhote foi aproximadamente 50,43% menor no período (Depois).</p>
+<p>Para a Dourada em Manicoré:</p>
+<p><span class="math display">\[
+\small
+V_{\text{Dourada}}
+=
+\left(
+\frac{
+64.285{,}71 - 105.777{,}78
+}{
+105.777{,}78
+}
+\right)
+\times 100
+=
+-39{,}23\%.
+\]</span></p>
+<p>Assim, a captura média anual da Dourada apresentou redução de aproximadamente 39,23%.</p>
+<hr>
+</section>
+<section id="participação-relativa-anual-das-espécies" class="level4" data-number="5.0.2">
+<h4 data-number="5.0.2" class="anchored" data-anchor-id="participação-relativa-anual-das-espécies"><span class="header-section-number">5.0.2</span> Participação relativa anual das espécies</h4>
+<p>A participação relativa indica quanto cada espécie representa da produção pesqueira total registrada em determinado município e ano.</p>
+<p>Para a espécie <span class="math inline">\(i\)</span>, no ano <span class="math inline">\(t\)</span>, foi calculada por:</p>
+<p><span class="math display">\[
+p_{it}
+=
+\left(
+\frac{
+X_{it}
+}{
+X_{\cdot t}
+}
+\right)
+\times 100,
+\]</span></p>
+<p>em que <span class="math inline">\(X_{it}\)</span> corresponde à captura da espécie <span class="math inline">\(i\)</span> no ano <span class="math inline">\(t\)</span> e <span class="math inline">\(X_{\cdot t}\)</span> representa a captura total de todas as espécies registradas no mesmo município e ano.</p>
+<p>Dessa forma, uma participação de 10%, por exemplo, indica que a espécie respondeu por 10% de toda a produção pesqueira registrada naquele ano.</p>
+<p>Após o cálculo das participações anuais, foi obtida a participação média de cada espécie dentro de cada período:</p>
+<p><span class="math display">\[
+\bar{p}_{i,j}
+=
+\frac{1}{n_j}
+\sum_{t=1}^{n_j} p_{it},
+\]</span></p>
+<p>em que <span class="math inline">\(j\)</span> representa o período (Antes) ou (Depois), e <span class="math inline">\(n_j\)</span> corresponde ao número de anos pertencentes ao respectivo período.</p>
+<p>Assim:</p>
+<p><span class="math display">\[
+n_{\text{Antes}}=9
+\qquad\text{e}\qquad
+n_{\text{Depois}}=14.
+\]</span></p>
+<p>Portanto, a participação média apresentada na <a href="#tbl-composicao-especies" class="quarto-xref">Tabela&nbsp;5</a> corresponde à média das participações relativas anuais da espécie, e não à simples razão entre duas médias de captura.</p>
+<hr>
+</section>
+<section id="mudança-na-participação-relativa" class="level4" data-number="5.0.3">
+<h4 data-number="5.0.3" class="anchored" data-anchor-id="mudança-na-participação-relativa"><span class="header-section-number">5.0.3</span> Mudança na participação relativa</h4>
+<p>A alteração na composição foi quantificada pela diferença entre a participação média da espécie no período (Depois) e sua participação média no período (Antes):</p>
+<p><span class="math display">\[
+\Delta p_i
+=
+\bar{p}_{i,\text{Depois}}
+-
+\bar{p}_{i,\text{Antes}}.
+\]</span></p>
+<p>Como ambas as medidas são percentuais, essa diferença é expressa em <strong>pontos percentuais (p.p.)</strong>.</p>
+<p>Valores positivos indicam ganho de participação relativa na composição das capturas, enquanto valores negativos indicam perda de participação.</p>
+<p>Como exemplo, para o Filhote em Borba:</p>
+<p><span class="math display">\[
+\small
+\Delta p_{\text{Filhote}}
+=
+7{,}01 - 9{,}41
+=
+-2{,}40\text{ p.p.}
+\]</span></p>
+<p>Portanto, além da redução de 50,43% na captura média anual, o Filhote perdeu aproximadamente 2,40 pontos percentuais de participação na composição das capturas.</p>
+<p>Por outro lado, para a Dourada em Borba:</p>
+<p><span class="math display">\[
+\small
+\Delta p_{\text{Dourada}}
+=
+8{,}92 - 7{,}01
+=
++1{,}91\text{ p.p.}
+\]</span></p>
+<p>Embora sua captura média anual tenha apresentado redução de 19,68%, sua participação relativa aumentou em aproximadamente 1,91 ponto percentual. Esse resultado ocorre porque a mudança na composição depende da participação da espécie na produção total, e não apenas da alteração de sua captura absoluta.</p>
+<p>Da mesma forma, para a Dourada em Manicoré:</p>
+<p><span class="math display">\[
+\small
+\Delta p_{\text{Dourada}}
+=
+9{,}22 - 5{,}60
+=
++3{,}62\text{ p.p.}
+\]</span></p>
+<p>Nesse caso, embora a captura média anual tenha diminuído 39,23%, a espécie aumentou sua participação relativa na composição das capturas em aproximadamente 3,62 pontos percentuais.</p>
+</section>
 </div>
 
 
