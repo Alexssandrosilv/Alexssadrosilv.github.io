@@ -204,7 +204,8 @@ window.Quarto = {
   <li><a href="#produção-pesqueira-análise-descritiva" id="toc-produção-pesqueira-análise-descritiva" class="nav-link" data-scroll-target="#produção-pesqueira-análise-descritiva"><span class="header-section-number">2.1</span> Produção Pesqueira: Análise descritiva</a></li>
   <li><a href="#produção-pesqueira-modelo-de-mínimos-quadrados-generalizados-gls" id="toc-produção-pesqueira-modelo-de-mínimos-quadrados-generalizados-gls" class="nav-link" data-scroll-target="#produção-pesqueira-modelo-de-mínimos-quadrados-generalizados-gls"><span class="header-section-number">2.2</span> Produção Pesqueira: Modelo de Mínimos Quadrados Generalizados (GLS)</a></li>
   <li><a href="#composição-das-capturas-análise-descritiva" id="toc-composição-das-capturas-análise-descritiva" class="nav-link" data-scroll-target="#composição-das-capturas-análise-descritiva"><span class="header-section-number">2.3</span> Composição das Capturas: Análise descritiva</a></li>
-  <li><a href="#mapa-comparativo-das-taxas-de-declínio-produtivo-com-estudos-prévios" id="toc-mapa-comparativo-das-taxas-de-declínio-produtivo-com-estudos-prévios" class="nav-link" data-scroll-target="#mapa-comparativo-das-taxas-de-declínio-produtivo-com-estudos-prévios"><span class="header-section-number">2.4</span> Mapa: Comparativo das Taxas de Declínio Produtivo com Estudos Prévios</a></li>
+  <li><a href="#composição-das-capturas-modelo-de-mínimos-quadrados-generalizados-gls" id="toc-composição-das-capturas-modelo-de-mínimos-quadrados-generalizados-gls" class="nav-link" data-scroll-target="#composição-das-capturas-modelo-de-mínimos-quadrados-generalizados-gls"><span class="header-section-number">2.4</span> Composição das Capturas: Modelo de Mínimos Quadrados Generalizados (GLS)</a></li>
+  <li><a href="#mapa-comparativo-das-taxas-de-declínio-produtivo-com-estudos-prévios" id="toc-mapa-comparativo-das-taxas-de-declínio-produtivo-com-estudos-prévios" class="nav-link" data-scroll-target="#mapa-comparativo-das-taxas-de-declínio-produtivo-com-estudos-prévios"><span class="header-section-number">2.5</span> Mapa: Comparativo das Taxas de Declínio Produtivo com Estudos Prévios</a></li>
   </ul></li>
   <li><a href="#variáveis-hidrológicas" id="toc-variáveis-hidrológicas" class="nav-link" data-scroll-target="#variáveis-hidrológicas"><span class="header-section-number">3</span> Variáveis hidrológicas</a></li>
   <li><a href="#séries-temporais" id="toc-séries-temporais" class="nav-link" data-scroll-target="#séries-temporais"><span class="header-section-number">4</span> Séries temporais</a>
@@ -1178,8 +1179,512 @@ Tabela&nbsp;5: <strong>Variação da captura média anual e da participação re
 <p>Em Manicoré, as maiores reduções na captura média anual foram observadas para Tambaqui (−74,78%), Cara branco (−73,97%), Tucunaré (−73,34%) e Pirapitinga (−72,89%). Quanto à composição relativa, Dourada apresentou o maior ganho de participação, passando de 5,60% para 9,22% (+3,62 p.p.), seguida por Sardinha (+1,61 p.p.) e Pacu (+0,90 p.p.). As maiores perdas de participação foram observadas para Branquinha (−1,32 p.p.), Surubim (−1,23 p.p.) e Caparari (−0,90 p.p.). Curimatã, Jaraqui e Pescada apresentaram alterações médias próximas de zero, indicando maior estabilidade relativa de sua participação entre os períodos.</p>
 <p>De forma geral, os resultados descritivos indicam que a redução da produção pesqueira foi acompanhada por uma redistribuição da participação relativa das espécies, sugerindo alterações na composição das capturas entre os períodos (Antes) e (Depois). Entretanto, essas diferenças ainda devem ser avaliadas inferencialmente, considerando a estrutura temporal das observações antes de se concluir quais alterações apresentam evidência estatística.</p>
 </section>
-<section id="mapa-comparativo-das-taxas-de-declínio-produtivo-com-estudos-prévios" class="level3" data-number="2.4">
-<h3 data-number="2.4" class="anchored" data-anchor-id="mapa-comparativo-das-taxas-de-declínio-produtivo-com-estudos-prévios"><span class="header-section-number">2.4</span> Mapa: Comparativo das Taxas de Declínio Produtivo com Estudos Prévios</h3>
+<section id="composição-das-capturas-modelo-de-mínimos-quadrados-generalizados-gls" class="level3" data-number="2.4">
+<h3 data-number="2.4" class="anchored" data-anchor-id="composição-das-capturas-modelo-de-mínimos-quadrados-generalizados-gls"><span class="header-section-number">2.4</span> Composição das Capturas: Modelo de Mínimos Quadrados Generalizados (GLS)</h3>
+<p>Após a análise descritiva da composição das capturas, avaliou-se se a participação relativa anual de cada espécie apresentou alterações entre os períodos (Antes) e (Depois), considerando simultaneamente a tendência temporal e a possível dependência entre observações anuais sucessivas. Para cada espécie e município, foi ajustado um modelo utilizando toda a série de 2002 a 2024, tendo a participação relativa anual (%) como variável resposta.</p>
+<p>A independência temporal dos resíduos do modelo inicial, contendo período e tempo, foi avaliada pelo teste de Durbin–Watson e pela ACF. O teste de Durbin–Watson indicou evidência de autocorrelação em 33 das 37 séries analisadas. Em seguida, foram comparados, pelo LRT, um modelo com erros independentes e um modelo incorporando estrutura autorregressiva de primeira ordem, AR(1). A inclusão dessa estrutura melhorou significativamente o ajuste em 27 séries, sendo selecionada para 17 das 19 espécies de Borba e 10 das 18 espécies de Manicoré. Os modelos finais foram estimados por máxima verossimilhança (ML).</p>
+<p>O modelo utilizado para cada espécie <span class="math inline">\(i\)</span> foi especificado por:</p>
+<p><span class="math display">\[
+participacao_{i,t}
+=
+\beta_{0i}
++
+\beta_{1i}\,periodo\_barragemDepois_t
++
+\beta_{2i}\,tempo_t
++
+\varepsilon_{i,t},
+\]</span></p>
+<p>em que:</p>
+<p><span class="math display">\[
+tempo = ano - 2002.
+\]</span></p>
+<p>Para as espécies em que a estrutura AR(1) foi selecionada, considerou-se adicionalmente:</p>
+<p><span class="math display">\[
+\varepsilon_{i,t}
+=
+\phi_i\varepsilon_{i,t-1}+u_{i,t}.
+\]</span></p>
+<p>Nesse modelo, <span class="math inline">\(\beta_{1i}\)</span> representa a mudança adicional na participação relativa da espécie no período (Depois), em relação ao período (Antes), após considerar a tendência temporal. O parâmetro <span class="math inline">\(\beta_{2i}\)</span> representa a variação linear média da participação ao longo dos anos, expressa em pontos percentuais por ano (p.p./ano), enquanto <span class="math inline">\(\phi_i\)</span> representa a intensidade da dependência residual entre anos consecutivos.</p>
+<p>A adequação dos modelos finais foi avaliada pelos resíduos normalizados. O teste de Shapiro–Wilk não indicou desvios de normalidade em 26 das 37 séries (<span class="math inline">\(p\geq0,05\)</span>). Em Borba, foram observados desvios para Branquinha (<span class="math inline">\(p=0,002\)</span>), Cara branco (<span class="math inline">\(p=0,004\)</span>), Pacu (<span class="math inline">\(p=0,035\)</span>), Pescada (<span class="math inline">\(p=0,002\)</span>), Piranambu/Barbado (<span class="math inline">\(p=0,039\)</span>), Pirarara (<span class="math inline">\(p=0,050\)</span>) e Sardinha (<span class="math inline">\(p=0,046\)</span>). Em Manicoré, os desvios ocorreram para Dourada (<span class="math inline">\(p&lt;0,001\)</span>), Jaraqui (<span class="math inline">\(p=0,026\)</span>), Pirarara (<span class="math inline">\(p&lt;0,001\)</span>) e Sardinha (<span class="math inline">\(p=0,002\)</span>). A inspeção dos QQ-plots indicou que esses desvios ocorreram predominantemente nas caudas das distribuições, sem evidência de inadequação generalizada dos resíduos. A ACF dos resíduos finais também não indicou persistência relevante da autocorrelação no primeiro lag.</p>
+<section id="hipóteses-avaliadas-no-modelo-1" class="level4" data-number="2.4.1">
+<h4 data-number="2.4.1" class="anchored" data-anchor-id="hipóteses-avaliadas-no-modelo-1"><span class="header-section-number">2.4.1</span> Hipóteses avaliadas no modelo</h4>
+<section id="efeito-do-período---beta_1-1" class="level5" data-number="2.4.1.1">
+<h5 data-number="2.4.1.1" class="anchored" data-anchor-id="efeito-do-período---beta_1-1"><span class="header-section-number">2.4.1.1</span> <strong>Efeito do período - <span class="math inline">\(\beta_1\)</span></strong></h5>
+<p>O efeito do período avalia se houve mudança adicional na participação relativa da espécie no período (Depois), após considerar a tendência temporal.</p>
+<p><span class="math display">\[
+H_0:\beta_1=0
+\qquad\text{versus}\qquad
+H_1:\beta_1\neq0.
+\]</span></p>
+<p>Sob <span class="math inline">\(H_0\)</span>, não existe mudança adicional na participação relativa entre os períodos (Antes) e (Depois). Sob <span class="math inline">\(H_1\)</span>, existe mudança adicional na participação da espécie.</p>
+</section>
+<section id="efeito-do-tempo---beta_2-1" class="level5" data-number="2.4.1.2">
+<h5 data-number="2.4.1.2" class="anchored" data-anchor-id="efeito-do-tempo---beta_2-1"><span class="header-section-number">2.4.1.2</span> <strong>Efeito do tempo - <span class="math inline">\(\beta_2\)</span></strong></h5>
+<p>O efeito do tempo avalia se a participação relativa da espécie apresenta uma tendência linear ao longo dos anos.</p>
+<p><span class="math display">\[
+H_0:\beta_2=0
+\qquad\text{versus}\qquad
+H_1:\beta_2\neq0.
+\]</span></p>
+<p>Sob <span class="math inline">\(H_0\)</span>, não existe tendência temporal linear na participação da espécie. Sob <span class="math inline">\(H_1\)</span>, existe tendência temporal crescente ou decrescente.</p>
+<p>Como foram realizados testes para múltiplas espécies, os <span class="math inline">\(p\)</span>-valores associados a <span class="math inline">\(\beta_1\)</span> e <span class="math inline">\(\beta_2\)</span> foram corrigidos pelo procedimento de Benjamini–Hochberg (FDR), separadamente para cada município. Adotou-se nível de significância de 5%.</p>
+<div id="tbl-gls-composicao" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-gls-composicao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabela&nbsp;6: Resultados dos modelos GLS para a participação relativa das espécies na composição das capturas entre 2002 e 2024.
+</figcaption>
+<div aria-describedby="tbl-gls-composicao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Município</strong></th>
+<th style="text-align: left;"><strong>Espécie</strong></th>
+<th style="text-align: left;"><strong>DW (<span class="math inline">\(p\)</span>)</strong></th>
+<th style="text-align: left;"><strong>Modelo final</strong></th>
+<th style="text-align: left;"><strong>Efeito do período</strong><br><strong><span class="math inline">\(\hat{\beta}_1\)</span> (IC95%; p.p.)</strong></th>
+<th style="text-align: left;"><strong>Teste de <span class="math inline">\(\beta_1\)</span></strong><br><strong><span class="math inline">\(t\)</span> (<span class="math inline">\(p_{FDR}\)</span>)</strong></th>
+<th style="text-align: left;"><strong>Efeito do tempo</strong><br><strong><span class="math inline">\(\hat{\beta}_2\)</span> (IC95%; p.p./ano)</strong></th>
+<th style="text-align: left;"><strong>Teste de <span class="math inline">\(\beta_2\)</span></strong><br><strong><span class="math inline">\(t\)</span> (<span class="math inline">\(p_{FDR}\)</span>)</strong></th>
+<th style="text-align: left;"><strong><span class="math inline">\(\phi\)</span></strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Borba</strong></td>
+<td style="text-align: left;">Aracu</td>
+<td style="text-align: left;">0,804 (&lt;0,001)</td>
+<td style="text-align: left;">GLS + AR(1)</td>
+<td style="text-align: left;">0,016 [−0,082; 0,114]</td>
+<td style="text-align: left;">0,34 (0,841)</td>
+<td style="text-align: left;">0,004 [−0,005; 0,014]</td>
+<td style="text-align: left;">0,97 (0,434)</td>
+<td style="text-align: left;">0,726</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Branquinha</td>
+<td style="text-align: left;">0,467 (&lt;0,001)</td>
+<td style="text-align: left;">GLS + AR(1)</td>
+<td style="text-align: left;">0,113 [−0,540; 0,766]</td>
+<td style="text-align: left;">0,36 (0,841)</td>
+<td style="text-align: left;">0,057 [−0,015; 0,128]</td>
+<td style="text-align: left;">1,64 (0,169)</td>
+<td style="text-align: left;">0,815</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Caparari</td>
+<td style="text-align: left;">1,632 (0,090)</td>
+<td style="text-align: left;">GLS</td>
+<td style="text-align: left;">0,366 [−0,053; 0,785]</td>
+<td style="text-align: left;">1,82 (0,793)</td>
+<td style="text-align: left;">−0,013 [−0,044; 0,018]</td>
+<td style="text-align: left;">−0,88 (0,460)</td>
+<td style="text-align: left;">—</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Cara branco</td>
+<td style="text-align: left;">0,700 (&lt;0,001)</td>
+<td style="text-align: left;">GLS + AR(1)</td>
+<td style="text-align: left;">−0,023 [−0,277; 0,232]</td>
+<td style="text-align: left;">−0,19 (0,854)</td>
+<td style="text-align: left;">−0,022 [−0,044; −0,000]</td>
+<td style="text-align: left;">−2,10 (0,084)</td>
+<td style="text-align: left;">0,646</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Carauaçu</td>
+<td style="text-align: left;">0,917 (&lt;0,001)</td>
+<td style="text-align: left;">GLS + AR(1)</td>
+<td style="text-align: left;">−0,027 [−0,211; 0,158]</td>
+<td style="text-align: left;">−0,30 (0,841)</td>
+<td style="text-align: left;">−0,023 [−0,037; −0,008]</td>
+<td style="text-align: left;">−3,21 (0,010)</td>
+<td style="text-align: left;">0,540</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Curimatã</td>
+<td style="text-align: left;">0,988 (&lt;0,001)</td>
+<td style="text-align: left;">GLS + AR(1)</td>
+<td style="text-align: left;">0,506 [−0,374; 1,386]</td>
+<td style="text-align: left;">1,20 (0,841)</td>
+<td style="text-align: left;">0,019 [−0,058; 0,095]</td>
+<td style="text-align: left;">0,51 (0,618)</td>
+<td style="text-align: left;">0,655</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Dourada</td>
+<td style="text-align: left;">0,499 (&lt;0,001)</td>
+<td style="text-align: left;">GLS + AR(1)</td>
+<td style="text-align: left;">−0,676 [−1,190; −0,161]</td>
+<td style="text-align: left;">−2,74 (0,239)</td>
+<td style="text-align: left;">0,185 [0,125; 0,245]</td>
+<td style="text-align: left;">6,46 (&lt;0,001)</td>
+<td style="text-align: left;">0,838</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Filhote</td>
+<td style="text-align: left;">0,444 (&lt;0,001)</td>
+<td style="text-align: left;">GLS + AR(1)</td>
+<td style="text-align: left;">−0,216 [−1,172; 0,741]</td>
+<td style="text-align: left;">−0,47 (0,841)</td>
+<td style="text-align: left;">−0,167 [−0,271; −0,062]</td>
+<td style="text-align: left;">−3,33 (0,009)</td>
+<td style="text-align: left;">0,811</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Jaraqui</td>
+<td style="text-align: left;">0,880 (&lt;0,001)</td>
+<td style="text-align: left;">GLS + AR(1)</td>
+<td style="text-align: left;">−0,106 [−0,958; 0,745]</td>
+<td style="text-align: left;">−0,26 (0,841)</td>
+<td style="text-align: left;">−0,072 [−0,150; 0,006]</td>
+<td style="text-align: left;">−1,92 (0,109)</td>
+<td style="text-align: left;">0,703</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Matrinxã</td>
+<td style="text-align: left;">0,939 (&lt;0,001)</td>
+<td style="text-align: left;">GLS + AR(1)</td>
+<td style="text-align: left;">0,150 [−0,377; 0,676]</td>
+<td style="text-align: left;">0,59 (0,841)</td>
+<td style="text-align: left;">−0,017 [−0,062; 0,029]</td>
+<td style="text-align: left;">−0,76 (0,481)</td>
+<td style="text-align: left;">0,647</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Pacu</td>
+<td style="text-align: left;">0,626 (&lt;0,001)</td>
+<td style="text-align: left;">GLS + AR(1)</td>
+<td style="text-align: left;">−0,234 [−1,258; 0,790]</td>
+<td style="text-align: left;">−0,48 (0,841)</td>
+<td style="text-align: left;">0,059 [−0,095; 0,213]</td>
+<td style="text-align: left;">0,80 (0,481)</td>
+<td style="text-align: left;">0,921</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Pescada</td>
+<td style="text-align: left;">0,434 (&lt;0,001)</td>
+<td style="text-align: left;">GLS + AR(1)</td>
+<td style="text-align: left;">−0,032 [−0,078; 0,014]</td>
+<td style="text-align: left;">−1,44 (0,841)</td>
+<td style="text-align: left;">0,006 [0,001; 0,011]</td>
+<td style="text-align: left;">2,30 (0,062)</td>
+<td style="text-align: left;">0,842</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Piranambu/Barbado</td>
+<td style="text-align: left;">1,009 (0,001)</td>
+<td style="text-align: left;">GLS + AR(1)</td>
+<td style="text-align: left;">−0,015 [−0,086; 0,056]</td>
+<td style="text-align: left;">−0,44 (0,841)</td>
+<td style="text-align: left;">0,011 [0,006; 0,017]</td>
+<td style="text-align: left;">4,27 (0,001)</td>
+<td style="text-align: left;">0,519</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Pirapitinga</td>
+<td style="text-align: left;">0,702 (&lt;0,001)</td>
+<td style="text-align: left;">GLS + AR(1)</td>
+<td style="text-align: left;">−0,186 [−0,581; 0,209]</td>
+<td style="text-align: left;">−0,98 (0,841)</td>
+<td style="text-align: left;">−0,075 [−0,120; −0,030]</td>
+<td style="text-align: left;">−3,46 (0,008)</td>
+<td style="text-align: left;">0,832</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Pirarara</td>
+<td style="text-align: left;">1,079 (0,002)</td>
+<td style="text-align: left;">GLS + AR(1)</td>
+<td style="text-align: left;">0,105 [−0,088; 0,298]</td>
+<td style="text-align: left;">1,13 (0,841)</td>
+<td style="text-align: left;">0,072 [0,057; 0,087]</td>
+<td style="text-align: left;">10,13 (&lt;0,001)</td>
+<td style="text-align: left;">0,444</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Sardinha</td>
+<td style="text-align: left;">0,393 (&lt;0,001)</td>
+<td style="text-align: left;">GLS + AR(1)</td>
+<td style="text-align: left;">0,096 [−0,542; 0,735]</td>
+<td style="text-align: left;">0,31 (0,841)</td>
+<td style="text-align: left;">0,103 [0,026; 0,180]</td>
+<td style="text-align: left;">2,78 (0,024)</td>
+<td style="text-align: left;">0,854</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Surubim</td>
+<td style="text-align: left;">0,535 (&lt;0,001)</td>
+<td style="text-align: left;">GLS + AR(1)</td>
+<td style="text-align: left;">0,276 [−0,280; 0,832]</td>
+<td style="text-align: left;">1,03 (0,841)</td>
+<td style="text-align: left;">−0,047 [−0,133; 0,039]</td>
+<td style="text-align: left;">−1,15 (0,360)</td>
+<td style="text-align: left;">0,929</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Tambaqui</td>
+<td style="text-align: left;">1,026 (0,001)</td>
+<td style="text-align: left;">GLS + AR(1)</td>
+<td style="text-align: left;">0,149 [−0,264; 0,563]</td>
+<td style="text-align: left;">0,75 (0,841)</td>
+<td style="text-align: left;">−0,091 [−0,124; −0,059]</td>
+<td style="text-align: left;">−5,94 (&lt;0,001)</td>
+<td style="text-align: left;">0,468</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Tucunaré</td>
+<td style="text-align: left;">1,262 (0,010)</td>
+<td style="text-align: left;">GLS</td>
+<td style="text-align: left;">0,019 [−0,042; 0,080]</td>
+<td style="text-align: left;">0,66 (0,841)</td>
+<td style="text-align: left;">−0,015 [−0,019; −0,011]</td>
+<td style="text-align: left;">−7,00 (&lt;0,001)</td>
+<td style="text-align: left;">—</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Manicoré</strong></td>
+<td style="text-align: left;">Aracu</td>
+<td style="text-align: left;">1,493 (0,044)</td>
+<td style="text-align: left;">GLS</td>
+<td style="text-align: left;">−0,083 [−0,260; 0,095]</td>
+<td style="text-align: left;">−0,97 (0,420)</td>
+<td style="text-align: left;">0,021 [0,008; 0,034]</td>
+<td style="text-align: left;">3,31 (0,008)</td>
+<td style="text-align: left;">—</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Branquinha</td>
+<td style="text-align: left;">0,540 (&lt;0,001)</td>
+<td style="text-align: left;">GLS + AR(1)</td>
+<td style="text-align: left;">−0,591 [−1,062; −0,120]</td>
+<td style="text-align: left;">−2,62 (0,030)</td>
+<td style="text-align: left;">−0,071 [−0,125; −0,017]</td>
+<td style="text-align: left;">−2,75 (0,022)</td>
+<td style="text-align: left;">0,832</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Caparari</td>
+<td style="text-align: left;">0,562 (&lt;0,001)</td>
+<td style="text-align: left;">GLS + AR(1)</td>
+<td style="text-align: left;">−0,524 [−0,894; −0,153]</td>
+<td style="text-align: left;">−2,95 (0,018)</td>
+<td style="text-align: left;">−0,034 [−0,070; 0,002]</td>
+<td style="text-align: left;">−1,97 (0,087)</td>
+<td style="text-align: left;">0,751</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Cara branco</td>
+<td style="text-align: left;">1,230 (0,008)</td>
+<td style="text-align: left;">GLS</td>
+<td style="text-align: left;">−0,180 [−0,318; −0,041]</td>
+<td style="text-align: left;">−2,71 (0,027)</td>
+<td style="text-align: left;">−0,023 [−0,033; −0,012]</td>
+<td style="text-align: left;">−4,62 (&lt;0,001)</td>
+<td style="text-align: left;">—</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Carauaçu</td>
+<td style="text-align: left;">2,104 (0,432)</td>
+<td style="text-align: left;">GLS</td>
+<td style="text-align: left;">−0,267 [−0,355; −0,179]</td>
+<td style="text-align: left;">−6,34 (&lt;0,001)</td>
+<td style="text-align: left;">0,000 [−0,006; 0,007]</td>
+<td style="text-align: left;">0,14 (0,891)</td>
+<td style="text-align: left;">—</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Curimatã</td>
+<td style="text-align: left;">0,796 (&lt;0,001)</td>
+<td style="text-align: left;">GLS + AR(1)</td>
+<td style="text-align: left;">−0,204 [−0,964; 0,555]</td>
+<td style="text-align: left;">−0,56 (0,615)</td>
+<td style="text-align: left;">0,051 [−0,017; 0,120]</td>
+<td style="text-align: left;">1,56 (0,173)</td>
+<td style="text-align: left;">0,691</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Dourada</td>
+<td style="text-align: left;">1,507 (0,048)</td>
+<td style="text-align: left;">GLS</td>
+<td style="text-align: left;">2,548 [1,996; 3,099]</td>
+<td style="text-align: left;">9,63 (&lt;0,001)</td>
+<td style="text-align: left;">0,093 [0,053; 0,134]</td>
+<td style="text-align: left;">4,79 (&lt;0,001)</td>
+<td style="text-align: left;">—</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Filhote</td>
+<td style="text-align: left;">0,753 (&lt;0,001)</td>
+<td style="text-align: left;">GLS + AR(1)</td>
+<td style="text-align: left;">0,708 [0,361; 1,056]</td>
+<td style="text-align: left;">4,25 (0,002)</td>
+<td style="text-align: left;">−0,056 [−0,091; −0,022]</td>
+<td style="text-align: left;">−3,42 (0,007)</td>
+<td style="text-align: left;">0,760</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Jaraqui</td>
+<td style="text-align: left;">0,947 (&lt;0,001)</td>
+<td style="text-align: left;">GLS + AR(1)</td>
+<td style="text-align: left;">0,530 [−0,397; 1,456]</td>
+<td style="text-align: left;">1,19 (0,342)</td>
+<td style="text-align: left;">−0,024 [−0,101; 0,054]</td>
+<td style="text-align: left;">−0,63 (0,600)</td>
+<td style="text-align: left;">0,615</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Matrinxã</td>
+<td style="text-align: left;">1,156 (0,004)</td>
+<td style="text-align: left;">GLS + AR(1)</td>
+<td style="text-align: left;">−0,934 [−1,569; −0,300]</td>
+<td style="text-align: left;">−3,07 (0,018)</td>
+<td style="text-align: left;">0,010 [−0,053; 0,074]</td>
+<td style="text-align: left;">0,35 (0,776)</td>
+<td style="text-align: left;">0,761</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Pacu</td>
+<td style="text-align: left;">0,648 (&lt;0,001)</td>
+<td style="text-align: left;">GLS + AR(1)</td>
+<td style="text-align: left;">−1,842 [−2,572; −1,111]</td>
+<td style="text-align: left;">−5,26 (&lt;0,001)</td>
+<td style="text-align: left;">0,228 [0,162; 0,294]</td>
+<td style="text-align: left;">7,23 (&lt;0,001)</td>
+<td style="text-align: left;">0,692</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Pescada</td>
+<td style="text-align: left;">1,259 (0,010)</td>
+<td style="text-align: left;">GLS</td>
+<td style="text-align: left;">−0,062 [−0,197; 0,073]</td>
+<td style="text-align: left;">−0,96 (0,420)</td>
+<td style="text-align: left;">0,005 [−0,004; 0,015]</td>
+<td style="text-align: left;">1,14 (0,319)</td>
+<td style="text-align: left;">—</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Pirapitinga</td>
+<td style="text-align: left;">1,212 (0,007)</td>
+<td style="text-align: left;">GLS</td>
+<td style="text-align: left;">−0,181 [−0,421; 0,059]</td>
+<td style="text-align: left;">−1,57 (0,198)</td>
+<td style="text-align: left;">−0,032 [−0,050; −0,014]</td>
+<td style="text-align: left;">−3,79 (0,004)</td>
+<td style="text-align: left;">—</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Pirarara</td>
+<td style="text-align: left;">1,738 (0,141)</td>
+<td style="text-align: left;">GLS</td>
+<td style="text-align: left;">0,773 [0,105; 1,441]</td>
+<td style="text-align: left;">2,41 (0,042)</td>
+<td style="text-align: left;">−0,081 [−0,130; −0,031]</td>
+<td style="text-align: left;">−3,42 (0,007)</td>
+<td style="text-align: left;">—</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Sardinha</td>
+<td style="text-align: left;">1,089 (0,002)</td>
+<td style="text-align: left;">GLS + AR(1)</td>
+<td style="text-align: left;">0,935 [0,329; 1,540]</td>
+<td style="text-align: left;">3,22 (0,015)</td>
+<td style="text-align: left;">0,085 [0,030; 0,141]</td>
+<td style="text-align: left;">3,22 (0,009)</td>
+<td style="text-align: left;">0,704</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Surubim</td>
+<td style="text-align: left;">0,687 (&lt;0,001)</td>
+<td style="text-align: left;">GLS + AR(1)</td>
+<td style="text-align: left;">−0,210 [−0,753; 0,333]</td>
+<td style="text-align: left;">−0,81 (0,483)</td>
+<td style="text-align: left;">−0,103 [−0,155; −0,052]</td>
+<td style="text-align: left;">−4,17 (0,002)</td>
+<td style="text-align: left;">0,735</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Tambaqui</td>
+<td style="text-align: left;">1,265 (0,010)</td>
+<td style="text-align: left;">GLS + AR(1)</td>
+<td style="text-align: left;">0,088 [−0,572; 0,748]</td>
+<td style="text-align: left;">0,28 (0,784)</td>
+<td style="text-align: left;">−0,058 [−0,112; −0,004]</td>
+<td style="text-align: left;">−2,22 (0,057)</td>
+<td style="text-align: left;">0,581</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Tucunaré</td>
+<td style="text-align: left;">2,069 (0,399)</td>
+<td style="text-align: left;">GLS</td>
+<td style="text-align: left;">−0,302 [−0,515; −0,088]</td>
+<td style="text-align: left;">−2,94 (0,018)</td>
+<td style="text-align: left;">−0,017 [−0,033; −0,001]</td>
+<td style="text-align: left;">−2,26 (0,057)</td>
+<td style="text-align: left;">—</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<div class="nota-tabela">
+<p>Notas: DW = estatística de Durbin–Watson obtida a partir do modelo inicial contendo período e tempo | <span class="math inline">\(\hat{\beta}_1\)</span> = efeito do período, correspondente à mudança adicional da participação relativa em (Depois), em pontos percentuais (p.p.) | <span class="math inline">\(\hat{\beta}_2\)</span> = efeito do tempo, correspondente à variação linear média da participação relativa em pontos percentuais por ano (p.p./ano) | IC95% = intervalo de confiança nominal de 95% | <span class="math inline">\(p_{FDR}\)</span> = <span class="math inline">\(p\)</span>-valor corrigido pelo procedimento de Benjamini–Hochberg | <span class="math inline">\(\phi\)</span> = parâmetro de autocorrelação de primeira ordem | — = estrutura AR(1) não selecionada pelo LRT.</p>
+</div>
+<p><strong>Comentários:</strong> Conforme a <a href="#tbl-gls-composicao" class="quarto-xref">Tabela&nbsp;6</a>, em Borba nenhuma espécie apresentou evidência de mudança adicional de participação entre os períodos (Antes) e (Depois) após a correção por FDR (<span class="math inline">\(p_{FDR}\geq0,05\)</span>). Entretanto, foram identificadas tendências temporais positivas para Dourada (<span class="math inline">\(\hat{\beta}_2=0,185\)</span> p.p./ano; <span class="math inline">\(p_{FDR}&lt;0,001\)</span>), Piranambu/Barbado (<span class="math inline">\(0,011\)</span> p.p./ano; <span class="math inline">\(p_{FDR}=0,001\)</span>), Pirarara (<span class="math inline">\(0,072\)</span> p.p./ano; <span class="math inline">\(p_{FDR}&lt;0,001\)</span>) e Sardinha (<span class="math inline">\(0,103\)</span> p.p./ano; <span class="math inline">\(p_{FDR}=0,024\)</span>). Tendências negativas foram observadas para Carauaçu (<span class="math inline">\(-0,023\)</span> p.p./ano; <span class="math inline">\(p_{FDR}=0,010\)</span>), Filhote (<span class="math inline">\(-0,167\)</span>; <span class="math inline">\(p_{FDR}=0,009\)</span>), Pirapitinga (<span class="math inline">\(-0,075\)</span>; <span class="math inline">\(p_{FDR}=0,008\)</span>), Tambaqui (<span class="math inline">\(-0,091\)</span>; <span class="math inline">\(p_{FDR}&lt;0,001\)</span>) e Tucunaré (<span class="math inline">\(-0,015\)</span>; <span class="math inline">\(p_{FDR}&lt;0,001\)</span>).</p>
+<p>Em Manicoré, foram observadas reduções adicionais da participação no período (Depois) para Branquinha (<span class="math inline">\(\hat{\beta}_1=-0,591\)</span> p.p.; <span class="math inline">\(p_{FDR}=0,030\)</span>), Caparari (<span class="math inline">\(-0,524\)</span>; <span class="math inline">\(p_{FDR}=0,018\)</span>), Cara branco (<span class="math inline">\(-0,180\)</span>; <span class="math inline">\(p_{FDR}=0,027\)</span>), Carauaçu (<span class="math inline">\(-0,267\)</span>; <span class="math inline">\(p_{FDR}&lt;0,001\)</span>), Matrinxã (<span class="math inline">\(-0,934\)</span>; <span class="math inline">\(p_{FDR}=0,018\)</span>), Pacu (<span class="math inline">\(-1,842\)</span>; <span class="math inline">\(p_{FDR}&lt;0,001\)</span>) e Tucunaré (<span class="math inline">\(-0,302\)</span>; <span class="math inline">\(p_{FDR}=0,018\)</span>). Em sentido contrário, Dourada (<span class="math inline">\(\hat{\beta}_1=2,548\)</span> p.p.; <span class="math inline">\(p_{FDR}&lt;0,001\)</span>), Filhote (<span class="math inline">\(0,708\)</span>; <span class="math inline">\(p_{FDR}=0,002\)</span>), Pirarara (<span class="math inline">\(0,773\)</span>; <span class="math inline">\(p_{FDR}=0,042\)</span>) e Sardinha (<span class="math inline">\(0,935\)</span>; <span class="math inline">\(p_{FDR}=0,015\)</span>) apresentaram aumento adicional de participação.</p>
+<p>Quanto ao efeito do tempo em Manicoré, foram observadas tendências positivas para Aracu (<span class="math inline">\(\hat{\beta}_2=0,021\)</span> p.p./ano; <span class="math inline">\(p_{FDR}=0,008\)</span>), Dourada (<span class="math inline">\(0,093\)</span>; <span class="math inline">\(p_{FDR}&lt;0,001\)</span>), Pacu (<span class="math inline">\(0,228\)</span>; <span class="math inline">\(p_{FDR}&lt;0,001\)</span>) e Sardinha (<span class="math inline">\(0,085\)</span>; <span class="math inline">\(p_{FDR}=0,009\)</span>). Tendências negativas foram identificadas para Branquinha (<span class="math inline">\(-0,071\)</span> p.p./ano; <span class="math inline">\(p_{FDR}=0,022\)</span>), Cara branco (<span class="math inline">\(-0,023\)</span>; <span class="math inline">\(p_{FDR}&lt;0,001\)</span>), Filhote (<span class="math inline">\(-0,056\)</span>; <span class="math inline">\(p_{FDR}=0,007\)</span>), Pirapitinga (<span class="math inline">\(-0,032\)</span>; <span class="math inline">\(p_{FDR}=0,004\)</span>), Pirarara (<span class="math inline">\(-0,081\)</span>; <span class="math inline">\(p_{FDR}=0,007\)</span>) e Surubim (<span class="math inline">\(-0,103\)</span>; <span class="math inline">\(p_{FDR}=0,002\)</span>).</p>
+<p>De forma geral, os resultados indicam que as alterações na composição das capturas apresentaram padrões distintos entre os municípios. Em Borba, as diferenças estiveram predominantemente associadas a tendências graduais na participação das espécies ao longo do tempo, enquanto em Manicoré foram identificadas tanto tendências temporais quanto mudanças adicionais de participação no período (Depois).</p>
+</section>
+</section>
+</section>
+<section id="mapa-comparativo-das-taxas-de-declínio-produtivo-com-estudos-prévios" class="level3" data-number="2.5">
+<h3 data-number="2.5" class="anchored" data-anchor-id="mapa-comparativo-das-taxas-de-declínio-produtivo-com-estudos-prévios"><span class="header-section-number">2.5</span> Mapa: Comparativo das Taxas de Declínio Produtivo com Estudos Prévios</h3>
 <div id="fig-mapa-declinio-reproducao" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-mapa-declinio-reproducao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -1217,11 +1722,11 @@ Figura&nbsp;3: Spatial distribution of fishing activity decline rates along the 
 <section id="relação-entre-cotas-fluviométricas-e-produção-pesqueira" class="level3" data-number="4.2">
 <h3 data-number="4.2" class="anchored" data-anchor-id="relação-entre-cotas-fluviométricas-e-produção-pesqueira"><span class="header-section-number">4.2</span> Relação entre Cotas Fluviométricas e Produção Pesqueira</h3>
 <p>Para avaliar a influência das variações hidrológicas na produção pesqueira e investigar se a operação das Usinas Hidrelétricas (UHEs) alterou essa dinâmica, analisamos a relação entre a cota média anual e a captura total por meio da Correlação de Spearman e de Modelos de Mínimos Quadrados Generalizados (GLS).</p>
-<p>A análise de correlação não paramétrica de Spearman (<a href="#tbl-spearman-cotas" class="quarto-xref">Tabela&nbsp;6</a>) indicou que não há uma associação monotônica significativa entre o nível médio anual do rio e o volume de capturas desembarcadas no município de Borba. Tanto no período anterior ao barramento (<span class="math inline">\(\rho\)</span> = -0,150; <em>p</em> = 0,700) quanto no período posterior (<span class="math inline">\(\rho\)</span> = 0,389; <em>p</em> = 0,169), as variações na cota média não se traduziram em aumentos ou reduções proporcionais diretas na pesca.</p>
+<p>A análise de correlação não paramétrica de Spearman (<a href="#tbl-spearman-cotas" class="quarto-xref">Tabela&nbsp;7</a>) indicou que não há uma associação monotônica significativa entre o nível médio anual do rio e o volume de capturas desembarcadas no município de Borba. Tanto no período anterior ao barramento (<span class="math inline">\(\rho\)</span> = -0,150; <em>p</em> = 0,700) quanto no período posterior (<span class="math inline">\(\rho\)</span> = 0,389; <em>p</em> = 0,169), as variações na cota média não se traduziram em aumentos ou reduções proporcionais diretas na pesca.</p>
 <div id="tbl-spearman-cotas" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-spearman-cotas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;6: <strong>Correlação de Spearman entre a cota média anual e a captura total em Borba, estratificada pelos períodos Antes e Depois das UHEs.</strong>
+Tabela&nbsp;7: <strong>Correlação de Spearman entre a cota média anual e a captura total em Borba, estratificada pelos períodos Antes e Depois das UHEs.</strong>
 </figcaption>
 <div aria-describedby="tbl-spearman-cotas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -1261,12 +1766,12 @@ Tabela&nbsp;6: <strong>Correlação de Spearman entre a cota média anual e a ca
 </div>
 </figure>
 </div>
-<p>Para testar o impacto estrutural das UHEs considerando a autocorrelação temporal da série, ajustamos um modelo GLS incorporando uma estrutura autorregressiva de ordem 1 (AR1). Os resultados dos coeficientes do modelo (<a href="#tbl-gls-coef" class="quarto-xref">Tabela&nbsp;7</a>) e da Análise de Variância (<a href="#tbl-gls-anova" class="quarto-xref">Tabela&nbsp;8</a>) confirmam as observações preliminares.</p>
+<p>Para testar o impacto estrutural das UHEs considerando a autocorrelação temporal da série, ajustamos um modelo GLS incorporando uma estrutura autorregressiva de ordem 1 (AR1). Os resultados dos coeficientes do modelo (<a href="#tbl-gls-coef" class="quarto-xref">Tabela&nbsp;8</a>) e da Análise de Variância (<a href="#tbl-gls-anova" class="quarto-xref">Tabela&nbsp;9</a>) confirmam as observações preliminares.</p>
 <p>O termo de interação entre a cota média anual e o período da barragem não apresentou significância estatística (<em>F</em> = 0,432; <em>p</em> = 0,518). Isso indica que a inclinação da reta de regressão entre a hidrologia e a pesca não sofreu uma alteração estrutural significativa após 2011 em função da cota média. Da mesma forma, os efeitos principais do nível do rio (<em>F</em> = 0,054; <em>p</em> = 0,818) e do período isolado (<em>F</em> = 1,877; <em>p</em> = 0,186) não se mostraram preditores significativos para explicar a variabilidade da captura total neste modelo.</p>
 <div id="tbl-gls-coef" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-gls-coef-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;7: <strong>Coeficientes do modelo de Mínimos Quadrados Generalizados (GLS) avaliando o efeito da cota média e do período de barramento sobre a captura pesqueira.</strong>
+Tabela&nbsp;8: <strong>Coeficientes do modelo de Mínimos Quadrados Generalizados (GLS) avaliando o efeito da cota média e do período de barramento sobre a captura pesqueira.</strong>
 </figcaption>
 <div aria-describedby="tbl-gls-coef-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -1323,7 +1828,7 @@ Tabela&nbsp;7: <strong>Coeficientes do modelo de Mínimos Quadrados Generalizado
 <div id="tbl-gls-anova" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-gls-anova-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;8: <strong>Análise de Variância (ANOVA) do modelo GLS, indicando a significância dos termos principais e da interação.</strong>
+Tabela&nbsp;9: <strong>Análise de Variância (ANOVA) do modelo GLS, indicando a significância dos termos principais e da interação.</strong>
 </figcaption>
 <div aria-describedby="tbl-gls-anova-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -1395,7 +1900,7 @@ Tabela&nbsp;8: <strong>Análise de Variância (ANOVA) do modelo GLS, indicando a
 <div id="tbl-tendencia-pesca" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-tendencia-pesca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;9: <strong>Testes de tendência de Mann-Kendall, Sen’s Slope e verificação de autocorrelação de Durbin-Watson para a produção pesqueira anual por município e período.</strong>
+Tabela&nbsp;10: <strong>Testes de tendência de Mann-Kendall, Sen’s Slope e verificação de autocorrelação de Durbin-Watson para a produção pesqueira anual por município e período.</strong>
 </figcaption>
 <div aria-describedby="tbl-tendencia-pesca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -1510,7 +2015,7 @@ Figura&nbsp;5: Time series of total catch (kg) in the Manicoré fishers’ colon
 <div id="tbl-testes-especies" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-testes-especies-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;10: <strong>Testes de normalidade e de comparação entre os períodos Antes e Depois da produção pesqueira anual por espécie e município.</strong>
+Tabela&nbsp;11: <strong>Testes de normalidade e de comparação entre os períodos Antes e Depois da produção pesqueira anual por espécie e município.</strong>
 </figcaption>
 <div aria-describedby="tbl-testes-especies-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -1919,7 +2424,7 @@ Tabela&nbsp;10: <strong>Testes de normalidade e de comparação entre os períod
 <div id="tbl-tendencia-borba" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-tendencia-borba-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;11: <strong>Teste de tendência de Mann-Kendall e inclinação de Sen da captura anual (kg) por espécie e período na colônia de Borba.</strong>
+Tabela&nbsp;12: <strong>Teste de tendência de Mann-Kendall e inclinação de Sen da captura anual (kg) por espécie e período na colônia de Borba.</strong>
 </figcaption>
 <div aria-describedby="tbl-tendencia-borba-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -2338,7 +2843,7 @@ Tabela&nbsp;11: <strong>Teste de tendência de Mann-Kendall e inclinação de Se
 <div id="tbl-tendencia-manicore" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-tendencia-manicore-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;12: <strong>Teste de tendência de Mann-Kendall e inclinação de Sen da captura anual (kg) por espécie e período na colônia de Manicoré.</strong>
+Tabela&nbsp;13: <strong>Teste de tendência de Mann-Kendall e inclinação de Sen da captura anual (kg) por espécie e período na colônia de Manicoré.</strong>
 </figcaption>
 <div aria-describedby="tbl-tendencia-manicore-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -3063,7 +3568,7 @@ Figura&nbsp;26: Time series of annual catch (kg) for Tucunaré in the Borba and 
 <div id="tbl-tendencia-cotas" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-tendencia-cotas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;13: <strong>Testes de tendência de Mann-Kendall, Sen’s Slope e verificação de autocorrelação de Durbin-Watson para o nível médio anual do rio Madeira por município e período.</strong>
+Tabela&nbsp;14: <strong>Testes de tendência de Mann-Kendall, Sen’s Slope e verificação de autocorrelação de Durbin-Watson para o nível médio anual do rio Madeira por município e período.</strong>
 </figcaption>
 <div aria-describedby="tbl-tendencia-cotas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
