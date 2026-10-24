@@ -234,7 +234,7 @@ A presente análise tem os seguintes objetivos:
 **Objetivo:** Quantificar as mudanças na produção, composição e diversidade das capturas pesqueiras, comparando os períodos “Antes” e “Depois” da operação das UHEs.
 :::
 
-### Análise descritiva
+### Produção Pesqueira: Análise descritiva
 
 Esta etapa possui caráter estritamente descritivo, permitindo dimensionar a magnitude das diferenças observadas entre os períodos, mas isoladamente não estabelece significância estatística nem causalidade. A avaliação inferencial formal será realizada na etapa seguinte por meio de modelagem estatística, considerando simultaneamente a tendência temporal e a autocorrelação entre as observações anuais.
 
@@ -254,7 +254,7 @@ Esta etapa possui caráter estritamente descritivo, permitindo dimensionar a mag
 **Comentários:** A @tbl-estatisticas-pesca revela um declínio evidente nos volumes de captura em ambos os municípios no período posterior à instalação das UHEs. Em Borba, a média anual reduziu de aproximadamente 1.500 toneladas (Antes) para 964 toneladas (Depois), representando uma queda de 35,7%. Em Manicoré, a redução observada foi ainda mais acentuada, com a média caindo de 1.891 toneladas para 706 toneladas, o que equivale a um declínio de 62,7%. Além da diminuição direta no volume produtivo, os dados apontam para um aumento expressivo na instabilidade das capturas no período "Depois". Este cenário é evidenciado pelo salto na amplitude (que passou de 213,1 para 651,4 toneladas em Borba, e de 270,0 para 608,0 toneladas em Manicoré) e pelo aumento acentuado do desvio padrão em ambas as localidades (de cerca de 67 mil para 202 mil kg em Borba, e de 85 mil para 171 mil kg em Manicoré), indicando maior variabilidade e imprevisibilidade interanual das capturas após o barramento.
 
 
-### Modelo de Mínimos Quadrados Generalizados (GLS)
+### Produção Pesqueira: Modelo de Mínimos Quadrados Generalizados (GLS)
 
 A comparação descritiva entre os períodos (Antes) e (Depois) permite dimensionar as alterações observadas na produção pesqueira, mas não considera que os registros correspondem a observações anuais sucessivas. Em séries temporais, valores registrados em anos próximos podem apresentar dependência entre si, violando o pressuposto de independência dos erros exigido pelos modelos lineares convencionais. Por esse motivo, antes da comparação inferencial entre os períodos, foi investigada a estrutura temporal dos dados.
 
@@ -424,6 +424,66 @@ Os parâmetros de autocorrelação foram $\phi=0,854$ em Borba e $\phi=0,841$ em
 ::: {.linha-baixar}
 [<i class="bi bi-download"></i> Baixar gráfico de Manicoré (PNG)](graficos/Time_Series_Manicore_GLS.png){.baixar download="Time_Series_Manicore_GLS.png"}
 :::
+
+### Composição das Capturas: Análise descritiva
+
+Esta etapa possui caráter estritamente descritivo e busca caracterizar as alterações observadas na composição das capturas pesqueiras entre os períodos (Antes) e (Depois). Para cada espécie, foram consideradas a variação percentual da captura média anual e sua participação média relativa na produção pesqueira total de cada município. A mudança na participação foi expressa em pontos percentuais (p.p.), permitindo identificar as espécies que ganharam ou perderam representatividade na composição das capturas, independentemente das alterações observadas em sua captura absoluta.
+
+Essas medidas permitem dimensionar as alterações na estrutura das capturas, mas, isoladamente, não estabelecem significância estatística nem causalidade. A avaliação inferencial será realizada posteriormente, considerando também a possível presença de tendência temporal e autocorrelação nas séries anuais das espécies.
+
+| **Município** | **Espécie** | **Variação da Captura**<br>**(%)** | **Participação Média**<br>**Antes (%)** | **Participação Média**<br>**Depois (%)** | **Mudança na Participação**<br>**(p.p.)** |
+|:---|:---|:---|:---|:---|:---|
+| **Borba** | Filhote | −50,43 | 9,41 | 7,01 | −2,40 |
+|  | Dourada | −19,68 | 7,01 | 8,92 | +1,91 |
+|  | Sardinha | −20,58 | 6,66 | 8,39 | +1,73 |
+|  | Jaraqui | −42,37 | 11,48 | 10,30 | −1,18 |
+|  | Pirarara | −21,44 | 4,05 | 5,00 | +0,95 |
+|  | Tambaqui | −58,84 | 2,26 | 1,37 | −0,89 |
+|  | Curimatã | −29,97 | 10,81 | 11,70 | +0,89 |
+|  | Pirapitinga | −57,95 | 2,23 | 1,38 | −0,85 |
+|  | Pacu | −39,50 | 10,10 | 9,74 | −0,36 |
+|  | Carauaçu | −47,04 | 1,60 | 1,30 | −0,31 |
+|  | Branquinha | −33,24 | 7,99 | 8,29 | +0,30 |
+|  | Surubim | −32,04 | 6,99 | 7,28 | +0,29 |
+|  | Cara branco | −41,70 | 2,88 | 2,61 | −0,27 |
+|  | Caparari | −33,37 | 6,48 | 6,69 | +0,22 |
+|  | Tucunaré | −45,71 | 0,91 | 0,76 | −0,15 |
+|  | Matrinxã | −36,84 | 7,52 | 7,38 | −0,14 |
+|  | Piranambu/Barbado | −14,14 | 0,37 | 0,50 | +0,13 |
+|  | Aracu | −27,32 | 0,78 | 0,88 | +0,10 |
+|  | Pescada | −32,26 | 0,49 | 0,52 | +0,04 |
+| **Manicoré** | Dourada | −39,23 | 5,60 | 9,22 | +3,62 |
+|  | Sardinha | −57,04 | 9,99 | 11,60 | +1,61 |
+|  | Branquinha | −69,81 | 6,19 | 4,87 | −1,32 |
+|  | Surubim | −69,65 | 5,80 | 4,58 | −1,23 |
+|  | Pacu | −60,67 | 12,30 | 13,20 | +0,90 |
+|  | Caparari | −67,95 | 5,91 | 5,01 | −0,90 |
+|  | Tambaqui | −74,78 | 2,41 | 1,62 | −0,79 |
+|  | Pirapitinga | −72,89 | 1,95 | 1,40 | −0,55 |
+|  | Tucunaré | −73,34 | 1,68 | 1,19 | −0,50 |
+|  | Cara branco | −73,97 | 1,42 | 0,98 | −0,44 |
+|  | Matrinxã | −64,91 | 6,29 | 5,89 | −0,40 |
+|  | Carauaçu | −70,40 | 1,26 | 1,00 | −0,26 |
+|  | Filhote | −61,08 | 5,99 | 6,17 | +0,18 |
+|  | Aracu | −56,31 | 0,75 | 0,91 | +0,16 |
+|  | Pirarara | −63,03 | 6,07 | 5,92 | −0,15 |
+|  | Curimatã | −62,53 | 13,34 | 13,39 | +0,04 |
+|  | Jaraqui | −62,75 | 12,41 | 12,43 | +0,02 |
+|  | Pescada | −63,43 | 0,64 | 0,64 | +0,00 |
+
+: **Variação da captura média anual e da participação relativa das espécies na composição das capturas pesqueiras entre os períodos (Antes) e (Depois).** {#tbl-composicao-especies tbl-colwidths="[11,24,16,17,17,15]"}
+
+::: {.nota-tabela}
+**Notas:** Antes = 2002–2010 ($n=9$ anos) | Depois = 2011–2024 ($n=14$ anos) | Variação da Captura = $[(\bar{P}_{Depois}-\bar{P}_{Antes})/\bar{P}_{Antes}]\times100$, em que valores negativos representam redução da captura média anual e valores positivos representam aumento | Participação Média = média das participações relativas anuais da espécie na produção pesqueira total de cada município | Mudança na Participação = Participação Média (Depois) − Participação Média (Antes), expressa em pontos percentuais (p.p.) | Valores positivos indicam ganho de participação relativa e valores negativos indicam perda de participação relativa.
+:::
+
+**Comentários:** A @tbl-composicao-especies evidencia que todas as espécies avaliadas apresentaram redução na captura média anual no período (Depois), embora a magnitude dessas reduções tenha variado entre espécies e municípios. Entretanto, as reduções não ocorreram de maneira proporcional entre todas as espécies, resultando em alterações em suas participações relativas na composição das capturas.
+
+Em Borba, as maiores perdas de participação média foram observadas para Filhote (−2,40 p.p.), Jaraqui (−1,18 p.p.), Tambaqui (−0,89 p.p.) e Pirapitinga (−0,85 p.p.). Em sentido contrário, Dourada (+1,91 p.p.), Sardinha (+1,73 p.p.), Pirarara (+0,95 p.p.) e Curimatã (+0,89 p.p.) apresentaram os maiores ganhos de participação relativa. A Dourada, por exemplo, apresentou redução de 19,68% na captura média anual, porém sua participação aumentou de 7,01% para 8,92%, mostrando que uma redução na quantidade capturada não implica necessariamente perda de representatividade na composição.
+
+Em Manicoré, as maiores reduções na captura média anual foram observadas para Tambaqui (−74,78%), Cara branco (−73,97%), Tucunaré (−73,34%) e Pirapitinga (−72,89%). Quanto à composição relativa, Dourada apresentou o maior ganho de participação, passando de 5,60% para 9,22% (+3,62 p.p.), seguida por Sardinha (+1,61 p.p.) e Pacu (+0,90 p.p.). As maiores perdas de participação foram observadas para Branquinha (−1,32 p.p.), Surubim (−1,23 p.p.) e Caparari (−0,90 p.p.). Curimatã, Jaraqui e Pescada apresentaram alterações médias próximas de zero, indicando maior estabilidade relativa de sua participação entre os períodos.
+
+De forma geral, os resultados descritivos indicam que a redução da produção pesqueira foi acompanhada por uma redistribuição da participação relativa das espécies, sugerindo alterações na composição das capturas entre os períodos (Antes) e (Depois). Entretanto, essas diferenças ainda devem ser avaliadas inferencialmente, considerando a estrutura temporal das observações antes de se concluir quais alterações apresentam evidência estatística.
 
 
 ### Mapa: Comparativo das Taxas de Declínio Produtivo com Estudos Prévios
@@ -1010,3 +1070,175 @@ Compara dois grupos independentes a partir da ordenação (postos) das observaç
 - $H_1$: os dois períodos têm distribuições de produção diferentes.
 :::
 
+
+
+
+::: {#calc-composicao-especies .metodo .metodo-composicao}
+**Métricas de Alteração da Composição das Capturas**
+
+As alterações na composição das capturas pesqueiras foram descritas a partir de três medidas complementares: a variação percentual da captura média anual de cada espécie, sua participação relativa na produção pesqueira total de cada ano e a mudança dessa participação entre os períodos (Antes) e (Depois). Essas medidas fundamentam os resultados apresentados na @tbl-composicao-especies.
+
+#### Variação percentual da captura por espécie
+
+A variação percentual da captura representa a mudança relativa na captura média anual de cada espécie entre os períodos (Antes) e (Depois), sendo calculada por:
+
+$$
+V_i =
+\left(
+\frac{
+\bar{X}_{i,\text{Depois}} -
+\bar{X}_{i,\text{Antes}}
+}{
+\bar{X}_{i,\text{Antes}}
+}
+\right)
+\times 100,
+$$
+
+em que $\bar{X}_{i,\text{Antes}}$ e $\bar{X}_{i,\text{Depois}}$ representam, respectivamente, as capturas médias anuais da espécie $i$ nos períodos (Antes) e (Depois).
+
+Valores negativos indicam redução da captura média anual, enquanto valores positivos indicam aumento.
+
+Como exemplo, para o Filhote em Borba:
+
+$$
+\small
+V_{\text{Filhote}}
+=
+\left(
+\frac{
+69.911 - 141.030
+}{
+141.030
+}
+\right)
+\times 100
+=
+-50{,}43\%.
+$$
+
+Portanto, a captura média anual do Filhote foi aproximadamente 50,43% menor no período (Depois).
+
+Para a Dourada em Manicoré:
+
+$$
+\small
+V_{\text{Dourada}}
+=
+\left(
+\frac{
+64.285{,}71 - 105.777{,}78
+}{
+105.777{,}78
+}
+\right)
+\times 100
+=
+-39{,}23\%.
+$$
+
+Assim, a captura média anual da Dourada apresentou redução de aproximadamente 39,23%.
+
+---
+
+#### Participação relativa anual das espécies
+
+A participação relativa indica quanto cada espécie representa da produção pesqueira total registrada em determinado município e ano.
+
+Para a espécie $i$, no ano $t$, foi calculada por:
+
+$$
+p_{it}
+=
+\left(
+\frac{
+X_{it}
+}{
+X_{\cdot t}
+}
+\right)
+\times 100,
+$$
+
+em que $X_{it}$ corresponde à captura da espécie $i$ no ano $t$ e $X_{\cdot t}$ representa a captura total de todas as espécies registradas no mesmo município e ano.
+
+Dessa forma, uma participação de 10%, por exemplo, indica que a espécie respondeu por 10% de toda a produção pesqueira registrada naquele ano.
+
+Após o cálculo das participações anuais, foi obtida a participação média de cada espécie dentro de cada período:
+
+$$
+\bar{p}_{i,j}
+=
+\frac{1}{n_j}
+\sum_{t=1}^{n_j} p_{it},
+$$
+
+em que $j$ representa o período (Antes) ou (Depois), e $n_j$ corresponde ao número de anos pertencentes ao respectivo período.
+
+Assim:
+
+$$
+n_{\text{Antes}}=9
+\qquad\text{e}\qquad
+n_{\text{Depois}}=14.
+$$
+
+Portanto, a participação média apresentada na @tbl-composicao-especies corresponde à média das participações relativas anuais da espécie, e não à simples razão entre duas médias de captura.
+
+---
+
+#### Mudança na participação relativa
+
+A alteração na composição foi quantificada pela diferença entre a participação média da espécie no período (Depois) e sua participação média no período (Antes):
+
+$$
+\Delta p_i
+=
+\bar{p}_{i,\text{Depois}}
+-
+\bar{p}_{i,\text{Antes}}.
+$$
+
+Como ambas as medidas são percentuais, essa diferença é expressa em **pontos percentuais (p.p.)**.
+
+Valores positivos indicam ganho de participação relativa na composição das capturas, enquanto valores negativos indicam perda de participação.
+
+Como exemplo, para o Filhote em Borba:
+
+$$
+\small
+\Delta p_{\text{Filhote}}
+=
+7{,}01 - 9{,}41
+=
+-2{,}40\text{ p.p.}
+$$
+
+Portanto, além da redução de 50,43% na captura média anual, o Filhote perdeu aproximadamente 2,40 pontos percentuais de participação na composição das capturas.
+
+Por outro lado, para a Dourada em Borba:
+
+$$
+\small
+\Delta p_{\text{Dourada}}
+=
+8{,}92 - 7{,}01
+=
++1{,}91\text{ p.p.}
+$$
+
+Embora sua captura média anual tenha apresentado redução de 19,68%, sua participação relativa aumentou em aproximadamente 1,91 ponto percentual. Esse resultado ocorre porque a mudança na composição depende da participação da espécie na produção total, e não apenas da alteração de sua captura absoluta.
+
+Da mesma forma, para a Dourada em Manicoré:
+
+$$
+\small
+\Delta p_{\text{Dourada}}
+=
+9{,}22 - 5{,}60
+=
++3{,}62\text{ p.p.}
+$$
+
+Nesse caso, embora a captura média anual tenha diminuído 39,23%, a espécie aumentou sua participação relativa na composição das capturas em aproximadamente 3,62 pontos percentuais.
+:::
