@@ -486,6 +486,127 @@ Em Manicoré, as maiores reduções na captura média anual foram observadas par
 De forma geral, os resultados descritivos indicam que a redução da produção pesqueira foi acompanhada por uma redistribuição da participação relativa das espécies, sugerindo alterações na composição das capturas entre os períodos (Antes) e (Depois). Entretanto, essas diferenças ainda devem ser avaliadas inferencialmente, considerando a estrutura temporal das observações antes de se concluir quais alterações apresentam evidência estatística.
 
 
+### Composição das Capturas: Modelo de Mínimos Quadrados Generalizados (GLS)
+
+Após a análise descritiva da composição das capturas, avaliou-se se a participação relativa anual de cada espécie apresentou alterações entre os períodos (Antes) e (Depois), considerando simultaneamente a tendência temporal e a possível dependência entre observações anuais sucessivas. Para cada espécie e município, foi ajustado um modelo utilizando toda a série de 2002 a 2024, tendo a participação relativa anual (%) como variável resposta.
+
+A independência temporal dos resíduos do modelo inicial, contendo período e tempo, foi avaliada pelo teste de Durbin–Watson e pela ACF. O teste de Durbin–Watson indicou evidência de autocorrelação em 33 das 37 séries analisadas. Em seguida, foram comparados, pelo LRT, um modelo com erros independentes e um modelo incorporando estrutura autorregressiva de primeira ordem, AR(1). A inclusão dessa estrutura melhorou significativamente o ajuste em 27 séries, sendo selecionada para 17 das 19 espécies de Borba e 10 das 18 espécies de Manicoré. Os modelos finais foram estimados por máxima verossimilhança (ML).
+
+O modelo utilizado para cada espécie $i$ foi especificado por:
+
+$$
+participacao_{i,t}
+=
+\beta_{0i}
++
+\beta_{1i}\,periodo\_barragemDepois_t
++
+\beta_{2i}\,tempo_t
++
+\varepsilon_{i,t},
+$$
+
+em que:
+
+$$
+tempo = ano - 2002.
+$$
+
+Para as espécies em que a estrutura AR(1) foi selecionada, considerou-se adicionalmente:
+
+$$
+\varepsilon_{i,t}
+=
+\phi_i\varepsilon_{i,t-1}+u_{i,t}.
+$$
+
+Nesse modelo, $\beta_{1i}$ representa a mudança adicional na participação relativa da espécie no período (Depois), em relação ao período (Antes), após considerar a tendência temporal. O parâmetro $\beta_{2i}$ representa a variação linear média da participação ao longo dos anos, expressa em pontos percentuais por ano (p.p./ano), enquanto $\phi_i$ representa a intensidade da dependência residual entre anos consecutivos.
+
+A adequação dos modelos finais foi avaliada pelos resíduos normalizados. O teste de Shapiro–Wilk não indicou desvios de normalidade em 26 das 37 séries ($p\geq0,05$). Em Borba, foram observados desvios para Branquinha ($p=0,002$), Cara branco ($p=0,004$), Pacu ($p=0,035$), Pescada ($p=0,002$), Piranambu/Barbado ($p=0,039$), Pirarara ($p=0,050$) e Sardinha ($p=0,046$). Em Manicoré, os desvios ocorreram para Dourada ($p<0,001$), Jaraqui ($p=0,026$), Pirarara ($p<0,001$) e Sardinha ($p=0,002$). A inspeção dos QQ-plots indicou que esses desvios ocorreram predominantemente nas caudas das distribuições, sem evidência de inadequação generalizada dos resíduos. A ACF dos resíduos finais também não indicou persistência relevante da autocorrelação no primeiro lag.
+
+#### Hipóteses avaliadas no modelo
+
+##### **Efeito do período - $\beta_1$**
+
+O efeito do período avalia se houve mudança adicional na participação relativa da espécie no período (Depois), após considerar a tendência temporal.
+
+$$
+H_0:\beta_1=0
+\qquad\text{versus}\qquad
+H_1:\beta_1\neq0.
+$$
+
+Sob $H_0$, não existe mudança adicional na participação relativa entre os períodos (Antes) e (Depois). Sob $H_1$, existe mudança adicional na participação da espécie.
+
+##### **Efeito do tempo - $\beta_2$**
+
+O efeito do tempo avalia se a participação relativa da espécie apresenta uma tendência linear ao longo dos anos.
+
+$$
+H_0:\beta_2=0
+\qquad\text{versus}\qquad
+H_1:\beta_2\neq0.
+$$
+
+Sob $H_0$, não existe tendência temporal linear na participação da espécie. Sob $H_1$, existe tendência temporal crescente ou decrescente.
+
+Como foram realizados testes para múltiplas espécies, os $p$-valores associados a $\beta_1$ e $\beta_2$ foram corrigidos pelo procedimento de Benjamini–Hochberg (FDR), separadamente para cada município. Adotou-se nível de significância de 5%.
+
+| **Município** | **Espécie** | **DW ($p$)** | **Modelo final** | **Efeito do período**<br>**$\hat{\beta}_1$ (IC95%; p.p.)** | **Teste de $\beta_1$**<br>**$t$ ($p_{FDR}$)** | **Efeito do tempo**<br>**$\hat{\beta}_2$ (IC95%; p.p./ano)** | **Teste de $\beta_2$**<br>**$t$ ($p_{FDR}$)** | **$\phi$** |
+|:---|:---|:---|:---|:---|:---|:---|:---|:---|
+| **Borba** | Aracu | 0,804 (<0,001) | GLS + AR(1) | 0,016 [−0,082; 0,114] | 0,34 (0,841) | 0,004 [−0,005; 0,014] | 0,97 (0,434) | 0,726 |
+|  | Branquinha | 0,467 (<0,001) | GLS + AR(1) | 0,113 [−0,540; 0,766] | 0,36 (0,841) | 0,057 [−0,015; 0,128] | 1,64 (0,169) | 0,815 |
+|  | Caparari | 1,632 (0,090) | GLS | 0,366 [−0,053; 0,785] | 1,82 (0,793) | −0,013 [−0,044; 0,018] | −0,88 (0,460) | — |
+|  | Cara branco | 0,700 (<0,001) | GLS + AR(1) | −0,023 [−0,277; 0,232] | −0,19 (0,854) | −0,022 [−0,044; −0,000] | −2,10 (0,084) | 0,646 |
+|  | Carauaçu | 0,917 (<0,001) | GLS + AR(1) | −0,027 [−0,211; 0,158] | −0,30 (0,841) | −0,023 [−0,037; −0,008] | −3,21 (0,010) | 0,540 |
+|  | Curimatã | 0,988 (<0,001) | GLS + AR(1) | 0,506 [−0,374; 1,386] | 1,20 (0,841) | 0,019 [−0,058; 0,095] | 0,51 (0,618) | 0,655 |
+|  | Dourada | 0,499 (<0,001) | GLS + AR(1) | −0,676 [−1,190; −0,161] | −2,74 (0,239) | 0,185 [0,125; 0,245] | 6,46 (<0,001) | 0,838 |
+|  | Filhote | 0,444 (<0,001) | GLS + AR(1) | −0,216 [−1,172; 0,741] | −0,47 (0,841) | −0,167 [−0,271; −0,062] | −3,33 (0,009) | 0,811 |
+|  | Jaraqui | 0,880 (<0,001) | GLS + AR(1) | −0,106 [−0,958; 0,745] | −0,26 (0,841) | −0,072 [−0,150; 0,006] | −1,92 (0,109) | 0,703 |
+|  | Matrinxã | 0,939 (<0,001) | GLS + AR(1) | 0,150 [−0,377; 0,676] | 0,59 (0,841) | −0,017 [−0,062; 0,029] | −0,76 (0,481) | 0,647 |
+|  | Pacu | 0,626 (<0,001) | GLS + AR(1) | −0,234 [−1,258; 0,790] | −0,48 (0,841) | 0,059 [−0,095; 0,213] | 0,80 (0,481) | 0,921 |
+|  | Pescada | 0,434 (<0,001) | GLS + AR(1) | −0,032 [−0,078; 0,014] | −1,44 (0,841) | 0,006 [0,001; 0,011] | 2,30 (0,062) | 0,842 |
+|  | Piranambu/Barbado | 1,009 (0,001) | GLS + AR(1) | −0,015 [−0,086; 0,056] | −0,44 (0,841) | 0,011 [0,006; 0,017] | 4,27 (0,001) | 0,519 |
+|  | Pirapitinga | 0,702 (<0,001) | GLS + AR(1) | −0,186 [−0,581; 0,209] | −0,98 (0,841) | −0,075 [−0,120; −0,030] | −3,46 (0,008) | 0,832 |
+|  | Pirarara | 1,079 (0,002) | GLS + AR(1) | 0,105 [−0,088; 0,298] | 1,13 (0,841) | 0,072 [0,057; 0,087] | 10,13 (<0,001) | 0,444 |
+|  | Sardinha | 0,393 (<0,001) | GLS + AR(1) | 0,096 [−0,542; 0,735] | 0,31 (0,841) | 0,103 [0,026; 0,180] | 2,78 (0,024) | 0,854 |
+|  | Surubim | 0,535 (<0,001) | GLS + AR(1) | 0,276 [−0,280; 0,832] | 1,03 (0,841) | −0,047 [−0,133; 0,039] | −1,15 (0,360) | 0,929 |
+|  | Tambaqui | 1,026 (0,001) | GLS + AR(1) | 0,149 [−0,264; 0,563] | 0,75 (0,841) | −0,091 [−0,124; −0,059] | −5,94 (<0,001) | 0,468 |
+|  | Tucunaré | 1,262 (0,010) | GLS | 0,019 [−0,042; 0,080] | 0,66 (0,841) | −0,015 [−0,019; −0,011] | −7,00 (<0,001) | — |
+| **Manicoré** | Aracu | 1,493 (0,044) | GLS | −0,083 [−0,260; 0,095] | −0,97 (0,420) | 0,021 [0,008; 0,034] | 3,31 (0,008) | — |
+|  | Branquinha | 0,540 (<0,001) | GLS + AR(1) | −0,591 [−1,062; −0,120] | −2,62 (0,030) | −0,071 [−0,125; −0,017] | −2,75 (0,022) | 0,832 |
+|  | Caparari | 0,562 (<0,001) | GLS + AR(1) | −0,524 [−0,894; −0,153] | −2,95 (0,018) | −0,034 [−0,070; 0,002] | −1,97 (0,087) | 0,751 |
+|  | Cara branco | 1,230 (0,008) | GLS | −0,180 [−0,318; −0,041] | −2,71 (0,027) | −0,023 [−0,033; −0,012] | −4,62 (<0,001) | — |
+|  | Carauaçu | 2,104 (0,432) | GLS | −0,267 [−0,355; −0,179] | −6,34 (<0,001) | 0,000 [−0,006; 0,007] | 0,14 (0,891) | — |
+|  | Curimatã | 0,796 (<0,001) | GLS + AR(1) | −0,204 [−0,964; 0,555] | −0,56 (0,615) | 0,051 [−0,017; 0,120] | 1,56 (0,173) | 0,691 |
+|  | Dourada | 1,507 (0,048) | GLS | 2,548 [1,996; 3,099] | 9,63 (<0,001) | 0,093 [0,053; 0,134] | 4,79 (<0,001) | — |
+|  | Filhote | 0,753 (<0,001) | GLS + AR(1) | 0,708 [0,361; 1,056] | 4,25 (0,002) | −0,056 [−0,091; −0,022] | −3,42 (0,007) | 0,760 |
+|  | Jaraqui | 0,947 (<0,001) | GLS + AR(1) | 0,530 [−0,397; 1,456] | 1,19 (0,342) | −0,024 [−0,101; 0,054] | −0,63 (0,600) | 0,615 |
+|  | Matrinxã | 1,156 (0,004) | GLS + AR(1) | −0,934 [−1,569; −0,300] | −3,07 (0,018) | 0,010 [−0,053; 0,074] | 0,35 (0,776) | 0,761 |
+|  | Pacu | 0,648 (<0,001) | GLS + AR(1) | −1,842 [−2,572; −1,111] | −5,26 (<0,001) | 0,228 [0,162; 0,294] | 7,23 (<0,001) | 0,692 |
+|  | Pescada | 1,259 (0,010) | GLS | −0,062 [−0,197; 0,073] | −0,96 (0,420) | 0,005 [−0,004; 0,015] | 1,14 (0,319) | — |
+|  | Pirapitinga | 1,212 (0,007) | GLS | −0,181 [−0,421; 0,059] | −1,57 (0,198) | −0,032 [−0,050; −0,014] | −3,79 (0,004) | — |
+|  | Pirarara | 1,738 (0,141) | GLS | 0,773 [0,105; 1,441] | 2,41 (0,042) | −0,081 [−0,130; −0,031] | −3,42 (0,007) | — |
+|  | Sardinha | 1,089 (0,002) | GLS + AR(1) | 0,935 [0,329; 1,540] | 3,22 (0,015) | 0,085 [0,030; 0,141] | 3,22 (0,009) | 0,704 |
+|  | Surubim | 0,687 (<0,001) | GLS + AR(1) | −0,210 [−0,753; 0,333] | −0,81 (0,483) | −0,103 [−0,155; −0,052] | −4,17 (0,002) | 0,735 |
+|  | Tambaqui | 1,265 (0,010) | GLS + AR(1) | 0,088 [−0,572; 0,748] | 0,28 (0,784) | −0,058 [−0,112; −0,004] | −2,22 (0,057) | 0,581 |
+|  | Tucunaré | 2,069 (0,399) | GLS | −0,302 [−0,515; −0,088] | −2,94 (0,018) | −0,017 [−0,033; −0,001] | −2,26 (0,057) | — |
+
+: Resultados dos modelos GLS para a participação relativa das espécies na composição das capturas entre 2002 e 2024. {#tbl-gls-composicao}
+
+::: {.nota-tabela}
+Notas: DW = estatística de Durbin–Watson obtida a partir do modelo inicial contendo período e tempo | $\hat{\beta}_1$ = efeito do período, correspondente à mudança adicional da participação relativa em (Depois), em pontos percentuais (p.p.) | $\hat{\beta}_2$ = efeito do tempo, correspondente à variação linear média da participação relativa em pontos percentuais por ano (p.p./ano) | IC95% = intervalo de confiança nominal de 95% | $p_{FDR}$ = $p$-valor corrigido pelo procedimento de Benjamini–Hochberg | $\phi$ = parâmetro de autocorrelação de primeira ordem | — = estrutura AR(1) não selecionada pelo LRT.
+:::
+
+**Comentários:** Conforme a @tbl-gls-composicao, em Borba nenhuma espécie apresentou evidência de mudança adicional de participação entre os períodos (Antes) e (Depois) após a correção por FDR ($p_{FDR}\geq0,05$). Entretanto, foram identificadas tendências temporais positivas para Dourada ($\hat{\beta}_2=0,185$ p.p./ano; $p_{FDR}<0,001$), Piranambu/Barbado ($0,011$ p.p./ano; $p_{FDR}=0,001$), Pirarara ($0,072$ p.p./ano; $p_{FDR}<0,001$) e Sardinha ($0,103$ p.p./ano; $p_{FDR}=0,024$). Tendências negativas foram observadas para Carauaçu ($-0,023$ p.p./ano; $p_{FDR}=0,010$), Filhote ($-0,167$; $p_{FDR}=0,009$), Pirapitinga ($-0,075$; $p_{FDR}=0,008$), Tambaqui ($-0,091$; $p_{FDR}<0,001$) e Tucunaré ($-0,015$; $p_{FDR}<0,001$).
+
+Em Manicoré, foram observadas reduções adicionais da participação no período (Depois) para Branquinha ($\hat{\beta}_1=-0,591$ p.p.; $p_{FDR}=0,030$), Caparari ($-0,524$; $p_{FDR}=0,018$), Cara branco ($-0,180$; $p_{FDR}=0,027$), Carauaçu ($-0,267$; $p_{FDR}<0,001$), Matrinxã ($-0,934$; $p_{FDR}=0,018$), Pacu ($-1,842$; $p_{FDR}<0,001$) e Tucunaré ($-0,302$; $p_{FDR}=0,018$). Em sentido contrário, Dourada ($\hat{\beta}_1=2,548$ p.p.; $p_{FDR}<0,001$), Filhote ($0,708$; $p_{FDR}=0,002$), Pirarara ($0,773$; $p_{FDR}=0,042$) e Sardinha ($0,935$; $p_{FDR}=0,015$) apresentaram aumento adicional de participação.
+
+Quanto ao efeito do tempo em Manicoré, foram observadas tendências positivas para Aracu ($\hat{\beta}_2=0,021$ p.p./ano; $p_{FDR}=0,008$), Dourada ($0,093$; $p_{FDR}<0,001$), Pacu ($0,228$; $p_{FDR}<0,001$) e Sardinha ($0,085$; $p_{FDR}=0,009$). Tendências negativas foram identificadas para Branquinha ($-0,071$ p.p./ano; $p_{FDR}=0,022$), Cara branco ($-0,023$; $p_{FDR}<0,001$), Filhote ($-0,056$; $p_{FDR}=0,007$), Pirapitinga ($-0,032$; $p_{FDR}=0,004$), Pirarara ($-0,081$; $p_{FDR}=0,007$) e Surubim ($-0,103$; $p_{FDR}=0,002$).
+
+De forma geral, os resultados indicam que as alterações na composição das capturas apresentaram padrões distintos entre os municípios. Em Borba, as diferenças estiveram predominantemente associadas a tendências graduais na participação das espécies ao longo do tempo, enquanto em Manicoré foram identificadas tanto tendências temporais quanto mudanças adicionais de participação no período (Depois).
+
+
 ### Mapa: Comparativo das Taxas de Declínio Produtivo com Estudos Prévios
 
 
