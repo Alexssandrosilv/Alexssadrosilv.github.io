@@ -425,7 +425,8 @@ Os parâmetros de autocorrelação foram $\phi=0,854$ em Borba e $\phi=0,841$ em
 [<i class="bi bi-download"></i> Baixar gráfico de Manicoré (PNG)](graficos/Time_Series_Manicore_GLS.png){.baixar download="Time_Series_Manicore_GLS.png"}
 :::
 
-### Composição das Capturas: Análise descritiva
+
+### Composição das Capturas: Análise Descritiva
 
 Esta etapa possui caráter estritamente descritivo e busca caracterizar as alterações observadas na composição das capturas pesqueiras entre os períodos (Antes) e (Depois). Para cada espécie, foram consideradas a variação percentual da captura média anual e sua participação média relativa na produção pesqueira total de cada município. A mudança na participação foi expressa em pontos percentuais (p.p.), permitindo identificar as espécies que ganharam ou perderam representatividade na composição das capturas, independentemente das alterações observadas em sua captura absoluta.
 
@@ -477,20 +478,37 @@ Essas medidas permitem dimensionar as alterações na estrutura das capturas, ma
 **Notas:** Antes = 2002–2010 ($n=9$ anos) | Depois = 2011–2024 ($n=14$ anos) | Variação da Captura = $[(\bar{P}_{Depois}-\bar{P}_{Antes})/\bar{P}_{Antes}]\times100$, em que valores negativos representam redução da captura média anual e valores positivos representam aumento | Participação Média = média das participações relativas anuais da espécie na produção pesqueira total de cada município | Mudança na Participação = Participação Média (Depois) − Participação Média (Antes), expressa em pontos percentuais (p.p.) | Valores positivos indicam ganho de participação relativa e valores negativos indicam perda de participação relativa.
 :::
 
-**Comentários:** A @tbl-composicao-especies evidencia que todas as espécies avaliadas apresentaram redução na captura média anual no período (Depois), embora a magnitude dessas reduções tenha variado entre espécies e municípios. Entretanto, as reduções não ocorreram de maneira proporcional entre todas as espécies, resultando em alterações em suas participações relativas na composição das capturas.
+**Comentários:** Conforme a @tbl-composicao-especies, todas as espécies apresentaram redução da captura média anual entre os períodos, embora em diferentes magnitudes. Como essas reduções não ocorreram de forma proporcional, também foram observadas alterações na participação relativa das espécies na composição das capturas.
 
-Em Borba, as maiores perdas de participação média foram observadas para Filhote (−2,40 p.p.), Jaraqui (−1,18 p.p.), Tambaqui (−0,89 p.p.) e Pirapitinga (−0,85 p.p.). Em sentido contrário, Dourada (+1,91 p.p.), Sardinha (+1,73 p.p.), Pirarara (+0,95 p.p.) e Curimatã (+0,89 p.p.) apresentaram os maiores ganhos de participação relativa. A Dourada, por exemplo, apresentou redução de 19,68% na captura média anual, porém sua participação aumentou de 7,01% para 8,92%, mostrando que uma redução na quantidade capturada não implica necessariamente perda de representatividade na composição.
+Em Borba, as maiores perdas de participação foram observadas para Filhote ($-2,40$ p.p.) e Jaraqui ($-1,18$ p.p.), enquanto Dourada ($+1,91$ p.p.) e Sardinha ($+1,73$ p.p.) apresentaram os maiores ganhos. Assim, mesmo apresentando redução da captura média anual, algumas espécies passaram a representar parcela maior da produção total por apresentarem reduções proporcionalmente menores que as demais.
 
-Em Manicoré, as maiores reduções na captura média anual foram observadas para Tambaqui (−74,78%), Cara branco (−73,97%), Tucunaré (−73,34%) e Pirapitinga (−72,89%). Quanto à composição relativa, Dourada apresentou o maior ganho de participação, passando de 5,60% para 9,22% (+3,62 p.p.), seguida por Sardinha (+1,61 p.p.) e Pacu (+0,90 p.p.). As maiores perdas de participação foram observadas para Branquinha (−1,32 p.p.), Surubim (−1,23 p.p.) e Caparari (−0,90 p.p.). Curimatã, Jaraqui e Pescada apresentaram alterações médias próximas de zero, indicando maior estabilidade relativa de sua participação entre os períodos.
+Em Manicoré, as alterações foram mais acentuadas. Dourada apresentou o maior ganho de participação ($+3,62$ p.p.), seguida de Sardinha ($+1,61$ p.p.) e Pacu ($+0,90$ p.p.). Em sentido contrário, as maiores perdas ocorreram para Branquinha ($-1,32$ p.p.), Surubim ($-1,23$ p.p.) e Caparari ($-0,90$ p.p.). Esses resultados evidenciam uma redistribuição da representatividade das espécies na composição das capturas entre os períodos.
 
-De forma geral, os resultados descritivos indicam que a redução da produção pesqueira foi acompanhada por uma redistribuição da participação relativa das espécies, sugerindo alterações na composição das capturas entre os períodos (Antes) e (Depois). Entretanto, essas diferenças ainda devem ser avaliadas inferencialmente, considerando a estrutura temporal das observações antes de se concluir quais alterações apresentam evidência estatística.
+
+### Composição das Capturas: Boxplots
+
+Como complemento à análise descritiva, as Figuras @fig-boxplot-borba e @fig-boxplot-manicore apresentam a distribuição das capturas anuais de cada espécie nos períodos (Antes) e (Depois). Os boxplots permitem visualizar diferenças na posição central, na dispersão e na ocorrência de valores discrepantes entre os períodos. O eixo vertical foi apresentado em escala logarítmica devido às diferentes magnitudes de captura entre as espécies.
+
+![**PT-BR:** Distribuição da captura anual (kg, escala logarítmica) por espécie em Borba, comparando os períodos (Antes) (2002–2010; $n=9$ anos; azul escuro) e (Depois) (2011–2024; $n=14$ anos; azul claro). As caixas representam o intervalo interquartil, a linha no interior de cada caixa indica a mediana, as hastes se estendem aos valores situados dentro de 1,5 vez o intervalo interquartil e os pontos representam valores discrepantes (*outliers*). A figura possui caráter descritivo.<br><br>**EN:** Distribution of annual catch (kg, logarithmic scale) by species in Borba, comparing the (Before) period (2002–2010; $n=9$ years; dark blue) and the (After) period (2011–2024; $n=14$ years; light blue). Boxes represent the interquartile range, the horizontal line inside each box indicates the median, whiskers extend to values within 1.5 times the interquartile range, and points represent outliers. The figure is descriptive.](graficos/Boxplot_Species_Borba.png){#fig-boxplot-borba width="100%" fig-align="center"}
+
+::: {.linha-baixar}
+[<i class="bi bi-download"></i> Baixar boxplot de Borba (PNG)](graficos/Boxplot_Species_Borba.png){.baixar download="Boxplot_Species_Borba.png"}
+:::
+
+![**PT-BR:** Distribuição da captura anual (kg, escala logarítmica) por espécie em Manicoré, comparando os períodos (Antes) (2002–2010; $n=9$ anos; azul escuro) e (Depois) (2011–2024; $n=14$ anos; azul claro). As caixas representam o intervalo interquartil, a linha no interior de cada caixa indica a mediana, as hastes se estendem aos valores situados dentro de 1,5 vez o intervalo interquartil e os pontos representam valores discrepantes (*outliers*). A figura possui caráter descritivo.<br><br>**EN:** Distribution of annual catch (kg, logarithmic scale) by species in Manicoré, comparing the (Before) period (2002–2010; $n=9$ years; dark blue) and the (After) period (2011–2024; $n=14$ years; light blue). Boxes represent the interquartile range, the horizontal line inside each box indicates the median, whiskers extend to values within 1.5 times the interquartile range, and points represent outliers. The figure is descriptive.](graficos/Boxplot_Species_Manicore.png){#fig-boxplot-manicore width="100%" fig-align="center"}
+
+::: {.linha-baixar}
+[<i class="bi bi-download"></i> Baixar boxplot de Manicoré (PNG)](graficos/Boxplot_Species_Manicore.png){.baixar download="Boxplot_Species_Manicore.png"}
+:::
+
+**Comentários:** As Figuras @fig-boxplot-borba e @fig-boxplot-manicore mostram que, para grande parte das espécies, as distribuições das capturas anuais se encontram em níveis inferiores no período (Depois). Esse padrão é visualmente mais acentuado em Manicoré, enquanto em Borba algumas espécies apresentam maior sobreposição entre as distribuições dos dois períodos.
+
+Os gráficos também evidenciam diferenças na dispersão interanual das capturas e a presença de valores discrepantes em determinadas espécies. Como os boxplots representam a captura absoluta em kg, sua função nesta etapa é descritiva. A avaliação inferencial das alterações na composição foi realizada a partir da participação relativa anual das espécies, considerando também a tendência temporal e a possível autocorrelação das observações.
 
 
 ### Composição das Capturas: Modelo de Mínimos Quadrados Generalizados (GLS)
 
-Após a análise descritiva da composição das capturas, avaliou-se se a participação relativa anual de cada espécie apresentou alterações entre os períodos (Antes) e (Depois), considerando simultaneamente a tendência temporal e a possível dependência entre observações anuais sucessivas. Para cada espécie e município, foi ajustado um modelo utilizando toda a série de 2002 a 2024, tendo a participação relativa anual (%) como variável resposta.
-
-A independência temporal dos resíduos do modelo inicial, contendo período e tempo, foi avaliada pelo teste de Durbin–Watson e pela ACF. O teste de Durbin–Watson indicou evidência de autocorrelação em 33 das 37 séries analisadas. Em seguida, foram comparados, pelo LRT, um modelo com erros independentes e um modelo incorporando estrutura autorregressiva de primeira ordem, AR(1). A inclusão dessa estrutura melhorou significativamente o ajuste em 27 séries, sendo selecionada para 17 das 19 espécies de Borba e 10 das 18 espécies de Manicoré. Os modelos finais foram estimados por máxima verossimilhança (ML).
+Após a análise descritiva da composição das capturas, avaliou-se se a participação relativa anual de cada espécie apresentou alterações entre os períodos (Antes) e (Depois), considerando simultaneamente a tendência temporal e a possível dependência entre observações anuais sucessivas. Para cada espécie e município, foi utilizada toda a série de 2002 a 2024, tendo a participação relativa anual (%) como variável resposta.
 
 O modelo utilizado para cada espécie $i$ foi especificado por:
 
@@ -509,48 +527,120 @@ $$
 em que:
 
 $$
-tempo = ano - 2002.
+tempo=ano-2002.
 $$
 
-Para as espécies em que a estrutura AR(1) foi selecionada, considerou-se adicionalmente:
+Nesse modelo, $\beta_{0i}$ representa o nível esperado da participação relativa da espécie no início da série; $\beta_{1i}$ representa a mudança adicional na participação relativa no período (Depois), em relação ao período (Antes), após considerar a tendência temporal; e $\beta_{2i}$ representa a variação linear média da participação ao longo dos anos, expressa em pontos percentuais por ano (p.p./ano).
+
+A independência temporal dos resíduos foi avaliada pelo teste de Durbin–Watson e pela função de autocorrelação (ACF). O teste de Durbin–Watson indicou evidência de autocorrelação em 33 das 37 séries analisadas. Para verificar a necessidade de incorporar essa dependência ao modelo, foi realizada uma comparação pelo teste da razão de verossimilhanças (LRT) entre o ajuste com erros independentes e o ajuste com estrutura autorregressiva de primeira ordem, AR(1). A estrutura AR(1) foi selecionada quando sua inclusão melhorou significativamente o ajuste ($p<0,05$).
+
+Nas espécies em que a estrutura AR(1) foi selecionada, considerou-se:
 
 $$
 \varepsilon_{i,t}
 =
-\phi_i\varepsilon_{i,t-1}+u_{i,t}.
+\phi_i\varepsilon_{i,t-1}
++
+u_{i,t},
 $$
 
-Nesse modelo, $\beta_{1i}$ representa a mudança adicional na participação relativa da espécie no período (Depois), em relação ao período (Antes), após considerar a tendência temporal. O parâmetro $\beta_{2i}$ representa a variação linear média da participação ao longo dos anos, expressa em pontos percentuais por ano (p.p./ano), enquanto $\phi_i$ representa a intensidade da dependência residual entre anos consecutivos.
+em que $\phi_i$ representa a dependência residual entre anos consecutivos e $u_{i,t}$ corresponde ao componente de erro aleatório.
 
-A adequação dos modelos finais foi avaliada pelos resíduos normalizados. O teste de Shapiro–Wilk não indicou desvios de normalidade em 26 das 37 séries ($p\geq0,05$). Em Borba, foram observados desvios para Branquinha ($p=0,002$), Cara branco ($p=0,004$), Pacu ($p=0,035$), Pescada ($p=0,002$), Piranambu/Barbado ($p=0,039$), Pirarara ($p=0,050$) e Sardinha ($p=0,046$). Em Manicoré, os desvios ocorreram para Dourada ($p<0,001$), Jaraqui ($p=0,026$), Pirarara ($p<0,001$) e Sardinha ($p=0,002$). A inspeção dos QQ-plots indicou que esses desvios ocorreram predominantemente nas caudas das distribuições, sem evidência de inadequação generalizada dos resíduos. A ACF dos resíduos finais também não indicou persistência relevante da autocorrelação no primeiro lag.
+A estrutura AR(1) foi selecionada em 27 das 37 séries analisadas, correspondendo a 17 das 19 espécies de Borba e 10 das 18 espécies de Manicoré. Para as demais espécies, o modelo GLS foi mantido sem estrutura autorregressiva. Os modelos finais foram estimados por máxima verossimilhança (ML).
+
+Como não foi incluída interação entre `periodo_barragem` e `tempo`, o modelo considera uma tendência temporal linear comum aos dois períodos. Dessa forma, $\beta_1$ representa uma mudança adicional de nível entre os períodos (Antes) e (Depois), após considerar a tendência temporal, enquanto $\beta_2$ descreve a trajetória linear da participação relativa ao longo de toda a série.
+
+A adequação dos modelos finais foi avaliada pelos resíduos normalizados. O teste de Shapiro–Wilk não indicou desvios de normalidade em 26 das 37 séries ($p\geq0,05$). Em Borba, foram observados desvios para Branquinha ($p=0,002$), Cara branco ($p=0,004$), Pacu ($p=0,035$), Pescada ($p=0,002$), Piranambu/Barbado ($p=0,039$), Pirarara ($p=0,0496$) e Sardinha ($p=0,046$). Em Manicoré, os desvios ocorreram para Dourada ($p<0,001$), Jaraqui ($p=0,026$), Pirarara ($p<0,001$) e Sardinha ($p=0,002$).
+
+A inspeção dos QQ-plots indicou que esses desvios ocorreram predominantemente nas caudas das distribuições, sem evidência de inadequação generalizada dos resíduos. A ACF dos resíduos finais também não indicou persistência relevante da autocorrelação no primeiro lag.
 
 #### Hipóteses avaliadas no modelo
+
+Após a definição do modelo final para cada espécie, foram avaliados separadamente o efeito do período e o efeito do tempo.
 
 ##### **Efeito do período - $\beta_1$**
 
 O efeito do período avalia se houve mudança adicional na participação relativa da espécie no período (Depois), após considerar a tendência temporal.
 
+A avaliação desse parâmetro permite responder:
+
+> A participação relativa da espécie apresentou uma mudança adicional no período (Depois), além daquela explicada pela tendência temporal?
+
+::: {.columns gap="1.5em"}
+
+::: {.column width="49%" style="padding-right:1.4rem; border-right:1px solid #bdbdbd;"}
+
 $$
 H_0:\beta_1=0
-\qquad\text{versus}\qquad
-H_1:\beta_1\neq0.
 $$
 
-Sob $H_0$, não existe mudança adicional na participação relativa entre os períodos (Antes) e (Depois). Sob $H_1$, existe mudança adicional na participação da espécie.
+Não existe mudança adicional na participação relativa da espécie entre os períodos (Antes) e (Depois).
+
+:::
+
+::: {.column width="49%" style="padding-left:1.4rem;"}
+
+$$
+H_1:\beta_1\neq0
+$$
+
+Existe mudança adicional na participação relativa da espécie entre os períodos (Antes) e (Depois).
+
+:::
+
+:::
+
+A decisão é baseada no $p$-valor corrigido associado ao coeficiente. Quando $p_{FDR}<0,05$, rejeita-se $H_0$, indicando evidência estatística de mudança adicional na participação relativa. Quando $p_{FDR}\geq0,05$, não há evidência estatística suficiente para identificar essa mudança.
+
+O sinal de $\hat{\beta}_1$ indica a direção do efeito. Valores negativos representam menor participação relativa no período (Depois), enquanto valores positivos representam maior participação. O IC95% complementa essa avaliação ao indicar a faixa de valores plausíveis para o efeito estimado. Como os intervalos apresentados são nominais e não foram corrigidos para múltiplas comparações, a decisão inferencial é baseada no $p_{FDR}$.
 
 ##### **Efeito do tempo - $\beta_2$**
 
 O efeito do tempo avalia se a participação relativa da espécie apresenta uma tendência linear ao longo dos anos.
 
+A avaliação desse parâmetro permite responder:
+
+> A participação relativa da espécie apresenta uma trajetória linear de crescimento ou redução ao longo dos anos?
+
+::: {.columns gap="1.5em"}
+
+::: {.column width="49%" style="padding-right:1.4rem; border-right:1px solid #bdbdbd;"}
+
 $$
 H_0:\beta_2=0
-\qquad\text{versus}\qquad
-H_1:\beta_2\neq0.
 $$
 
-Sob $H_0$, não existe tendência temporal linear na participação da espécie. Sob $H_1$, existe tendência temporal crescente ou decrescente.
+Não existe tendência temporal linear na participação relativa da espécie ao longo dos anos.
+
+:::
+
+::: {.column width="49%" style="padding-left:1.4rem;"}
+
+$$
+H_1:\beta_2\neq0
+$$
+
+Existe tendência temporal linear na participação relativa da espécie ao longo dos anos.
+
+:::
+
+:::
+
+Quando $p_{FDR}<0,05$, rejeita-se $H_0$, indicando evidência de tendência temporal linear. Valores negativos de $\hat{\beta}_2$ representam redução média da participação ao longo dos anos, enquanto valores positivos representam crescimento médio anual.
+
+O IC95% de $\beta_2$ complementa a avaliação da precisão da tendência estimada. A inclusão de `tempo` permite separar uma trajetória gradual da série de uma mudança específica de nível entre os períodos. Dessa forma, uma alteração progressiva na participação relativa não é automaticamente atribuída ao período (Depois).
 
 Como foram realizados testes para múltiplas espécies, os $p$-valores associados a $\beta_1$ e $\beta_2$ foram corrigidos pelo procedimento de Benjamini–Hochberg (FDR), separadamente para cada município. Adotou-se nível de significância de 5%.
+
+::: {.callout-note title="Como interpretar os parâmetros do modelo"}
+1. Avalia-se o $p_{FDR}$ de $\beta_1$ para verificar se existe mudança adicional de participação entre os períodos (Antes) e (Depois).
+2. O sinal de $\hat{\beta}_1$ indica a direção dessa mudança.
+3. O IC95% de $\beta_1$ informa a precisão da estimativa.
+4. Avalia-se o $p_{FDR}$ de $\beta_2$ para verificar se existe tendência temporal linear.
+5. O sinal e a magnitude de $\hat{\beta}_2$ indicam a direção e a variação média anual da participação em p.p./ano.
+6. O IC95% de $\beta_2$ informa a precisão da tendência temporal estimada.
+7. O parâmetro $\phi$ representa a persistência temporal residual entre anos consecutivos quando a estrutura AR(1) foi selecionada.
+:::
 
 | **Município** | **Espécie** | **DW ($p$)** | **Modelo final** | **Efeito do período**<br>**$\hat{\beta}_1$ (IC95%; p.p.)** | **Teste de $\beta_1$**<br>**$t$ ($p_{FDR}$)** | **Efeito do tempo**<br>**$\hat{\beta}_2$ (IC95%; p.p./ano)** | **Teste de $\beta_2$**<br>**$t$ ($p_{FDR}$)** | **$\phi$** |
 |:---|:---|:---|:---|:---|:---|:---|:---|:---|
@@ -595,16 +685,24 @@ Como foram realizados testes para múltiplas espécies, os $p$-valores associado
 : Resultados dos modelos GLS para a participação relativa das espécies na composição das capturas entre 2002 e 2024. {#tbl-gls-composicao}
 
 ::: {.nota-tabela}
-Notas: DW = estatística de Durbin–Watson obtida a partir do modelo inicial contendo período e tempo | $\hat{\beta}_1$ = efeito do período, correspondente à mudança adicional da participação relativa em (Depois), em pontos percentuais (p.p.) | $\hat{\beta}_2$ = efeito do tempo, correspondente à variação linear média da participação relativa em pontos percentuais por ano (p.p./ano) | IC95% = intervalo de confiança nominal de 95% | $p_{FDR}$ = $p$-valor corrigido pelo procedimento de Benjamini–Hochberg | $\phi$ = parâmetro de autocorrelação de primeira ordem | — = estrutura AR(1) não selecionada pelo LRT.
+**Notas:** DW = estatística de Durbin–Watson obtida a partir do modelo inicial contendo período e tempo | GLS + AR(1) = modelo com estrutura autorregressiva de primeira ordem selecionada pelo LRT | $\hat{\beta}_1$ = efeito do período, correspondente à mudança adicional da participação relativa em (Depois), em pontos percentuais (p.p.) | $\hat{\beta}_2$ = efeito do tempo, correspondente à variação linear média da participação relativa em pontos percentuais por ano (p.p./ano) | IC95% = intervalo de confiança nominal de 95% | $t$ = estatística do teste do coeficiente | $p_{FDR}$ = $p$-valor corrigido pelo procedimento de Benjamini–Hochberg | $\phi$ = parâmetro de autocorrelação de primeira ordem | — = estrutura AR(1) não selecionada pelo LRT.
 :::
 
-**Comentários:** Conforme a @tbl-gls-composicao, em Borba nenhuma espécie apresentou evidência de mudança adicional de participação entre os períodos (Antes) e (Depois) após a correção por FDR ($p_{FDR}\geq0,05$). Entretanto, foram identificadas tendências temporais positivas para Dourada ($\hat{\beta}_2=0,185$ p.p./ano; $p_{FDR}<0,001$), Piranambu/Barbado ($0,011$ p.p./ano; $p_{FDR}=0,001$), Pirarara ($0,072$ p.p./ano; $p_{FDR}<0,001$) e Sardinha ($0,103$ p.p./ano; $p_{FDR}=0,024$). Tendências negativas foram observadas para Carauaçu ($-0,023$ p.p./ano; $p_{FDR}=0,010$), Filhote ($-0,167$; $p_{FDR}=0,009$), Pirapitinga ($-0,075$; $p_{FDR}=0,008$), Tambaqui ($-0,091$; $p_{FDR}<0,001$) e Tucunaré ($-0,015$; $p_{FDR}<0,001$).
+**Comentários:** Conforme a @tbl-gls-composicao, os efeitos do período e do tempo apresentaram comportamentos distintos entre os municípios. O coeficiente $\hat{\beta}_1$ indica se houve uma mudança adicional na participação relativa da espécie no período (Depois), após considerar a tendência temporal, enquanto $\hat{\beta}_2$ representa a variação gradual dessa participação ao longo dos anos.
 
-Em Manicoré, foram observadas reduções adicionais da participação no período (Depois) para Branquinha ($\hat{\beta}_1=-0,591$ p.p.; $p_{FDR}=0,030$), Caparari ($-0,524$; $p_{FDR}=0,018$), Cara branco ($-0,180$; $p_{FDR}=0,027$), Carauaçu ($-0,267$; $p_{FDR}<0,001$), Matrinxã ($-0,934$; $p_{FDR}=0,018$), Pacu ($-1,842$; $p_{FDR}<0,001$) e Tucunaré ($-0,302$; $p_{FDR}=0,018$). Em sentido contrário, Dourada ($\hat{\beta}_1=2,548$ p.p.; $p_{FDR}<0,001$), Filhote ($0,708$; $p_{FDR}=0,002$), Pirarara ($0,773$; $p_{FDR}=0,042$) e Sardinha ($0,935$; $p_{FDR}=0,015$) apresentaram aumento adicional de participação.
+Em Borba, nenhuma das 19 espécies apresentou efeito significativo do período para $\beta_1$ após a correção por FDR ($p_{FDR}\geq0,05$). Portanto, embora a análise descritiva tenha mostrado ganhos e perdas de participação entre os períodos, essas diferenças não foram identificadas pelo modelo como mudanças adicionais de nível após considerar a tendência temporal.
 
-Quanto ao efeito do tempo em Manicoré, foram observadas tendências positivas para Aracu ($\hat{\beta}_2=0,021$ p.p./ano; $p_{FDR}=0,008$), Dourada ($0,093$; $p_{FDR}<0,001$), Pacu ($0,228$; $p_{FDR}<0,001$) e Sardinha ($0,085$; $p_{FDR}=0,009$). Tendências negativas foram identificadas para Branquinha ($-0,071$ p.p./ano; $p_{FDR}=0,022$), Cara branco ($-0,023$; $p_{FDR}<0,001$), Filhote ($-0,056$; $p_{FDR}=0,007$), Pirapitinga ($-0,032$; $p_{FDR}=0,004$), Pirarara ($-0,081$; $p_{FDR}=0,007$) e Surubim ($-0,103$; $p_{FDR}=0,002$).
+Por outro lado, nove espécies de Borba apresentaram efeito significativo do tempo. Dourada ($\hat{\beta}_2=0,185$ p.p./ano; $p_{FDR}<0,001$), Piranambu/Barbado ($0,011$ p.p./ano; $p_{FDR}=0,001$), Pirarara ($0,072$ p.p./ano; $p_{FDR}<0,001$) e Sardinha ($0,103$ p.p./ano; $p_{FDR}=0,024$) apresentaram aumento gradual de participação ao longo dos anos. Em sentido contrário, Carauaçu ($\hat{\beta}_2=-0,023$ p.p./ano; $p_{FDR}=0,010$), Filhote ($-0,167$; $p_{FDR}=0,009$), Pirapitinga ($-0,075$; $p_{FDR}=0,008$), Tambaqui ($-0,091$; $p_{FDR}<0,001$) e Tucunaré ($-0,015$; $p_{FDR}<0,001$) apresentaram redução gradual. Assim, em Borba, as alterações identificadas pelo modelo estiveram principalmente relacionadas à trajetória temporal das espécies.
 
-De forma geral, os resultados indicam que as alterações na composição das capturas apresentaram padrões distintos entre os municípios. Em Borba, as diferenças estiveram predominantemente associadas a tendências graduais na participação das espécies ao longo do tempo, enquanto em Manicoré foram identificadas tanto tendências temporais quanto mudanças adicionais de participação no período (Depois).
+Em Manicoré, o efeito do período foi significativo para 11 das 18 espécies. Sete apresentaram redução adicional de participação no período (Depois): Branquinha ($\hat{\beta}_1=-0,591$ p.p.; $p_{FDR}=0,030$), Caparari ($-0,524$; $p_{FDR}=0,018$), Cara branco ($-0,180$; $p_{FDR}=0,027$), Carauaçu ($-0,267$; $p_{FDR}<0,001$), Matrinxã ($-0,934$; $p_{FDR}=0,018$), Pacu ($-1,842$; $p_{FDR}<0,001$) e Tucunaré ($-0,302$; $p_{FDR}=0,018$). Entre essas espécies, Pacu apresentou a maior redução estimada, correspondente a aproximadamente $1,84$ p.p.
+
+Em sentido contrário, quatro espécies apresentaram aumento adicional de participação no período (Depois): Dourada ($\hat{\beta}_1=2,548$ p.p.; $p_{FDR}<0,001$), Filhote ($0,708$; $p_{FDR}=0,002$), Pirarara ($0,773$; $p_{FDR}=0,042$) e Sardinha ($0,935$; $p_{FDR}=0,015$). Dourada apresentou o maior aumento estimado, correspondente a aproximadamente $2,55$ p.p. Esses resultados mostram que a alteração na composição de Manicoré não ocorreu de forma uniforme entre as espécies, havendo simultaneamente ganhos e perdas de participação relativa.
+
+O efeito do tempo também foi significativo para dez espécies de Manicoré. Aracu ($\hat{\beta}_2=0,021$ p.p./ano; $p_{FDR}=0,008$), Dourada ($0,093$; $p_{FDR}<0,001$), Pacu ($0,228$; $p_{FDR}<0,001$) e Sardinha ($0,085$; $p_{FDR}=0,009$) apresentaram tendência crescente. Branquinha ($\hat{\beta}_2=-0,071$ p.p./ano; $p_{FDR}=0,022$), Cara branco ($-0,023$; $p_{FDR}<0,001$), Filhote ($-0,056$; $p_{FDR}=0,007$), Pirapitinga ($-0,032$; $p_{FDR}=0,004$), Pirarara ($-0,081$; $p_{FDR}=0,007$) e Surubim ($-0,103$; $p_{FDR}=0,002$) apresentaram tendência decrescente.
+
+Os efeitos de período e tempo devem ser interpretados conjuntamente, pois representam componentes diferentes da mudança na composição. Em Manicoré, Pacu, por exemplo, apresentou redução adicional de $1,842$ p.p. no período (Depois), mas tendência temporal crescente de $0,228$ p.p./ano. Filhote apresentou comportamento distinto, com aumento adicional de $0,708$ p.p. no período (Depois), acompanhado por tendência temporal decrescente de $0,056$ p.p./ano. Dessa forma, uma diferença de nível entre os períodos não implica necessariamente que a espécie tenha mantido a mesma direção de mudança ao longo de toda a série.
+
+De forma geral, em Borba as alterações na composição estiveram predominantemente associadas a tendências graduais na participação relativa das espécies ao longo dos anos, sem evidência de mudança adicional entre os períodos após o ajuste temporal. Em Manicoré, foram observadas tanto mudanças adicionais de participação no período (Depois) quanto tendências temporais, indicando uma reorganização mais evidente da participação relativa das espécies na composição das capturas.
 
 
 ### Mapa: Comparativo das Taxas de Declínio Produtivo com Estudos Prévios
