@@ -426,6 +426,23 @@ Os parâmetros de autocorrelação foram $\phi=0,854$ em Borba e $\phi=0,841$ em
 :::
 
 
+### Mapa: Comparativo das Taxas de Declínio Produtivo com Estudos Prévios
+
+
+![Spatial distribution of fishing activity decline rates along the Madeira River, between Porto Velho (RO) and Borba (AM). Guajará-Mirim represents the upstream reference site (\*\*\*). The percentages correspond to reductions reported for Porto Velho (-37.0%\*), based on Catch Per Unit Effort (CPUE), and Humaitá (-39.0%\*\*), based on mean annual catch, as well as those estimated in this study (\*\*\*) for Manicoré (-62.7%\*\*\*) and Borba (-35.7%\*\*\*), based on mean annual fish production. The triangles indicate the locations of the Jirau and Santo Antônio hydroelectric power plants. Sources: \*Arantes et al. (2021); \*\*Santos et al. (2018); \*\*\*This study.](graficos/Mapa_1_Declinio_Reproducao.png){#fig-mapa-declinio-reproducao width="100%" fig-align="center"}
+
+::: {.linha-baixar}
+[<i class="bi bi-download"></i> Baixar mapa (PNG)](graficos/Mapa_1_Declinio_Reproducao.png){.baixar download="Mapa_1_Declinio_Reproducao.png"}
+:::
+
+<!-- ::: {.linha-baixar} -->
+<!-- [<i class="bi bi-download"></i> Baixar mapa (PNG)](graficos/Mapas_taxas.png){.baixar download="Mapas_taxas.png"} -->
+<!-- ::: -->
+
+
+**Comentários:** A distribuição espacial apresentada na @fig-mapa-declinio-reproducao evidencia diferentes magnitudes de declínio entre as localidades avaliadas ao longo da calha do Rio Madeira, revelando um aumento na magnitude das reduções e indicando que essa distribuição deve ser interpretada com cautela, pois os percentuais são provenientes de diferentes estudos e não representam necessariamente o mesmo indicador. Em Porto Velho (RO), Arantes et al. (2021) reportaram redução de 37,0% na Captura por Unidade de Esforço (CPUE), indicador que relaciona a quantidade capturada ao esforço de pesca empregado, enquanto em Humaitá (AM), Santos et al. (2018) observaram redução de 39,0% na produção pesqueira média anual. Para as localidades analisadas neste estudo, as reduções estimadas a partir da produção pesqueira média anual nos períodos antes e depois do barramento foram de 62,7% em Manicoré e 35,7% em Borba.
+
+
 ### Composição das Capturas: Análise Descritiva
 
 Esta etapa possui caráter estritamente descritivo e busca caracterizar as alterações observadas na composição das capturas pesqueiras entre os períodos (Antes) e (Depois). Para cada espécie, foram consideradas a variação percentual da captura média anual e sua participação média relativa na produção pesqueira total de cada município. A mudança na participação foi expressa em pontos percentuais (p.p.), permitindo identificar as espécies que ganharam ou perderam representatividade na composição das capturas, independentemente das alterações observadas em sua captura absoluta.
@@ -705,22 +722,180 @@ Os efeitos de período e tempo devem ser interpretados conjuntamente, pois repre
 De forma geral, em Borba as alterações na composição estiveram predominantemente associadas a tendências graduais na participação relativa das espécies ao longo dos anos, sem evidência de mudança adicional entre os períodos após o ajuste temporal. Em Manicoré, foram observadas tanto mudanças adicionais de participação no período (Depois) quanto tendências temporais, indicando uma reorganização mais evidente da participação relativa das espécies na composição das capturas.
 
 
-### Mapa: Comparativo das Taxas de Declínio Produtivo com Estudos Prévios
+### Diversidade das Capturas: Análise Descritiva
 
+A diversidade das capturas foi avaliada anualmente por meio da riqueza de espécies ($S$) e do índice de diversidade de Shannon ($H'$), considerando separadamente os municípios de Borba e Manicoré no período de 2002 a 2024. A riqueza corresponde ao número de espécies registradas nas capturas em cada ano, enquanto o índice de Shannon considera simultaneamente o número de espécies e a distribuição relativa das capturas entre elas.
 
-![Spatial distribution of fishing activity decline rates along the Madeira River, between Porto Velho (RO) and Borba (AM). Guajará-Mirim represents the upstream reference site (\*\*\*). The percentages correspond to reductions reported for Porto Velho (-37.0%\*), based on Catch Per Unit Effort (CPUE), and Humaitá (-39.0%\*\*), based on mean annual catch, as well as those estimated in this study (\*\*\*) for Manicoré (-62.7%\*\*\*) and Borba (-35.7%\*\*\*), based on mean annual fish production. The triangles indicate the locations of the Jirau and Santo Antônio hydroelectric power plants. Sources: \*Arantes et al. (2021); \*\*Santos et al. (2018); \*\*\*This study.](graficos/Mapa_1_Declinio_Reproducao.png){#fig-mapa-declinio-reproducao width="100%" fig-align="center"}
+Esta etapa possui caráter estritamente descritivo e busca caracterizar as alterações observadas na diversidade das capturas entre os períodos (Antes) e (Depois). As medidas foram resumidas por município e período, considerando média, desvio-padrão, mediana e amplitude observada.
 
-::: {.linha-baixar}
-[<i class="bi bi-download"></i> Baixar mapa (PNG)](graficos/Mapa_1_Declinio_Reproducao.png){.baixar download="Mapa_1_Declinio_Reproducao.png"}
+| **Município** | **Período** | **n** | **Riqueza Média** | **Riqueza**<br>**Mín.–Máx.** | **Shannon Médio** | **DP** | **Mediana** | **Shannon**<br>**Mín.–Máx.** |
+|:---|:---|:---:|---:|:---:|---:|---:|---:|:---:|
+| **Borba** | Antes | 9 | 19,00 | 19–19 | 2,664 | 0,002 | 2,665 | 2,659–2,666 |
+|  | Depois | 14 | 19,00 | 19–19 | 2,638 | 0,023 | 2,647 | 2,594–2,661 |
+| **Manicoré** | Antes | 9 | 18,00 | 18–18 | 2,613 | 0,014 | 2,617 | 2,581–2,628 |
+|  | Depois | 14 | 18,00 | 18–18 | 2,552 | 0,024 | 2,559 | 2,505–2,579 |
+
+: **Resumo descritivo da riqueza de espécies e do índice de diversidade de Shannon das capturas pesqueiras entre os períodos (Antes) e (Depois).** {#tbl-diversidade-descritiva}
+
+::: {.nota-tabela}
+**Notas:** Antes = 2002–2010 ($n=9$ anos) | Depois = 2011–2024 ($n=14$ anos) | $S$ = riqueza de espécies | $H'$ = índice de diversidade de Shannon | DP = desvio-padrão | Mín. = valor mínimo | Máx. = valor máximo.
 :::
 
-<!-- ::: {.linha-baixar} -->
-<!-- [<i class="bi bi-download"></i> Baixar mapa (PNG)](graficos/Mapas_taxas.png){.baixar download="Mapas_taxas.png"} -->
-<!-- ::: -->
+**Comentários:** Conforme a @tbl-diversidade-descritiva, a riqueza permaneceu constante ao longo de toda a série analisada. Em Borba, foram registradas 19 espécies em todos os anos entre 2002 e 2024, enquanto em Manicoré foram registradas 18 espécies. Dessa forma, não foram observadas alterações no número de espécies registradas entre os períodos (Antes) e (Depois).
+
+O índice de Shannon, entretanto, apresentou redução nos dois municípios. Em Borba, o valor médio passou de 2,664 no período (Antes) para 2,638 no período (Depois), correspondendo a uma diferença de aproximadamente $-0,026$. Em Manicoré, a média passou de 2,613 para 2,552, representando uma diferença de aproximadamente $-0,061$.
+
+Também foi observado aumento da variabilidade do índice no período (Depois). Em Borba, o desvio-padrão passou de 0,002 para 0,023, enquanto em Manicoré aumentou de 0,014 para 0,024. Os menores valores anuais de Shannon também foram registrados no período (Depois), atingindo 2,594 em Borba e 2,505 em Manicoré.
+
+Como a riqueza permaneceu constante, as alterações observadas no índice de Shannon estão relacionadas à distribuição relativa das capturas entre as espécies, e não à redução do número de espécies registradas. Por não apresentar variação anual, a riqueza foi mantida apenas na análise descritiva, enquanto a avaliação inferencial da diversidade foi concentrada no índice de Shannon.
 
 
-**Comentários:** A distribuição espacial apresentada na @fig-mapa-declinio-reproducao evidencia diferentes magnitudes de declínio entre as localidades avaliadas ao longo da calha do Rio Madeira, revelando um aumento na magnitude das reduções e indicando que essa distribuição deve ser interpretada com cautela, pois os percentuais são provenientes de diferentes estudos e não representam necessariamente o mesmo indicador. Em Porto Velho (RO), Arantes et al. (2021) reportaram redução de 37,0% na Captura por Unidade de Esforço (CPUE), indicador que relaciona a quantidade capturada ao esforço de pesca empregado, enquanto em Humaitá (AM), Santos et al. (2018) observaram redução de 39,0% na produção pesqueira média anual. Para as localidades analisadas neste estudo, as reduções estimadas a partir da produção pesqueira média anual nos períodos antes e depois do barramento foram de 62,7% em Manicoré e 35,7% em Borba.
+### Diversidade das Capturas: Comportamento Temporal
 
+Como complemento à análise descritiva, a Figura @fig-serie-shannon apresenta a evolução anual do índice de Shannon em Borba e Manicoré entre 2002 e 2024. A representação temporal permite visualizar o comportamento da diversidade ao longo dos anos e sua distribuição entre os períodos (Antes) e (Depois).
+
+![**PT-BR:** Evolução anual do índice de diversidade de Shannon ($H'$) das capturas pesqueiras em Borba e Manicoré entre 2002 e 2024. As cores distinguem os períodos (Antes) (2002–2010; $n=9$ anos) e (Depois) (2011–2024; $n=14$ anos), enquanto a linha vertical tracejada indica o início do período (Depois), em 2011. Valores menores de $H'$ indicam menor uniformidade na distribuição relativa das capturas entre as espécies.<br><br>**EN:** Annual evolution of the Shannon diversity index ($H'$) of fish catches in Borba and Manicoré from 2002 to 2024. Colors distinguish the (Before) period (2002–2010; $n=9$ years) and the (After) period (2011–2024; $n=14$ years), while the dashed vertical line indicates the beginning of the (After) period in 2011. Lower $H'$ values indicate lower evenness in the relative distribution of catches among species.](graficos/Serie_Temporal_Shannon.png){#fig-serie-shannon width="100%" fig-align="center"}
+
+::: {.linha-baixar}
+[<i class="bi bi-download"></i> Baixar série temporal do índice de Shannon (PNG)](graficos/Serie_Temporal_Shannon.png){.baixar download="Serie_Temporal_Shannon.png"}
+:::
+
+**Comentários:** Conforme a @fig-serie-shannon, observa-se uma trajetória predominantemente decrescente do índice de Shannon nos dois municípios. Em Borba, os valores permaneceram relativamente estáveis nos primeiros anos da série, seguidos por uma redução mais evidente nos anos posteriores. Em Manicoré, a redução foi mais acentuada ao longo do período analisado.
+
+A representação gráfica não evidencia uma mudança isolada exatamente em 2011, mas uma redução que se desenvolve progressivamente ao longo dos anos. Dessa forma, a avaliação inferencial considerou simultaneamente uma possível mudança entre os períodos e a tendência temporal da diversidade.
+
+
+### Diversidade das Capturas: Modelo de Mínimos Quadrados Generalizados (GLS)
+
+Para avaliar as alterações no índice de Shannon ao longo da série, foi ajustado, separadamente para cada município, um modelo contendo o período de operação das UHEs e uma variável temporal contínua:
+
+$$
+H'_t
+=
+\beta_0
++
+\beta_1\,periodo\_barragemDepois_t
++
+\beta_2\,tempo_t
++
+\varepsilon_t,
+$$
+
+em que:
+
+$$
+tempo=ano-2002.
+$$
+
+Nesse modelo, $\beta_0$ representa o valor esperado do índice de Shannon no início da série; $\beta_1$ representa uma mudança adicional no índice no período (Depois), após considerar a tendência temporal; e $\beta_2$ representa sua variação linear média ao longo dos anos.
+
+A independência temporal dos resíduos foi inicialmente avaliada pelo teste de Durbin–Watson e pela função de autocorrelação (ACF). O teste de Durbin–Watson indicou evidência de autocorrelação em Borba ($DW=0,628$; $p<0,001$) e Manicoré ($DW=1,140$; $p=0,004$).
+
+Para verificar a necessidade de incorporar essa dependência ao modelo, foi realizada uma comparação pelo teste da razão de verossimilhanças (LRT) entre o ajuste com erros independentes e o ajuste com estrutura autorregressiva de primeira ordem, AR(1). Os modelos foram estimados por máxima verossimilhança (ML), sendo a estrutura AR(1) selecionada quando sua inclusão melhorou significativamente o ajuste ($p<0,05$).
+
+Em Borba, a estrutura AR(1) apresentou melhora significativa no ajuste ($LR=23,363$; $p<0,001$), sendo selecionado o modelo GLS + AR(1), com $\phi=0,912$. Para esse município, os resíduos foram representados por:
+
+$$
+\varepsilon_t
+=
+\phi\varepsilon_{t-1}
++
+u_t.
+$$
+
+Em Manicoré, apesar da evidência inicial de autocorrelação pelo teste de Durbin–Watson, a inclusão da estrutura AR(1) não melhorou significativamente o ajuste pelo LRT ($LR=3,414$; $p=0,065$). Dessa forma, foi mantido o modelo GLS com erros independentes.
+
+A adequação dos modelos finais foi avaliada a partir dos resíduos normalizados. A ACF dos resíduos finais não indicou autocorrelação residual relevante em nenhum dos municípios, com autocorrelação de primeira ordem igual a 0,029 em Borba e 0,341 em Manicoré. Quanto à normalidade, o teste de Shapiro–Wilk não indicou desvio em Manicoré ($W=0,944$; $p=0,215$). Em Borba, entretanto, foi observada evidência de desvio da normalidade ($W=0,866$; $p=0,005$), também identificada pela inspeção do QQ-plot principalmente nas extremidades da distribuição. Esse resultado constitui uma limitação a ser considerada na interpretação inferencial para o município.
+
+
+#### Hipóteses avaliadas no modelo
+
+##### **Efeito do período - $\beta_1$**
+
+O efeito do período avalia se houve uma mudança adicional no índice de Shannon no período (Depois), após considerar a tendência temporal.
+
+> O índice de diversidade de Shannon apresentou uma mudança adicional no período (Depois), além daquela explicada pela tendência temporal?
+
+::: {.columns gap="1.5em"}
+
+::: {.column width="49%" style="padding-right:1.4rem; border-right:1px solid #bdbdbd;"}
+
+$$
+H_0:\beta_1=0
+$$
+
+Não existe mudança adicional no índice de Shannon entre os períodos (Antes) e (Depois), após considerar a tendência temporal.
+
+:::
+
+::: {.column width="49%" style="padding-left:1.4rem;"}
+
+$$
+H_1:\beta_1\neq0
+$$
+
+Existe mudança adicional no índice de Shannon entre os períodos (Antes) e (Depois), após considerar a tendência temporal.
+
+:::
+
+:::
+
+Quando $p<0,05$, rejeita-se $H_0$, indicando evidência estatística de mudança adicional no índice de Shannon no período (Depois). O sinal de $\hat{\beta}_1$ indica a direção dessa mudança.
+
+
+##### **Efeito do tempo - $\beta_2$**
+
+O efeito do tempo avalia se o índice de Shannon apresenta uma trajetória linear ao longo dos anos.
+
+> O índice de diversidade de Shannon apresenta uma trajetória linear de crescimento ou redução ao longo dos anos?
+
+::: {.columns gap="1.5em"}
+
+::: {.column width="49%" style="padding-right:1.4rem; border-right:1px solid #bdbdbd;"}
+
+$$
+H_0:\beta_2=0
+$$
+
+Não existe tendência temporal linear no índice de Shannon.
+
+:::
+
+::: {.column width="49%" style="padding-left:1.4rem;"}
+
+$$
+H_1:\beta_2\neq0
+$$
+
+Existe tendência temporal linear no índice de Shannon.
+
+:::
+
+:::
+
+Quando $p<0,05$, rejeita-se $H_0$, indicando evidência de tendência temporal linear. Valores negativos de $\hat{\beta}_2$ representam redução média do índice ao longo dos anos, enquanto valores positivos representam aumento.
+
+A inclusão simultânea de período e tempo permite distinguir uma mudança adicional associada ao período (Depois) de uma trajetória gradual presente ao longo da série.
+
+
+| **Município** | **DW ($p$)** | **LRT ($p$)** | **Modelo final** | **Efeito do período**<br>**$\hat{\beta}_1$ (IC95%)** | **$t$ ($p$)** | **Efeito do tempo**<br>**$\hat{\beta}_2$ (IC95%; ano$^{-1}$)** | **$t$ ($p$)** | **$\phi$** |
+|:---|:---|:---|:---|:---|:---|:---|:---|:---|
+| **Borba** | 0,628 (<0,001) | 23,363 (<0,001) | GLS + AR(1) | −0,00205 [−0,0151; 0,0110] | −0,33 (0,747) | −0,00307 [−0,00496; −0,00118] | −3,38 (0,003) | 0,912 |
+| **Manicoré** | 1,140 (0,004) | 3,414 (0,065) | GLS | −0,00249 [−0,0183; 0,0133] | −0,33 (0,746) | −0,00507 [−0,00624; −0,00391] | −9,11 (<0,001) | — |
+
+: **Resultados dos modelos GLS para o índice de diversidade de Shannon entre 2002 e 2024.** {#tbl-gls-shannon}
+
+::: {.nota-tabela}
+**Notas:** DW = estatística de Durbin–Watson obtida a partir do modelo inicial contendo período e tempo | LRT = teste da razão de verossimilhanças utilizado para comparar os ajustes com erros independentes e com estrutura AR(1) | GLS + AR(1) = modelo com estrutura autorregressiva de primeira ordem | $\hat{\beta}_1$ = mudança adicional no índice de Shannon no período (Depois), após considerar a tendência temporal | $\hat{\beta}_2$ = variação linear média do índice de Shannon por ano | IC95% = intervalo de confiança nominal de 95% | $\phi$ = parâmetro de autocorrelação de primeira ordem | — = estrutura AR(1) não selecionada pelo LRT.
+:::
+
+**Comentários:** Conforme a @tbl-gls-shannon, não foi identificada evidência de mudança adicional no índice de Shannon no período (Depois) em nenhum dos municípios. Em Borba, o efeito estimado do período foi $\hat{\beta}_1=-0,00205$ ($p=0,747$), enquanto em Manicoré foi $\hat{\beta}_1=-0,00249$ ($p=0,746$). Em ambos os casos, os intervalos de confiança incluíram zero.
+
+Em contrapartida, o efeito do tempo foi significativo nos dois municípios. Em Borba, estimou-se redução média de aproximadamente $0,00307$ unidade de Shannon por ano ($\hat{\beta}_2=-0,00307$; IC95%: $[-0,00496;-0,00118]$; $p=0,003$). Em Manicoré, a redução foi mais acentuada, estimada em aproximadamente $0,00507$ unidade por ano ($\hat{\beta}_2=-0,00507$; IC95%: $[-0,00624;-0,00391]$; $p<0,001$).
+
+Assim, embora a análise descritiva tenha mostrado valores médios menores do índice de Shannon no período (Depois), os modelos indicam que essas diferenças estão predominantemente associadas a uma trajetória gradual de redução da diversidade ao longo dos anos. Após considerar essa tendência temporal, não foi identificada uma mudança adicional significativa no período (Depois).
+
+De forma geral, a riqueza permaneceu estável nos dois municípios, enquanto o índice de Shannon apresentou redução temporal significativa. Esse resultado indica que as alterações na diversidade das capturas estiveram relacionadas principalmente à menor uniformidade da distribuição relativa das capturas entre as espécies ao longo da série, com redução mais acentuada em Manicoré.
 
 ## Variáveis hidrológicas
 
