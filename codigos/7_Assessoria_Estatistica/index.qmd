@@ -721,7 +721,6 @@ Os efeitos de período e tempo devem ser interpretados conjuntamente, pois repre
 
 De forma geral, em Borba as alterações na composição estiveram predominantemente associadas a tendências graduais na participação relativa das espécies ao longo dos anos, sem evidência de mudança adicional entre os períodos após o ajuste temporal. Em Manicoré, foram observadas tanto mudanças adicionais de participação no período (Depois) quanto tendências temporais, indicando uma reorganização mais evidente da participação relativa das espécies na composição das capturas.
 
-
 ### Diversidade das Capturas: Análise Descritiva
 
 A diversidade das capturas foi avaliada anualmente por meio da riqueza de espécies ($S$) e do índice de diversidade de Shannon ($H'$), considerando separadamente os municípios de Borba e Manicoré no período de 2002 a 2024. A riqueza corresponde ao número de espécies registradas nas capturas em cada ano, enquanto o índice de Shannon considera simultaneamente o número de espécies e a distribuição relativa das capturas entre elas.
@@ -793,7 +792,9 @@ A independência temporal dos resíduos foi inicialmente avaliada pelo teste de 
 
 Para verificar a necessidade de incorporar essa dependência ao modelo, foi realizada uma comparação pelo teste da razão de verossimilhanças (LRT) entre o ajuste com erros independentes e o ajuste com estrutura autorregressiva de primeira ordem, AR(1). Os modelos foram estimados por máxima verossimilhança (ML), sendo a estrutura AR(1) selecionada quando sua inclusão melhorou significativamente o ajuste ($p<0,05$).
 
-Em Borba, a estrutura AR(1) apresentou melhora significativa no ajuste ($LR=23,363$; $p<0,001$), sendo selecionado o modelo GLS + AR(1), com $\phi=0,912$. Para esse município, os resíduos foram representados por:
+Em Borba, a estrutura AR(1) apresentou melhora significativa no ajuste ($LR=23,363$; $p<0,001$), sendo selecionado o modelo GLS + AR(1), com $\phi=0,912$. Esse valor indica forte dependência temporal de primeira ordem, considerada na estrutura residual do modelo.
+
+Para Borba, portanto, considerou-se:
 
 $$
 \varepsilon_t
@@ -805,7 +806,7 @@ $$
 
 Em Manicoré, apesar da evidência inicial de autocorrelação pelo teste de Durbin–Watson, a inclusão da estrutura AR(1) não melhorou significativamente o ajuste pelo LRT ($LR=3,414$; $p=0,065$). Dessa forma, foi mantido o modelo GLS com erros independentes.
 
-A adequação dos modelos finais foi avaliada a partir dos resíduos normalizados. A ACF dos resíduos finais não indicou autocorrelação residual relevante em nenhum dos municípios, com autocorrelação de primeira ordem igual a 0,029 em Borba e 0,341 em Manicoré. Quanto à normalidade, o teste de Shapiro–Wilk não indicou desvio em Manicoré ($W=0,944$; $p=0,215$). Em Borba, entretanto, foi observada evidência de desvio da normalidade ($W=0,866$; $p=0,005$), também identificada pela inspeção do QQ-plot principalmente nas extremidades da distribuição. Esse resultado constitui uma limitação a ser considerada na interpretação inferencial para o município.
+A adequação dos modelos finais foi avaliada a partir dos resíduos normalizados. A ACF dos resíduos finais não indicou autocorrelação residual relevante em nenhum dos municípios, com autocorrelação de primeira ordem igual a 0,029 em Borba e 0,341 em Manicoré. Quanto à normalidade, o teste de Shapiro–Wilk não indicou desvio em Manicoré ($W=0,944$; $p=0,215$). Em Borba, entretanto, foi observada evidência de desvio da normalidade ($W=0,866$; $p=0,005$), também identificada pela inspeção do QQ-plot principalmente nas extremidades da distribuição. Esse desvio deve ser considerado na interpretação dos resultados inferenciais para o município.
 
 
 #### Hipóteses avaliadas no modelo
@@ -889,19 +890,136 @@ A inclusão simultânea de período e tempo permite distinguir uma mudança adic
 **Notas:** DW = estatística de Durbin–Watson obtida a partir do modelo inicial contendo período e tempo | LRT = teste da razão de verossimilhanças utilizado para comparar os ajustes com erros independentes e com estrutura AR(1) | GLS + AR(1) = modelo com estrutura autorregressiva de primeira ordem | $\hat{\beta}_1$ = mudança adicional no índice de Shannon no período (Depois), após considerar a tendência temporal | $\hat{\beta}_2$ = variação linear média do índice de Shannon por ano | IC95% = intervalo de confiança nominal de 95% | $\phi$ = parâmetro de autocorrelação de primeira ordem | — = estrutura AR(1) não selecionada pelo LRT.
 :::
 
-**Comentários:** Conforme a @tbl-gls-shannon, não foi identificada evidência de mudança adicional no índice de Shannon no período (Depois) em nenhum dos municípios. Em Borba, o efeito estimado do período foi $\hat{\beta}_1=-0,00205$ ($p=0,747$), enquanto em Manicoré foi $\hat{\beta}_1=-0,00249$ ($p=0,746$). Em ambos os casos, os intervalos de confiança incluíram zero.
+**Comentários:** Conforme a @tbl-gls-shannon, o efeito do período ($\beta_1$) verifica se houve uma mudança no índice de Shannon no período (Depois), além da variação que já vinha ocorrendo ao longo dos anos. Para Borba ($p=0,747$) e Manicoré ($p=0,746$), esse efeito não foi significativo. Portanto, não foi observada uma mudança adicional no índice de Shannon entre os períodos (Antes) e (Depois) após considerar o efeito do tempo.
 
-Em contrapartida, o efeito do tempo foi significativo nos dois municípios. Em Borba, estimou-se redução média de aproximadamente $0,00307$ unidade de Shannon por ano ($\hat{\beta}_2=-0,00307$; IC95%: $[-0,00496;-0,00118]$; $p=0,003$). Em Manicoré, a redução foi mais acentuada, estimada em aproximadamente $0,00507$ unidade por ano ($\hat{\beta}_2=-0,00507$; IC95%: $[-0,00624;-0,00391]$; $p<0,001$).
+O efeito do tempo ($\beta_2$) verifica se o índice de Shannon apresenta aumento ou redução ao longo dos anos. Esse efeito foi significativo nos dois municípios. Em Borba, o índice apresentou redução média de aproximadamente $0,003$ unidade por ano ($\hat{\beta}_2=-0,00307$; $p=0,003$). Em Manicoré, a redução foi maior, de aproximadamente $0,005$ unidade por ano ($\hat{\beta}_2=-0,00507$; $p<0,001$).
 
-Assim, embora a análise descritiva tenha mostrado valores médios menores do índice de Shannon no período (Depois), os modelos indicam que essas diferenças estão predominantemente associadas a uma trajetória gradual de redução da diversidade ao longo dos anos. Após considerar essa tendência temporal, não foi identificada uma mudança adicional significativa no período (Depois).
+Assim, a análise mostra que o índice de Shannon vem diminuindo gradualmente ao longo dos anos nos dois municípios, com redução mais acentuada em Manicoré. Embora os valores médios tenham sido menores no período (Depois), o modelo não identificou uma mudança adicional específica desse período.
 
-De forma geral, a riqueza permaneceu estável nos dois municípios, enquanto o índice de Shannon apresentou redução temporal significativa. Esse resultado indica que as alterações na diversidade das capturas estiveram relacionadas principalmente à menor uniformidade da distribuição relativa das capturas entre as espécies ao longo da série, com redução mais acentuada em Manicoré.
+Em conjunto com a análise descritiva, observa-se que a riqueza permaneceu constante em 19 espécies em Borba e 18 em Manicoré, enquanto o índice de Shannon diminuiu. Isso indica que a principal mudança observada não foi no número de espécies registradas, mas na forma como as capturas passaram a se distribuir entre elas ao longo dos anos.
+
+
 
 ## Variáveis hidrológicas
 
 ::: {.objetivo}
-**Objetivo:** Correlacionar a produção pesqueira com as variáveis hidrológicas, considerando as possíveis alterações associadas à operação das UHEs;
+**Objetivo:** Correlacionar a produção pesqueira com as variáveis hidrológicas, considerando as possíveis alterações associadas à operação das UHEs.
 :::
+
+
+### Variáveis Hidrológicas: Análise Descritiva
+
+As condições hidrológicas do rio Madeira foram caracterizadas a partir das cotas média, mínima e máxima anuais, além da amplitude anual, calculada pela diferença entre a cota máxima e a cota mínima de cada ano. As medidas foram obtidas separadamente para Borba e Manicoré, considerando os períodos (Antes), de 2002 a 2010, e (Depois), de 2011 a 2024.
+
+Para reduzir a influência de valores extremos, os resultados foram resumidos pela mediana e pelo intervalo interquartil (Q1–Q3). Assim, a análise desta etapa possui caráter descritivo e permite comparar o comportamento das cotas entre os dois períodos.
+
+| **Município** | **Período** | **n** | **Cota média anual** | **Cota mínima anual** | **Cota máxima anual** | **Amplitude anual** |
+|:---|:---|:---:|:---:|:---:|:---:|:---:|
+| **Borba** | Antes | 9 | 1.574,2 [1.540,8–1.620,2] | 905,0 [790,0–1.008,0] | 2.028,0 [2.015,0–2.134,0] | 1.184,0 [1.047,0–1.235,0] |
+|  | Depois | 14 | 1.600,4 [1.549,0–1.656,6] | 919,0 [843,5–990,8] | 2.123,0 [2.065,2–2.147,0] | 1.211,0 [1.175,2–1.224,5] |
+| **Manicoré** | Antes | 9 | 1.863,7 [1.791,6–1.931,5] | 1.197,0 [1.136,0–1.212,0] | 2.517,0 [2.460,0–2.580,0] | 1.298,0 [1.268,0–1.383,0] |
+|  | Depois | 14 | 1.928,3 [1.880,5–2.027,1] | 1.221,5 [1.162,5–1.289,0] | 2.585,0 [2.555,5–2.653,0] | 1.366,0 [1.309,2–1.453,5] |
+
+: **Resumo descritivo das cotas fluviométricas anuais do rio Madeira nos períodos (Antes) e (Depois). Os valores são apresentados como mediana [Q1–Q3], em centímetros.** {#tbl-cotas-descritiva}
+
+::: {.nota-tabela}
+**Notas:** Antes = 2002–2010 ($n=9$ anos) | Depois = 2011–2024 ($n=14$ anos) | Q1 = primeiro quartil | Q3 = terceiro quartil | Amplitude anual = cota máxima anual − cota mínima anual.
+:::
+
+**Comentários:** Conforme a @tbl-cotas-descritiva, os valores centrais das medidas hidrológicas foram maiores no período (Depois) nos dois municípios. Em Borba, a mediana da cota média anual passou de 1.574,2 cm no período (Antes) para 1.600,4 cm no período (Depois). A cota mínima passou de 905,0 para 919,0 cm, enquanto a cota máxima aumentou de 2.028,0 para 2.123,0 cm.
+
+Em Manicoré, a cota média anual passou de 1.863,7 para 1.928,3 cm. A cota mínima aumentou de 1.197,0 para 1.221,5 cm e a cota máxima de 2.517,0 para 2.585,0 cm. A amplitude anual também apresentou valores maiores no período (Depois) nos dois municípios.
+
+Esses resultados descrevem as diferenças observadas entre os períodos, mas não indicam, por si só, se essas mudanças são estatisticamente significativas.
+
+
+### Variáveis Hidrológicas: Variação entre os Períodos
+
+Como complemento à análise descritiva, foi calculada a variação entre os valores medianos dos períodos (Antes) e (Depois). Para cada medida hidrológica, considerou-se:
+
+$$
+\Delta H
+=
+\widetilde{H}_{\text{Depois}}
+-
+\widetilde{H}_{\text{Antes}},
+$$
+
+em que $\widetilde{H}_{\text{Antes}}$ e $\widetilde{H}_{\text{Depois}}$ representam as medianas da variável hidrológica nos respectivos períodos. Valores positivos de $\Delta H$ indicam aumento no período (Depois), enquanto valores negativos indicam redução.
+
+A variação percentual foi obtida por:
+
+$$
+\Delta H(\%)
+=
+\left(
+\frac{
+\widetilde{H}_{\text{Depois}}
+-
+\widetilde{H}_{\text{Antes}}
+}{
+\widetilde{H}_{\text{Antes}}
+}
+\right)
+\times 100.
+$$
+
+| **Município** | **Variável** | **Antes (cm)** | **Depois (cm)** | **$\Delta H$ (cm)** | **$\Delta H$ (%)** |
+|:---|:---|---:|---:|---:|---:|
+| **Borba** | Cota média anual | 1.574,2 | 1.600,4 | +26,2 | +1,66 |
+|  | Cota mínima anual | 905,0 | 919,0 | +14,0 | +1,55 |
+|  | Cota máxima anual | 2.028,0 | 2.123,0 | +95,0 | +4,68 |
+|  | Amplitude anual | 1.184,0 | 1.211,0 | +27,0 | +2,28 |
+| **Manicoré** | Cota média anual | 1.863,7 | 1.928,3 | +64,6 | +3,46 |
+|  | Cota mínima anual | 1.197,0 | 1.221,5 | +24,5 | +2,05 |
+|  | Cota máxima anual | 2.517,0 | 2.585,0 | +68,0 | +2,70 |
+|  | Amplitude anual | 1.298,0 | 1.366,0 | +68,0 | +5,24 |
+
+: **Variação das medidas hidrológicas entre os períodos (Antes) e (Depois) em Borba e Manicoré.** {#tbl-variacao-hidrologica}
+
+::: {.nota-tabela}
+**Notas:** $\Delta H$ = diferença entre a mediana do período (Depois) e a mediana do período (Antes) | $\Delta H(\%)$ = variação percentual em relação ao período (Antes) | Valores positivos indicam medidas hidrológicas maiores no período (Depois).
+:::
+
+**Comentários:** Conforme a @tbl-variacao-hidrologica, todas as medidas apresentaram variação positiva entre os períodos (Antes) e (Depois). Em Borba, o maior aumento relativo ocorreu na cota máxima anual, que apresentou diferença de 95,0 cm, correspondente a 4,68%. A cota média anual aumentou 26,2 cm, equivalente a 1,66%.
+
+Em Manicoré, a cota média anual apresentou aumento de 64,6 cm, correspondente a 3,46%. A maior variação relativa foi observada na amplitude anual, que aumentou 68,0 cm, ou 5,24%.
+
+De forma geral, a análise descritiva mostra valores hidrológicos centrais ligeiramente maiores no período (Depois) nos dois municípios. Na etapa seguinte, será avaliado se essas variáveis estão associadas à produção pesqueira e se essa relação apresenta diferenças entre os períodos (Antes) e (Depois).
+
+
+### Variáveis Hidrológicas: Associação com a Produção Pesqueira
+
+Para avaliar a associação entre as condições hidrológicas e a produção pesqueira, foi utilizada a correlação de Spearman, considerando separadamente as cotas média, mínima e máxima anuais em cada município e período. O coeficiente $\rho$ indica a direção e a intensidade da associação, enquanto os valores de $p$ foram ajustados pelo método de Benjamini–Hochberg (BH), considerando as três variáveis hidrológicas avaliadas em cada município e período.
+
+| **Município** | **Período** | **Variável hidrológica** | **n** | **$\rho$** | **$p$** | **$p_{aj}$** |
+|:---|:---|:---|:---:|---:|---:|---:|
+| **Borba** | Antes | Cota máxima anual | 9 | −0,650 | 0,058 | 0,174 |
+|  |  | Cota média anual | 9 | −0,233 | 0,546 | 0,546 |
+|  |  | Cota mínima anual | 9 | 0,550 | 0,125 | 0,187 |
+|  | Depois | Cota máxima anual | 14 | 0,446 | 0,110 | 0,329 |
+|  |  | Cota média anual | 14 | 0,240 | 0,409 | 0,409 |
+|  |  | Cota mínima anual | 14 | 0,341 | 0,233 | 0,350 |
+| **Manicoré** | Antes | Cota máxima anual | 9 | −0,617 | 0,077 | 0,231 |
+|  |  | Cota média anual | 9 | −0,433 | 0,244 | 0,366 |
+|  |  | Cota mínima anual | 9 | 0,167 | 0,668 | 0,668 |
+|  | Depois | Cota máxima anual | 14 | 0,095 | 0,748 | 0,748 |
+|  |  | Cota média anual | 14 | 0,332 | 0,246 | 0,370 |
+|  |  | Cota mínima anual | 14 | 0,569 | 0,034 | 0,101 |
+
+: **Correlação de Spearman entre a produção pesqueira anual e as variáveis hidrológicas nos períodos (Antes) e (Depois).** {#tbl-spearman-hidrologia}
+
+::: {.nota-tabela}
+**Notas:** $\rho$ = coeficiente de correlação de Spearman | $p$ = valor de significância sem ajuste | $p_{aj}$ = valor de $p$ ajustado pelo método de Benjamini–Hochberg (BH) para as três variáveis hidrológicas avaliadas dentro de cada município e período | Antes = 2002–2010 ($n=9$ anos) | Depois = 2011–2024 ($n=14$ anos).
+:::
+
+**Comentários:** Conforme a @tbl-spearman-hidrologia, não foram identificadas associações estatisticamente significativas entre a produção pesqueira e as cotas média, mínima ou máxima anuais após o ajuste dos valores de $p$.
+
+Em Borba, no período (Antes), a associação de maior intensidade ocorreu com a cota máxima anual ($\rho=-0,650$), indicando que maiores cotas máximas tenderam a ocorrer em anos de menor produção. No período (Depois), as três correlações foram positivas, sendo a maior observada para a cota máxima ($\rho=0,446$). Entretanto, nenhuma dessas associações foi significativa.
+
+Em Manicoré, no período (Antes), as cotas média e máxima apresentaram associações negativas com a produção, com maior intensidade para a cota máxima ($\rho=-0,617$). No período (Depois), a maior associação foi observada para a cota mínima anual ($\rho=0,569$). Embora o valor de $p$ sem ajuste tenha sido inferior a 0,05 ($p=0,034$), após a correção pelas comparações realizadas o resultado não permaneceu significativo ($p_{aj}=0,101$).
+
+Assim, a análise de Spearman não apresentou evidência suficiente de uma associação consistente entre as variações anuais das cotas fluviométricas e a produção pesqueira. A etapa seguinte avalia essa relação por meio dos modelos GLS, considerando simultaneamente o período, a tendência temporal e a possível autocorrelação dos dados.
 
 ## Séries temporais
 
