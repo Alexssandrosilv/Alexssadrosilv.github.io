@@ -45,6 +45,9 @@ resources:
   - graficos/Serie_Temporal_Shannon
   - graficos/TimeSeries_Borba
   - graficos/TimeSeries_Manicore
+  - graficos/TimeSeries_Cota_Media
+  - graficos/TimeSeries_Cota_Minima
+  - graficos/TimeSeries_Cota_Maxima
 
 ---
 
@@ -1559,6 +1562,194 @@ A análise por espécie mostrou que o declínio temporal da produção não ocor
 No período (Depois), o comportamento tornou-se mais consistente entre as espécies. **Todas as 19 espécies avaliadas em Borba e todas as 18 espécies avaliadas em Manicoré apresentaram tendências temporais negativas e estatisticamente significativas.**
 
 Dessa forma, a redução identificada na produção pesqueira total também foi observada de forma generalizada nas séries temporais das espécies no período (Depois), embora as magnitudes das inclinações de Sen tenham variado entre os recursos pesqueiros e entre os municípios.
+
+
+### Cotas Fluviométricas: Mudanças nas Séries Temporais
+
+Para avaliar possíveis mudanças temporais no regime hidrológico, foram analisadas as séries anuais das cotas média, mínima e máxima em Borba e Manicoré, considerando os períodos **(Antes), de 2002 a 2010**, e **(Depois), de 2011 a 2024**. Para cada variável e município, foi ajustado um modelo de Mínimos Quadrados Generalizados (GLS), permitindo avaliar a tendência temporal em cada período, a mudança de nível e a mudança da inclinação da série.
+
+O modelo utilizado foi:
+
+$$
+H_t =
+\beta_0 +
+\beta_1T_t +
+\beta_2D_t +
+\beta_3(T_t \times D_t) +
+\varepsilon_t,
+$$
+
+em que $H_t$ representa a cota fluviométrica anual no ano $t$; $T_t$ representa o tempo, centralizado em 2011; e $D_t$ representa o período, assumindo valor 0 para (Antes) e 1 para (Depois). Nesse modelo, $\beta_1$ representa a tendência temporal no período (Antes), $\beta_2$ representa a mudança de nível no início do período (Depois), e $\beta_3$ representa a mudança da inclinação entre os períodos. A tendência temporal no período (Depois) é obtida pela soma $\beta_1+\beta_3$.
+
+
+#### Estrutura de Correlação dos Modelos
+
+Inicialmente, foram comparados modelos com erros independentes e modelos com estrutura autorregressiva de primeira ordem, AR(1), de modo a verificar a necessidade de considerar dependência entre observações anuais consecutivas.
+
+| **Município** | **Variável** | **AIC Independente** | **AIC AR(1)** | **LRT**<br>$p$ | **Estrutura final** |
+|:---|:---|---:|---:|---:|:---|
+| **Borba** | Cota média | 289 | 290 | 0,492 | Independente |
+|  | Cota mínima | 328 | 329 | 0,510 | Independente |
+|  | Cota máxima | 421 | 423 | 0,641 | Independente |
+| **Manicoré** | Cota média | 292 | 293 | 0,409 | Independente |
+|  | Cota mínima | 273 | 275 | 0,921 | Independente |
+|  | Cota máxima | 436 | 438 | 0,620 | Independente |
+
+: **Comparação das estruturas de correlação dos modelos GLS ajustados às séries temporais das cotas fluviométricas.** {#tbl-gls-hidro-estrutura}
+
+::: {.nota-tabela}
+**Notas:** AIC = Critério de Informação de Akaike | LRT = teste da razão de verossimilhanças | AR(1) = estrutura autorregressiva de primeira ordem | Valores menores de AIC indicam melhor ajuste relativo.
+:::
+
+**Comentários:** Conforme a @tbl-gls-hidro-estrutura, a inclusão da estrutura AR(1) não proporcionou melhora significativa em nenhuma das seis séries avaliadas ($p>0,05$). Além disso, os modelos com erros independentes apresentaram menores valores de AIC. Dessa forma, a estrutura independente foi mantida nos modelos finais de cota média, mínima e máxima em ambos os municípios.
+
+
+#### Resultados dos Modelos GLS
+
+| **Município** | **Variável** | **Parâmetro** | **Estimativa [IC95%]** | **$t$ ($p$)** |
+|:---|:---|:---|---:|---:|
+| **Borba** | Cota média | Tendência (Antes) | 6,60 [−24,35; 37,56] | 0,45 (0,660) |
+|  |  | Mudança de nível (Depois) | 37,52 [−174,91; 249,96] | 0,37 (0,716) |
+|  |  | Mudança da tendência | −18,97 [−53,77; 15,82] | −1,14 (0,268) |
+|  |  | Tendência (Depois) | −12,37 [−28,27; 3,52] | −1,63 (0,120) |
+| **Borba** | Cota mínima | Tendência (Antes) | −39,80 [−111,79; 32,19] | −1,16 (0,262) |
+|  |  | Mudança de nível (Depois) | 298,18 [−195,85; 792,21] | 1,26 (0,222) |
+|  |  | Mudança da tendência | 27,76 [−53,17; 108,69] | 0,72 (0,482) |
+|  |  | Tendência (Depois) | −12,04 [−49,01; 24,93] | −0,68 (0,504) |
+| **Borba** | Cota máxima | Tendência (Antes) | 18,73 [−530,60; 568,07] | 0,07 (0,944) |
+|  |  | Mudança de nível (Depois) | 1.088,10 [−2.681,79; 4.857,98] | 0,60 (0,553) |
+|  |  | Mudança da tendência | −92,69 [−710,23; 524,85] | −0,31 (0,757) |
+|  |  | Tendência (Depois) | −73,96 [−356,07; 208,16] | −0,55 (0,590) |
+| **Manicoré** | Cota média | Tendência (Antes) | 13,23 [−19,91; 46,38] | 0,84 (0,414) |
+|  |  | Mudança de nível (Depois) | 81,62 [−145,84; 309,09] | 0,75 (0,462) |
+|  |  | Mudança da tendência | −27,51 [−64,77; 9,75] | −1,55 (0,139) |
+|  |  | Tendência (Depois) | −14,27 [−31,30; 2,75] | −1,76 (0,095) |
+| **Manicoré** | Cota mínima | Tendência (Antes) | 4,08 [−17,68; 25,85] | 0,39 (0,699) |
+|  |  | Mudança de nível (Depois) | 95,00 [−54,35; 244,34] | 1,33 (0,199) |
+|  |  | Mudança da tendência | −17,24 [−41,70; 7,23] | −1,47 (0,157) |
+|  |  | **Tendência (Depois)** | **−13,15 [−24,33; −1,98]** | **−2,46 (0,023)** |
+| **Manicoré** | Cota máxima | Tendência (Antes) | 18,10 [−739,89; 776,09] | 0,05 (0,961) |
+|  |  | Mudança de nível (Depois) | 1.507,52 [−3.694,28; 6.709,32] | 0,61 (0,551) |
+|  |  | Mudança da tendência | −110,94 [−963,05; 741,16] | −0,27 (0,788) |
+|  |  | Tendência (Depois) | −92,84 [−482,11; 296,43] | −0,50 (0,623) |
+
+: **Resultados dos modelos GLS segmentados para as séries temporais das cotas fluviométricas em Borba e Manicoré.** {#tbl-gls-series-hidro}
+
+::: {.nota-tabela}
+**Notas:** Tendência (Antes) = variação anual estimada entre 2002 e 2010 | Mudança de nível (Depois) = alteração estimada no nível da série no início do período 2011–2024 | Mudança da tendência = diferença entre as inclinações dos períodos | Tendência (Depois) = variação anual estimada entre 2011 e 2024 | IC95% = intervalo de confiança de 95% | Tendências expressas em cm/ano e mudanças de nível em cm.
+:::
+
+**Comentários:** Conforme a @tbl-gls-series-hidro, em Borba não foram identificadas tendências temporais estatisticamente significativas para as cotas média, mínima ou máxima em nenhum dos períodos. Também não foram encontradas evidências de mudanças significativas de nível ou da inclinação das séries entre (Antes) e (Depois).
+
+Em Manicoré, as cotas média e máxima também não apresentaram tendências significativas nos períodos analisados. Para a **cota mínima**, entretanto, foi identificada tendência negativa e estatisticamente significativa no período (Depois), com redução estimada de **13,15 cm/ano** (IC95%: −24,33; −1,98; $p=0,023$).
+
+Apesar dessa redução no período (Depois), o termo de interação entre tempo e período não foi significativo ($p=0,157$). Portanto, não há evidência estatística suficiente de que a inclinação da cota mínima tenha se alterado significativamente entre os períodos (Antes) e (Depois).
+
+
+#### Verificação dos Pressupostos
+
+A adequação dos modelos foi avaliada por meio da normalidade dos resíduos, autocorrelação residual e homogeneidade das variâncias.
+
+| **Município** | **Variável** | **Shapiro–Wilk**<br>$p$ | **ACF Lag 1** | **Ljung–Box**<br>$p$ | **Homogeneidade**<br>$p$ | **Maior resíduo** | **$|r|>2$** |
+|:---|:---|---:|---:|---:|---:|---:|---:|
+| **Borba** | Cota média | 0,474 | 0,135 | 0,347 | 0,051 | 2,18 | 1 |
+|  | Cota mínima | <0,001 | −0,137 | 0,681 | 0,963 | 3,27 | 2 |
+|  | Cota máxima | <0,001 | −0,099 | 0,876 | <0,001 | 4,59 | 1 |
+| **Manicoré** | Cota média | 0,828 | 0,164 | 0,143 | 0,158 | 2,08 | 1 |
+|  | Cota mínima | 0,868 | 0,020 | 0,116 | 0,745 | 2,08 | 1 |
+|  | Cota máxima | <0,001 | −0,105 | 0,869 | <0,001 | 4,59 | 1 |
+
+: **Diagnóstico dos modelos GLS ajustados às séries temporais das cotas fluviométricas.** {#tbl-diagnostico-series-hidro}
+
+::: {.nota-tabela}
+**Notas:** Shapiro–Wilk = teste de normalidade dos resíduos | ACF Lag 1 = autocorrelação residual de primeira ordem | Ljung–Box = teste de autocorrelação residual | Homogeneidade = comparação entre o modelo com variância constante e o modelo permitindo variâncias distintas entre os períodos | $|r|>2$ = número de resíduos normalizados com valor absoluto superior a 2.
+:::
+
+**Comentários:** Os testes de Ljung–Box não indicaram autocorrelação residual significativa em nenhuma das séries ($p>0,05$), resultado coerente com a seleção dos modelos com estrutura independente.
+
+Para as cotas médias de Borba e Manicoré e para a cota mínima de Manicoré, não foram identificadas violações relevantes dos pressupostos avaliados. A cota mínima de Borba apresentou desvio da normalidade dos resíduos ($p<0,001$), acompanhado de dois resíduos normalizados com valor absoluto superior a 2.
+
+As séries de cota máxima apresentaram os maiores desvios dos pressupostos, com rejeição da normalidade e evidência de heterogeneidade das variâncias em ambos os municípios ($p<0,001$). Os resultados dessas séries devem, portanto, ser interpretados com cautela, especialmente devido à presença de valores anuais extremos observados na série.
+
+
+#### Tendência Não Paramétrica das Cotas Fluviométricas
+
+Como análise complementar, foram aplicados o teste de Mann–Kendall e o estimador de inclinação de Sen separadamente aos períodos (Antes) e (Depois). O teste de Mann–Kendall foi utilizado para avaliar a presença de tendência monotônica, enquanto a inclinação de Sen foi utilizada para estimar a magnitude da variação anual.
+
+| **Município** | **Variável** | **Período** | **$n$** | **$\tau$** | **$\tau^2$** | **$p$** | **Sen**<br>(cm/ano) | **Tendência** |
+|:---|:---|:---|---:|---:|---:|---:|---:|:---|
+| **Borba** | Cota média | Antes | 9 | 0,167 | 0,028 | 0,602 | 8,75 | Sem tendência significativa |
+|  |  | Depois | 14 | −0,143 | 0,020 | 0,511 | −5,38 | Sem tendência significativa |
+|  | Cota mínima | Antes | 9 | −0,389 | 0,151 | 0,175 | −37,88 | Sem tendência significativa |
+|  |  | Depois | 14 | −0,231 | 0,053 | 0,274 | −16,00 | Sem tendência significativa |
+|  | Cota máxima | Antes | 9 | 0,556 | 0,309 | 0,048 | 20,42 | **Aumento significativo** |
+|  |  | Depois | 14 | −0,319 | 0,102 | 0,125 | −12,60 | Sem tendência significativa |
+| **Manicoré** | Cota média | Antes | 9 | 0,222 | 0,049 | 0,466 | 13,77 | Sem tendência significativa |
+|  |  | Depois | 14 | −0,253 | 0,064 | 0,228 | −16,79 | Sem tendência significativa |
+|  | Cota mínima | Antes | 9 | −0,167 | 0,028 | 0,602 | −4,12 | Sem tendência significativa |
+|  |  | Depois | 14 | −0,429 | 0,184 | 0,037 | −12,17 | **Queda significativa** |
+|  | Cota máxima | Antes | 9 | 0,389 | 0,151 | 0,175 | 16,90 | Sem tendência significativa |
+|  |  | Depois | 14 | −0,055 | 0,003 | 0,827 | −4,29 | Sem tendência significativa |
+
+: **Teste de tendência de Mann–Kendall e inclinação de Sen para as séries temporais das cotas fluviométricas.** {#tbl-mk-sen-hidro}
+
+::: {.nota-tabela}
+**Notas:** $n$ = número de anos avaliados | $\tau$ = coeficiente de Kendall | $\tau^2$ = medida aproximada da intensidade da tendência monotônica | $p$ = valor de $p$ do teste de Mann–Kendall | Sen = inclinação de Sen, expressa em cm/ano | Antes = 2002–2010 | Depois = 2011–2024 | Nível de significância: $\alpha=0,05$.
+:::
+
+**Comentários:** A análise não paramétrica indicou ausência de tendência significativa na maior parte das séries hidrológicas. Em Borba, a única exceção foi a cota máxima no período (Antes), que apresentou tendência positiva ($\tau=0,556$; $p=0,048$), com inclinação de Sen estimada em 20,42 cm/ano. Entretanto, diante dos desvios observados nos diagnósticos da série de cotas máximas, esse resultado deve ser interpretado com cautela.
+
+Em Manicoré, a cota mínima apresentou tendência negativa significativa no período (Depois) ($\tau=-0,429$; $p=0,037$), com redução estimada de 12,17 cm/ano pela inclinação de Sen. Esse resultado é consistente com o modelo GLS, que estimou redução de 13,15 cm/ano para a mesma série e período.
+
+
+#### Representação Gráfica das Séries Hidrológicas
+
+As séries temporais das cotas média, mínima e máxima são apresentadas nas figuras a seguir. Os pontos representam os valores anuais observados, diferenciados entre os períodos (Antes) e (Depois). A linha vertical tracejada indica o ano de 2011 e as linhas em vermelho escuro representam as tendências estimadas pela inclinação de Sen em cada período.
+
+::: {.panel-tabset}
+
+### Cota Média
+
+![**PT-BR:** Série temporal da cota média anual do rio Madeira em Borba e Manicoré, entre 2002 e 2024. Os pontos representam os valores anuais observados nos períodos Antes (2002–2010; azul escuro) e Depois (2011–2024; azul claro). A linha vertical tracejada indica o início do período Depois, em 2011, enquanto as linhas em vermelho escuro representam as tendências estimadas pela inclinação de Sen em cada período.<br><br>**EN:** Time series of annual mean river level of the Madeira River in Borba and Manicoré between 2002 and 2024. Points represent annual observed values in the Before (2002–2010; dark blue) and After (2011–2024; light blue) periods. The dashed vertical line indicates the beginning of the After period in 2011, while dark-red lines represent trends estimated using Sen's slope for each period.](graficos/TimeSeries_Cota_Media.png){#fig-serie-cota-media width="100%" fig-align="center"}
+
+::: {.linha-baixar}
+[<i class="bi bi-download"></i> Baixar Gráfico (PNG)](graficos/TimeSeries_Cota_Media.png){.baixar download="TimeSeries_Cota_Media.png"}
+:::
+
+
+### Cota Mínima
+
+![**PT-BR:** Série temporal da cota mínima anual do rio Madeira em Borba e Manicoré, entre 2002 e 2024. Os pontos representam os valores anuais observados nos períodos Antes (2002–2010; azul escuro) e Depois (2011–2024; azul claro). A linha vertical tracejada indica o início do período Depois, em 2011, enquanto as linhas em vermelho escuro representam as tendências estimadas pela inclinação de Sen em cada período.<br><br>**EN:** Time series of annual minimum river level of the Madeira River in Borba and Manicoré between 2002 and 2024. Points represent annual observed values in the Before (2002–2010; dark blue) and After (2011–2024; light blue) periods. The dashed vertical line indicates the beginning of the After period in 2011, while dark-red lines represent trends estimated using Sen's slope for each period.](graficos/TimeSeries_Cota_Minima.png){#fig-serie-cota-minima width="100%" fig-align="center"}
+
+::: {.linha-baixar}
+[<i class="bi bi-download"></i> Baixar Gráfico (PNG)](graficos/TimeSeries_Cota_Minima.png){.baixar download="TimeSeries_Cota_Minima.png"}
+:::
+
+
+### Cota Máxima
+
+![**PT-BR:** Série temporal da cota máxima anual do rio Madeira em Borba e Manicoré, entre 2002 e 2024. Os pontos representam os valores anuais observados nos períodos Antes (2002–2010; azul escuro) e Depois (2011–2024; azul claro). A linha vertical tracejada indica o início do período Depois, em 2011, enquanto as linhas em vermelho escuro representam as tendências estimadas pela inclinação de Sen em cada período.<br><br>**EN:** Time series of annual maximum river level of the Madeira River in Borba and Manicoré between 2002 and 2024. Points represent annual observed values in the Before (2002–2010; dark blue) and After (2011–2024; light blue) periods. The dashed vertical line indicates the beginning of the After period in 2011, while dark-red lines represent trends estimated using Sen's slope for each period.](graficos/TimeSeries_Cota_Maxima.png){#fig-serie-cota-maxima width="100%" fig-align="center"}
+
+::: {.linha-baixar}
+[<i class="bi bi-download"></i> Baixar Gráfico (PNG)](graficos/TimeSeries_Cota_Maxima.png){.baixar download="TimeSeries_Cota_Maxima.png"}
+:::
+
+:::
+
+
+### Séries Temporais: Síntese dos Resultados
+
+A análise das séries temporais revelou comportamentos distintos entre a produção pesqueira e as variáveis hidrológicas. A produção pesqueira apresentou tendência de redução em Borba e Manicoré tanto no período (Antes) quanto no período (Depois), resultado observado pelos modelos GLS e corroborado pelos testes de Mann–Kendall e pelas inclinações de Sen.
+
+Em Borba, além das tendências negativas nos dois períodos, o modelo GLS identificou mudança significativa da inclinação da série, indicando intensificação da taxa anual de redução da produção no período (Depois). Em Manicoré, não foi identificada mudança significativa da inclinação, porém ocorreu uma redução significativa do nível da produção entre os segmentos temporais.
+
+A análise individual por espécie reforçou esse padrão. No período (Antes), 13 das 19 espécies de Borba e 12 das 18 espécies de Manicoré apresentaram tendências significativas de redução. Em Borba, cinco espécies não apresentaram tendência significativa e Piranambu/Barbado apresentou tendência positiva. Em Manicoré, seis espécies permaneceram sem tendência significativa. No período (Depois), entretanto, **todas as 19 espécies avaliadas em Borba e todas as 18 espécies avaliadas em Manicoré apresentaram tendências negativas e estatisticamente significativas**.
+
+As variáveis hidrológicas apresentaram comportamento temporal menos uniforme. Não foram encontradas evidências de mudanças significativas de nível ou da inclinação das cotas média, mínima ou máxima entre os períodos nos dois municípios. A principal alteração identificada ocorreu na cota mínima de Manicoré, que apresentou tendência significativa de redução no período (Depois), resultado observado tanto pelo GLS quanto pelo teste de Mann–Kendall.
+
+Em conjunto, os resultados indicam que o declínio temporal da produção pesqueira foi mais amplo e consistente do que as mudanças observadas nas cotas fluviométricas analisadas. Embora tenham sido identificadas alterações pontuais nas séries hidrológicas, os resultados não demonstraram uma mudança generalizada das tendências de cota entre os períodos (Antes) e (Depois).
+
+
 ## Apêndices
 
 Nesta seção, apresentamos os detalhamentos metodológicos, as demonstrações algébricas, as formulações matemáticas dos testes estatísticos e os materiais complementares que fundamentam os resultados apresentados ao longo deste documento.
