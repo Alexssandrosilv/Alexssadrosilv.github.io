@@ -39,6 +39,10 @@ resources:
   - graficos/TimeSeries_Cotas_Manicore.png
   - graficos/Time_Series_Manicore_GLS.png
   - graficos/Time_Series_Borba_GLS.png
+  - graficos/Relacao_Cota_Media_Producao
+  - graficos/Relacao_Cota_Maxima_Producao
+  - graficos/Relacao_Cota_Minima_Producao
+  - graficos/Serie_Temporal_Shannon
 
 ---
 
@@ -911,7 +915,7 @@ Em conjunto com a análise descritiva, observa-se que a riqueza permaneceu const
 
 As condições hidrológicas do rio Madeira foram caracterizadas a partir das cotas média, mínima e máxima anuais, além da amplitude anual, calculada pela diferença entre a cota máxima e a cota mínima de cada ano. As medidas foram obtidas separadamente para Borba e Manicoré, considerando os períodos (Antes), de 2002 a 2010, e (Depois), de 2011 a 2024.
 
-Para reduzir a influência de valores extremos, os resultados foram resumidos pela mediana e pelo intervalo interquartil (Q1–Q3). Assim, a análise desta etapa possui caráter descritivo e permite comparar o comportamento das cotas entre os dois períodos.
+Para reduzir a influência de valores extremos, os resultados foram resumidos pela mediana e pelo intervalo interquartil (Q1–Q3). Assim, esta etapa possui caráter descritivo e permite comparar o comportamento das medidas hidrológicas entre os dois períodos.
 
 | **Município** | **Período** | **n** | **Cota média anual** | **Cota mínima anual** | **Cota máxima anual** | **Amplitude anual** |
 |:---|:---|:---:|:---:|:---:|:---:|:---:|
@@ -928,9 +932,9 @@ Para reduzir a influência de valores extremos, os resultados foram resumidos pe
 
 **Comentários:** Conforme a @tbl-cotas-descritiva, os valores centrais das medidas hidrológicas foram maiores no período (Depois) nos dois municípios. Em Borba, a mediana da cota média anual passou de 1.574,2 cm no período (Antes) para 1.600,4 cm no período (Depois). A cota mínima passou de 905,0 para 919,0 cm, enquanto a cota máxima aumentou de 2.028,0 para 2.123,0 cm.
 
-Em Manicoré, a cota média anual passou de 1.863,7 para 1.928,3 cm. A cota mínima aumentou de 1.197,0 para 1.221,5 cm e a cota máxima de 2.517,0 para 2.585,0 cm. A amplitude anual também apresentou valores maiores no período (Depois) nos dois municípios.
+Em Manicoré, a cota média anual passou de 1.863,7 para 1.928,3 cm. A cota mínima aumentou de 1.197,0 para 1.221,5 cm, enquanto a cota máxima passou de 2.517,0 para 2.585,0 cm. A amplitude anual também apresentou valores centrais maiores no período (Depois) nos dois municípios.
 
-Esses resultados descrevem as diferenças observadas entre os períodos, mas não indicam, por si só, se essas mudanças são estatisticamente significativas.
+Esses resultados descrevem as diferenças observadas entre os períodos, mas não indicam, isoladamente, se essas mudanças são estatisticamente significativas.
 
 
 ### Variáveis Hidrológicas: Variação entre os Períodos
@@ -945,7 +949,7 @@ $$
 \widetilde{H}_{\text{Antes}},
 $$
 
-em que $\widetilde{H}_{\text{Antes}}$ e $\widetilde{H}_{\text{Depois}}$ representam as medianas da variável hidrológica nos respectivos períodos. Valores positivos de $\Delta H$ indicam aumento no período (Depois), enquanto valores negativos indicam redução.
+em que $\widetilde{H}_{\text{Antes}}$ e $\widetilde{H}_{\text{Depois}}$ representam as medianas da variável hidrológica nos respectivos períodos. Valores positivos de $\Delta H$ indicam medidas maiores no período (Depois), enquanto valores negativos indicam redução.
 
 A variação percentual foi obtida por:
 
@@ -981,16 +985,18 @@ $$
 **Notas:** $\Delta H$ = diferença entre a mediana do período (Depois) e a mediana do período (Antes) | $\Delta H(\%)$ = variação percentual em relação ao período (Antes) | Valores positivos indicam medidas hidrológicas maiores no período (Depois).
 :::
 
-**Comentários:** Conforme a @tbl-variacao-hidrologica, todas as medidas apresentaram variação positiva entre os períodos (Antes) e (Depois). Em Borba, o maior aumento relativo ocorreu na cota máxima anual, que apresentou diferença de 95,0 cm, correspondente a 4,68%. A cota média anual aumentou 26,2 cm, equivalente a 1,66%.
+**Comentários:** Conforme a @tbl-variacao-hidrologica, todas as medidas apresentaram variação positiva entre os períodos (Antes) e (Depois). Em Borba, o maior aumento relativo ocorreu na cota máxima anual, com diferença de 95,0 cm, correspondente a 4,68%. A cota média anual aumentou 26,2 cm, equivalente a 1,66%.
 
-Em Manicoré, a cota média anual apresentou aumento de 64,6 cm, correspondente a 3,46%. A maior variação relativa foi observada na amplitude anual, que aumentou 68,0 cm, ou 5,24%.
+Em Manicoré, a cota média anual apresentou aumento de 64,6 cm, correspondente a 3,46%. A maior variação relativa foi observada na amplitude anual, que aumentou 68,0 cm, equivalente a 5,24%.
 
-De forma geral, a análise descritiva mostra valores hidrológicos centrais ligeiramente maiores no período (Depois) nos dois municípios. Na etapa seguinte, será avaliado se essas variáveis estão associadas à produção pesqueira e se essa relação apresenta diferenças entre os períodos (Antes) e (Depois).
+De forma geral, os resultados indicam medidas hidrológicas centrais ligeiramente maiores no período (Depois) nos dois municípios. Na etapa seguinte, foi avaliada a correlação entre as variações anuais das cotas e a produção pesqueira.
 
 
-### Variáveis Hidrológicas: Associação com a Produção Pesqueira
+### Variáveis Hidrológicas: Correlação com a Produção Pesqueira
 
-Para avaliar a associação entre as condições hidrológicas e a produção pesqueira, foi utilizada a correlação de Spearman, considerando separadamente as cotas média, mínima e máxima anuais em cada município e período. O coeficiente $\rho$ indica a direção e a intensidade da associação, enquanto os valores de $p$ foram ajustados pelo método de Benjamini–Hochberg (BH), considerando as três variáveis hidrológicas avaliadas em cada município e período.
+Para avaliar a correlação entre as condições hidrológicas e a produção pesqueira, foi utilizado o coeficiente de correlação de Spearman, considerando separadamente as cotas média, mínima e máxima anuais em cada município e período. O coeficiente $\rho$ indica a direção e a intensidade da correlação monotônica entre as variáveis.
+
+Considerando que três medidas hidrológicas foram avaliadas em cada combinação de município e período, os valores de $p$ também foram ajustados pelo método de Benjamini–Hochberg (BH), permitindo controlar o efeito das comparações múltiplas.
 
 | **Município** | **Período** | **Variável hidrológica** | **n** | **$\rho$** | **$p$** | **$p_{aj}$** |
 |:---|:---|:---|:---:|---:|---:|---:|
@@ -1013,13 +1019,142 @@ Para avaliar a associação entre as condições hidrológicas e a produção pe
 **Notas:** $\rho$ = coeficiente de correlação de Spearman | $p$ = valor de significância sem ajuste | $p_{aj}$ = valor de $p$ ajustado pelo método de Benjamini–Hochberg (BH) para as três variáveis hidrológicas avaliadas dentro de cada município e período | Antes = 2002–2010 ($n=9$ anos) | Depois = 2011–2024 ($n=14$ anos).
 :::
 
-**Comentários:** Conforme a @tbl-spearman-hidrologia, não foram identificadas associações estatisticamente significativas entre a produção pesqueira e as cotas média, mínima ou máxima anuais após o ajuste dos valores de $p$.
+**Comentários:** Conforme a @tbl-spearman-hidrologia, não foram identificadas correlações estatisticamente significativas entre a produção pesqueira e as cotas média, mínima ou máxima anuais após o ajuste dos valores de $p$.
 
-Em Borba, no período (Antes), a associação de maior intensidade ocorreu com a cota máxima anual ($\rho=-0,650$), indicando que maiores cotas máximas tenderam a ocorrer em anos de menor produção. No período (Depois), as três correlações foram positivas, sendo a maior observada para a cota máxima ($\rho=0,446$). Entretanto, nenhuma dessas associações foi significativa.
+Em Borba, no período (Antes), a correlação de maior intensidade ocorreu com a cota máxima anual ($\rho=-0,650$), indicando correlação negativa com a produção pesqueira. A cota mínima apresentou correlação positiva ($\rho=0,550$), enquanto a cota média apresentou correlação negativa de menor intensidade ($\rho=-0,233$). No período (Depois), as três correlações foram positivas, sendo a maior observada para a cota máxima anual ($\rho=0,446$). Nenhuma dessas correlações foi estatisticamente significativa após o ajuste.
 
-Em Manicoré, no período (Antes), as cotas média e máxima apresentaram associações negativas com a produção, com maior intensidade para a cota máxima ($\rho=-0,617$). No período (Depois), a maior associação foi observada para a cota mínima anual ($\rho=0,569$). Embora o valor de $p$ sem ajuste tenha sido inferior a 0,05 ($p=0,034$), após a correção pelas comparações realizadas o resultado não permaneceu significativo ($p_{aj}=0,101$).
+Em Manicoré, no período (Antes), as cotas média e máxima apresentaram correlações negativas com a produção, com maior intensidade para a cota máxima ($\rho=-0,617$). A cota mínima apresentou correlação positiva de baixa intensidade ($\rho=0,167$). No período (Depois), as três correlações foram positivas, destacando-se a cota mínima anual ($\rho=0,569$). Embora seu valor de $p$ sem ajuste tenha sido inferior a 0,05 ($p=0,034$), a correlação não permaneceu estatisticamente significativa após a correção pelas comparações realizadas ($p_{aj}=0,101$).
 
-Assim, a análise de Spearman não apresentou evidência suficiente de uma associação consistente entre as variações anuais das cotas fluviométricas e a produção pesqueira. A etapa seguinte avalia essa relação por meio dos modelos GLS, considerando simultaneamente o período, a tendência temporal e a possível autocorrelação dos dados.
+
+### Variáveis Hidrológicas: Representação Gráfica das Correlações
+
+As correlações entre a produção pesqueira anual e as cotas média, mínima e máxima são apresentadas nas @fig-cota-media-producao, @fig-cota-minima-producao e @fig-cota-maxima-producao, respectivamente. Em cada figura, os pontos representam as observações anuais dos períodos (Antes) e (Depois), enquanto as linhas indicam tendências lineares ajustadas separadamente para cada período.
+
+As linhas são utilizadas apenas como recurso visual para facilitar a identificação da direção geral dos dados. A avaliação estatística das correlações permanece baseada no coeficiente de correlação de Spearman ($\rho$) e nos respectivos valores de $p$ ajustados.
+
+
+![**PT-BR:** Correlação entre a cota média anual do rio Madeira e a produção pesqueira anual em Borba e Manicoré, nos períodos (Antes) (2002–2010; $n=9$ anos) e (Depois) (2011–2024; $n=14$ anos). Os pontos representam as observações anuais e as linhas indicam tendências lineares ajustadas separadamente para cada período, utilizadas apenas como recurso visual. Os valores de $\rho$ correspondem à correlação de Spearman e os valores de $p$ apresentados nas caixas foram ajustados pelo método de Benjamini–Hochberg (BH).<br><br>**EN:** Correlation between the mean annual river level of the Madeira River and annual fish production in Borba and Manicoré during the (Before) period (2002–2010; $n=9$ years) and the (After) period (2011–2024; $n=14$ years). Points represent annual observations, and lines indicate linear trends fitted separately for each period and included only as a visual aid. The $\rho$ values correspond to Spearman's correlation, and the $p$-values displayed in the boxes were adjusted using the Benjamini–Hochberg (BH) method.](graficos/Relacao_Cota_Media_Producao.png){#fig-cota-media-producao width="100%" fig-align="center"}
+
+::: {.linha-baixar}
+[<i class="bi bi-download"></i> Baixar correlação entre cota média e produção (PNG)](graficos/Relacao_Cota_Media_Producao.png){.baixar download="Relacao_Cota_Media_Producao.png"}
+:::
+
+
+![**PT-BR:** Correlação entre a cota mínima anual do rio Madeira e a produção pesqueira anual em Borba e Manicoré, nos períodos (Antes) (2002–2010; $n=9$ anos) e (Depois) (2011–2024; $n=14$ anos). Os pontos representam as observações anuais e as linhas indicam tendências lineares ajustadas separadamente para cada período, utilizadas apenas como recurso visual. Os valores de $\rho$ correspondem à correlação de Spearman e os valores de $p$ apresentados nas caixas foram ajustados pelo método de Benjamini–Hochberg (BH).<br><br>**EN:** Correlation between the minimum annual river level of the Madeira River and annual fish production in Borba and Manicoré during the (Before) period (2002–2010; $n=9$ years) and the (After) period (2011–2024; $n=14$ years). Points represent annual observations, and lines indicate linear trends fitted separately for each period and included only as a visual aid. The $\rho$ values correspond to Spearman's correlation, and the $p$-values displayed in the boxes were adjusted using the Benjamini–Hochberg (BH) method.](graficos/Relacao_Cota_Minima_Producao.png){#fig-cota-minima-producao width="100%" fig-align="center"}
+
+::: {.linha-baixar}
+[<i class="bi bi-download"></i> Baixar correlação entre cota mínima e produção (PNG)](graficos/Relacao_Cota_Minima_Producao.png){.baixar download="Relacao_Cota_Minima_Producao.png"}
+:::
+
+
+![**PT-BR:** Correlação entre a cota máxima anual do rio Madeira e a produção pesqueira anual em Borba e Manicoré, nos períodos (Antes) (2002–2010; $n=9$ anos) e (Depois) (2011–2024; $n=14$ anos). Os pontos representam as observações anuais e as linhas indicam tendências lineares ajustadas separadamente para cada período, utilizadas apenas como recurso visual. Os valores de $\rho$ correspondem à correlação de Spearman e os valores de $p$ apresentados nas caixas foram ajustados pelo método de Benjamini–Hochberg (BH).<br><br>**EN:** Correlation between the maximum annual river level of the Madeira River and annual fish production in Borba and Manicoré during the (Before) period (2002–2010; $n=9$ years) and the (After) period (2011–2024; $n=14$ years). Points represent annual observations, and lines indicate linear trends fitted separately for each period and included only as a visual aid. The $\rho$ values correspond to Spearman's correlation, and the $p$-values displayed in the boxes were adjusted using the Benjamini–Hochberg (BH) method.](graficos/Relacao_Cota_Maxima_Producao.png){#fig-cota-maxima-producao width="100%" fig-align="center"}
+
+::: {.linha-baixar}
+[<i class="bi bi-download"></i> Baixar correlação entre cota máxima e produção (PNG)](graficos/Relacao_Cota_Maxima_Producao.png){.baixar download="Relacao_Cota_Maxima_Producao.png"}
+:::
+
+**Comentários:** As @fig-cota-media-producao, @fig-cota-minima-producao e @fig-cota-maxima-producao permitem visualizar os padrões indicados pelos coeficientes de correlação de Spearman.
+
+Em Borba, as cotas média e máxima apresentam correlação negativa com a produção no período (Antes), enquanto a cota mínima apresenta correlação positiva. No período (Depois), as três correlações apresentam direção positiva.
+
+Em Manicoré, as cotas média e máxima também apresentam correlação negativa no período (Antes), enquanto a cota mínima apresenta correlação positiva. No período (Depois), as três correlações são positivas, com maior intensidade para a cota mínima anual.
+
+Apesar das diferenças observadas na direção e na intensidade das correlações entre os períodos, nenhuma permaneceu estatisticamente significativa após o ajuste dos valores de $p$.
+
+
+### Variáveis Hidrológicas: Síntese dos Resultados
+
+A análise descritiva mostrou valores centrais das medidas hidrológicas ligeiramente maiores no período (Depois) em Borba e Manicoré. As maiores variações relativas foram observadas para a cota máxima anual em Borba ($+4,68\%$) e para a amplitude anual em Manicoré ($+5,24\%$).
+
+A análise de correlação de Spearman mostrou diferenças na direção e na intensidade das correlações entre as cotas e a produção pesqueira nos períodos (Antes) e (Depois). Entretanto, após o ajuste para comparações múltiplas, não foram identificadas correlações estatisticamente significativas.
+
+Na etapa seguinte, a relação entre as variáveis hidrológicas e a produção pesqueira será avaliada por meio de modelos de Mínimos Quadrados Generalizados (GLS), permitindo considerar simultaneamente o período, a tendência temporal e a possível autocorrelação das observações.
+
+
+### Variáveis Hidrológicas: Modelo de Mínimos Quadrados Generalizados (GLS)
+
+Para complementar a análise de correlação, foram ajustados modelos de Mínimos Quadrados Generalizados (GLS) com o objetivo de avaliar a relação entre as cotas fluviométricas e a produção pesqueira, considerando simultaneamente o período e a tendência temporal. Os modelos foram ajustados separadamente para Borba e Manicoré e para as cotas média, mínima e máxima anuais.
+
+Para cada variável hidrológica, considerou-se o modelo:
+
+$$
+P_t =
+\beta_0 +
+\beta_1 H_t +
+\beta_2 D_t +
+\beta_3(H_t \times D_t) +
+\beta_4 T_t +
+\varepsilon_t,
+$$
+
+em que $P_t$ representa a produção pesqueira anual, $H_t$ corresponde à variável hidrológica, $D_t$ representa o período, tendo (Antes) como categoria de referência, e $T_t$ representa a tendência temporal. A variável hidrológica foi centralizada em torno de sua média.
+
+Nesse modelo, $\beta_1$ representa a relação entre a variável hidrológica e a produção pesqueira no período (Antes), $\beta_2$ representa o efeito do período (Depois), $\beta_3$ representa a mudança na relação entre a variável hidrológica e a produção no período (Depois), e $\beta_4$ representa a tendência temporal da produção.
+
+Para considerar a possível dependência entre observações consecutivas, foram comparados modelos com erros independentes e modelos com estrutura autorregressiva de primeira ordem, AR(1). A estrutura AR(1) apresentou melhor ajuste nos seis modelos avaliados e, portanto, foi adotada nos modelos finais.
+
+
+| **Município** | **Variável hidrológica** | **Efeito hidrológico (Antes)**<br>$\hat{\beta}_1$ (IC95%; kg/cm) | **Teste de $\beta_1$**<br>$t$ ($p$) | **Efeito do período**<br>$\hat{\beta}_2$ (IC95%; kg) | **Teste de $\beta_2$**<br>$t$ ($p$) | **Interação Hidrologia × Período**<br>$\hat{\beta}_3$ (IC95%; kg/cm) | **Teste de $\beta_3$**<br>$t$ ($p_{aj}$) | **Efeito do tempo**<br>$\hat{\beta}_4$ (IC95%; kg/ano) | **Teste de $\beta_4$**<br>$t$ ($p$) | **$\phi$**<br>AR(1) |
+|:---|:---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| **Borba** | Cota média anual | 39,8 [−175,0; 255,0] | 0,39 (0,702) | −7.095 [−68.019; 53.830] | −0,25 (0,809) | −71,4 [−309,0; 166,0] | −0,63 (0,536) | −42.414 [−49.698; −35.130] | −12,2 (<0,001) | 0,851 |
+|  | Cota mínima anual | 19,5 [−28,5; 67,4] | 0,85 (0,405) | −5.146 [−63.933; 53.641] | −0,18 (0,856) | −33,7 [−100,0; 32,9] | −1,06 (0,453) | −42.176 [−49.552; −34.800] | −12,0 (<0,001) | 0,867 |
+|  | Cota máxima anual | 120,0 [−82,6; 323,0] | 1,24 (0,229) | −59.254 [−168.355; 49.848] | −1,14 (0,269) | −120,0 [−323,0; 83,1] | −1,24 (0,453) | −42.458 [−49.380; −35.537] | −12,9 (<0,001) | 0,846 |
+| **Manicoré** | Cota média anual | 159,0 [−66,7; 385,0] | 1,48 (0,156) | −626.979 [−709.842; −544.117] | −15,9 (<0,001) | −219,0 [−481,0; 43,7] | −1,75 (0,211) | −42.670 [−51.699; −33.640] | −9,93 (<0,001) | 0,828 |
+|  | Cota mínima anual | 149,0 [−95,6; 394,0] | 1,28 (0,216) | −612.834 [−695.880; −529.788] | −15,5 (<0,001) | −240,0 [−567,0; 87,2] | −1,54 (0,211) | −42.867 [−52.614; −33.120] | −9,24 (<0,001) | 0,849 |
+|  | Cota máxima anual | 112,0 [−220,0; 444,0] | 0,71 (0,486) | −675.971 [−891.923; −460.019] | −6,58 (<0,001) | −112,0 [−444,0; 220,0] | −0,71 (0,486) | −43.023 [−52.654; −33.393] | −9,39 (<0,001) | 0,832 |
+
+: **Resultados dos modelos GLS para a produção pesqueira em função das variáveis hidrológicas, do período e da tendência temporal, considerando estrutura de autocorrelação AR(1).** {#tbl-gls-hidrologia}
+
+::: {.nota-tabela}
+**Notas:** $\hat{\beta}_1$ = efeito da variável hidrológica no período (Antes) | $\hat{\beta}_2$ = efeito do período (Depois) em relação ao período (Antes), considerando a variável hidrológica em seu valor centralizado | $\hat{\beta}_3$ = interação entre a variável hidrológica e o período | $\hat{\beta}_4$ = efeito temporal anual | IC95% = intervalo de confiança de 95% | $p_{aj}$ = valor de $p$ da interação ajustado pelo método de Benjamini–Hochberg (BH) considerando as três variáveis hidrológicas em cada município | $\phi$ = parâmetro de autocorrelação da estrutura AR(1).
+:::
+
+**Comentários:** Conforme a @tbl-gls-hidrologia, não foi identificada relação estatisticamente significativa entre as variáveis hidrológicas e a produção pesqueira no período (Antes), uma vez que os coeficientes associados às cotas média, mínima e máxima apresentaram $p>0,05$ em Borba e Manicoré. Os respectivos intervalos de confiança também incluíram o valor zero.
+
+O termo de interação Hidrologia × Período, utilizado para verificar se a relação entre as cotas e a produção pesqueira se modificou no período (Depois), também não apresentou significância estatística. Em Borba, os valores ajustados de $p$ foram 0,536 para a cota média e 0,453 para as cotas mínima e máxima. Em Manicoré, os valores foram 0,211 para as cotas média e mínima e 0,486 para a cota máxima. Dessa forma, os modelos não apresentaram evidência de mudança significativa na relação entre as variáveis hidrológicas e a produção pesqueira entre os períodos (Antes) e (Depois).
+
+O efeito do período apresentou comportamento distinto entre os municípios. Em Borba, não foram observadas diferenças significativas entre os períodos após o controle pelas variáveis hidrológicas e pela tendência temporal. Em Manicoré, por outro lado, o efeito associado ao período (Depois) foi negativo e estatisticamente significativo nos três modelos ($p<0,001$), indicando menor nível de produção pesqueira nesse período após o ajuste pelos demais termos do modelo.
+
+O efeito do tempo foi negativo e estatisticamente significativo em todos os modelos ($p<0,001$). Em Borba, as estimativas variaram de aproximadamente −42,2 a −42,5 mil kg por ano, enquanto em Manicoré variaram de aproximadamente −42,7 a −43,0 mil kg por ano. Assim, independentemente da variável hidrológica considerada, os modelos identificaram uma tendência temporal de redução da produção pesqueira.
+
+
+#### Diagnóstico dos Modelos GLS
+
+A adequação dos modelos foi avaliada a partir da normalidade dos resíduos, da presença de autocorrelação residual, da homogeneidade das variâncias e da multicolinearidade entre os termos explicativos.
+
+| **Município** | **Variável hidrológica** | **Shapiro–Wilk**<br>$p$ | **Ljung–Box**<br>$p$ | **Homogeneidade**<br>$p$ | **VIF máximo** |
+|:---|:---|---:|---:|---:|---:|
+| **Borba** | Cota média anual | 0,756 | 0,145 | 0,806 | 7,47 |
+|  | Cota mínima anual | 0,798 | 0,085 | 0,598 | 3,76 |
+|  | Cota máxima anual | 0,939 | 0,137 | 0,416 | 1.562,0 |
+| **Manicoré** | Cota média anual | 0,596 | 0,323 | 0,301 | 5,56 |
+|  | Cota mínima anual | 0,760 | 0,204 | 0,258 | 4,78 |
+|  | Cota máxima anual | 0,239 | 0,137 | 0,276 | 3.339,0 |
+
+: **Diagnóstico dos modelos GLS ajustados para a relação entre as variáveis hidrológicas e a produção pesqueira.** {#tbl-gls-diagnostico}
+
+::: {.nota-tabela}
+**Notas:** Shapiro–Wilk = teste de normalidade dos resíduos | Ljung–Box = teste de autocorrelação residual | Homogeneidade = comparação com modelo permitindo variâncias distintas entre os períodos | VIF = fator de inflação da variância.
+:::
+
+**Comentários:** Conforme a @tbl-gls-diagnostico, os resíduos dos seis modelos não apresentaram evidências de desvio da normalidade, uma vez que todos os valores de $p$ do teste de Shapiro–Wilk foram superiores a 0,05. Os testes de Ljung–Box também apresentaram $p>0,05$, não indicando autocorrelação residual significativa após a inclusão da estrutura AR(1).
+
+Da mesma forma, não foram observadas evidências de heterogeneidade das variâncias entre os períodos, pois todos os valores de $p$ foram superiores a 0,05. Os modelos envolvendo a cota mínima apresentaram valores de VIF inferiores a 5, enquanto os modelos da cota média apresentaram valores moderadamente elevados. Para a cota máxima, os valores de VIF foram elevados, indicando maior colinearidade entre os termos desses modelos e, portanto, necessidade de maior cautela na interpretação individual de seus coeficientes.
+
+De forma geral, os diagnósticos residuais apresentaram comportamento adequado quanto à normalidade, homogeneidade das variâncias e autocorrelação residual.
+
+
+### Variáveis Hidrológicas: Síntese dos Resultados
+
+A análise descritiva mostrou valores centrais das medidas hidrológicas ligeiramente maiores no período (Depois) nos dois municípios. Em Borba, a maior variação relativa foi observada para a cota máxima anual ($+4,68\%$), enquanto em Manicoré a maior variação ocorreu na amplitude anual ($+5,24\%$).
+
+A análise de correlação de Spearman não identificou correlações estatisticamente significativas entre a produção pesqueira e as cotas média, mínima ou máxima anuais após o ajuste para comparações múltiplas. Embora tenham sido observadas diferenças na direção e na intensidade das correlações entre os períodos, essas diferenças não apresentaram evidência estatística suficiente.
+
+Os modelos GLS apresentaram resultado semelhante em relação às variáveis hidrológicas. Não foram identificadas relações significativas entre as cotas e a produção no período (Antes), nem evidências de que essas relações tenham se modificado no período (Depois), conforme indicado pelos termos de interação Hidrologia × Período.
+
+Por outro lado, a tendência temporal apresentou efeito negativo e estatisticamente significativo em todos os modelos. Além disso, em Manicoré foi identificado efeito negativo significativo associado ao período (Depois), mesmo após o controle pela tendência temporal e pelas variáveis hidrológicas.
+
+Em conjunto, os resultados indicam que, para as medidas hidrológicas avaliadas e no período analisado, não houve evidência estatística de uma correlação consistente entre as variações anuais das cotas fluviométricas e a produção pesqueira, nem de mudança significativa nessa relação entre os períodos (Antes) e (Depois). A redução da produção apresentou-se de forma mais consistente associada à tendência temporal, com efeito adicional do período (Depois) em Manicoré.
 
 ## Séries temporais
 
