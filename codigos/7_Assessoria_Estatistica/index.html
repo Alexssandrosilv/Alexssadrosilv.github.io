@@ -215,7 +215,11 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#variáveis-hidrológicas-análise-descritiva" id="toc-variáveis-hidrológicas-análise-descritiva" class="nav-link" data-scroll-target="#variáveis-hidrológicas-análise-descritiva"><span class="header-section-number">3.1</span> Variáveis Hidrológicas: Análise Descritiva</a></li>
   <li><a href="#variáveis-hidrológicas-variação-entre-os-períodos" id="toc-variáveis-hidrológicas-variação-entre-os-períodos" class="nav-link" data-scroll-target="#variáveis-hidrológicas-variação-entre-os-períodos"><span class="header-section-number">3.2</span> Variáveis Hidrológicas: Variação entre os Períodos</a></li>
-  <li><a href="#variáveis-hidrológicas-associação-com-a-produção-pesqueira" id="toc-variáveis-hidrológicas-associação-com-a-produção-pesqueira" class="nav-link" data-scroll-target="#variáveis-hidrológicas-associação-com-a-produção-pesqueira"><span class="header-section-number">3.3</span> Variáveis Hidrológicas: Associação com a Produção Pesqueira</a></li>
+  <li><a href="#variáveis-hidrológicas-correlação-com-a-produção-pesqueira" id="toc-variáveis-hidrológicas-correlação-com-a-produção-pesqueira" class="nav-link" data-scroll-target="#variáveis-hidrológicas-correlação-com-a-produção-pesqueira"><span class="header-section-number">3.3</span> Variáveis Hidrológicas: Correlação com a Produção Pesqueira</a></li>
+  <li><a href="#variáveis-hidrológicas-representação-gráfica-das-correlações" id="toc-variáveis-hidrológicas-representação-gráfica-das-correlações" class="nav-link" data-scroll-target="#variáveis-hidrológicas-representação-gráfica-das-correlações"><span class="header-section-number">3.4</span> Variáveis Hidrológicas: Representação Gráfica das Correlações</a></li>
+  <li><a href="#variáveis-hidrológicas-síntese-dos-resultados" id="toc-variáveis-hidrológicas-síntese-dos-resultados" class="nav-link" data-scroll-target="#variáveis-hidrológicas-síntese-dos-resultados"><span class="header-section-number">3.5</span> Variáveis Hidrológicas: Síntese dos Resultados</a></li>
+  <li><a href="#variáveis-hidrológicas-modelo-de-mínimos-quadrados-generalizados-gls" id="toc-variáveis-hidrológicas-modelo-de-mínimos-quadrados-generalizados-gls" class="nav-link" data-scroll-target="#variáveis-hidrológicas-modelo-de-mínimos-quadrados-generalizados-gls"><span class="header-section-number">3.6</span> Variáveis Hidrológicas: Modelo de Mínimos Quadrados Generalizados (GLS)</a></li>
+  <li><a href="#variáveis-hidrológicas-síntese-dos-resultados-1" id="toc-variáveis-hidrológicas-síntese-dos-resultados-1" class="nav-link" data-scroll-target="#variáveis-hidrológicas-síntese-dos-resultados-1"><span class="header-section-number">3.7</span> Variáveis Hidrológicas: Síntese dos Resultados</a></li>
   </ul></li>
   <li><a href="#séries-temporais" id="toc-séries-temporais" class="nav-link" data-scroll-target="#séries-temporais"><span class="header-section-number">4</span> Séries temporais</a>
   <ul class="collapse">
@@ -258,7 +262,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Data de Publicação</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">25 de outubro de 2026</p>
+      <p class="date">26 de outubro de 2026</p>
     </div>
   </div>
   
@@ -1209,7 +1213,7 @@ Tabela&nbsp;5: <strong>Variação da captura média anual e da participação re
 </section>
 <section id="composição-das-capturas-boxplots" class="level3" data-number="2.5">
 <h3 data-number="2.5" class="anchored" data-anchor-id="composição-das-capturas-boxplots"><span class="header-section-number">2.5</span> Composição das Capturas: Boxplots</h3>
-<p>Como complemento à análise descritiva, as Figuras <a href="#fig-boxplot-borba" class="quarto-xref">Figura&nbsp;9</a> e <a href="#fig-boxplot-manicore" class="quarto-xref">Figura&nbsp;10</a> apresentam a distribuição das capturas anuais de cada espécie nos períodos (Antes) e (Depois). Os boxplots permitem visualizar diferenças na posição central, na dispersão e na ocorrência de valores discrepantes entre os períodos. O eixo vertical foi apresentado em escala logarítmica devido às diferentes magnitudes de captura entre as espécies.</p>
+<p>Como complemento à análise descritiva, as Figuras <a href="#fig-boxplot-borba" class="quarto-xref">Figura&nbsp;12</a> e <a href="#fig-boxplot-manicore" class="quarto-xref">Figura&nbsp;13</a> apresentam a distribuição das capturas anuais de cada espécie nos períodos (Antes) e (Depois). Os boxplots permitem visualizar diferenças na posição central, na dispersão e na ocorrência de valores discrepantes entre os períodos. O eixo vertical foi apresentado em escala logarítmica devido às diferentes magnitudes de captura entre as espécies.</p>
 <div id="fig-boxplot-borba" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-boxplot-borba-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -1236,7 +1240,7 @@ Figura&nbsp;5: <strong>PT-BR:</strong> Distribuição da captura anual (kg, esca
 <div class="linha-baixar">
 <p><a href="graficos/Boxplot_Species_Manicore.png" class="baixar" download="Boxplot_Species_Manicore.png"><i class="bi bi-download"></i> Baixar boxplot de Manicoré (PNG)</a></p>
 </div>
-<p><strong>Comentários:</strong> As Figuras <a href="#fig-boxplot-borba" class="quarto-xref">Figura&nbsp;9</a> e <a href="#fig-boxplot-manicore" class="quarto-xref">Figura&nbsp;10</a> mostram que, para grande parte das espécies, as distribuições das capturas anuais se encontram em níveis inferiores no período (Depois). Esse padrão é visualmente mais acentuado em Manicoré, enquanto em Borba algumas espécies apresentam maior sobreposição entre as distribuições dos dois períodos.</p>
+<p><strong>Comentários:</strong> As Figuras <a href="#fig-boxplot-borba" class="quarto-xref">Figura&nbsp;12</a> e <a href="#fig-boxplot-manicore" class="quarto-xref">Figura&nbsp;13</a> mostram que, para grande parte das espécies, as distribuições das capturas anuais se encontram em níveis inferiores no período (Depois). Esse padrão é visualmente mais acentuado em Manicoré, enquanto em Borba algumas espécies apresentam maior sobreposição entre as distribuições dos dois períodos.</p>
 <p>Os gráficos também evidenciam diferenças na dispersão interanual das capturas e a presença de valores discrepantes em determinadas espécies. Como os boxplots representam a captura absoluta em kg, sua função nesta etapa é descritiva. A avaliação inferencial das alterações na composição foi realizada a partir da participação relativa anual das espécies, considerando também a tendência temporal e a possível autocorrelação das observações.</p>
 </section>
 <section id="composição-das-capturas-modelo-de-mínimos-quadrados-generalizados-gls" class="level3" data-number="2.6">
@@ -2067,7 +2071,7 @@ Tabela&nbsp;8: <strong>Resultados dos modelos GLS para o índice de diversidade 
 <section id="variáveis-hidrológicas-análise-descritiva" class="level3" data-number="3.1">
 <h3 data-number="3.1" class="anchored" data-anchor-id="variáveis-hidrológicas-análise-descritiva"><span class="header-section-number">3.1</span> Variáveis Hidrológicas: Análise Descritiva</h3>
 <p>As condições hidrológicas do rio Madeira foram caracterizadas a partir das cotas média, mínima e máxima anuais, além da amplitude anual, calculada pela diferença entre a cota máxima e a cota mínima de cada ano. As medidas foram obtidas separadamente para Borba e Manicoré, considerando os períodos (Antes), de 2002 a 2010, e (Depois), de 2011 a 2024.</p>
-<p>Para reduzir a influência de valores extremos, os resultados foram resumidos pela mediana e pelo intervalo interquartil (Q1–Q3). Assim, a análise desta etapa possui caráter descritivo e permite comparar o comportamento das cotas entre os dois períodos.</p>
+<p>Para reduzir a influência de valores extremos, os resultados foram resumidos pela mediana e pelo intervalo interquartil (Q1–Q3). Assim, esta etapa possui caráter descritivo e permite comparar o comportamento das medidas hidrológicas entre os dois períodos.</p>
 <div id="tbl-cotas-descritiva" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-cotas-descritiva-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -2141,8 +2145,8 @@ Tabela&nbsp;9: <strong>Resumo descritivo das cotas fluviométricas anuais do rio
 <p><strong>Notas:</strong> Antes = 2002–2010 (<span class="math inline">\(n=9\)</span> anos) | Depois = 2011–2024 (<span class="math inline">\(n=14\)</span> anos) | Q1 = primeiro quartil | Q3 = terceiro quartil | Amplitude anual = cota máxima anual − cota mínima anual.</p>
 </div>
 <p><strong>Comentários:</strong> Conforme a <a href="#tbl-cotas-descritiva" class="quarto-xref">Tabela&nbsp;9</a>, os valores centrais das medidas hidrológicas foram maiores no período (Depois) nos dois municípios. Em Borba, a mediana da cota média anual passou de 1.574,2 cm no período (Antes) para 1.600,4 cm no período (Depois). A cota mínima passou de 905,0 para 919,0 cm, enquanto a cota máxima aumentou de 2.028,0 para 2.123,0 cm.</p>
-<p>Em Manicoré, a cota média anual passou de 1.863,7 para 1.928,3 cm. A cota mínima aumentou de 1.197,0 para 1.221,5 cm e a cota máxima de 2.517,0 para 2.585,0 cm. A amplitude anual também apresentou valores maiores no período (Depois) nos dois municípios.</p>
-<p>Esses resultados descrevem as diferenças observadas entre os períodos, mas não indicam, por si só, se essas mudanças são estatisticamente significativas.</p>
+<p>Em Manicoré, a cota média anual passou de 1.863,7 para 1.928,3 cm. A cota mínima aumentou de 1.197,0 para 1.221,5 cm, enquanto a cota máxima passou de 2.517,0 para 2.585,0 cm. A amplitude anual também apresentou valores centrais maiores no período (Depois) nos dois municípios.</p>
+<p>Esses resultados descrevem as diferenças observadas entre os períodos, mas não indicam, isoladamente, se essas mudanças são estatisticamente significativas.</p>
 </section>
 <section id="variáveis-hidrológicas-variação-entre-os-períodos" class="level3" data-number="3.2">
 <h3 data-number="3.2" class="anchored" data-anchor-id="variáveis-hidrológicas-variação-entre-os-períodos"><span class="header-section-number">3.2</span> Variáveis Hidrológicas: Variação entre os Períodos</h3>
@@ -2154,7 +2158,7 @@ Tabela&nbsp;9: <strong>Resumo descritivo das cotas fluviométricas anuais do rio
 -
 \widetilde{H}_{\text{Antes}},
 \]</span></p>
-<p>em que <span class="math inline">\(\widetilde{H}_{\text{Antes}}\)</span> e <span class="math inline">\(\widetilde{H}_{\text{Depois}}\)</span> representam as medianas da variável hidrológica nos respectivos períodos. Valores positivos de <span class="math inline">\(\Delta H\)</span> indicam aumento no período (Depois), enquanto valores negativos indicam redução.</p>
+<p>em que <span class="math inline">\(\widetilde{H}_{\text{Antes}}\)</span> e <span class="math inline">\(\widetilde{H}_{\text{Depois}}\)</span> representam as medianas da variável hidrológica nos respectivos períodos. Valores positivos de <span class="math inline">\(\Delta H\)</span> indicam medidas maiores no período (Depois), enquanto valores negativos indicam redução.</p>
 <p>A variação percentual foi obtida por:</p>
 <p><span class="math display">\[
 \Delta H(\%)
@@ -2268,13 +2272,14 @@ Tabela&nbsp;10: <strong>Variação das medidas hidrológicas entre os períodos 
 <div class="nota-tabela">
 <p><strong>Notas:</strong> <span class="math inline">\(\Delta H\)</span> = diferença entre a mediana do período (Depois) e a mediana do período (Antes) | <span class="math inline">\(\Delta H(\%)\)</span> = variação percentual em relação ao período (Antes) | Valores positivos indicam medidas hidrológicas maiores no período (Depois).</p>
 </div>
-<p><strong>Comentários:</strong> Conforme a <a href="#tbl-variacao-hidrologica" class="quarto-xref">Tabela&nbsp;10</a>, todas as medidas apresentaram variação positiva entre os períodos (Antes) e (Depois). Em Borba, o maior aumento relativo ocorreu na cota máxima anual, que apresentou diferença de 95,0 cm, correspondente a 4,68%. A cota média anual aumentou 26,2 cm, equivalente a 1,66%.</p>
-<p>Em Manicoré, a cota média anual apresentou aumento de 64,6 cm, correspondente a 3,46%. A maior variação relativa foi observada na amplitude anual, que aumentou 68,0 cm, ou 5,24%.</p>
-<p>De forma geral, a análise descritiva mostra valores hidrológicos centrais ligeiramente maiores no período (Depois) nos dois municípios. Na etapa seguinte, será avaliado se essas variáveis estão associadas à produção pesqueira e se essa relação apresenta diferenças entre os períodos (Antes) e (Depois).</p>
+<p><strong>Comentários:</strong> Conforme a <a href="#tbl-variacao-hidrologica" class="quarto-xref">Tabela&nbsp;10</a>, todas as medidas apresentaram variação positiva entre os períodos (Antes) e (Depois). Em Borba, o maior aumento relativo ocorreu na cota máxima anual, com diferença de 95,0 cm, correspondente a 4,68%. A cota média anual aumentou 26,2 cm, equivalente a 1,66%.</p>
+<p>Em Manicoré, a cota média anual apresentou aumento de 64,6 cm, correspondente a 3,46%. A maior variação relativa foi observada na amplitude anual, que aumentou 68,0 cm, equivalente a 5,24%.</p>
+<p>De forma geral, os resultados indicam medidas hidrológicas centrais ligeiramente maiores no período (Depois) nos dois municípios. Na etapa seguinte, foi avaliada a correlação entre as variações anuais das cotas e a produção pesqueira.</p>
 </section>
-<section id="variáveis-hidrológicas-associação-com-a-produção-pesqueira" class="level3" data-number="3.3">
-<h3 data-number="3.3" class="anchored" data-anchor-id="variáveis-hidrológicas-associação-com-a-produção-pesqueira"><span class="header-section-number">3.3</span> Variáveis Hidrológicas: Associação com a Produção Pesqueira</h3>
-<p>Para avaliar a associação entre as condições hidrológicas e a produção pesqueira, foi utilizada a correlação de Spearman, considerando separadamente as cotas média, mínima e máxima anuais em cada município e período. O coeficiente <span class="math inline">\(\rho\)</span> indica a direção e a intensidade da associação, enquanto os valores de <span class="math inline">\(p\)</span> foram ajustados pelo método de Benjamini–Hochberg (BH), considerando as três variáveis hidrológicas avaliadas em cada município e período.</p>
+<section id="variáveis-hidrológicas-correlação-com-a-produção-pesqueira" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="variáveis-hidrológicas-correlação-com-a-produção-pesqueira"><span class="header-section-number">3.3</span> Variáveis Hidrológicas: Correlação com a Produção Pesqueira</h3>
+<p>Para avaliar a correlação entre as condições hidrológicas e a produção pesqueira, foi utilizado o coeficiente de correlação de Spearman, considerando separadamente as cotas média, mínima e máxima anuais em cada município e período. O coeficiente <span class="math inline">\(\rho\)</span> indica a direção e a intensidade da correlação monotônica entre as variáveis.</p>
+<p>Considerando que três medidas hidrológicas foram avaliadas em cada combinação de município e período, os valores de <span class="math inline">\(p\)</span> também foram ajustados pelo método de Benjamini–Hochberg (BH), permitindo controlar o efeito das comparações múltiplas.</p>
 <div id="tbl-spearman-hidrologia" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-spearman-hidrologia-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -2419,10 +2424,303 @@ Tabela&nbsp;11: <strong>Correlação de Spearman entre a produção pesqueira an
 <div class="nota-tabela">
 <p><strong>Notas:</strong> <span class="math inline">\(\rho\)</span> = coeficiente de correlação de Spearman | <span class="math inline">\(p\)</span> = valor de significância sem ajuste | <span class="math inline">\(p_{aj}\)</span> = valor de <span class="math inline">\(p\)</span> ajustado pelo método de Benjamini–Hochberg (BH) para as três variáveis hidrológicas avaliadas dentro de cada município e período | Antes = 2002–2010 (<span class="math inline">\(n=9\)</span> anos) | Depois = 2011–2024 (<span class="math inline">\(n=14\)</span> anos).</p>
 </div>
-<p><strong>Comentários:</strong> Conforme a <a href="#tbl-spearman-hidrologia" class="quarto-xref">Tabela&nbsp;11</a>, não foram identificadas associações estatisticamente significativas entre a produção pesqueira e as cotas média, mínima ou máxima anuais após o ajuste dos valores de <span class="math inline">\(p\)</span>.</p>
-<p>Em Borba, no período (Antes), a associação de maior intensidade ocorreu com a cota máxima anual (<span class="math inline">\(\rho=-0,650\)</span>), indicando que maiores cotas máximas tenderam a ocorrer em anos de menor produção. No período (Depois), as três correlações foram positivas, sendo a maior observada para a cota máxima (<span class="math inline">\(\rho=0,446\)</span>). Entretanto, nenhuma dessas associações foi significativa.</p>
-<p>Em Manicoré, no período (Antes), as cotas média e máxima apresentaram associações negativas com a produção, com maior intensidade para a cota máxima (<span class="math inline">\(\rho=-0,617\)</span>). No período (Depois), a maior associação foi observada para a cota mínima anual (<span class="math inline">\(\rho=0,569\)</span>). Embora o valor de <span class="math inline">\(p\)</span> sem ajuste tenha sido inferior a 0,05 (<span class="math inline">\(p=0,034\)</span>), após a correção pelas comparações realizadas o resultado não permaneceu significativo (<span class="math inline">\(p_{aj}=0,101\)</span>).</p>
-<p>Assim, a análise de Spearman não apresentou evidência suficiente de uma associação consistente entre as variações anuais das cotas fluviométricas e a produção pesqueira. A etapa seguinte avalia essa relação por meio dos modelos GLS, considerando simultaneamente o período, a tendência temporal e a possível autocorrelação dos dados.</p>
+<p><strong>Comentários:</strong> Conforme a <a href="#tbl-spearman-hidrologia" class="quarto-xref">Tabela&nbsp;11</a>, não foram identificadas correlações estatisticamente significativas entre a produção pesqueira e as cotas média, mínima ou máxima anuais após o ajuste dos valores de <span class="math inline">\(p\)</span>.</p>
+<p>Em Borba, no período (Antes), a correlação de maior intensidade ocorreu com a cota máxima anual (<span class="math inline">\(\rho=-0,650\)</span>), indicando correlação negativa com a produção pesqueira. A cota mínima apresentou correlação positiva (<span class="math inline">\(\rho=0,550\)</span>), enquanto a cota média apresentou correlação negativa de menor intensidade (<span class="math inline">\(\rho=-0,233\)</span>). No período (Depois), as três correlações foram positivas, sendo a maior observada para a cota máxima anual (<span class="math inline">\(\rho=0,446\)</span>). Nenhuma dessas correlações foi estatisticamente significativa após o ajuste.</p>
+<p>Em Manicoré, no período (Antes), as cotas média e máxima apresentaram correlações negativas com a produção, com maior intensidade para a cota máxima (<span class="math inline">\(\rho=-0,617\)</span>). A cota mínima apresentou correlação positiva de baixa intensidade (<span class="math inline">\(\rho=0,167\)</span>). No período (Depois), as três correlações foram positivas, destacando-se a cota mínima anual (<span class="math inline">\(\rho=0,569\)</span>). Embora seu valor de <span class="math inline">\(p\)</span> sem ajuste tenha sido inferior a 0,05 (<span class="math inline">\(p=0,034\)</span>), a correlação não permaneceu estatisticamente significativa após a correção pelas comparações realizadas (<span class="math inline">\(p_{aj}=0,101\)</span>).</p>
+</section>
+<section id="variáveis-hidrológicas-representação-gráfica-das-correlações" class="level3" data-number="3.4">
+<h3 data-number="3.4" class="anchored" data-anchor-id="variáveis-hidrológicas-representação-gráfica-das-correlações"><span class="header-section-number">3.4</span> Variáveis Hidrológicas: Representação Gráfica das Correlações</h3>
+<p>As correlações entre a produção pesqueira anual e as cotas média, mínima e máxima são apresentadas nas <a href="#fig-cota-media-producao" class="quarto-xref">Figura&nbsp;7</a>, <a href="#fig-cota-minima-producao" class="quarto-xref">Figura&nbsp;8</a> e <a href="#fig-cota-maxima-producao" class="quarto-xref">Figura&nbsp;9</a>, respectivamente. Em cada figura, os pontos representam as observações anuais dos períodos (Antes) e (Depois), enquanto as linhas indicam tendências lineares ajustadas separadamente para cada período.</p>
+<p>As linhas são utilizadas apenas como recurso visual para facilitar a identificação da direção geral dos dados. A avaliação estatística das correlações permanece baseada no coeficiente de correlação de Spearman (<span class="math inline">\(\rho\)</span>) e nos respectivos valores de <span class="math inline">\(p\)</span> ajustados.</p>
+<div id="fig-cota-media-producao" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-cota-media-producao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="graficos/Relacao_Cota_Media_Producao.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cota-media-producao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;7: <strong>PT-BR:</strong> Correlação entre a cota média anual do rio Madeira e a produção pesqueira anual em Borba e Manicoré, nos períodos (Antes) (2002–2010; <span class="math inline">\(n=9\)</span> anos) e (Depois) (2011–2024; <span class="math inline">\(n=14\)</span> anos). Os pontos representam as observações anuais e as linhas indicam tendências lineares ajustadas separadamente para cada período, utilizadas apenas como recurso visual. Os valores de <span class="math inline">\(\rho\)</span> correspondem à correlação de Spearman e os valores de <span class="math inline">\(p\)</span> apresentados nas caixas foram ajustados pelo método de Benjamini–Hochberg (BH).<br><br><strong>EN:</strong> Correlation between the mean annual river level of the Madeira River and annual fish production in Borba and Manicoré during the (Before) period (2002–2010; <span class="math inline">\(n=9\)</span> years) and the (After) period (2011–2024; <span class="math inline">\(n=14\)</span> years). Points represent annual observations, and lines indicate linear trends fitted separately for each period and included only as a visual aid. The <span class="math inline">\(\rho\)</span> values correspond to Spearman’s correlation, and the <span class="math inline">\(p\)</span>-values displayed in the boxes were adjusted using the Benjamini–Hochberg (BH) method.
+</figcaption>
+</figure>
+</div>
+<div class="linha-baixar">
+<p><a href="graficos/Relacao_Cota_Media_Producao.png" class="baixar" download="Relacao_Cota_Media_Producao.png"><i class="bi bi-download"></i> Baixar correlação entre cota média e produção (PNG)</a></p>
+</div>
+<div id="fig-cota-minima-producao" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-cota-minima-producao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="graficos/Relacao_Cota_Minima_Producao.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cota-minima-producao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;8: <strong>PT-BR:</strong> Correlação entre a cota mínima anual do rio Madeira e a produção pesqueira anual em Borba e Manicoré, nos períodos (Antes) (2002–2010; <span class="math inline">\(n=9\)</span> anos) e (Depois) (2011–2024; <span class="math inline">\(n=14\)</span> anos). Os pontos representam as observações anuais e as linhas indicam tendências lineares ajustadas separadamente para cada período, utilizadas apenas como recurso visual. Os valores de <span class="math inline">\(\rho\)</span> correspondem à correlação de Spearman e os valores de <span class="math inline">\(p\)</span> apresentados nas caixas foram ajustados pelo método de Benjamini–Hochberg (BH).<br><br><strong>EN:</strong> Correlation between the minimum annual river level of the Madeira River and annual fish production in Borba and Manicoré during the (Before) period (2002–2010; <span class="math inline">\(n=9\)</span> years) and the (After) period (2011–2024; <span class="math inline">\(n=14\)</span> years). Points represent annual observations, and lines indicate linear trends fitted separately for each period and included only as a visual aid. The <span class="math inline">\(\rho\)</span> values correspond to Spearman’s correlation, and the <span class="math inline">\(p\)</span>-values displayed in the boxes were adjusted using the Benjamini–Hochberg (BH) method.
+</figcaption>
+</figure>
+</div>
+<div class="linha-baixar">
+<p><a href="graficos/Relacao_Cota_Minima_Producao.png" class="baixar" download="Relacao_Cota_Minima_Producao.png"><i class="bi bi-download"></i> Baixar correlação entre cota mínima e produção (PNG)</a></p>
+</div>
+<div id="fig-cota-maxima-producao" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-cota-maxima-producao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="graficos/Relacao_Cota_Maxima_Producao.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cota-maxima-producao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;9: <strong>PT-BR:</strong> Correlação entre a cota máxima anual do rio Madeira e a produção pesqueira anual em Borba e Manicoré, nos períodos (Antes) (2002–2010; <span class="math inline">\(n=9\)</span> anos) e (Depois) (2011–2024; <span class="math inline">\(n=14\)</span> anos). Os pontos representam as observações anuais e as linhas indicam tendências lineares ajustadas separadamente para cada período, utilizadas apenas como recurso visual. Os valores de <span class="math inline">\(\rho\)</span> correspondem à correlação de Spearman e os valores de <span class="math inline">\(p\)</span> apresentados nas caixas foram ajustados pelo método de Benjamini–Hochberg (BH).<br><br><strong>EN:</strong> Correlation between the maximum annual river level of the Madeira River and annual fish production in Borba and Manicoré during the (Before) period (2002–2010; <span class="math inline">\(n=9\)</span> years) and the (After) period (2011–2024; <span class="math inline">\(n=14\)</span> years). Points represent annual observations, and lines indicate linear trends fitted separately for each period and included only as a visual aid. The <span class="math inline">\(\rho\)</span> values correspond to Spearman’s correlation, and the <span class="math inline">\(p\)</span>-values displayed in the boxes were adjusted using the Benjamini–Hochberg (BH) method.
+</figcaption>
+</figure>
+</div>
+<div class="linha-baixar">
+<p><a href="graficos/Relacao_Cota_Maxima_Producao.png" class="baixar" download="Relacao_Cota_Maxima_Producao.png"><i class="bi bi-download"></i> Baixar correlação entre cota máxima e produção (PNG)</a></p>
+</div>
+<p><strong>Comentários:</strong> As <a href="#fig-cota-media-producao" class="quarto-xref">Figura&nbsp;7</a>, <a href="#fig-cota-minima-producao" class="quarto-xref">Figura&nbsp;8</a> e <a href="#fig-cota-maxima-producao" class="quarto-xref">Figura&nbsp;9</a> permitem visualizar os padrões indicados pelos coeficientes de correlação de Spearman.</p>
+<p>Em Borba, as cotas média e máxima apresentam correlação negativa com a produção no período (Antes), enquanto a cota mínima apresenta correlação positiva. No período (Depois), as três correlações apresentam direção positiva.</p>
+<p>Em Manicoré, as cotas média e máxima também apresentam correlação negativa no período (Antes), enquanto a cota mínima apresenta correlação positiva. No período (Depois), as três correlações são positivas, com maior intensidade para a cota mínima anual.</p>
+<p>Apesar das diferenças observadas na direção e na intensidade das correlações entre os períodos, nenhuma permaneceu estatisticamente significativa após o ajuste dos valores de <span class="math inline">\(p\)</span>.</p>
+</section>
+<section id="variáveis-hidrológicas-síntese-dos-resultados" class="level3" data-number="3.5">
+<h3 data-number="3.5" class="anchored" data-anchor-id="variáveis-hidrológicas-síntese-dos-resultados"><span class="header-section-number">3.5</span> Variáveis Hidrológicas: Síntese dos Resultados</h3>
+<p>A análise descritiva mostrou valores centrais das medidas hidrológicas ligeiramente maiores no período (Depois) em Borba e Manicoré. As maiores variações relativas foram observadas para a cota máxima anual em Borba (<span class="math inline">\(+4,68\%\)</span>) e para a amplitude anual em Manicoré (<span class="math inline">\(+5,24\%\)</span>).</p>
+<p>A análise de correlação de Spearman mostrou diferenças na direção e na intensidade das correlações entre as cotas e a produção pesqueira nos períodos (Antes) e (Depois). Entretanto, após o ajuste para comparações múltiplas, não foram identificadas correlações estatisticamente significativas.</p>
+<p>Na etapa seguinte, a relação entre as variáveis hidrológicas e a produção pesqueira será avaliada por meio de modelos de Mínimos Quadrados Generalizados (GLS), permitindo considerar simultaneamente o período, a tendência temporal e a possível autocorrelação das observações.</p>
+</section>
+<section id="variáveis-hidrológicas-modelo-de-mínimos-quadrados-generalizados-gls" class="level3" data-number="3.6">
+<h3 data-number="3.6" class="anchored" data-anchor-id="variáveis-hidrológicas-modelo-de-mínimos-quadrados-generalizados-gls"><span class="header-section-number">3.6</span> Variáveis Hidrológicas: Modelo de Mínimos Quadrados Generalizados (GLS)</h3>
+<p>Para complementar a análise de correlação, foram ajustados modelos de Mínimos Quadrados Generalizados (GLS) com o objetivo de avaliar a relação entre as cotas fluviométricas e a produção pesqueira, considerando simultaneamente o período e a tendência temporal. Os modelos foram ajustados separadamente para Borba e Manicoré e para as cotas média, mínima e máxima anuais.</p>
+<p>Para cada variável hidrológica, considerou-se o modelo:</p>
+<p><span class="math display">\[
+P_t =
+\beta_0 +
+\beta_1 H_t +
+\beta_2 D_t +
+\beta_3(H_t \times D_t) +
+\beta_4 T_t +
+\varepsilon_t,
+\]</span></p>
+<p>em que <span class="math inline">\(P_t\)</span> representa a produção pesqueira anual, <span class="math inline">\(H_t\)</span> corresponde à variável hidrológica, <span class="math inline">\(D_t\)</span> representa o período, tendo (Antes) como categoria de referência, e <span class="math inline">\(T_t\)</span> representa a tendência temporal. A variável hidrológica foi centralizada em torno de sua média.</p>
+<p>Nesse modelo, <span class="math inline">\(\beta_1\)</span> representa a relação entre a variável hidrológica e a produção pesqueira no período (Antes), <span class="math inline">\(\beta_2\)</span> representa o efeito do período (Depois), <span class="math inline">\(\beta_3\)</span> representa a mudança na relação entre a variável hidrológica e a produção no período (Depois), e <span class="math inline">\(\beta_4\)</span> representa a tendência temporal da produção.</p>
+<p>Para considerar a possível dependência entre observações consecutivas, foram comparados modelos com erros independentes e modelos com estrutura autorregressiva de primeira ordem, AR(1). A estrutura AR(1) apresentou melhor ajuste nos seis modelos avaliados e, portanto, foi adotada nos modelos finais.</p>
+<div id="tbl-gls-hidrologia" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-gls-hidrologia-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabela&nbsp;12: <strong>Resultados dos modelos GLS para a produção pesqueira em função das variáveis hidrológicas, do período e da tendência temporal, considerando estrutura de autocorrelação AR(1).</strong>
+</figcaption>
+<div aria-describedby="tbl-gls-hidrologia-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Município</strong></th>
+<th style="text-align: left;"><strong>Variável hidrológica</strong></th>
+<th style="text-align: right;"><strong>Efeito hidrológico (Antes)</strong><br><span class="math inline">\(\hat{\beta}_1\)</span> (IC95%; kg/cm)</th>
+<th style="text-align: right;"><strong>Teste de <span class="math inline">\(\beta_1\)</span></strong><br><span class="math inline">\(t\)</span> (<span class="math inline">\(p\)</span>)</th>
+<th style="text-align: right;"><strong>Efeito do período</strong><br><span class="math inline">\(\hat{\beta}_2\)</span> (IC95%; kg)</th>
+<th style="text-align: right;"><strong>Teste de <span class="math inline">\(\beta_2\)</span></strong><br><span class="math inline">\(t\)</span> (<span class="math inline">\(p\)</span>)</th>
+<th style="text-align: right;"><strong>Interação Hidrologia × Período</strong><br><span class="math inline">\(\hat{\beta}_3\)</span> (IC95%; kg/cm)</th>
+<th style="text-align: right;"><strong>Teste de <span class="math inline">\(\beta_3\)</span></strong><br><span class="math inline">\(t\)</span> (<span class="math inline">\(p_{aj}\)</span>)</th>
+<th style="text-align: right;"><strong>Efeito do tempo</strong><br><span class="math inline">\(\hat{\beta}_4\)</span> (IC95%; kg/ano)</th>
+<th style="text-align: right;"><strong>Teste de <span class="math inline">\(\beta_4\)</span></strong><br><span class="math inline">\(t\)</span> (<span class="math inline">\(p\)</span>)</th>
+<th style="text-align: right;"><strong><span class="math inline">\(\phi\)</span></strong><br>AR(1)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Borba</strong></td>
+<td style="text-align: left;">Cota média anual</td>
+<td style="text-align: right;">39,8 [−175,0; 255,0]</td>
+<td style="text-align: right;">0,39 (0,702)</td>
+<td style="text-align: right;">−7.095 [−68.019; 53.830]</td>
+<td style="text-align: right;">−0,25 (0,809)</td>
+<td style="text-align: right;">−71,4 [−309,0; 166,0]</td>
+<td style="text-align: right;">−0,63 (0,536)</td>
+<td style="text-align: right;">−42.414 [−49.698; −35.130]</td>
+<td style="text-align: right;">−12,2 (&lt;0,001)</td>
+<td style="text-align: right;">0,851</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Cota mínima anual</td>
+<td style="text-align: right;">19,5 [−28,5; 67,4]</td>
+<td style="text-align: right;">0,85 (0,405)</td>
+<td style="text-align: right;">−5.146 [−63.933; 53.641]</td>
+<td style="text-align: right;">−0,18 (0,856)</td>
+<td style="text-align: right;">−33,7 [−100,0; 32,9]</td>
+<td style="text-align: right;">−1,06 (0,453)</td>
+<td style="text-align: right;">−42.176 [−49.552; −34.800]</td>
+<td style="text-align: right;">−12,0 (&lt;0,001)</td>
+<td style="text-align: right;">0,867</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Cota máxima anual</td>
+<td style="text-align: right;">120,0 [−82,6; 323,0]</td>
+<td style="text-align: right;">1,24 (0,229)</td>
+<td style="text-align: right;">−59.254 [−168.355; 49.848]</td>
+<td style="text-align: right;">−1,14 (0,269)</td>
+<td style="text-align: right;">−120,0 [−323,0; 83,1]</td>
+<td style="text-align: right;">−1,24 (0,453)</td>
+<td style="text-align: right;">−42.458 [−49.380; −35.537]</td>
+<td style="text-align: right;">−12,9 (&lt;0,001)</td>
+<td style="text-align: right;">0,846</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Manicoré</strong></td>
+<td style="text-align: left;">Cota média anual</td>
+<td style="text-align: right;">159,0 [−66,7; 385,0]</td>
+<td style="text-align: right;">1,48 (0,156)</td>
+<td style="text-align: right;">−626.979 [−709.842; −544.117]</td>
+<td style="text-align: right;">−15,9 (&lt;0,001)</td>
+<td style="text-align: right;">−219,0 [−481,0; 43,7]</td>
+<td style="text-align: right;">−1,75 (0,211)</td>
+<td style="text-align: right;">−42.670 [−51.699; −33.640]</td>
+<td style="text-align: right;">−9,93 (&lt;0,001)</td>
+<td style="text-align: right;">0,828</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Cota mínima anual</td>
+<td style="text-align: right;">149,0 [−95,6; 394,0]</td>
+<td style="text-align: right;">1,28 (0,216)</td>
+<td style="text-align: right;">−612.834 [−695.880; −529.788]</td>
+<td style="text-align: right;">−15,5 (&lt;0,001)</td>
+<td style="text-align: right;">−240,0 [−567,0; 87,2]</td>
+<td style="text-align: right;">−1,54 (0,211)</td>
+<td style="text-align: right;">−42.867 [−52.614; −33.120]</td>
+<td style="text-align: right;">−9,24 (&lt;0,001)</td>
+<td style="text-align: right;">0,849</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Cota máxima anual</td>
+<td style="text-align: right;">112,0 [−220,0; 444,0]</td>
+<td style="text-align: right;">0,71 (0,486)</td>
+<td style="text-align: right;">−675.971 [−891.923; −460.019]</td>
+<td style="text-align: right;">−6,58 (&lt;0,001)</td>
+<td style="text-align: right;">−112,0 [−444,0; 220,0]</td>
+<td style="text-align: right;">−0,71 (0,486)</td>
+<td style="text-align: right;">−43.023 [−52.654; −33.393]</td>
+<td style="text-align: right;">−9,39 (&lt;0,001)</td>
+<td style="text-align: right;">0,832</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<div class="nota-tabela">
+<p><strong>Notas:</strong> <span class="math inline">\(\hat{\beta}_1\)</span> = efeito da variável hidrológica no período (Antes) | <span class="math inline">\(\hat{\beta}_2\)</span> = efeito do período (Depois) em relação ao período (Antes), considerando a variável hidrológica em seu valor centralizado | <span class="math inline">\(\hat{\beta}_3\)</span> = interação entre a variável hidrológica e o período | <span class="math inline">\(\hat{\beta}_4\)</span> = efeito temporal anual | IC95% = intervalo de confiança de 95% | <span class="math inline">\(p_{aj}\)</span> = valor de <span class="math inline">\(p\)</span> da interação ajustado pelo método de Benjamini–Hochberg (BH) considerando as três variáveis hidrológicas em cada município | <span class="math inline">\(\phi\)</span> = parâmetro de autocorrelação da estrutura AR(1).</p>
+</div>
+<p><strong>Comentários:</strong> Conforme a <a href="#tbl-gls-hidrologia" class="quarto-xref">Tabela&nbsp;12</a>, não foi identificada relação estatisticamente significativa entre as variáveis hidrológicas e a produção pesqueira no período (Antes), uma vez que os coeficientes associados às cotas média, mínima e máxima apresentaram <span class="math inline">\(p&gt;0,05\)</span> em Borba e Manicoré. Os respectivos intervalos de confiança também incluíram o valor zero.</p>
+<p>O termo de interação Hidrologia × Período, utilizado para verificar se a relação entre as cotas e a produção pesqueira se modificou no período (Depois), também não apresentou significância estatística. Em Borba, os valores ajustados de <span class="math inline">\(p\)</span> foram 0,536 para a cota média e 0,453 para as cotas mínima e máxima. Em Manicoré, os valores foram 0,211 para as cotas média e mínima e 0,486 para a cota máxima. Dessa forma, os modelos não apresentaram evidência de mudança significativa na relação entre as variáveis hidrológicas e a produção pesqueira entre os períodos (Antes) e (Depois).</p>
+<p>O efeito do período apresentou comportamento distinto entre os municípios. Em Borba, não foram observadas diferenças significativas entre os períodos após o controle pelas variáveis hidrológicas e pela tendência temporal. Em Manicoré, por outro lado, o efeito associado ao período (Depois) foi negativo e estatisticamente significativo nos três modelos (<span class="math inline">\(p&lt;0,001\)</span>), indicando menor nível de produção pesqueira nesse período após o ajuste pelos demais termos do modelo.</p>
+<p>O efeito do tempo foi negativo e estatisticamente significativo em todos os modelos (<span class="math inline">\(p&lt;0,001\)</span>). Em Borba, as estimativas variaram de aproximadamente −42,2 a −42,5 mil kg por ano, enquanto em Manicoré variaram de aproximadamente −42,7 a −43,0 mil kg por ano. Assim, independentemente da variável hidrológica considerada, os modelos identificaram uma tendência temporal de redução da produção pesqueira.</p>
+<section id="diagnóstico-dos-modelos-gls" class="level4" data-number="3.6.1">
+<h4 data-number="3.6.1" class="anchored" data-anchor-id="diagnóstico-dos-modelos-gls"><span class="header-section-number">3.6.1</span> Diagnóstico dos Modelos GLS</h4>
+<p>A adequação dos modelos foi avaliada a partir da normalidade dos resíduos, da presença de autocorrelação residual, da homogeneidade das variâncias e da multicolinearidade entre os termos explicativos.</p>
+<div id="tbl-gls-diagnostico" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-gls-diagnostico-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabela&nbsp;13: <strong>Diagnóstico dos modelos GLS ajustados para a relação entre as variáveis hidrológicas e a produção pesqueira.</strong>
+</figcaption>
+<div aria-describedby="tbl-gls-diagnostico-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Município</strong></th>
+<th style="text-align: left;"><strong>Variável hidrológica</strong></th>
+<th style="text-align: right;"><strong>Shapiro–Wilk</strong><br><span class="math inline">\(p\)</span></th>
+<th style="text-align: right;"><strong>Ljung–Box</strong><br><span class="math inline">\(p\)</span></th>
+<th style="text-align: right;"><strong>Homogeneidade</strong><br><span class="math inline">\(p\)</span></th>
+<th style="text-align: right;"><strong>VIF máximo</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Borba</strong></td>
+<td style="text-align: left;">Cota média anual</td>
+<td style="text-align: right;">0,756</td>
+<td style="text-align: right;">0,145</td>
+<td style="text-align: right;">0,806</td>
+<td style="text-align: right;">7,47</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Cota mínima anual</td>
+<td style="text-align: right;">0,798</td>
+<td style="text-align: right;">0,085</td>
+<td style="text-align: right;">0,598</td>
+<td style="text-align: right;">3,76</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Cota máxima anual</td>
+<td style="text-align: right;">0,939</td>
+<td style="text-align: right;">0,137</td>
+<td style="text-align: right;">0,416</td>
+<td style="text-align: right;">1.562,0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Manicoré</strong></td>
+<td style="text-align: left;">Cota média anual</td>
+<td style="text-align: right;">0,596</td>
+<td style="text-align: right;">0,323</td>
+<td style="text-align: right;">0,301</td>
+<td style="text-align: right;">5,56</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Cota mínima anual</td>
+<td style="text-align: right;">0,760</td>
+<td style="text-align: right;">0,204</td>
+<td style="text-align: right;">0,258</td>
+<td style="text-align: right;">4,78</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Cota máxima anual</td>
+<td style="text-align: right;">0,239</td>
+<td style="text-align: right;">0,137</td>
+<td style="text-align: right;">0,276</td>
+<td style="text-align: right;">3.339,0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<div class="nota-tabela">
+<p><strong>Notas:</strong> Shapiro–Wilk = teste de normalidade dos resíduos | Ljung–Box = teste de autocorrelação residual | Homogeneidade = comparação com modelo permitindo variâncias distintas entre os períodos | VIF = fator de inflação da variância.</p>
+</div>
+<p><strong>Comentários:</strong> Conforme a <a href="#tbl-gls-diagnostico" class="quarto-xref">Tabela&nbsp;13</a>, os resíduos dos seis modelos não apresentaram evidências de desvio da normalidade, uma vez que todos os valores de <span class="math inline">\(p\)</span> do teste de Shapiro–Wilk foram superiores a 0,05. Os testes de Ljung–Box também apresentaram <span class="math inline">\(p&gt;0,05\)</span>, não indicando autocorrelação residual significativa após a inclusão da estrutura AR(1).</p>
+<p>Da mesma forma, não foram observadas evidências de heterogeneidade das variâncias entre os períodos, pois todos os valores de <span class="math inline">\(p\)</span> foram superiores a 0,05. Os modelos envolvendo a cota mínima apresentaram valores de VIF inferiores a 5, enquanto os modelos da cota média apresentaram valores moderadamente elevados. Para a cota máxima, os valores de VIF foram elevados, indicando maior colinearidade entre os termos desses modelos e, portanto, necessidade de maior cautela na interpretação individual de seus coeficientes.</p>
+<p>De forma geral, os diagnósticos residuais apresentaram comportamento adequado quanto à normalidade, homogeneidade das variâncias e autocorrelação residual.</p>
+</section>
+</section>
+<section id="variáveis-hidrológicas-síntese-dos-resultados-1" class="level3" data-number="3.7">
+<h3 data-number="3.7" class="anchored" data-anchor-id="variáveis-hidrológicas-síntese-dos-resultados-1"><span class="header-section-number">3.7</span> Variáveis Hidrológicas: Síntese dos Resultados</h3>
+<p>A análise descritiva mostrou valores centrais das medidas hidrológicas ligeiramente maiores no período (Depois) nos dois municípios. Em Borba, a maior variação relativa foi observada para a cota máxima anual (<span class="math inline">\(+4,68\%\)</span>), enquanto em Manicoré a maior variação ocorreu na amplitude anual (<span class="math inline">\(+5,24\%\)</span>).</p>
+<p>A análise de correlação de Spearman não identificou correlações estatisticamente significativas entre a produção pesqueira e as cotas média, mínima ou máxima anuais após o ajuste para comparações múltiplas. Embora tenham sido observadas diferenças na direção e na intensidade das correlações entre os períodos, essas diferenças não apresentaram evidência estatística suficiente.</p>
+<p>Os modelos GLS apresentaram resultado semelhante em relação às variáveis hidrológicas. Não foram identificadas relações significativas entre as cotas e a produção no período (Antes), nem evidências de que essas relações tenham se modificado no período (Depois), conforme indicado pelos termos de interação Hidrologia × Período.</p>
+<p>Por outro lado, a tendência temporal apresentou efeito negativo e estatisticamente significativo em todos os modelos. Além disso, em Manicoré foi identificado efeito negativo significativo associado ao período (Depois), mesmo após o controle pela tendência temporal e pelas variáveis hidrológicas.</p>
+<p>Em conjunto, os resultados indicam que, para as medidas hidrológicas avaliadas e no período analisado, não houve evidência estatística de uma correlação consistente entre as variações anuais das cotas fluviométricas e a produção pesqueira, nem de mudança significativa nessa relação entre os períodos (Antes) e (Depois). A redução da produção apresentou-se de forma mais consistente associada à tendência temporal, com efeito adicional do período (Depois) em Manicoré.</p>
 </section>
 </section>
 <section id="séries-temporais" class="level2" data-number="4">
@@ -2437,11 +2735,11 @@ Tabela&nbsp;11: <strong>Correlação de Spearman entre a produção pesqueira an
 <section id="relação-entre-cotas-fluviométricas-e-produção-pesqueira" class="level3" data-number="4.2">
 <h3 data-number="4.2" class="anchored" data-anchor-id="relação-entre-cotas-fluviométricas-e-produção-pesqueira"><span class="header-section-number">4.2</span> Relação entre Cotas Fluviométricas e Produção Pesqueira</h3>
 <p>Para avaliar a influência das variações hidrológicas na produção pesqueira e investigar se a operação das Usinas Hidrelétricas (UHEs) alterou essa dinâmica, analisamos a relação entre a cota média anual e a captura total por meio da Correlação de Spearman e de Modelos de Mínimos Quadrados Generalizados (GLS).</p>
-<p>A análise de correlação não paramétrica de Spearman (<a href="#tbl-spearman-cotas" class="quarto-xref">Tabela&nbsp;12</a>) indicou que não há uma associação monotônica significativa entre o nível médio anual do rio e o volume de capturas desembarcadas no município de Borba. Tanto no período anterior ao barramento (<span class="math inline">\(\rho\)</span> = -0,150; <em>p</em> = 0,700) quanto no período posterior (<span class="math inline">\(\rho\)</span> = 0,389; <em>p</em> = 0,169), as variações na cota média não se traduziram em aumentos ou reduções proporcionais diretas na pesca.</p>
+<p>A análise de correlação não paramétrica de Spearman (<a href="#tbl-spearman-cotas" class="quarto-xref">Tabela&nbsp;14</a>) indicou que não há uma associação monotônica significativa entre o nível médio anual do rio e o volume de capturas desembarcadas no município de Borba. Tanto no período anterior ao barramento (<span class="math inline">\(\rho\)</span> = -0,150; <em>p</em> = 0,700) quanto no período posterior (<span class="math inline">\(\rho\)</span> = 0,389; <em>p</em> = 0,169), as variações na cota média não se traduziram em aumentos ou reduções proporcionais diretas na pesca.</p>
 <div id="tbl-spearman-cotas" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-spearman-cotas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;12: <strong>Correlação de Spearman entre a cota média anual e a captura total em Borba, estratificada pelos períodos Antes e Depois das UHEs.</strong>
+Tabela&nbsp;14: <strong>Correlação de Spearman entre a cota média anual e a captura total em Borba, estratificada pelos períodos Antes e Depois das UHEs.</strong>
 </figcaption>
 <div aria-describedby="tbl-spearman-cotas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -2481,12 +2779,12 @@ Tabela&nbsp;12: <strong>Correlação de Spearman entre a cota média anual e a c
 </div>
 </figure>
 </div>
-<p>Para testar o impacto estrutural das UHEs considerando a autocorrelação temporal da série, ajustamos um modelo GLS incorporando uma estrutura autorregressiva de ordem 1 (AR1). Os resultados dos coeficientes do modelo (<a href="#tbl-gls-coef" class="quarto-xref">Tabela&nbsp;13</a>) e da Análise de Variância (<a href="#tbl-gls-anova" class="quarto-xref">Tabela&nbsp;14</a>) confirmam as observações preliminares.</p>
+<p>Para testar o impacto estrutural das UHEs considerando a autocorrelação temporal da série, ajustamos um modelo GLS incorporando uma estrutura autorregressiva de ordem 1 (AR1). Os resultados dos coeficientes do modelo (<a href="#tbl-gls-coef" class="quarto-xref">Tabela&nbsp;15</a>) e da Análise de Variância (<a href="#tbl-gls-anova" class="quarto-xref">Tabela&nbsp;16</a>) confirmam as observações preliminares.</p>
 <p>O termo de interação entre a cota média anual e o período da barragem não apresentou significância estatística (<em>F</em> = 0,432; <em>p</em> = 0,518). Isso indica que a inclinação da reta de regressão entre a hidrologia e a pesca não sofreu uma alteração estrutural significativa após 2011 em função da cota média. Da mesma forma, os efeitos principais do nível do rio (<em>F</em> = 0,054; <em>p</em> = 0,818) e do período isolado (<em>F</em> = 1,877; <em>p</em> = 0,186) não se mostraram preditores significativos para explicar a variabilidade da captura total neste modelo.</p>
 <div id="tbl-gls-coef" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-gls-coef-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;13: <strong>Coeficientes do modelo de Mínimos Quadrados Generalizados (GLS) avaliando o efeito da cota média e do período de barramento sobre a captura pesqueira.</strong>
+Tabela&nbsp;15: <strong>Coeficientes do modelo de Mínimos Quadrados Generalizados (GLS) avaliando o efeito da cota média e do período de barramento sobre a captura pesqueira.</strong>
 </figcaption>
 <div aria-describedby="tbl-gls-coef-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -2543,7 +2841,7 @@ Tabela&nbsp;13: <strong>Coeficientes do modelo de Mínimos Quadrados Generalizad
 <div id="tbl-gls-anova" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-gls-anova-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;14: <strong>Análise de Variância (ANOVA) do modelo GLS, indicando a significância dos termos principais e da interação.</strong>
+Tabela&nbsp;16: <strong>Análise de Variância (ANOVA) do modelo GLS, indicando a significância dos termos principais e da interação.</strong>
 </figcaption>
 <div aria-describedby="tbl-gls-anova-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -2611,11 +2909,11 @@ Tabela&nbsp;14: <strong>Análise de Variância (ANOVA) do modelo GLS, indicando 
 </ul>
 <p>A violação desta premissa justifica o uso complementar de métodos não paramétricos (como Mann-Kendall) para a validação robusta das tendências temporais.</p>
 </div>
-<p>As <a href="#fig-serie-borba" class="quarto-xref">Figura&nbsp;7</a> e <a href="#fig-serie-manicore" class="quarto-xref">Figura&nbsp;8</a> mostram a série temporal da captura total em cada colônia. Para avaliar estatisticamente o comportamento dessas séries ao longo do tempo, aplicou-se o teste não paramétrico de Mann-Kendall e a estimativa de Sen’s Slope. Adicionalmente, verificou-se a premissa de independência dos resíduos dos modelos de regressão OLS por meio do teste de Durbin-Watson (<span class="math inline">\(d\)</span>). Os resultados estão sintetizados na tabela a seguir.</p>
+<p>As <a href="#fig-serie-borba" class="quarto-xref">Figura&nbsp;10</a> e <a href="#fig-serie-manicore" class="quarto-xref">Figura&nbsp;11</a> mostram a série temporal da captura total em cada colônia. Para avaliar estatisticamente o comportamento dessas séries ao longo do tempo, aplicou-se o teste não paramétrico de Mann-Kendall e a estimativa de Sen’s Slope. Adicionalmente, verificou-se a premissa de independência dos resíduos dos modelos de regressão OLS por meio do teste de Durbin-Watson (<span class="math inline">\(d\)</span>). Os resultados estão sintetizados na tabela a seguir.</p>
 <div id="tbl-tendencia-pesca" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-tendencia-pesca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;15: <strong>Testes de tendência de Mann-Kendall, Sen’s Slope e verificação de autocorrelação de Durbin-Watson para a produção pesqueira anual por município e período.</strong>
+Tabela&nbsp;17: <strong>Testes de tendência de Mann-Kendall, Sen’s Slope e verificação de autocorrelação de Durbin-Watson para a produção pesqueira anual por município e período.</strong>
 </figcaption>
 <div aria-describedby="tbl-tendencia-pesca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -2704,7 +3002,7 @@ Tabela&nbsp;15: <strong>Testes de tendência de Mann-Kendall, Sen’s Slope e ve
 <img src="graficos/Time_Series_Borba.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-serie-borba-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;7: Time series of total catch (kg) in the Borba fishers’ colony between 2002 and 2024. Dots represent the observed annual volume, divided into the periods before (dark blue) and after (light blue) the dam impoundment in 2011 (dashed vertical line). The solid line connects the annual observations, and the thick dark-red lines indicate the trend estimated by Sen’s slope in each period. The <span class="math inline">\(\tau\)</span> values are Kendall’s <span class="math inline">\(\tau\)</span> coefficients from the Mann-Kendall trend test, the <span class="math inline">\(p\)</span>-values indicate the statistical significance of <span class="math inline">\(\tau\)</span> and of Sen’s slope, and Sen represents Sen’s slope estimator, which quantifies the annual rate of change (loss rate) in kg/year for each period. Total catch is the sum of the 19 species recorded per year. The grey shaded area for 2025 indicates that this year is shown for visual reference only and was excluded from the statistical trend analyses because of incomplete data.
+Figura&nbsp;10: Time series of total catch (kg) in the Borba fishers’ colony between 2002 and 2024. Dots represent the observed annual volume, divided into the periods before (dark blue) and after (light blue) the dam impoundment in 2011 (dashed vertical line). The solid line connects the annual observations, and the thick dark-red lines indicate the trend estimated by Sen’s slope in each period. The <span class="math inline">\(\tau\)</span> values are Kendall’s <span class="math inline">\(\tau\)</span> coefficients from the Mann-Kendall trend test, the <span class="math inline">\(p\)</span>-values indicate the statistical significance of <span class="math inline">\(\tau\)</span> and of Sen’s slope, and Sen represents Sen’s slope estimator, which quantifies the annual rate of change (loss rate) in kg/year for each period. Total catch is the sum of the 19 species recorded per year. The grey shaded area for 2025 indicates that this year is shown for visual reference only and was excluded from the statistical trend analyses because of incomplete data.
 </figcaption>
 </figure>
 </div>
@@ -2717,7 +3015,7 @@ Figura&nbsp;7: Time series of total catch (kg) in the Borba fishers’ colony be
 <img src="graficos/Time_Series_Manicore.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-serie-manicore-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;8: Time series of total catch (kg) in the Manicoré fishers’ colony between 2002 and 2024. Dots represent the observed annual volume, divided into the periods before (dark blue) and after (light blue) the dam impoundment in 2011 (dashed vertical line). The solid line connects the annual observations, and the thick dark-red lines indicate the trend estimated by Sen’s slope in each period. The <span class="math inline">\(\tau\)</span> values are Kendall’s <span class="math inline">\(\tau\)</span> coefficients from the Mann-Kendall trend test, the <span class="math inline">\(p\)</span>-values indicate the statistical significance of <span class="math inline">\(\tau\)</span> and of Sen’s slope, and Sen represents Sen’s slope estimator, which quantifies the annual rate of change (loss rate) in kg/year for each period. Total catch is the sum of the 18 species recorded per year. The grey shaded area for 2025 indicates that this year is shown for visual reference only and was excluded from the statistical trend analyses because of incomplete data.
+Figura&nbsp;11: Time series of total catch (kg) in the Manicoré fishers’ colony between 2002 and 2024. Dots represent the observed annual volume, divided into the periods before (dark blue) and after (light blue) the dam impoundment in 2011 (dashed vertical line). The solid line connects the annual observations, and the thick dark-red lines indicate the trend estimated by Sen’s slope in each period. The <span class="math inline">\(\tau\)</span> values are Kendall’s <span class="math inline">\(\tau\)</span> coefficients from the Mann-Kendall trend test, the <span class="math inline">\(p\)</span>-values indicate the statistical significance of <span class="math inline">\(\tau\)</span> and of Sen’s slope, and Sen represents Sen’s slope estimator, which quantifies the annual rate of change (loss rate) in kg/year for each period. Total catch is the sum of the 18 species recorded per year. The grey shaded area for 2025 indicates that this year is shown for visual reference only and was excluded from the statistical trend analyses because of incomplete data.
 </figcaption>
 </figure>
 </div>
@@ -2730,7 +3028,7 @@ Figura&nbsp;8: Time series of total catch (kg) in the Manicoré fishers’ colon
 <div id="tbl-testes-especies" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-testes-especies-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;16: <strong>Testes de normalidade e de comparação entre os períodos Antes e Depois da produção pesqueira anual por espécie e município.</strong>
+Tabela&nbsp;18: <strong>Testes de normalidade e de comparação entre os períodos Antes e Depois da produção pesqueira anual por espécie e município.</strong>
 </figcaption>
 <div aria-describedby="tbl-testes-especies-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -3139,7 +3437,7 @@ Tabela&nbsp;16: <strong>Testes de normalidade e de comparação entre os períod
 <div id="tbl-tendencia-borba" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-tendencia-borba-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;17: <strong>Teste de tendência de Mann-Kendall e inclinação de Sen da captura anual (kg) por espécie e período na colônia de Borba.</strong>
+Tabela&nbsp;19: <strong>Teste de tendência de Mann-Kendall e inclinação de Sen da captura anual (kg) por espécie e período na colônia de Borba.</strong>
 </figcaption>
 <div aria-describedby="tbl-tendencia-borba-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -3558,7 +3856,7 @@ Tabela&nbsp;17: <strong>Teste de tendência de Mann-Kendall e inclinação de Se
 <div id="tbl-tendencia-manicore" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-tendencia-manicore-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;18: <strong>Teste de tendência de Mann-Kendall e inclinação de Sen da captura anual (kg) por espécie e período na colônia de Manicoré.</strong>
+Tabela&nbsp;20: <strong>Teste de tendência de Mann-Kendall e inclinação de Sen da captura anual (kg) por espécie e período na colônia de Manicoré.</strong>
 </figcaption>
 <div aria-describedby="tbl-tendencia-manicore-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -3960,7 +4258,7 @@ Tabela&nbsp;18: <strong>Teste de tendência de Mann-Kendall e inclinação de Se
 <img src="graficos/Boxplot_Species_Borba.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-boxplot-borba-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;9: <strong>PT-BR:</strong> Distribuição da captura anual (kg, escala logarítmica) por espécie na colônia de Borba, comparando os períodos antes (2002–2010; n = 9 anos; azul escuro) e depois (2011–2024; n = 14 anos; azul claro) do barramento. As caixas representam o intervalo interquartil, a linha dentro da caixa indica a mediana, as hastes se estendem aos valores dentro de 1,5 vez o intervalo interquartil e os pontos representam valores discrepantes (outliers). As letras abaixo do nome de cada espécie comparam os dois períodos: letras diferentes (a | b) indicam diferença estatisticamente significativa entre Antes e Depois (<span class="math inline">\(\alpha = 0,05\)</span>). As letras em laranja indicam comparação pelo teste <em>t</em> de Welch (paramétrico), e as letras em verde, pelo teste de Wilcoxon-Mann-Whitney (não paramétrico), conforme a normalidade dos dados em cada período. As espécies estão ordenadas da maior para a menor captura no período anterior ao barramento.<br><br><strong>EN:</strong> Distribution of annual catch (kg, logarithmic scale) by species in the Borba fishers’ colony, comparing the periods before (2002–2010; n = 9 years; dark blue) and after (2011–2024; n = 14 years; light blue) the dam impoundment. Boxes represent the interquartile range, horizontal lines inside the boxes indicate the median, whiskers extend to values within 1.5 times the interquartile range, and dots represent outliers. Letters below each species name compare the two periods: different letters (a | b) indicate a statistically significant difference between Before and After (<span class="math inline">\(\alpha = 0.05\)</span>). Orange letters indicate that the comparison was performed with Welch’s <em>t</em>-test (parametric), and green letters with the Wilcoxon-Mann-Whitney test (non-parametric), according to the normality of the data in each period. Species are ordered from highest to lowest catch in the period before the impoundment.
+Figura&nbsp;12: <strong>PT-BR:</strong> Distribuição da captura anual (kg, escala logarítmica) por espécie na colônia de Borba, comparando os períodos antes (2002–2010; n = 9 anos; azul escuro) e depois (2011–2024; n = 14 anos; azul claro) do barramento. As caixas representam o intervalo interquartil, a linha dentro da caixa indica a mediana, as hastes se estendem aos valores dentro de 1,5 vez o intervalo interquartil e os pontos representam valores discrepantes (outliers). As letras abaixo do nome de cada espécie comparam os dois períodos: letras diferentes (a | b) indicam diferença estatisticamente significativa entre Antes e Depois (<span class="math inline">\(\alpha = 0,05\)</span>). As letras em laranja indicam comparação pelo teste <em>t</em> de Welch (paramétrico), e as letras em verde, pelo teste de Wilcoxon-Mann-Whitney (não paramétrico), conforme a normalidade dos dados em cada período. As espécies estão ordenadas da maior para a menor captura no período anterior ao barramento.<br><br><strong>EN:</strong> Distribution of annual catch (kg, logarithmic scale) by species in the Borba fishers’ colony, comparing the periods before (2002–2010; n = 9 years; dark blue) and after (2011–2024; n = 14 years; light blue) the dam impoundment. Boxes represent the interquartile range, horizontal lines inside the boxes indicate the median, whiskers extend to values within 1.5 times the interquartile range, and dots represent outliers. Letters below each species name compare the two periods: different letters (a | b) indicate a statistically significant difference between Before and After (<span class="math inline">\(\alpha = 0.05\)</span>). Orange letters indicate that the comparison was performed with Welch’s <em>t</em>-test (parametric), and green letters with the Wilcoxon-Mann-Whitney test (non-parametric), according to the normality of the data in each period. Species are ordered from highest to lowest catch in the period before the impoundment.
 </figcaption>
 </figure>
 </div>
@@ -3973,14 +4271,14 @@ Figura&nbsp;9: <strong>PT-BR:</strong> Distribuição da captura anual (kg, esca
 <img src="graficos/Boxplot_Species_Manicore.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-boxplot-manicore-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;10: <strong>PT-BR:</strong> Distribuição da captura anual (kg, escala logarítmica) por espécie na colônia de Manicoré, comparando os períodos antes (2002–2010; n = 9 anos; azul escuro) e depois (2011–2024; n = 14 anos; azul claro) do barramento. As caixas representam o intervalo interquartil, a linha dentro da caixa indica a mediana, as hastes se estendem aos valores dentro de 1,5 vez o intervalo interquartil e os pontos representam valores discrepantes (outliers). As letras abaixo do nome de cada espécie comparam os dois períodos: letras diferentes (a | b) indicam diferença estatisticamente significativa entre Antes e Depois (<span class="math inline">\(\alpha = 0,05\)</span>). As letras em laranja indicam comparação pelo teste <em>t</em> de Welch (paramétrico), e as letras em verde, pelo teste de Wilcoxon-Mann-Whitney (não paramétrico), conforme a normalidade dos dados em cada período. As espécies estão ordenadas da maior para a menor captura no período anterior ao barramento.<br><br><strong>EN:</strong> Distribution of annual catch (kg, logarithmic scale) by species in the Manicoré fishers’ colony, comparing the periods before (2002–2010; n = 9 years; dark blue) and after (2011–2024; n = 14 years; light blue) the dam impoundment. Boxes represent the interquartile range, horizontal lines inside the boxes indicate the median, whiskers extend to values within 1.5 times the interquartile range, and dots represent outliers. Letters below each species name compare the two periods: different letters (a | b) indicate a statistically significant difference between Before and After (<span class="math inline">\(\alpha = 0.05\)</span>). Orange letters indicate that the comparison was performed with Welch’s <em>t</em>-test (parametric), and green letters with the Wilcoxon-Mann-Whitney test (non-parametric), according to the normality of the data in each period. Species are ordered from highest to lowest catch in the period before the impoundment.
+Figura&nbsp;13: <strong>PT-BR:</strong> Distribuição da captura anual (kg, escala logarítmica) por espécie na colônia de Manicoré, comparando os períodos antes (2002–2010; n = 9 anos; azul escuro) e depois (2011–2024; n = 14 anos; azul claro) do barramento. As caixas representam o intervalo interquartil, a linha dentro da caixa indica a mediana, as hastes se estendem aos valores dentro de 1,5 vez o intervalo interquartil e os pontos representam valores discrepantes (outliers). As letras abaixo do nome de cada espécie comparam os dois períodos: letras diferentes (a | b) indicam diferença estatisticamente significativa entre Antes e Depois (<span class="math inline">\(\alpha = 0,05\)</span>). As letras em laranja indicam comparação pelo teste <em>t</em> de Welch (paramétrico), e as letras em verde, pelo teste de Wilcoxon-Mann-Whitney (não paramétrico), conforme a normalidade dos dados em cada período. As espécies estão ordenadas da maior para a menor captura no período anterior ao barramento.<br><br><strong>EN:</strong> Distribution of annual catch (kg, logarithmic scale) by species in the Manicoré fishers’ colony, comparing the periods before (2002–2010; n = 9 years; dark blue) and after (2011–2024; n = 14 years; light blue) the dam impoundment. Boxes represent the interquartile range, horizontal lines inside the boxes indicate the median, whiskers extend to values within 1.5 times the interquartile range, and dots represent outliers. Letters below each species name compare the two periods: different letters (a | b) indicate a statistically significant difference between Before and After (<span class="math inline">\(\alpha = 0.05\)</span>). Orange letters indicate that the comparison was performed with Welch’s <em>t</em>-test (parametric), and green letters with the Wilcoxon-Mann-Whitney test (non-parametric), according to the normality of the data in each period. Species are ordered from highest to lowest catch in the period before the impoundment.
 </figcaption>
 </figure>
 </div>
 <div class="linha-baixar">
 <p><a href="graficos/Boxplot_Species_Manicore.png" class="baixar" download="Boxplot_Species_Manicore.png"><i class="bi bi-download"></i> Baixar Gráfico (PNG)</a></p>
 </div>
-<p><strong>Interpretação:</strong> As <a href="#fig-serie-aracu" class="quarto-xref">Figura&nbsp;11</a>, <a href="#fig-serie-branquinha" class="quarto-xref">Figura&nbsp;12</a>, <a href="#fig-serie-caparari" class="quarto-xref">Figura&nbsp;13</a>, <a href="#fig-serie-cara-branco" class="quarto-xref">Figura&nbsp;14</a>, <a href="#fig-serie-carauacu" class="quarto-xref">Figura&nbsp;15</a>, <a href="#fig-serie-curimata" class="quarto-xref">Figura&nbsp;16</a>, <a href="#fig-serie-dourada" class="quarto-xref">Figura&nbsp;17</a>, <a href="#fig-serie-filhote" class="quarto-xref">Figura&nbsp;18</a>, <a href="#fig-serie-jaraqui" class="quarto-xref">Figura&nbsp;19</a>, <a href="#fig-serie-matrinxa" class="quarto-xref">Figura&nbsp;20</a>, <a href="#fig-serie-pacu" class="quarto-xref">Figura&nbsp;21</a>, <a href="#fig-serie-pescada" class="quarto-xref">Figura&nbsp;22</a>, <a href="#fig-serie-piranambu-barbado" class="quarto-xref">Figura&nbsp;23</a>, <a href="#fig-serie-pirapitinga" class="quarto-xref">Figura&nbsp;24</a>, <a href="#fig-serie-pirarara" class="quarto-xref">Figura&nbsp;25</a>, <a href="#fig-serie-sardinha" class="quarto-xref">Figura&nbsp;26</a>, <a href="#fig-serie-surubim" class="quarto-xref">Figura&nbsp;27</a>, <a href="#fig-serie-tambaqui" class="quarto-xref">Figura&nbsp;28</a> e <a href="#fig-serie-tucunare" class="quarto-xref">Figura&nbsp;29</a> apresentam as séries temporais da produção pesqueira anual das espécies analisadas em <strong>Borba</strong> e <strong>Manicoré</strong>, separadas entre os períodos antes e após o barramento. Para cada período, o valor de <span class="math inline">\(\tau\)</span> (tau de Kendall) indica a direção da tendência ao longo dos anos: valores negativos representam <strong>redução da produção</strong>, enquanto valores positivos indicam <strong>aumento</strong>. O valor de <em>p</em> indica se essa tendência é estatisticamente significativa, considerando <em>p</em> &lt; 0,05. Já a inclinação de Sen representa a intensidade da mudança, expressa em <strong>kg por ano</strong>, indicando quanto a produção aumentou ou diminuiu anualmente. Assim, a leitura conjunta desses indicadores permite identificar a <strong>direção, a significância e a magnitude das mudanças na produção pesqueira</strong>, bem como comparar o comportamento observado antes e após o barramento em cada localidade.</p>
+<p><strong>Interpretação:</strong> As <a href="#fig-serie-aracu" class="quarto-xref">Figura&nbsp;14</a>, <a href="#fig-serie-branquinha" class="quarto-xref">Figura&nbsp;15</a>, <a href="#fig-serie-caparari" class="quarto-xref">Figura&nbsp;16</a>, <a href="#fig-serie-cara-branco" class="quarto-xref">Figura&nbsp;17</a>, <a href="#fig-serie-carauacu" class="quarto-xref">Figura&nbsp;18</a>, <a href="#fig-serie-curimata" class="quarto-xref">Figura&nbsp;19</a>, <a href="#fig-serie-dourada" class="quarto-xref">Figura&nbsp;20</a>, <a href="#fig-serie-filhote" class="quarto-xref">Figura&nbsp;21</a>, <a href="#fig-serie-jaraqui" class="quarto-xref">Figura&nbsp;22</a>, <a href="#fig-serie-matrinxa" class="quarto-xref">Figura&nbsp;23</a>, <a href="#fig-serie-pacu" class="quarto-xref">Figura&nbsp;24</a>, <a href="#fig-serie-pescada" class="quarto-xref">Figura&nbsp;25</a>, <a href="#fig-serie-piranambu-barbado" class="quarto-xref">Figura&nbsp;26</a>, <a href="#fig-serie-pirapitinga" class="quarto-xref">Figura&nbsp;27</a>, <a href="#fig-serie-pirarara" class="quarto-xref">Figura&nbsp;28</a>, <a href="#fig-serie-sardinha" class="quarto-xref">Figura&nbsp;29</a>, <a href="#fig-serie-surubim" class="quarto-xref">Figura&nbsp;30</a>, <a href="#fig-serie-tambaqui" class="quarto-xref">Figura&nbsp;31</a> e <a href="#fig-serie-tucunare" class="quarto-xref">Figura&nbsp;32</a> apresentam as séries temporais da produção pesqueira anual das espécies analisadas em <strong>Borba</strong> e <strong>Manicoré</strong>, separadas entre os períodos antes e após o barramento. Para cada período, o valor de <span class="math inline">\(\tau\)</span> (tau de Kendall) indica a direção da tendência ao longo dos anos: valores negativos representam <strong>redução da produção</strong>, enquanto valores positivos indicam <strong>aumento</strong>. O valor de <em>p</em> indica se essa tendência é estatisticamente significativa, considerando <em>p</em> &lt; 0,05. Já a inclinação de Sen representa a intensidade da mudança, expressa em <strong>kg por ano</strong>, indicando quanto a produção aumentou ou diminuiu anualmente. Assim, a leitura conjunta desses indicadores permite identificar a <strong>direção, a significância e a magnitude das mudanças na produção pesqueira</strong>, bem como comparar o comportamento observado antes e após o barramento em cada localidade.</p>
 <p><strong>Selecione a espécie:</strong></p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Aracu</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Branquinha</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">Caparari</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false" href="">Cara branco</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-5" role="tab" aria-controls="tabset-1-5" aria-selected="false" href="">Carauaçu</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-6-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-6" role="tab" aria-controls="tabset-1-6" aria-selected="false" href="">Curimatã</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-7-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-7" role="tab" aria-controls="tabset-1-7" aria-selected="false" href="">Dourada</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-8-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-8" role="tab" aria-controls="tabset-1-8" aria-selected="false" href="">Filhote</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-9-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-9" role="tab" aria-controls="tabset-1-9" aria-selected="false" href="">Jaraqui</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-10-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-10" role="tab" aria-controls="tabset-1-10" aria-selected="false" href="">Matrinxã</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-11-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-11" role="tab" aria-controls="tabset-1-11" aria-selected="false" href="">Pacu</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-12-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-12" role="tab" aria-controls="tabset-1-12" aria-selected="false" href="">Pescada</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-13-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-13" role="tab" aria-controls="tabset-1-13" aria-selected="false" href="">Piranambu / Barbado</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-14-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-14" role="tab" aria-controls="tabset-1-14" aria-selected="false" href="">Pirapitinga</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-15-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-15" role="tab" aria-controls="tabset-1-15" aria-selected="false" href="">Pirarara</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-16-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-16" role="tab" aria-controls="tabset-1-16" aria-selected="false" href="">Sardinha</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-17-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-17" role="tab" aria-controls="tabset-1-17" aria-selected="false" href="">Surubim</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-18-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-18" role="tab" aria-controls="tabset-1-18" aria-selected="false" href="">Tambaqui</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-19-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-19" role="tab" aria-controls="tabset-1-19" aria-selected="false" href="">Tucunaré</a></li></ul>
@@ -3992,7 +4290,7 @@ Figura&nbsp;10: <strong>PT-BR:</strong> Distribuição da captura anual (kg, esc
 <img src="graficos/TimeSeries_Final_Aracu.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-serie-aracu-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;11: Time series of annual catch (kg) for Aracu in the Borba and Manicoré fishers’ colonies between 2002 and 2024.
+Figura&nbsp;14: Time series of annual catch (kg) for Aracu in the Borba and Manicoré fishers’ colonies between 2002 and 2024.
 </figcaption>
 </figure>
 </div>
@@ -4007,7 +4305,7 @@ Figura&nbsp;11: Time series of annual catch (kg) for Aracu in the Borba and Mani
 <img src="graficos/TimeSeries_Final_Branquinha.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-serie-branquinha-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;12: Time series of annual catch (kg) for Branquinha in the Borba and Manicoré fishers’ colonies between 2002 and 2024.
+Figura&nbsp;15: Time series of annual catch (kg) for Branquinha in the Borba and Manicoré fishers’ colonies between 2002 and 2024.
 </figcaption>
 </figure>
 </div>
@@ -4022,7 +4320,7 @@ Figura&nbsp;12: Time series of annual catch (kg) for Branquinha in the Borba and
 <img src="graficos/TimeSeries_Final_Caparari.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-serie-caparari-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;13: Time series of annual catch (kg) for Caparari in the Borba and Manicoré fishers’ colonies between 2002 and 2024.
+Figura&nbsp;16: Time series of annual catch (kg) for Caparari in the Borba and Manicoré fishers’ colonies between 2002 and 2024.
 </figcaption>
 </figure>
 </div>
@@ -4037,7 +4335,7 @@ Figura&nbsp;13: Time series of annual catch (kg) for Caparari in the Borba and M
 <img src="graficos/TimeSeries_Final_Cara_branco.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-serie-cara-branco-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;14: Time series of annual catch (kg) for Cara branco in the Borba and Manicoré fishers’ colonies between 2002 and 2024.
+Figura&nbsp;17: Time series of annual catch (kg) for Cara branco in the Borba and Manicoré fishers’ colonies between 2002 and 2024.
 </figcaption>
 </figure>
 </div>
@@ -4052,7 +4350,7 @@ Figura&nbsp;14: Time series of annual catch (kg) for Cara branco in the Borba an
 <img src="graficos/TimeSeries_Final_Carauaçu.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-serie-carauacu-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;15: Time series of annual catch (kg) for Carauaçu in the Borba and Manicoré fishers’ colonies between 2002 and 2024.
+Figura&nbsp;18: Time series of annual catch (kg) for Carauaçu in the Borba and Manicoré fishers’ colonies between 2002 and 2024.
 </figcaption>
 </figure>
 </div>
@@ -4067,7 +4365,7 @@ Figura&nbsp;15: Time series of annual catch (kg) for Carauaçu in the Borba and 
 <img src="graficos/TimeSeries_Final_Curimatã.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-serie-curimata-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;16: Time series of annual catch (kg) for Curimatã in the Borba and Manicoré fishers’ colonies between 2002 and 2024.
+Figura&nbsp;19: Time series of annual catch (kg) for Curimatã in the Borba and Manicoré fishers’ colonies between 2002 and 2024.
 </figcaption>
 </figure>
 </div>
@@ -4082,7 +4380,7 @@ Figura&nbsp;16: Time series of annual catch (kg) for Curimatã in the Borba and 
 <img src="graficos/TimeSeries_Final_Dourada.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-serie-dourada-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;17: Time series of annual catch (kg) for Dourada in the Borba and Manicoré fishers’ colonies between 2002 and 2024.
+Figura&nbsp;20: Time series of annual catch (kg) for Dourada in the Borba and Manicoré fishers’ colonies between 2002 and 2024.
 </figcaption>
 </figure>
 </div>
@@ -4097,7 +4395,7 @@ Figura&nbsp;17: Time series of annual catch (kg) for Dourada in the Borba and Ma
 <img src="graficos/TimeSeries_Final_Filhote.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-serie-filhote-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;18: Time series of annual catch (kg) for Filhote in the Borba and Manicoré fishers’ colonies between 2002 and 2024.
+Figura&nbsp;21: Time series of annual catch (kg) for Filhote in the Borba and Manicoré fishers’ colonies between 2002 and 2024.
 </figcaption>
 </figure>
 </div>
@@ -4112,7 +4410,7 @@ Figura&nbsp;18: Time series of annual catch (kg) for Filhote in the Borba and Ma
 <img src="graficos/TimeSeries_Final_Jaraqui.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-serie-jaraqui-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;19: Time series of annual catch (kg) for Jaraqui in the Borba and Manicoré fishers’ colonies between 2002 and 2024.
+Figura&nbsp;22: Time series of annual catch (kg) for Jaraqui in the Borba and Manicoré fishers’ colonies between 2002 and 2024.
 </figcaption>
 </figure>
 </div>
@@ -4127,7 +4425,7 @@ Figura&nbsp;19: Time series of annual catch (kg) for Jaraqui in the Borba and Ma
 <img src="graficos/TimeSeries_Final_Matrinxã.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-serie-matrinxa-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;20: Time series of annual catch (kg) for Matrinxã in the Borba and Manicoré fishers’ colonies between 2002 and 2024.
+Figura&nbsp;23: Time series of annual catch (kg) for Matrinxã in the Borba and Manicoré fishers’ colonies between 2002 and 2024.
 </figcaption>
 </figure>
 </div>
@@ -4142,7 +4440,7 @@ Figura&nbsp;20: Time series of annual catch (kg) for Matrinxã in the Borba and 
 <img src="graficos/TimeSeries_Final_Pacu.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-serie-pacu-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;21: Time series of annual catch (kg) for Pacu in the Borba and Manicoré fishers’ colonies between 2002 and 2024.
+Figura&nbsp;24: Time series of annual catch (kg) for Pacu in the Borba and Manicoré fishers’ colonies between 2002 and 2024.
 </figcaption>
 </figure>
 </div>
@@ -4157,7 +4455,7 @@ Figura&nbsp;21: Time series of annual catch (kg) for Pacu in the Borba and Manic
 <img src="graficos/TimeSeries_Final_Pescada.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-serie-pescada-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;22: Time series of annual catch (kg) for Pescada in the Borba and Manicoré fishers’ colonies between 2002 and 2024.
+Figura&nbsp;25: Time series of annual catch (kg) for Pescada in the Borba and Manicoré fishers’ colonies between 2002 and 2024.
 </figcaption>
 </figure>
 </div>
@@ -4172,7 +4470,7 @@ Figura&nbsp;22: Time series of annual catch (kg) for Pescada in the Borba and Ma
 <img src="graficos/TimeSeries_Final_Piranambu_Barbado.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-serie-piranambu-barbado-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;23: Time series of annual catch (kg) for Piranambu/Barbado in the Borba and Manicoré fishers’ colonies between 2002 and 2024.
+Figura&nbsp;26: Time series of annual catch (kg) for Piranambu/Barbado in the Borba and Manicoré fishers’ colonies between 2002 and 2024.
 </figcaption>
 </figure>
 </div>
@@ -4187,7 +4485,7 @@ Figura&nbsp;23: Time series of annual catch (kg) for Piranambu/Barbado in the Bo
 <img src="graficos/TimeSeries_Final_Pirapitinga.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-serie-pirapitinga-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;24: Time series of annual catch (kg) for Pirapitinga in the Borba and Manicoré fishers’ colonies between 2002 and 2024.
+Figura&nbsp;27: Time series of annual catch (kg) for Pirapitinga in the Borba and Manicoré fishers’ colonies between 2002 and 2024.
 </figcaption>
 </figure>
 </div>
@@ -4202,7 +4500,7 @@ Figura&nbsp;24: Time series of annual catch (kg) for Pirapitinga in the Borba an
 <img src="graficos/TimeSeries_Final_Pirarara.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-serie-pirarara-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;25: Time series of annual catch (kg) for Pirarara in the Borba and Manicoré fishers’ colonies between 2002 and 2024.
+Figura&nbsp;28: Time series of annual catch (kg) for Pirarara in the Borba and Manicoré fishers’ colonies between 2002 and 2024.
 </figcaption>
 </figure>
 </div>
@@ -4217,7 +4515,7 @@ Figura&nbsp;25: Time series of annual catch (kg) for Pirarara in the Borba and M
 <img src="graficos/TimeSeries_Final_Sardinha.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-serie-sardinha-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;26: Time series of annual catch (kg) for Sardinha in the Borba and Manicoré fishers’ colonies between 2002 and 2024.
+Figura&nbsp;29: Time series of annual catch (kg) for Sardinha in the Borba and Manicoré fishers’ colonies between 2002 and 2024.
 </figcaption>
 </figure>
 </div>
@@ -4232,7 +4530,7 @@ Figura&nbsp;26: Time series of annual catch (kg) for Sardinha in the Borba and M
 <img src="graficos/TimeSeries_Final_Surubim.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-serie-surubim-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;27: Time series of annual catch (kg) for Surubim in the Borba and Manicoré fishers’ colonies between 2002 and 2024.
+Figura&nbsp;30: Time series of annual catch (kg) for Surubim in the Borba and Manicoré fishers’ colonies between 2002 and 2024.
 </figcaption>
 </figure>
 </div>
@@ -4247,7 +4545,7 @@ Figura&nbsp;27: Time series of annual catch (kg) for Surubim in the Borba and Ma
 <img src="graficos/TimeSeries_Final_Tambaqui.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-serie-tambaqui-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;28: Time series of annual catch (kg) for Tambaqui in the Borba and Manicoré fishers’ colonies between 2002 and 2024.
+Figura&nbsp;31: Time series of annual catch (kg) for Tambaqui in the Borba and Manicoré fishers’ colonies between 2002 and 2024.
 </figcaption>
 </figure>
 </div>
@@ -4262,7 +4560,7 @@ Figura&nbsp;28: Time series of annual catch (kg) for Tambaqui in the Borba and M
 <img src="graficos/TimeSeries_Final_Tucunaré.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-serie-tucunare-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;29: Time series of annual catch (kg) for Tucunaré in the Borba and Manicoré fishers’ colonies between 2002 and 2024.
+Figura&nbsp;32: Time series of annual catch (kg) for Tucunaré in the Borba and Manicoré fishers’ colonies between 2002 and 2024.
 </figcaption>
 </figure>
 </div>
@@ -4278,12 +4576,12 @@ Figura&nbsp;29: Time series of annual catch (kg) for Tucunaré in the Borba and 
 </section>
 <section id="análise-de-tendência-temporal-e-autocorrelação-para-as-cotas-fluviométricas" class="level3" data-number="4.4">
 <h3 data-number="4.4" class="anchored" data-anchor-id="análise-de-tendência-temporal-e-autocorrelação-para-as-cotas-fluviométricas"><span class="header-section-number">4.4</span> Análise de Tendência Temporal e Autocorrelação para as Cotas Fluviométricas</h3>
-<p>As <a href="#fig-serie-cotas-borba" class="quarto-xref">Figura&nbsp;30</a> e <a href="#fig-serie-cotas-manicore" class="quarto-xref">Figura&nbsp;31</a> mostram a série temporal do nível médio anual do rio Madeira nas estações de cada município. Inicialmente, a avaliação dos pressupostos indicou que as séries não diferem significativamente da normalidade (Teste de Shapiro-Wilk, <span class="math inline">\(p &gt; 0,05\)</span>). Contudo, para lidar com a autocorrelação residual detetada em alguns períodos e manter a consistência metodológica rigorosa adotada nas análises de produção pesqueira, optou-se por abordagens estatísticas não paramétricas.</p>
+<p>As <a href="#fig-serie-cotas-borba" class="quarto-xref">Figura&nbsp;33</a> e <a href="#fig-serie-cotas-manicore" class="quarto-xref">Figura&nbsp;34</a> mostram a série temporal do nível médio anual do rio Madeira nas estações de cada município. Inicialmente, a avaliação dos pressupostos indicou que as séries não diferem significativamente da normalidade (Teste de Shapiro-Wilk, <span class="math inline">\(p &gt; 0,05\)</span>). Contudo, para lidar com a autocorrelação residual detetada em alguns períodos e manter a consistência metodológica rigorosa adotada nas análises de produção pesqueira, optou-se por abordagens estatísticas não paramétricas.</p>
 <p>Para avaliar o comportamento direcional destas séries ao longo do tempo, aplicou-se o teste de Mann-Kendall e a estimativa de Sen’s Slope. Adicionalmente, verificou-se a premissa de independência dos resíduos por meio do teste de Durbin-Watson (<span class="math inline">\(d\)</span>). Os resultados estão sintetizados na tabela a seguir.</p>
 <div id="tbl-tendencia-cotas" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-tendencia-cotas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;19: <strong>Testes de tendência de Mann-Kendall, Sen’s Slope e verificação de autocorrelação de Durbin-Watson para o nível médio anual do rio Madeira por município e período.</strong>
+Tabela&nbsp;21: <strong>Testes de tendência de Mann-Kendall, Sen’s Slope e verificação de autocorrelação de Durbin-Watson para o nível médio anual do rio Madeira por município e período.</strong>
 </figcaption>
 <div aria-describedby="tbl-tendencia-cotas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -4371,7 +4669,7 @@ Tabela&nbsp;19: <strong>Testes de tendência de Mann-Kendall, Sen’s Slope e ve
 <img src="graficos/TimeSeries_Cotas_Borba.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-serie-cotas-borba-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;30: Série temporal do nível médio anual (cm) da cota fluviométrica do rio Madeira na estação de Borba entre 2002 e 2024. Os pontos representam a cota anual observada. A linha tracejada vertical indica o ano de início do represamento da barragem (2011). Os valores de <span class="math inline">\(\tau\)</span> são os coeficientes de Kendall resultantes do teste de tendência de Mann-Kendall, os valores de <span class="math inline">\(p\)</span> indicam a significância estatística de <span class="math inline">\(\tau\)</span> e do declive de Sen, e Sen representa o estimador de declive, que quantifica a taxa anual de variação em cm/ano para cada período. O ano de 2025 foi mantido na projeção gráfica apenas para fins de referência visual.
+Figura&nbsp;33: Série temporal do nível médio anual (cm) da cota fluviométrica do rio Madeira na estação de Borba entre 2002 e 2024. Os pontos representam a cota anual observada. A linha tracejada vertical indica o ano de início do represamento da barragem (2011). Os valores de <span class="math inline">\(\tau\)</span> são os coeficientes de Kendall resultantes do teste de tendência de Mann-Kendall, os valores de <span class="math inline">\(p\)</span> indicam a significância estatística de <span class="math inline">\(\tau\)</span> e do declive de Sen, e Sen representa o estimador de declive, que quantifica a taxa anual de variação em cm/ano para cada período. O ano de 2025 foi mantido na projeção gráfica apenas para fins de referência visual.
 </figcaption>
 </figure>
 </div>
@@ -4385,7 +4683,7 @@ Figura&nbsp;30: Série temporal do nível médio anual (cm) da cota fluviométri
 <img src="graficos/TimeSeries_Cotas_Manicore.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-serie-cotas-manicore-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;31: Série temporal do nível médio anual (cm) da cota fluviométrica do rio Madeira na estação de Manicoré entre 2002 e 2024. Os pontos representam a cota anual observada. A linha tracejada vertical indica o ano de início do represamento da barragem (2011). Os valores de <span class="math inline">\(\tau\)</span> são os coeficientes de Kendall resultantes do teste de tendência de Mann-Kendall, os valores de <span class="math inline">\(p\)</span> indicam a significância estatística de <span class="math inline">\(\tau\)</span> e do declive de Sen, e Sen representa o estimador de declive, que quantifica a taxa anual de variação em cm/ano para cada período. O ano de 2025 foi mantido na projeção gráfica apenas para fins de referência visual.
+Figura&nbsp;34: Série temporal do nível médio anual (cm) da cota fluviométrica do rio Madeira na estação de Manicoré entre 2002 e 2024. Os pontos representam a cota anual observada. A linha tracejada vertical indica o ano de início do represamento da barragem (2011). Os valores de <span class="math inline">\(\tau\)</span> são os coeficientes de Kendall resultantes do teste de tendência de Mann-Kendall, os valores de <span class="math inline">\(p\)</span> indicam a significância estatística de <span class="math inline">\(\tau\)</span> e do declive de Sen, e Sen representa o estimador de declive, que quantifica a taxa anual de variação em cm/ano para cada período. O ano de 2025 foi mantido na projeção gráfica apenas para fins de referência visual.
 </figcaption>
 </figure>
 </div>
