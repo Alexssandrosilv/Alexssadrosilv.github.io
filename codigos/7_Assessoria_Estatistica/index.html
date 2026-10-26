@@ -225,7 +225,10 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#produção-pesqueira-mudanças-na-série-temporal" id="toc-produção-pesqueira-mudanças-na-série-temporal" class="nav-link" data-scroll-target="#produção-pesqueira-mudanças-na-série-temporal"><span class="header-section-number">4.1</span> Produção Pesqueira: Mudanças na Série Temporal</a></li>
   <li><a href="#produção-pesqueira-por-espécie-tendência-temporal" id="toc-produção-pesqueira-por-espécie-tendência-temporal" class="nav-link" data-scroll-target="#produção-pesqueira-por-espécie-tendência-temporal"><span class="header-section-number">4.2</span> Produção Pesqueira por Espécie: Tendência Temporal</a></li>
+  <li><a href="#cotas-fluviométricas-mudanças-nas-séries-temporais" id="toc-cotas-fluviométricas-mudanças-nas-séries-temporais" class="nav-link" data-scroll-target="#cotas-fluviométricas-mudanças-nas-séries-temporais"><span class="header-section-number">4.3</span> Cotas Fluviométricas: Mudanças nas Séries Temporais</a></li>
+  <li><a href="#séries-temporais-síntese-dos-resultados" id="toc-séries-temporais-síntese-dos-resultados" class="nav-link" data-scroll-target="#séries-temporais-síntese-dos-resultados"><span class="header-section-number">4.4</span> Séries Temporais: Síntese dos Resultados</a></li>
   </ul></li>
+  <li><a href="#apêndices" id="toc-apêndices" class="nav-link" data-scroll-target="#apêndices"><span class="header-section-number">5</span> Apêndices</a></li>
   </ul>
 </nav>
     </div>
@@ -3903,7 +3906,664 @@ Figura&nbsp;30: Série temporal da produção pesqueira anual de Tucunaré em Bo
 <h4 data-number="4.2.5" class="anchored" data-anchor-id="síntese-das-séries-temporais-por-espécie"><span class="header-section-number">4.2.5</span> Síntese das Séries Temporais por Espécie</h4>
 <p>A análise por espécie mostrou que o declínio temporal da produção não ocorreu de maneira uniforme no período (Antes). Em Borba, 13 das 19 espécies já apresentavam redução significativa, cinco não apresentavam tendência estatisticamente detectável e Piranambu/Barbado apresentou aumento significativo. Em Manicoré, 12 das 18 espécies apresentavam queda significativa, enquanto seis permaneceram sem tendência estatisticamente significativa.</p>
 <p>No período (Depois), o comportamento tornou-se mais consistente entre as espécies. <strong>Todas as 19 espécies avaliadas em Borba e todas as 18 espécies avaliadas em Manicoré apresentaram tendências temporais negativas e estatisticamente significativas.</strong></p>
-<p>Dessa forma, a redução identificada na produção pesqueira total também foi observada de forma generalizada nas séries temporais das espécies no período (Depois), embora as magnitudes das inclinações de Sen tenham variado entre os recursos pesqueiros e entre os municípios. ## Apêndices</p>
+<p>Dessa forma, a redução identificada na produção pesqueira total também foi observada de forma generalizada nas séries temporais das espécies no período (Depois), embora as magnitudes das inclinações de Sen tenham variado entre os recursos pesqueiros e entre os municípios.</p>
+</section>
+</section>
+<section id="cotas-fluviométricas-mudanças-nas-séries-temporais" class="level3" data-number="4.3">
+<h3 data-number="4.3" class="anchored" data-anchor-id="cotas-fluviométricas-mudanças-nas-séries-temporais"><span class="header-section-number">4.3</span> Cotas Fluviométricas: Mudanças nas Séries Temporais</h3>
+<p>Para avaliar possíveis mudanças temporais no regime hidrológico, foram analisadas as séries anuais das cotas média, mínima e máxima em Borba e Manicoré, considerando os períodos <strong>(Antes), de 2002 a 2010</strong>, e <strong>(Depois), de 2011 a 2024</strong>. Para cada variável e município, foi ajustado um modelo de Mínimos Quadrados Generalizados (GLS), permitindo avaliar a tendência temporal em cada período, a mudança de nível e a mudança da inclinação da série.</p>
+<p>O modelo utilizado foi:</p>
+<p><span class="math display">\[
+H_t =
+\beta_0 +
+\beta_1T_t +
+\beta_2D_t +
+\beta_3(T_t \times D_t) +
+\varepsilon_t,
+\]</span></p>
+<p>em que <span class="math inline">\(H_t\)</span> representa a cota fluviométrica anual no ano <span class="math inline">\(t\)</span>; <span class="math inline">\(T_t\)</span> representa o tempo, centralizado em 2011; e <span class="math inline">\(D_t\)</span> representa o período, assumindo valor 0 para (Antes) e 1 para (Depois). Nesse modelo, <span class="math inline">\(\beta_1\)</span> representa a tendência temporal no período (Antes), <span class="math inline">\(\beta_2\)</span> representa a mudança de nível no início do período (Depois), e <span class="math inline">\(\beta_3\)</span> representa a mudança da inclinação entre os períodos. A tendência temporal no período (Depois) é obtida pela soma <span class="math inline">\(\beta_1+\beta_3\)</span>.</p>
+<section id="estrutura-de-correlação-dos-modelos" class="level4" data-number="4.3.1">
+<h4 data-number="4.3.1" class="anchored" data-anchor-id="estrutura-de-correlação-dos-modelos"><span class="header-section-number">4.3.1</span> Estrutura de Correlação dos Modelos</h4>
+<p>Inicialmente, foram comparados modelos com erros independentes e modelos com estrutura autorregressiva de primeira ordem, AR(1), de modo a verificar a necessidade de considerar dependência entre observações anuais consecutivas.</p>
+<div id="tbl-gls-hidro-estrutura" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-gls-hidro-estrutura-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabela&nbsp;21: <strong>Comparação das estruturas de correlação dos modelos GLS ajustados às séries temporais das cotas fluviométricas.</strong>
+</figcaption>
+<div aria-describedby="tbl-gls-hidro-estrutura-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Município</strong></th>
+<th style="text-align: left;"><strong>Variável</strong></th>
+<th style="text-align: right;"><strong>AIC Independente</strong></th>
+<th style="text-align: right;"><strong>AIC AR(1)</strong></th>
+<th style="text-align: right;"><strong>LRT</strong><br><span class="math inline">\(p\)</span></th>
+<th style="text-align: left;"><strong>Estrutura final</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Borba</strong></td>
+<td style="text-align: left;">Cota média</td>
+<td style="text-align: right;">289</td>
+<td style="text-align: right;">290</td>
+<td style="text-align: right;">0,492</td>
+<td style="text-align: left;">Independente</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Cota mínima</td>
+<td style="text-align: right;">328</td>
+<td style="text-align: right;">329</td>
+<td style="text-align: right;">0,510</td>
+<td style="text-align: left;">Independente</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Cota máxima</td>
+<td style="text-align: right;">421</td>
+<td style="text-align: right;">423</td>
+<td style="text-align: right;">0,641</td>
+<td style="text-align: left;">Independente</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Manicoré</strong></td>
+<td style="text-align: left;">Cota média</td>
+<td style="text-align: right;">292</td>
+<td style="text-align: right;">293</td>
+<td style="text-align: right;">0,409</td>
+<td style="text-align: left;">Independente</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Cota mínima</td>
+<td style="text-align: right;">273</td>
+<td style="text-align: right;">275</td>
+<td style="text-align: right;">0,921</td>
+<td style="text-align: left;">Independente</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Cota máxima</td>
+<td style="text-align: right;">436</td>
+<td style="text-align: right;">438</td>
+<td style="text-align: right;">0,620</td>
+<td style="text-align: left;">Independente</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<div class="nota-tabela">
+<p><strong>Notas:</strong> AIC = Critério de Informação de Akaike | LRT = teste da razão de verossimilhanças | AR(1) = estrutura autorregressiva de primeira ordem | Valores menores de AIC indicam melhor ajuste relativo.</p>
+</div>
+<p><strong>Comentários:</strong> Conforme a <a href="#tbl-gls-hidro-estrutura" class="quarto-xref">Tabela&nbsp;21</a>, a inclusão da estrutura AR(1) não proporcionou melhora significativa em nenhuma das seis séries avaliadas (<span class="math inline">\(p&gt;0,05\)</span>). Além disso, os modelos com erros independentes apresentaram menores valores de AIC. Dessa forma, a estrutura independente foi mantida nos modelos finais de cota média, mínima e máxima em ambos os municípios.</p>
+</section>
+<section id="resultados-dos-modelos-gls-1" class="level4" data-number="4.3.2">
+<h4 data-number="4.3.2" class="anchored" data-anchor-id="resultados-dos-modelos-gls-1"><span class="header-section-number">4.3.2</span> Resultados dos Modelos GLS</h4>
+<div id="tbl-gls-series-hidro" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-gls-series-hidro-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabela&nbsp;22: <strong>Resultados dos modelos GLS segmentados para as séries temporais das cotas fluviométricas em Borba e Manicoré.</strong>
+</figcaption>
+<div aria-describedby="tbl-gls-series-hidro-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Município</strong></th>
+<th style="text-align: left;"><strong>Variável</strong></th>
+<th style="text-align: left;"><strong>Parâmetro</strong></th>
+<th style="text-align: right;"><strong>Estimativa [IC95%]</strong></th>
+<th style="text-align: right;"><strong><span class="math inline">\(t\)</span> (<span class="math inline">\(p\)</span>)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Borba</strong></td>
+<td style="text-align: left;">Cota média</td>
+<td style="text-align: left;">Tendência (Antes)</td>
+<td style="text-align: right;">6,60 [−24,35; 37,56]</td>
+<td style="text-align: right;">0,45 (0,660)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Mudança de nível (Depois)</td>
+<td style="text-align: right;">37,52 [−174,91; 249,96]</td>
+<td style="text-align: right;">0,37 (0,716)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Mudança da tendência</td>
+<td style="text-align: right;">−18,97 [−53,77; 15,82]</td>
+<td style="text-align: right;">−1,14 (0,268)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Tendência (Depois)</td>
+<td style="text-align: right;">−12,37 [−28,27; 3,52]</td>
+<td style="text-align: right;">−1,63 (0,120)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Borba</strong></td>
+<td style="text-align: left;">Cota mínima</td>
+<td style="text-align: left;">Tendência (Antes)</td>
+<td style="text-align: right;">−39,80 [−111,79; 32,19]</td>
+<td style="text-align: right;">−1,16 (0,262)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Mudança de nível (Depois)</td>
+<td style="text-align: right;">298,18 [−195,85; 792,21]</td>
+<td style="text-align: right;">1,26 (0,222)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Mudança da tendência</td>
+<td style="text-align: right;">27,76 [−53,17; 108,69]</td>
+<td style="text-align: right;">0,72 (0,482)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Tendência (Depois)</td>
+<td style="text-align: right;">−12,04 [−49,01; 24,93]</td>
+<td style="text-align: right;">−0,68 (0,504)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Borba</strong></td>
+<td style="text-align: left;">Cota máxima</td>
+<td style="text-align: left;">Tendência (Antes)</td>
+<td style="text-align: right;">18,73 [−530,60; 568,07]</td>
+<td style="text-align: right;">0,07 (0,944)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Mudança de nível (Depois)</td>
+<td style="text-align: right;">1.088,10 [−2.681,79; 4.857,98]</td>
+<td style="text-align: right;">0,60 (0,553)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Mudança da tendência</td>
+<td style="text-align: right;">−92,69 [−710,23; 524,85]</td>
+<td style="text-align: right;">−0,31 (0,757)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Tendência (Depois)</td>
+<td style="text-align: right;">−73,96 [−356,07; 208,16]</td>
+<td style="text-align: right;">−0,55 (0,590)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Manicoré</strong></td>
+<td style="text-align: left;">Cota média</td>
+<td style="text-align: left;">Tendência (Antes)</td>
+<td style="text-align: right;">13,23 [−19,91; 46,38]</td>
+<td style="text-align: right;">0,84 (0,414)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Mudança de nível (Depois)</td>
+<td style="text-align: right;">81,62 [−145,84; 309,09]</td>
+<td style="text-align: right;">0,75 (0,462)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Mudança da tendência</td>
+<td style="text-align: right;">−27,51 [−64,77; 9,75]</td>
+<td style="text-align: right;">−1,55 (0,139)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Tendência (Depois)</td>
+<td style="text-align: right;">−14,27 [−31,30; 2,75]</td>
+<td style="text-align: right;">−1,76 (0,095)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Manicoré</strong></td>
+<td style="text-align: left;">Cota mínima</td>
+<td style="text-align: left;">Tendência (Antes)</td>
+<td style="text-align: right;">4,08 [−17,68; 25,85]</td>
+<td style="text-align: right;">0,39 (0,699)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Mudança de nível (Depois)</td>
+<td style="text-align: right;">95,00 [−54,35; 244,34]</td>
+<td style="text-align: right;">1,33 (0,199)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Mudança da tendência</td>
+<td style="text-align: right;">−17,24 [−41,70; 7,23]</td>
+<td style="text-align: right;">−1,47 (0,157)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><strong>Tendência (Depois)</strong></td>
+<td style="text-align: right;"><strong>−13,15 [−24,33; −1,98]</strong></td>
+<td style="text-align: right;"><strong>−2,46 (0,023)</strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Manicoré</strong></td>
+<td style="text-align: left;">Cota máxima</td>
+<td style="text-align: left;">Tendência (Antes)</td>
+<td style="text-align: right;">18,10 [−739,89; 776,09]</td>
+<td style="text-align: right;">0,05 (0,961)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Mudança de nível (Depois)</td>
+<td style="text-align: right;">1.507,52 [−3.694,28; 6.709,32]</td>
+<td style="text-align: right;">0,61 (0,551)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Mudança da tendência</td>
+<td style="text-align: right;">−110,94 [−963,05; 741,16]</td>
+<td style="text-align: right;">−0,27 (0,788)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Tendência (Depois)</td>
+<td style="text-align: right;">−92,84 [−482,11; 296,43]</td>
+<td style="text-align: right;">−0,50 (0,623)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<div class="nota-tabela">
+<p><strong>Notas:</strong> Tendência (Antes) = variação anual estimada entre 2002 e 2010 | Mudança de nível (Depois) = alteração estimada no nível da série no início do período 2011–2024 | Mudança da tendência = diferença entre as inclinações dos períodos | Tendência (Depois) = variação anual estimada entre 2011 e 2024 | IC95% = intervalo de confiança de 95% | Tendências expressas em cm/ano e mudanças de nível em cm.</p>
+</div>
+<p><strong>Comentários:</strong> Conforme a <a href="#tbl-gls-series-hidro" class="quarto-xref">Tabela&nbsp;22</a>, em Borba não foram identificadas tendências temporais estatisticamente significativas para as cotas média, mínima ou máxima em nenhum dos períodos. Também não foram encontradas evidências de mudanças significativas de nível ou da inclinação das séries entre (Antes) e (Depois).</p>
+<p>Em Manicoré, as cotas média e máxima também não apresentaram tendências significativas nos períodos analisados. Para a <strong>cota mínima</strong>, entretanto, foi identificada tendência negativa e estatisticamente significativa no período (Depois), com redução estimada de <strong>13,15 cm/ano</strong> (IC95%: −24,33; −1,98; <span class="math inline">\(p=0,023\)</span>).</p>
+<p>Apesar dessa redução no período (Depois), o termo de interação entre tempo e período não foi significativo (<span class="math inline">\(p=0,157\)</span>). Portanto, não há evidência estatística suficiente de que a inclinação da cota mínima tenha se alterado significativamente entre os períodos (Antes) e (Depois).</p>
+</section>
+<section id="verificação-dos-pressupostos-1" class="level4" data-number="4.3.3">
+<h4 data-number="4.3.3" class="anchored" data-anchor-id="verificação-dos-pressupostos-1"><span class="header-section-number">4.3.3</span> Verificação dos Pressupostos</h4>
+<p>A adequação dos modelos foi avaliada por meio da normalidade dos resíduos, autocorrelação residual e homogeneidade das variâncias.</p>
+<div id="tbl-diagnostico-series-hidro" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-diagnostico-series-hidro-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabela&nbsp;23: <strong>Diagnóstico dos modelos GLS ajustados às séries temporais das cotas fluviométricas.</strong>
+</figcaption>
+<div aria-describedby="tbl-diagnostico-series-hidro-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Município</strong></th>
+<th style="text-align: left;"><strong>Variável</strong></th>
+<th style="text-align: right;"><strong>Shapiro–Wilk</strong><br><span class="math inline">\(p\)</span></th>
+<th style="text-align: right;"><strong>ACF Lag 1</strong></th>
+<th style="text-align: right;"><strong>Ljung–Box</strong><br><span class="math inline">\(p\)</span></th>
+<th style="text-align: right;"><strong>Homogeneidade</strong><br><span class="math inline">\(p\)</span></th>
+<th style="text-align: right;"><strong>Maior resíduo</strong></th>
+<th style="text-align: right;"><strong><span class="math inline">\(|r|&gt;2\)</span></strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Borba</strong></td>
+<td style="text-align: left;">Cota média</td>
+<td style="text-align: right;">0,474</td>
+<td style="text-align: right;">0,135</td>
+<td style="text-align: right;">0,347</td>
+<td style="text-align: right;">0,051</td>
+<td style="text-align: right;">2,18</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Cota mínima</td>
+<td style="text-align: right;">&lt;0,001</td>
+<td style="text-align: right;">−0,137</td>
+<td style="text-align: right;">0,681</td>
+<td style="text-align: right;">0,963</td>
+<td style="text-align: right;">3,27</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Cota máxima</td>
+<td style="text-align: right;">&lt;0,001</td>
+<td style="text-align: right;">−0,099</td>
+<td style="text-align: right;">0,876</td>
+<td style="text-align: right;">&lt;0,001</td>
+<td style="text-align: right;">4,59</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Manicoré</strong></td>
+<td style="text-align: left;">Cota média</td>
+<td style="text-align: right;">0,828</td>
+<td style="text-align: right;">0,164</td>
+<td style="text-align: right;">0,143</td>
+<td style="text-align: right;">0,158</td>
+<td style="text-align: right;">2,08</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Cota mínima</td>
+<td style="text-align: right;">0,868</td>
+<td style="text-align: right;">0,020</td>
+<td style="text-align: right;">0,116</td>
+<td style="text-align: right;">0,745</td>
+<td style="text-align: right;">2,08</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Cota máxima</td>
+<td style="text-align: right;">&lt;0,001</td>
+<td style="text-align: right;">−0,105</td>
+<td style="text-align: right;">0,869</td>
+<td style="text-align: right;">&lt;0,001</td>
+<td style="text-align: right;">4,59</td>
+<td style="text-align: right;">1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<div class="nota-tabela">
+<p><strong>Notas:</strong> Shapiro–Wilk = teste de normalidade dos resíduos | ACF Lag 1 = autocorrelação residual de primeira ordem | Ljung–Box = teste de autocorrelação residual | Homogeneidade = comparação entre o modelo com variância constante e o modelo permitindo variâncias distintas entre os períodos | <span class="math inline">\(|r|&gt;2\)</span> = número de resíduos normalizados com valor absoluto superior a 2.</p>
+</div>
+<p><strong>Comentários:</strong> Os testes de Ljung–Box não indicaram autocorrelação residual significativa em nenhuma das séries (<span class="math inline">\(p&gt;0,05\)</span>), resultado coerente com a seleção dos modelos com estrutura independente.</p>
+<p>Para as cotas médias de Borba e Manicoré e para a cota mínima de Manicoré, não foram identificadas violações relevantes dos pressupostos avaliados. A cota mínima de Borba apresentou desvio da normalidade dos resíduos (<span class="math inline">\(p&lt;0,001\)</span>), acompanhado de dois resíduos normalizados com valor absoluto superior a 2.</p>
+<p>As séries de cota máxima apresentaram os maiores desvios dos pressupostos, com rejeição da normalidade e evidência de heterogeneidade das variâncias em ambos os municípios (<span class="math inline">\(p&lt;0,001\)</span>). Os resultados dessas séries devem, portanto, ser interpretados com cautela, especialmente devido à presença de valores anuais extremos observados na série.</p>
+</section>
+<section id="tendência-não-paramétrica-das-cotas-fluviométricas" class="level4" data-number="4.3.4">
+<h4 data-number="4.3.4" class="anchored" data-anchor-id="tendência-não-paramétrica-das-cotas-fluviométricas"><span class="header-section-number">4.3.4</span> Tendência Não Paramétrica das Cotas Fluviométricas</h4>
+<p>Como análise complementar, foram aplicados o teste de Mann–Kendall e o estimador de inclinação de Sen separadamente aos períodos (Antes) e (Depois). O teste de Mann–Kendall foi utilizado para avaliar a presença de tendência monotônica, enquanto a inclinação de Sen foi utilizada para estimar a magnitude da variação anual.</p>
+<div id="tbl-mk-sen-hidro" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-mk-sen-hidro-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabela&nbsp;24: <strong>Teste de tendência de Mann–Kendall e inclinação de Sen para as séries temporais das cotas fluviométricas.</strong>
+</figcaption>
+<div aria-describedby="tbl-mk-sen-hidro-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Município</strong></th>
+<th style="text-align: left;"><strong>Variável</strong></th>
+<th style="text-align: left;"><strong>Período</strong></th>
+<th style="text-align: right;"><strong><span class="math inline">\(n\)</span></strong></th>
+<th style="text-align: right;"><strong><span class="math inline">\(\tau\)</span></strong></th>
+<th style="text-align: right;"><strong><span class="math inline">\(\tau^2\)</span></strong></th>
+<th style="text-align: right;"><strong><span class="math inline">\(p\)</span></strong></th>
+<th style="text-align: right;"><strong>Sen</strong><br>(cm/ano)</th>
+<th style="text-align: left;"><strong>Tendência</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Borba</strong></td>
+<td style="text-align: left;">Cota média</td>
+<td style="text-align: left;">Antes</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">0,167</td>
+<td style="text-align: right;">0,028</td>
+<td style="text-align: right;">0,602</td>
+<td style="text-align: right;">8,75</td>
+<td style="text-align: left;">Sem tendência significativa</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Depois</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">−0,143</td>
+<td style="text-align: right;">0,020</td>
+<td style="text-align: right;">0,511</td>
+<td style="text-align: right;">−5,38</td>
+<td style="text-align: left;">Sem tendência significativa</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Cota mínima</td>
+<td style="text-align: left;">Antes</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">−0,389</td>
+<td style="text-align: right;">0,151</td>
+<td style="text-align: right;">0,175</td>
+<td style="text-align: right;">−37,88</td>
+<td style="text-align: left;">Sem tendência significativa</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Depois</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">−0,231</td>
+<td style="text-align: right;">0,053</td>
+<td style="text-align: right;">0,274</td>
+<td style="text-align: right;">−16,00</td>
+<td style="text-align: left;">Sem tendência significativa</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Cota máxima</td>
+<td style="text-align: left;">Antes</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">0,556</td>
+<td style="text-align: right;">0,309</td>
+<td style="text-align: right;">0,048</td>
+<td style="text-align: right;">20,42</td>
+<td style="text-align: left;"><strong>Aumento significativo</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Depois</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">−0,319</td>
+<td style="text-align: right;">0,102</td>
+<td style="text-align: right;">0,125</td>
+<td style="text-align: right;">−12,60</td>
+<td style="text-align: left;">Sem tendência significativa</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Manicoré</strong></td>
+<td style="text-align: left;">Cota média</td>
+<td style="text-align: left;">Antes</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">0,222</td>
+<td style="text-align: right;">0,049</td>
+<td style="text-align: right;">0,466</td>
+<td style="text-align: right;">13,77</td>
+<td style="text-align: left;">Sem tendência significativa</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Depois</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">−0,253</td>
+<td style="text-align: right;">0,064</td>
+<td style="text-align: right;">0,228</td>
+<td style="text-align: right;">−16,79</td>
+<td style="text-align: left;">Sem tendência significativa</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Cota mínima</td>
+<td style="text-align: left;">Antes</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">−0,167</td>
+<td style="text-align: right;">0,028</td>
+<td style="text-align: right;">0,602</td>
+<td style="text-align: right;">−4,12</td>
+<td style="text-align: left;">Sem tendência significativa</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Depois</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">−0,429</td>
+<td style="text-align: right;">0,184</td>
+<td style="text-align: right;">0,037</td>
+<td style="text-align: right;">−12,17</td>
+<td style="text-align: left;"><strong>Queda significativa</strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Cota máxima</td>
+<td style="text-align: left;">Antes</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">0,389</td>
+<td style="text-align: right;">0,151</td>
+<td style="text-align: right;">0,175</td>
+<td style="text-align: right;">16,90</td>
+<td style="text-align: left;">Sem tendência significativa</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Depois</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">−0,055</td>
+<td style="text-align: right;">0,003</td>
+<td style="text-align: right;">0,827</td>
+<td style="text-align: right;">−4,29</td>
+<td style="text-align: left;">Sem tendência significativa</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<div class="nota-tabela">
+<p><strong>Notas:</strong> <span class="math inline">\(n\)</span> = número de anos avaliados | <span class="math inline">\(\tau\)</span> = coeficiente de Kendall | <span class="math inline">\(\tau^2\)</span> = medida aproximada da intensidade da tendência monotônica | <span class="math inline">\(p\)</span> = valor de <span class="math inline">\(p\)</span> do teste de Mann–Kendall | Sen = inclinação de Sen, expressa em cm/ano | Antes = 2002–2010 | Depois = 2011–2024 | Nível de significância: <span class="math inline">\(\alpha=0,05\)</span>.</p>
+</div>
+<p><strong>Comentários:</strong> A análise não paramétrica indicou ausência de tendência significativa na maior parte das séries hidrológicas. Em Borba, a única exceção foi a cota máxima no período (Antes), que apresentou tendência positiva (<span class="math inline">\(\tau=0,556\)</span>; <span class="math inline">\(p=0,048\)</span>), com inclinação de Sen estimada em 20,42 cm/ano. Entretanto, diante dos desvios observados nos diagnósticos da série de cotas máximas, esse resultado deve ser interpretado com cautela.</p>
+<p>Em Manicoré, a cota mínima apresentou tendência negativa significativa no período (Depois) (<span class="math inline">\(\tau=-0,429\)</span>; <span class="math inline">\(p=0,037\)</span>), com redução estimada de 12,17 cm/ano pela inclinação de Sen.&nbsp;Esse resultado é consistente com o modelo GLS, que estimou redução de 13,15 cm/ano para a mesma série e período.</p>
+</section>
+<section id="representação-gráfica-das-séries-hidrológicas" class="level4" data-number="4.3.5">
+<h4 data-number="4.3.5" class="anchored" data-anchor-id="representação-gráfica-das-séries-hidrológicas"><span class="header-section-number">4.3.5</span> Representação Gráfica das Séries Hidrológicas</h4>
+<p>As séries temporais das cotas média, mínima e máxima são apresentadas nas figuras a seguir. Os pontos representam os valores anuais observados, diferenciados entre os períodos (Antes) e (Depois). A linha vertical tracejada indica o ano de 2011 e as linhas em vermelho escuro representam as tendências estimadas pela inclinação de Sen em cada período.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">Cota Média</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false" href="">Cota Mínima</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false" href="">Cota Máxima</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<div id="fig-serie-cota-media" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-serie-cota-media-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="graficos/TimeSeries_Cota_Media.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-serie-cota-media-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;31: <strong>PT-BR:</strong> Série temporal da cota média anual do rio Madeira em Borba e Manicoré, entre 2002 e 2024. Os pontos representam os valores anuais observados nos períodos Antes (2002–2010; azul escuro) e Depois (2011–2024; azul claro). A linha vertical tracejada indica o início do período Depois, em 2011, enquanto as linhas em vermelho escuro representam as tendências estimadas pela inclinação de Sen em cada período.<br><br><strong>EN:</strong> Time series of annual mean river level of the Madeira River in Borba and Manicoré between 2002 and 2024. Points represent annual observed values in the Before (2002–2010; dark blue) and After (2011–2024; light blue) periods. The dashed vertical line indicates the beginning of the After period in 2011, while dark-red lines represent trends estimated using Sen’s slope for each period.
+</figcaption>
+</figure>
+</div>
+<div class="linha-baixar">
+<p><a href="graficos/TimeSeries_Cota_Media.png" class="baixar" download="TimeSeries_Cota_Media.png"><i class="bi bi-download"></i> Baixar Gráfico (PNG)</a></p>
+</div>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<div id="fig-serie-cota-minima" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-serie-cota-minima-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="graficos/TimeSeries_Cota_Minima.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-serie-cota-minima-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;32: <strong>PT-BR:</strong> Série temporal da cota mínima anual do rio Madeira em Borba e Manicoré, entre 2002 e 2024. Os pontos representam os valores anuais observados nos períodos Antes (2002–2010; azul escuro) e Depois (2011–2024; azul claro). A linha vertical tracejada indica o início do período Depois, em 2011, enquanto as linhas em vermelho escuro representam as tendências estimadas pela inclinação de Sen em cada período.<br><br><strong>EN:</strong> Time series of annual minimum river level of the Madeira River in Borba and Manicoré between 2002 and 2024. Points represent annual observed values in the Before (2002–2010; dark blue) and After (2011–2024; light blue) periods. The dashed vertical line indicates the beginning of the After period in 2011, while dark-red lines represent trends estimated using Sen’s slope for each period.
+</figcaption>
+</figure>
+</div>
+<div class="linha-baixar">
+<p><a href="graficos/TimeSeries_Cota_Minima.png" class="baixar" download="TimeSeries_Cota_Minima.png"><i class="bi bi-download"></i> Baixar Gráfico (PNG)</a></p>
+</div>
+</div>
+<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
+<div id="fig-serie-cota-maxima" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-serie-cota-maxima-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="graficos/TimeSeries_Cota_Maxima.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-serie-cota-maxima-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;33: <strong>PT-BR:</strong> Série temporal da cota máxima anual do rio Madeira em Borba e Manicoré, entre 2002 e 2024. Os pontos representam os valores anuais observados nos períodos Antes (2002–2010; azul escuro) e Depois (2011–2024; azul claro). A linha vertical tracejada indica o início do período Depois, em 2011, enquanto as linhas em vermelho escuro representam as tendências estimadas pela inclinação de Sen em cada período.<br><br><strong>EN:</strong> Time series of annual maximum river level of the Madeira River in Borba and Manicoré between 2002 and 2024. Points represent annual observed values in the Before (2002–2010; dark blue) and After (2011–2024; light blue) periods. The dashed vertical line indicates the beginning of the After period in 2011, while dark-red lines represent trends estimated using Sen’s slope for each period.
+</figcaption>
+</figure>
+</div>
+<div class="linha-baixar">
+<p><a href="graficos/TimeSeries_Cota_Maxima.png" class="baixar" download="TimeSeries_Cota_Maxima.png"><i class="bi bi-download"></i> Baixar Gráfico (PNG)</a></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="séries-temporais-síntese-dos-resultados" class="level3" data-number="4.4">
+<h3 data-number="4.4" class="anchored" data-anchor-id="séries-temporais-síntese-dos-resultados"><span class="header-section-number">4.4</span> Séries Temporais: Síntese dos Resultados</h3>
+<p>A análise das séries temporais revelou comportamentos distintos entre a produção pesqueira e as variáveis hidrológicas. A produção pesqueira apresentou tendência de redução em Borba e Manicoré tanto no período (Antes) quanto no período (Depois), resultado observado pelos modelos GLS e corroborado pelos testes de Mann–Kendall e pelas inclinações de Sen.</p>
+<p>Em Borba, além das tendências negativas nos dois períodos, o modelo GLS identificou mudança significativa da inclinação da série, indicando intensificação da taxa anual de redução da produção no período (Depois). Em Manicoré, não foi identificada mudança significativa da inclinação, porém ocorreu uma redução significativa do nível da produção entre os segmentos temporais.</p>
+<p>A análise individual por espécie reforçou esse padrão. No período (Antes), 13 das 19 espécies de Borba e 12 das 18 espécies de Manicoré apresentaram tendências significativas de redução. Em Borba, cinco espécies não apresentaram tendência significativa e Piranambu/Barbado apresentou tendência positiva. Em Manicoré, seis espécies permaneceram sem tendência significativa. No período (Depois), entretanto, <strong>todas as 19 espécies avaliadas em Borba e todas as 18 espécies avaliadas em Manicoré apresentaram tendências negativas e estatisticamente significativas</strong>.</p>
+<p>As variáveis hidrológicas apresentaram comportamento temporal menos uniforme. Não foram encontradas evidências de mudanças significativas de nível ou da inclinação das cotas média, mínima ou máxima entre os períodos nos dois municípios. A principal alteração identificada ocorreu na cota mínima de Manicoré, que apresentou tendência significativa de redução no período (Depois), resultado observado tanto pelo GLS quanto pelo teste de Mann–Kendall.</p>
+<p>Em conjunto, os resultados indicam que o declínio temporal da produção pesqueira foi mais amplo e consistente do que as mudanças observadas nas cotas fluviométricas analisadas. Embora tenham sido identificadas alterações pontuais nas séries hidrológicas, os resultados não demonstraram uma mudança generalizada das tendências de cota entre os períodos (Antes) e (Depois).</p>
+</section>
+</section>
+<section id="apêndices" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="apêndices"><span class="header-section-number">5</span> Apêndices</h2>
 <p>Nesta seção, apresentamos os detalhamentos metodológicos, as demonstrações algébricas, as formulações matemáticas dos testes estatísticos e os materiais complementares que fundamentam os resultados apresentados ao longo deste documento.</p>
 <div id="calc-taxa-declinio" class="metodo metodo-taxa">
 <p><strong>Taxa de Declínio Produtivo</strong></p>
@@ -3964,8 +4624,8 @@ Figura&nbsp;30: Série temporal da produção pesqueira anual de Tucunaré em Bo
 <div id="calc-composicao-especies" class="metodo metodo-composicao">
 <p><strong>Métricas de Alteração da Composição das Capturas</strong></p>
 <p>As alterações na composição das capturas pesqueiras foram descritas a partir de três medidas complementares: a variação percentual da captura média anual de cada espécie, sua participação relativa na produção pesqueira total de cada ano e a mudança dessa participação entre os períodos (Antes) e (Depois). Essas medidas fundamentam os resultados apresentados na <a href="#tbl-composicao-especies" class="quarto-xref">Tabela&nbsp;5</a>.</p>
-<section id="variação-percentual-da-captura-por-espécie" class="level4" data-number="4.2.6">
-<h4 data-number="4.2.6" class="anchored" data-anchor-id="variação-percentual-da-captura-por-espécie"><span class="header-section-number">4.2.6</span> Variação percentual da captura por espécie</h4>
+<section id="variação-percentual-da-captura-por-espécie" class="level4" data-number="5.0.1">
+<h4 data-number="5.0.1" class="anchored" data-anchor-id="variação-percentual-da-captura-por-espécie"><span class="header-section-number">5.0.1</span> Variação percentual da captura por espécie</h4>
 <p>A variação percentual da captura representa a mudança relativa na captura média anual de cada espécie entre os períodos (Antes) e (Depois), sendo calculada por:</p>
 <p><span class="math display">\[
 V_i =
@@ -4017,8 +4677,8 @@ V_{\text{Dourada}}
 <p>Assim, a captura média anual da Dourada apresentou redução de aproximadamente 39,23%.</p>
 <hr>
 </section>
-<section id="participação-relativa-anual-das-espécies" class="level4" data-number="4.2.7">
-<h4 data-number="4.2.7" class="anchored" data-anchor-id="participação-relativa-anual-das-espécies"><span class="header-section-number">4.2.7</span> Participação relativa anual das espécies</h4>
+<section id="participação-relativa-anual-das-espécies" class="level4" data-number="5.0.2">
+<h4 data-number="5.0.2" class="anchored" data-anchor-id="participação-relativa-anual-das-espécies"><span class="header-section-number">5.0.2</span> Participação relativa anual das espécies</h4>
 <p>A participação relativa indica quanto cada espécie representa da produção pesqueira total registrada em determinado município e ano.</p>
 <p>Para a espécie <span class="math inline">\(i\)</span>, no ano <span class="math inline">\(t\)</span>, foi calculada por:</p>
 <p><span class="math display">\[
@@ -4052,8 +4712,8 @@ n_{\text{Depois}}=14.
 <p>Portanto, a participação média apresentada na <a href="#tbl-composicao-especies" class="quarto-xref">Tabela&nbsp;5</a> corresponde à média das participações relativas anuais da espécie, e não à simples razão entre duas médias de captura.</p>
 <hr>
 </section>
-<section id="mudança-na-participação-relativa" class="level4" data-number="4.2.8">
-<h4 data-number="4.2.8" class="anchored" data-anchor-id="mudança-na-participação-relativa"><span class="header-section-number">4.2.8</span> Mudança na participação relativa</h4>
+<section id="mudança-na-participação-relativa" class="level4" data-number="5.0.3">
+<h4 data-number="5.0.3" class="anchored" data-anchor-id="mudança-na-participação-relativa"><span class="header-section-number">5.0.3</span> Mudança na participação relativa</h4>
 <p>A alteração na composição foi quantificada pela diferença entre a participação média da espécie no período (Depois) e sua participação média no período (Antes):</p>
 <p><span class="math display">\[
 \Delta p_i
@@ -4098,8 +4758,6 @@ n_{\text{Depois}}=14.
 </div>
 
 
-</section>
-</section>
 </section>
 
 </main> <!-- /main -->
