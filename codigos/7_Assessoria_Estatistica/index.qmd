@@ -43,6 +43,8 @@ resources:
   - graficos/Relacao_Cota_Maxima_Producao
   - graficos/Relacao_Cota_Minima_Producao
   - graficos/Serie_Temporal_Shannon
+  - graficos/TimeSeries_Borba
+  - graficos/TimeSeries_Manicore
 
 ---
 
@@ -1159,435 +1161,389 @@ Em conjunto, os resultados indicam que, para as medidas hidrológicas avaliadas 
 ## Séries temporais
 
 ::: {.objetivo}
-**Objetivo:** Detectar mudanças nas séries temporais da produção pesqueira e das cotas fluviométricas;
+**Objetivo:** Detectar mudanças nas séries temporais da produção pesqueira e das cotas fluviométricas.
 :::
 
 
-### Análise de Tendência Temporal e Autocorrelação para Produção Pesqueira
+### Produção Pesqueira: Mudanças na Série Temporal
 
+Para avaliar as mudanças na trajetória temporal da produção pesqueira, foram ajustados modelos de Mínimos Quadrados Generalizados (GLS) separadamente para Borba e Manicoré. O modelo considerou a tendência temporal, o período de barramento e a interação entre tempo e período, permitindo avaliar tanto mudanças no nível da produção quanto alterações em sua tendência ao longo dos anos.
 
-Para avaliar a tendência temporal e o comportamento da produção pesqueira em cada período (Antes e Depois), utilizou-se o teste não paramétrico de Mann-Kendall associado à estimativa de inclinação de Sen (*Sen's Slope*), cujos métodos encontram-se descritos a seguir.
+O modelo utilizado foi:
 
+$$
+P_t =
+\beta_0 +
+\beta_1T_t +
+\beta_2D_t +
+\beta_3(T_t \times D_t) +
+\varepsilon_t,
+$$
 
-### Relação entre Cotas Fluviométricas e Produção Pesqueira
+em que $P_t$ representa a produção pesqueira anual, em kg, no ano $t$; $T_t$ representa o tempo, centralizado em 2011; e $D_t$ representa o período, assumindo valor 0 para **(Antes), de 2002 a 2010**, e 1 para **(Depois), de 2011 a 2024**.
 
-Para avaliar a influência das variações hidrológicas na produção pesqueira e investigar se a operação das Usinas Hidrelétricas (UHEs) alterou essa dinâmica, analisamos a relação entre a cota média anual e a captura total por meio da Correlação de Spearman e de Modelos de Mínimos Quadrados Generalizados (GLS).
+Nesse modelo, $\beta_1$ representa a tendência temporal da produção no período (Antes), $\beta_2$ representa a mudança de nível no início do período (Depois), e $\beta_3$ representa a mudança da inclinação da série entre os dois períodos. A tendência temporal no período (Depois) é obtida pela soma $\beta_1+\beta_3$.
 
-A análise de correlação não paramétrica de Spearman (@tbl-spearman-cotas) indicou que não há uma associação monotônica significativa entre o nível médio anual do rio e o volume de capturas desembarcadas no município de Borba. Tanto no período anterior ao barramento ($\rho$ = -0,150; *p* = 0,700) quanto no período posterior ($\rho$ = 0,389; *p* = 0,169), as variações na cota média não se traduziram em aumentos ou reduções proporcionais diretas na pesca.
+Para considerar a dependência entre observações anuais consecutivas, foram comparados modelos com erros independentes e modelos com estrutura autorregressiva de primeira ordem, AR(1). Em ambos os municípios, a estrutura AR(1) apresentou melhor ajuste e foi utilizada nos modelos finais.
 
-| Localidade | Período da Barragem | $\rho$ (Spearman) | Valor-*p* | *n* (anos) |
-|:---|:---|:---:|:---:|:---:|
-| Borba | Antes | -0,150 | 0,700 | 9 |
-| Borba | Depois | 0,389 | 0,169 | 14 |
-
-: **Correlação de Spearman entre a cota média anual e a captura total em Borba, estratificada pelos períodos Antes e Depois das UHEs.** {#tbl-spearman-cotas}
-
-Para testar o impacto estrutural das UHEs considerando a autocorrelação temporal da série, ajustamos um modelo GLS incorporando uma estrutura autorregressiva de ordem 1 (AR1). Os resultados dos coeficientes do modelo (@tbl-gls-coef) e da Análise de Variância (@tbl-gls-anova) confirmam as observações preliminares.
-
-O termo de interação entre a cota média anual e o período da barragem não apresentou significância estatística (*F* = 0,432; *p* = 0,518). Isso indica que a inclinação da reta de regressão entre a hidrologia e a pesca não sofreu uma alteração estrutural significativa após 2011 em função da cota média. Da mesma forma, os efeitos principais do nível do rio (*F* = 0,054; *p* = 0,818) e do período isolado (*F* = 1,877; *p* = 0,186) não se mostraram preditores significativos para explicar a variabilidade da captura total neste modelo.
-
-| Termo do Modelo | Estimativa | Erro Padrão | Valor-*t* | Valor-*p* |
+| **Município** | **AIC Independente** | **AIC AR(1)** | **LRT**<br>$p$ | **$\phi$**<br>AR(1) |
 |:---|---:|---:|---:|---:|
-| Intercepto | 52.130,22 | 223.136.751,50 | 0,0002 | 0,999 |
-| Cota Média Anual | 16,47 | 22,20 | 0,7420 | 0,467 |
-| Período (Depois) | 16.119,70 | 38.788,72 | 0,4156 | 0,682 |
-| Cota Média $\times$ Período (Depois) | -16,71 | 25,41 | -0,6578 | 0,518 |
+| **Borba** | 549 | 537 | <0,001 | 0,832 |
+| **Manicoré** | 564 | 556 | 0,002 | 0,843 |
 
-: **Coeficientes do modelo de Mínimos Quadrados Generalizados (GLS) avaliando o efeito da cota média e do período de barramento sobre a captura pesqueira.** {#tbl-gls-coef}
-
-| Termo | Graus de Liberdade (num) | Valor-*F* | Valor-*p* |
-|:---|:---:|---:|---:|
-| Intercepto | 1 | $< 0,001$ | 0,999 |
-| Cota Média Anual | 1 | 0,054 | 0,818 |
-| Período da Barragem | 1 | 1,878 | 0,186 |
-| Cota Média $\times$ Período | 1 | 0,432 | 0,518 |
-
-: **Análise de Variância (ANOVA) do modelo GLS, indicando a significância dos termos principais e da interação.** {#tbl-gls-anova}
-
-Estes resultados sugerem que a cota *média* anual, por retratar um cenário muito homogeneizado do regime hidrológico, pode não capturar os pulsos vitais de inundação (cotas máximas) e de seca (cotas mínimas) que tradicionalmente regulam a acessibilidade e a concentração dos recursos pesqueiros na bacia Amazônica.
-
-
-::: {#met-mann-kendall .metodo .metodo-tendencia}
-**Teste de tendência de Mann-Kendall (correlação τ de Kendall)**
-
-É um teste não paramétrico que verifica se existe uma tendência contínua de aumento ou de queda ao longo do tempo. Ele se baseia no coeficiente $\tau$ de Kendall, que compara todos os pares de anos: o par é concordante quando o ano mais recente tem produção maior que o mais antigo e discordante quando tem produção menor. Como usa a ordem (postos) dos valores, não exige normalidade. O coeficiente $\tau$ varia de −1 a +1: valores próximos de −1 indicam queda consistente, valores próximos de +1 indicam aumento consistente e valores próximos de 0 indicam ausência de tendência. Elevar $\tau$ ao quadrado ($\tau^2$) fornece uma medida aproximada do tamanho do efeito. As hipóteses são:
-
-- $H_0$: não há tendência ao longo do tempo ($\tau = 0$);
-- $H_1$: há tendência ao longo do tempo ($\tau \neq 0$).
-:::
-
-::: {#met-sen .metodo .metodo-tendencia}
-**Estimador de inclinação de Sen (Sen's slope)**
-
-É um método não paramétrico que estima a magnitude da tendência identificada pelo teste de Mann-Kendall, isto é, a taxa de variação por unidade de tempo, aqui em kg/ano. Ele calcula a inclinação entre todos os pares possíveis de anos e adota a mediana dessas inclinações como estimativa final. Como se baseia na mediana, e não na média, é resistente a valores discrepantes (outliers) e a ruídos comuns em séries longas de desembarque pesqueiro. As hipóteses para o $p$-valor associado são:
-
-- $H_0$: a inclinação é igual a zero (não há variação anual);
-- $H_1$: a inclinação é diferente de zero (há variação anual).
-:::
-
-::: {#met-dw .metodo .metodo-tendencia}
-**Teste de Durbin-Watson**
-
-Utilizado para detetar a presença de autocorrelação de primeira ordem nos resíduos de uma análise de regressão linear. Em séries temporais, valores da estatística $d$ próximos de 2 indicam ausência de autocorrelação, enquanto valores distantes apontam para dependência entre os erros consecutivos. As hipóteses testadas são:
-
-- $H_0$: ausência de autocorrelação nos resíduos ($\rho = 0$);
-- $H_1$: presença de autocorrelação nos resíduos ($\rho \neq 0$).
-
-A violação desta premissa justifica o uso complementar de métodos não paramétricos (como Mann-Kendall) para a validação robusta das tendências temporais.
-:::
-
-
-
-As @fig-serie-borba e @fig-serie-manicore mostram a série temporal da captura total em cada colônia. Para avaliar estatisticamente o comportamento dessas séries ao longo do tempo, aplicou-se o teste não paramétrico de Mann-Kendall e a estimativa de Sen's Slope. Adicionalmente, verificou-se a premissa de independência dos resíduos dos modelos de regressão OLS por meio do teste de Durbin-Watson ($d$). Os resultados estão sintetizados na tabela a seguir.
-
-| Município | Período | Série Temporal<br>($n$) | $\tau$ de Kendall | Sen's Slope<br>(kg/ano) | $p$-valor<br>(Mann-Kendall) | Durbin-Watson<br>($d$) | $p$-valor<br>(D.W.) | Tendência |
-|:---|:---|:---|:---|:---|:---|:---|:---|:---|
-| **Borba** | Antes | 2002–2010 (9) | −1,000 | −8.990,62 | < 0,001 | 1,35 | 0,057 | Queda Significativa [↓]{style="color:#9d0208; font-weight:700;"} |
-|   | Depois | 2011–2024 (14) | −1,000 | −1.108,33 | < 0,001 | 0,69 | < 0,001 | Queda Significativa [↓]{style="color:#9d0208; font-weight:700;"} |
-| **Manicoré** | Antes | 2002–2010 (9) | −0,833 | −21,00 | 0,002 | 1,00 | 0,010 | Queda Significativa [↓]{style="color:#9d0208; font-weight:700;"} |
-|   | Depois | 2011–2024 (14) | −1,000 | −33,50 | < 0,001 | 0,48 | < 0,001 | Queda Significativa [↓]{style="color:#9d0208; font-weight:700;"} |
-
-: **Testes de tendência de Mann-Kendall, Sen's Slope e verificação de autocorrelação de Durbin-Watson para a produção pesqueira anual por município e período.** {#tbl-tendencia-pesca}
+: **Comparação das estruturas de correlação dos modelos GLS ajustados às séries temporais da produção pesqueira.** {#tbl-gls-serie-estrutura}
 
 ::: {.nota-tabela}
-**Notas:** Foram considerados os períodos 2002–2010 (Antes) e 2011–2024 (Depois) | $n$ = número de anos avaliados em cada período | $\tau$ de Kendall = coeficiente de correlação de postos | Sen's Slope = estimativa não paramétrica da taxa de variação mediana anual (kg/ano) | Durbin-Watson ($d$) = estatística de teste para autocorrelação de primeira ordem nos resíduos (valores próximos de 2 indicam independência) | $p$-valor (D.W.) = significância do teste de autocorrelação ($\alpha = 0,05$) | [↓] = tendência temporal decrescente estatisticamente significativa.
+**Notas:** AIC = Critério de Informação de Akaike | LRT = teste da razão de verossimilhanças | $\phi$ = parâmetro de autocorrelação da estrutura AR(1) | Valores menores de AIC indicam melhor ajuste relativo.
 :::
 
-**Comentários:** A análise de tendência corroborou o declínio contínuo e expressivo da produção pesqueira em ambos os municípios, com quedas estatisticamente significativas ($p < 0,05$) em todas as janelas temporais. Destaca-se a extrema correlação negativa ($\tau = -1,000$) no período "Depois" para as duas colônias e no "Antes" para Borba, apontando um decréscimo monotônico rigoroso. O *Sen's Slope* detalha a magnitude dessa perda: Borba registrou uma redução mediana de 8.990,62 kg/ano antes do represamento, passando para 1.108,33 kg/ano após as obras (ritmo menor devido ao esgotamento prévio da base produtiva), enquanto Manicoré intensificou a queda de 21,00 kg/ano para 33,50 kg/ano. 
-
-A análise de autocorrelação (via teste de Durbin-Watson) evidenciou forte dependência temporal nas séries. Sabendo que a estatística $d$ varia num intervalo de 0 a 4, onde valores próximos de 2 indicam ausência de correlação serial e valores que se aproximam de 0 denotam forte autocorrelação positiva, os resultados obtidos ($d < 1,35$ com $p < 0,05$ na maioria dos recortes) confirmam inequivocamente essa dependência, uma característica inerente a dados de captura pesqueira plurianuais. Esta constatação metodológica fundamenta a adoção prioritária dos testes não paramétricos de Mann-Kendall e do estimador de Sen. Sendo estas métricas robustas e imunes às violações de normalidade e de autocorrelação serial.
+**Comentários:** Conforme a @tbl-gls-serie-estrutura, a estrutura AR(1) apresentou menor AIC nos dois municípios e melhora estatisticamente significativa em relação ao modelo com erros independentes. Os valores de $\phi$ foram 0,832 em Borba e 0,843 em Manicoré, evidenciando elevada dependência temporal positiva entre observações anuais consecutivas.
 
 
-![Time series of total catch (kg) in the Borba fishers' colony between 2002 and 2024. Dots represent the observed annual volume, divided into the periods before (dark blue) and after (light blue) the dam impoundment in 2011 (dashed vertical line). The solid line connects the annual observations, and the thick dark-red lines indicate the trend estimated by Sen's slope in each period. The $\tau$ values are Kendall's $\tau$ coefficients from the Mann-Kendall trend test, the $p$-values indicate the statistical significance of $\tau$ and of Sen's slope, and Sen represents Sen's slope estimator, which quantifies the annual rate of change (loss rate) in kg/year for each period. Total catch is the sum of the 19 species recorded per year. The grey shaded area for 2025 indicates that this year is shown for visual reference only and was excluded from the statistical trend analyses because of incomplete data.](graficos/Time_Series_Borba.png){#fig-serie-borba width="100%" fig-align="center"}
+#### Resultados dos Modelos GLS
 
-::: {.linha-baixar}
-[<i class="bi bi-download"></i> Baixar Gráfico (PNG)](graficos/Time_Series_Borba.png){.baixar download="Time_Series_Borba.png"}
-:::
+| **Município** | **Tendência (Antes)**<br>$\hat{\beta}_1$ (IC95%; kg/ano) | **Teste de $\beta_1$**<br>$t$ ($p$) | **Mudança de nível (Depois)**<br>$\hat{\beta}_2$ (IC95%; kg) | **Teste de $\beta_2$**<br>$t$ ($p$) | **Mudança da tendência**<br>$\hat{\beta}_3$ (IC95%; kg/ano) | **Teste de $\beta_3$**<br>$t$ ($p$) | **Tendência (Depois)**<br>$\hat{\beta}_1+\hat{\beta}_3$ (IC95%; kg/ano) | **Teste**<br>$t$ ($p$) |
+|:---|---:|---:|---:|---:|---:|---:|---:|---:|
+| **Borba** | −29.865 [−43.305; −16.426] | −4,65 (<0,001) | −20.272 [−75.197; 34.652] | −0,77 (0,449) | −19.537 [−38.154; −919] | −2,20 (0,041) | −49.402 [−58.391; −40.413] | −11,50 (<0,001) |
+| **Manicoré** | −34.794 [−55.568; −14.020] | −3,51 (0,002) | −616.532 [−699.828; −533.235] | −15,50 (<0,001) | −12.307 [−41.114; 16.500] | −0,89 (0,382) | −47.101 [−61.104; −33.098] | −7,04 (<0,001) |
 
-
-![Time series of total catch (kg) in the Manicoré fishers' colony between 2002 and 2024. Dots represent the observed annual volume, divided into the periods before (dark blue) and after (light blue) the dam impoundment in 2011 (dashed vertical line). The solid line connects the annual observations, and the thick dark-red lines indicate the trend estimated by Sen's slope in each period. The $\tau$ values are Kendall's $\tau$ coefficients from the Mann-Kendall trend test, the $p$-values indicate the statistical significance of $\tau$ and of Sen's slope, and Sen represents Sen's slope estimator, which quantifies the annual rate of change (loss rate) in kg/year for each period. Total catch is the sum of the 18 species recorded per year. The grey shaded area for 2025 indicates that this year is shown for visual reference only and was excluded from the statistical trend analyses because of incomplete data.](graficos/Time_Series_Manicore.png){#fig-serie-manicore width="100%" fig-align="center"}
-
-::: {.linha-baixar}
-[<i class="bi bi-download"></i> Baixar Gráfico (PNG)](graficos/Time_Series_Manicore.png){.baixar download="Time_Series_Manicore.png"}
-:::
-
-### Análise de Tendência Temporal e Autocorrelação para as Espécies
-| Município | Espécie | Normalidade<br>*p*-valor (Antes) | Normalidade<br>*p*-valor (Depois) | Método Estatístico | Estatística de teste | *p*-valor | Resultado |
-|:---|:---|:---|:---|:---|:---|:---|:---|
-| **Borba** | Aracu | 0,5050 | **0,0102** | [Wilcoxon-Mann-Whitney]{.t-wilcoxon} | *W* = 126 | < 0,001 | Diferente |
-| | Branquinha | 0,4814 | 0,3485 | [Teste *t* de Welch]{.t-welch} | *t* = 7,0685 | < 0,001 | Diferente |
-| | Caparari | 0,7998 | **0,0316** | [Wilcoxon-Mann-Whitney]{.t-wilcoxon} | *W* = 126 | < 0,001 | Diferente |
-| | Cara branco | 0,0672 | **0,0236** | [Wilcoxon-Mann-Whitney]{.t-wilcoxon} | *W* = 126 | < 0,001 | Diferente |
-| | Carauaçu | 0,9480 | **0,0103** | [Wilcoxon-Mann-Whitney]{.t-wilcoxon} | *W* = 126 | < 0,001 | Diferente |
-| | Curimatã | 0,4114 | 0,1407 | [Teste *t* de Welch]{.t-welch} | *t* = 5,4171 | < 0,001 | Diferente |
-| | Dourada | 0,1869 | 0,9968 | [Teste *t* de Welch]{.t-welch} | *t* = 7,9663 | < 0,001 | Diferente |
-| | Filhote | 0,9369 | **0,0053** | [Wilcoxon-Mann-Whitney]{.t-wilcoxon} | *W* = 126 | < 0,001 | Diferente |
-| | Jaraqui | 0,9888 | **0,0006** | [Wilcoxon-Mann-Whitney]{.t-wilcoxon} | *W* = 126 | < 0,001 | Diferente |
-| | Matrinxã | 0,9369 | 0,4878 | [Teste *t* de Welch]{.t-welch} | *t* = 7,2466 | < 0,001 | Diferente |
-| | Pacu | 0,6620 | 0,1317 | [Teste *t* de Welch]{.t-welch} | *t* = 6,7055 | < 0,001 | Diferente |
-| | Pescada | 0,3988 | **0,0073** | [Wilcoxon-Mann-Whitney]{.t-wilcoxon} | *W* = 126 | < 0,001 | Diferente |
-| | Piranambu/Barbado | 0,6657 | 0,5922 | [Teste *t* de Welch]{.t-welch} | *t* = 7,9110 | < 0,001 | Diferente |
-| | Pirapitinga | 0,0783 | 0,1500 | [Teste *t* de Welch]{.t-welch} | *t* = 4,9082 | < 0,001 | Diferente |
-| | Pirarara | 0,2103 | 0,9804 | [Teste *t* de Welch]{.t-welch} | *t* = 6,4354 | < 0,001 | Diferente |
-| | Sardinha | 0,2655 | 0,8578 | [Teste *t* de Welch]{.t-welch} | *t* = 4,5728 | 0,002 | Diferente |
-| | Surubim | 0,2497 | 0,9125 | [Teste *t* de Welch]{.t-welch} | *t* = 4,8991 | 0,001 | Diferente |
-| | Tambaqui | 0,2685 | **0,0195** | [Wilcoxon-Mann-Whitney]{.t-wilcoxon} | *W* = 126 | < 0,001 | Diferente |
-| | Tucunaré | 0,6110 | **0,0465** | [Wilcoxon-Mann-Whitney]{.t-wilcoxon} | *W* = 126 | < 0,001 | Diferente |
-| **Manicoré** | Aracu | 0,2574 | 0,0786 | [Teste *t* de Welch]{.t-welch} | *t* = 16,1726 | < 0,001 | Diferente |
-| | Branquinha | **0,0033** | 0,6692 | [Wilcoxon-Mann-Whitney]{.t-wilcoxon} | *W* = 126 | < 0,001 | Diferente |
-| | Caparari | 0,3202 | 0,6522 | [Teste *t* de Welch]{.t-welch} | *t* = 25,4883 | < 0,001 | Diferente |
-| | Cara branco | 0,4936 | 0,3694 | [Teste *t* de Welch]{.t-welch} | *t* = 15,4677 | < 0,001 | Diferente |
-| | Carauaçu | 0,5948 | 0,1534 | [Teste *t* de Welch]{.t-welch} | *t* = 27,8316 | < 0,001 | Diferente |
-| | Curimatã | 0,7468 | 0,1132 | [Teste *t* de Welch]{.t-welch} | *t* = 23,9779 | < 0,001 | Diferente |
-| | Dourada | 0,0662 | 0,9999 | [Teste *t* de Welch]{.t-welch} | *t* = 12,4558 | < 0,001 | Diferente |
-| | Filhote | 0,0654 | 0,7860 | [Teste *t* de Welch]{.t-welch} | *t* = 17,7850 | < 0,001 | Diferente |
-| | Jaraqui | **0,0238** | 0,2769 | [Wilcoxon-Mann-Whitney]{.t-wilcoxon} | *W* = 126 | < 0,001 | Diferente |
-| | Matrinxã | **0,0012** | 0,6581 | [Wilcoxon-Mann-Whitney]{.t-wilcoxon} | *W* = 126 | < 0,001 | Diferente |
-| | Pacu | 0,0704 | 0,6822 | [Teste *t* de Welch]{.t-welch} | *t* = 32,8344 | < 0,001 | Diferente |
-| | Pescada | 0,0871 | **0,0104** | [Wilcoxon-Mann-Whitney]{.t-wilcoxon} | *W* = 126 | < 0,001 | Diferente |
-| | Pirapitinga | 0,1620 | 0,6100 | [Teste *t* de Welch]{.t-welch} | *t* = 15,9602 | < 0,001 | Diferente |
-| | Pirarara | 0,4486 | 0,9804 | [Teste *t* de Welch]{.t-welch} | *t* = 17,7902 | < 0,001 | Diferente |
-| | Sardinha | 0,3593 | 0,1163 | [Teste *t* de Welch]{.t-welch} | *t* = 20,5883 | < 0,001 | Diferente |
-| | Surubim | 0,7805 | 0,8529 | [Teste *t* de Welch]{.t-welch} | *t* = 20,3144 | < 0,001 | Diferente |
-| | Tambaqui | **0,0054** | **0,0024** | [Wilcoxon-Mann-Whitney]{.t-wilcoxon} | *W* = 126 | < 0,001 | Diferente |
-| | Tucunaré | 0,5814 | 0,2947 | [Teste *t* de Welch]{.t-welch} | *t* = 14,9312 | < 0,001 | Diferente |
-
-: **Testes de normalidade e de comparação entre os períodos Antes e Depois da produção pesqueira anual por espécie e município.** {#tbl-testes-especies}
+: **Resultados dos modelos GLS para as mudanças nas séries temporais da produção pesqueira em Borba e Manicoré.** {#tbl-gls-serie-producao}
 
 ::: {.nota-tabela}
-**Notas:** $n$ = 9 anos (Antes: 2002–2010) e 14 anos (Depois: 2011–2024) em todas as espécies | A normalidade foi avaliada em cada período pelo teste de Shapiro-Wilk, e *p*-valores em negrito indicam rejeição da normalidade ($p < 0,05$) | Cor azul = teste *t* de Welch para amostras independentes (paramétrico), aplicado quando os dois períodos são normais | Cor vermelha = teste de Wilcoxon-Mann-Whitney para amostras independentes (não paramétrico), aplicado quando ao menos um período não é normal | Nível de significância: $\alpha = 0,05$ | *p*-valores menores que 0,001 são apresentados como < 0,001 | Resultado "Diferente" = diferença estatisticamente significativa entre os períodos.
+**Notas:** $\hat{\beta}_1$ = tendência temporal no período (Antes) | $\hat{\beta}_2$ = mudança de nível no início do período (Depois) | $\hat{\beta}_3$ = mudança da inclinação da série entre os períodos | $\hat{\beta}_1+\hat{\beta}_3$ = tendência temporal estimada no período (Depois) | IC95% = intervalo de confiança de 95% | Antes = 2002–2010 | Depois = 2011–2024.
 :::
 
-**Comentários:** Em todas as 37 comparações entre os períodos Antes e Depois (19 espécies em Borba e 18 em Manicoré), o *p*-valor foi menor que 0,05, ou seja, rejeitamos a hipótese nula de igualdade ($\alpha = 0,05$) e houve diferença estatisticamente significativa entre os períodos. Em Borba, a normalidade foi atendida nos dois períodos em 10 espécies, para as quais aplicamos o teste *t* de Welch, e não foi atendida em ao menos um período em 9 espécies, para as quais aplicamos o teste de Wilcoxon-Mann-Whitney. Em Manicoré, o teste *t* de Welch foi aplicado a 13 espécies e o de Wilcoxon-Mann-Whitney a 5 (Branquinha, Jaraqui, Matrinxã, Pescada e Tambaqui). Em todas as espécies em que o teste de Wilcoxon-Mann-Whitney foi aplicado, a estatística de teste foi $W = 126$, valor máximo possível para 9 e 14 anos ($9 \times 14$), o que indica separação completa entre os períodos: todos os anos do período Antes tiveram captura maior que todos os anos do período Depois.
+**Comentários:** Conforme a @tbl-gls-serie-producao, a produção pesqueira já apresentava tendência temporal negativa e estatisticamente significativa no período (Antes) nos dois municípios. Em Borba, a redução estimada foi de 29.865 kg/ano ($p<0,001$), enquanto em Manicoré foi de 34.794 kg/ano ($p=0,002$).
+
+No período (Depois), a tendência permaneceu negativa e estatisticamente significativa, com redução estimada de 49.402 kg/ano em Borba e 47.101 kg/ano em Manicoré, ambas com $p<0,001$.
+
+Em **Borba**, a mudança da tendência foi negativa e estatisticamente significativa ($\hat{\beta}_3=-19.537$ kg/ano; $p=0,041$), indicando intensificação da taxa anual de redução da produção no período (Depois). A mudança de nível, por outro lado, não foi significativa ($p=0,449$).
+
+Em **Manicoré**, a mudança da tendência não apresentou significância estatística ($p=0,382$), não havendo evidência suficiente de alteração da inclinação entre os períodos. Entretanto, foi identificada uma mudança negativa e estatisticamente significativa no nível da produção no início do período (Depois), estimada em −616.532 kg ($p<0,001$).
 
 
-| Espécie | Período | *n* | $\tau$ de Kendall | $\tau^2$ | *p*-valor | Inclinação de Sen<br>(kg/ano) | Tendência |
-|:---|:---|:---|:---|:---|:---|:---|:---|
-| **Aracu** | Antes | 9 | −1,000 | 1,000 | < 0,001 | −724,03 | Queda significativa |
-| | Depois | 14 | −0,934 | 0,872 | < 0,001 | −55,12 | Queda significativa |
-| **Branquinha** | Antes | 9 | −0,889 | 0,790 | < 0,001 | −261,75 | Queda significativa |
-| | Depois | 14 | −1,000 | 1,000 | < 0,001 | −52,00 | Queda significativa |
-| **Caparari** | Antes | 9 | −0,889 | 0,790 | < 0,001 | −751,52 | Queda significativa |
-| | Depois | 14 | −1,000 | 1,000 | < 0,001 | −33,14 | Queda significativa |
-| **Cara branco** | Antes | 9 | −0,889 | 0,790 | < 0,001 | −234,50 | Queda significativa |
-| | Depois | 14 | −1,000 | 1,000 | < 0,001 | −38,25 | Queda significativa |
-| **Carauaçu** | Antes | 9 | −0,889 | 0,790 | < 0,001 | −485,88 | Queda significativa |
-| | Depois | 14 | −1,000 | 1,000 | < 0,001 | −47,75 | Queda significativa |
-| **Curimatã** | Antes | 9 | −1,000 | 1,000 | < 0,001 | −545,64 | Queda significativa |
-| | Depois | 14 | −0,994 | 0,989 | < 0,001 | −47,00 | Queda significativa |
-| **Dourada** | Antes | 9 | −0,389 | 0,151 | 0,144 | −208,73 | Estável (não significativa) |
-| | Depois | 14 | −1,000 | 1,000 | < 0,001 | −54,75 | Queda significativa |
-| **Filhote** | Antes | 9 | −0,389 | 0,151 | 0,144 | −161,92 | Estável (não significativa) |
-| | Depois | 14 | −0,994 | 0,989 | < 0,001 | −50,75 | Queda significativa |
-| **Jaraqui** | Antes | 9 | −0,944 | 0,892 | < 0,001 | −605,40 | Queda significativa |
-| | Depois | 14 | −0,934 | 0,872 | < 0,001 | −50,33 | Queda significativa |
-| **Matrinxã** | Antes | 9 | −0,889 | 0,790 | < 0,001 | −368,20 | Queda significativa |
-| | Depois | 14 | −1,000 | 1,000 | < 0,001 | −43,33 | Queda significativa |
-| **Pacu** | Antes | 9 | −0,778 | 0,605 | 0,004 | −457,17 | Queda significativa |
-| | Depois | 14 | −0,868 | 0,754 | < 0,001 | −51,50 | Queda significativa |
-| **Pescada** | Antes | 9 | −1,000 | 1,000 | < 0,001 | −356,38 | Queda significativa |
-| | Depois | 14 | −1,000 | 1,000 | < 0,001 | −78,70 | Queda significativa |
-| **Piranambu/Barbado** | Antes | 9 | −0,778 | 0,605 | 0,004 | −481,33 | Queda significativa |
-| | Depois | 14 | −1,000 | 1,000 | < 0,001 | −51,50 | Queda significativa |
-| **Pirapitinga** | Antes | 9 | −0,889 | 0,790 | < 0,001 | −579,33 | Queda significativa |
-| | Depois | 14 | −1,000 | 1,000 | < 0,001 | −161,50 | Queda significativa |
-| **Pirarara** | Antes | 9 | −0,944 | 0,892 | < 0,001 | −504,00 | Queda significativa |
-| | Depois | 14 | −0,950 | 0,903 | < 0,001 | −55,50 | Queda significativa |
-| **Sardinha** | Antes | 9 | −0,944 | 0,892 | < 0,001 | −1.166,00 | Queda significativa |
-| | Depois | 14 | −1,000 | 1,000 | < 0,001 | −101,50 | Queda significativa |
-| **Surubim** | Antes | 9 | −0,833 | 0,694 | 0,002 | −584,88 | Queda significativa |
-| | Depois | 14 | −1,000 | 1,000 | < 0,001 | −88,40 | Queda significativa |
-| **Tambaqui** | Antes | 9 | −0,667 | 0,444 | 0,012 | −250,60 | Queda significativa |
-| | Depois | 14 | −1,000 | 1,000 | < 0,001 | −51,20 | Queda significativa |
-| **Tucunaré** | Antes | 9 | −1,000 | 1,000 | < 0,001 | −423,08 | Queda significativa |
-| | Depois | 14 | −1,000 | 1,000 | < 0,001 | −47,50 | Queda significativa |
+#### Verificação dos Pressupostos
 
-: **Teste de tendência de Mann-Kendall e inclinação de Sen da captura anual (kg) por espécie e período na colônia de Borba.** {#tbl-tendencia-borba}
+A adequação dos modelos finais foi avaliada pela normalidade dos resíduos, autocorrelação residual e homogeneidade das variâncias.
+
+| **Município** | **Shapiro–Wilk**<br>$W$ | **Shapiro–Wilk**<br>$p$ | **ACF**<br>Lag 1 | **Ljung–Box**<br>$p$ | **Homogeneidade**<br>$p$ | **Maior resíduo** | **$|r|>2$** |
+|:---|---:|---:|---:|---:|---:|---:|---:|
+| **Borba** | 0,976 | 0,836 | 0,240 | 0,219 | 0,234 | 2,66 | 1 |
+| **Manicoré** | 0,930 | 0,108 | 0,307 | 0,116 | 0,308 | 2,29 | 2 |
+
+: **Diagnóstico dos modelos GLS ajustados às séries temporais da produção pesqueira.** {#tbl-diagnostico-serie-producao}
 
 ::: {.nota-tabela}
-**Notas:** $n$ = número de anos avaliados em cada período (Antes: 2002–2010; Depois: 2011–2024) | $\tau$ = coeficiente $\tau$ de Kendall do teste de Mann-Kendall | $\tau^2$ = medida aproximada do tamanho do efeito | Inclinação de Sen = taxa anual de variação da captura (kg/ano) | Nível de significância: $\alpha = 0,05$ | *p*-valores menores que 0,001 são apresentados como < 0,001 | Queda significativa = $\tau$ negativo com *p*-valor < 0,05 | Estável = tendência não significativa (*p*-valor ≥ 0,05).
+**Notas:** Shapiro–Wilk = teste de normalidade dos resíduos | ACF Lag 1 = autocorrelação residual de primeira ordem | Ljung–Box = teste de autocorrelação residual | Homogeneidade = comparação com modelo permitindo variâncias distintas entre os períodos | $|r|>2$ = número de resíduos normalizados com valor absoluto superior a 2.
 :::
 
-**Comentários:** Em Borba, 36 das 38 séries (19 espécies em dois períodos) apresentaram queda significativa pelo teste de Mann-Kendall ($\alpha = 0,05$). As únicas exceções foram Dourada e Filhote no período Antes, que não tiveram tendência significativa ($\tau = −0,389$; *p*-valor $= 0,144$). No período Depois, todas as espécies apresentaram queda significativa, com $\tau$ entre −0,868 e −1,000. A inclinação de Sen mostra que a perda anual foi menor no período Depois em todas as espécies (de −33,14 a −161,50 kg/ano) do que no período Antes (de −161,92 a −1.166,00 kg/ano), ou seja, a produção continuou em queda após o barramento, porém em ritmo menor.
+**Comentários:** Os testes de Shapiro–Wilk não indicaram desvios significativos da normalidade dos resíduos em Borba ($p=0,836$) ou Manicoré ($p=0,108$). Os testes de Ljung–Box também apresentaram $p>0,05$, não indicando autocorrelação residual significativa após a inclusão da estrutura AR(1).
 
-| Espécie | Período | *n* | $\tau$ de Kendall | $\tau^2$ | *p*-valor | Inclinação de Sen<br>(kg/ano) | Tendência |
-|:---|:---|:---|:---|:---|:---|:---|:---|
-| **Aracu** | Antes | 9 | −0,650 | 0,422 | 0,021 | −0,45 | Queda significativa |
-| | Depois | 14 | −0,628 | 0,394 | 0,004 | −0,17 | Queda significativa |
-| **Branquinha** | Antes | 9 | −0,354 | 0,125 | 0,199 | −0,50 | Estável (não significativa) |
-| | Depois | 14 | −0,994 | 0,989 | < 0,001 | −2,60 | Queda significativa |
-| **Caparari** | Antes | 9 | −0,236 | 0,056 | 0,392 | −0,38 | Estável (não significativa) |
-| | Depois | 14 | −1,000 | 1,000 | < 0,001 | −2,00 | Queda significativa |
-| **Cara branco** | Antes | 9 | −0,817 | 0,667 | 0,002 | −1,00 | Queda significativa |
-| | Depois | 14 | −0,961 | 0,923 | < 0,001 | −0,50 | Queda significativa |
-| **Carauaçu** | Antes | 9 | −0,464 | 0,216 | 0,098 | −0,33 | Estável (não significativa) |
-| | Depois | 14 | −0,938 | 0,879 | < 0,001 | −0,40 | Queda significativa |
-| **Curimatã** | Antes | 9 | −0,114 | 0,013 | 0,673 | −0,62 | Estável (não significativa) |
-| | Depois | 14 | −1,000 | 1,000 | < 0,001 | −4,00 | Queda significativa |
-| **Dourada** | Antes | 9 | −0,514 | 0,265 | 0,058 | −0,76 | Estável (não significativa) |
-| | Depois | 14 | −0,978 | 0,957 | < 0,001 | −2,50 | Queda significativa |
-| **Filhote** | Antes | 9 | −0,592 | 0,350 | 0,028 | −1,50 | Queda significativa |
-| | Depois | 14 | −1,000 | 1,000 | < 0,001 | −2,50 | Queda significativa |
-| **Jaraqui** | Antes | 9 | −0,817 | 0,667 | 0,002 | −5,33 | Queda significativa |
-| | Depois | 14 | −1,000 | 1,000 | < 0,001 | −4,17 | Queda significativa |
-| **Matrinxã** | Antes | 9 | −0,609 | 0,371 | 0,026 | −1,50 | Queda significativa |
-| | Depois | 14 | −1,000 | 1,000 | < 0,001 | −2,50 | Queda significativa |
-| **Pacu** | Antes | 9 | −0,857 | 0,735 | 0,002 | −2,00 | Queda significativa |
-| | Depois | 14 | −0,928 | 0,862 | < 0,001 | −2,71 | Queda significativa |
-| **Pescada** | Antes | 9 | −0,748 | 0,560 | 0,007 | −0,50 | Queda significativa |
-| | Depois | 14 | −0,669 | 0,447 | 0,003 | −0,12 | Queda significativa |
-| **Pirapitinga** | Antes | 9 | −0,704 | 0,496 | 0,009 | −1,20 | Queda significativa |
-| | Depois | 14 | −0,966 | 0,934 | < 0,001 | −0,71 | Queda significativa |
-| **Pirarara** | Antes | 9 | −0,611 | 0,373 | 0,022 | −2,00 | Queda significativa |
-| | Depois | 14 | −0,928 | 0,862 | < 0,001 | −2,88 | Queda significativa |
-| **Sardinha** | Antes | 9 | −0,611 | 0,373 | 0,022 | −2,55 | Queda significativa |
-| | Depois | 14 | −1,000 | 1,000 | < 0,001 | −2,50 | Queda significativa |
-| **Surubim** | Antes | 9 | −0,611 | 0,373 | 0,022 | −1,50 | Queda significativa |
-| | Depois | 14 | −1,000 | 1,000 | < 0,001 | −2,50 | Queda significativa |
-| **Tambaqui** | Antes | 9 | −0,889 | 0,790 | < 0,001 | −2,00 | Queda significativa |
-| | Depois | 14 | −0,656 | 0,431 | 0,002 | −0,50 | Queda significativa |
-| **Tucunaré** | Antes | 9 | −0,366 | 0,134 | 0,173 | −0,68 | Estável (não significativa) |
-| | Depois | 14 | −0,961 | 0,923 | < 0,001 | −0,50 | Queda significativa |
+Não foram observadas evidências de heterogeneidade das variâncias entre os períodos, com $p=0,234$ em Borba e $p=0,308$ em Manicoré. Foram identificados poucos resíduos normalizados com valor absoluto superior a 2, correspondendo a uma observação em Borba e duas em Manicoré. De forma geral, os diagnósticos indicaram comportamento adequado dos resíduos para os modelos ajustados.
 
-: **Teste de tendência de Mann-Kendall e inclinação de Sen da captura anual (kg) por espécie e período na colônia de Manicoré.** {#tbl-tendencia-manicore}
+
+#### Tendência Não Paramétrica da Produção Total
+
+Como análise complementar aos modelos GLS, foram aplicados o teste de Mann–Kendall e o estimador de inclinação de Sen separadamente aos períodos (Antes) e (Depois). O teste de Mann–Kendall permite avaliar a direção e a significância da tendência monotônica, enquanto a inclinação de Sen fornece uma estimativa robusta de sua magnitude anual.
+
+| **Município** | **Período** | **$n$** | **$\tau$ de Kendall** | **$\tau^2$** | **$p$-valor** | **Sen's Slope**<br>(kg/ano) | **Tendência** |
+|:---|:---|---:|---:|---:|---:|---:|:---|
+| **Borba** | Antes | 9 | −0,889 | 0,790 | 0,001 | −24.536,5 | Queda significativa |
+|  | Depois | 14 | −1,000 | 1,000 | <0,001 | −45.674,8 | Queda significativa |
+| **Manicoré** | Antes | 9 | −0,833 | 0,694 | 0,003 | −21.000,0 | Queda significativa |
+|  | Depois | 14 | −1,000 | 1,000 | <0,001 | −33.500,0 | Queda significativa |
+
+: **Teste de tendência de Mann–Kendall e inclinação de Sen para a produção pesqueira anual em Borba e Manicoré.** {#tbl-mk-sen-producao}
 
 ::: {.nota-tabela}
-**Notas:** $n$ = número de anos avaliados em cada período (Antes: 2002–2010; Depois: 2011–2024) | $\tau$ = coeficiente $\tau$ de Kendall do teste de Mann-Kendall | $\tau^2$ = medida aproximada do tamanho do efeito | Inclinação de Sen = taxa anual de variação da captura (kg/ano) | Nível de significância: $\alpha = 0,05$ | *p*-valores menores que 0,001 são apresentados como < 0,001 | Queda significativa = $\tau$ negativo com *p*-valor < 0,05 | Estável = tendência não significativa (*p*-valor ≥ 0,05).
+**Notas:** $n$ = número de anos avaliados | $\tau$ = coeficiente $\tau$ de Kendall | $\tau^2$ = medida aproximada da intensidade da tendência monotônica | Sen's Slope = estimativa robusta da taxa anual de variação da produção pesqueira | Antes = 2002–2010 | Depois = 2011–2024.
 :::
 
-**Comentários:** Em Manicoré, 30 das 36 séries (18 espécies em dois períodos) apresentaram queda significativa. No período Antes, seis espécies (Branquinha, Caparari, Carauaçu, Curimatã, Dourada e Tucunaré) não tiveram tendência significativa, enquanto no período Depois todas as espécies apresentaram queda significativa, com $\tau$ entre −0,628 e −1,000. As inclinações de Sen em Manicoré são de poucos kg/ano por espécie e variaram entre espécies: em módulo, foram maiores no período Depois em 10 das 18 espécies, com destaque para Jaraqui (−4,17 kg/ano) e Curimatã (−4,00 kg/ano), e menores nas outras 8.
+**Comentários:** A análise não paramétrica confirmou tendência de redução da produção nos dois municípios e nos dois períodos. Em Borba, a inclinação de Sen passou de −24.536,5 kg/ano no período (Antes) para −45.674,8 kg/ano no período (Depois). Em Manicoré, as estimativas foram de −21.000,0 e −33.500,0 kg/ano, respectivamente.
 
-![**PT-BR:** Distribuição da captura anual (kg, escala logarítmica) por espécie na colônia de Borba, comparando os períodos antes (2002–2010; n = 9 anos; azul escuro) e depois (2011–2024; n = 14 anos; azul claro) do barramento. As caixas representam o intervalo interquartil, a linha dentro da caixa indica a mediana, as hastes se estendem aos valores dentro de 1,5 vez o intervalo interquartil e os pontos representam valores discrepantes (outliers). As letras abaixo do nome de cada espécie comparam os dois períodos: letras diferentes (a | b) indicam diferença estatisticamente significativa entre Antes e Depois ($\alpha = 0,05$). As letras em laranja indicam comparação pelo teste *t* de Welch (paramétrico), e as letras em verde, pelo teste de Wilcoxon-Mann-Whitney (não paramétrico), conforme a normalidade dos dados em cada período. As espécies estão ordenadas da maior para a menor captura no período anterior ao barramento.<br><br>**EN:** Distribution of annual catch (kg, logarithmic scale) by species in the Borba fishers' colony, comparing the periods before (2002–2010; n = 9 years; dark blue) and after (2011–2024; n = 14 years; light blue) the dam impoundment. Boxes represent the interquartile range, horizontal lines inside the boxes indicate the median, whiskers extend to values within 1.5 times the interquartile range, and dots represent outliers. Letters below each species name compare the two periods: different letters (a | b) indicate a statistically significant difference between Before and After ($\alpha = 0.05$). Orange letters indicate that the comparison was performed with Welch's *t*-test (parametric), and green letters with the Wilcoxon-Mann-Whitney test (non-parametric), according to the normality of the data in each period. Species are ordered from highest to lowest catch in the period before the impoundment.](graficos/Boxplot_Species_Borba.png){#fig-boxplot-borba width="100%" fig-align="center"}
+Os resultados de Mann–Kendall e da inclinação de Sen são consistentes com os modelos GLS ao indicar redução contínua da produção pesqueira. O GLS, entretanto, permite adicionalmente testar formalmente a ocorrência de mudanças no nível ou na inclinação das séries entre os períodos.
 
+
+#### Representação Gráfica da Produção Total
+
+As @fig-serie-producao-borba e @fig-serie-producao-manicore apresentam a evolução anual da produção pesqueira nos dois municípios. As linhas em vermelho escuro representam as tendências estimadas pela inclinação de Sen em cada período, enquanto a linha vertical tracejada indica o início do período (Depois), em 2011.
+
+![**PT-BR:** Série temporal da produção pesqueira anual em Borba entre 2002 e 2024. Os pontos representam a produção anual observada, dividida entre os períodos Antes (2002–2010; azul escuro) e Depois (2011–2024; azul claro). A linha tracejada vertical indica o ano de 2011 e as linhas em vermelho escuro representam as tendências estimadas pela inclinação de Sen em cada período. Os valores apresentados na legenda correspondem ao coeficiente $\tau$ de Kendall, ao respectivo valor de $p$ e à inclinação de Sen, expressa em kg/ano.<br><br>**EN:** Time series of annual fish production in Borba between 2002 and 2024. Points represent observed annual production, divided into the Before (2002–2010; dark blue) and After (2011–2024; light blue) periods. The dashed vertical line indicates 2011, and the dark-red lines represent trends estimated using Sen's slope for each period. Legend values correspond to Kendall's $\tau$, its associated $p$-value, and Sen's slope expressed in kg/year.](graficos/TimeSeries_Borba.png){#fig-serie-producao-borba width="100%" fig-align="center"}
 
 ::: {.linha-baixar}
-[<i class="bi bi-download"></i> Baixar Gráfico (PNG)](graficos/Boxplot_Species_Borba.png){.baixar download="Boxplot_Species_Borba.png"}
+[<i class="bi bi-download"></i> Baixar Gráfico (PNG)](graficos/TimeSeries_Borba.png){.baixar download="TimeSeries_Borba.png"}
 :::
 
+<br>
 
-![**PT-BR:** Distribuição da captura anual (kg, escala logarítmica) por espécie na colônia de Manicoré, comparando os períodos antes (2002–2010; n = 9 anos; azul escuro) e depois (2011–2024; n = 14 anos; azul claro) do barramento. As caixas representam o intervalo interquartil, a linha dentro da caixa indica a mediana, as hastes se estendem aos valores dentro de 1,5 vez o intervalo interquartil e os pontos representam valores discrepantes (outliers). As letras abaixo do nome de cada espécie comparam os dois períodos: letras diferentes (a | b) indicam diferença estatisticamente significativa entre Antes e Depois ($\alpha = 0,05$). As letras em laranja indicam comparação pelo teste *t* de Welch (paramétrico), e as letras em verde, pelo teste de Wilcoxon-Mann-Whitney (não paramétrico), conforme a normalidade dos dados em cada período. As espécies estão ordenadas da maior para a menor captura no período anterior ao barramento.<br><br>**EN:** Distribution of annual catch (kg, logarithmic scale) by species in the Manicoré fishers' colony, comparing the periods before (2002–2010; n = 9 years; dark blue) and after (2011–2024; n = 14 years; light blue) the dam impoundment. Boxes represent the interquartile range, horizontal lines inside the boxes indicate the median, whiskers extend to values within 1.5 times the interquartile range, and dots represent outliers. Letters below each species name compare the two periods: different letters (a | b) indicate a statistically significant difference between Before and After ($\alpha = 0.05$). Orange letters indicate that the comparison was performed with Welch's *t*-test (parametric), and green letters with the Wilcoxon-Mann-Whitney test (non-parametric), according to the normality of the data in each period. Species are ordered from highest to lowest catch in the period before the impoundment.](graficos/Boxplot_Species_Manicore.png){#fig-boxplot-manicore width="100%" fig-align="center"}
-
+![**PT-BR:** Série temporal da produção pesqueira anual em Manicoré entre 2002 e 2024. Os pontos representam a produção anual observada, dividida entre os períodos Antes (2002–2010; azul escuro) e Depois (2011–2024; azul claro). A linha tracejada vertical indica o ano de 2011 e as linhas em vermelho escuro representam as tendências estimadas pela inclinação de Sen em cada período. Os valores apresentados na legenda correspondem ao coeficiente $\tau$ de Kendall, ao respectivo valor de $p$ e à inclinação de Sen, expressa em kg/ano.<br><br>**EN:** Time series of annual fish production in Manicoré between 2002 and 2024. Points represent observed annual production, divided into the Before (2002–2010; dark blue) and After (2011–2024; light blue) periods. The dashed vertical line indicates 2011, and the dark-red lines represent trends estimated using Sen's slope for each period. Legend values correspond to Kendall's $\tau$, its associated $p$-value, and Sen's slope expressed in kg/year.](graficos/TimeSeries_Manicore.png){#fig-serie-producao-manicore width="100%" fig-align="center"}
 
 ::: {.linha-baixar}
-[<i class="bi bi-download"></i> Baixar Gráfico (PNG)](graficos/Boxplot_Species_Manicore.png){.baixar download="Boxplot_Species_Manicore.png"}
+[<i class="bi bi-download"></i> Baixar Gráfico (PNG)](graficos/TimeSeries_Manicore.png){.baixar download="TimeSeries_Manicore.png"}
+:::
+### Produção Pesqueira por Espécie: Tendência Temporal
+
+A tendência temporal da produção pesqueira também foi avaliada individualmente para cada espécie, separando-se os períodos **(Antes), de 2002 a 2010**, e **(Depois), de 2011 a 2024**. Para essa análise, foram utilizados o teste não paramétrico de Mann–Kendall e o estimador de inclinação de Sen.
+
+O coeficiente $\tau$ de Kendall indica a direção e a intensidade da tendência monotônica, enquanto a inclinação de Sen fornece uma estimativa robusta da magnitude da variação anual da produção, expressa em kg/ano. Valores negativos indicam redução ao longo do tempo e valores positivos indicam aumento.
+
+
+#### Borba
+
+| **Espécie** | **$\tau$ (Antes)** | **$\tau^2$** | **$p$** | **Sen (Antes)**<br>kg/ano | **$\tau$ (Depois)** | **$\tau^2$** | **$p$** | **Sen (Depois)**<br>kg/ano |
+|:---|---:|---:|---:|---:|---:|---:|---:|---:|
+| **Aracu** | 0,333 | 0,111 | 0,251 | 105,96 | −0,978 | 0,957 | <0,001 | −452,00 |
+| **Branquinha** | −0,056 | 0,003 | 0,917 | −9,19 | −1,000 | 1,000 | <0,001 | −3.627,33 |
+| **Caparari** | −0,778 | 0,605 | 0,005 | −834,33 | −0,978 | 0,957 | <0,001 | −3.242,20 |
+| **Cara branco** | −0,778 | 0,605 | 0,005 | −1.181,74 | −1,000 | 1,000 | <0,001 | −1.134,56 |
+| **Carauaçu** | −0,889 | 0,790 | 0,001 | −592,75 | −1,000 | 1,000 | <0,001 | −938,00 |
+| **Curimatã** | −0,556 | 0,309 | 0,048 | −690,42 | −0,994 | 0,989 | <0,001 | −6.412,27 |
+| **Dourada** | −0,389 | 0,151 | 0,175 | −208,73 | −0,978 | 0,957 | <0,001 | −2.056,50 |
+| **Filhote** | −0,389 | 0,151 | 0,175 | −1.619,17 | −1,000 | 1,000 | <0,001 | −6.358,00 |
+| **Jaraqui** | −0,944 | 0,892 | <0,001 | −6.054,00 | −0,934 | 0,872 | <0,001 | −4.704,00 |
+| **Matrinxã** | −0,889 | 0,790 | 0,001 | −385,45 | −1,000 | 1,000 | <0,001 | −3.378,56 |
+| **Pacu** | −0,944 | 0,892 | <0,001 | −5.303,88 | −0,978 | 0,957 | <0,001 | −847,40 |
+| **Pescada** | −0,722 | 0,522 | 0,009 | −171,51 | −0,912 | 0,832 | <0,001 | −105,50 |
+| **Piranambu/Barbado** | 0,611 | 0,373 | 0,029 | 74,77 | −0,978 | 0,957 | <0,001 | −80,00 |
+| **Pirapitinga** | −0,611 | 0,373 | 0,029 | −1.254,55 | −1,000 | 1,000 | <0,001 | −1.661,00 |
+| **Pirarara** | 0,333 | 0,111 | 0,251 | 67,72 | −0,978 | 0,957 | <0,001 | −1.514,45 |
+| **Sardinha** | −0,667 | 0,444 | 0,016 | −2.478,33 | −1,000 | 1,000 | <0,001 | −1.993,57 |
+| **Surubim** | −0,833 | 0,694 | 0,002 | −584,88 | −1,000 | 1,000 | <0,001 | −4.604,00 |
+| **Tambaqui** | −0,556 | 0,309 | 0,048 | −1.580,54 | −0,956 | 0,914 | <0,001 | −1.669,46 |
+| **Tucunaré** | −1,000 | 1,000 | <0,001 | −381,94 | −1,000 | 1,000 | <0,001 | −531,50 |
+
+: **Teste de tendência de Mann–Kendall e inclinação de Sen da produção pesqueira anual por espécie nos períodos (Antes) e (Depois), em Borba.** {#tbl-tendencia-especies-borba}
+
+::: {.nota-tabela}
+**Notas:** Antes = 2002–2010 ($n=9$) | Depois = 2011–2024 ($n=14$) | $\tau$ = coeficiente de Kendall | $\tau^2$ = intensidade aproximada da tendência monotônica | $p$ = valor de $p$ do teste de Mann–Kendall | Sen = inclinação de Sen, expressa em kg/ano | Nível de significância: $\alpha=0,05$.
 :::
 
+**Comentários:** Conforme a @tbl-tendencia-especies-borba, no período (Antes), **13 das 19 espécies apresentaram tendência significativa de redução**, enquanto Aracu, Branquinha, Dourada, Filhote e Pirarara não apresentaram tendência estatisticamente significativa. Piranambu/Barbado foi a única espécie com tendência positiva significativa nesse período ($\tau=0,611$; $p=0,029$), com aumento estimado de 74,77 kg/ano.
 
-**Interpretação:** As @fig-serie-aracu, @fig-serie-branquinha, @fig-serie-caparari, @fig-serie-cara-branco, @fig-serie-carauacu, @fig-serie-curimata, @fig-serie-dourada, @fig-serie-filhote, @fig-serie-jaraqui, @fig-serie-matrinxa, @fig-serie-pacu, @fig-serie-pescada, @fig-serie-piranambu-barbado, @fig-serie-pirapitinga, @fig-serie-pirarara, @fig-serie-sardinha, @fig-serie-surubim, @fig-serie-tambaqui e @fig-serie-tucunare apresentam as séries temporais da produção pesqueira anual das espécies analisadas em **Borba** e **Manicoré**, separadas entre os períodos antes e após o barramento. Para cada período, o valor de $\tau$ (tau de Kendall) indica a direção da tendência ao longo dos anos: valores negativos representam **redução da produção**, enquanto valores positivos indicam **aumento**. O valor de *p* indica se essa tendência é estatisticamente significativa, considerando *p* < 0,05. Já a inclinação de Sen representa a intensidade da mudança, expressa em **kg por ano**, indicando quanto a produção aumentou ou diminuiu anualmente. Assim, a leitura conjunta desses indicadores permite identificar a **direção, a significância e a magnitude das mudanças na produção pesqueira**, bem como comparar o comportamento observado antes e após o barramento em cada localidade.
+No período (Depois), o padrão tornou-se mais homogêneo: **todas as 19 espécies apresentaram tendências negativas e estatisticamente significativas** ($p<0,001$). Os valores de $\tau$ variaram de −0,912 a −1,000, indicando forte predominância de redução monotônica da produção ao longo dos anos.
 
 
-**Selecione a espécie:**
+#### Manicoré
 
+| **Espécie** | **$\tau$ (Antes)** | **$\tau^2$** | **$p$** | **Sen (Antes)**<br>kg/ano | **$\tau$ (Depois)** | **$\tau^2$** | **$p$** | **Sen (Depois)**<br>kg/ano |
+|:---|---:|---:|---:|---:|---:|---:|---:|---:|
+| **Aracu** | −0,650 | 0,422 | 0,028 | −450,00 | −0,628 | 0,394 | 0,005 | −166,67 |
+| **Branquinha** | −0,354 | 0,125 | 0,239 | −500,00 | −0,994 | 0,989 | <0,001 | −2.600,00 |
+| **Caparari** | −0,236 | 0,056 | 0,454 | −375,00 | −1,000 | 1,000 | <0,001 | −2.000,00 |
+| **Cara branco** | −0,817 | 0,667 | 0,003 | −1.000,00 | −0,961 | 0,923 | <0,001 | −500,00 |
+| **Carauaçu** | −0,464 | 0,216 | 0,123 | −333,33 | −0,938 | 0,879 | <0,001 | −400,00 |
+| **Curimatã** | −0,114 | 0,013 | 0,752 | −625,00 | −1,000 | 1,000 | <0,001 | −4.000,00 |
+| **Dourada** | −0,514 | 0,265 | 0,073 | −761,90 | −0,978 | 0,957 | <0,001 | −2.500,00 |
+| **Filhote** | −0,592 | 0,350 | 0,036 | −1.500,00 | −1,000 | 1,000 | <0,001 | −2.500,00 |
+| **Jaraqui** | −0,817 | 0,667 | 0,003 | −5.333,33 | −1,000 | 1,000 | <0,001 | −4.166,67 |
+| **Matrinxã** | −0,609 | 0,371 | 0,034 | −1.500,00 | −1,000 | 1,000 | <0,001 | −2.500,00 |
+| **Pacu** | −0,857 | 0,735 | 0,002 | −2.000,00 | −0,928 | 0,862 | <0,001 | −2.714,29 |
+| **Pescada** | −0,748 | 0,560 | 0,010 | −500,00 | −0,669 | 0,447 | 0,003 | −125,00 |
+| **Pirapitinga** | −0,704 | 0,496 | 0,012 | −1.200,00 | −0,966 | 0,934 | <0,001 | −714,29 |
+| **Pirarara** | −0,611 | 0,373 | 0,029 | −2.000,00 | −0,928 | 0,862 | <0,001 | −2.875,00 |
+| **Sardinha** | −0,611 | 0,373 | 0,029 | −2.550,00 | −1,000 | 1,000 | <0,001 | −2.500,00 |
+| **Surubim** | −0,611 | 0,373 | 0,029 | −1.500,00 | −1,000 | 1,000 | <0,001 | −2.500,00 |
+| **Tambaqui** | −0,889 | 0,790 | 0,001 | −2.000,00 | −0,656 | 0,431 | 0,002 | −500,00 |
+| **Tucunaré** | −0,366 | 0,134 | 0,208 | −675,00 | −0,961 | 0,923 | <0,001 | −500,00 |
+
+: **Teste de tendência de Mann–Kendall e inclinação de Sen da produção pesqueira anual por espécie nos períodos (Antes) e (Depois), em Manicoré.** {#tbl-tendencia-especies-manicore}
+
+::: {.nota-tabela}
+**Notas:** Antes = 2002–2010 ($n=9$) | Depois = 2011–2024 ($n=14$) | $\tau$ = coeficiente de Kendall | $\tau^2$ = intensidade aproximada da tendência monotônica | $p$ = valor de $p$ do teste de Mann–Kendall | Sen = inclinação de Sen, expressa em kg/ano | Nível de significância: $\alpha=0,05$.
+:::
+
+**Comentários:** Conforme a @tbl-tendencia-especies-manicore, no período (Antes), **12 das 18 espécies apresentaram tendência negativa e estatisticamente significativa**. Branquinha, Caparari, Carauaçu, Curimatã, Dourada e Tucunaré não apresentaram evidência estatística de tendência nesse período.
+
+No período (Depois), **todas as 18 espécies apresentaram tendência significativa de redução**. Os valores de $\tau$ variaram de −0,628, para Aracu, a −1,000 para diferentes espécies, confirmando que o padrão de queda esteve amplamente distribuído entre os recursos pesqueiros avaliados.
+
+
+#### Síntese das Tendências por Espécie
+
+| **Município** | **Período** | **Espécies avaliadas** | **Queda significativa** | **Aumento significativo** | **Sem tendência significativa** |
+|:---|:---|---:|---:|---:|---:|
+| **Borba** | Antes | 19 | 13 | 1 | 5 |
+| **Borba** | Depois | 19 | 19 | 0 | 0 |
+| **Manicoré** | Antes | 18 | 12 | 0 | 6 |
+| **Manicoré** | Depois | 18 | 18 | 0 | 0 |
+
+: **Resumo das tendências temporais da produção pesqueira por espécie e período.** {#tbl-resumo-tendencias-especies}
+
+**Comentários:** A @tbl-resumo-tendencias-especies evidencia uma mudança no padrão geral das séries. No período (Antes), embora a maioria das espécies já apresentasse redução significativa, ainda foram observadas séries sem tendência estatisticamente significativa nos dois municípios e uma tendência positiva em Borba. No período (Depois), entretanto, **100% das espécies avaliadas apresentaram tendência significativa de queda**, correspondendo às 19 espécies de Borba e às 18 espécies de Manicoré.
+
+Esse resultado mostra que a redução observada na produção pesqueira total não se restringiu a poucas espécies, mas ocorreu de forma generalizada entre os táxons avaliados no período (Depois).
+
+
+#### Representação Gráfica das Séries por Espécie
+
+Os gráficos a seguir apresentam as séries temporais anuais da produção pesqueira de cada espécie em Borba e Manicoré. As cores distinguem os municípios e os períodos (Antes) e (Depois), enquanto as linhas em vermelho escuro representam as tendências estimadas pela inclinação de Sen. A linha vertical tracejada indica o início do período (Depois), em 2011.
 
 ::: {.panel-tabset}
 
 ### Aracu
 
-![Time series of annual catch (kg) for Aracu in the Borba and Manicoré fishers' colonies between 2002 and 2024.](graficos/TimeSeries_Final_Aracu.png){#fig-serie-aracu width="100%" fig-align="center"}
+![Série temporal da produção pesqueira anual de Aracu em Borba e Manicoré, entre 2002 e 2024.](graficos/TimeSeries_Final_Aracu.png){#fig-serie-aracu width="100%" fig-align="center"}
 
 ::: {.linha-baixar}
 [<i class="bi bi-download"></i> Baixar Gráfico (PNG)](graficos/TimeSeries_Final_Aracu.png){.baixar download="TimeSeries_Final_Aracu.png"}
 :::
 
+
 ### Branquinha
 
-![Time series of annual catch (kg) for Branquinha in the Borba and Manicoré fishers' colonies between 2002 and 2024.](graficos/TimeSeries_Final_Branquinha.png){#fig-serie-branquinha width="100%" fig-align="center"}
+![Série temporal da produção pesqueira anual de Branquinha em Borba e Manicoré, entre 2002 e 2024.](graficos/TimeSeries_Final_Branquinha.png){#fig-serie-branquinha width="100%" fig-align="center"}
 
 ::: {.linha-baixar}
 [<i class="bi bi-download"></i> Baixar Gráfico (PNG)](graficos/TimeSeries_Final_Branquinha.png){.baixar download="TimeSeries_Final_Branquinha.png"}
 :::
 
+
 ### Caparari
 
-![Time series of annual catch (kg) for Caparari in the Borba and Manicoré fishers' colonies between 2002 and 2024.](graficos/TimeSeries_Final_Caparari.png){#fig-serie-caparari width="100%" fig-align="center"}
+![Série temporal da produção pesqueira anual de Caparari em Borba e Manicoré, entre 2002 e 2024.](graficos/TimeSeries_Final_Caparari.png){#fig-serie-caparari width="100%" fig-align="center"}
 
 ::: {.linha-baixar}
 [<i class="bi bi-download"></i> Baixar Gráfico (PNG)](graficos/TimeSeries_Final_Caparari.png){.baixar download="TimeSeries_Final_Caparari.png"}
 :::
 
+
 ### Cara branco
 
-![Time series of annual catch (kg) for Cara branco in the Borba and Manicoré fishers' colonies between 2002 and 2024.](graficos/TimeSeries_Final_Cara_branco.png){#fig-serie-cara-branco width="100%" fig-align="center"}
+![Série temporal da produção pesqueira anual de Cara branco em Borba e Manicoré, entre 2002 e 2024.](graficos/TimeSeries_Final_Cara_branco.png){#fig-serie-cara-branco width="100%" fig-align="center"}
 
 ::: {.linha-baixar}
 [<i class="bi bi-download"></i> Baixar Gráfico (PNG)](graficos/TimeSeries_Final_Cara_branco.png){.baixar download="TimeSeries_Final_Cara_branco.png"}
 :::
 
+
 ### Carauaçu
 
-![Time series of annual catch (kg) for Carauaçu in the Borba and Manicoré fishers' colonies between 2002 and 2024. ](graficos/TimeSeries_Final_Carauaçu.png){#fig-serie-carauacu width="100%" fig-align="center"}
+![Série temporal da produção pesqueira anual de Carauaçu em Borba e Manicoré, entre 2002 e 2024.](graficos/TimeSeries_Final_Carauaçu.png){#fig-serie-carauacu width="100%" fig-align="center"}
 
 ::: {.linha-baixar}
 [<i class="bi bi-download"></i> Baixar Gráfico (PNG)](graficos/TimeSeries_Final_Carauaçu.png){.baixar download="TimeSeries_Final_Carauaçu.png"}
 :::
 
+
 ### Curimatã
 
-![Time series of annual catch (kg) for Curimatã in the Borba and Manicoré fishers' colonies between 2002 and 2024. ](graficos/TimeSeries_Final_Curimatã.png){#fig-serie-curimata width="100%" fig-align="center"}
+![Série temporal da produção pesqueira anual de Curimatã em Borba e Manicoré, entre 2002 e 2024.](graficos/TimeSeries_Final_Curimatã.png){#fig-serie-curimata width="100%" fig-align="center"}
 
 ::: {.linha-baixar}
 [<i class="bi bi-download"></i> Baixar Gráfico (PNG)](graficos/TimeSeries_Final_Curimatã.png){.baixar download="TimeSeries_Final_Curimatã.png"}
 :::
 
+
 ### Dourada
 
-![Time series of annual catch (kg) for Dourada in the Borba and Manicoré fishers' colonies between 2002 and 2024.](graficos/TimeSeries_Final_Dourada.png){#fig-serie-dourada width="100%" fig-align="center"}
+![Série temporal da produção pesqueira anual de Dourada em Borba e Manicoré, entre 2002 e 2024.](graficos/TimeSeries_Final_Dourada.png){#fig-serie-dourada width="100%" fig-align="center"}
 
 ::: {.linha-baixar}
 [<i class="bi bi-download"></i> Baixar Gráfico (PNG)](graficos/TimeSeries_Final_Dourada.png){.baixar download="TimeSeries_Final_Dourada.png"}
 :::
 
+
 ### Filhote
 
-![Time series of annual catch (kg) for Filhote in the Borba and Manicoré fishers' colonies between 2002 and 2024.](graficos/TimeSeries_Final_Filhote.png){#fig-serie-filhote width="100%" fig-align="center"}
+![Série temporal da produção pesqueira anual de Filhote em Borba e Manicoré, entre 2002 e 2024.](graficos/TimeSeries_Final_Filhote.png){#fig-serie-filhote width="100%" fig-align="center"}
 
 ::: {.linha-baixar}
 [<i class="bi bi-download"></i> Baixar Gráfico (PNG)](graficos/TimeSeries_Final_Filhote.png){.baixar download="TimeSeries_Final_Filhote.png"}
 :::
 
+
 ### Jaraqui
 
-![Time series of annual catch (kg) for Jaraqui in the Borba and Manicoré fishers' colonies between 2002 and 2024. ](graficos/TimeSeries_Final_Jaraqui.png){#fig-serie-jaraqui width="100%" fig-align="center"}
+![Série temporal da produção pesqueira anual de Jaraqui em Borba e Manicoré, entre 2002 e 2024.](graficos/TimeSeries_Final_Jaraqui.png){#fig-serie-jaraqui width="100%" fig-align="center"}
 
 ::: {.linha-baixar}
 [<i class="bi bi-download"></i> Baixar Gráfico (PNG)](graficos/TimeSeries_Final_Jaraqui.png){.baixar download="TimeSeries_Final_Jaraqui.png"}
 :::
 
+
 ### Matrinxã
 
-![Time series of annual catch (kg) for Matrinxã in the Borba and Manicoré fishers' colonies between 2002 and 2024. ](graficos/TimeSeries_Final_Matrinxã.png){#fig-serie-matrinxa width="100%" fig-align="center"}
+![Série temporal da produção pesqueira anual de Matrinxã em Borba e Manicoré, entre 2002 e 2024.](graficos/TimeSeries_Final_Matrinxã.png){#fig-serie-matrinxa width="100%" fig-align="center"}
 
 ::: {.linha-baixar}
 [<i class="bi bi-download"></i> Baixar Gráfico (PNG)](graficos/TimeSeries_Final_Matrinxã.png){.baixar download="TimeSeries_Final_Matrinxã.png"}
 :::
 
+
 ### Pacu
 
-![Time series of annual catch (kg) for Pacu in the Borba and Manicoré fishers' colonies between 2002 and 2024.](graficos/TimeSeries_Final_Pacu.png){#fig-serie-pacu width="100%" fig-align="center"}
+![Série temporal da produção pesqueira anual de Pacu em Borba e Manicoré, entre 2002 e 2024.](graficos/TimeSeries_Final_Pacu.png){#fig-serie-pacu width="100%" fig-align="center"}
 
 ::: {.linha-baixar}
 [<i class="bi bi-download"></i> Baixar Gráfico (PNG)](graficos/TimeSeries_Final_Pacu.png){.baixar download="TimeSeries_Final_Pacu.png"}
 :::
 
+
 ### Pescada
 
-![Time series of annual catch (kg) for Pescada in the Borba and Manicoré fishers' colonies between 2002 and 2024.](graficos/TimeSeries_Final_Pescada.png){#fig-serie-pescada width="100%" fig-align="center"}
+![Série temporal da produção pesqueira anual de Pescada em Borba e Manicoré, entre 2002 e 2024.](graficos/TimeSeries_Final_Pescada.png){#fig-serie-pescada width="100%" fig-align="center"}
 
 ::: {.linha-baixar}
 [<i class="bi bi-download"></i> Baixar Gráfico (PNG)](graficos/TimeSeries_Final_Pescada.png){.baixar download="TimeSeries_Final_Pescada.png"}
 :::
 
+
 ### Piranambu / Barbado
 
-![Time series of annual catch (kg) for Piranambu/Barbado in the Borba and Manicoré fishers' colonies between 2002 and 2024.](graficos/TimeSeries_Final_Piranambu_Barbado.png){#fig-serie-piranambu-barbado width="100%" fig-align="center"}
+![Série temporal da produção pesqueira anual de Piranambu/Barbado em Borba, entre 2002 e 2024.](graficos/TimeSeries_Final_Piranambu_Barbado.png){#fig-serie-piranambu-barbado width="100%" fig-align="center"}
 
 ::: {.linha-baixar}
 [<i class="bi bi-download"></i> Baixar Gráfico (PNG)](graficos/TimeSeries_Final_Piranambu_Barbado.png){.baixar download="TimeSeries_Final_Piranambu_Barbado.png"}
 :::
 
+
 ### Pirapitinga
 
-![Time series of annual catch (kg) for Pirapitinga in the Borba and Manicoré fishers' colonies between 2002 and 2024.](graficos/TimeSeries_Final_Pirapitinga.png){#fig-serie-pirapitinga width="100%" fig-align="center"}
+![Série temporal da produção pesqueira anual de Pirapitinga em Borba e Manicoré, entre 2002 e 2024.](graficos/TimeSeries_Final_Pirapitinga.png){#fig-serie-pirapitinga width="100%" fig-align="center"}
 
 ::: {.linha-baixar}
 [<i class="bi bi-download"></i> Baixar Gráfico (PNG)](graficos/TimeSeries_Final_Pirapitinga.png){.baixar download="TimeSeries_Final_Pirapitinga.png"}
 :::
 
+
 ### Pirarara
 
-![Time series of annual catch (kg) for Pirarara in the Borba and Manicoré fishers' colonies between 2002 and 2024. ](graficos/TimeSeries_Final_Pirarara.png){#fig-serie-pirarara width="100%" fig-align="center"}
+![Série temporal da produção pesqueira anual de Pirarara em Borba e Manicoré, entre 2002 e 2024.](graficos/TimeSeries_Final_Pirarara.png){#fig-serie-pirarara width="100%" fig-align="center"}
 
 ::: {.linha-baixar}
 [<i class="bi bi-download"></i> Baixar Gráfico (PNG)](graficos/TimeSeries_Final_Pirarara.png){.baixar download="TimeSeries_Final_Pirarara.png"}
 :::
 
+
 ### Sardinha
 
-![Time series of annual catch (kg) for Sardinha in the Borba and Manicoré fishers' colonies between 2002 and 2024. ](graficos/TimeSeries_Final_Sardinha.png){#fig-serie-sardinha width="100%" fig-align="center"}
+![Série temporal da produção pesqueira anual de Sardinha em Borba e Manicoré, entre 2002 e 2024.](graficos/TimeSeries_Final_Sardinha.png){#fig-serie-sardinha width="100%" fig-align="center"}
 
 ::: {.linha-baixar}
 [<i class="bi bi-download"></i> Baixar Gráfico (PNG)](graficos/TimeSeries_Final_Sardinha.png){.baixar download="TimeSeries_Final_Sardinha.png"}
 :::
 
+
 ### Surubim
 
-![Time series of annual catch (kg) for Surubim in the Borba and Manicoré fishers' colonies between 2002 and 2024.](graficos/TimeSeries_Final_Surubim.png){#fig-serie-surubim width="100%" fig-align="center"}
+![Série temporal da produção pesqueira anual de Surubim em Borba e Manicoré, entre 2002 e 2024.](graficos/TimeSeries_Final_Surubim.png){#fig-serie-surubim width="100%" fig-align="center"}
 
 ::: {.linha-baixar}
 [<i class="bi bi-download"></i> Baixar Gráfico (PNG)](graficos/TimeSeries_Final_Surubim.png){.baixar download="TimeSeries_Final_Surubim.png"}
 :::
 
+
 ### Tambaqui
 
-![Time series of annual catch (kg) for Tambaqui in the Borba and Manicoré fishers' colonies between 2002 and 2024.](graficos/TimeSeries_Final_Tambaqui.png){#fig-serie-tambaqui width="100%" fig-align="center"}
+![Série temporal da produção pesqueira anual de Tambaqui em Borba e Manicoré, entre 2002 e 2024.](graficos/TimeSeries_Final_Tambaqui.png){#fig-serie-tambaqui width="100%" fig-align="center"}
 
 ::: {.linha-baixar}
 [<i class="bi bi-download"></i> Baixar Gráfico (PNG)](graficos/TimeSeries_Final_Tambaqui.png){.baixar download="TimeSeries_Final_Tambaqui.png"}
 :::
 
+
 ### Tucunaré
 
-![Time series of annual catch (kg) for Tucunaré in the Borba and Manicoré fishers' colonies between 2002 and 2024.](graficos/TimeSeries_Final_Tucunaré.png){#fig-serie-tucunare width="100%" fig-align="center"}
+![Série temporal da produção pesqueira anual de Tucunaré em Borba e Manicoré, entre 2002 e 2024.](graficos/TimeSeries_Final_Tucunaré.png){#fig-serie-tucunare width="100%" fig-align="center"}
 
 ::: {.linha-baixar}
 [<i class="bi bi-download"></i> Baixar Gráfico (PNG)](graficos/TimeSeries_Final_Tucunaré.png){.baixar download="TimeSeries_Final_Tucunaré.png"}
@@ -1595,48 +1551,14 @@ A análise de autocorrelação (via teste de Durbin-Watson) evidenciou forte dep
 
 :::
 
-::: {.nota-tabela}
-**Notas:** Os pontos representam o volume anual observado | A linha tracejada vertical indica o barramento em 2011 | $\tau$ = coeficiente $\tau$ de Kendall do teste de Mann-Kendall | Os *p*-valores indicam a significância estatística de $\tau$ e da inclinação de Sen | Sen = estimador da inclinação de Sen, que quantifica a taxa anual de variação (taxa de perda), em kg/ano, em cada período e localidade.
-:::
 
-### Análise de Tendência Temporal e Autocorrelação para as Cotas Fluviométricas
+#### Síntese das Séries Temporais por Espécie
 
-As @fig-serie-cotas-borba e @fig-serie-cotas-manicore mostram a série temporal do nível médio anual do rio Madeira nas estações de cada município. Inicialmente, a avaliação dos pressupostos indicou que as séries não diferem significativamente da normalidade (Teste de Shapiro-Wilk, $p > 0,05$). Contudo, para lidar com a autocorrelação residual detetada em alguns períodos e manter a consistência metodológica rigorosa adotada nas análises de produção pesqueira, optou-se por abordagens estatísticas não paramétricas.
+A análise por espécie mostrou que o declínio temporal da produção não ocorreu de maneira uniforme no período (Antes). Em Borba, 13 das 19 espécies já apresentavam redução significativa, cinco não apresentavam tendência estatisticamente detectável e Piranambu/Barbado apresentou aumento significativo. Em Manicoré, 12 das 18 espécies apresentavam queda significativa, enquanto seis permaneceram sem tendência estatisticamente significativa.
 
-Para avaliar o comportamento direcional destas séries ao longo do tempo, aplicou-se o teste de Mann-Kendall e a estimativa de Sen's Slope. Adicionalmente, verificou-se a premissa de independência dos resíduos por meio do teste de Durbin-Watson ($d$). Os resultados estão sintetizados na tabela a seguir.
+No período (Depois), o comportamento tornou-se mais consistente entre as espécies. **Todas as 19 espécies avaliadas em Borba e todas as 18 espécies avaliadas em Manicoré apresentaram tendências temporais negativas e estatisticamente significativas.**
 
-| Município | Período | Série Temporal<br>($n$) | $\tau$ de Kendall | Sen's Slope<br>(cm/ano) | $p$-valor<br>(Mann-Kendall) | Durbin-Watson<br>($d$) | $p$-valor<br>(D.W.) | Tendência |
-|:---|:---|:---|:---|:---|:---|:---|:---|:---|
-| **Borba** | Antes | 2002–2010 (9) | 0,111 | 3,28 | 0,677 | 1,97 | 0,304 | Estável [—]{style="color:#6c757d; font-weight:700;"} |
-|   | Depois | 2011–2024 (14) | −0,253 | −13,20 | 0,208 | 1,29 | 0,037 | Estável [—]{style="color:#6c757d; font-weight:700;"} |
-| **Manicoré** | Antes | 2002–2010 (9) | 0,278 | 19,98 | 0,297 | 1,98 | 0,313 | Estável [—]{style="color:#6c757d; font-weight:700;"} |
-|   | Depois | 2011–2024 (14) | −0,341 | −16,57 | 0,090 | 1,34 | 0,047 | Estável [—]{style="color:#6c757d; font-weight:700;"} |
-
-: **Testes de tendência de Mann-Kendall, Sen's Slope e verificação de autocorrelação de Durbin-Watson para o nível médio anual do rio Madeira por município e período.** {#tbl-tendencia-cotas}
-
-::: {.nota-tabela}
-**Notas:** Foram considerados os períodos 2002–2010 (Antes) e 2011–2024 (Depois) | $n$ = número de anos avaliados em cada período | $\tau$ de Kendall = coeficiente de correlação de postos | Sen's Slope = estimativa não paramétrica da taxa de variação mediana anual (cm/ano) | Durbin-Watson ($d$) = estatística de teste para autocorrelação de primeira ordem nos resíduos (valores próximos de 2 indicam independência) | $p$-valor (D.W.) = significância do teste de autocorrelação ($\alpha = 0,05$) | [—] = ausência de tendência temporal estatisticamente significativa a 5%.
-:::
-
-**Comentários:** A avaliação rigorosa dos pressupostos indicou que as séries anuais de cotas assumem uma distribuição normal em todos os cenários (Teste de Shapiro-Wilk: Borba Total $W = 0,957, p = 0,398$; Borba Antes $W = 0,962, p = 0,817$; Borba Depois $W = 0,946, p = 0,494$; Manicoré Total $W = 0,988, p = 0,991$; Manicoré Antes $W = 0,935, p = 0,527$; Manicoré Depois $W = 0,964, p = 0,792$). Contudo, o teste de Durbin-Watson detetou autocorrelação serial significativa na série total para Borba ($d = 1,190; p = 0,010$) e Manicoré ($d = 1,120; p = 0,006$), bem como no período pós-barragem ($p < 0,05$), justificando amplamente o uso de métodos não paramétricos. A análise de tendência demonstra que, a 5% de significância ($\alpha = 0,05$), os níveis fluviométricos mantiveram-se estatisticamente estáveis. No entanto, nota-se uma clara inversão de comportamento capturada pelo *Sen's Slope*: antes do represamento (2002–2010), registava-se uma suave tendência de aumento no volume de água (Borba: 3,28 cm/ano; Manicoré: 19,98 cm/ano); após a barragem (2011–2024), a inclinação tornou-se negativa, sinalizando um ritmo de perda hídrica (-13,20 cm/ano e -16,57 cm/ano). O decréscimo no período "Depois" em Manicoré foi marginalmente significativo ($p = 0,090$). Para confirmar o impacto global absoluto, o Teste de Mann-Whitney atestou que as medianas do nível do rio não sofreram alterações significativas entre as fases Antes e Depois (Borba: $W = 59, p = 0,825$; Manicoré: $W = 51, p = 0,469$).
-
-![Série temporal do nível médio anual (cm) da cota fluviométrica do rio Madeira na estação de Borba entre 2002 e 2024. Os pontos representam a cota anual observada. A linha tracejada vertical indica o ano de início do represamento da barragem (2011). Os valores de $\tau$ são os coeficientes de Kendall resultantes do teste de tendência de Mann-Kendall, os valores de $p$ indicam a significância estatística de $\tau$ e do declive de Sen, e Sen representa o estimador de declive, que quantifica a taxa anual de variação em cm/ano para cada período. O ano de 2025 foi mantido na projeção gráfica apenas para fins de referência visual.](graficos/TimeSeries_Cotas_Borba.png){#fig-serie-cotas-borba width="100%" fig-align="center"}
-
-::: {.linha-baixar}
-[<i class="bi bi-download"></i> Baixar Gráfico (PNG)](graficos/TimeSeries_Cotas_Borba.png){.baixar download="TimeSeries_Cotas_Borba.png"}
-:::
-
-<br>
-
-![Série temporal do nível médio anual (cm) da cota fluviométrica do rio Madeira na estação de Manicoré entre 2002 e 2024. Os pontos representam a cota anual observada. A linha tracejada vertical indica o ano de início do represamento da barragem (2011). Os valores de $\tau$ são os coeficientes de Kendall resultantes do teste de tendência de Mann-Kendall, os valores de $p$ indicam a significância estatística de $\tau$ e do declive de Sen, e Sen representa o estimador de declive, que quantifica a taxa anual de variação em cm/ano para cada período. O ano de 2025 foi mantido na projeção gráfica apenas para fins de referência visual.](graficos/TimeSeries_Cotas_Manicore.png){#fig-serie-cotas-manicore width="100%" fig-align="center"}
-
-::: {.linha-baixar}
-[<i class="bi bi-download"></i> Baixar Gráfico (PNG)](graficos/TimeSeries_Cotas_Manicore.png){.baixar download="TimeSeries_Cotas_Manicore.png"}
-:::
-
-
-
-
+Dessa forma, a redução identificada na produção pesqueira total também foi observada de forma generalizada nas séries temporais das espécies no período (Depois), embora as magnitudes das inclinações de Sen tenham variado entre os recursos pesqueiros e entre os municípios.
 ## Apêndices
 
 Nesta seção, apresentamos os detalhamentos metodológicos, as demonstrações algébricas, as formulações matemáticas dos testes estatísticos e os materiais complementares que fundamentam os resultados apresentados ao longo deste documento.
